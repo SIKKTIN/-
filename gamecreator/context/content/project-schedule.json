@@ -1495,6 +1495,54 @@
             "at": "2026-10-04T17:37:39.982Z"
           }
         ]
+      },
+      {
+        "id": "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
+        "title": "P22 手机小地图与单指视野",
+        "description": "替换P21边缘滚屏，绘制全图/视野框/友军狱警出口，点击与拖动小地图定位视野；主地图单指拖动、轻点选人或空地移动，定位/停止触屏按钮，保留桌面右键与中键。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
+        "milestoneId": "",
+        "acceptance": "无边缘自动滚屏。两尺寸原生验证小地图点/拖、视野边界与框、单指主图拖动不下令、轻点选人/移动、UI与交互不串输入、视野定位、旧关兼容；说明未手机真机验证。",
+        "result": "v0.7.2删除边缘自动滚屏，加入小地图、白色视野框及定位/停止触屏按钮，主图轻点选人/移动与单指拖动分离；有效互动图标跨帧保持按下。两尺寸38+38触屏模拟、22+22背包GUI回归、P18 15项合计135通过。\n\n验收通过：制作人单独复核源代码、两尺寸渲染与135项技术检查、实际主场景触摸小地图与无边缘滚动、10个源文件哈希及已推送SHA5f2de29。通过本轮相机/手势/互动稳定性范围；P21边缘模式已撤销，P09未改变；Android/iOS真机适配与真人体验仍未验，不宣称移动端安装包或性能已交付。",
+        "dependencyIds": [
+          "4c400a19-c2b8-4d62-bba9-a61aba5b0182"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/project.godot",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "F5→小地图/单指操作R03",
+          "interfaceContract": "相机只移动世界画面；角色命令和技能保持独立、GUI优先、手势不重复触发，旧小图固定视野。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p22-minimap-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T17:53:04.458Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1720,6 +1768,17 @@
           "gameplay",
           "design-documents"
         ]
+      },
+      {
+        "id": "p22-mobile-minimap-design-20261005",
+        "digest": "d93ab65aa5d39b5fa1bffcae6c6175b33e96718ca8fbdb96d2e1f75e452fdffd",
+        "summary": "按用户手机主要平台纠正P21：移除边缘滚屏，采用小地图和单指操作，记录触屏技术验证。",
+        "memberName": "制作人",
+        "at": "2026-10-04T18:07:52.789Z",
+        "modules": [
+          "gameplay",
+          "design-documents"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -1833,6 +1892,18 @@
         "reason": "用户反馈需要RTS移动摄像机窗口，现有视野只有中键/空格拖动，不符合常用边缘滚屏体验。新增边缘/方向键滚屏，保留拖动/F并验证窗口坐标与HUD隔离。",
         "createdTaskIds": [
           "4c400a19-c2b8-4d62-bba9-a61aba5b0182"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p22-minimap-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-04T17:53:04.458Z",
+        "reason": "用户纠正主要手机平台：撤销鼠标边缘自动滚屏，使用小地图点击/拖动视野，触屏轻点/拖动分开。",
+        "createdTaskIds": [
+          "75b9d962-39c7-4a5f-8f51-5b793c0f2801"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -6146,6 +6217,143 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-04T17:49:02.040Z",
           "note": "制作人单独复核相机实现、两尺寸28+28原生检查及P18 15项，实际主场景run24鼠标边缘滚动0.25秒约129.21单位、截图提示完整、无运行错误，5个源文件SHA256匹配，Git main已推送3521f0d。接受本轮RTS相机输入/阻断/边界/坐标/持续命令与兼容拖动定位；未当作完整v0.7复测或P09真人玩法证明。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p22-start-20261005",
+        "taskId": "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "按手机主要平台纠正：删除边缘自动滚屏，添加小地图及轻点/拖动手势。",
+        "evidence": [
+          "用户明确要求小地图，禁止边缘滚屏。",
+          "基线main ede17e2，P21作为历史保留。"
+        ],
+        "at": "2026-10-04T17:53:20.768Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
+          "title": "P22 手机小地图与单指视野",
+          "description": "替换P21边缘滚屏，绘制全图/视野框/友军狱警出口，点击与拖动小地图定位视野；主地图单指拖动、轻点选人或空地移动，定位/停止触屏按钮，保留桌面右键与中键。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "无边缘自动滚屏。两尺寸原生验证小地图点/拖、视野边界与框、单指主图拖动不下令、轻点选人/移动、UI与交互不串输入、视野定位、旧关兼容；说明未手机真机验证。",
+          "result": "按手机主要平台纠正：删除边缘自动滚屏，添加小地图及轻点/拖动手势。",
+          "dependencyIds": [
+            "4c400a19-c2b8-4d62-bba9-a61aba5b0182"
+          ],
+          "references": [],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/",
+              "E:/Project/Godot/这次怎么逃/project.godot",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "F5→小地图/单指操作R03",
+            "interfaceContract": "相机只移动世界画面；角色命令和技能保持独立、GUI优先、手势不重复触发，旧小图固定视野。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p22-minimap-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T17:53:04.458Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p22-mobile-minimap-delivery-20261005",
+        "taskId": "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.7.2删除边缘自动滚屏，加入小地图、白色视野框及定位/停止触屏按钮，主图轻点选人/移动与单指拖动分离；有效互动图标跨帧保持按下。两尺寸38+38触屏模拟、22+22背包GUI回归、P18 15项合计135通过。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p22-mobile-minimap.md",
+          "docs/tests/p22-mobile-minimap-1280x720.json、p22-mobile-minimap-960x540.json：各38项，原生ScreenTouch/ScreenDrag，GUI、拖动、边界、取消/额外手指、无边缘滚屏、旧关及持续命令。",
+          "docs/tests/p22-regression-native-ui-1280x720.json、p22-regression-native-ui-960x540.json：各22项买卖/交接/拾取/丢弃/灯光/HUD/中键/F。docs/tests/p18-camera.json：15项。",
+          "docs/tests/p22-live-minimap.json：编辑器run25 R03，原生触摸小地图到(1100,650)，相机(565,256)；停鼠标边缘0.25秒不滚，回到伙伴后截图确认，小地图已显示，0运行错误。",
+          "docs/tests/p22-build.json：10个当前源文件SHA256匹配；main已推送5f2de29e049b5ae6d0064dcf3b31cac0cfebc462。",
+          "未Android/iOS真机测试；不是完整玩法通关重测或P09真人观察，P21仅保留历史证据。"
+        ],
+        "at": "2026-10-04T18:09:32.474Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
+          "title": "P22 手机小地图与单指视野",
+          "description": "替换P21边缘滚屏，绘制全图/视野框/友军狱警出口，点击与拖动小地图定位视野；主地图单指拖动、轻点选人或空地移动，定位/停止触屏按钮，保留桌面右键与中键。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "无边缘自动滚屏。两尺寸原生验证小地图点/拖、视野边界与框、单指主图拖动不下令、轻点选人/移动、UI与交互不串输入、视野定位、旧关兼容；说明未手机真机验证。",
+          "result": "v0.7.2删除边缘自动滚屏，加入小地图、白色视野框及定位/停止触屏按钮，主图轻点选人/移动与单指拖动分离；有效互动图标跨帧保持按下。两尺寸38+38触屏模拟、22+22背包GUI回归、P18 15项合计135通过。",
+          "dependencyIds": [
+            "4c400a19-c2b8-4d62-bba9-a61aba5b0182"
+          ],
+          "references": [],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/",
+              "E:/Project/Godot/这次怎么逃/project.godot",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "F5→小地图/单指操作R03",
+            "interfaceContract": "相机只移动世界画面；角色命令和技能保持独立、GUI优先、手势不重复触发，旧小图固定视野。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p22-minimap-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T17:53:04.458Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T18:09:45.996Z",
+          "note": "制作人单独复核源代码、两尺寸渲染与135项技术检查、实际主场景触摸小地图与无边缘滚动、10个源文件哈希及已推送SHA5f2de29。通过本轮相机/手势/互动稳定性范围；P21边缘模式已撤销，P09未改变；Android/iOS真机适配与真人体验仍未验，不宣称移动端安装包或性能已交付。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
