@@ -1,0 +1,4265 @@
+{
+  "schema": 1,
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "b9ba96431b706d67b4546103e3aa39acf71299a644c20716b460897e60229a3f",
+  "tasks": [
+    {
+      "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+      "title": "P01 Godot 主干骨架与独立人物操作",
+      "description": "验证当前网页的独立拖动操作能否在 Godot 2D 保持稳定。建立主场景、三个友军、选择卡和输入转换；冻结最小逻辑/表现接口及坐标换算。MCP 4.2.3 已安装是环境依据，不能算此任务完成。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "acceptance": "实际启动 Godot 4.7.2 并运行主入口；一次只拖动一人，伙伴不跟随/连接，狱警占位不可选择；卡片选择与地图选择一致；窗口缩放后鼠标到世界坐标准确；能恢复三个起点；提交运行记录、接口表和共享文件清单。",
+      "result": "P01已实现并自测：Godot主入口运行，三名友军独立拖动，卡片选择一致，狱警不可选择，重置恢复起点。真实MCP鼠标事件拖动只有一人位移；两窗口尺寸和0.75画布缩放检查通过。冻结runtime-contract；后续机制仍未实现，无真人趣味性结论。\n\n验收通过：制作人明确自验收：核对主入口实际运行、MCP鼠标输入结果、两尺寸/缩放坐标测试和截图；P01范围满足。占位技能和狱警未被当作实现，继续P02；不构成独立验证或趣味性结论。",
+      "dependencyIds": [],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/project.godot",
+          "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+          "E:/Project/Godot/这次怎么逃/scenes/actors/",
+          "E:/Project/Godot/这次怎么逃/scenes/ui/",
+          "E:/Project/Godot/这次怎么逃/scripts/core/",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/",
+          "E:/Project/Godot/这次怎么逃/scripts/ui/",
+          "E:/Project/Godot/这次怎么逃/data/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "res://scenes/main.tscn（F6/F5）",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "d53e3afb-f63a-425e-9855-124886674fb5",
+      "title": "P02 通用环境实体、锁门、重箱与出口",
+      "description": "验证房间内的阻挡、视线遮挡和出口能够复用同一套实体规则。先实现墙、锁门、重箱及三人独立逃脱记账，再由技能和狱警消费。地图坐标必须写明如何从管理项目换算为 Godot 世界单位。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "acceptance": "人物不能穿墙/锁门/重箱，重箱不能穿墙或门；开门/移箱后移动阻挡、视线遮挡及寻路可通区域一致更新；一个人进入出口只计该人，全员才结算；已逃脱人物不再接受输入；重开重置门、箱、进度、人物和计数。提交碰撞与遮挡边界记录。",
+      "result": "P02独立环境模块已实现并运行：统一实体数据驱动碰撞/视线/寻路，开门与推箱改变通路，单人出口计账与全员结算、重开恢复通过。组件检查及Godot实时推箱/出口流程有证据；主干接入在后续程序任务进行，尚无狱警AI/主动技能。\n\n验收通过：制作人自验收：独立验证房间实际运行无启动错误，实体碰撞、动态视线/路径、边界推箱、部分/全员出口和全局重置证据满足P02组件交付；不把组件演示算作三技能完成，主干接入继续P03。",
+      "dependencyIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/props/",
+          "E:/Project/Godot/这次怎么逃/scripts/world/",
+          "E:/Project/Godot/这次怎么逃/data/rooms/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "主场景中的环境验证房间",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+      "title": "P03 狱警巡逻、即时发现与局部抓回",
+      "description": "验证危险规则能否形成可读、可利用的空间压力。实现巡逻、面向、追击、丢失目标和返回巡逻；所有友军都可被检测，抓回仅处理目标人物。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "acceptance": "视野固定前方120度/110世界基线单位；墙、门、箱遮挡时不发现；进入有效视野立即追击，无人数扩圈/警戒读条；丢失目标1.5秒后恢复巡逻；接触抓回目标且有1秒免重复检测；技能、门、箱、撬锁进度及他人逃脱状态保留；新通路对狱警同样有效。提交状态迁移和动态障碍回归。",
+      "result": "P03主干已接入环境和狱警：固定120度/110范围、动态遮挡、同tick即时追击、1.5秒失去目标返巡逻、接触局部抓回和1秒免重复检测通过；实际Godot巡逻、捕获有记录。组件回归P02通过，聊天控制器留P04。\n\n验收通过：制作人自验收：同tick组件检测、实际巡逻与捕获、闭/开门及箱角遮挡、1.5秒返巡逻和抓回保留状态证据满足；两帧观察用于避开process_frame信号先于_process的测量时序，不增加警戒读条。继续P04技能控制器。",
+      "dependencyIds": [
+        "d53e3afb-f63a-425e-9855-124886674fb5"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/actors/guard.tscn",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/world/",
+          "E:/Project/Godot/这次怎么逃/scripts/core/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "环境验证房间中的狱警测试",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+      "title": "P04 三技能与独立持续操作",
+      "description": "验证三种简单技能能在独立人物上持续协作。实现会聊天、会撬锁、大力气；随机每人独立等概率抽取且允许重复，开发模式允许指定技能和种子用于复现。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "acceptance": "聊天范围125、无遮挡且狱警未追击；狱警停步面对聊天者，仍能发现其他人并取消聊天追击。撬锁范围55，单人4秒，切换人物不取消，多人叠加贡献，门进度保留。主动停止、离起始位置超过12、被抓或目标失效时中断并说明原因。只有当前直接拖动的大力气人物实际接触施力才能推箱，最大85单位/秒。每局允许重复与无解；无牵手、连接传力和自动保底抽签。",
+      "result": "P04三技能已实现：随机重复与种子复现、独立聊天/撬锁、离位中断和保留进度、多人贡献、即时发现打断、仅当前拖动力量人物接触推箱有组件与实时输入证据。单人真实E操作4秒开门，切换卡片保持持续操作。无解明确提示，P05继续全员路线。\n\n验收通过：制作人自验收：真实E键单人撬锁与卡片切换持续、实时聊天背后通行及正面追击打断、两人叠加/中断保留/抓回取消和接触推箱预算通过。随机重复和无解明示保留；R01全员通路继续P05，不以规则测试替代真人结论。",
+      "dependencyIds": [
+        "5be5d1ed-db26-4168-88b1-bc5ad8441d17"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scripts/skills/",
+          "E:/Project/Godot/这次怎么逃/data/skills/",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/",
+          "E:/Project/Godot/这次怎么逃/scripts/world/",
+          "E:/Project/Godot/这次怎么逃/scripts/core/",
+          "E:/Project/Godot/这次怎么逃/scripts/ui/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "主场景技能验证入口",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+      "title": "P05 R01 双通路主干集成",
+      "description": "将已交付的操作、实体、狱警和技能组合成首个 Godot 可玩房间。复用 R01 空间设计和网页第十二关行为，只迁移当前采用方案。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "acceptance": "狱警持续运行时，指定全撬锁配置完成上门三人路线，指定全力量配置完成下箱三人路线；保存构建/种子/操作步骤。随机局可查看技能、操作、被抓后继续、全员结算并重抽。不存在无法操作、穿墙、幽灵抓人或错误结算；自动验证和真人观察分别标注。",
+      "result": "R01 Godot主干闭环已实现。全撬锁seed11与全力量seed22，两条从初始位置、狱警持续运行下的三人逃脱路线在headless和实时窗口均通过；实时零抓回，保留步骤/状态/截图。四组组件回归通过；随机开局、局部抓回、结算与重开可用，R02选择接口预留。\n\n验收通过：制作人单独集成自验收：两固定配置从初始位置操作，在守卫持续运行下各三人全员逃脱，headless和实时窗口证据一致，实时零抓回；组件回归通过，闭环入口可运行。M1全部任务完成，仅具备里程碑单独确认条件，不等于真人趣味性验证。",
+      "dependencyIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+        "d53e3afb-f63a-425e-9855-124886674fb5",
+        "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+        "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "integrationTaskIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+        "d53e3afb-f63a-425e-9855-124886674fb5",
+        "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+        "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+          "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r01.tscn",
+          "E:/Project/Godot/这次怎么逃/scripts/core/",
+          "E:/Project/Godot/这次怎么逃/data/rooms/r01.*",
+          "E:/Project/Godot/这次怎么逃/scripts/ui/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "F5 主场景 → R01 → 全员逃脱 → 重开",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+      "title": "P06 R02 门边掩护灰盒与策略对照",
+      "description": "检验聊天朝向、撬锁时机与箱子遮挡是否能影响通关策略。实现既有 R02 方案，让狱警和门操作点处于同侧；只调整房间布局及巡逻参数，不增加技能。",
+      "kind": "关卡",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+      "acceptance": "分别尝试等巡逻空档、聊天改变朝向、重箱通路/遮挡，记录成功、失败和未证明项；至少两条可复现通关办法使用现有规则，若不成立先改布局再复测；验证聊天者接近及撤离、箱子推动空间、门开启后狱警新通路；不能用只触发成功的关卡专用配方代替规则组合。",
+      "result": "R02门边掩护实现并验证：聊天+撬锁协作和全力量下路两路线三人逃脱；无掩护开锁对照被抓回。原生实时运行混合路线15.49秒、零抓回。为箱后人物净空将隔断左移10单位，巡逻点4改至门侧；地图说明回写处理中。技术结论可用，真人趣味性待P09。\n\n验收通过：制作人独立自验收：已核对两路线和无掩护对照，原生实时R02三人逃脱与头less规则结果一致。布局只变空间与巡逻，未改技能、警戒范围、即时发现规则。保留作为第二关策略实验；真人可读性与乐趣待P09。",
+      "dependencyIds": [
+        "ccf0a23f-35d4-41ca-aeec-4273b2e0c331"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r02.tscn",
+          "E:/Project/Godot/这次怎么逃/data/rooms/r02.*",
+          "E:/Project/Godot/这次怎么逃/docs/playtests/",
+          "E:/Project/Godot/这次怎么逃/tests/"
+        ],
+        "entry": "主场景房间选择 → R02",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "edb2f813-8ede-43a2-89ca-1203725643e0",
+      "title": "P07 随机配置复现与通路回归",
+      "description": "区分技能组合天然无解、尚未找到解法和实现缺陷。为两间房增加指定配置/种子、复现场景和关键规则回归，记录三人三技能的27个有序配置。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+      "acceptance": "27种配置均有初始化检查记录，每房分别标注已实测可解/规则判定无解/尚未证明，不把初始化通过当通关通过；全聊天不能通过当前门和重箱时如实记录。重点回归单/多人撬锁、聊天后方通行与正面被发现、动态遮挡、抓回保留状态、两条R01路线及R02对照路线；附实际执行步骤、结果和未覆盖项。",
+      "result": "54次双关有序配置初始化和随机种子复现全部通过；记录4个完整实测可解、2个全聊天规则无解、48个尚未证明。即时发现/动态遮挡/抓回保留、单多人撬锁与聊天朝向、R01两路线、R02协作与对照重跑全通过。不给随机保底，不将初始化当通关或真人乐趣证据。\n\n验收通过：制作人自验收：54配置真实种子复现及4项关键规则/通路检查退出0。可解分类引用完整路线证据，全聊天因静态门箱断路且无开路技能标记规则无解；48未实测配置明确保留未知。随机复现和关键回归满足P07标准，尚不形成趣味性结论。",
+      "dependencyIds": [
+        "3a0ec022-03df-4810-a8ba-9a16c5c69fe1"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/scripts/debug/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "开发验证入口与两房间配置记录",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+      "title": "A01 最小角色与环境资产制作",
+      "description": "按已确认的纸片风及用户在美术聊天提出的缩减动画要求，制作三友军与一狱警各一张站立、两帧交替迈步。准确朝向由逻辑方向标记表达；聊天、撬锁和推箱使用可共用的轻姿态/状态符号，不要求四方向完整动作。复用已有小样，并提交逐帧脚底锚点manifest。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+      "acceptance": "交付三友军与一狱警各1站立+2交替迈步、锁门开闭、重箱、低墙和出口；三技能操作采用共用轻姿态或状态符号，先不要求每人四方向完整动画。友军目标高度42、狱警48世界单位，逐帧region/脚底anchor写入manifest，头与脚底对齐无明显跳动；真实朝向由逻辑标记表达，身份不绑定技能。960×540可区分三友军和狱警；透明边缘、缩小效果、命名、来源/授权与缺项记录完整。概念板和小样不算已接入游戏。",
+      "result": "完成A01首轮资源：三友军与一狱警各1站立+2迈步，共4透明横条；脚底/头部注册与42/48尺寸写入manifest；交付低墙、地面、门开闭、重箱和出口。20PNG整体原生读取通过，资源预览检查通过。仅写获准资产与docs/art，未改共享场景/逻辑；主干接入和真人可读性留给制作人/P08/P09。\n\n验收通过：制作人独立验收资源：核对四角色region/脚底42/48规格、小尺寸预览、源文件和54文件哈希全部相符；原生资源读取20PNG通过。接受首轮纸片风素材交付，主干实时动作/脚底与双关可玩性另由P08验收。",
+      "dependencyIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/art/characters/",
+          "E:/Project/Godot/这次怎么逃/art/environment/",
+          "E:/Project/Godot/这次怎么逃/art/props/",
+          "E:/Project/Godot/这次怎么逃/docs/art/"
+        ],
+        "entry": "可导入 PNG、源文件及资产清单；由制作人接入",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+      "title": "A02 技能卡、状态符号与轻量音效",
+      "description": "制作支持观察和分工的最小 UI 与状态表现。颜色同时有符号/文字补充；音效辅助已有规则，第一轮只做短提示和必要操作循环，不引入声音诱敌。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+      "acceptance": "三技能黑白缩小仍可区分，正式图标24px以上；选中与持续操作状态分开，全员结算/单人逃脱/抓回/取消原因可表达；发现即时追击不画警戒蓄力，聊天不画全员隐身；聊天、撬锁、推箱、发现及抓回提示与循环播放边界有清单；中文字体与音频来源/授权记录完整。",
+      "result": "完成A02：三技能图标、纸卡及6状态符号；selected与逐人物action状态独立；9原创WAV含3循环、官方未修改Noto中文字体与许可证。灰度图标与资源预览已检查；PCM首尾/峰值、Godot及浏览器解码、中文glyph检查通过。资源未接入主干；人耳试听与游戏状态实际接入效果待制作人审核。\n\n验收通过：制作人独立验收资源：三技能灰度24px可区别，选中/操作状态分离清单、9原创WAV及3循环边界、中文字体与OFL记录齐全，文件哈希相符。接受资源与技术适配；人耳偏好尚未验证，实时状态播放/停止与UI接入由P08验证。",
+      "dependencyIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/art/ui/",
+          "E:/Project/Godot/这次怎么逃/art/fx/",
+          "E:/Project/Godot/这次怎么逃/audio/",
+          "E:/Project/Godot/这次怎么逃/art/fonts/",
+          "E:/Project/Godot/这次怎么逃/docs/art/"
+        ],
+        "entry": "三技能徽章、纸卡/状态符号、音效文件及接入清单",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+      "title": "P08 美术与反馈接入、双关整体回归",
+      "description": "将最小资产接入同一可玩主干，确认美术没有改变规则或掩盖危险。集成后单独验收整体可玩性与可读性。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+      "acceptance": "同一构建在1280×720和960×540运行；脚底锚点与真实位置一致、墙不遮交互点、视野按实际障碍裁切；技能动作与切换状态一致，音效停止/完成无残留；两关关键路线与抓回状态保持通过；保存实际截图/运行证据和资产版本。素材交付验收不替代此集成验收。",
+      "result": "纸片风资产已接入双关同一构建escape-v0.1-20261004：42/48脚底图集、真实位移动画、独立选中/操作状态、动态道具与裁切视野、中文纸卡、9音效。1280×720与960×540原生D3D12窗口20项检查全通过；双关四关键路线及抓回/遮挡/并行技能回归通过；原生实时R01开锁、R02聊天掩护三人完成零抓回。修正可见头部点选与无声headless退出资源残留。声音状态技术检查通过，人耳音色偏好和真人核心决策仍待P09。\n\n验收通过：制作人集成自验收：核对源码哈希未变化、两尺寸原生图片/窗口状态、独立技能与音频暂停/取消/开门/结算停止记录；同构建的R01/R02原生实时三人完成且零抓回。视野继续消费实际几何，素材/卡片不改变技能或警戒。当前构建可进入P09真人尝试；音色偏好、策略理解和乐趣不作自动验证结论。",
+      "dependencyIds": [
+        "edb2f813-8ede-43a2-89ca-1203725643e0",
+        "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "integrationTaskIds": [
+        "edb2f813-8ede-43a2-89ca-1203725643e0",
+        "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/actors/",
+          "E:/Project/Godot/这次怎么逃/scenes/props/",
+          "E:/Project/Godot/这次怎么逃/scenes/ui/",
+          "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+          "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+          "E:/Project/Godot/这次怎么逃/scripts/ui/",
+          "E:/Project/Godot/这次怎么逃/data/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd"
+        ],
+        "entry": "F5 → 选择 R01/R02 → 逃脱结算 → 重开",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+      "title": "P09 真人试玩与核心决策观察",
+      "description": "验证玩家是否先观察技能和巡逻，再调整分工、路线与行动顺序。至少记录3次真人尝试，尽量包含一位未参与设计者；固定配置先比较，再观察随机局。",
+      "kind": "关卡",
+      "owner": "制作人",
+      "status": "受阻",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "",
+      "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+      "acceptance": "记录构建、配置/种子、观察步骤、玩家实际动作与原话；覆盖是否查看技能、读懂中断/抓回、主动安排掩护、改变行动顺序，以及是否重抽代替思考。至少3次真人尝试并注明参与者是否设计者；无法组织时保持此项待完成。结论可为保留/修改/放弃，负面结论也可交付有效报告；禁止把自动通关写成真人趣味性证据。",
+      "result": "已收到用户v0.1截图和巡逻/RTS操作/朝向三项真实问题，保留原话并启动独立P11即时修正。完整逐局尝试数量和决策行为尚未建立，因此不把三项问题算作三次试玩；P09仍等待至少3次实际流程记录，P10依赖保持。",
+      "dependencyIds": [
+        "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/docs/playtests/"
+        ],
+        "entry": "同一 Godot 构建的 R01/R02 真人试玩",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "d3ef8e35-900d-4259-ac43-06a0660babbb",
+      "title": "P10 依据试玩定向修正与原型交付评估",
+      "description": "按实际试玩证据修正最高风险问题，形成可继续开发的版本判断。只改现有操作反馈、布局、巡逻和三技能参数；新增机制须后续独立决策。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "待开始",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "",
+      "actualEnd": "",
+      "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+      "acceptance": "每个修正关联P09观察，附前后对照与相关回归；无阻断级输入/碰撞/状态缺陷，两房间关键路线重新验证。交付启动方式、版本、变更清单、已知无解/未证明配置与遗留风险；明确核心体验保留/继续修改/放弃及理由。两关仍无不同策略或玩家只靠重抽时继续关卡实验，不宣称进入正式量产。",
+      "result": "",
+      "dependencyIds": [
+        "3d0d7a74-1f0d-440c-bad3-c5699f0afa91"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        },
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scenes/",
+          "E:/Project/Godot/这次怎么逃/scripts/",
+          "E:/Project/Godot/这次怎么逃/data/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/playtests/"
+        ],
+        "entry": "F5 可玩两关入口及交付说明",
+        "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T12:10:00.082Z"
+        }
+      ]
+    },
+    {
+      "id": "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+      "title": "P11 真人反馈：巡逻卡住、RTS点选移动与左右翻转",
+      "description": "依据用户2026-10-04截图与实际试玩反馈修正三个问题：狱警巡逻偶发卡住；独立操作改为RTS式左键选人/右键移动；人物随实际水平朝向翻转。先复现再修正，并同步玩法提示与接口文档。此修正独立于尚需3次真人尝试的P09/P10，不把本反馈伪作3次试玩。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+      "acceptance": "保存巡逻卡住的修前复现与原因；两房不同帧率持续巡逻/遮挡变化不永久停滞，追击/聊天固定警戒规则保持。左键只选人，右键路径移动，换人后先前命令继续；墙/关闭门/伙伴阻挡有效，不可达目标清楚反馈，力量可通过命令实际推箱；E技能与S停止边界清楚。三友军和狱警左右水平翻转，脚底锚点及方向符号不翻错，静止保留朝向。两尺寸输入、现有技能/动态遮挡/关键路线回归通过，交付v0.2记录与实际截图，真人意见如实保存。",
+      "result": "escape-v0.2三项真实反馈已修正：R01巡逻一圈后重复格点折返已复现并修复；RTS左键选择/右键独立持续路径命令、E技能/S停止、右键出口；四角色仅身体绕脚底水平翻转。两房30/60/110帧持续120秒巡逻正常，箱子占据巡逻点也可恢复；20项RTS行为检查、两原生窗口尺寸21项表现检查、原生鼠标/按键左行与S停止、双关四路线回归通过，原生R01/R02完整三人逃脱零抓回。旧固定时机路线在狱警恢复正常后会被抓，保存对照并验证替代路线；不弱化警戒。GameCreator规则已同步，3次完整真人尝试数量仍未建立。\n\n验收通过：制作人独立开发自验收，核对证据v3：R01修前格点往返已复现；同导航/碰撞在两房三帧率连续巡逻及动态堵点后恢复，固定范围与即时检测不变。RTS真实窗口输入、持续多人命令/技能起止、水平镜像脚底、两尺寸显示和双关四路线回归通过。原生旧缓存失败单独保留并更正，重启后实际正确路线R01/R02三人零抓回均通过，源文件与主美原资产哈希核对一致。接受三项针对性修正，P09完整真人决策观察仍未完成。",
+      "dependencyIds": [
+        "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scripts/",
+          "E:/Project/Godot/这次怎么逃/scenes/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/data/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/playtests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "F5 → 左键人物/卡片选择 → 右键地面移动 → E技能/S停止",
+        "interfaceContract": "每人独立持续移动命令与技能，选中只影响下一次指令；共用真实碰撞/导航/视线，保留三技能和固定即时警戒。人物水平翻转由实际朝向消费，不修改原PNG或主美凭证。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "de29441b-daa3-4b1b-bfc7-d4b5d792685b",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T13:12:57.414Z"
+        }
+      ]
+    },
+    {
+      "id": "a215989b-decd-41ac-8576-9faeb59b363e",
+      "title": "A03 已确认轻斜俯视场景资源 art-v02",
+      "description": "用户在美术聊天确认R02概念并授权替换/向制作人反馈；按perspective-direction-approved-v01制作墙/障碍顶面与低立面、箱体厚度、短落地阴影及淡地板，复用v01角色。与制作人对齐占地/视觉高度/贴图锚点和版本清单，原资源保留回滚；不得改共享脚本。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "",
+      "acceptance": "提供art-v02最终纹理/源文件/manifest/哈希/来源；明确footprint像素rect、逻辑占地与立面/阴影padding、固定视觉高度或分层组件。支持不同墙段尺寸和移动箱子，角色试装友军55/狱警62但脚底锚点不变，仍沿用1+2帧及逻辑水平翻转。区分烘焙和程序阴影，避免重复；地板低对比。资源读取与小尺寸检查，说明未覆盖项，制作人独立审核，集成另由P12验证。",
+      "result": "A03资源完成，版本art-v02-perspective-20261004-54a7161c7820：7原创SVG/PNG+3新版manifest共17哈希文件；墙顶/立面独立且固定18/24高度，门箱ground_rect精确映射原占地与20视觉高度；逐项shadow_baked=false，程序阴影只画一次。角色55/62试装，4原PNG与区域/锚点一致。Godot7纹理读取与17哈希/占地检查通过，1280/960预览已检查低对比地板、人物编号、门锁和透明开门通道。GC风格草稿已应用并确认基准revision2、历史revision1保留，art-assets模块文档同步。主美未改共享脚本；动态遮挡/双关/开门推动/真实窗口由P12另验收。\n\n验收通过：制作人独立核查17新增文件和54原v01文件哈希无差异，四角色数值锚点/区域/纹理与时序不变，55/62高度配置正确；重新运行Godot原生7PNG读取通过，查看960资源预览，淡地板、低立面、门透明通道与脚底编号可读。组件/固定高度与门箱ground_rect清楚，无烘焙阴影；批准资源交付，真实遮挡/玩法回归仍由P12单独验收。证据 docs/tests/p12-resource-review.json、docs/art/qa-native-v02.json、A03-delivery-v02.txt。",
+      "dependencyIds": [
+        "c3582edc-f9ed-4b95-bb88-6dcf383a9b34"
+      ],
+      "references": [
+        {
+          "kind": "gameplay",
+          "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+        }
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/art/",
+          "E:/Project/Godot/这次怎么逃/docs/art/"
+        ],
+        "entry": "art-v02资源与接入清单，v01保留",
+        "interfaceContract": "地面坐标/碰撞/AI/左右翻转保持P11；视觉高度与占地分开；提供明确映射，主美只交付资源，由制作人改共享脚本。用自己的凭证反馈，资源交付不等于游戏集成通过。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-04T13:43:28.826Z"
+        }
+      ]
+    },
+    {
+      "id": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+      "title": "P12 art-v02层次渲染接入与双关视觉验收",
+      "description": "可先准备渲染接口和版本回滚，最终纹理引用与资源替换等待A03交付并独立验收。接入用户已确认的低立面/厚箱/短阴影/淡地板与角色55/62试装，处理地面/视野/物体/人物/提示层次，保留P11规则和输入。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "",
+      "acceptance": "待A03验收后才切换最终清单；v01可回滚。R01/R02在1280×720和960×540实际截图可读：角色脚底/水平翻转正确，窄通路、前后遮挡、门操作点与真实裁切警戒可辨；图标不遮大头，阴影不叠加过重。地图数据、碰撞/寻路/技能/AI参数不变，RTS/巡逻/双关关键路线相关回归通过；交付源码和资产版本、截图与视觉结论。",
+      "result": "完成v0.3轻斜俯视集成：默认v02及v01回滚，角色55/62原脚底镜像；地面FOV/短影、南边界体积与脚底身体排序、独立信息层；进度条和长说明布局修正闭环。两关两尺寸20实际窗口图/各24检查、各21表现检查、RTS20项、巡逻6稳定+1动态、技能/环境/视线及路线回归通过。原生实际命令R01 17.33秒/R02 15.80秒零抓回，主美终版复核通过。地图/技能/移动哈希不变；真人完整试玩仍由P09，不据自动测试宣称趣味性。\n\n验收通过：制作人按producer-self独立提交自验收：核查22源码文件哈希一致与A03 accepted；原地图/技能/MoveOrders哈希保留。20实际窗口图及24×2视觉、21×2表现、v01原生回退与RTS/巡逻/技能/环境/两关路线通过；连续真实指令路线零抓回。主美20图终版复核通过，进度条/操作说明两处布局已闭环。首次未导入纹理的运行不作为通过，最终已加载所有纹理；真人趣味性和3次尝试仍待P09。允许默认启用v02，保留v01回滚。",
+      "dependencyIds": [
+        "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+        "a215989b-decd-41ac-8576-9faeb59b363e"
+      ],
+      "references": [
+        {
+          "kind": "map",
+          "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+        },
+        {
+          "kind": "map",
+          "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+        }
+      ],
+      "integrationTaskIds": [
+        "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+        "a215989b-decd-41ac-8576-9faeb59b363e"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+          "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+          "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd",
+          "E:/Project/Godot/这次怎么逃/scenes/",
+          "E:/Project/Godot/这次怎么逃/data/presentation/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "F5双关，资源最终清单切换后两尺寸实际验证",
+        "interfaceContract": "只修改视觉消费层、排序、纹理映射和版本配置。地图与游戏行为不变，资源交付前保留v01实际引用；可提前准备接口。三人技能/选中/移动命令独立，继续实际facing水平翻转。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T13:43:28.826Z"
+        }
+      ]
+    },
+    {
+      "id": "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+      "title": "A04 概念风格对齐：art-v03手绘材质与人物轮廓",
+      "description": "用imagegen制作手绘位图石板地面、石材顶面/前立面、完整木箱，修四身份人物头手鞋和敦实轮廓，每人idle/walk_a/walk_b。门/UI/FX/字体/音频可复用，原图保留，region/anchor直接取帧；与制作人对齐资源映射，禁止程序重画位图或改共享脚本。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "",
+      "acceptance": "最终v03清单含版本/哈希/原图与生成提示来源，PNG透明/区域/逐帧脚底锚点正确，明确重复尺度/视觉尺寸/ground_rect/顶面与立面高度/阴影是否烘焙。四角色三姿势身份一致、小尺寸轮廓清楚，场景与人物画法一致，淡地板不过度抢眼。对照已确认概念检查材质/不规则边缘/立面衔接；资源自检后由制作人独立验收，真实游戏接入P13另验。保留v01/v02。",
+      "result": "A04手绘资源完成，最终art-v03-handpaint-20261004-05ac759ba4ad：8内置imagegen原PNG+3manifest+提示/修正/来源共14哈希文件，未改像素，旧v01/v02全部不变。floor512/top256、block上半单张、front中整排0.74背光，crate局部ground映射94×92，门复用。四身份60/72、12帧紧贴主体、脚底余量<1、高度差<0.011；一号细长与guard重复第三步已修正。Godot10PNG/Atlas/12frame anchor及2视窗资源预览通过，已对照概念检查手绘质感/轮廓/暗立面。主美未改共享脚本；P13实际风格、遮挡/阴影/双关回归另验收。\n\n验收通过：制作人独立验收最终05ac759ba4ad版本：14文件哈希及8原PNG逐字节一致，v01/v02无修改；重跑Godot10PNG/Atlas/12帧检查与独立原图alpha>32测量，足点注册/三帧可见高度稳定通过。查看四人物三姿势、木箱、石材原图与最新960资源预览，对照概念手绘材质/敦实轮廓改善明确。单排front .74背光元数据与crate局部ground_rect15.87视觉高度清楚；原图不改像素。资源交付accepted，实际游戏两关两尺寸风格/阴影/可读性与规则回归由P13另验收，不把预览当游戏效果。",
+      "dependencyIds": [
+        "3925b8cd-56ba-4322-af8f-b622c741c6ee"
+      ],
+      "references": [],
+      "positionIds": [
+        "art-director"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/art/",
+          "E:/Project/Godot/这次怎么逃/docs/art/"
+        ],
+        "entry": "art-v03原图、最终manifest及风格对照",
+        "interfaceContract": "地面坐标和规则保留P12。原PNG+region与每帧anchor取图，不程序改像素；人物1+2帧及55/62试装保持，必要比例调整要在清单明确。阴影由制作人绘制，不重复烘焙。自己的凭证提交资源，主美不改scripts。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-04T14:13:31.351Z"
+        }
+      ]
+    },
+    {
+      "id": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+      "title": "P13 art-v03集成：柔和阴影与概念风格验收",
+      "description": "可先准备版本化材质映射与柔和接触阴影/方向短投影接口，最终引用等待A04独立验收。接入手绘PNG与逐帧锚点，保留v01/v02回滚及全部规则，实际两关两尺寸对照概念风格和可读性，与主美复核。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "",
+      "acceptance": "A04 accepted后切换默认v03；体积顶面/立面衔接自然、石木材质与人物画法一致、轮廓敦实可读、软阴影有接触和方向且不重复。R01/R02在1280×720/960×540真实截图对照概念，身体遮挡/落脚/左右镜像/技能进度/操作提示/真实视野/门箱注册正确，主美复核实际图。碰撞/技能/AI/地图/输入不变，相关操作/巡逻/路线/表现回归通过。清单与源码版本匹配，旧证据保留，测试不冒充真人趣味性。",
+      "result": "v0.4 art-v03实际集成完成，冻结FINAL-WARM-01。8原PNG按Atlas/帧区域直接消费，60/72脚底与镜像稳定；floor384、暖浅顶面[1.18,1.14,1.08]、front.74/窄侧4/.68、正确门箱注册及柔和单次阴影。主美逐张20实机场景图对照概念复核通过且哈希匹配；各24视觉/各21表现、RTS20、稳定/动态巡逻及两关路线回归通过，最终warm原生连续R01 17.330秒/R02 15.796秒零抓回。24源码哈希、14非presentation文件与P12不变；v01/v02回退通过，真人趣味性仍P09。\n\n验收通过：producer-self自验收：A04已独立accepted，最终FINAL-WARM-01资产原PNG/Atlas取图、12帧脚底与三姿势高度稳定；24源文件与自身交付哈希一致，14非presentation文件与P12完全一致。主美20张实际Godot图逐张对照概念美术通过且哈希吻合；暖浅顶面/暗前侧面、floor384与60/72角色、柔和阴影、交互信息和两尺寸可读，记录模块化颗粒/重复感及克制投影边界。24×2场景、21×2表现、RTS20/巡逻/路线回归通过；最终warm原生路线17.330/15.796秒均零抓回。v01/v02原生回退可用，主干已启动确认当前warm；不把自动测试当真人趣味性。接受v0.4交付，P09真人尝试仍独立待完成。",
+      "dependencyIds": [
+        "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+        "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+      ],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "integrationTaskIds": [
+        "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+        "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+          "E:/Project/Godot/这次怎么逃/data/presentation/",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/"
+        ],
+        "entry": "F5双关v03主场景，版本化渲染与真实截图",
+        "interfaceContract": "只改渲染消费层和配置，不改地图/核心输入/碰撞/技能/巡逻行为。可提前准备接口，A04未验收不切换最终资源。人物脚底/真实朝向、1+2动画/信息层保持；软阴影只在v03 profile启用，v02可回滚。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T14:13:31.351Z"
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+      "title": "M1 Godot 灰盒可玩基线",
+      "owner": "制作人",
+      "due": "",
+      "description": "在Godot复现独立人物、通用环境、狱警与三技能，R01完成从开局到重开的闭环。",
+      "acceptance": "P01—P05均验收；同一Godot构建实际完成上门撬锁和下箱力量两条三人逃脱路线；无阻断级操作与状态缺陷。",
+      "review": "",
+      "status": "计划中"
+    },
+    {
+      "id": "d72decc9-844f-41a9-87a4-77c21bd33326",
+      "title": "M2 两关空间解谜验证",
+      "owner": "制作人",
+      "due": "",
+      "description": "制作R02门边掩护，对照巡逻时机、聊天朝向与箱子用途；记录随机配置边界。",
+      "acceptance": "P06—P07均验收；R02至少两条现有规则产生的实测解法，记录与R01的策略区别；27配置记录不混淆无解、未证明和实现缺陷。",
+      "review": "",
+      "status": "计划中"
+    },
+    {
+      "id": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+      "title": "M3 最小美术与状态表现接入",
+      "owner": "制作人",
+      "due": "",
+      "description": "主美可在P01接口冻结后并行制作；按已确认纸片风交付最小资源，由制作人接入并回归。",
+      "acceptance": "A01、A02、P08均验收；两窗口尺寸、真实视野遮挡、随机技能身份解耦、持续操作反馈清楚；实际双关路线回归通过。",
+      "review": "",
+      "status": "计划中"
+    },
+    {
+      "id": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+      "title": "M4 试玩修正与扩展决策",
+      "owner": "制作人",
+      "due": "",
+      "description": "基于真人行为判断候选核心能否支撑更多房间，再进行一轮定向修正。",
+      "acceptance": "P09—P10均验收并有真人记录、修正证据、可运行版本与遗留风险；单独记录保留/修改/放弃决定。负面试玩报告完成不等于核心体验验证通过或转正式开发。",
+      "review": "",
+      "status": "计划中"
+    }
+  ],
+  "personnel": {
+    "schema": 1,
+    "positionPreset": "module-owners",
+    "positions": [
+      {
+        "id": "producer",
+        "name": "制作人",
+        "taskKinds": [],
+        "active": true,
+        "duties": "制定游戏目标、核心玩法、内容结构、版本范围与优先级，给出内容方案、协调模块依赖，派发任务并审核功能和整体体验；以本身份承担已分配的核心程序、共享接口与主干集成。"
+      },
+      {
+        "id": "art-director",
+        "name": "主美",
+        "taskKinds": [],
+        "active": true,
+        "duties": "兼任技术美术，制定视觉风格、素材规格、渲染与引擎接入方案，统筹音效表现；派发美术、表现技术和音效任务，审核品质、技术适配与运行效果。"
+      },
+      {
+        "id": "module-owner",
+        "name": "模块负责人",
+        "taskKinds": [
+          "设计",
+          "程序",
+          "美术",
+          "关卡",
+          "测试",
+          "其他"
+        ],
+        "active": true,
+        "duties": "对获准模块负责，完成设计细化、代码或资产制作、引擎集成、自测与文档回写；提交证据待上级验收。内容、美术、音效是负责方向，范围变化先提出建议。"
+      }
+    ],
+    "members": [
+      {
+        "id": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "name": "制作人",
+        "roles": [
+          "制作人"
+        ],
+        "active": true,
+        "scope": "project",
+        "supervisorId": "",
+        "createdAt": "2026-10-04T11:27:43.276Z",
+        "duties": "负责方向、核心玩法、关卡流程与主干集成；仅执行明确分配的任务。",
+        "permissions": [
+          "progress",
+          "review",
+          "propose",
+          "spec_change",
+          "project_write",
+          "team_manage"
+        ],
+        "developer": {
+          "positionIds": [
+            "producer"
+          ],
+          "taskIds": [
+            "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+            "d53e3afb-f63a-425e-9855-124886674fb5",
+            "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+            "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+            "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+            "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+            "edb2f813-8ede-43a2-89ca-1203725643e0",
+            "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+            "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+            "d3ef8e35-900d-4259-ac43-06a0660babbb",
+            "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+            "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+            "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+          ],
+          "scope": "project",
+          "expiresAt": "",
+          "projectModules": [
+            "design-documents",
+            "project",
+            "project-schedule",
+            "gameplay",
+            "gameplay-core",
+            "prototype-design",
+            "task-flows",
+            "numerical-analysis",
+            "functional-systems",
+            "development-tools",
+            "art-assets",
+            "stories",
+            "story-orchestration",
+            "map-design",
+            "program-framework",
+            "definitions",
+            "enum-versions",
+            "project-standards"
+          ],
+          "artPermissions": []
+        }
+      },
+      {
+        "id": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "name": "主美",
+        "roles": [
+          "主美"
+        ],
+        "active": true,
+        "scope": "project",
+        "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "createdAt": "2026-10-04T11:27:43.276Z",
+        "duties": "兼技术美术，负责风格、视觉、UI 与音效制作和自检；按实际工作量拆分任务。",
+        "permissions": [
+          "progress",
+          "review",
+          "propose",
+          "spec_change",
+          "project_write",
+          "team_manage"
+        ],
+        "developer": {
+          "positionIds": [
+            "art-director"
+          ],
+          "taskIds": [
+            "a7c7e0de-203e-42d3-97b9-daf03e204775",
+            "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+            "a215989b-decd-41ac-8576-9faeb59b363e",
+            "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+          ],
+          "scope": "project",
+          "expiresAt": "",
+          "projectModules": [
+            "art-assets",
+            "project-schedule"
+          ],
+          "artPermissions": [
+            "style",
+            "details",
+            "technical",
+            "propose",
+            "dispatch"
+          ]
+        }
+      }
+    ],
+    "credentials": [
+      {
+        "id": "41c00f25-6588-4899-aca2-fc99d2056b9d",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+        "name": "制作人",
+        "persistent": true,
+        "publicKey": "MCowBQYDK2VwAyEAQi33m6sZBuVXQqFfE1iD20zvMC5kXqey/XSb2CFkwuQ=",
+        "positionIds": [
+          "producer"
+        ],
+        "taskIds": [],
+        "permissions": [
+          "progress",
+          "review",
+          "propose",
+          "spec_change",
+          "project_write",
+          "team_manage"
+        ],
+        "workDescription": "负责方向、核心玩法、关卡流程与主干集成；仅执行明确分配的任务。",
+        "expiresAt": "",
+        "createdAt": "2026-10-04T11:32:22.233Z",
+        "revokedAt": ""
+      },
+      {
+        "id": "7ff98468-d970-4abf-98a3-a0054bf4426a",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+        "name": "主美",
+        "persistent": true,
+        "publicKey": "MCowBQYDK2VwAyEAz4cTShPOwYSTrxN82WziYjZk2h/ZKI/IcYmACP4FMtE=",
+        "positionIds": [
+          "art-director"
+        ],
+        "taskIds": [],
+        "permissions": [
+          "progress",
+          "review",
+          "propose",
+          "spec_change",
+          "project_write",
+          "team_manage"
+        ],
+        "workDescription": "兼技术美术，负责风格、视觉、UI 与音效制作和自检；按实际工作量拆分任务。",
+        "expiresAt": "",
+        "createdAt": "2026-10-04T11:39:43.051Z",
+        "revokedAt": ""
+      }
+    ]
+  },
+  "workflow": {
+    "phase": "prototype",
+    "parallelLines": 2,
+    "history": []
+  },
+  "authoringHistory": [
+    {
+      "id": "a9e7d5af-8db4-444f-a673-f35c1c7ec4f8",
+      "digest": "9718945dd469e245942164055b707551b2159891c353c51620e906b079e80b55",
+      "summary": "建立随机技能房间解谜设计基线：独立人物操作、三技能、环境规则、核心循环、既有房间与门边掩护方案。",
+      "memberName": "制作人",
+      "at": "2026-10-04T11:37:55.001Z",
+      "modules": [
+        "gameplay-core",
+        "design-documents",
+        "gameplay",
+        "map-design",
+        "project"
+      ]
+    },
+    {
+      "id": "cf73b847-d836-41af-8465-4898dcaeb18f",
+      "digest": "552ab098d3f84d1fb8b79a537a87f52cfac973ad2319483d3a33309db18005d8",
+      "summary": "主美制定二维手绘纸片风的喜剧越狱视觉方向、色板、分类规则及制作规格；复用独立移动与现有三技能。",
+      "memberName": "主美",
+      "at": "2026-10-04T11:48:43.897Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "4c085a0b-4fba-479a-adb1-9eff82adc9eb",
+      "digest": "a733d7a658c575fadf5127f04536d52a0a7777f5fb42df90326dcbb1937ba0b3",
+      "summary": "制定Godot两房间原型执行计划：四阶段验收、12项任务分工与依赖、共享主干和接口；衔接已确认美术方向。",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:09:32.654Z",
+      "modules": [
+        "design-documents",
+        "project-standards",
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "0441abd9-97e4-44ef-b8e6-e96f48d3664d",
+      "digest": "6cfc4d6a018c2cc66574684a0d55a8420bf608c0c33d7a610042c5462f409295",
+      "summary": "开工接口对齐：A01采用最小两帧步态；P08明确共享主干接入路径。P02按原范围先交付独立环境模块。",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:24:41.802Z",
+      "modules": [
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "b15705ef-85ae-49a4-916d-6034081153f0",
+      "digest": "8f0cb40b4330d2ec46e4bb56d8d8694186dfefed331cdf418fa27d281b3f5aea",
+      "summary": "记录双关Godot实际验证布局，并为未开始P08登记狱警/环境表现接入路径",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:53:18.628Z",
+      "modules": [
+        "map-design",
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "6a20cc32-61d4-42f0-bb73-b01cddad4efa",
+      "digest": "1620728694ba4183caed1aa643d2ad491a4b124a24bb2b66e848415a714318bc",
+      "summary": "按用户真实反馈同步v0.2 RTS独立指令、技能中断、巡逻恢复与水平翻转，保留三技能和随机规则。",
+      "memberName": "制作人",
+      "at": "2026-10-04T13:28:41.064Z",
+      "modules": [
+        "design-documents",
+        "gameplay"
+      ]
+    },
+    {
+      "id": "art-style-perspective-v02-20261004",
+      "digest": "f0ce48c57cdcc4c64aee2df0c6d0bfc234a6b2ef495b83b8a6bf5810449f0717",
+      "summary": "根据用户确认的R02概念及明确替换授权更新轻度斜俯视美术草稿；保留首轮基准历史。",
+      "memberName": "主美",
+      "at": "2026-10-04T13:48:00.248Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "escape-art-v03-spec-20261004",
+      "digest": "349d7fc87606b8c87e8633281f8bea1dc06b2f9716143b7a745e78e580a306ec",
+      "summary": "同步已交付A04的v03手绘制作规格及实际P13渲染参数；保留已确认历史风格revision1/2与原资源。",
+      "memberName": "主美",
+      "at": "2026-10-04T14:56:53.702Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "escape-art-v03-warm-lighting-20261004",
+      "digest": "5f6496ea7f2bb14464ed05028cbb7f8d8960e114dc78e14b030183b46cb75682",
+      "summary": "记录原生两尺寸比较后最终选定的暖浅墙顶调制参数。",
+      "memberName": "主美",
+      "at": "2026-10-04T15:01:08.881Z",
+      "modules": [
+        "art-assets"
+      ]
+    }
+  ],
+  "taskPlanHistory": [
+    {
+      "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:10:00.082Z",
+      "reason": "将已应用的Godot原型执行计划登记为正式任务：制作人独立承担主干、规则、关卡和集成；主美交付最小资产，由制作人审核。保留原型阶段，任务均待开始，不启动外部助手。",
+      "createdTaskIds": [
+        "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+        "d53e3afb-f63a-425e-9855-124886674fb5",
+        "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+        "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+        "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+        "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+        "edb2f813-8ede-43a2-89ca-1203725643e0",
+        "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+        "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+        "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+        "d3ef8e35-900d-4259-ac43-06a0660babbb"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "de29441b-daa3-4b1b-bfc7-d4b5d792685b",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-04T13:12:57.414Z",
+      "reason": "用户已提供明确三个试玩问题，立即开展针对性修正；P09真人尝试数量仍待收集。",
+      "createdTaskIds": [
+        "c3582edc-f9ed-4b95-bb88-6dcf383a9b34"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-04T13:43:28.826Z",
+      "reason": "用户在美术聊天已确认概念并授权替换；主美资源与制作人渲染/集成分别登记，先准备接口，最终资源独立验收后替换。",
+      "createdTaskIds": [
+        "a215989b-decd-41ac-8576-9faeb59b363e",
+        "3925b8cd-56ba-4322-af8f-b622c741c6ee"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-04T14:13:31.351Z",
+      "reason": "已回读美术聊天：用户认为v0.3与概念风格仍有差距，并回复可以授权手绘材质、柔和阴影及敦实轮廓改进。按新交付登记后续任务，保留P12验收历史。",
+      "createdTaskIds": [
+        "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+        "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "taskReports": [
+    {
+      "id": "1a2f018c-77ea-49d2-9b87-7650ce05309f",
+      "taskId": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始P01：建立Godot 2D主入口、三个独立友军和选择卡，冻结逻辑/表现接口；先用灰盒检查输入与缩放。主美在P01验收后开始资产任务。",
+      "evidence": [],
+      "at": "2026-10-04T12:14:10.816Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+        "title": "P01 Godot 主干骨架与独立人物操作",
+        "description": "验证当前网页的独立拖动操作能否在 Godot 2D 保持稳定。建立主场景、三个友军、选择卡和输入转换；冻结最小逻辑/表现接口及坐标换算。MCP 4.2.3 已安装是环境依据，不能算此任务完成。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "实际启动 Godot 4.7.2 并运行主入口；一次只拖动一人，伙伴不跟随/连接，狱警占位不可选择；卡片选择与地图选择一致；窗口缩放后鼠标到世界坐标准确；能恢复三个起点；提交运行记录、接口表和共享文件清单。",
+        "result": "开始P01：建立Godot 2D主入口、三个独立友军和选择卡，冻结逻辑/表现接口；先用灰盒检查输入与缩放。主美在P01验收后开始资产任务。",
+        "dependencyIds": [],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/project.godot",
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scenes/actors/",
+            "E:/Project/Godot/这次怎么逃/scenes/ui/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "res://scenes/main.tscn（F6/F5）",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1a0ae0e-5663-4c4a-b1f4-0879fcbfd8d0",
+      "taskId": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P01已实现并自测：Godot主入口运行，三名友军独立拖动，卡片选择一致，狱警不可选择，重置恢复起点。真实MCP鼠标事件拖动只有一人位移；两窗口尺寸和0.75画布缩放检查通过。冻结runtime-contract；后续机制仍未实现，无真人趣味性结论。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p01-delivery.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p01-check-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p01-runtime.png",
+        "E:/Project/Godot/这次怎么逃/docs/dev/runtime-contract.md"
+      ],
+      "at": "2026-10-04T12:19:21.502Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+        "title": "P01 Godot 主干骨架与独立人物操作",
+        "description": "验证当前网页的独立拖动操作能否在 Godot 2D 保持稳定。建立主场景、三个友军、选择卡和输入转换；冻结最小逻辑/表现接口及坐标换算。MCP 4.2.3 已安装是环境依据，不能算此任务完成。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "实际启动 Godot 4.7.2 并运行主入口；一次只拖动一人，伙伴不跟随/连接，狱警占位不可选择；卡片选择与地图选择一致；窗口缩放后鼠标到世界坐标准确；能恢复三个起点；提交运行记录、接口表和共享文件清单。",
+        "result": "P01已实现并自测：Godot主入口运行，三名友军独立拖动，卡片选择一致，狱警不可选择，重置恢复起点。真实MCP鼠标事件拖动只有一人位移；两窗口尺寸和0.75画布缩放检查通过。冻结runtime-contract；后续机制仍未实现，无真人趣味性结论。",
+        "dependencyIds": [],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/project.godot",
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scenes/actors/",
+            "E:/Project/Godot/这次怎么逃/scenes/ui/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "res://scenes/main.tscn（F6/F5）",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:19:39.285Z",
+        "note": "制作人明确自验收：核对主入口实际运行、MCP鼠标输入结果、两尺寸/缩放坐标测试和截图；P01范围满足。占位技能和狱警未被当作实现，继续P02；不构成独立验证或趣味性结论。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "d2fe343f-6f86-4456-bbd0-8e928d8eacb6",
+      "taskId": "d53e3afb-f63a-425e-9855-124886674fb5",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始通用环境实体与出口：复用P01输入，统一移动碰撞与视线遮挡，门与重箱改变通路，单人逃脱记账，全员结算后重开。",
+      "evidence": [],
+      "at": "2026-10-04T12:20:42.757Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "d53e3afb-f63a-425e-9855-124886674fb5",
+        "title": "P02 通用环境实体、锁门、重箱与出口",
+        "description": "验证房间内的阻挡、视线遮挡和出口能够复用同一套实体规则。先实现墙、锁门、重箱及三人独立逃脱记账，再由技能和狱警消费。地图坐标必须写明如何从管理项目换算为 Godot 世界单位。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "人物不能穿墙/锁门/重箱，重箱不能穿墙或门；开门/移箱后移动阻挡、视线遮挡及寻路可通区域一致更新；一个人进入出口只计该人，全员才结算；已逃脱人物不再接受输入；重开重置门、箱、进度、人物和计数。提交碰撞与遮挡边界记录。",
+        "result": "开始通用环境实体与出口：复用P01输入，统一移动碰撞与视线遮挡，门与重箱改变通路，单人逃脱记账，全员结算后重开。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/props/",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "主场景中的环境验证房间",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9a83ef1a-366e-47d6-8e38-0e2be8739455",
+      "taskId": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始A01：P01已验收，按开工通知和runtime-contract冻结的每角色1站立+2迈步制作四角色及环境道具，独立manifest交付。刚读任务文字仍显示四方向，按本次明确开工范围执行并在交付时复核正式修订。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/runtime-contract.md",
+        "E:/Project/Godot/这次怎么逃/docs/art/A01-A02-preflight-v01.txt"
+      ],
+      "at": "2026-10-04T12:21:43.913Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "title": "A01 最小角色与环境资产制作",
+        "description": "按已确认的二维手绘纸片风基准，制作能用于首轮两关验证的最小资产。三种伙伴身份与随机技能分离，先四方向静帧与关键操作姿态，控制制作量。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "交付三友军与一狱警四方向、聊天/撬锁/推箱关键姿态、锁门开闭、重箱、低墙、出口；脚底锚点和逻辑尺寸清楚，门开闭共用锚点，箱子独立资源；身份不绑定技能；960×540可区分友军和狱警朝向；透明边缘、缩小效果、命名、来源/授权与缺项有记录。概念板不算已接入资源。",
+        "result": "开始A01：P01已验收，按开工通知和runtime-contract冻结的每角色1站立+2迈步制作四角色及环境道具，独立manifest交付。刚读任务文字仍显示四方向，按本次明确开工范围执行并在交付时复核正式修订。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/characters/",
+            "E:/Project/Godot/这次怎么逃/art/environment/",
+            "E:/Project/Godot/这次怎么逃/art/props/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "可导入 PNG、源文件及资产清单；由制作人接入",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "db8a5200-7af3-4a79-8a5b-d4eec8332fb6",
+      "taskId": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "正式回读A01已修订为四角色各1站立+2迈步；P01已完成，现开始角色横条、脚底manifest、环境与道具制作，实际资产只写获准目录。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/runtime-contract.md"
+      ],
+      "at": "2026-10-04T12:25:38.976Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "title": "A01 最小角色与环境资产制作",
+        "description": "按已确认的纸片风及用户在美术聊天提出的缩减动画要求，制作三友军与一狱警各一张站立、两帧交替迈步。准确朝向由逻辑方向标记表达；聊天、撬锁和推箱使用可共用的轻姿态/状态符号，不要求四方向完整动作。复用已有小样，并提交逐帧脚底锚点manifest。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "交付三友军与一狱警各1站立+2交替迈步、锁门开闭、重箱、低墙和出口；三技能操作采用共用轻姿态或状态符号，先不要求每人四方向完整动画。友军目标高度42、狱警48世界单位，逐帧region/脚底anchor写入manifest，头与脚底对齐无明显跳动；真实朝向由逻辑标记表达，身份不绑定技能。960×540可区分三友军和狱警；透明边缘、缩小效果、命名、来源/授权与缺项记录完整。概念板和小样不算已接入游戏。",
+        "result": "正式回读A01已修订为四角色各1站立+2迈步；P01已完成，现开始角色横条、脚底manifest、环境与道具制作，实际资产只写获准目录。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/characters/",
+            "E:/Project/Godot/这次怎么逃/art/environment/",
+            "E:/Project/Godot/这次怎么逃/art/props/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "可导入 PNG、源文件及资产清单；由制作人接入",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b3b5e8e4-9bbf-4a22-9455-bf3cf046b2e8",
+      "taskId": "d53e3afb-f63a-425e-9855-124886674fb5",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P02独立环境模块已实现并运行：统一实体数据驱动碰撞/视线/寻路，开门与推箱改变通路，单人出口计账与全员结算、重开恢复通过。组件检查及Godot实时推箱/出口流程有证据；主干接入在后续程序任务进行，尚无狱警AI/主动技能。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p02-delivery.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p02-check-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p02-runtime.png"
+      ],
+      "at": "2026-10-04T12:25:46.436Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "d53e3afb-f63a-425e-9855-124886674fb5",
+        "title": "P02 通用环境实体、锁门、重箱与出口",
+        "description": "验证房间内的阻挡、视线遮挡和出口能够复用同一套实体规则。先实现墙、锁门、重箱及三人独立逃脱记账，再由技能和狱警消费。地图坐标必须写明如何从管理项目换算为 Godot 世界单位。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "人物不能穿墙/锁门/重箱，重箱不能穿墙或门；开门/移箱后移动阻挡、视线遮挡及寻路可通区域一致更新；一个人进入出口只计该人，全员才结算；已逃脱人物不再接受输入；重开重置门、箱、进度、人物和计数。提交碰撞与遮挡边界记录。",
+        "result": "P02独立环境模块已实现并运行：统一实体数据驱动碰撞/视线/寻路，开门与推箱改变通路，单人出口计账与全员结算、重开恢复通过。组件检查及Godot实时推箱/出口流程有证据；主干接入在后续程序任务进行，尚无狱警AI/主动技能。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/props/",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "主场景中的环境验证房间",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:26:01.867Z",
+        "note": "制作人自验收：独立验证房间实际运行无启动错误，实体碰撞、动态视线/路径、边界推箱、部分/全员出口和全局重置证据满足P02组件交付；不把组件演示算作三技能完成，主干接入继续P03。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "1b2404f5-b6d1-424d-ad3c-1f6b372cba26",
+      "taskId": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始主干环境接入及狱警：固定视野、动态遮挡、即时追击、路径寻路、丢失目标与局部抓回，复用P02几何模块。",
+      "evidence": [],
+      "at": "2026-10-04T12:26:12.844Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+        "title": "P03 狱警巡逻、即时发现与局部抓回",
+        "description": "验证危险规则能否形成可读、可利用的空间压力。实现巡逻、面向、追击、丢失目标和返回巡逻；所有友军都可被检测，抓回仅处理目标人物。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "视野固定前方120度/110世界基线单位；墙、门、箱遮挡时不发现；进入有效视野立即追击，无人数扩圈/警戒读条；丢失目标1.5秒后恢复巡逻；接触抓回目标且有1秒免重复检测；技能、门、箱、撬锁进度及他人逃脱状态保留；新通路对狱警同样有效。提交状态迁移和动态障碍回归。",
+        "result": "开始主干环境接入及狱警：固定视野、动态遮挡、即时追击、路径寻路、丢失目标与局部抓回，复用P02几何模块。",
+        "dependencyIds": [
+          "d53e3afb-f63a-425e-9855-124886674fb5"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/actors/guard.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "环境验证房间中的狱警测试",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e7d1e170-35fa-4f46-b98f-23eac0313b3c",
+      "taskId": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P03主干已接入环境和狱警：固定120度/110范围、动态遮挡、同tick即时追击、1.5秒失去目标返巡逻、接触局部抓回和1秒免重复检测通过；实际Godot巡逻、捕获有记录。组件回归P02通过，聊天控制器留P04。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p03-delivery.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p03-check-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p03-runtime.png",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p02-check-result.json"
+      ],
+      "at": "2026-10-04T12:29:12.088Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+        "title": "P03 狱警巡逻、即时发现与局部抓回",
+        "description": "验证危险规则能否形成可读、可利用的空间压力。实现巡逻、面向、追击、丢失目标和返回巡逻；所有友军都可被检测，抓回仅处理目标人物。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "视野固定前方120度/110世界基线单位；墙、门、箱遮挡时不发现；进入有效视野立即追击，无人数扩圈/警戒读条；丢失目标1.5秒后恢复巡逻；接触抓回目标且有1秒免重复检测；技能、门、箱、撬锁进度及他人逃脱状态保留；新通路对狱警同样有效。提交状态迁移和动态障碍回归。",
+        "result": "P03主干已接入环境和狱警：固定120度/110范围、动态遮挡、同tick即时追击、1.5秒失去目标返巡逻、接触局部抓回和1秒免重复检测通过；实际Godot巡逻、捕获有记录。组件回归P02通过，聊天控制器留P04。",
+        "dependencyIds": [
+          "d53e3afb-f63a-425e-9855-124886674fb5"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/actors/guard.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "环境验证房间中的狱警测试",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:30:23.149Z",
+        "note": "制作人自验收：同tick组件检测、实际巡逻与捕获、闭/开门及箱角遮挡、1.5秒返巡逻和抓回保留状态证据满足；两帧观察用于避开process_frame信号先于_process的测量时序，不增加警戒读条。继续P04技能控制器。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "6d6a0742-5938-4a9a-bc83-99dc593b0e62",
+      "taskId": "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "P01已完成，正式开始A02技能与状态图标、纸卡和轻量音效、中文字体及来源记录；按独立状态和真实动作边界交付。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/runtime-contract.md"
+      ],
+      "at": "2026-10-04T12:29:22.549Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+        "title": "A02 技能卡、状态符号与轻量音效",
+        "description": "制作支持观察和分工的最小 UI 与状态表现。颜色同时有符号/文字补充；音效辅助已有规则，第一轮只做短提示和必要操作循环，不引入声音诱敌。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "三技能黑白缩小仍可区分，正式图标24px以上；选中与持续操作状态分开，全员结算/单人逃脱/抓回/取消原因可表达；发现即时追击不画警戒蓄力，聊天不画全员隐身；聊天、撬锁、推箱、发现及抓回提示与循环播放边界有清单；中文字体与音频来源/授权记录完整。",
+        "result": "P01已完成，正式开始A02技能与状态图标、纸卡和轻量音效、中文字体及来源记录；按独立状态和真实动作边界交付。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/ui/",
+            "E:/Project/Godot/这次怎么逃/art/fx/",
+            "E:/Project/Godot/这次怎么逃/audio/",
+            "E:/Project/Godot/这次怎么逃/art/fonts/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "三技能徽章、纸卡/状态符号、音效文件及接入清单",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa7fcb98-d277-48c5-b96d-c21770396c3c",
+      "taskId": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始三技能：每人独立随机且允许重复、独立持续操作、聊天朝向与敌对检测、保留的多人撬锁进度，以及仅直接拖动的力量人物接触推箱。",
+      "evidence": [],
+      "at": "2026-10-04T12:30:24.514Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+        "title": "P04 三技能与独立持续操作",
+        "description": "验证三种简单技能能在独立人物上持续协作。实现会聊天、会撬锁、大力气；随机每人独立等概率抽取且允许重复，开发模式允许指定技能和种子用于复现。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "聊天范围125、无遮挡且狱警未追击；狱警停步面对聊天者，仍能发现其他人并取消聊天追击。撬锁范围55，单人4秒，切换人物不取消，多人叠加贡献，门进度保留。主动停止、离起始位置超过12、被抓或目标失效时中断并说明原因。只有当前直接拖动的大力气人物实际接触施力才能推箱，最大85单位/秒。每局允许重复与无解；无牵手、连接传力和自动保底抽签。",
+        "result": "开始三技能：每人独立随机且允许重复、独立持续操作、聊天朝向与敌对检测、保留的多人撬锁进度，以及仅直接拖动的力量人物接触推箱。",
+        "dependencyIds": [
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/skills/",
+            "E:/Project/Godot/这次怎么逃/data/skills/",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "主场景技能验证入口",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c32de2b7-d282-4460-a858-dba18bb78d89",
+      "taskId": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P04三技能已实现：随机重复与种子复现、独立聊天/撬锁、离位中断和保留进度、多人贡献、即时发现打断、仅当前拖动力量人物接触推箱有组件与实时输入证据。单人真实E操作4秒开门，切换卡片保持持续操作。无解明确提示，P05继续全员路线。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p04-delivery.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p04-check-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p04-runtime.png"
+      ],
+      "at": "2026-10-04T12:33:56.026Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+        "title": "P04 三技能与独立持续操作",
+        "description": "验证三种简单技能能在独立人物上持续协作。实现会聊天、会撬锁、大力气；随机每人独立等概率抽取且允许重复，开发模式允许指定技能和种子用于复现。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "聊天范围125、无遮挡且狱警未追击；狱警停步面对聊天者，仍能发现其他人并取消聊天追击。撬锁范围55，单人4秒，切换人物不取消，多人叠加贡献，门进度保留。主动停止、离起始位置超过12、被抓或目标失效时中断并说明原因。只有当前直接拖动的大力气人物实际接触施力才能推箱，最大85单位/秒。每局允许重复与无解；无牵手、连接传力和自动保底抽签。",
+        "result": "P04三技能已实现：随机重复与种子复现、独立聊天/撬锁、离位中断和保留进度、多人贡献、即时发现打断、仅当前拖动力量人物接触推箱有组件与实时输入证据。单人真实E操作4秒开门，切换卡片保持持续操作。无解明确提示，P05继续全员路线。",
+        "dependencyIds": [
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/skills/",
+            "E:/Project/Godot/这次怎么逃/data/skills/",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/",
+            "E:/Project/Godot/这次怎么逃/scripts/world/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "主场景技能验证入口",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:35:27.324Z",
+        "note": "制作人自验收：真实E键单人撬锁与卡片切换持续、实时聊天背后通行及正面追击打断、两人叠加/中断保留/抓回取消和接触推箱预算通过。随机重复和无解明示保留；R01全员通路继续P05，不以规则测试替代真人结论。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "741ce01c-3a55-4a55-9aa1-0c5f2c36d4f9",
+      "taskId": "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始R01主干集成与完整通路验证：狱警持续运行下，用固定全撬锁和全力量配置实际操作三名人物逃脱；补房间选择和可复现运行入口。",
+      "evidence": [],
+      "at": "2026-10-04T12:35:28.704Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+        "title": "P05 R01 双通路主干集成",
+        "description": "将已交付的操作、实体、狱警和技能组合成首个 Godot 可玩房间。复用 R01 空间设计和网页第十二关行为，只迁移当前采用方案。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "狱警持续运行时，指定全撬锁配置完成上门三人路线，指定全力量配置完成下箱三人路线；保存构建/种子/操作步骤。随机局可查看技能、操作、被抓后继续、全员结算并重抽。不存在无法操作、穿墙、幽灵抓人或错误结算；自动验证和真人观察分别标注。",
+        "result": "开始R01主干集成与完整通路验证：狱警持续运行下，用固定全撬锁和全力量配置实际操作三名人物逃脱；补房间选择和可复现运行入口。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+          "d53e3afb-f63a-425e-9855-124886674fb5",
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+          "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+          "d53e3afb-f63a-425e-9855-124886674fb5",
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+          "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r01.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/r01.*",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5 主场景 → R01 → 全员逃脱 → 重开",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2a625a71-aaee-44ca-a91e-e47b006b2f4e",
+      "taskId": "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "R01 Godot主干闭环已实现。全撬锁seed11与全力量seed22，两条从初始位置、狱警持续运行下的三人逃脱路线在headless和实时窗口均通过；实时零抓回，保留步骤/状态/截图。四组组件回归通过；随机开局、局部抓回、结算与重开可用，R02选择接口预留。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-delivery.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-route-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-live-lock.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-live-strong.json",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-live-lock.png",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p05-live-strong.png"
+      ],
+      "at": "2026-10-04T12:42:44.570Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+        "title": "P05 R01 双通路主干集成",
+        "description": "将已交付的操作、实体、狱警和技能组合成首个 Godot 可玩房间。复用 R01 空间设计和网页第十二关行为，只迁移当前采用方案。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "5500cf73-0dda-4d07-ae54-5fbbf75cbea9",
+        "acceptance": "狱警持续运行时，指定全撬锁配置完成上门三人路线，指定全力量配置完成下箱三人路线；保存构建/种子/操作步骤。随机局可查看技能、操作、被抓后继续、全员结算并重抽。不存在无法操作、穿墙、幽灵抓人或错误结算；自动验证和真人观察分别标注。",
+        "result": "R01 Godot主干闭环已实现。全撬锁seed11与全力量seed22，两条从初始位置、狱警持续运行下的三人逃脱路线在headless和实时窗口均通过；实时零抓回，保留步骤/状态/截图。四组组件回归通过；随机开局、局部抓回、结算与重开可用，R02选择接口预留。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+          "d53e3afb-f63a-425e-9855-124886674fb5",
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+          "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+          "d53e3afb-f63a-425e-9855-124886674fb5",
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+          "fc8f21f1-9cc5-4827-8312-0a271422b63e"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r01.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/core/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/r01.*",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5 主场景 → R01 → 全员逃脱 → 重开",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:46:25.243Z",
+        "note": "制作人单独集成自验收：两固定配置从初始位置操作，在守卫持续运行下各三人全员逃脱，headless和实时窗口证据一致，实时零抓回；组件回归通过，闭环入口可运行。M1全部任务完成，仅具备里程碑单独确认条件，不等于真人趣味性验证。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "6e05d5ac-1c7b-4abd-bd80-58303f027b69",
+      "taskId": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完成A01首轮资源：三友军与一狱警各1站立+2迈步，共4透明横条；脚底/头部注册与42/48尺寸写入manifest；交付低墙、地面、门开闭、重箱和出口。20PNG整体原生读取通过，资源预览检查通过。仅写获准资产与docs/art，未改共享场景/逻辑；主干接入和真人可读性留给制作人/P08/P09。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/characters/manifest.json — 四角色12姿势、逐帧region/anchor、42/48 world_height",
+        "E:/Project/Godot/这次怎么逃/art/environment/manifest.json 和 art/props/manifest.json — 低墙、地面、门开闭同锚点、重箱、出口",
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v01.json — art-v01-20261004-a8676014f0d4，资源哈希与来源",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-native-read-v01.json — Godot4.7.2原生资源读取通过",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-preview-960x540-v01.png 和 qa-browser-v01.json — 四轮廓、脚底与两帧显示检查",
+        "E:/Project/Godot/这次怎么逃/docs/art/A01-A02-delivery-v01.txt — 制作修正、接入方式及未覆盖项"
+      ],
+      "at": "2026-10-04T12:42:51.891Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a7c7e0de-203e-42d3-97b9-daf03e204775",
+        "title": "A01 最小角色与环境资产制作",
+        "description": "按已确认的纸片风及用户在美术聊天提出的缩减动画要求，制作三友军与一狱警各一张站立、两帧交替迈步。准确朝向由逻辑方向标记表达；聊天、撬锁和推箱使用可共用的轻姿态/状态符号，不要求四方向完整动作。复用已有小样，并提交逐帧脚底锚点manifest。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "交付三友军与一狱警各1站立+2交替迈步、锁门开闭、重箱、低墙和出口；三技能操作采用共用轻姿态或状态符号，先不要求每人四方向完整动画。友军目标高度42、狱警48世界单位，逐帧region/脚底anchor写入manifest，头与脚底对齐无明显跳动；真实朝向由逻辑标记表达，身份不绑定技能。960×540可区分三友军和狱警；透明边缘、缩小效果、命名、来源/授权与缺项记录完整。概念板和小样不算已接入游戏。",
+        "result": "完成A01首轮资源：三友军与一狱警各1站立+2迈步，共4透明横条；脚底/头部注册与42/48尺寸写入manifest；交付低墙、地面、门开闭、重箱和出口。20PNG整体原生读取通过，资源预览检查通过。仅写获准资产与docs/art，未改共享场景/逻辑；主干接入和真人可读性留给制作人/P08/P09。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/characters/",
+            "E:/Project/Godot/这次怎么逃/art/environment/",
+            "E:/Project/Godot/这次怎么逃/art/props/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "可导入 PNG、源文件及资产清单；由制作人接入",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:53:19.257Z",
+        "note": "制作人独立验收资源：核对四角色region/脚底42/48规格、小尺寸预览、源文件和54文件哈希全部相符；原生资源读取20PNG通过。接受首轮纸片风素材交付，主干实时动作/脚底与双关可玩性另由P08验收。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "9e9201ab-535b-4b5d-99fd-cc865ca956ee",
+      "taskId": "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完成A02：三技能图标、纸卡及6状态符号；selected与逐人物action状态独立；9原创WAV含3循环、官方未修改Noto中文字体与许可证。灰度图标与资源预览已检查；PCM首尾/峰值、Godot及浏览器解码、中文glyph检查通过。资源未接入主干；人耳试听与游戏状态实际接入效果待制作人审核。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/ui/manifest.json 和 art/fx/manifest.json — 三技能、空白纸卡、选中/发现/搜寻/逃脱/抓回/取消符号",
+        "E:/Project/Godot/这次怎么逃/docs/art/state-bindings-v01.json — selected与持续操作分离，动态文字/进度与即时追击规则",
+        "E:/Project/Godot/这次怎么逃/audio/manifest.json — 9WAV、3循环的真实动作起止、峰值与哈希",
+        "E:/Project/Godot/这次怎么逃/art/fonts/source-license.json 和 LICENSE.txt — 官方Noto字体及OFL1.1，未修改",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-resource-v01.json 和 qa-native-read-v01.json — 透明通道、原生读取、中文glyph、PCM边界检查",
+        "E:/Project/Godot/这次怎么逃/docs/art/resource-preview-v01.html 和 qa-browser-v01.json — 灰度24/16图标、960×540/1280×720、音频解码；人耳试听待制作人",
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v01.json 和 A01-A02-delivery-v01.txt — art-v01-20261004-a8676014f0d4，来源、版本及未覆盖项"
+      ],
+      "at": "2026-10-04T12:44:39.476Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+        "title": "A02 技能卡、状态符号与轻量音效",
+        "description": "制作支持观察和分工的最小 UI 与状态表现。颜色同时有符号/文字补充；音效辅助已有规则，第一轮只做短提示和必要操作循环，不引入声音诱敌。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "三技能黑白缩小仍可区分，正式图标24px以上；选中与持续操作状态分开，全员结算/单人逃脱/抓回/取消原因可表达；发现即时追击不画警戒蓄力，聊天不画全员隐身；聊天、撬锁、推箱、发现及抓回提示与循环播放边界有清单；中文字体与音频来源/授权记录完整。",
+        "result": "完成A02：三技能图标、纸卡及6状态符号；selected与逐人物action状态独立；9原创WAV含3循环、官方未修改Noto中文字体与许可证。灰度图标与资源预览已检查；PCM首尾/峰值、Godot及浏览器解码、中文glyph检查通过。资源未接入主干；人耳试听与游戏状态实际接入效果待制作人审核。",
+        "dependencyIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/ui/",
+            "E:/Project/Godot/这次怎么逃/art/fx/",
+            "E:/Project/Godot/这次怎么逃/audio/",
+            "E:/Project/Godot/这次怎么逃/art/fonts/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "三技能徽章、纸卡/状态符号、音效文件及接入清单",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 原型只交付资源和清单，由制作人修改共享场景与代码。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:53:43.823Z",
+        "note": "制作人独立验收资源：三技能灰度24px可区别，选中/操作状态分离清单、9原创WAV及3循环边界、中文字体与OFL记录齐全，文件哈希相符。接受资源与技术适配；人耳偏好尚未验证，实时状态播放/停止与UI接入由P08验证。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "6e3cfca0-d052-4407-8c77-119c0805e5d3",
+      "taskId": "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始R02门边掩护灰盒：沿用同一套规则，只改空间和巡逻；重点验证门旁真实危险、聊天掩护、下方推箱空间及至少两条实测办法。",
+      "evidence": [],
+      "at": "2026-10-04T12:46:26.720Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+        "title": "P06 R02 门边掩护灰盒与策略对照",
+        "description": "检验聊天朝向、撬锁时机与箱子遮挡是否能影响通关策略。实现既有 R02 方案，让狱警和门操作点处于同侧；只调整房间布局及巡逻参数，不增加技能。",
+        "kind": "关卡",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+        "acceptance": "分别尝试等巡逻空档、聊天改变朝向、重箱通路/遮挡，记录成功、失败和未证明项；至少两条可复现通关办法使用现有规则，若不成立先改布局再复测；验证聊天者接近及撤离、箱子推动空间、门开启后狱警新通路；不能用只触发成功的关卡专用配方代替规则组合。",
+        "result": "开始R02门边掩护灰盒：沿用同一套规则，只改空间和巡逻；重点验证门旁真实危险、聊天掩护、下方推箱空间及至少两条实测办法。",
+        "dependencyIds": [
+          "ccf0a23f-35d4-41ca-aeec-4273b2e0c331"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r02.tscn",
+            "E:/Project/Godot/这次怎么逃/data/rooms/r02.*",
+            "E:/Project/Godot/这次怎么逃/docs/playtests/",
+            "E:/Project/Godot/这次怎么逃/tests/"
+          ],
+          "entry": "主场景房间选择 → R02",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b40b2f3c-a7d7-49a7-94fa-cc17f441c7d9",
+      "taskId": "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "R02门边掩护实现并验证：聊天+撬锁协作和全力量下路两路线三人逃脱；无掩护开锁对照被抓回。原生实时运行混合路线15.49秒、零抓回。为箱后人物净空将隔断左移10单位，巡逻点4改至门侧；地图说明回写处理中。技术结论可用，真人趣味性待P09。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/data/rooms/r02.json",
+        "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r02.tscn",
+        "E:/Project/Godot/这次怎么逃/tests/r02_check.gd",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p06-r02-result.json — 两路线完成，对照抓回1次/进度0.104/门未开",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p06-live-r02.json 与 p06-live-r02.png — Godot原生实时协作路线"
+      ],
+      "at": "2026-10-04T12:52:39.538Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+        "title": "P06 R02 门边掩护灰盒与策略对照",
+        "description": "检验聊天朝向、撬锁时机与箱子遮挡是否能影响通关策略。实现既有 R02 方案，让狱警和门操作点处于同侧；只调整房间布局及巡逻参数，不增加技能。",
+        "kind": "关卡",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+        "acceptance": "分别尝试等巡逻空档、聊天改变朝向、重箱通路/遮挡，记录成功、失败和未证明项；至少两条可复现通关办法使用现有规则，若不成立先改布局再复测；验证聊天者接近及撤离、箱子推动空间、门开启后狱警新通路；不能用只触发成功的关卡专用配方代替规则组合。",
+        "result": "R02门边掩护实现并验证：聊天+撬锁协作和全力量下路两路线三人逃脱；无掩护开锁对照被抓回。原生实时运行混合路线15.49秒、零抓回。为箱后人物净空将隔断左移10单位，巡逻点4改至门侧；地图说明回写处理中。技术结论可用，真人趣味性待P09。",
+        "dependencyIds": [
+          "ccf0a23f-35d4-41ca-aeec-4273b2e0c331"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r02.tscn",
+            "E:/Project/Godot/这次怎么逃/data/rooms/r02.*",
+            "E:/Project/Godot/这次怎么逃/docs/playtests/",
+            "E:/Project/Godot/这次怎么逃/tests/"
+          ],
+          "entry": "主场景房间选择 → R02",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:53:34.773Z",
+        "note": "制作人独立自验收：已核对两路线和无掩护对照，原生实时R02三人逃脱与头less规则结果一致。布局只变空间与巡逻，未改技能、警戒范围、即时发现规则。保留作为第二关策略实验；真人可读性与乐趣待P09。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      },
+      "corrections": [
+        {
+          "id": "7b265752-9c2b-4ff7-99bc-71023e1cd1f9",
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T13:04:17.304Z",
+          "note": "证据版本说明：P08复用了R02实时路线脚本，原p06-live-r02.json/png被新纸片风构建的运行更新。首次灰盒和当前构建的技术结论都为同配置三人完成、零抓回；当前新增构建明确保存到独立p08-live-r02.json/png，不作为P06首次截图。地图布局调整已经内容提案b15705ef应用并同步实际x840和巡逻点4。此说明保留原验收，不替代P08集成验收与P09真人试玩。",
+          "deliveryVersion": "v0.1-paper-cut/art-v01-20261004-a8676014f0d4",
+          "evidence": [
+            "E:/Project/Godot/这次怎么逃/docs/tests/p08-live-r02.json",
+            "E:/Project/Godot/这次怎么逃/docs/tests/p08-live-r02.png",
+            "E:/Docs/这次怎么逃/ai/changes/b15705ef-85ae-49a4-916d-6034081153f0.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe06cf04-48f7-4e36-9d10-b52de18b2a37",
+      "taskId": "edb2f813-8ede-43a2-89ca-1203725643e0",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始双关27种有序配置的种子复现、规则状态与已知通路回归；区分已实证通关、规则无解与未证明，不调整随机保底。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/tests/"
+      ],
+      "at": "2026-10-04T12:53:35.373Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "edb2f813-8ede-43a2-89ca-1203725643e0",
+        "title": "P07 随机配置复现与通路回归",
+        "description": "区分技能组合天然无解、尚未找到解法和实现缺陷。为两间房增加指定配置/种子、复现场景和关键规则回归，记录三人三技能的27个有序配置。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+        "acceptance": "27种配置均有初始化检查记录，每房分别标注已实测可解/规则判定无解/尚未证明，不把初始化通过当通关通过；全聊天不能通过当前门和重箱时如实记录。重点回归单/多人撬锁、聊天后方通行与正面被发现、动态遮挡、抓回保留状态、两条R01路线及R02对照路线；附实际执行步骤、结果和未覆盖项。",
+        "result": "开始双关27种有序配置的种子复现、规则状态与已知通路回归；区分已实证通关、规则无解与未证明，不调整随机保底。",
+        "dependencyIds": [
+          "3a0ec022-03df-4810-a8ba-9a16c5c69fe1"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/scripts/debug/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "开发验证入口与两房间配置记录",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5512a836-a238-4163-9f7f-1e6b1d2f5449",
+      "taskId": "edb2f813-8ede-43a2-89ca-1203725643e0",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "54次双关有序配置初始化和随机种子复现全部通过；记录4个完整实测可解、2个全聊天规则无解、48个尚未证明。即时发现/动态遮挡/抓回保留、单多人撬锁与聊天朝向、R01两路线、R02协作与对照重跑全通过。不给随机保底，不将初始化当通关或真人乐趣证据。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/tests/configuration_matrix.gd",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p07-configuration-matrix.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/reproduce.md",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p03-check-result.json、p04-check-result.json、p05-route-result.json",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p06-r02-result.json"
+      ],
+      "at": "2026-10-04T12:54:41.368Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "edb2f813-8ede-43a2-89ca-1203725643e0",
+        "title": "P07 随机配置复现与通路回归",
+        "description": "区分技能组合天然无解、尚未找到解法和实现缺陷。为两间房增加指定配置/种子、复现场景和关键规则回归，记录三人三技能的27个有序配置。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "d72decc9-844f-41a9-87a4-77c21bd33326",
+        "acceptance": "27种配置均有初始化检查记录，每房分别标注已实测可解/规则判定无解/尚未证明，不把初始化通过当通关通过；全聊天不能通过当前门和重箱时如实记录。重点回归单/多人撬锁、聊天后方通行与正面被发现、动态遮挡、抓回保留状态、两条R01路线及R02对照路线；附实际执行步骤、结果和未覆盖项。",
+        "result": "54次双关有序配置初始化和随机种子复现全部通过；记录4个完整实测可解、2个全聊天规则无解、48个尚未证明。即时发现/动态遮挡/抓回保留、单多人撬锁与聊天朝向、R01两路线、R02协作与对照重跑全通过。不给随机保底，不将初始化当通关或真人乐趣证据。",
+        "dependencyIds": [
+          "3a0ec022-03df-4810-a8ba-9a16c5c69fe1"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/scripts/debug/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "开发验证入口与两房间配置记录",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T12:55:08.839Z",
+        "note": "制作人自验收：54配置真实种子复现及4项关键规则/通路检查退出0。可解分类引用完整路线证据，全聊天因静态门箱断路且无开路技能标记规则无解；48未实测配置明确保留未知。随机复现和关键回归满足P07标准，尚不形成趣味性结论。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "b9b0d2bb-9a1c-4db7-bf8e-40cc8310e96b",
+      "taskId": "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始接入已独立验收的art-v01角色图集、纸卡/技能状态、环境道具及真实操作音效；保持移动/碰撞/技能/狱警规则。验证两个窗口尺寸、两关通路和声音停止边界。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p07-configuration-matrix.json"
+      ],
+      "at": "2026-10-04T12:55:17.500Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+        "title": "P08 美术与反馈接入、双关整体回归",
+        "description": "将最小资产接入同一可玩主干，确认美术没有改变规则或掩盖危险。集成后单独验收整体可玩性与可读性。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "同一构建在1280×720和960×540运行；脚底锚点与真实位置一致、墙不遮交互点、视野按实际障碍裁切；技能动作与切换状态一致，音效停止/完成无残留；两关关键路线与抓回状态保持通过；保存实际截图/运行证据和资产版本。素材交付验收不替代此集成验收。",
+        "result": "开始接入已独立验收的art-v01角色图集、纸卡/技能状态、环境道具及真实操作音效；保持移动/碰撞/技能/狱警规则。验证两个窗口尺寸、两关通路和声音停止边界。",
+        "dependencyIds": [
+          "edb2f813-8ede-43a2-89ca-1203725643e0",
+          "a7c7e0de-203e-42d3-97b9-daf03e204775",
+          "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "edb2f813-8ede-43a2-89ca-1203725643e0",
+          "a7c7e0de-203e-42d3-97b9-daf03e204775",
+          "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/actors/",
+            "E:/Project/Godot/这次怎么逃/scenes/props/",
+            "E:/Project/Godot/这次怎么逃/scenes/ui/",
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd"
+          ],
+          "entry": "F5 → 选择 R01/R02 → 逃脱结算 → 重开",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f5f366ae-2e6b-45ee-bd9c-f3cb69d83cb0",
+      "taskId": "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "纸片风资产已接入双关同一构建escape-v0.1-20261004：42/48脚底图集、真实位移动画、独立选中/操作状态、动态道具与裁切视野、中文纸卡、9音效。1280×720与960×540原生D3D12窗口20项检查全通过；双关四关键路线及抓回/遮挡/并行技能回归通过；原生实时R01开锁、R02聊天掩护三人完成零抓回。修正可见头部点选与无声headless退出资源残留。声音状态技术检查通过，人耳音色偏好和真人核心决策仍待P09。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p08-build.json — 15个运行源码/场景/数据哈希与资产版本",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p08-1280x720.json 与 p08-1280x720.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p08-960x540.json 与 p08-960x540.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p08-live-r01-lock.json 与 p08-live-r01-lock.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p08-live-r02.json 与 p08-live-r02.png",
+        "E:/Project/Godot/这次怎么逃/tests/presentation_check.gd — 动画/输入/技能切换、声音并行/暂停/中断/完成实际窗口检查",
+        "E:/Project/Godot/这次怎么逃/docs/tests/playable-v01.md 与 start-playtest.cmd",
+        "E:/Project/Godot/这次怎么逃/docs/dev/p03-check-result.json、p04-check-result.json、p05-route-result.json 及 docs/playtests/p06-r02-result.json — 集成后最新规则/通路复测"
+      ],
+      "at": "2026-10-04T13:05:20.179Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+        "title": "P08 美术与反馈接入、双关整体回归",
+        "description": "将最小资产接入同一可玩主干，确认美术没有改变规则或掩盖危险。集成后单独验收整体可玩性与可读性。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "1c5155d1-32f5-4b87-9980-1de8c2f6f341",
+        "acceptance": "同一构建在1280×720和960×540运行；脚底锚点与真实位置一致、墙不遮交互点、视野按实际障碍裁切；技能动作与切换状态一致，音效停止/完成无残留；两关关键路线与抓回状态保持通过；保存实际截图/运行证据和资产版本。素材交付验收不替代此集成验收。",
+        "result": "纸片风资产已接入双关同一构建escape-v0.1-20261004：42/48脚底图集、真实位移动画、独立选中/操作状态、动态道具与裁切视野、中文纸卡、9音效。1280×720与960×540原生D3D12窗口20项检查全通过；双关四关键路线及抓回/遮挡/并行技能回归通过；原生实时R01开锁、R02聊天掩护三人完成零抓回。修正可见头部点选与无声headless退出资源残留。声音状态技术检查通过，人耳音色偏好和真人核心决策仍待P09。",
+        "dependencyIds": [
+          "edb2f813-8ede-43a2-89ca-1203725643e0",
+          "a7c7e0de-203e-42d3-97b9-daf03e204775",
+          "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "edb2f813-8ede-43a2-89ca-1203725643e0",
+          "a7c7e0de-203e-42d3-97b9-daf03e204775",
+          "1afc96b7-e11a-4bef-bfe0-639891ac653a"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scenes/actors/",
+            "E:/Project/Godot/这次怎么逃/scenes/props/",
+            "E:/Project/Godot/这次怎么逃/scenes/ui/",
+            "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/scripts/ui/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd"
+          ],
+          "entry": "F5 → 选择 R01/R02 → 逃脱结算 → 重开",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T13:05:42.210Z",
+        "note": "制作人集成自验收：核对源码哈希未变化、两尺寸原生图片/窗口状态、独立技能与音频暂停/取消/开门/结算停止记录；同构建的R01/R02原生实时三人完成且零抓回。视野继续消费实际几何，素材/卡片不改变技能或警戒。当前构建可进入P09真人尝试；音色偏好、策略理解和乐趣不作自动验证结论。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "99816ba5-6a5a-4d8c-8a7f-f7506dcd6f27",
+      "taskId": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "P08已验收，已准备同构建真人试玩入口和记录模板，向用户请求逐局反馈。当前真人有效尝试0次，自动路线不计入；等待实际行为/原话，不提前判断核心乐趣。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p09-protocol.md",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p09-observations.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/playable-v01.md"
+      ],
+      "at": "2026-10-04T13:06:50.811Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+        "title": "P09 真人试玩与核心决策观察",
+        "description": "验证玩家是否先观察技能和巡逻，再调整分工、路线与行动顺序。至少记录3次真人尝试，尽量包含一位未参与设计者；固定配置先比较，再观察随机局。",
+        "kind": "关卡",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+        "acceptance": "记录构建、配置/种子、观察步骤、玩家实际动作与原话；覆盖是否查看技能、读懂中断/抓回、主动安排掩护、改变行动顺序，以及是否重抽代替思考。至少3次真人尝试并注明参与者是否设计者；无法组织时保持此项待完成。结论可为保留/修改/放弃，负面结论也可交付有效报告；禁止把自动通关写成真人趣味性证据。",
+        "result": "P08已验收，已准备同构建真人试玩入口和记录模板，向用户请求逐局反馈。当前真人有效尝试0次，自动路线不计入；等待实际行为/原话，不提前判断核心乐趣。",
+        "dependencyIds": [
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/docs/playtests/"
+          ],
+          "entry": "同一 Godot 构建的 R01/R02 真人试玩",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4f46ee64-9894-4fef-944d-062455ba9f7d",
+      "taskId": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "受阻",
+      "summary": "试玩构建/入口与记录模板已就绪，已向用户请求逐局实际反馈。真人有效尝试0/3，尚无可记录的行为与原话，P09等待玩家试玩；P10保持待开始。自动技术验证已经P08验收，不能替代真人趣味性结论。M1/M2/M3任务全部已验收，独立里程碑状态需在GameCreator排期界面确认（当前MCP不提供该流程写入）。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p09-protocol.md",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p09-observations.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/playable-v01.md"
+      ],
+      "at": "2026-10-04T13:09:05.968Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+        "title": "P09 真人试玩与核心决策观察",
+        "description": "验证玩家是否先观察技能和巡逻，再调整分工、路线与行动顺序。至少记录3次真人尝试，尽量包含一位未参与设计者；固定配置先比较，再观察随机局。",
+        "kind": "关卡",
+        "owner": "制作人",
+        "status": "受阻",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+        "acceptance": "记录构建、配置/种子、观察步骤、玩家实际动作与原话；覆盖是否查看技能、读懂中断/抓回、主动安排掩护、改变行动顺序，以及是否重抽代替思考。至少3次真人尝试并注明参与者是否设计者；无法组织时保持此项待完成。结论可为保留/修改/放弃，负面结论也可交付有效报告；禁止把自动通关写成真人趣味性证据。",
+        "result": "试玩构建/入口与记录模板已就绪，已向用户请求逐局实际反馈。真人有效尝试0/3，尚无可记录的行为与原话，P09等待玩家试玩；P10保持待开始。自动技术验证已经P08验收，不能替代真人趣味性结论。M1/M2/M3任务全部已验收，独立里程碑状态需在GameCreator排期界面确认（当前MCP不提供该流程写入）。",
+        "dependencyIds": [
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/docs/playtests/"
+          ],
+          "entry": "同一 Godot 构建的 R01/R02 真人试玩",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "blockedByTaskIds": []
+    },
+    {
+      "id": "a725780a-0ecb-4958-8f42-af8d1c3b9b42",
+      "taskId": "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已复现R01在30/60/110帧下巡逻一圈后于(约685,505)附近格点往返：固定0.22秒重规划重新插入起点。开始修正共用路径推进、RTS独立持续移动命令和视觉水平翻转；用户截图/三项实际意见单独记录，不计作3次完整真人尝试。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-patrol-before.json",
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-0498e173-e4aa-40e1-8eb4-a159d890071e.png"
+      ],
+      "at": "2026-10-04T13:14:48.159Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+        "title": "P11 真人反馈：巡逻卡住、RTS点选移动与左右翻转",
+        "description": "依据用户2026-10-04截图与实际试玩反馈修正三个问题：狱警巡逻偶发卡住；独立操作改为RTS式左键选人/右键移动；人物随实际水平朝向翻转。先复现再修正，并同步玩法提示与接口文档。此修正独立于尚需3次真人尝试的P09/P10，不把本反馈伪作3次试玩。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+        "acceptance": "保存巡逻卡住的修前复现与原因；两房不同帧率持续巡逻/遮挡变化不永久停滞，追击/聊天固定警戒规则保持。左键只选人，右键路径移动，换人后先前命令继续；墙/关闭门/伙伴阻挡有效，不可达目标清楚反馈，力量可通过命令实际推箱；E技能与S停止边界清楚。三友军和狱警左右水平翻转，脚底锚点及方向符号不翻错，静止保留朝向。两尺寸输入、现有技能/动态遮挡/关键路线回归通过，交付v0.2记录与实际截图，真人意见如实保存。",
+        "result": "已复现R01在30/60/110帧下巡逻一圈后于(约685,505)附近格点往返：固定0.22秒重规划重新插入起点。开始修正共用路径推进、RTS独立持续移动命令和视觉水平翻转；用户截图/三项实际意见单独记录，不计作3次完整真人尝试。",
+        "dependencyIds": [
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/playtests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5 → 左键人物/卡片选择 → 右键地面移动 → E技能/S停止",
+          "interfaceContract": "每人独立持续移动命令与技能，选中只影响下一次指令；共用真实碰撞/导航/视线，保留三技能和固定即时警戒。人物水平翻转由实际朝向消费，不修改原PNG或主美凭证。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "de29441b-daa3-4b1b-bfc7-d4b5d792685b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T13:12:57.414Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3a79d18c-45c3-4d35-82b8-45b4c36a35e5",
+      "taskId": "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "escape-v0.2三项真实反馈已修正：R01巡逻一圈后重复格点折返已复现并修复；RTS左键选择/右键独立持续路径命令、E技能/S停止、右键出口；四角色仅身体绕脚底水平翻转。两房30/60/110帧持续120秒巡逻正常，箱子占据巡逻点也可恢复；20项RTS行为检查、两原生窗口尺寸21项表现检查、原生鼠标/按键左行与S停止、双关四路线回归通过，原生R01/R02完整三人逃脱零抓回。旧固定时机路线在狱警恢复正常后会被抓，保存对照并验证替代路线；不弱化警戒。GameCreator规则已同步，3次完整真人尝试数量仍未建立。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/playtests/user-feedback-20261004-01.json 与 .png — 用户三项原话/截图",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-build.json — v0.2运行源码/场景/数据哈希",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-patrol-before.json、p11-patrol-after.json、p11-patrol-dynamic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-rts.json 与 p11-native-rts.json/.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-1280x720.json/.png 与 p11-960x540.json/.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-r01-routes.json、p11-r02-routes.json、p11-live-r01-lock.json、p11-live-r02.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p11-environment.json、p11-guard.json、p11-skills.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/playable-v02.md 与 docs/dev/runtime-contract.md",
+        "E:/Docs/这次怎么逃/ai/changes/6a20cc32-61d4-42f0-bb73-b01cddad4efa.json — 已应用新输入规则"
+      ],
+      "at": "2026-10-04T13:30:58.472Z",
+      "evidenceVersion": 3,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+        "title": "P11 真人反馈：巡逻卡住、RTS点选移动与左右翻转",
+        "description": "依据用户2026-10-04截图与实际试玩反馈修正三个问题：狱警巡逻偶发卡住；独立操作改为RTS式左键选人/右键移动；人物随实际水平朝向翻转。先复现再修正，并同步玩法提示与接口文档。此修正独立于尚需3次真人尝试的P09/P10，不把本反馈伪作3次试玩。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+        "acceptance": "保存巡逻卡住的修前复现与原因；两房不同帧率持续巡逻/遮挡变化不永久停滞，追击/聊天固定警戒规则保持。左键只选人，右键路径移动，换人后先前命令继续；墙/关闭门/伙伴阻挡有效，不可达目标清楚反馈，力量可通过命令实际推箱；E技能与S停止边界清楚。三友军和狱警左右水平翻转，脚底锚点及方向符号不翻错，静止保留朝向。两尺寸输入、现有技能/动态遮挡/关键路线回归通过，交付v0.2记录与实际截图，真人意见如实保存。",
+        "result": "escape-v0.2三项真实反馈已修正：R01巡逻一圈后重复格点折返已复现并修复；RTS左键选择/右键独立持续路径命令、E技能/S停止、右键出口；四角色仅身体绕脚底水平翻转。两房30/60/110帧持续120秒巡逻正常，箱子占据巡逻点也可恢复；20项RTS行为检查、两原生窗口尺寸21项表现检查、原生鼠标/按键左行与S停止、双关四路线回归通过，原生R01/R02完整三人逃脱零抓回。旧固定时机路线在狱警恢复正常后会被抓，保存对照并验证替代路线；不弱化警戒。GameCreator规则已同步，3次完整真人尝试数量仍未建立。",
+        "dependencyIds": [
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/playtests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5 → 左键人物/卡片选择 → 右键地面移动 → E技能/S停止",
+          "interfaceContract": "每人独立持续移动命令与技能，选中只影响下一次指令；共用真实碰撞/导航/视线，保留三技能和固定即时警戒。人物水平翻转由实际朝向消费，不修改原PNG或主美凭证。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "de29441b-daa3-4b1b-bfc7-d4b5d792685b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T13:12:57.414Z"
+          }
+        ]
+      },
+      "supplements": [
+        {
+          "id": "8b369d1f-fbbe-4129-acb7-a2b8a5fb3383",
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T13:32:04.004Z",
+          "note": "更正首次summary的原生R01通过表述：首次运行未核对脚本缓存，实际commands仍是旧的第三人上方路线，原生结果被抓1次/未完成；不能作为新版通过证据。R01修正后的下方路线已通过独立步进，R02原生通过。已保留失败记录并将重启，核对实际commands后重新跑R01，再提交更新证据版本供验收。",
+          "deliveryVersion": "escape-v0.2-20261004",
+          "evidence": [
+            "E:/Project/Godot/这次怎么逃/docs/tests/p11-live-r01-old-script-cache.json 与 .png",
+            "E:/Project/Godot/这次怎么逃/docs/tests/p11-r01-routes.json"
+          ]
+        },
+        {
+          "id": "36f7a40c-26eb-4098-96a0-cbcfb20ea8c7",
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T13:33:55.596Z",
+          "note": "重启并回读实际commands确认第三人走下方(560,500)/(945,500)后，原生R01重新实测完成三人撤离：17.21秒、零抓回，passed=true。当前p11-live-r01-lock.json/.png为此次正确重跑；旧缓存失败另存p11-live-r01-old-script-cache。两房实时路线、最终六组规则/操作回归及两窗口表现均通过，运行源码16文件和主美54资产哈希无变化。仅技术修正验收，不宣称真人三次体验已完成。",
+          "deliveryVersion": "escape-v0.2-20261004",
+          "evidence": [
+            "E:/Project/Godot/这次怎么逃/docs/tests/p11-live-r01-lock.json 与 .png",
+            "E:/Project/Godot/这次怎么逃/docs/tests/p11-live-r02.json 与 .png",
+            "E:/Project/Godot/这次怎么逃/docs/tests/p11-build.json",
+            "E:/Project/Godot/这次怎么逃/docs/tests/playable-v02.md"
+          ]
+        }
+      ],
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T13:33:56.147Z",
+        "note": "制作人独立开发自验收，核对证据v3：R01修前格点往返已复现；同导航/碰撞在两房三帧率连续巡逻及动态堵点后恢复，固定范围与即时检测不变。RTS真实窗口输入、持续多人命令/技能起止、水平镜像脚底、两尺寸显示和双关四路线回归通过。原生旧缓存失败单独保留并更正，重启后实际正确路线R01/R02三人零抓回均通过，源文件与主美原资产哈希核对一致。接受三项针对性修正，P09完整真人决策观察仍未完成。",
+        "mode": "producer-self",
+        "evidenceVersion": 3
+      }
+    },
+    {
+      "id": "28a0f15f-c9b3-4e5d-87a7-f534c542cfdc",
+      "taskId": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "受阻",
+      "summary": "已收到用户v0.1截图和巡逻/RTS操作/朝向三项真实问题，保留原话并启动独立P11即时修正。完整逐局尝试数量和决策行为尚未建立，因此不把三项问题算作三次试玩；P09仍等待至少3次实际流程记录，P10依赖保持。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/playtests/user-feedback-20261004-01.json",
+        "E:/Project/Godot/这次怎么逃/docs/playtests/p09-observations.json"
+      ],
+      "at": "2026-10-04T13:33:10.667Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+        "title": "P09 真人试玩与核心决策观察",
+        "description": "验证玩家是否先观察技能和巡逻，再调整分工、路线与行动顺序。至少记录3次真人尝试，尽量包含一位未参与设计者；固定配置先比较，再观察随机局。",
+        "kind": "关卡",
+        "owner": "制作人",
+        "status": "受阻",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "6ac88792-6fb4-495b-b455-6cc8f9a5a77d",
+        "acceptance": "记录构建、配置/种子、观察步骤、玩家实际动作与原话；覆盖是否查看技能、读懂中断/抓回、主动安排掩护、改变行动顺序，以及是否重抽代替思考。至少3次真人尝试并注明参与者是否设计者；无法组织时保持此项待完成。结论可为保留/修改/放弃，负面结论也可交付有效报告；禁止把自动通关写成真人趣味性证据。",
+        "result": "已收到用户v0.1截图和巡逻/RTS操作/朝向三项真实问题，保留原话并启动独立P11即时修正。完整逐局尝试数量和决策行为尚未建立，因此不把三项问题算作三次试玩；P09仍等待至少3次实际流程记录，P10依赖保持。",
+        "dependencyIds": [
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          },
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/docs/playtests/"
+          ],
+          "entry": "同一 Godot 构建的 R01/R02 真人试玩",
+          "interfaceContract": "固定 actor_id 与随机 skill_id 分离；位置、朝向、操作状态、被抓与逃脱状态由逻辑维护；每名人物拥有自己的持续操作，selected_actor_id 只控制输入。墙、锁门、重箱统一提供移动阻挡和视线遮挡，箱子移动/门开启后刷新通路。美术消费状态，不修改碰撞、距离、进度或随机结果。 保留Godot AI插件与GameCreator生成目录；共享文件改动由制作人维护。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "28d637ae-457b-4741-bf01-27fd093f0d7b",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T12:10:00.082Z"
+          }
+        ]
+      },
+      "blockedByTaskIds": []
+    },
+    {
+      "id": "art-a03-start-20261004-v02",
+      "taskId": "a215989b-decd-41ac-8576-9faeb59b363e",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "收到用户明确替换授权并实际开工。已完成7张新版原创矢量/PNG、分层墙体组件、门箱ground_rect与固定立面高度、55/62角色配置。原17文件哈希、4角色原PNG/锚点一致及Godot7纹理原生读取通过；正在小尺寸预览与GameCreator风格草稿更新，游戏集成由P12另验收。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/perspective-v02-integration.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-native-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-resources-v02.json"
+      ],
+      "at": "2026-10-04T13:45:05.964Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a215989b-decd-41ac-8576-9faeb59b363e",
+        "title": "A03 已确认轻斜俯视场景资源 art-v02",
+        "description": "用户在美术聊天确认R02概念并授权替换/向制作人反馈；按perspective-direction-approved-v01制作墙/障碍顶面与低立面、箱体厚度、短落地阴影及淡地板，复用v01角色。与制作人对齐占地/视觉高度/贴图锚点和版本清单，原资源保留回滚；不得改共享脚本。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "提供art-v02最终纹理/源文件/manifest/哈希/来源；明确footprint像素rect、逻辑占地与立面/阴影padding、固定视觉高度或分层组件。支持不同墙段尺寸和移动箱子，角色试装友军55/狱警62但脚底锚点不变，仍沿用1+2帧及逻辑水平翻转。区分烘焙和程序阴影，避免重复；地板低对比。资源读取与小尺寸检查，说明未覆盖项，制作人独立审核，集成另由P12验证。",
+        "result": "收到用户明确替换授权并实际开工。已完成7张新版原创矢量/PNG、分层墙体组件、门箱ground_rect与固定立面高度、55/62角色配置。原17文件哈希、4角色原PNG/锚点一致及Godot7纹理原生读取通过；正在小尺寸预览与GameCreator风格草稿更新，游戏集成由P12另验收。",
+        "dependencyIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "art-v02资源与接入清单，v01保留",
+          "interfaceContract": "地面坐标/碰撞/AI/左右翻转保持P11；视觉高度与占地分开；提供明确映射，主美只交付资源，由制作人改共享脚本。用自己的凭证反馈，资源交付不等于游戏集成通过。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T13:43:28.826Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "823fdcbe-88c8-4669-a7d6-cba7e5575069",
+      "taskId": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "受阻",
+      "summary": "A03资源已到工作目录，尚待主美正式提交与制作人独立验收；按任务允许先准备分层渲染和回滚接口，最终引用暂不切换。",
+      "evidence": [
+        "docs/art/perspective-v02-integration.txt",
+        "data/presentation/（待准备接口）"
+      ],
+      "at": "2026-10-04T13:47:35.773Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+        "title": "P12 art-v02层次渲染接入与双关视觉验收",
+        "description": "可先准备渲染接口和版本回滚，最终纹理引用与资源替换等待A03交付并独立验收。接入用户已确认的低立面/厚箱/短阴影/淡地板与角色55/62试装，处理地面/视野/物体/人物/提示层次，保留P11规则和输入。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "受阻",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "待A03验收后才切换最终清单；v01可回滚。R01/R02在1280×720和960×540实际截图可读：角色脚底/水平翻转正确，窄通路、前后遮挡、门操作点与真实裁切警戒可辨；图标不遮大头，阴影不叠加过重。地图数据、碰撞/寻路/技能/AI参数不变，RTS/巡逻/双关关键路线相关回归通过；交付源码和资产版本、截图与视觉结论。",
+        "result": "A03资源已到工作目录，尚待主美正式提交与制作人独立验收；按任务允许先准备分层渲染和回滚接口，最终引用暂不切换。",
+        "dependencyIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "references": [
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "integrationTaskIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关，资源最终清单切换后两尺寸实际验证",
+          "interfaceContract": "只修改视觉消费层、排序、纹理映射和版本配置。地图与游戏行为不变，资源交付前保留v01实际引用；可提前准备接口。三人技能/选中/移动命令独立，继续实际facing水平翻转。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T13:43:28.826Z"
+          }
+        ]
+      },
+      "blockedByTaskIds": [
+        "a215989b-decd-41ac-8576-9faeb59b363e"
+      ]
+    },
+    {
+      "id": "art-a03-final-v02-20261004",
+      "taskId": "a215989b-decd-41ac-8576-9faeb59b363e",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "A03资源完成，版本art-v02-perspective-20261004-54a7161c7820：7原创SVG/PNG+3新版manifest共17哈希文件；墙顶/立面独立且固定18/24高度，门箱ground_rect精确映射原占地与20视觉高度；逐项shadow_baked=false，程序阴影只画一次。角色55/62试装，4原PNG与区域/锚点一致。Godot7纹理读取与17哈希/占地检查通过，1280/960预览已检查低对比地板、人物编号、门锁和透明开门通道。GC风格草稿已应用并确认基准revision2、历史revision1保留，art-assets模块文档同步。主美未改共享脚本；动态遮挡/双关/开门推动/真实窗口由P12另验收。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/A03-delivery-v02.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/perspective-v02-integration.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-resources-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-native-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-browser-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-perspective-preview-1280x720-v02.png",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-perspective-preview-960x540-v02.png"
+      ],
+      "at": "2026-10-04T13:50:44.119Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a215989b-decd-41ac-8576-9faeb59b363e",
+        "title": "A03 已确认轻斜俯视场景资源 art-v02",
+        "description": "用户在美术聊天确认R02概念并授权替换/向制作人反馈；按perspective-direction-approved-v01制作墙/障碍顶面与低立面、箱体厚度、短落地阴影及淡地板，复用v01角色。与制作人对齐占地/视觉高度/贴图锚点和版本清单，原资源保留回滚；不得改共享脚本。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "提供art-v02最终纹理/源文件/manifest/哈希/来源；明确footprint像素rect、逻辑占地与立面/阴影padding、固定视觉高度或分层组件。支持不同墙段尺寸和移动箱子，角色试装友军55/狱警62但脚底锚点不变，仍沿用1+2帧及逻辑水平翻转。区分烘焙和程序阴影，避免重复；地板低对比。资源读取与小尺寸检查，说明未覆盖项，制作人独立审核，集成另由P12验证。",
+        "result": "A03资源完成，版本art-v02-perspective-20261004-54a7161c7820：7原创SVG/PNG+3新版manifest共17哈希文件；墙顶/立面独立且固定18/24高度，门箱ground_rect精确映射原占地与20视觉高度；逐项shadow_baked=false，程序阴影只画一次。角色55/62试装，4原PNG与区域/锚点一致。Godot7纹理读取与17哈希/占地检查通过，1280/960预览已检查低对比地板、人物编号、门锁和透明开门通道。GC风格草稿已应用并确认基准revision2、历史revision1保留，art-assets模块文档同步。主美未改共享脚本；动态遮挡/双关/开门推动/真实窗口由P12另验收。",
+        "dependencyIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34"
+        ],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "art-v02资源与接入清单，v01保留",
+          "interfaceContract": "地面坐标/碰撞/AI/左右翻转保持P11；视觉高度与占地分开；提供明确映射，主美只交付资源，由制作人改共享脚本。用自己的凭证反馈，资源交付不等于游戏集成通过。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T13:43:28.826Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T13:51:38.877Z",
+        "note": "制作人独立核查17新增文件和54原v01文件哈希无差异，四角色数值锚点/区域/纹理与时序不变，55/62高度配置正确；重新运行Godot原生7PNG读取通过，查看960资源预览，淡地板、低立面、门透明通道与脚底编号可读。组件/固定高度与门箱ground_rect清楚，无烘焙阴影；批准资源交付，真实遮挡/玩法回归仍由P12单独验收。证据 docs/tests/p12-resource-review.json、docs/art/qa-native-v02.json、A03-delivery-v02.txt。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p12-start-20261004",
+      "taskId": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "A03已独立验收，接口准备与v01 RTS回归通过；开始切换v02版本并进行原生两关两尺寸、遮挡/门箱与相关玩法回归。",
+      "evidence": [
+        "docs/tests/p12-resource-review.json",
+        "scripts/presentation/scene_layers.gd",
+        "data/presentation/v01.json",
+        "data/presentation/v02.json"
+      ],
+      "at": "2026-10-04T13:51:52.233Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+        "title": "P12 art-v02层次渲染接入与双关视觉验收",
+        "description": "可先准备渲染接口和版本回滚，最终纹理引用与资源替换等待A03交付并独立验收。接入用户已确认的低立面/厚箱/短阴影/淡地板与角色55/62试装，处理地面/视野/物体/人物/提示层次，保留P11规则和输入。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "待A03验收后才切换最终清单；v01可回滚。R01/R02在1280×720和960×540实际截图可读：角色脚底/水平翻转正确，窄通路、前后遮挡、门操作点与真实裁切警戒可辨；图标不遮大头，阴影不叠加过重。地图数据、碰撞/寻路/技能/AI参数不变，RTS/巡逻/双关关键路线相关回归通过；交付源码和资产版本、截图与视觉结论。",
+        "result": "A03已独立验收，接口准备与v01 RTS回归通过；开始切换v02版本并进行原生两关两尺寸、遮挡/门箱与相关玩法回归。",
+        "dependencyIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "references": [
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "integrationTaskIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关，资源最终清单切换后两尺寸实际验证",
+          "interfaceContract": "只修改视觉消费层、排序、纹理映射和版本配置。地图与游戏行为不变，资源交付前保留v01实际引用；可提前准备接口。三人技能/选中/移动命令独立，继续实际facing水平翻转。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T13:43:28.826Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p12-final-20261004",
+      "taskId": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完成v0.3轻斜俯视集成：默认v02及v01回滚，角色55/62原脚底镜像；地面FOV/短影、南边界体积与脚底身体排序、独立信息层；进度条和长说明布局修正闭环。两关两尺寸20实际窗口图/各24检查、各21表现检查、RTS20项、巡逻6稳定+1动态、技能/环境/视线及路线回归通过。原生实际命令R01 17.33秒/R02 15.80秒零抓回，主美终版复核通过。地图/技能/移动哈希不变；真人完整试玩仍由P09，不据自动测试宣称趣味性。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-integration.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-build.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-resource-review.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-logic-baseline.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-perspective-1280x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-perspective-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-1280x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-rollback-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-rts.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-patrol-after.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-patrol-dynamic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-live-r01-lock.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p12-live-r02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/p12-visual-review-final-v02.txt"
+      ],
+      "at": "2026-10-04T13:59:45.379Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+        "title": "P12 art-v02层次渲染接入与双关视觉验收",
+        "description": "可先准备渲染接口和版本回滚，最终纹理引用与资源替换等待A03交付并独立验收。接入用户已确认的低立面/厚箱/短阴影/淡地板与角色55/62试装，处理地面/视野/物体/人物/提示层次，保留P11规则和输入。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "待A03验收后才切换最终清单；v01可回滚。R01/R02在1280×720和960×540实际截图可读：角色脚底/水平翻转正确，窄通路、前后遮挡、门操作点与真实裁切警戒可辨；图标不遮大头，阴影不叠加过重。地图数据、碰撞/寻路/技能/AI参数不变，RTS/巡逻/双关关键路线相关回归通过；交付源码和资产版本、截图与视觉结论。",
+        "result": "完成v0.3轻斜俯视集成：默认v02及v01回滚，角色55/62原脚底镜像；地面FOV/短影、南边界体积与脚底身体排序、独立信息层；进度条和长说明布局修正闭环。两关两尺寸20实际窗口图/各24检查、各21表现检查、RTS20项、巡逻6稳定+1动态、技能/环境/视线及路线回归通过。原生实际命令R01 17.33秒/R02 15.80秒零抓回，主美终版复核通过。地图/技能/移动哈希不变；真人完整试玩仍由P09，不据自动测试宣称趣味性。",
+        "dependencyIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "references": [
+          {
+            "kind": "map",
+            "targetId": "475f5a62-7abf-4b3e-af6c-753711915da9"
+          },
+          {
+            "kind": "map",
+            "targetId": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3"
+          }
+        ],
+        "integrationTaskIds": [
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "a215989b-decd-41ac-8576-9faeb59b363e"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/world/prison_world.gd",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关，资源最终清单切换后两尺寸实际验证",
+          "interfaceContract": "只修改视觉消费层、排序、纹理映射和版本配置。地图与游戏行为不变，资源交付前保留v01实际引用；可提前准备接口。三人技能/选中/移动命令独立，继续实际facing水平翻转。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "58c47c3b-5ea8-4b47-a74f-bb00d5bdef1a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T13:43:28.826Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T14:00:03.687Z",
+        "note": "制作人按producer-self独立提交自验收：核查22源码文件哈希一致与A03 accepted；原地图/技能/MoveOrders哈希保留。20实际窗口图及24×2视觉、21×2表现、v01原生回退与RTS/巡逻/技能/环境/两关路线通过；连续真实指令路线零抓回。主美20图终版复核通过，进度条/操作说明两处布局已闭环。首次未导入纹理的运行不作为通过，最终已加载所有纹理；真人趣味性和3次尝试仍待P09。允许默认启用v02，保留v01回滚。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p13-wait-art-v03-20261004",
+      "taskId": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "受阻",
+      "summary": "A04最终手绘PNG/角色锚点尚未交付和验收；按任务允许先准备材质slot、区域取图与v03专用软阴影接口，默认保持v02，等资源accepted再接入真实新引用。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/r02-perspective-study-v01.png",
+        "E:/Project/Godot/这次怎么逃/data/presentation/active.json"
+      ],
+      "at": "2026-10-04T14:14:44.564Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+        "title": "P13 art-v03集成：柔和阴影与概念风格验收",
+        "description": "可先准备版本化材质映射与柔和接触阴影/方向短投影接口，最终引用等待A04独立验收。接入手绘PNG与逐帧锚点，保留v01/v02回滚及全部规则，实际两关两尺寸对照概念风格和可读性，与主美复核。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "受阻",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "A04 accepted后切换默认v03；体积顶面/立面衔接自然、石木材质与人物画法一致、轮廓敦实可读、软阴影有接触和方向且不重复。R01/R02在1280×720/960×540真实截图对照概念，身体遮挡/落脚/左右镜像/技能进度/操作提示/真实视野/门箱注册正确，主美复核实际图。碰撞/技能/AI/地图/输入不变，相关操作/巡逻/路线/表现回归通过。清单与源码版本匹配，旧证据保留，测试不冒充真人趣味性。",
+        "result": "A04最终手绘PNG/角色锚点尚未交付和验收；按任务允许先准备材质slot、区域取图与v03专用软阴影接口，默认保持v02，等资源accepted再接入真实新引用。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关v03主场景，版本化渲染与真实截图",
+          "interfaceContract": "只改渲染消费层和配置，不改地图/核心输入/碰撞/技能/巡逻行为。可提前准备接口，A04未验收不切换最终资源。人物脚底/真实朝向、1+2动画/信息层保持；软阴影只在v03 profile启用，v02可回滚。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      },
+      "blockedByTaskIds": [
+        "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+      ]
+    },
+    {
+      "id": "p13-preparation-ready-20261004",
+      "taskId": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "受阻",
+      "summary": "材质slot/AtlasTexture-region/props ground_rect接口与v03专用柔和阴影已准备。原生1280阴影预览4项通过，960现版表现21项通过；默认仍v02，预览未冒充新手绘资源交付。A04手绘资源正在生成，最终清单/角色帧锚点和独立验收尚未完成，P13最终引用、风格实际图和规则回归待该交付。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p13-art-interface.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-preparation.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-preparation-soft-shadow.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-compatibility-960x540.json",
+        "E:/Project/Godot/这次怎么逃/scripts/presentation/soft_shadow.gd",
+        "E:/Project/Godot/这次怎么逃/data/presentation/active.json"
+      ],
+      "at": "2026-10-04T14:19:15.832Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+        "title": "P13 art-v03集成：柔和阴影与概念风格验收",
+        "description": "可先准备版本化材质映射与柔和接触阴影/方向短投影接口，最终引用等待A04独立验收。接入手绘PNG与逐帧锚点，保留v01/v02回滚及全部规则，实际两关两尺寸对照概念风格和可读性，与主美复核。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "受阻",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "A04 accepted后切换默认v03；体积顶面/立面衔接自然、石木材质与人物画法一致、轮廓敦实可读、软阴影有接触和方向且不重复。R01/R02在1280×720/960×540真实截图对照概念，身体遮挡/落脚/左右镜像/技能进度/操作提示/真实视野/门箱注册正确，主美复核实际图。碰撞/技能/AI/地图/输入不变，相关操作/巡逻/路线/表现回归通过。清单与源码版本匹配，旧证据保留，测试不冒充真人趣味性。",
+        "result": "材质slot/AtlasTexture-region/props ground_rect接口与v03专用柔和阴影已准备。原生1280阴影预览4项通过，960现版表现21项通过；默认仍v02，预览未冒充新手绘资源交付。A04手绘资源正在生成，最终清单/角色帧锚点和独立验收尚未完成，P13最终引用、风格实际图和规则回归待该交付。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关v03主场景，版本化渲染与真实截图",
+          "interfaceContract": "只改渲染消费层和配置，不改地图/核心输入/碰撞/技能/巡逻行为。可提前准备接口，A04未验收不切换最终资源。人物脚底/真实朝向、1+2动画/信息层保持；软阴影只在v03 profile启用，v02可回滚。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      },
+      "blockedByTaskIds": [
+        "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+      ]
+    },
+    {
+      "id": "a04-start-20261004",
+      "taskId": "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已回读A04并实际制作。3张手绘石材位图已由内置imagegen生成，木箱和4角色三姿势正在生成；角色不增加帧数。将交付原PNG及region/局部anchor、floor/world重复尺度、材质slot、shadow_baked=false映射，按概念与实际场景比较验收，保留v02回退。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/r02-perspective-study-v01.png"
+      ],
+      "at": "2026-10-04T14:19:48.715Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+        "title": "A04 概念风格对齐：art-v03手绘材质与人物轮廓",
+        "description": "用imagegen制作手绘位图石板地面、石材顶面/前立面、完整木箱，修四身份人物头手鞋和敦实轮廓，每人idle/walk_a/walk_b。门/UI/FX/字体/音频可复用，原图保留，region/anchor直接取帧；与制作人对齐资源映射，禁止程序重画位图或改共享脚本。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "最终v03清单含版本/哈希/原图与生成提示来源，PNG透明/区域/逐帧脚底锚点正确，明确重复尺度/视觉尺寸/ground_rect/顶面与立面高度/阴影是否烘焙。四角色三姿势身份一致、小尺寸轮廓清楚，场景与人物画法一致，淡地板不过度抢眼。对照已确认概念检查材质/不规则边缘/立面衔接；资源自检后由制作人独立验收，真实游戏接入P13另验。保留v01/v02。",
+        "result": "已回读A04并实际制作。3张手绘石材位图已由内置imagegen生成，木箱和4角色三姿势正在生成；角色不增加帧数。将交付原PNG及region/局部anchor、floor/world重复尺度、材质slot、shadow_baked=false映射，按概念与实际场景比较验收，保留v02回退。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee"
+        ],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "art-v03原图、最终manifest及风格对照",
+          "interfaceContract": "地面坐标和规则保留P12。原PNG+region与每帧anchor取图，不程序改像素；人物1+2帧及55/62试装保持，必要比例调整要在清单明确。阴影由制作人绘制，不重复烘焙。自己的凭证提交资源，主美不改scripts。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a04-final-v03-20261004",
+      "taskId": "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "A04手绘资源完成，最终art-v03-handpaint-20261004-05ac759ba4ad：8内置imagegen原PNG+3manifest+提示/修正/来源共14哈希文件，未改像素，旧v01/v02全部不变。floor512/top256、block上半单张、front中整排0.74背光，crate局部ground映射94×92，门复用。四身份60/72、12帧紧贴主体、脚底余量<1、高度差<0.011；一号细长与guard重复第三步已修正。Godot10PNG/Atlas/12frame anchor及2视窗资源预览通过，已对照概念检查手绘质感/轮廓/暗立面。主美未改共享脚本；P13实际风格、遮挡/阴影/双关回归另验收。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/A04-delivery-v03.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/delivery-v03.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/handpaint-v03-integration.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-resources-v03.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-native-v03.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-browser-v03.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-handpaint-preview-1280x720-v03.png",
+        "E:/Project/Godot/这次怎么逃/docs/art/qa-handpaint-preview-960x540-v03.png"
+      ],
+      "at": "2026-10-04T14:38:00.088Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
+        "title": "A04 概念风格对齐：art-v03手绘材质与人物轮廓",
+        "description": "用imagegen制作手绘位图石板地面、石材顶面/前立面、完整木箱，修四身份人物头手鞋和敦实轮廓，每人idle/walk_a/walk_b。门/UI/FX/字体/音频可复用，原图保留，region/anchor直接取帧；与制作人对齐资源映射，禁止程序重画位图或改共享脚本。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "最终v03清单含版本/哈希/原图与生成提示来源，PNG透明/区域/逐帧脚底锚点正确，明确重复尺度/视觉尺寸/ground_rect/顶面与立面高度/阴影是否烘焙。四角色三姿势身份一致、小尺寸轮廓清楚，场景与人物画法一致，淡地板不过度抢眼。对照已确认概念检查材质/不规则边缘/立面衔接；资源自检后由制作人独立验收，真实游戏接入P13另验。保留v01/v02。",
+        "result": "A04手绘资源完成，最终art-v03-handpaint-20261004-05ac759ba4ad：8内置imagegen原PNG+3manifest+提示/修正/来源共14哈希文件，未改像素，旧v01/v02全部不变。floor512/top256、block上半单张、front中整排0.74背光，crate局部ground映射94×92，门复用。四身份60/72、12帧紧贴主体、脚底余量<1、高度差<0.011；一号细长与guard重复第三步已修正。Godot10PNG/Atlas/12frame anchor及2视窗资源预览通过，已对照概念检查手绘质感/轮廓/暗立面。主美未改共享脚本；P13实际风格、遮挡/阴影/双关回归另验收。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee"
+        ],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/",
+            "E:/Project/Godot/这次怎么逃/docs/art/"
+          ],
+          "entry": "art-v03原图、最终manifest及风格对照",
+          "interfaceContract": "地面坐标和规则保留P12。原PNG+region与每帧anchor取图，不程序改像素；人物1+2帧及55/62试装保持，必要比例调整要在清单明确。阴影由制作人绘制，不重复烘焙。自己的凭证提交资源，主美不改scripts。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T14:39:32.047Z",
+        "note": "制作人独立验收最终05ac759ba4ad版本：14文件哈希及8原PNG逐字节一致，v01/v02无修改；重跑Godot10PNG/Atlas/12帧检查与独立原图alpha>32测量，足点注册/三帧可见高度稳定通过。查看四人物三姿势、木箱、石材原图与最新960资源预览，对照概念手绘材质/敦实轮廓改善明确。单排front .74背光元数据与crate局部ground_rect15.87视觉高度清楚；原图不改像素。资源交付accepted，实际游戏两关两尺寸风格/阴影/可读性与规则回归由P13另验收，不把预览当游戏效果。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p13-start-final-v03-20261004",
+      "taskId": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "A04最终05ac759ba4ad已制作人独立accepted；开始消费最终v03原PNG/region/脚底锚点，切换默认v03，比较地板重复尺度并完成两关两尺寸实际图、主美风格复核及相关回归。",
+      "evidence": [
+        "docs/tests/p13-resource-review.json",
+        "docs/tests/p13-frames.json",
+        "docs/art/A04-delivery-v03.txt"
+      ],
+      "at": "2026-10-04T14:40:22.207Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+        "title": "P13 art-v03集成：柔和阴影与概念风格验收",
+        "description": "可先准备版本化材质映射与柔和接触阴影/方向短投影接口，最终引用等待A04独立验收。接入手绘PNG与逐帧锚点，保留v01/v02回滚及全部规则，实际两关两尺寸对照概念风格和可读性，与主美复核。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "A04 accepted后切换默认v03；体积顶面/立面衔接自然、石木材质与人物画法一致、轮廓敦实可读、软阴影有接触和方向且不重复。R01/R02在1280×720/960×540真实截图对照概念，身体遮挡/落脚/左右镜像/技能进度/操作提示/真实视野/门箱注册正确，主美复核实际图。碰撞/技能/AI/地图/输入不变，相关操作/巡逻/路线/表现回归通过。清单与源码版本匹配，旧证据保留，测试不冒充真人趣味性。",
+        "result": "A04最终05ac759ba4ad已制作人独立accepted；开始消费最终v03原PNG/region/脚底锚点，切换默认v03，比较地板重复尺度并完成两关两尺寸实际图、主美风格复核及相关回归。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关v03主场景，版本化渲染与真实截图",
+          "interfaceContract": "只改渲染消费层和配置，不改地图/核心输入/碰撞/技能/巡逻行为。可提前准备接口，A04未验收不切换最终资源。人物脚底/真实朝向、1+2动画/信息层保持；软阴影只在v03 profile启用，v02可回滚。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p13-final-20261004",
+      "taskId": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "v0.4 art-v03实际集成完成，冻结FINAL-WARM-01。8原PNG按Atlas/帧区域直接消费，60/72脚底与镜像稳定；floor384、暖浅顶面[1.18,1.14,1.08]、front.74/窄侧4/.68、正确门箱注册及柔和单次阴影。主美逐张20实机场景图对照概念复核通过且哈希匹配；各24视觉/各21表现、RTS20、稳定/动态巡逻及两关路线回归通过，最终warm原生连续R01 17.330秒/R02 15.796秒零抓回。24源码哈希、14非presentation文件与P12不变；v01/v02回退通过，真人趣味性仍P09。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-integration.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-build.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-resource-review.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-frames.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-logic-baseline.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-perspective-1280x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-perspective-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-1280x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-rts.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-patrol-after.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-patrol-dynamic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-live-r01-lock.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-live-r02.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-rollback-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p13-rollback-v02.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/p13-visual-review-final-v03.txt",
+        "E:/Project/Godot/这次怎么逃/docs/art/p13-visual-review-final-v03.json"
+      ],
+      "at": "2026-10-04T15:02:17.809Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
+        "title": "P13 art-v03集成：柔和阴影与概念风格验收",
+        "description": "可先准备版本化材质映射与柔和接触阴影/方向短投影接口，最终引用等待A04独立验收。接入手绘PNG与逐帧锚点，保留v01/v02回滚及全部规则，实际两关两尺寸对照概念风格和可读性，与主美复核。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "A04 accepted后切换默认v03；体积顶面/立面衔接自然、石木材质与人物画法一致、轮廓敦实可读、软阴影有接触和方向且不重复。R01/R02在1280×720/960×540真实截图对照概念，身体遮挡/落脚/左右镜像/技能进度/操作提示/真实视野/门箱注册正确，主美复核实际图。碰撞/技能/AI/地图/输入不变，相关操作/巡逻/路线/表现回归通过。清单与源码版本匹配，旧证据保留，测试不冒充真人趣味性。",
+        "result": "v0.4 art-v03实际集成完成，冻结FINAL-WARM-01。8原PNG按Atlas/帧区域直接消费，60/72脚底与镜像稳定；floor384、暖浅顶面[1.18,1.14,1.08]、front.74/窄侧4/.68、正确门箱注册及柔和单次阴影。主美逐张20实机场景图对照概念复核通过且哈希匹配；各24视觉/各21表现、RTS20、稳定/动态巡逻及两关路线回归通过，最终warm原生连续R01 17.330秒/R02 15.796秒零抓回。24源码哈希、14非presentation文件与P12不变；v01/v02回退通过，真人趣味性仍P09。",
+        "dependencyIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "F5双关v03主场景，版本化渲染与真实截图",
+          "interfaceContract": "只改渲染消费层和配置，不改地图/核心输入/碰撞/技能/巡逻行为。可提前准备接口，A04未验收不切换最终资源。人物脚底/真实朝向、1+2动画/信息层保持；软阴影只在v03 profile启用，v02可回滚。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "ccadcc4e-d305-4bf0-9d62-607fa148a31d",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T14:13:31.351Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T15:03:01.901Z",
+        "note": "producer-self自验收：A04已独立accepted，最终FINAL-WARM-01资产原PNG/Atlas取图、12帧脚底与三姿势高度稳定；24源文件与自身交付哈希一致，14非presentation文件与P12完全一致。主美20张实际Godot图逐张对照概念美术通过且哈希吻合；暖浅顶面/暗前侧面、floor384与60/72角色、柔和阴影、交互信息和两尺寸可读，记录模块化颗粒/重复感及克制投影边界。24×2场景、21×2表现、RTS20/巡逻/路线回归通过；最终warm原生路线17.330/15.796秒均零抓回。v01/v02原生回退可用，主干已启动确认当前warm；不把自动测试当真人趣味性。接受v0.4交付，P09真人尝试仍独立待完成。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    }
+  ]
+}

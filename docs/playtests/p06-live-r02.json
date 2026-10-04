@@ -1,0 +1,115 @@
+{
+	"command": 10,
+	"passed": true,
+	"reason": "completed",
+	"route": "chat_lock",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.8350710272789,
+					0.550142109394073
+				],
+				"position": [
+					997.484436035156,
+					446.991333007813
+				],
+				"selected": true,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.999999761581421,
+					0.000658480683341622
+				],
+				"position": [
+					997.280334472656,
+					394.971984863281
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					0.949947953224182,
+					0.312407970428467
+				],
+				"position": [
+					997.816284179688,
+					421.127593994141
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 2,
+		"dragged_actor_id": -1,
+		"elapsed": 15.4909090909087,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				0.899423658847809,
+				0.437077879905701
+			],
+			"fov_degrees": 120,
+			"lost_time": 0.0363636363636364,
+			"path_size": 1,
+			"position": [
+				895.932189941406,
+				395.367309570313
+			],
+			"route_index": 2,
+			"state": "chasing",
+			"target_id": 0,
+			"view_radius": 110.0
+		},
+		"guard_position": [
+			895.932189941406,
+			395.367309570313
+		],
+		"phase": "complete",
+		"seed": 33,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				831.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": true,
+			"lock_progress": 1.0,
+			"obstacle_revision": 5,
+			"push_distance": 0.0,
+			"room_id": "r02"
+		}
+	},
+	"trace": [
+		{
+			"actor": 1,
+			"elapsed": 9.81212121212099,
+			"escaped": true
+		},
+		{
+			"actor": 2,
+			"elapsed": 13.3454545454542,
+			"escaped": true
+		},
+		{
+			"actor": 0,
+			"elapsed": 15.4909090909087,
+			"escaped": true
+		}
+	]
+}

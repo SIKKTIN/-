@@ -1,0 +1,120 @@
+{
+  "module": "gameplay-core",
+  "value": {
+    "schema": 1,
+    "rootId": "root",
+    "graphs": [
+      {
+        "id": "root",
+        "title": "房间逃脱核心循环",
+        "summary": "观察随机技能与固定房间，独立操作伙伴，安排分工与掩护，根据结果调整，全员逃脱后重新开始。",
+        "nodes": [
+          {
+            "id": "8cba906a-0623-4566-802d-d8c58d8a08ba",
+            "kind": "entry",
+            "title": "开始房间",
+            "description": "重置环境，每位伙伴随机装备一项技能。",
+            "x": 100,
+            "y": 120,
+            "childGraphId": "",
+            "gameplayIds": [
+              "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            ]
+          },
+          {
+            "id": "5b3a40cd-177e-4644-9ac5-42b8ccc4744b",
+            "kind": "activity",
+            "title": "观察与规划",
+            "description": "查看技能、门、箱子、巡逻路线和视野，决定行动顺序。",
+            "x": 350,
+            "y": 120,
+            "childGraphId": "",
+            "gameplayIds": [
+              "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            ]
+          },
+          {
+            "id": "f01af56b-7d95-46f2-8a9f-3d09666dedd6",
+            "kind": "activity",
+            "title": "独立行动与分工",
+            "description": "移动一人或启动技能，留下伙伴操作，再切换其他人。",
+            "x": 600,
+            "y": 120,
+            "childGraphId": "",
+            "gameplayIds": [
+              "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            ]
+          },
+          {
+            "id": "5475db20-182a-4210-9637-54d2cf135d9e",
+            "kind": "decision",
+            "title": "检查逃脱结果",
+            "description": "局部被抓、操作中断或通路改变时继续调整；全员逃脱才完成。",
+            "x": 850,
+            "y": 120,
+            "childGraphId": "",
+            "gameplayIds": [
+              "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            ]
+          },
+          {
+            "id": "e18fdea1-7d7b-42b2-a57d-79e62a6b16af",
+            "kind": "exit",
+            "title": "全员逃脱结算",
+            "description": "显示配置、用时与抓回次数；下一局重新随机。",
+            "x": 1100,
+            "y": 120,
+            "childGraphId": "",
+            "gameplayIds": [
+              "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "9b5c68fa-363f-47b6-9c92-c3b20005ac16",
+            "fromId": "8cba906a-0623-4566-802d-d8c58d8a08ba",
+            "toId": "5b3a40cd-177e-4644-9ac5-42b8ccc4744b",
+            "label": "查看本局配置",
+            "condition": ""
+          },
+          {
+            "id": "aae1126a-137c-494c-aaad-877896153593",
+            "fromId": "5b3a40cd-177e-4644-9ac5-42b8ccc4744b",
+            "toId": "f01af56b-7d95-46f2-8a9f-3d09666dedd6",
+            "label": "执行计划",
+            "condition": ""
+          },
+          {
+            "id": "bafc1e50-4bbd-46e7-a37f-ccaa277f5a3f",
+            "fromId": "f01af56b-7d95-46f2-8a9f-3d09666dedd6",
+            "toId": "5475db20-182a-4210-9637-54d2cf135d9e",
+            "label": "观察状态变化",
+            "condition": ""
+          },
+          {
+            "id": "b44b77d4-f02c-4a87-89e7-5979b96888f0",
+            "fromId": "5475db20-182a-4210-9637-54d2cf135d9e",
+            "toId": "5b3a40cd-177e-4644-9ac5-42b8ccc4744b",
+            "label": "尚有人未逃脱，调整",
+            "condition": ""
+          },
+          {
+            "id": "a827b42f-0517-46ee-a1c8-77fc2ef743c7",
+            "fromId": "5475db20-182a-4210-9637-54d2cf135d9e",
+            "toId": "e18fdea1-7d7b-42b2-a57d-79e62a6b16af",
+            "label": "三人全部逃脱",
+            "condition": ""
+          },
+          {
+            "id": "65db9cb9-a641-45a2-b350-aafe47bce89d",
+            "fromId": "e18fdea1-7d7b-42b2-a57d-79e62a6b16af",
+            "toId": "8cba906a-0623-4566-802d-d8c58d8a08ba",
+            "label": "重新开局",
+            "condition": ""
+          }
+        ]
+      }
+    ]
+  }
+}

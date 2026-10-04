@@ -1,0 +1,114 @@
+{
+  "schema": 2,
+  "assets": [
+    {
+      "folder": "art/props",
+      "id": "heavy_crate_v02",
+      "w": 188,
+      "h": 224,
+      "shadow_baked": false,
+      "world_size": [
+        94,
+        112
+      ],
+      "ground_rect": [
+        0,
+        40,
+        188,
+        184
+      ],
+      "anchor": [
+        94,
+        132
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        94,
+        92
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "purpose": "draw at crate.position+(0,-20), size (94,112), ground footprint unchanged",
+      "source": "res://art/props/heavy_crate_v02.svg",
+      "texture": "res://art/props/heavy_crate_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/props",
+      "id": "locked_door_closed_v02",
+      "w": 44,
+      "h": 280,
+      "shadow_baked": false,
+      "world_size": [
+        22,
+        140
+      ],
+      "ground_rect": [
+        0,
+        40,
+        44,
+        240
+      ],
+      "anchor": [
+        22,
+        160
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        22,
+        120
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "state": "closed",
+      "source": "res://art/props/locked_door_closed_v02.svg",
+      "texture": "res://art/props/locked_door_closed_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/props",
+      "id": "locked_door_open_v02",
+      "w": 44,
+      "h": 280,
+      "shadow_baked": false,
+      "world_size": [
+        22,
+        140
+      ],
+      "ground_rect": [
+        0,
+        40,
+        44,
+        240
+      ],
+      "anchor": [
+        22,
+        160
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        22,
+        120
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "state": "open",
+      "purpose": "empty passage; do not draw a top crossbar across opened door",
+      "source": "res://art/props/locked_door_open_v02.svg",
+      "texture": "res://art/props/locked_door_open_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "task": "P05 R01 双通路主干集成",
+  "version": "godot-r01-p05",
+  "entry": "res://scenes/main.tscn",
+  "room_scene": "res://scenes/rooms/room_r01.tscn",
+  "evidence": ["docs/dev/p05-route-result.json", "docs/dev/p05-live-lock.json", "docs/dev/p05-live-strong.json", "docs/dev/p05-live-lock.png", "docs/dev/p05-live-strong.png"],
+  "results": {
+    "all_lockpick": "seed=11，实际技能开门，从初始位置独立拖动三名伙伴，经上门路线全员逃脱；实时守卫持续运行，零抓回。",
+    "all_strong": "seed=22，仅接触推箱开下方通路，从初始位置独立拖动三名伙伴全员逃脱；实时守卫持续运行，零抓回。",
+    "headless_routes": "两配置确定步骤均通过，完整碰撞/技能/守卫/出口代码在每一步运行；没有穿墙或给角色瞬移到出口。",
+    "component_regression": "P01独立输入与缩放、P02环境、P03狱警、P04技能四组回归通过。",
+    "cycle": "开局随机、查看技能、独立操作、抓回继续、三人结算、R重抽重开。房间选择可复用；R02在数据存在前禁用。"
+  },
+  "observations": ["直接横穿狱警前方的初始路线会被抓；改走上方空隙可保留同一技能配置通过，不依赖重抽。", "箱子打开通路后仍遮挡视线；锁门开放对双方均有效。"],
+  "limits": ["真人趣味性尚未验证。", "300种子的抽签覆盖不证明全部配置可解。", "Godot AI单次game_eval有8秒上限，实时长流程使用测试节点分帧驱动和短状态查询，未改警戒规则。"],
+  "decision": "保留R01为基线，进入R02空间掩护对照。"
+}

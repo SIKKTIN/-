@@ -1,0 +1,41 @@
+{
+  "status": "generated",
+  "awaiting": null,
+  "mode": "built-in image_gen",
+  "references": [
+    "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+    "E:/Docs/这次怎么逃/assets/art-direction/walk-test-v01.png"
+  ],
+  "reuse_candidate": {
+    "actor_id": 1,
+    "source": "E:/Docs/这次怎么逃/assets/art-direction/walk-test-v01.png",
+    "needs": "inspect stepping pose, use actual alpha bounds and foot anchors; no raw thumbnail editing"
+  },
+  "prompts": [
+    {
+      "id": "inmate_01",
+      "actor_id": 0,
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct orange trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: slender friendly prisoner with messy short black hair, narrow shoulders and thin orange jumpsuit silhouette; chibi head 40 percent of height. Thin identity silhouette must remain different from round and square companions."
+    },
+    {
+      "id": "inmate_03",
+      "actor_id": 2,
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct orange trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: friendly square-bodied prisoner, broad short torso, blocky jaw, neat swept brown hair, orange jumpsuit. Short-legged chibi, head about40 percent of height. No heroic bodybuilder or huge arms; identity should be square but not imply a permanent strength skill."
+    },
+    {
+      "id": "guard_01",
+      "actor_id": "guard",
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct navy trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: navy-uniform prison guard, slightly taller and upright but same chibi proportions, clear peaked cap and nose pointing lower right, rectangular torso, black shoes, muted brass buttons. No weapon, no handcuffs, no extra equipment, no skull emblems. Keep navy cap identical across all three poses, no gaze/head direction changes."
+    }
+  ],
+  "corrections": [
+    {
+      "id": "inmate_01",
+      "prompt": "Use case: precise-object-edit. Three-cell transparent sprite strip. Preserve LEFT idle and MIDDLE walk exactly; preserve right-cell head, hair, orange shirt and head position. ONLY redraw RIGHT-cell legs below pelvis. It must be the opposite step from middle: near leg from screen-left hip goes back to lower-left, far leg from screen-right hip goes forward to lower-right, with visibly separated orange trouser legs and a CLEAR open V gap. Current right leg pose crosses forward almost exactly like the middle; remove this duplicate crossing silhouette. Keep short legs, both black shoes, gentle short walking stride, common shoe groundline. Right-cell near arm already swings forward across body: keep it. Keep whole transparent canvas 3 equal cells, identity and proportions unchanged. No extra text or ground."
+    },
+    {
+      "id": "inmate_03",
+      "prompt": "Use case: precise-object-edit. Keep three-cell transparent sprite strip layout, same frame order idle / walk A / walk B, same head position and groundline. REDESIGN THE SAME CHARACTER CONSISTENTLY IN ALL THREE CELLS into the distinct SQUARE companion from the project's character lineup: thick straight-edged rectangular short torso, squared jaw and chin (not round), short neatly swept BROWN HAIR clearly covering top of head, bushier straight eyebrows. Orange jumpsuit and black shoes, friendly smile, small big-head short-leg cartoon. This must be visibly different from the bald ROUND short-haired companion in the current image: no shaved/bald haircut, no rounded belly outline. Maintain coherent identical face and outfit through all frames. Preserve opposite arm poses, make opposite leg contacts clear, near leg forward in A and near leg back in B with a V gap. Keep short stride and no bodybuilder anatomy. Graphite outlines and simple two-tone fills in the existing paper-cut style. No text, no numbers, no shadows, no floor, no cell borders. Real alpha background maintained. Exactly three full-body instances, not additional characters."
+    }
+  ]
+}

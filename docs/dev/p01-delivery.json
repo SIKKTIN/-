@@ -1,0 +1,149 @@
+{
+  "taskId": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+  "version": "godot-graybox-p01",
+  "entry": "res://scenes/main.tscn",
+  "changedFiles": [
+    "project.godot",
+    "scenes/main.tscn",
+    "scripts/core/escape_game.gd",
+    "scripts/actors/prisoner.gd",
+    "docs/dev/runtime-contract.md",
+    "docs/dev/p01_check.gd"
+  ],
+  "liveChecks": {
+    "card_selection": true,
+    "drag_started": true,
+    "final_snapshot": {
+      "actors": [
+        {
+          "action": "idle",
+          "actor_id": 0,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            180,
+            235
+          ],
+          "selected": true,
+          "skill_id": "chat"
+        },
+        {
+          "action": "idle",
+          "actor_id": 1,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            235,
+            375
+          ],
+          "selected": false,
+          "skill_id": "lockpick"
+        },
+        {
+          "action": "idle",
+          "actor_id": 2,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            185,
+            510
+          ],
+          "selected": false,
+          "skill_id": "strong"
+        }
+      ],
+      "dragged_actor_id": -1,
+      "elapsed": 0,
+      "guard_position": [
+        735,
+        280
+      ],
+      "phase": "playing",
+      "selected_actor_id": 0
+    },
+    "guard_not_draggable": true,
+    "initial_snapshot": {
+      "actors": [
+        {
+          "action": "idle",
+          "actor_id": 0,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            180,
+            235
+          ],
+          "selected": true,
+          "skill_id": "chat"
+        },
+        {
+          "action": "idle",
+          "actor_id": 1,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            235,
+            375
+          ],
+          "selected": false,
+          "skill_id": "lockpick"
+        },
+        {
+          "action": "idle",
+          "actor_id": 2,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            185,
+            510
+          ],
+          "selected": false,
+          "skill_id": "strong"
+        }
+      ],
+      "dragged_actor_id": -1,
+      "elapsed": 0,
+      "guard_position": [
+        735,
+        280
+      ],
+      "phase": "playing",
+      "selected_actor_id": 0
+    },
+    "only_first_moved": true,
+    "reset_restores_all": true,
+    "three_independent_actors": true
+  },
+  "evidence": [
+    "docs/dev/p01-check-result.json",
+    "docs/dev/p01-runtime.png"
+  ],
+  "observations": [
+    "真实MCP鼠标事件按下180,235并拖动到300,235，只伙伴1位移；伙伴2/3保持起点。",
+    "卡片选择、狱警不可拖动与重置通过。",
+    "两种窗口尺寸和0.75画布变换经headless事件处理检查；真实嵌入窗口截图为1200x720。"
+  ],
+  "limitations": [
+    "仅骨架与独立输入已完成，墙/门/箱/出口、狱警AI、技能与随机开局尚未实现。",
+    "没有真人趣味性证据。"
+  ],
+  "decision": "保留独立拖动输入；冻结runtime-contract接口，进入P02。"
+}

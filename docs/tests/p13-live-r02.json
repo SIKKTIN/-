@@ -1,0 +1,117 @@
+{
+	"command": 10,
+	"passed": true,
+	"reason": "completed",
+	"route": "chat_lock",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.949768006801605,
+					0.312954753637314
+				],
+				"position": [
+					997.836059570313,
+					381.106597900391
+				],
+				"selected": true,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.999999761581421,
+					0.000658480683341622
+				],
+				"position": [
+					997.280334472656,
+					394.971984863281
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					0.949947953224182,
+					0.312407970428467
+				],
+				"position": [
+					997.816284179688,
+					421.127593994141
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 2,
+		"elapsed": 15.7955678787875,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				0.357547998428345,
+				0.933894753456116
+			],
+			"fov_degrees": 120,
+			"lost_time": 1.50303030303031,
+			"path_size": 1,
+			"position": [
+				717.065856933594,
+				370.918151855469
+			],
+			"route_index": 2,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 110.0
+		},
+		"guard_position": [
+			717.065856933594,
+			370.918151855469
+		],
+		"orders": [],
+		"phase": "complete",
+		"seed": 33,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				831.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": true,
+			"lock_progress": 1.0,
+			"obstacle_revision": 5,
+			"push_distance": 0.0,
+			"room_id": "r02"
+		}
+	},
+	"trace": [
+		{
+			"actor": 1,
+			"elapsed": 9.92890121212098,
+			"escaped": true
+		},
+		{
+			"actor": 2,
+			"elapsed": 13.4622345454542,
+			"escaped": true
+		},
+		{
+			"actor": 0,
+			"elapsed": 15.7955678787875,
+			"escaped": true
+		}
+	]
+}

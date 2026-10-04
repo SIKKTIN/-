@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "width": 1280,
+      "height": 720,
+      "font": true,
+      "overflow": false,
+      "qa": {
+        "textures": 10,
+        "poses": 12,
+        "heights": [
+          60,
+          60,
+          60,
+          72
+        ],
+        "scope": "resource preview, not main scene"
+      },
+      "screenshot": "qa-handpaint-preview-1280x720-v03.png"
+    },
+    {
+      "width": 960,
+      "height": 540,
+      "font": true,
+      "overflow": false,
+      "qa": {
+        "textures": 10,
+        "poses": 12,
+        "heights": [
+          60,
+          60,
+          60,
+          72
+        ],
+        "scope": "resource preview, not main scene"
+      },
+      "screenshot": "qa-handpaint-preview-960x540-v03.png"
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "resource preview only"
+}

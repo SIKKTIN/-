@@ -1,0 +1,7 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root='E:/Project/Godot/这次怎么逃';const files=[];
+function visit(dir){for(const e of fs.readdirSync(path.join(root,dir),{withFileTypes:true})){const p=dir+'/'+e.name;if(e.isDirectory())visit(p);else if(!p.endsWith('.import')&&!p.endsWith('.uid')){const b=fs.readFileSync(path.join(root,p));files.push({path:p,bytes:b.length,sha256:crypto.createHash('sha256').update(b).digest('hex')});}}}
+for(const dir of ['art/characters','art/environment','art/props','art/ui','art/fx','art/fonts','audio'])visit(dir);
+const buildHash=crypto.createHash('sha256').update(JSON.stringify(files)).digest('hex');
+const result={schema:1,version:'art-v01-20261004-'+buildHash.slice(0,12),status:'ready-for-producer-review-not-integrated',tasks:['a7c7e0de-203e-42d3-97b9-daf03e204775','1afc96b7-e11a-4bef-bfe0-639891ac653a'],reviewer:'adc303e1-b1e9-4a6f-8b44-de27cc83cca4',files,sha256:buildHash,source_record:'docs/art/source-license-v01.json',evidence:['docs/art/qa-resource-v01.json','docs/art/qa-native-read-v01.json','docs/art/qa-browser-v01.json','docs/art/qa-preview-960x540-v01.png','docs/art/resource-preview-v01.html'],limitations:['not yet integrated into main scenes','audio decoding and signal checks are not human listening','no human gameplay-readability conclusions']};
+fs.writeFileSync(path.join(root,'docs/art/delivery-v01.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({version:result.version,files:files.length,bytes:files.reduce((s,f)=>s+f.bytes,0)}));

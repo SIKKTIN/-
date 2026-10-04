@@ -1,0 +1,221 @@
+{
+	"frames": [
+		{
+			"actor_id": 0.0,
+			"state": "idle",
+			"valid": true
+		},
+		{
+			"actor_id": 0.0,
+			"state": "walk_a",
+			"valid": true
+		},
+		{
+			"actor_id": 0.0,
+			"state": "walk_b",
+			"valid": true
+		},
+		{
+			"actor_id": 1.0,
+			"state": "idle",
+			"valid": true
+		},
+		{
+			"actor_id": 1.0,
+			"state": "walk_a",
+			"valid": true
+		},
+		{
+			"actor_id": 1.0,
+			"state": "walk_b",
+			"valid": true
+		},
+		{
+			"actor_id": 2.0,
+			"state": "idle",
+			"valid": true
+		},
+		{
+			"actor_id": 2.0,
+			"state": "walk_a",
+			"valid": true
+		},
+		{
+			"actor_id": 2.0,
+			"state": "walk_b",
+			"valid": true
+		},
+		{
+			"actor_id": "guard",
+			"state": "idle",
+			"valid": true
+		},
+		{
+			"actor_id": "guard",
+			"state": "walk_a",
+			"valid": true
+		},
+		{
+			"actor_id": "guard",
+			"state": "walk_b",
+			"valid": true
+		}
+	],
+	"passed": true,
+	"png": [
+		{
+			"alpha": 0,
+			"path": "E:/Project/Godot/这次怎么逃/art/environment/floor_handpaint_v03.png",
+			"size": [
+				1254,
+				1254
+			]
+		},
+		{
+			"alpha": 0,
+			"path": "E:/Project/Godot/这次怎么逃/art/environment/stone_top_handpaint_v03.png",
+			"size": [
+				1254,
+				1254
+			]
+		},
+		{
+			"alpha": 0,
+			"path": "E:/Project/Godot/这次怎么逃/art/environment/stone_front_handpaint_v03.png",
+			"size": [
+				2172,
+				724
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/props/heavy_crate_handpaint_v03.png",
+			"size": [
+				1305,
+				1206
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/props/locked_door_closed_v02.png",
+			"size": [
+				44,
+				280
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/props/locked_door_open_v02.png",
+			"size": [
+				44,
+				280
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/characters/inmate_01_handpaint_v03.png",
+			"size": [
+				2172,
+				724
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/characters/inmate_02_handpaint_v03.png",
+			"size": [
+				2172,
+				724
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/characters/inmate_03_handpaint_v03.png",
+			"size": [
+				2172,
+				724
+			]
+		},
+		{
+			"alpha": 2,
+			"path": "E:/Project/Godot/这次怎么逃/art/characters/guard_01_handpaint_v03.png",
+			"size": [
+				2172,
+				724
+			]
+		}
+	],
+	"regions": [
+		{
+			"id": "floor_handpaint_v03",
+			"region": [
+				0.0,
+				0.0,
+				1254.0,
+				1254.0
+			],
+			"size": [
+				1254,
+				1254
+			],
+			"valid": true
+		},
+		{
+			"id": "stone_top_handpaint_v03",
+			"region": [
+				0.0,
+				0.0,
+				1254.0,
+				1254.0
+			],
+			"size": [
+				1254,
+				1254
+			],
+			"valid": true
+		},
+		{
+			"id": "stone_front_handpaint_v03",
+			"region": [
+				0.0,
+				145.0,
+				2172.0,
+				427.0
+			],
+			"size": [
+				2172,
+				427
+			],
+			"valid": true
+		},
+		{
+			"id": "block_top_handpaint_v03",
+			"region": [
+				0.0,
+				0.0,
+				1254.0,
+				627.0
+			],
+			"size": [
+				1254,
+				627
+			],
+			"valid": true
+		},
+		{
+			"id": "heavy_crate_handpaint_v03",
+			"region": [
+				250.0,
+				210.0,
+				805.0,
+				814.0
+			],
+			"size": [
+				805,
+				814
+			],
+			"valid": true
+		}
+	],
+	"scope": "native decode/atlas and anchor checks only; no scene integration",
+	"version": "art-v03-handpaint-20261004-05ac759ba4ad"
+}

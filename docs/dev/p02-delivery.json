@@ -1,0 +1,49 @@
+{
+  "taskId": "d53e3afb-f63a-425e-9855-124886674fb5",
+  "version": "godot-environment-p02",
+  "entry": "res://scenes/props/environment_fixture.tscn",
+  "files": [
+    "scripts/world/prison_world.gd",
+    "scripts/world/environment_fixture.gd",
+    "scenes/props/environment_fixture.tscn",
+    "data/rooms/r01.json",
+    "tests/environment_check.gd"
+  ],
+  "liveChecks": {
+    "all_exit_completes": true,
+    "exit_0": true,
+    "exit_1": true,
+    "exit_2": true,
+    "partial_keeps_playing": true,
+    "push_moved_box": true,
+    "push_snapshot": {
+      "crate": [
+        570.54248046875,
+        572,
+        94,
+        92
+      ],
+      "door_open": false,
+      "lock_progress": 0,
+      "obstacle_revision": 203,
+      "push_distance": 103.545451641083,
+      "room_id": "r01"
+    },
+    "reset_restores": true,
+    "screenshot_saved": 0
+  },
+  "evidence": [
+    "docs/dev/p02-check-result.json",
+    "docs/dev/p02-runtime.png"
+  ],
+  "observations": [
+    "圆形人物与矩形实体使用同一障碍数据进行移动/射线/寻路检查。",
+    "闭锁门和箱子关闭通路；开门改变碰撞、视线与路径，移箱使导航失效并按新位置查询。",
+    "固定85单位每秒的接触推箱预算与边界检查，箱体不穿墙。"
+  ],
+  "limitations": [
+    "主入口的世界接入留在后续制作人程序/集成任务范围，P02保留原独立模块交付约定。",
+    "狱警AI、主动技能和随机开局尚未实现。"
+  ],
+  "decision": "保留通用实体模块，进入P03实际巡逻和追击接入。"
+}

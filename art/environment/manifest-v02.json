@@ -1,0 +1,77 @@
+{
+  "schema": 2,
+  "assets": [
+    {
+      "folder": "art/environment",
+      "id": "floor_tile_v02",
+      "w": 256,
+      "h": 256,
+      "shadow_baked": false,
+      "world_size": [
+        128,
+        128
+      ],
+      "opaque": true,
+      "tileable": true,
+      "purpose": "quiet floor; repeat at 128 world units, not old 40",
+      "source": "res://art/environment/floor_tile_v02.svg",
+      "texture": "res://art/environment/floor_tile_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "low_wall_top_v02",
+      "w": 128,
+      "h": 128,
+      "shadow_baked": false,
+      "world_size": [
+        64,
+        64
+      ],
+      "opaque": true,
+      "tileable": true,
+      "purpose": "tile over elevated wall/obstacle top; renderer draws outer outline",
+      "source": "res://art/environment/low_wall_top_v02.svg",
+      "texture": "res://art/environment/low_wall_top_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "low_wall_front_v02",
+      "w": 128,
+      "h": 36,
+      "shadow_baked": false,
+      "world_size": [
+        64,
+        18
+      ],
+      "opaque": true,
+      "tileable_x": true,
+      "purpose": "front face at ground south edge; crop/repeat horizontally, height 18",
+      "source": "res://art/environment/low_wall_front_v02.svg",
+      "texture": "res://art/environment/low_wall_front_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "block_top_v02",
+      "w": 256,
+      "h": 224,
+      "shadow_baked": false,
+      "world_size": [
+        128,
+        112
+      ],
+      "opaque": false,
+      "fit_to_elevated_top": true,
+      "purpose": "single broad central obstacle top, avoids tiny repeated tiles",
+      "source": "res://art/environment/block_top_v02.svg",
+      "texture": "res://art/environment/block_top_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    }
+  ]
+}

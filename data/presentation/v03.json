@@ -1,0 +1,37 @@
+{
+  "floor_asset": "floor_handpaint_v03",
+  "floor_tile_size": 384,
+  "material_slots": {
+    "wall_top": "stone_top_handpaint_v03",
+    "wall_front": "stone_front_handpaint_v03",
+    "block_top": "block_top_handpaint_v03",
+    "crate": "heavy_crate_handpaint_v03",
+    "door_closed": "locked_door_closed_v02",
+    "door_open": "locked_door_open_v02"
+  },
+  "block_top_tiled": false,
+  "wall_elevation": 18,
+  "block_elevation": 24,
+  "outline_width": 1.4,
+  "outline_color": "434941",
+  "soft_shadows": true,
+  "contact_alpha": 0.16,
+  "projection_offset": [
+    11,
+    8
+  ],
+  "projection_alpha": 0.1,
+  "delivery": "res://docs/art/delivery-v03.json",
+  "characters": "res://art/characters/manifest-v03.json",
+  "environment": "res://art/environment/manifest-v03.json",
+  "props": "res://art/props/manifest-v03.json",
+  "perspective": true,
+  "wall_side_width": 4,
+  "wall_side_shade": 0.68,
+  "top_modulate": [
+    1.18,
+    1.14,
+    1.08,
+    1
+  ]
+}

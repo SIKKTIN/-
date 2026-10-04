@@ -1,0 +1,27 @@
+P12 轻度斜俯视美术最终画面复核
+日期：2026-10-04；主美。
+结论：当前v02已实际替换并启用，符合用户确认方向，美术画面复核通过，无未解决的实质美术问题。
+资源版本：art-v02-perspective-20261004-54a7161c7820；data/presentation/active.json为profile v02。
+A03资源已获制作人独立accepted；GameCreator风格基准revision2，首轮历史保留。
+
+证据与范围
+首次复核R01/R02、1280×720/960×540、start / occlusion-closed / lock-progress / open-pushed共16张实际Godot窗口图。
+发现两处信息布局问题后，制作人修正共享渲染及HUD；主美再次查看两房两尺寸lock-progress和occlusion-closed共8张最终图，确认修正有效。
+图路径：docs/tests/p12-r01-或p12-r02-加上述状态及尺寸.png。
+报告：docs/tests/p12-perspective-1280x720.json、p12-perspective-960x540.json。初次修正报告各22项通过，后续加入真实chat-ready状态后各24项通过。
+初次问题记录保留：docs/art/p12-visual-review-v02.txt；本文件不覆盖该记录。
+
+通过观察
+地板纹理已减淡，人物、门锁与视野仍突出；长墙顶面裁切没有覆盖顶栏。低墙/障碍前立面和箱体厚度清楚，短落地阴影方向一致。
+友军55/狱警62显示高度可辨，三伙伴外形和编号清楚，左右翻转保持脚底注册。原两帧动画素材复用，没有新增四方向绘制量。
+人物身体与场景有前后关系，编号/选中/技能/方向信息保持上层可读；视野仍按实际遮挡裁切。
+门开闭通道视觉清楚，木箱移动后贴图和阴影随实际rect移动，底面注册没有明显偏移。
+
+修正闭环
+锁进度条已移到真实操作点上方103世界单位，与身体和技能徽章留出间距，四张最终lock-progress图可读。
+侧栏SkillHint限制为4行说明，ControlHint独立固定y628、font14及3行，四张最终occlusion-closed图底部R重抽重开完整显示；fixed_controls_fit_canvas和skill_explanation_separate_from_controls均通过。
+补充真实chat-ready状态：主美已查看两房两尺寸4张p12-r01/r02-chat-ready-1280x720/960x540.png。聊天者与狱警实际可交谈、完整长说明显示，固定操作说明及R重抽重开均未裁切，无条/身体重叠。此次额外验证后累计20张实际图的美术状态已覆盖，最终结论仍为通过。
+
+限制
+本结论为资源及实际游戏画面复核，未宣称真人完整试玩或亲自执行玩法路线。制作人已提供实际v02双关连续运行报告：R01约17.33秒、R02约15.80秒，均零抓回；玩法、巡逻、RTS和最终P12验收由制作人负责。
+v01原资产与配置保留供回退。本次主美未改共享scripts/scenes/project.godot。

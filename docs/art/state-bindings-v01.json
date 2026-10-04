@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "role": "Art consumption suggestions; producer owns actual integration",
+  "selected": {"read": "actor.selected", "texture": "res://art/fx/selected_v01.png", "independent_of": "actor.action_state"},
+  "actions": {
+    "chatting": {"texture": "res://art/ui/skill_chat_v01.png", "audio": "chat_loop", "label": "交谈中"},
+    "lockpicking": {"texture": "res://art/ui/skill_lockpick_v01.png", "audio": "lockpick_loop", "progress": "world.lock_progress", "label": "撬锁中"},
+    "pushing": {"condition": "actual crate displacement with actual pushing actor; not a new stored action_state", "texture": "res://art/ui/skill_strong_v01.png", "audio": "crate_move_loop", "label": "推箱中"},
+    "idle": {"audio": null, "label": "待命"}
+  },
+  "guard": {
+    "talking": {"direction": "actual guard facing remains visible; no global invisibility"},
+    "chasing": {"texture": "res://art/fx/detected_v01.png", "audio_on_entry": "detected", "warning_fill": false},
+    "searching": {"texture": "res://art/fx/searching_v01.png", "condition": "only actual lost-target searching state; do not invent state"}
+  },
+  "events": {
+    "actor_captured": {"texture": "res://art/fx/captured_v01.png", "audio": "captured", "label": "被送回起点"},
+    "actor_escaped": {"texture": "res://art/fx/escaped_v01.png", "audio": "escaped", "label": "已逃脱", "disable_actor_input": true},
+    "all_escaped": {"texture": "res://art/fx/escaped_v01.png", "audio": "complete", "label": "三位伙伴全部逃脱"},
+    "action_cancelled": {"texture": "res://art/fx/cancelled_v01.png", "audio": "cancelled", "label": "real cancellation reason from logic"},
+    "door_opened": {"texture": "res://art/props/locked_door_open_v01.png", "audio": "door_open"}
+  },
+  "font": "res://art/fonts/NotoSansCJKsc-Regular.otf",
+  "paper_card": "res://art/ui/paper_card_v01.png",
+  "dynamic_text": ["actor identity number", "skill name", "action label", "lock progress", "cancellation reason", "single escape count", "all-escape result"],
+  "rule": "Read per-actor action state independently; selection changes input only. Stop loops on actual action end or pause. Art feedback never drives detection, capture, progress or escape."
+}

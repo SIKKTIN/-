@@ -1,0 +1,30 @@
+A03 轻度斜俯视美术交付
+日期：2026-10-04；主美；验收人：制作人。
+用户已确认R02概念并明确授权替换、向制作人反馈。
+资源版本：art-v02-perspective-20261004-54a7161c7820。
+状态：资源及源文件已完成、自检通过，申请A03独立验收。P12游戏渲染接入与玩法回归不属于资源自检结论。
+
+交付内容
+7张PNG+7份原创SVG：floor_tile_v02、low_wall_top_v02、low_wall_front_v02、block_top_v02、heavy_crate_v02、locked_door_closed_v02、locked_door_open_v02。
+环境与道具各有manifest-v02.json，角色manifest-v02.json仅调整世界显示高度友军55/狱警62。
+17文件SHA256及尺寸/来源/组件说明：delivery-v02.json。
+复用v01四角色原PNG、逐帧区域和脚底锚点、UI、FX、字体与音频，原资源和旧清单保留回滚。
+新SVG和PNG均为主美原创矢量绘制/Sharp导出，沿用本项目自有配色与造型，没有复制第三方游戏画面素材。概念图由内置imagegen生成，提示词独立保存，仅用于参考。
+
+空间与接入
+墙体顶面/立面独立组件，长墙顶面重复，立面固定18世界单位；中央障碍24，门箱20。PNG内暗面属于物体材质明暗，全部shadow_baked=false，落地阴影由程序绘制一次。
+门箱ground_rect像素映射回原22×120/94×92逻辑占地。门开闭同尺寸同锚点，箱移动后视觉偏移随实际逻辑rect一起移动。
+详细规则：perspective-v02-integration.txt。视觉高度不改碰撞/导航/AI视线/交互规则。
+角色保留P11真实facing水平镜像与真实位移驱动1+2帧，身体放大不需要新四方向动画。身体参与前后排序，编号/选中/技能/方向信息需独立上层。
+
+证据与检查
+qa-resources-v02.json：17文件哈希通过；7图片尺寸通过；门箱ground_rect和偏移精确对应原逻辑大小；4角色原PNG保持原sha，区域/锚点一致。
+qa-native-v02.json：Godot4.7.2原生解码7图片并创建ImageTexture成功。
+qa-browser-v02.json：1280×720与960×540两个视窗资源预览成功，11张图加载、字体加载、无页面错误和横向溢出。
+qa-perspective-preview-1280x720-v02.png / qa-perspective-preview-960x540-v02.png：已人工视觉检查地板低对比、木箱立面、锁头/开门透明通道、四身份大小与脚底编号。
+perspective-resource-preview-v02.html：R02资源拼装预览，非实际游戏窗口或玩法结果；预览上方明确标记。
+GameCreator art-assets轻度斜俯视草稿已应用并由主美确认基准revision=2，保留revision=1历史。确认requestId=art-v02-style-confirm-20261004-01。
+
+未覆盖
+真实主场景的动态身体遮挡、视野裁切、开门/推箱前后精确效果、RTS操作与双关完成性由制作人P12验证；资源预览不冒充集成验收或真人完整试玩。
+未增加新角色动作、音频或UI素材。本交付不覆盖共享scripts/scenes/project.godot。

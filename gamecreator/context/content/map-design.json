@@ -1,0 +1,702 @@
+{
+  "module": "map-design",
+  "value": {
+    "schema": 1,
+    "enabled": true,
+    "maps": [
+      {
+        "id": "475f5a62-7abf-4b3e-af6c-753711915da9",
+        "name": "R01 双通路基线",
+        "region": "越狱实验房间",
+        "description": "已实现Godot R01灰盒；P05原生窗口与逻辑步进验证全撬锁、全力量两路线三人逃脱。进入狱警前方会被抓回，调整路径可完成；真人策略理解尚待P09。",
+        "perspective": "top",
+        "view": "grid",
+        "x": 0,
+        "y": 0,
+        "rows": 18,
+        "columns": 30,
+        "cellSize": 40,
+        "unit": "内部单位",
+        "sourceDesignId": "a4539d92-4c10-4137-8796-ce73a71e21e5",
+        "roomId": "",
+        "sourceVisible": true,
+        "sourceLocked": false,
+        "layers": [
+          {
+            "id": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "name": "实体与通路",
+            "visible": true,
+            "locked": false
+          },
+          {
+            "id": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "name": "人物与危险",
+            "visible": true,
+            "locked": false
+          },
+          {
+            "id": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "name": "说明",
+            "visible": true,
+            "locked": false
+          }
+        ],
+        "objects": [
+          {
+            "id": "7cfc731b-9715-47aa-b7e9-27f733fd4e15",
+            "name": "牢房起始区域",
+            "kind": "terrain",
+            "layerId": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "x": 3.5,
+            "y": 5,
+            "width": 3.5,
+            "height": 8.5,
+            "color": "green",
+            "notes": "三位友军各自随机技能，独立移动。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "c81d0c58-226d-47c5-a97a-7aa16a42dd71",
+            "name": "伙伴 1",
+            "kind": "npc",
+            "layerId": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "x": 4.075,
+            "y": 5.45,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "26355316-0932-4903-b47b-d80283d409fc",
+            "name": "伙伴 2",
+            "kind": "npc",
+            "layerId": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "x": 5.45,
+            "y": 8.95,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "11985ad4-7bbf-4eec-aa99-a7515543fc48",
+            "name": "伙伴 3",
+            "kind": "npc",
+            "layerId": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "x": 4.2,
+            "y": 12.325,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "95a152ee-60b5-43bb-903e-3e70faf1e2c7",
+            "name": "上段隔断",
+            "kind": "obstacle",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 12.15,
+            "y": 2.85,
+            "width": 0.55,
+            "height": 5.525,
+            "color": "blue",
+            "notes": "阻挡人物、箱子和视线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "5fe824fa-7517-4227-a3f5-e23f83a0d153",
+            "name": "锁门",
+            "kind": "building",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 12.15,
+            "y": 8.375,
+            "width": 0.55,
+            "height": 3,
+            "color": "violet",
+            "notes": "操作点在门左侧27单位；单人四秒，开门永久有效。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "c2a9f7a9-557f-46a5-8537-b57073604237",
+            "name": "撬锁操作点",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 11.225,
+            "y": 9.625,
+            "width": 0.5,
+            "height": 0.5,
+            "color": "violet",
+            "notes": "撬锁技能需到此点55单位内、无遮挡；R02 中此点位于狱警巡逻同侧。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "9996a891-5966-437a-b16f-ce27bc2091b4",
+            "name": "下段隔断",
+            "kind": "obstacle",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 12.15,
+            "y": 11.375,
+            "width": 0.55,
+            "height": 2.625,
+            "color": "blue",
+            "notes": "下方通道通向重箱路线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "20501a67-f68d-472a-990d-b8046c66f570",
+            "name": "下方重箱",
+            "kind": "resource",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 11.675,
+            "y": 14.3,
+            "width": 2.35,
+            "height": 2.3,
+            "color": "amber",
+            "notes": "大力气可推，移动后改变通路及视线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "6bb4a3ab-ed2c-4007-a0a0-4f807c5ed7ed",
+            "name": "遮挡墙",
+            "kind": "obstacle",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 17.375,
+            "y": 8.625,
+            "width": 3.25,
+            "height": 2.75,
+            "color": "blue",
+            "notes": "双方遵守同一视线遮挡规则。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "ef6d2c13-b488-4138-ac27-5371f4e41981",
+            "name": "狱警起点",
+            "kind": "enemy",
+            "layerId": "d0a11612-4785-47aa-b1db-902ef28156b0",
+            "x": 17.95,
+            "y": 6.575,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "red",
+            "notes": "固定距离110、前方120度；发现立即追击。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "7302cb8e-5a87-4045-ad29-595321f31ddf",
+            "name": "巡逻点 1",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 18.25,
+            "y": 6.125,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "依序巡逻；既有布局参考。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "ad72d867-a92a-463b-a065-c7e57be875e5",
+            "name": "巡逻点 2",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 22.125,
+            "y": 6.125,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "依序巡逻；既有布局参考。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "05c14adf-c205-4e3c-8c6b-0231f46695f1",
+            "name": "巡逻点 3",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 22.125,
+            "y": 13.75,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "依序巡逻；既有布局参考。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "d84bfbd7-00f0-486b-959c-12402e80012e",
+            "name": "巡逻点 4",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 17,
+            "y": 13.75,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "依序巡逻；既有布局参考。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "b29573af-3608-49d3-b62d-c5d85a00b0fb",
+            "name": "逃脱出口",
+            "kind": "portal",
+            "layerId": "62e01612-5fcf-422f-860f-615dc5c11d1c",
+            "x": 24.95,
+            "y": 8.875,
+            "width": 4.7,
+            "height": 4.5,
+            "color": "green",
+            "notes": "东侧出口；三人全部到达才结束。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "e1f25904-e3dc-4d6b-8e5f-6c8ac31dca7d",
+            "name": "布局状态",
+            "kind": "note",
+            "layerId": "40a65e79-350e-40f6-a31b-1efd1525f4ba",
+            "x": 1.75,
+            "y": 3.625,
+            "width": 6.25,
+            "height": 0.875,
+            "color": "violet",
+            "notes": "已实现Godot R01灰盒；P05原生窗口与逻辑步进验证全撬锁、全力量两路线三人逃脱。进入狱警前方会被抓回，调整路径可完成；真人策略理解尚待P09。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "0a2f1c7a-adda-4a68-a8ea-22bc4c2cecf3",
+        "name": "R02 门边掩护",
+        "region": "越狱实验房间",
+        "description": "已实现Godot R02灰盒；固定聊天/撬锁/力量配置验证聊天掩护下开门并三人逃脱，全力量验证下路推箱。无掩护直接撬锁对照被抓回且门未开启；仍需真人策略理解验证。隔断x=840保留推箱后的人员净空，巡逻点4=(800,430)增加门边操作压力。",
+        "perspective": "top",
+        "view": "grid",
+        "x": 34,
+        "y": 0,
+        "rows": 18,
+        "columns": 30,
+        "cellSize": 40,
+        "unit": "内部单位",
+        "sourceDesignId": "a4539d92-4c10-4137-8796-ce73a71e21e5",
+        "roomId": "",
+        "sourceVisible": true,
+        "sourceLocked": false,
+        "layers": [
+          {
+            "id": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "name": "实体与通路",
+            "visible": true,
+            "locked": false
+          },
+          {
+            "id": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "name": "人物与危险",
+            "visible": true,
+            "locked": false
+          },
+          {
+            "id": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "name": "说明",
+            "visible": true,
+            "locked": false
+          }
+        ],
+        "objects": [
+          {
+            "id": "137d5149-316f-4d1c-8c02-61131a98d1cc",
+            "name": "牢房起始区域",
+            "kind": "terrain",
+            "layerId": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "x": 3.5,
+            "y": 5,
+            "width": 3.5,
+            "height": 8.5,
+            "color": "green",
+            "notes": "三位友军各自随机技能，独立移动。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "3595bc33-78a6-47df-a944-1f0987432b1a",
+            "name": "伙伴 1",
+            "kind": "npc",
+            "layerId": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "x": 4.075,
+            "y": 5.45,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "ea73bf03-5021-440a-8eab-64def6da7510",
+            "name": "伙伴 2",
+            "kind": "npc",
+            "layerId": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "x": 5.45,
+            "y": 8.95,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "28ed7263-0e18-4e6a-aba4-9bd2da60d836",
+            "name": "伙伴 3",
+            "kind": "npc",
+            "layerId": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "x": 4.2,
+            "y": 12.325,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "green",
+            "notes": "独立装备一项随机技能，身体碰撞不连接。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "cf43adf3-992d-4860-8f2c-3d7b57f2c01c",
+            "name": "上段隔断",
+            "kind": "obstacle",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 21,
+            "y": 2.85,
+            "width": 0.55,
+            "height": 5.525,
+            "color": "blue",
+            "notes": "阻挡人物、箱子和视线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "9836c815-6b88-48dd-b820-6801100d1151",
+            "name": "锁门",
+            "kind": "building",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 21,
+            "y": 8.375,
+            "width": 0.55,
+            "height": 3,
+            "color": "violet",
+            "notes": "操作点在门左侧27单位；单人四秒，开门永久有效。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "3b5a71ab-61f9-4dac-b739-dfd7f9025b9e",
+            "name": "撬锁操作点",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 20.075,
+            "y": 9.625,
+            "width": 0.5,
+            "height": 0.5,
+            "color": "violet",
+            "notes": "撬锁技能需到此点55单位内、无遮挡；R02 中此点位于狱警巡逻同侧。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "04d0a06c-873b-42aa-a1f1-4007fd20eed1",
+            "name": "下段隔断",
+            "kind": "obstacle",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 21,
+            "y": 11.375,
+            "width": 0.55,
+            "height": 2.625,
+            "color": "blue",
+            "notes": "下方通道通向重箱路线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "753e5f59-eb3e-42e9-926a-aeeeb3d92b41",
+            "name": "下方重箱",
+            "kind": "resource",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 20.775,
+            "y": 14.3,
+            "width": 2.35,
+            "height": 2.3,
+            "color": "amber",
+            "notes": "大力气可推，移动后改变通路及视线。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "25365b8b-9176-47af-9ffb-af4b7f20f2ef",
+            "name": "遮挡墙",
+            "kind": "obstacle",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 12.75,
+            "y": 8.625,
+            "width": 3.25,
+            "height": 2.75,
+            "color": "blue",
+            "notes": "双方遵守同一视线遮挡规则。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "e7520c43-f539-4d9f-bb4c-0e7b801c3126",
+            "name": "狱警起点",
+            "kind": "enemy",
+            "layerId": "5dbad3b5-c045-4688-b714-ac1a46e171e9",
+            "x": 18.2,
+            "y": 6.575,
+            "width": 0.85,
+            "height": 0.85,
+            "color": "red",
+            "notes": "固定距离110、前方120度；发现立即追击。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "28a163dc-e4f5-474a-8e1c-dc22748d71a0",
+            "name": "巡逻点 1",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 18.5,
+            "y": 6.875,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "Godot实际依序巡逻，固定视野110/120度；聊天只停当前狱警且发现其他人立即打断。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "926cbad8-8f24-4857-b5b9-ef247228ff08",
+            "name": "巡逻点 2",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 19.625,
+            "y": 8.75,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "Godot实际依序巡逻，固定视野110/120度；聊天只停当前狱警且发现其他人立即打断。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "2c00b89b-a207-4aa5-8734-32e5939b6e40",
+            "name": "巡逻点 3",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 18.75,
+            "y": 11.625,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "Godot实际依序巡逻，固定视野110/120度；聊天只停当前狱警且发现其他人立即打断。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "8d97fd0f-06f0-4c7d-b51c-f17197a214c1",
+            "name": "巡逻点 4",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 19.875,
+            "y": 10.625,
+            "width": 0.25,
+            "height": 0.25,
+            "color": "red",
+            "notes": "Godot实际依序巡逻，固定视野110/120度；聊天只停当前狱警且发现其他人立即打断。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "1484be9d-26b4-4ad5-8866-def720b4e698",
+            "name": "逃脱出口",
+            "kind": "portal",
+            "layerId": "982fb23e-f898-4053-92ed-6c91fec5b276",
+            "x": 24.95,
+            "y": 8.875,
+            "width": 4.7,
+            "height": 4.5,
+            "color": "green",
+            "notes": "东侧出口；三人全部到达才结束。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          },
+          {
+            "id": "7c39125c-c516-4126-ab19-70e79dae6802",
+            "name": "布局状态",
+            "kind": "note",
+            "layerId": "9d3c8f7e-e0ba-4f8d-8c63-1429f92825e1",
+            "x": 1.75,
+            "y": 3.625,
+            "width": 6.25,
+            "height": 0.875,
+            "color": "violet",
+            "notes": "已实现Godot R02灰盒；固定聊天/撬锁/力量配置验证聊天掩护下开门并三人逃脱，全力量验证下路推箱。无掩护直接撬锁对照被抓回且门未开启；仍需真人策略理解验证。隔断x=840保留推箱后的人员净空，巡逻点4=(800,430)增加门边操作压力。",
+            "references": [
+              {
+                "kind": "gameplay",
+                "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "connections": []
+  }
+}

@@ -1,0 +1,18 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# GameCreator local developer credentials
+/gamecreator/personal/
+
+# Generated local sync backups and import sidecars
+/.gamecreator-sync/
+*.import
+*.log
+
+# Local credentials / environment overrides must stay on each machine
+.env
+.env.*
+*credential*.json
+*.pem
+*.key

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "delivery": "art-v01-20261004",
+  "status": "resources-for-review-not-main-scene-integrated",
+  "character_art": {
+    "method": "Built-in ImageGen",
+    "role": "Original project-specific character strips based on project concept reference",
+    "sources": [
+      "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+      "E:/Docs/这次怎么逃/assets/art-direction/walk-test-v01.png"
+    ],
+    "prompts": "docs/art/imagegen-prompts-delivery-v01.json",
+    "pixel_transformations": "none; copied output PNGs unchanged, only atlas regions/anchors calculated",
+    "third_party_art": "none intentionally incorporated",
+    "usage": "Project deliverable generated via service; no assertion of exclusive copyright"
+  },
+  "static_art": {
+    "method": "Original project SVG source authored in docs/art/generate-static-assets-v01.cjs; transparent PNG exported from this source with sharp",
+    "third_party_art": "none",
+    "source_files": "each PNG has same-named SVG alongside it",
+    "usage": "Original project-created assets"
+  },
+  "audio": {
+    "method": "Original deterministic synthesis from docs/art/generate-audio-v01.py",
+    "samples_or_voice": "none",
+    "files": "audio/manifest.json",
+    "usage": "Original project-created cues; no third-party samples",
+    "audition": "Native/browser resource decode and signal boundaries checked; no human listening conclusion"
+  },
+  "font": {
+    "method": "Unmodified Noto Sans CJK SC Regular",
+    "source": "https://github.com/notofonts/noto-cjk",
+    "commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+    "license": "SIL Open Font License 1.1",
+    "license_file": "art/fonts/LICENSE.txt",
+    "details": "art/fonts/source-license.json"
+  }
+}

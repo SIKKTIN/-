@@ -1,0 +1,141 @@
+{
+  "taskId": "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+  "version": "godot-guard-p03",
+  "entry": "res://scenes/main.tscn",
+  "files": [
+    "scripts/actors/guard.gd",
+    "scripts/core/escape_game.gd",
+    "scripts/world/prison_world.gd",
+    "tests/guard_check.gd"
+  ],
+  "componentEvidence": "docs/dev/p03-check-result.json",
+  "livePatrolAndCapture": {
+    "actual_capture": true,
+    "immediate_chase": false,
+    "patrol_moved": true,
+    "screenshot_saved": 0,
+    "snapshot": {
+      "actors": [
+        {
+          "action": "idle",
+          "actor_id": 0,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            180,
+            235
+          ],
+          "selected": true,
+          "skill_id": "chat"
+        },
+        {
+          "action": "idle",
+          "actor_id": 1,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            235,
+            375
+          ],
+          "selected": false,
+          "skill_id": "lockpick"
+        },
+        {
+          "action": "idle",
+          "actor_id": 2,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            185,
+            510
+          ],
+          "selected": false,
+          "skill_id": "strong"
+        }
+      ],
+      "captures": 1,
+      "dragged_actor_id": -1,
+      "elapsed": 1.45493554545455,
+      "guard": {
+        "chat_partner_id": -1,
+        "facing": [
+          1,
+          0
+        ],
+        "fov_degrees": 120,
+        "lost_time": 0,
+        "path_size": 1,
+        "position": [
+          680.393005371094,
+          250
+        ],
+        "route_index": 1,
+        "state": "patrol",
+        "target_id": -1,
+        "view_radius": 110
+      },
+      "guard_position": [
+        680.393005371094,
+        250
+      ],
+      "phase": "playing",
+      "selected_actor_id": 0,
+      "world": {
+        "crate": [
+          467,
+          572,
+          94,
+          92
+        ],
+        "door_open": false,
+        "lock_progress": 0,
+        "obstacle_revision": 3,
+        "push_distance": 0,
+        "room_id": "r01"
+      }
+    }
+  },
+  "liveDetection": {
+    "elapsed": 0.00606,
+    "immediate_chase": true,
+    "state": {
+      "chat_partner_id": -1,
+      "facing": [
+        1,
+        0
+      ],
+      "fov_degrees": 120,
+      "lost_time": 0,
+      "path_size": 1,
+      "position": [
+        620.939270019531,
+        250
+      ],
+      "route_index": 0,
+      "state": "chasing",
+      "target_id": 0,
+      "view_radius": 110
+    }
+  },
+  "observations": [
+    "检测前方120度、110单位，不按人数增大视野；无遮挡出现目标时同tick进入追击。",
+    "1.5秒失去视线后回巡逻，寻路随门/箱变化重建。",
+    "实际巡逻位移与追击捕获发生；抓回只恢复目标位置且保留环境/其他逃脱状态。",
+    "抓回的起点若被占据，人物可以向外分离而不推移其他人物。"
+  ],
+  "limitations": [
+    "聊天与撬锁控制器尚未实现，Guard的聊天接口暂留给P04。",
+    "同process_frame信号的观察会早于该帧_process，检测证据使用两帧观察且组件同tick验证无延迟。",
+    "无真人趣味性结论。"
+  ],
+  "decision": "保留固定视野与局部抓回，进入P04技能协作。"
+}

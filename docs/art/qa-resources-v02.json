@@ -1,0 +1,192 @@
+{
+  "version": "art-v02-perspective-20261004-54a7161c7820",
+  "inventory": [
+    {
+      "path": "art/environment/floor_tile_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/floor_tile_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/low_wall_top_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/low_wall_top_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/low_wall_front_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/low_wall_front_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/block_top_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/block_top_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/heavy_crate_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/heavy_crate_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/locked_door_closed_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/locked_door_closed_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/locked_door_open_v02.svg",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/locked_door_open_v02.png",
+      "hash_match": true
+    },
+    {
+      "path": "art/environment/manifest-v02.json",
+      "hash_match": true
+    },
+    {
+      "path": "art/props/manifest-v02.json",
+      "hash_match": true
+    },
+    {
+      "path": "art/characters/manifest-v02.json",
+      "hash_match": true
+    }
+  ],
+  "images": [
+    {
+      "id": "floor_tile_v02",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "dimensions_match": true
+    },
+    {
+      "id": "low_wall_top_v02",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "dimensions_match": true
+    },
+    {
+      "id": "low_wall_front_v02",
+      "width": 128,
+      "height": 36,
+      "alpha": true,
+      "dimensions_match": true
+    },
+    {
+      "id": "block_top_v02",
+      "width": 256,
+      "height": 224,
+      "alpha": true,
+      "dimensions_match": true
+    },
+    {
+      "id": "heavy_crate_v02",
+      "width": 188,
+      "height": 224,
+      "alpha": true,
+      "dimensions_match": true,
+      "ground_world": [
+        94,
+        92
+      ],
+      "ground_matches": true,
+      "offset_matches": true
+    },
+    {
+      "id": "locked_door_closed_v02",
+      "width": 44,
+      "height": 280,
+      "alpha": true,
+      "dimensions_match": true,
+      "ground_world": [
+        22,
+        120
+      ],
+      "ground_matches": true,
+      "offset_matches": true
+    },
+    {
+      "id": "locked_door_open_v02",
+      "width": 44,
+      "height": 280,
+      "alpha": true,
+      "dimensions_match": true,
+      "ground_world": [
+        22,
+        120
+      ],
+      "ground_matches": true,
+      "offset_matches": true
+    }
+  ],
+  "original_characters": [
+    {
+      "path": "art/characters/guard_01_v01.png",
+      "unchanged": true
+    },
+    {
+      "path": "art/characters/inmate_01_v01.png",
+      "unchanged": true
+    },
+    {
+      "path": "art/characters/inmate_02_v01.png",
+      "unchanged": true
+    },
+    {
+      "path": "art/characters/inmate_03_v01.png",
+      "unchanged": true
+    }
+  ],
+  "actors": [
+    {
+      "actor_id": 0,
+      "height": 55,
+      "frames_unchanged": true,
+      "anchors_unchanged": true,
+      "texture_unchanged": true
+    },
+    {
+      "actor_id": 1,
+      "height": 55,
+      "frames_unchanged": true,
+      "anchors_unchanged": true,
+      "texture_unchanged": true
+    },
+    {
+      "actor_id": 2,
+      "height": 55,
+      "frames_unchanged": true,
+      "anchors_unchanged": true,
+      "texture_unchanged": true
+    },
+    {
+      "actor_id": "guard",
+      "height": 62,
+      "frames_unchanged": true,
+      "anchors_unchanged": true,
+      "texture_unchanged": true
+    }
+  ],
+  "passed": true,
+  "scope": "asset hashes, image metadata, footprint registration and original character preservation only"
+}

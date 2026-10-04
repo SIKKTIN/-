@@ -1,0 +1,31 @@
+{
+  "status": "prepared-only-not-executed",
+  "awaiting": "producer A01 standard readback confirmation",
+  "mode": "built-in image_gen",
+  "references": [
+    "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+    "E:/Docs/这次怎么逃/assets/art-direction/walk-test-v01.png"
+  ],
+  "reuse_candidate": {
+    "actor_id": 1,
+    "source": "E:/Docs/这次怎么逃/assets/art-direction/walk-test-v01.png",
+    "needs": "inspect stepping pose, use actual alpha bounds and foot anchors; no raw thumbnail editing"
+  },
+  "prompts": [
+    {
+      "id": "inmate_01",
+      "actor_id": 0,
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct orange trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: slender friendly prisoner with messy short black hair, narrow shoulders and thin orange jumpsuit silhouette; chibi head 40 percent of height. Thin identity silhouette must remain different from round and square companions."
+    },
+    {
+      "id": "inmate_03",
+      "actor_id": 2,
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct orange trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: friendly square-bodied prisoner, broad short torso, blocky jaw, neat swept brown hair, orange jumpsuit. Short-legged chibi, head about40 percent of height. No heroic bodybuilder or huge arms; identity should be square but not imply a permanent strength skill."
+    },
+    {
+      "id": "guard_01",
+      "actor_id": "guard",
+      "prompt": "Use case: stylized-concept. Production asset for original 2D top-down prison puzzle game 这次怎么逃. Reference images show the approved style and short-leg scale, not edit targets. Generate exactly one transparent PNG strip containing THREE equal-width cells in ONE ROW, one identical character in each cell, idle / walk_a / walk_b. Suggested 1536x512, genuine alpha, no text, no numbers, no borders, no ground or shadows. Graphite outline, flat fills with two cel-shading tones, sparse detail, large readable head and very short legs. All heads and pelvis must have identical relative coordinates, same size, same expression and view (slightly overhead three-quarter toward lower right). Character occupies roughly 80 percent of cell height. Idle: feet together, arms relaxed. Walk A: near leg stepping forward and far leg back, near arm back and far arm forward. Walk B: genuinely opposite leg and arm contact, near leg back, far leg forward, near arm forward across body and far arm back. Clearly distinct navy trouser-leg shapes and visible space between legs; DO NOT duplicate A. Gentle WALK, not running: short stride, no high knees, no leaned running torso, small arm swing. Keep black shoes within cells. No skills or speech balloons baked into body, since every actor can roll any skill. No checkerboard painted as background. Original paper-cut hand-drawn game sprite, not 3D. Character: navy-uniform prison guard, slightly taller and upright but same chibi proportions, clear peaked cap and nose pointing lower right, rectangular torso, black shoes, muted brass buttons. No weapon, no handcuffs, no extra equipment, no skull emblems. Keep navy cap identical across all three poses, no gaze/head direction changes."
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+	"chat_lock": {
+		"approach_chat": true,
+		"approach_lock": true,
+		"chat_started": true,
+		"chat_sustained": true,
+		"completed": true,
+		"door_open": true,
+		"exits": [
+			true,
+			true,
+			true
+		],
+		"lock_started": true,
+		"snapshot": {
+			"actions": [],
+			"actors": [
+				{
+					"action": "idle",
+					"actor_id": 0,
+					"escaped": true,
+					"facing": [
+						0.832048118114471,
+						0.5547034740448
+					],
+					"position": [
+						999.322998046875,
+						447.881683349609
+					],
+					"selected": true,
+					"skill_id": "chat"
+				},
+				{
+					"action": "idle",
+					"actor_id": 1,
+					"escaped": true,
+					"facing": [
+						1.0,
+						0.0
+					],
+					"position": [
+						999.335083007813,
+						395.0
+					],
+					"selected": false,
+					"skill_id": "lockpick"
+				},
+				{
+					"action": "idle",
+					"actor_id": 2,
+					"escaped": true,
+					"facing": [
+						0.948684751987457,
+						0.316223561763763
+					],
+					"position": [
+						998.108276367188,
+						421.035949707031
+					],
+					"selected": false,
+					"skill_id": "strong"
+				}
+			],
+			"captures": 0,
+			"deal": 2,
+			"dragged_actor_id": -1,
+			"elapsed": 15.5500000000004,
+			"guard": {
+				"chat_partner_id": -1,
+				"facing": [
+					0.895951449871063,
+					0.444151878356934
+				],
+				"fov_degrees": 120,
+				"lost_time": 0.0333333333333333,
+				"path_size": 1,
+				"position": [
+					897.850158691406,
+					395.729339599609
+				],
+				"route_index": 2,
+				"state": "chasing",
+				"target_id": 0,
+				"view_radius": 110.0
+			},
+			"guard_position": [
+				897.850158691406,
+				395.729339599609
+			],
+			"phase": "complete",
+			"seed": 33,
+			"selected_actor_id": 0,
+			"world": {
+				"crate": [
+					831.0,
+					572.0,
+					94.0,
+					92.0
+				],
+				"door_open": true,
+				"lock_progress": 1.0,
+				"obstacle_revision": 5,
+				"push_distance": 0.0,
+				"room_id": "r02"
+			}
+		}
+	},
+	"passed": true,
+	"push": {
+		"completed": true,
+		"exits": [
+			true,
+			true,
+			true
+		],
+		"snapshot": {
+			"actions": [],
+			"actors": [
+				{
+					"action": "idle",
+					"actor_id": 0,
+					"escaped": true,
+					"facing": [
+						1.0,
+						0.0
+					],
+					"position": [
+						997.667724609375,
+						470.0
+					],
+					"selected": false,
+					"skill_id": "strong"
+				},
+				{
+					"action": "idle",
+					"actor_id": 1,
+					"escaped": true,
+					"facing": [
+						0.999990522861481,
+						-0.00435231672599912
+					],
+					"position": [
+						997.658813476563,
+						430.183959960938
+					],
+					"selected": true,
+					"skill_id": "strong"
+				},
+				{
+					"action": "idle",
+					"actor_id": 2,
+					"escaped": true,
+					"facing": [
+						1.0,
+						0.0
+					],
+					"position": [
+						997.667724609375,
+						510.0
+					],
+					"selected": false,
+					"skill_id": "strong"
+				}
+			],
+			"captures": 0,
+			"deal": 3,
+			"dragged_actor_id": -1,
+			"elapsed": 15.0000000000003,
+			"guard": {
+				"chat_partner_id": -1,
+				"facing": [
+					0.823083639144897,
+					-0.567920088768005
+				],
+				"fov_degrees": 120,
+				"lost_time": 0.0,
+				"path_size": 1,
+				"position": [
+					785.0908203125,
+					440.287200927734
+				],
+				"route_index": 3,
+				"state": "patrol",
+				"target_id": -1,
+				"view_radius": 110.0
+			},
+			"guard_position": [
+				785.0908203125,
+				440.287200927734
+			],
+			"phase": "complete",
+			"seed": 44,
+			"selected_actor_id": 1,
+			"world": {
+				"crate": [
+					901.834350585938,
+					572.0,
+					94.0,
+					92.0
+				],
+				"door_open": false,
+				"lock_progress": 0.0,
+				"obstacle_revision": 107,
+				"push_distance": 70.8333333333335,
+				"room_id": "r02"
+			}
+		}
+	},
+	"solo_control": {
+		"approach": true,
+		"captures": 1,
+		"door_open": false,
+		"progress": 0.104166666666667,
+		"snapshot": {
+			"actions": [],
+			"actors": [
+				{
+					"action": "idle",
+					"actor_id": 0,
+					"escaped": false,
+					"facing": [
+						0.00327029428444803,
+						0.99999463558197
+					],
+					"position": [
+						180.0,
+						235.0
+					],
+					"selected": true,
+					"skill_id": "lockpick"
+				},
+				{
+					"action": "idle",
+					"actor_id": 1,
+					"escaped": false,
+					"facing": [
+						0.0,
+						-1.0
+					],
+					"position": [
+						235.0,
+						375.0
+					],
+					"selected": false,
+					"skill_id": "lockpick"
+				},
+				{
+					"action": "idle",
+					"actor_id": 2,
+					"escaped": false,
+					"facing": [
+						0.0,
+						-1.0
+					],
+					"position": [
+						185.0,
+						510.0
+					],
+					"selected": false,
+					"skill_id": "lockpick"
+				}
+			],
+			"captures": 1,
+			"deal": 4,
+			"dragged_actor_id": -1,
+			"elapsed": 6.88333333333331,
+			"guard": {
+				"chat_partner_id": -1,
+				"facing": [
+					-0.225989416241646,
+					0.974129796028137
+				],
+				"fov_degrees": 120,
+				"lost_time": 0.0,
+				"path_size": 1,
+				"position": [
+					777.75,
+					371.935913085938
+				],
+				"route_index": 2,
+				"state": "patrol",
+				"target_id": -1,
+				"view_radius": 110.0
+			},
+			"guard_position": [
+				777.75,
+				371.935913085938
+			],
+			"phase": "playing",
+			"seed": 55,
+			"selected_actor_id": 0,
+			"world": {
+				"crate": [
+					831.0,
+					572.0,
+					94.0,
+					92.0
+				],
+				"door_open": false,
+				"lock_progress": 0.104166666666667,
+				"obstacle_revision": 109,
+				"push_distance": 0.0,
+				"room_id": "r02"
+			}
+		},
+		"started": true
+	},
+	"trace": []
+}

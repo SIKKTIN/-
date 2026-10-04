@@ -1,0 +1,663 @@
+{
+	"coverage": {
+		"initializations": 54,
+		"not_proven": 48,
+		"ordered_configs_per_room": 27,
+		"rule_unsolvable": 2,
+		"tested_solvable": 4
+	},
+	"failures": [],
+	"note": "其他配置不因拥有开路技能而自动标记可解，路线、操作顺序与巡逻时机仍需实证。",
+	"passed": true,
+	"rows": [
+		{
+			"classification": "规则判定无解",
+			"evidence": "关闭的门和重箱阻断左右可行通路，导航无可行路径；聊天不能开门或推箱",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 474,
+			"skills": [
+				"chat",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 456,
+			"skills": [
+				"chat",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 498,
+			"skills": [
+				"chat",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 475,
+			"skills": [
+				"chat",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 492,
+			"skills": [
+				"chat",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 499,
+			"skills": [
+				"chat",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 496,
+			"skills": [
+				"chat",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 390,
+			"skills": [
+				"chat",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 482,
+			"skills": [
+				"chat",
+				"strong",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 485,
+			"skills": [
+				"lockpick",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 490,
+			"skills": [
+				"lockpick",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 432,
+			"skills": [
+				"lockpick",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 478,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "已实测可解",
+			"evidence": "P05完整真实规则路线和原生实时运行：docs/dev/p05-route-result.json、p05-live-lock.json、p05-live-strong.json",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 487,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 459,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 422,
+			"skills": [
+				"lockpick",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 477,
+			"skills": [
+				"lockpick",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 495,
+			"skills": [
+				"lockpick",
+				"strong",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 493,
+			"skills": [
+				"strong",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 497,
+			"skills": [
+				"strong",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 481,
+			"skills": [
+				"strong",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 488,
+			"skills": [
+				"strong",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 491,
+			"skills": [
+				"strong",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 468,
+			"skills": [
+				"strong",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 484,
+			"skills": [
+				"strong",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 483,
+			"skills": [
+				"strong",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "已实测可解",
+			"evidence": "P05完整真实规则路线和原生实时运行：docs/dev/p05-route-result.json、p05-live-lock.json、p05-live-strong.json",
+			"initialization_passed": true,
+			"room": "r01",
+			"seed": 479,
+			"skills": [
+				"strong",
+				"strong",
+				"strong"
+			]
+		},
+		{
+			"classification": "规则判定无解",
+			"evidence": "关闭的门和重箱阻断左右可行通路，导航无可行路径；聊天不能开门或推箱",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 474,
+			"skills": [
+				"chat",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 456,
+			"skills": [
+				"chat",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 498,
+			"skills": [
+				"chat",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 475,
+			"skills": [
+				"chat",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 492,
+			"skills": [
+				"chat",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "已实测可解",
+			"evidence": "P06完整真实规则路线：docs/playtests/p06-r02-result.json；混合配置另有p06-live-r02.json",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 499,
+			"skills": [
+				"chat",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 496,
+			"skills": [
+				"chat",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 390,
+			"skills": [
+				"chat",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 482,
+			"skills": [
+				"chat",
+				"strong",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 485,
+			"skills": [
+				"lockpick",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 490,
+			"skills": [
+				"lockpick",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 432,
+			"skills": [
+				"lockpick",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 478,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 487,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 459,
+			"skills": [
+				"lockpick",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 422,
+			"skills": [
+				"lockpick",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 477,
+			"skills": [
+				"lockpick",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 495,
+			"skills": [
+				"lockpick",
+				"strong",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 493,
+			"skills": [
+				"strong",
+				"chat",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 497,
+			"skills": [
+				"strong",
+				"chat",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 481,
+			"skills": [
+				"strong",
+				"chat",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 488,
+			"skills": [
+				"strong",
+				"lockpick",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 491,
+			"skills": [
+				"strong",
+				"lockpick",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 468,
+			"skills": [
+				"strong",
+				"lockpick",
+				"strong"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 484,
+			"skills": [
+				"strong",
+				"strong",
+				"chat"
+			]
+		},
+		{
+			"classification": "尚未证明",
+			"evidence": "初始化与相同种子复现通过；尚无此有序配置的完整路线证据",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 483,
+			"skills": [
+				"strong",
+				"strong",
+				"lockpick"
+			]
+		},
+		{
+			"classification": "已实测可解",
+			"evidence": "P06完整真实规则路线：docs/playtests/p06-r02-result.json；混合配置另有p06-live-r02.json",
+			"initialization_passed": true,
+			"room": "r02",
+			"seed": 479,
+			"skills": [
+				"strong",
+				"strong",
+				"strong"
+			]
+		}
+	],
+	"seed_version": "Godot 4.7.2 RNG"
+}

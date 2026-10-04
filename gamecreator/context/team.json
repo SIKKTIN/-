@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "positions": [
+    {
+      "id": "producer",
+      "name": "制作人",
+      "taskKinds": [],
+      "active": true,
+      "duties": "制定游戏目标、核心玩法、内容结构、版本范围与优先级，给出内容方案、协调模块依赖，派发任务并审核功能和整体体验；以本身份承担已分配的核心程序、共享接口与主干集成。"
+    },
+    {
+      "id": "art-director",
+      "name": "主美",
+      "taskKinds": [],
+      "active": true,
+      "duties": "兼任技术美术，制定视觉风格、素材规格、渲染与引擎接入方案，统筹音效表现；派发美术、表现技术和音效任务，审核品质、技术适配与运行效果。"
+    },
+    {
+      "id": "module-owner",
+      "name": "模块负责人",
+      "taskKinds": [
+        "设计",
+        "程序",
+        "美术",
+        "关卡",
+        "测试",
+        "其他"
+      ],
+      "active": true,
+      "duties": "对获准模块负责，完成设计细化、代码或资产制作、引擎集成、自测与文档回写；提交证据待上级验收。内容、美术、音效是负责方向，范围变化先提出建议。"
+    }
+  ],
+  "members": [
+    {
+      "id": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "name": "制作人",
+      "roles": [
+        "制作人"
+      ],
+      "active": true,
+      "scope": "project",
+      "supervisorId": "",
+      "createdAt": "2026-10-04T11:27:43.276Z",
+      "duties": "负责方向、核心玩法、关卡流程与主干集成；仅执行明确分配的任务。",
+      "permissions": [
+        "progress",
+        "review",
+        "propose",
+        "spec_change",
+        "project_write",
+        "team_manage"
+      ],
+      "developer": {
+        "positionIds": [
+          "producer"
+        ],
+        "taskIds": [
+          "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+          "d53e3afb-f63a-425e-9855-124886674fb5",
+          "5be5d1ed-db26-4168-88b1-bc5ad8441d17",
+          "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+          "ccf0a23f-35d4-41ca-aeec-4273b2e0c331",
+          "3a0ec022-03df-4810-a8ba-9a16c5c69fe1",
+          "edb2f813-8ede-43a2-89ca-1203725643e0",
+          "09b28ffc-c61e-4a14-8f4f-b3b5575ccdb7",
+          "3d0d7a74-1f0d-440c-bad3-c5699f0afa91",
+          "d3ef8e35-900d-4259-ac43-06a0660babbb",
+          "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
+          "3925b8cd-56ba-4322-af8f-b622c741c6ee",
+          "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+        ],
+        "scope": "project",
+        "expiresAt": "",
+        "projectModules": [
+          "design-documents",
+          "project",
+          "project-schedule",
+          "gameplay",
+          "gameplay-core",
+          "prototype-design",
+          "task-flows",
+          "numerical-analysis",
+          "functional-systems",
+          "development-tools",
+          "art-assets",
+          "stories",
+          "story-orchestration",
+          "map-design",
+          "program-framework",
+          "definitions",
+          "enum-versions",
+          "project-standards"
+        ],
+        "artPermissions": []
+      }
+    },
+    {
+      "id": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "name": "主美",
+      "roles": [
+        "主美"
+      ],
+      "active": true,
+      "scope": "project",
+      "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "createdAt": "2026-10-04T11:27:43.276Z",
+      "duties": "兼技术美术，负责风格、视觉、UI 与音效制作和自检；按实际工作量拆分任务。",
+      "permissions": [
+        "progress",
+        "review",
+        "propose",
+        "spec_change",
+        "project_write",
+        "team_manage"
+      ],
+      "developer": {
+        "positionIds": [
+          "art-director"
+        ],
+        "taskIds": [
+          "a7c7e0de-203e-42d3-97b9-daf03e204775",
+          "1afc96b7-e11a-4bef-bfe0-639891ac653a",
+          "a215989b-decd-41ac-8576-9faeb59b363e",
+          "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07"
+        ],
+        "scope": "project",
+        "expiresAt": "",
+        "projectModules": [
+          "art-assets",
+          "project-schedule"
+        ],
+        "artPermissions": [
+          "style",
+          "details",
+          "technical",
+          "propose",
+          "dispatch"
+        ]
+      }
+    }
+  ],
+  "credentials": [
+    {
+      "id": "41c00f25-6588-4899-aca2-fc99d2056b9d",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+      "name": "制作人",
+      "persistent": true,
+      "positionIds": [
+        "producer"
+      ],
+      "taskIds": [],
+      "permissions": [
+        "progress",
+        "review",
+        "propose",
+        "spec_change",
+        "project_write",
+        "team_manage"
+      ],
+      "workDescription": "负责方向、核心玩法、关卡流程与主干集成；仅执行明确分配的任务。",
+      "expiresAt": "",
+      "createdAt": "2026-10-04T11:32:22.233Z",
+      "revokedAt": ""
+    },
+    {
+      "id": "7ff98468-d970-4abf-98a3-a0054bf4426a",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+      "name": "主美",
+      "persistent": true,
+      "positionIds": [
+        "art-director"
+      ],
+      "taskIds": [],
+      "permissions": [
+        "progress",
+        "review",
+        "propose",
+        "spec_change",
+        "project_write",
+        "team_manage"
+      ],
+      "workDescription": "兼技术美术，负责风格、视觉、UI 与音效制作和自检；按实际工作量拆分任务。",
+      "expiresAt": "",
+      "createdAt": "2026-10-04T11:39:43.051Z",
+      "revokedAt": ""
+    }
+  ]
+}

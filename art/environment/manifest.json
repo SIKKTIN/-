@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "folder": "art/environment",
+      "id": "floor_tile_v01",
+      "w": 128,
+      "h": 128,
+      "world_size": [
+        40,
+        40
+      ],
+      "opaque": true,
+      "tileable": true,
+      "source": "res://art/environment/floor_tile_v01.svg",
+      "texture": "res://art/environment/floor_tile_v01.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "low_wall_v01",
+      "w": 128,
+      "h": 128,
+      "anchor": [
+        64,
+        64
+      ],
+      "fit_to_logic_rect": true,
+      "blocking_visual_only": true,
+      "source": "res://art/environment/low_wall_v01.svg",
+      "texture": "res://art/environment/low_wall_v01.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    }
+  ]
+}

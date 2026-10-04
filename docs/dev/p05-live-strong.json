@@ -1,0 +1,115 @@
+{
+	"command": 4,
+	"passed": true,
+	"reason": "completed",
+	"route": "strong",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.999635934829712,
+					0.0269810669124126
+				],
+				"position": [
+					998.518859863281,
+					468.880767822266
+				],
+				"selected": false,
+				"skill_id": "strong"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.999858677387238,
+					0.0168121606111526
+				],
+				"position": [
+					998.546264648438,
+					509.303192138672
+				],
+				"selected": true,
+				"skill_id": "strong"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					1.0,
+					0.0
+				],
+				"position": [
+					997.001098632813,
+					500.009094238281
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 3,
+		"dragged_actor_id": -1,
+		"elapsed": 18.1800000000001,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				-0.707114815711975,
+				-0.707098782062531
+			],
+			"fov_degrees": 120,
+			"lost_time": 0.00606,
+			"path_size": 14,
+			"position": [
+				683.189453125,
+				503.189117431641
+			],
+			"route_index": 0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 110.0
+		},
+		"guard_position": [
+			683.189453125,
+			503.189117431641
+		],
+		"phase": "complete",
+		"seed": 22,
+		"selected_actor_id": 1,
+		"world": {
+			"crate": [
+				615.530517578125,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": false,
+			"lock_progress": 0.0,
+			"obstacle_revision": 313,
+			"push_distance": 148.535046741366,
+			"room_id": "r01"
+		}
+	},
+	"trace": [
+		{
+			"actor": 2,
+			"elapsed": 5.12676,
+			"escaped": true
+		},
+		{
+			"actor": 0,
+			"elapsed": 11.9503199999997,
+			"escaped": true
+		},
+		{
+			"actor": 1,
+			"elapsed": 18.1800000000001,
+			"escaped": true
+		}
+	]
+}

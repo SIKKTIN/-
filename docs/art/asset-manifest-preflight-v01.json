@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "status": "preflight-only",
+  "depends_on_task": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
+  "interface_frozen": false,
+  "assets_created": false,
+  "proposed_character_format": {
+    "frames": [
+      "idle",
+      "walk_a",
+      "walk_b"
+    ],
+    "suggested_frame_pixels": [
+      256,
+      256
+    ],
+    "suggested_sheet_pixels": [
+      768,
+      256
+    ],
+    "pixel_units": "source-pixels",
+    "region_format": [
+      "x",
+      "y",
+      "width",
+      "height"
+    ],
+    "anchor_format": "source-pixels-relative-to-region",
+    "scale_basis": "target_world_height / opaque_bounds_height",
+    "initial_frame_seconds": 0.32,
+    "facing_source": "logic-facing-vector-separate-from-body-pose"
+  },
+  "characters": [
+    {
+      "visual_id": "inmate_01",
+      "identity": "slender",
+      "target_world_height": 42
+    },
+    {
+      "visual_id": "inmate_02",
+      "identity": "round",
+      "target_world_height": 42
+    },
+    {
+      "visual_id": "inmate_03",
+      "identity": "square",
+      "target_world_height": 42
+    },
+    {
+      "visual_id": "guard_01",
+      "identity": "navy_guard",
+      "target_world_height": 48
+    }
+  ],
+  "actor_binding": "P01-contract-read-awaiting-acceptance-and-freeze",
+  "runtime_contract": "docs/dev/runtime-contract.md",
+  "actor_ids": [0, 1, 2, "guard"],
+  "character_manifest_contract": {
+    "path": "art/characters/manifest.json",
+    "schema": 1,
+    "collection": "actors",
+    "required_fields": ["actor_id", "texture", "frames", "anchor", "world_height"],
+    "texture_path_format": "res://",
+    "frames": ["idle", "walk_a", "walk_b"],
+    "anchor_scope": "per-frame-local-source-pixels"
+  },
+  "skill_ids": [
+    "chat",
+    "lockpick",
+    "strong"
+  ],
+  "character_skill_binding": "none",
+  "planned_environment": [
+    "low_wall",
+    "floor",
+    "heavy_crate",
+    "locked_door_closed",
+    "locked_door_open",
+    "exit"
+  ],
+  "planned_ui": [
+    "skill_chat",
+    "skill_lockpick",
+    "skill_strong",
+    "paper_card",
+    "selected",
+    "talking",
+    "lockpicking",
+    "pushing",
+    "detected",
+    "searching",
+    "escaped",
+    "captured"
+  ],
+  "planned_audio": [
+    "chat_loop",
+    "lockpick_loop",
+    "crate_move_loop",
+    "detected_one_shot",
+    "captured_one_shot"
+  ],
+  "delivery_roots": [
+    "art/characters",
+    "art/environment",
+    "art/props",
+    "art/ui",
+    "art/fx",
+    "art/fonts",
+    "audio",
+    "docs/art"
+  ],
+  "shared_code_changes": false,
+  "license_records": "must-be-filled-for-every-delivered-asset",
+  "missing_before_start": [
+    "P01 accepted",
+    "updated A01 task",
+    "P01 runtime-contract final frozen version",
+    "producer start notice"
+  ]
+}

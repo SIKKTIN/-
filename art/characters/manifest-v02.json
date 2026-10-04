@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "actors": [
+    {
+      "actor_id": 0,
+      "visual_id": "inmate_01",
+      "identity": "slender",
+      "texture": "res://art/characters/inmate_01_v01.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          299,
+          74,
+          293,
+          584
+        ],
+        "walk_a": [
+          921,
+          74,
+          339,
+          580
+        ],
+        "walk_b": [
+          1625,
+          74,
+          313,
+          580
+        ]
+      },
+      "anchor": {
+        "idle": [
+          146,
+          580
+        ],
+        "walk_a": [
+          192,
+          576
+        ],
+        "walk_b": [
+          166,
+          576
+        ]
+      },
+      "world_height": 55,
+      "scale_rule": "world_height / current frame region height; draw at -anchor * scale",
+      "opaque_bounds": {
+        "idle": [
+          4,
+          4,
+          285,
+          576
+        ],
+        "walk_a": [
+          4,
+          4,
+          331,
+          572
+        ],
+        "walk_b": [
+          4,
+          4,
+          305,
+          572
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          146,
+          4
+        ],
+        "walk_a": [
+          192,
+          4
+        ],
+        "walk_b": [
+          166,
+          4
+        ]
+      },
+      "initial_walk_frame_seconds": 0.32,
+      "facing": "consume actual logic-facing marker; fixed artwork view is not facing",
+      "skills_baked": false,
+      "source_kind": "built-in ImageGen original project asset; output pixels unmodified",
+      "source_reference": "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-62dd9ae7-2cb6-42e8-b999-5846d17dc653.png",
+      "license_record": "docs/art/source-license-v01.json",
+      "sha256": "c1a5f058130f77f79c6636262047036591c8eef594f161c555c6a5b5a6804988",
+      "previous_world_height": 42,
+      "sprite_pixels_unchanged": true
+    },
+    {
+      "actor_id": 1,
+      "visual_id": "inmate_02",
+      "identity": "round",
+      "texture": "res://art/characters/inmate_02_v01.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          213,
+          97,
+          340,
+          529
+        ],
+        "walk_a": [
+          859,
+          96,
+          426,
+          535
+        ],
+        "walk_b": [
+          1567,
+          96,
+          379,
+          524
+        ]
+      },
+      "anchor": {
+        "idle": [
+          184,
+          525
+        ],
+        "walk_a": [
+          219,
+          531
+        ],
+        "walk_b": [
+          192,
+          520
+        ]
+      },
+      "world_height": 55,
+      "scale_rule": "world_height / current frame region height; draw at -anchor * scale",
+      "opaque_bounds": {
+        "idle": [
+          4,
+          4,
+          332,
+          521
+        ],
+        "walk_a": [
+          4,
+          4,
+          418,
+          527
+        ],
+        "walk_b": [
+          4,
+          4,
+          371,
+          516
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          184,
+          4
+        ],
+        "walk_a": [
+          219,
+          4
+        ],
+        "walk_b": [
+          192,
+          4
+        ]
+      },
+      "initial_walk_frame_seconds": 0.32,
+      "facing": "consume actual logic-facing marker; fixed artwork view is not facing",
+      "skills_baked": false,
+      "source_kind": "built-in ImageGen original project asset; output pixels unmodified",
+      "source_reference": "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+      "source_png": "E:\\Docs\\这次怎么逃\\assets\\art-direction\\walk-test-v01.png",
+      "license_record": "docs/art/source-license-v01.json",
+      "sha256": "27321a7f7f8b51722cb2343b986274a54bc4949c2b65b79bb76cfde04e6af352",
+      "previous_world_height": 42,
+      "sprite_pixels_unchanged": true
+    },
+    {
+      "actor_id": 2,
+      "visual_id": "inmate_03",
+      "identity": "square",
+      "texture": "res://art/characters/inmate_03_v01.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          190,
+          59,
+          352,
+          587
+        ],
+        "walk_a": [
+          862,
+          59,
+          448,
+          587
+        ],
+        "walk_b": [
+          1564,
+          59,
+          415,
+          586
+        ]
+      },
+      "anchor": {
+        "idle": [
+          176,
+          583
+        ],
+        "walk_a": [
+          229,
+          583
+        ],
+        "walk_b": [
+          205,
+          582
+        ]
+      },
+      "world_height": 55,
+      "scale_rule": "world_height / current frame region height; draw at -anchor * scale",
+      "opaque_bounds": {
+        "idle": [
+          4,
+          4,
+          344,
+          579
+        ],
+        "walk_a": [
+          4,
+          4,
+          440,
+          579
+        ],
+        "walk_b": [
+          4,
+          4,
+          407,
+          578
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          176,
+          4
+        ],
+        "walk_a": [
+          229,
+          4
+        ],
+        "walk_b": [
+          205,
+          4
+        ]
+      },
+      "initial_walk_frame_seconds": 0.32,
+      "facing": "consume actual logic-facing marker; fixed artwork view is not facing",
+      "skills_baked": false,
+      "source_kind": "built-in ImageGen original project asset; output pixels unmodified",
+      "source_reference": "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-71ba91a3-4f75-41f8-beb1-be0b9d2a7a86.png",
+      "license_record": "docs/art/source-license-v01.json",
+      "sha256": "deff2578ee785de863280f5d1402b86458617a705d92e75e687761b0f24506df",
+      "previous_world_height": 42,
+      "sprite_pixels_unchanged": true
+    },
+    {
+      "actor_id": "guard",
+      "visual_id": "guard_01",
+      "identity": "navy_guard",
+      "texture": "res://art/characters/guard_01_v01.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          237,
+          55,
+          346,
+          585
+        ],
+        "walk_a": [
+          862,
+          55,
+          433,
+          591
+        ],
+        "walk_b": [
+          1562,
+          55,
+          380,
+          579
+        ]
+      },
+      "anchor": {
+        "idle": [
+          177.5,
+          581
+        ],
+        "walk_a": [
+          208.5,
+          587
+        ],
+        "walk_b": [
+          181,
+          575
+        ]
+      },
+      "world_height": 62,
+      "scale_rule": "world_height / current frame region height; draw at -anchor * scale",
+      "opaque_bounds": {
+        "idle": [
+          4,
+          4,
+          338,
+          577
+        ],
+        "walk_a": [
+          4,
+          4,
+          425,
+          583
+        ],
+        "walk_b": [
+          4,
+          4,
+          372,
+          571
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          177.5,
+          4
+        ],
+        "walk_a": [
+          208.5,
+          4
+        ],
+        "walk_b": [
+          181,
+          4
+        ]
+      },
+      "initial_walk_frame_seconds": 0.32,
+      "facing": "consume actual logic-facing marker; fixed artwork view is not facing",
+      "skills_baked": false,
+      "source_kind": "built-in ImageGen original project asset; output pixels unmodified",
+      "source_reference": "E:/Docs/这次怎么逃/assets/art-direction/art-direction-v01.png",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-5a280ae2-ccd7-4342-9e47-a22b6e1c3e85.png",
+      "license_record": "docs/art/source-license-v01.json",
+      "sha256": "a884246b023f109e50cd4bb959eedd6baed41657f40e29abb8138d45b315c3a5",
+      "previous_world_height": 48,
+      "sprite_pixels_unchanged": true
+    }
+  ],
+  "state_boundary": "idle when actual displacement is zero; walk_a/walk_b only with actual movement; pause/escape stops animation",
+  "selected_and_action_independent": true,
+  "implementation": "producer loads Texture2D and draw_texture_rect_region; no shared scripts changed by art director"
+}

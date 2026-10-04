@@ -1,0 +1,237 @@
+{
+  "taskId": "fc8f21f1-9cc5-4827-8312-0a271422b63e",
+  "version": "godot-skills-p04",
+  "entry": "res://scenes/main.tscn",
+  "files": [
+    "data/skills/library.json",
+    "scripts/skills/skill_controller.gd",
+    "scripts/core/escape_game.gd",
+    "tests/skills_check.gd"
+  ],
+  "componentEvidence": "docs/dev/p04-check-result.json",
+  "liveLock": {
+    "card_switch_keeps_lock": true,
+    "real_key_starts_lock": true,
+    "single_operator_opens_after_four_seconds": true,
+    "snapshot": {
+      "actions": [],
+      "actors": [
+        {
+          "action": "idle",
+          "actor_id": 0,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            180,
+            235
+          ],
+          "selected": true,
+          "skill_id": "chat"
+        },
+        {
+          "action": "idle",
+          "actor_id": 1,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            440,
+            395
+          ],
+          "selected": false,
+          "skill_id": "lockpick"
+        },
+        {
+          "action": "idle",
+          "actor_id": 2,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            185,
+            510
+          ],
+          "selected": false,
+          "skill_id": "strong"
+        }
+      ],
+      "captures": 0,
+      "deal": 2,
+      "dragged_actor_id": -1,
+      "elapsed": 4.5636363636363,
+      "guard": {
+        "chat_partner_id": -1,
+        "facing": [
+          0.0382434390485287,
+          0.999268472194672
+        ],
+        "fov_degrees": 120,
+        "lost_time": 0,
+        "path_size": 1,
+        "position": [
+          883.513732910156,
+          385.519104003906
+        ],
+        "route_index": 2,
+        "state": "patrol",
+        "target_id": -1,
+        "view_radius": 110
+      },
+      "guard_position": [
+        883.513732910156,
+        385.519104003906
+      ],
+      "phase": "playing",
+      "seed": 42,
+      "selected_actor_id": 0,
+      "world": {
+        "crate": [
+          467,
+          572,
+          94,
+          92
+        ],
+        "door_open": true,
+        "lock_progress": 1,
+        "obstacle_revision": 4,
+        "push_distance": 0,
+        "room_id": "r01"
+      }
+    }
+  },
+  "liveChat": {
+    "behind_safe": true,
+    "front_immediate_chase_cancels_chat": true,
+    "screenshot_saved": 0,
+    "simultaneous_actions": 2,
+    "snapshot": {
+      "actions": [
+        {
+          "actor_id": 0,
+          "anchor": [
+            340,
+            215
+          ],
+          "kind": "chat"
+        },
+        {
+          "actor_id": 1,
+          "anchor": [
+            440,
+            395
+          ],
+          "kind": "lockpick"
+        }
+      ],
+      "actors": [
+        {
+          "action": "chatting",
+          "actor_id": 0,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            340,
+            215
+          ],
+          "selected": false,
+          "skill_id": "chat"
+        },
+        {
+          "action": "lockpicking",
+          "actor_id": 1,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            440,
+            395
+          ],
+          "selected": false,
+          "skill_id": "lockpick"
+        },
+        {
+          "action": "idle",
+          "actor_id": 2,
+          "escaped": false,
+          "facing": [
+            0,
+            -1
+          ],
+          "position": [
+            185,
+            510
+          ],
+          "selected": true,
+          "skill_id": "strong"
+        }
+      ],
+      "captures": 0,
+      "deal": 4,
+      "dragged_actor_id": -1,
+      "elapsed": 0.406060606060606,
+      "guard": {
+        "chat_partner_id": 0,
+        "facing": [
+          -0.94385838508606,
+          -0.330350428819656
+        ],
+        "fov_degrees": 120,
+        "lost_time": 0,
+        "path_size": 0,
+        "position": [
+          440,
+          250
+        ],
+        "route_index": 0,
+        "state": "talking",
+        "target_id": -1,
+        "view_radius": 110
+      },
+      "guard_position": [
+        440,
+        250
+      ],
+      "phase": "playing",
+      "seed": 42,
+      "selected_actor_id": 2,
+      "world": {
+        "crate": [
+          467,
+          572,
+          94,
+          92
+        ],
+        "door_open": false,
+        "lock_progress": 0.101515151515151,
+        "obstacle_revision": 6,
+        "push_distance": 0,
+        "room_id": "r01"
+      }
+    }
+  },
+  "observations": [
+    "种子可复现的每人独立等概率随机，允许重复；300个开发种子观察到全部27有序配置。",
+    "真实E键开始单人撬锁，卡片切换不取消操作，约4秒开门；两人组件检查约2秒。",
+    "实际聊天背后的人不被发现，前方其他人同tick触发追击并取消聊天。",
+    "聊天与撬锁可留在不同人物持续，选择第三人不取消；大力气仅直接拖动接触施力，85单位/秒预算。",
+    "同一个狱警同一时刻只有一个聊天对象，界面明确目标忙碌；不同人物的独立操作不被选中状态替代。"
+  ],
+  "limitations": [
+    "已验证技能规则，R01两条全员路线与主干整体集成在P05验证。",
+    "随机无解没有加入保底，明确显示缺少开路技能。",
+    "没有真人趣味性证据。"
+  ],
+  "decision": "保留独立持续操作，进入完整路线验证。"
+}

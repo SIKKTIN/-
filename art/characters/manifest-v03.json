@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "actors": [
+    {
+      "actor_id": 0,
+      "visual_id": "inmate_01",
+      "identity": "slender",
+      "texture": "res://art/characters/inmate_01_handpaint_v03.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          254,
+          57,
+          372,
+          631
+        ],
+        "walk_a": [
+          882,
+          58,
+          432,
+          630
+        ],
+        "walk_b": [
+          1526,
+          57,
+          374,
+          631
+        ]
+      },
+      "anchor": {
+        "idle": [
+          193.5,
+          625
+        ],
+        "walk_a": [
+          232.5,
+          624
+        ],
+        "walk_b": [
+          195.0,
+          625
+        ]
+      },
+      "opaque_bounds": {
+        "idle": [
+          6,
+          6,
+          360,
+          619
+        ],
+        "walk_a": [
+          6,
+          6,
+          420,
+          618
+        ],
+        "walk_b": [
+          6,
+          6,
+          362,
+          619
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          193.5,
+          6
+        ],
+        "walk_a": [
+          232.5,
+          6
+        ],
+        "walk_b": [
+          195.0,
+          6
+        ]
+      },
+      "world_height": 60,
+      "initial_walk_frame_seconds": 0.32,
+      "scale_rule": "world_height / frame region height; draw at -anchor * scale; mirror only body about local foot origin",
+      "skills_baked": false,
+      "shadow_baked": false,
+      "source_kind": "built-in imagegen original project asset; PNG pixels unmodified",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-18da9584-f0e5-4175-885a-e1849a349a8f.png",
+      "sha256": "4c0d4140b2cb5b51770590ba2ce63cc51a89dd0c271d0b199e87b7ace1003719"
+    },
+    {
+      "actor_id": 1,
+      "visual_id": "inmate_02",
+      "identity": "round",
+      "texture": "res://art/characters/inmate_02_handpaint_v03.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          201,
+          92,
+          353,
+          543
+        ],
+        "walk_a": [
+          855,
+          92,
+          450,
+          543
+        ],
+        "walk_b": [
+          1551,
+          92,
+          404,
+          540
+        ]
+      },
+      "anchor": {
+        "idle": [
+          193.0,
+          537
+        ],
+        "walk_a": [
+          231.5,
+          537
+        ],
+        "walk_b": [
+          201.0,
+          534
+        ]
+      },
+      "opaque_bounds": {
+        "idle": [
+          6,
+          6,
+          341,
+          531
+        ],
+        "walk_a": [
+          6,
+          6,
+          438,
+          531
+        ],
+        "walk_b": [
+          6,
+          6,
+          392,
+          528
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          193.0,
+          6
+        ],
+        "walk_a": [
+          231.5,
+          6
+        ],
+        "walk_b": [
+          201.0,
+          6
+        ]
+      },
+      "world_height": 60,
+      "initial_walk_frame_seconds": 0.32,
+      "scale_rule": "world_height / frame region height; draw at -anchor * scale; mirror only body about local foot origin",
+      "skills_baked": false,
+      "shadow_baked": false,
+      "source_kind": "built-in imagegen original project asset; PNG pixels unmodified",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-4a4c8908-b6fc-4e7e-9fc7-baab50a492c1.png",
+      "sha256": "27f971409434fa0d40231cf4de853769e7e83d24169f544c3f76951bd367daba"
+    },
+    {
+      "actor_id": 2,
+      "visual_id": "inmate_03",
+      "identity": "square",
+      "texture": "res://art/characters/inmate_03_handpaint_v03.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          187,
+          52,
+          359,
+          599
+        ],
+        "walk_a": [
+          859,
+          54,
+          455,
+          596
+        ],
+        "walk_b": [
+          1562,
+          51,
+          417,
+          601
+        ]
+      },
+      "anchor": {
+        "idle": [
+          177.5,
+          593
+        ],
+        "walk_a": [
+          231.5,
+          590
+        ],
+        "walk_b": [
+          208.0,
+          595
+        ]
+      },
+      "opaque_bounds": {
+        "idle": [
+          6,
+          6,
+          347,
+          587
+        ],
+        "walk_a": [
+          6,
+          6,
+          443,
+          584
+        ],
+        "walk_b": [
+          6,
+          6,
+          405,
+          589
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          177.5,
+          6
+        ],
+        "walk_a": [
+          231.5,
+          6
+        ],
+        "walk_b": [
+          208.0,
+          6
+        ]
+      },
+      "world_height": 60,
+      "initial_walk_frame_seconds": 0.32,
+      "scale_rule": "world_height / frame region height; draw at -anchor * scale; mirror only body about local foot origin",
+      "skills_baked": false,
+      "shadow_baked": false,
+      "source_kind": "built-in imagegen original project asset; PNG pixels unmodified",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-2c3e4aaa-8bbd-48f4-9216-aa51a171a657.png",
+      "sha256": "08ade4e92c31305191e3df0cb582844b79502de104aa31eae3325a6e151d0445"
+    },
+    {
+      "actor_id": "guard",
+      "visual_id": "guard_01",
+      "identity": "navy_guard",
+      "texture": "res://art/characters/guard_01_handpaint_v03.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "frames": {
+        "idle": [
+          230,
+          84,
+          365,
+          593
+        ],
+        "walk_a": [
+          875,
+          85,
+          432,
+          594
+        ],
+        "walk_b": [
+          1571,
+          84,
+          354,
+          594
+        ]
+      },
+      "anchor": {
+        "idle": [
+          193.0,
+          587
+        ],
+        "walk_a": [
+          211.5,
+          588
+        ],
+        "walk_b": [
+          171.0,
+          588
+        ]
+      },
+      "opaque_bounds": {
+        "idle": [
+          6,
+          6,
+          353,
+          581
+        ],
+        "walk_a": [
+          6,
+          6,
+          420,
+          582
+        ],
+        "walk_b": [
+          6,
+          6,
+          342,
+          582
+        ]
+      },
+      "head_registration": {
+        "idle": [
+          193.0,
+          6
+        ],
+        "walk_a": [
+          211.5,
+          6
+        ],
+        "walk_b": [
+          171.0,
+          6
+        ]
+      },
+      "world_height": 72,
+      "initial_walk_frame_seconds": 0.32,
+      "scale_rule": "world_height / frame region height; draw at -anchor * scale; mirror only body about local foot origin",
+      "skills_baked": false,
+      "shadow_baked": false,
+      "source_kind": "built-in imagegen original project asset; PNG pixels unmodified",
+      "source_png": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-f1a59a1c-411d-4544-8209-ab2b65577c77.png",
+      "sha256": "2771f7174f99ffc9fd678114487470c623430c2f4d73e56040c2825f3ff9cc87"
+    }
+  ],
+  "selected_and_action_independent": true,
+  "state_boundary": "actual displacement drives walk_a/walk_b; zero movement idle; pause/escape stop"
+}

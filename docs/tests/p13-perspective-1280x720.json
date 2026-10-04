@@ -1,0 +1,172 @@
+{
+	"checks": {
+		"active_v03": true,
+		"actual_window_size": true,
+		"all_scene_textures_loaded": true,
+		"body_sizes": true,
+		"fixed_controls_fit_canvas": true,
+		"fixed_view_radius": true,
+		"layers_ground_before_body_before_information": true,
+		"r01_body_front_and_back": true,
+		"r01_crate_moves_visual_with_logic": true,
+		"r01_door_ground_registration": true,
+		"r01_flip_keeps_foot_origin": true,
+		"r01_long_chat_description_available": true,
+		"r01_occlusion_positions_valid": true,
+		"r01_real_door_open": true,
+		"r01_true_view_clips_wall": true,
+		"r02_body_front_and_back": true,
+		"r02_crate_moves_visual_with_logic": true,
+		"r02_door_ground_registration": true,
+		"r02_flip_keeps_foot_origin": true,
+		"r02_long_chat_description_available": true,
+		"r02_occlusion_positions_valid": true,
+		"r02_real_door_open": true,
+		"r02_true_view_clips_wall": true,
+		"skill_explanation_separate_from_controls": true
+	},
+	"passed": true,
+	"presentation": {
+		"asset_version": "art-v03-handpaint-20261004-05ac759ba4ad",
+		"events": [
+			{
+				"elapsed": 0.0,
+				"id": "door_open"
+			}
+		],
+		"loops": {
+			"chat_loop": false,
+			"crate_move_loop": false,
+			"lockpick_loop": false
+		},
+		"muted": false,
+		"profile": "v03",
+		"render_settings": {
+			"block_elevation": 24.0,
+			"block_top_tiled": false,
+			"characters": "res://art/characters/manifest-v03.json",
+			"contact_alpha": 0.16,
+			"delivery": "res://docs/art/delivery-v03.json",
+			"environment": "res://art/environment/manifest-v03.json",
+			"floor_asset": "floor_handpaint_v03",
+			"floor_tile_size": 384.0,
+			"material_slots": {
+				"block_top": "block_top_handpaint_v03",
+				"crate": "heavy_crate_handpaint_v03",
+				"door_closed": "locked_door_closed_v02",
+				"door_open": "locked_door_open_v02",
+				"wall_front": "stone_front_handpaint_v03",
+				"wall_top": "stone_top_handpaint_v03"
+			},
+			"outline_color": "434941",
+			"outline_width": 1.4,
+			"perspective": true,
+			"projection_alpha": 0.1,
+			"projection_offset": [
+				11.0,
+				8.0
+			],
+			"props": "res://art/props/manifest-v03.json",
+			"soft_shadows": true,
+			"top_modulate": [
+				1.18,
+				1.14,
+				1.08,
+				1.0
+			],
+			"wall_elevation": 18.0,
+			"wall_side_shade": 0.68,
+			"wall_side_width": 4.0
+		},
+		"visuals": [
+			{
+				"destination": [
+					-18.3993663787842,
+					-59.4294776916504,
+					35.3724250793457,
+					60.0
+				],
+				"flip_h": true,
+				"frame": "idle",
+				"region": [
+					254.0,
+					57.0,
+					372.0,
+					631.0
+				],
+				"visible": true,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-21.3259658813477,
+					-59.3370170593262,
+					39.0055236816406,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					201.0,
+					92.0,
+					353.0,
+					543.0
+				],
+				"visible": true,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-17.7796325683594,
+					-59.398998260498,
+					35.9599342346191,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					187.0,
+					52.0,
+					359.0,
+					599.0
+				],
+				"visible": true,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-23.4333896636963,
+					-71.2714996337891,
+					44.3170318603516,
+					72.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					230.0,
+					84.0,
+					365.0,
+					593.0
+				],
+				"visible": true,
+				"world_height": 72.0
+			}
+		]
+	},
+	"screenshots": [
+		"res://docs/tests/p13-r01-start-1280x720.png",
+		"res://docs/tests/p13-r01-chat-ready-1280x720.png",
+		"res://docs/tests/p13-r01-occlusion-closed-1280x720.png",
+		"res://docs/tests/p13-r01-lock-progress-1280x720.png",
+		"res://docs/tests/p13-r01-open-pushed-1280x720.png",
+		"res://docs/tests/p13-r02-start-1280x720.png",
+		"res://docs/tests/p13-r02-chat-ready-1280x720.png",
+		"res://docs/tests/p13-r02-occlusion-closed-1280x720.png",
+		"res://docs/tests/p13-r02-lock-progress-1280x720.png",
+		"res://docs/tests/p13-r02-open-pushed-1280x720.png"
+	],
+	"window": [
+		1280,
+		720
+	]
+}
