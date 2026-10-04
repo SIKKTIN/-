@@ -4,6 +4,7 @@ const ActorVisual = preload("res://scripts/presentation/actor_visual.gd")
 const WorldVolume = preload("res://scripts/presentation/world_volume.gd")
 const SceneLayers = preload("res://scripts/presentation/scene_layers.gd")
 const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
+const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
 var game
 var visuals: Array = []
 var skill_icons: Dictionary = {}
@@ -26,6 +27,7 @@ var volumes: Array = []
 var scene_layers: Array = []
 var asset_definitions: Dictionary = {}
 var lighting
+var interaction
 
 func configure(escape_game) -> void:
 	game = escape_game
@@ -52,6 +54,8 @@ func configure(escape_game) -> void:
 		visual.name = "ArtVisual"
 		actor.add_child(visual)
 		visual.configure(actor,game,asset,skill_icons,font)
+		if actor == game.guard:
+			visual.light_mask = 2
 		visual.separate_information = profile.perspective
 		actor.presentation_layers = profile.perspective
 		visual.fx = fx
@@ -81,6 +85,10 @@ func configure(escape_game) -> void:
 	lighting.name = "Lighting"
 	game.add_child(lighting)
 	lighting.configure(game,mute_button.theme)
+	interaction = InteractionPrompt.new()
+	interaction.name = "InteractionPrompt"
+	add_child(interaction)
+	interaction.configure(game,self)
 	_make_audio()
 	reset()
 
@@ -135,6 +143,7 @@ func _make_ui() -> void:
 		card.add_child(symbol)
 		card_symbols.append(symbol)
 	game.hint_label.add_theme_font_size_override("font_size",15)
+	game.skill_button.visible = false
 	var controls := Label.new()
 	controls.name = "ControlHint"
 	controls.text = "左键选 · 右键走\nE技能 · S停止\nN昼夜 · R重开"
@@ -143,7 +152,7 @@ func _make_ui() -> void:
 	controls.add_theme_font_size_override("font_size",14)
 	game.get_node("HUD").add_child(controls)
 	var instructions := Label.new()
-	instructions.text = "左键选人 · 右键移动 · E技能 · S停止 · 三人到达出口"
+	instructions.text = "左键选人 · 右键移动 · 靠近点图标 / E互动 · S停止"
 	instructions.position = Vector2(34,91)
 	instructions.theme = theme
 	instructions.add_theme_font_size_override("font_size",15)
@@ -192,6 +201,8 @@ func reset() -> void:
 	_tick_scene()
 	if lighting:
 		lighting.tick()
+	if interaction:
+		interaction.refresh()
 
 func _refresh_volumes() -> void:
 	for volume in volumes:
@@ -229,6 +240,8 @@ func tick(delta: float) -> void:
 	_tick_scene()
 	if lighting:
 		lighting.tick()
+	if interaction:
+		interaction.refresh()
 	update_cards()
 	var now := _state()
 	var active: bool = game.phase == "playing" and not game.get_tree().paused and not muted and audio_available
@@ -308,4 +321,4 @@ func snapshot() -> Dictionary:
 	var playback := {}
 	for id in loops:
 		playback[id] = loops[id].playing
-	return {"asset_version":asset_version,"profile":profile_id,"render_settings":profile.duplicate(true),"visuals":visuals.map(func(v): return v.snapshot()),"loops":playback,"events":events.duplicate(true),"muted":muted,"lighting":lighting.snapshot() if lighting else {}}
+	return {"asset_version":asset_version,"profile":profile_id,"render_settings":profile.duplicate(true),"visuals":visuals.map(func(v): return v.snapshot()),"loops":playback,"events":events.duplicate(true),"muted":muted,"lighting":lighting.snapshot() if lighting else {},"interaction":interaction.snapshot() if interaction else {}}

@@ -16,6 +16,7 @@ var obstacle_revision: int = 0
 var actors: Array = []
 var patrol: Array[Vector2] = []
 var guard_start := Vector2(735,280)
+var guard_zone := bounds
 var grid := AStarGrid2D.new()
 var nav_dirty: bool = true
 var art_textures: Dictionary = {}
@@ -37,6 +38,7 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 		patrol.append(Vector2(value[0], value[1]))
 	var start: Array = config.get("guard_start", [735,280])
 	guard_start = Vector2(start[0], start[1])
+	guard_zone = _rect(config.get("guard_zone",config.get("bounds",[74,114,922,560])))
 	reset_world()
 
 func _rect(value: Array) -> Rect2:
@@ -69,6 +71,8 @@ func inside_room(point: Vector2, radius: float = RADIUS, allow_exit: bool = true
 	return allow_exit and point.y >= exit_area.position.y + radius and point.y <= exit_area.end.y - radius and point.x <= exit_area.end.x - radius
 
 func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
+	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
+		return false
 	if not inside_room(point, radius):
 		return false
 	for rect in solid_rects(include_crate):
@@ -207,7 +211,7 @@ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bo
 		_rebuild_navigation()
 	# Overlay only this query's body/box constraints, then restore the shared grid.
 	var changed: Array = []
-	if avoid_actors or ignore_crate:
+	if avoid_actors or ignore_crate or (ignore_actor != null and ignore_actor.has_method("movement_allowed")):
 		for y in range(36):
 			for x in range(60):
 				var cell := Vector2i(x,y)

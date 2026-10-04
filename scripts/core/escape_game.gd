@@ -303,6 +303,9 @@ func show_status(text: String, duration: float = 2.5) -> void:
 
 func use_selected_skill() -> void:
 	if skills and phase == "playing":
+		if actors[selected_actor_id].skill_id == "strong" and presentation and presentation.interaction:
+			presentation.interaction.activate(false)
+			return
 		if not skills.actions.has(selected_actor_id) and skills.target_reason(actors[selected_actor_id]) == "":
 			orders.stop(selected_actor_id)
 		skills.toggle(selected_actor_id)

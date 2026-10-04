@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "8185dacaedbc4c1ca81ac1d3e54e6dabc2e0585143386b9e2ebf3580309662c4",
+  "snapshotId": "556a7a5dbc12b81d0256af948cd0304e99314bf6e3540400c40342203462b208",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -1027,6 +1027,56 @@
           "at": "2026-10-04T15:15:01.907Z"
         }
       ]
+    },
+    {
+      "id": "e6b91c45-9ba0-4dea-826b-8d8470492914",
+      "title": "P15 狱警手电、监管区与近距离互动",
+      "description": "警戒扇形改为真实随朝向光源，扩大可见/发现距离且白天大于夜晚；监管区数据化，禁止发现/抓回安全区伙伴且路径不越监管边界；靠近目标显示可点击互动图标，E保留，独立持续操作不变。安全区位置等待用户澄清，先做通用区域接口。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-04",
+      "actualEnd": "2026-10-04",
+      "milestoneId": "",
+      "acceptance": "两关昼夜真实光束和遮挡、半径差异一致，边界外不检测/抓回且追击立即释放、狱警寻路不绕入安全区。靠近且符合技能条件才显示图标，点击/键盘均触发真实技能，离开或目标失效隐藏，移动/切人不误触。巡逻及两关策略回归，实际两尺寸截图；记录受影响旧参数与真实未覆盖项，同步GameCreator及GitHub。",
+      "result": "v0.6实现真实随朝向120度手电，白天210/夜晚155；监管区约束狱警碰撞/寻路/发现/抓回，用户确认的左侧安全房间即时解追且光束不越界。近距图标点/E聊天撬锁推箱，切人保留原操作。两关两尺寸各50项、RTS20、60s巡逻通过；主干Viewport鼠标GUI点击实际启动撬锁。原生夜间R01 17.335s/R02新协作路线15.939s零抓回，保留旧R02扩圈后失败对照；白天完整路线/所有随机配置/真人趣味性未覆盖。GameCreator gameplay/map新规则已签名应用，原PNG不变，运行窗口已恢复夜间新局。\n\n验收通过：制作人程序任务单独自验收：用户确认的左侧安全房间已由移动/寻路/视野/抓回/光束共同限制，回房即时解追；白天210夜晚155真实手电与轮廓共半径，实体遮光且自身不洗白。两关两尺寸50项、巡逻60s与RTS20通过，近距图标既可点击又可E，真实Viewport鼠标已启动撬锁。夜间原生两关全员零抓回；R02新路线实际用到改变朝向、下方接近及安全区回退再撤离。保留旧路线失败对照、真人/白天完整路线/全部随机配置未验证边界；GameCreator规则与地图已应用。接受v0.6交付。",
+      "dependencyIds": [
+        "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "E:/Project/Godot/这次怎么逃/scripts/",
+          "E:/Project/Godot/这次怎么逃/data/rooms/",
+          "E:/Project/Godot/这次怎么逃/data/presentation/lighting.json",
+          "E:/Project/Godot/这次怎么逃/tests/",
+          "E:/Project/Godot/这次怎么逃/docs/dev/",
+          "E:/Project/Godot/这次怎么逃/docs/tests/",
+          "E:/Project/Godot/这次怎么逃/README.md"
+        ],
+        "entry": "F5两关；N切昼夜；近距离目标图标/E互动",
+        "interfaceContract": "地图数据增加监管区域；guard统一检测半径供可视灯光/真实检测，world寻路只对狱警使用区域约束，友军仍原路径。只制作程序光束与现有技能图标UI，不修改原手绘PNG；保持1/2/3、左键选右键走、E/S/R及独立持续技能。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p15-guard-interact-plan-20261004",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T15:37:37.740Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -1142,7 +1192,8 @@
             "c3582edc-f9ed-4b95-bb88-6dcf383a9b34",
             "3925b8cd-56ba-4322-af8f-b622c741c6ee",
             "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7",
-            "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
+            "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+            "e6b91c45-9ba0-4dea-826b-8d8470492914"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -1368,6 +1419,17 @@
       "modules": [
         "art-assets"
       ]
+    },
+    {
+      "id": "p15-guard-light-interaction-20261004",
+      "digest": "b505e2c6b2396dfec13661ade732a3b7a15394b71eee7751443443d835fd3be8",
+      "summary": "v0.6同步用户确认的安全房间、昼夜手电视野与近距离图标，保留历史验证与本轮范围。",
+      "memberName": "制作人",
+      "at": "2026-10-04T15:59:00.224Z",
+      "modules": [
+        "gameplay",
+        "map-design"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -1440,6 +1502,18 @@
       "reason": "用户明确要求把当前项目上传到指定GitHub仓库并接入光源与昼夜；新增制作人程序任务，保留P13已验收版本。",
       "createdTaskIds": [
         "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p15-guard-interact-plan-20261004",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-04T15:37:37.740Z",
+      "reason": "用户要求警戒改为光束、限制监管区域、昼夜不同发现距离及近距离互动图标，新增程序任务，不扩展已验收P14。",
+      "createdTaskIds": [
+        "e6b91c45-9ba0-4dea-826b-8d8470492914"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -4485,6 +4559,150 @@
         "note": "制作人程序任务单独自验收：远端main实际含v0.4与v0.5提交，无凭证/缓存或超限文件。双关两尺寸灯光34项和RTS20项通过，墙遮光/真实开门/碰撞有效移箱像素对照成立；HUD与纸张保持、切换不影响操作。夜间原生两关全员零抓回。独立checkout完整对象且无alternates，新缓存导入/启动及实际960窗口34项通过；字体导入3项Unicode提示无运行影响，首次整包下载停滞已如实记录。接受lighting-v01手动昼夜交付，灯具占位与黑暗潜行/真人趣味性未验证边界明确。",
         "mode": "producer-self",
         "evidenceVersion": 2
+      }
+    },
+    {
+      "id": "p15-start-20261004",
+      "taskId": "e6b91c45-9ba0-4dea-826b-8d8470492914",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手；用户明确确认左侧起始房间安全，狱警不得进入且回房立即解追。先建立通用监管区域、统一昼夜半径与近距图标接口。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/scripts/actors/guard.gd",
+        "E:/Project/Godot/这次怎么逃/data/rooms/r01.json"
+      ],
+      "at": "2026-10-04T15:38:46.066Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "e6b91c45-9ba0-4dea-826b-8d8470492914",
+        "title": "P15 狱警手电、监管区与近距离互动",
+        "description": "警戒扇形改为真实随朝向光源，扩大可见/发现距离且白天大于夜晚；监管区数据化，禁止发现/抓回安全区伙伴且路径不越监管边界；靠近目标显示可点击互动图标，E保留，独立持续操作不变。安全区位置等待用户澄清，先做通用区域接口。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "两关昼夜真实光束和遮挡、半径差异一致，边界外不检测/抓回且追击立即释放、狱警寻路不绕入安全区。靠近且符合技能条件才显示图标，点击/键盘均触发真实技能，离开或目标失效隐藏，移动/切人不误触。巡逻及两关策略回归，实际两尺寸截图；记录受影响旧参数与真实未覆盖项，同步GameCreator及GitHub。",
+        "result": "已接手；用户明确确认左侧起始房间安全，狱警不得进入且回房立即解追。先建立通用监管区域、统一昼夜半径与近距图标接口。",
+        "dependencyIds": [
+          "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/lighting.json",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "F5两关；N切昼夜；近距离目标图标/E互动",
+          "interfaceContract": "地图数据增加监管区域；guard统一检测半径供可视灯光/真实检测，world寻路只对狱警使用区域约束，友军仍原路径。只制作程序光束与现有技能图标UI，不修改原手绘PNG；保持1/2/3、左键选右键走、E/S/R及独立持续技能。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p15-guard-interact-plan-20261004",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T15:37:37.740Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p15-final-20261004",
+      "taskId": "e6b91c45-9ba0-4dea-826b-8d8470492914",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "v0.6实现真实随朝向120度手电，白天210/夜晚155；监管区约束狱警碰撞/寻路/发现/抓回，用户确认的左侧安全房间即时解追且光束不越界。近距图标点/E聊天撬锁推箱，切人保留原操作。两关两尺寸各50项、RTS20、60s巡逻通过；主干Viewport鼠标GUI点击实际启动撬锁。原生夜间R01 17.335s/R02新协作路线15.939s零抓回，保留旧R02扩圈后失败对照；白天完整路线/所有随机配置/真人趣味性未覆盖。GameCreator gameplay/map新规则已签名应用，原PNG不变，运行窗口已恢复夜间新局。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-integration.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-build.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-guard-interaction-1280x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-guard-interaction-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-rts.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-gui-click.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-live-r01.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-live-r02.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p15-r02-old-route-failure.json"
+      ],
+      "at": "2026-10-04T16:00:44.990Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "e6b91c45-9ba0-4dea-826b-8d8470492914",
+        "title": "P15 狱警手电、监管区与近距离互动",
+        "description": "警戒扇形改为真实随朝向光源，扩大可见/发现距离且白天大于夜晚；监管区数据化，禁止发现/抓回安全区伙伴且路径不越监管边界；靠近目标显示可点击互动图标，E保留，独立持续操作不变。安全区位置等待用户澄清，先做通用区域接口。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "两关昼夜真实光束和遮挡、半径差异一致，边界外不检测/抓回且追击立即释放、狱警寻路不绕入安全区。靠近且符合技能条件才显示图标，点击/键盘均触发真实技能，离开或目标失效隐藏，移动/切人不误触。巡逻及两关策略回归，实际两尺寸截图；记录受影响旧参数与真实未覆盖项，同步GameCreator及GitHub。",
+        "result": "v0.6实现真实随朝向120度手电，白天210/夜晚155；监管区约束狱警碰撞/寻路/发现/抓回，用户确认的左侧安全房间即时解追且光束不越界。近距图标点/E聊天撬锁推箱，切人保留原操作。两关两尺寸各50项、RTS20、60s巡逻通过；主干Viewport鼠标GUI点击实际启动撬锁。原生夜间R01 17.335s/R02新协作路线15.939s零抓回，保留旧R02扩圈后失败对照；白天完整路线/所有随机配置/真人趣味性未覆盖。GameCreator gameplay/map新规则已签名应用，原PNG不变，运行窗口已恢复夜间新局。",
+        "dependencyIds": [
+          "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/data/rooms/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/lighting.json",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "F5两关；N切昼夜；近距离目标图标/E互动",
+          "interfaceContract": "地图数据增加监管区域；guard统一检测半径供可视灯光/真实检测，world寻路只对狱警使用区域约束，友军仍原路径。只制作程序光束与现有技能图标UI，不修改原手绘PNG；保持1/2/3、左键选右键走、E/S/R及独立持续技能。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p15-guard-interact-plan-20261004",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T15:37:37.740Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T16:01:23.019Z",
+        "note": "制作人程序任务单独自验收：用户确认的左侧安全房间已由移动/寻路/视野/抓回/光束共同限制，回房即时解追；白天210夜晚155真实手电与轮廓共半径，实体遮光且自身不洗白。两关两尺寸50项、巡逻60s与RTS20通过，近距图标既可点击又可E，真实Viewport鼠标已启动撬锁。夜间原生两关全员零抓回；R02新路线实际用到改变朝向、下方接近及安全区回退再撤离。保留旧路线失败对照、真人/白天完整路线/全部随机配置未验证边界；GameCreator规则与地图已应用。接受v0.6交付。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
       }
     }
   ]

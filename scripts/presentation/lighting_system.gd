@@ -13,6 +13,9 @@ var lamp_specs: Array = []
 var room_id: String = ""
 var obstacle_revision: int = -1
 var toggle_button: Button
+var guard_light: PointLight2D
+var guard_boundaries: Array[LightOccluder2D] = []
+var beam_texture: Texture2D
 
 func configure(owner_game, theme: Theme) -> void:
 	game = owner_game
@@ -35,6 +38,7 @@ func configure(owner_game, theme: Theme) -> void:
 	sun.shadow_enabled = false
 	sun.range_layer_min = 0
 	sun.range_layer_max = 0
+	sun.range_item_cull_mask = 3
 	add_child(sun)
 	toggle_button = Button.new()
 	toggle_button.name = "ToggleDayNight"
@@ -42,9 +46,20 @@ func configure(owner_game, theme: Theme) -> void:
 	toggle_button.size = Vector2(155,38)
 	toggle_button.theme = theme
 	toggle_button.add_theme_font_size_override("font_size",16)
-	toggle_button.tooltip_text = "切换昼夜照明（N）；当前只改变画面，狱警警戒规则保持一致。"
+	toggle_button.tooltip_text = "切换昼夜（N）；白天狱警看得更远，夜晚视野缩短。左侧起始房间安全。"
 	toggle_button.pressed.connect(toggle_period)
 	game.get_node("HUD").add_child(toggle_button)
+	guard_light = PointLight2D.new()
+	guard_light.name = "GuardFlashlight"
+	beam_texture = _beam_texture()
+	guard_light.texture = beam_texture
+	guard_light.shadow_enabled = true
+	guard_light.shadow_item_cull_mask = 3
+	guard_light.shadow_filter = Light2D.SHADOW_FILTER_PCF5
+	guard_light.shadow_filter_smooth = 0.8
+	guard_light.range_layer_min = 0
+	guard_light.range_layer_max = 0
+	add_child(guard_light)
 	tick()
 	set_period(period)
 
@@ -67,6 +82,48 @@ func set_period(value: String) -> void:
 	if toggle_button:
 		toggle_button.text = "白天 · 切换 N" if period == "day" else "夜晚 · 切换 N"
 	queue_redraw()
+	_tick_guard_light()
+
+func _beam_texture() -> ImageTexture:
+	# A procedural light texture, not a modified art asset. +X is its direction.
+	var image := Image.create(256,256,false,Image.FORMAT_RGBA8)
+	for y in range(256):
+		for x in range(256):
+			var offset := (Vector2(x+0.5,y+0.5)-Vector2(128,128))/128.0
+			var radial := 1.0-smoothstep(0.65,1.0,offset.length())
+			var angular := 1.0-smoothstep(game.guard.HALF_FOV-0.025,game.guard.HALF_FOV,absf(offset.angle()))
+			image.set_pixel(x,y,Color(1,1,1,maxf(0,radial*angular)))
+	return ImageTexture.create_from_image(image)
+
+func _tick_guard_light() -> void:
+	if not guard_light:
+		return
+	guard_light.position = game.guard.position
+	guard_light.rotation = game.guard.facing.angle()
+	guard_light.texture_scale = game.guard.view_radius()/128.0
+	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" else Color("ffe5b2")
+	guard_light.energy = 0.65 if period == "night" else 0.26
+	guard_light.enabled = game.phase == "playing"
+
+func _sync_guard_boundaries() -> void:
+	for node in guard_boundaries:
+		node.free()
+	guard_boundaries.clear()
+	var zone: Rect2 = game.world.guard_zone
+	var edges := [
+		PackedVector2Array([zone.position,Vector2(zone.end.x,zone.position.y)]),
+		PackedVector2Array([Vector2(zone.end.x,zone.position.y),zone.end]),
+		PackedVector2Array([zone.end,Vector2(zone.position.x,zone.end.y)]),
+		PackedVector2Array([Vector2(zone.position.x,zone.end.y),zone.position])
+	]
+	for edge in edges:
+		var node := LightOccluder2D.new()
+		node.occluder_light_mask = 2
+		node.occluder = OccluderPolygon2D.new()
+		node.occluder.closed = false
+		node.occluder.polygon = edge
+		add_child(node)
+		guard_boundaries.append(node)
 
 func _light_texture(radius: float) -> GradientTexture2D:
 	var gradient := Gradient.new()
@@ -96,6 +153,7 @@ func _rebuild_lamps() -> void:
 		lamp.energy = settings.lamp_energy
 		lamp.range_layer_min = 0
 		lamp.range_layer_max = 0
+		lamp.range_item_cull_mask = 3
 		lamp.shadow_enabled = true
 		lamp.shadow_filter = Light2D.SHADOW_FILTER_PCF5
 		lamp.shadow_filter_smooth = 1.5
@@ -123,9 +181,11 @@ func tick() -> void:
 	if room_id != game.world.room_id:
 		room_id = game.world.room_id
 		_rebuild_lamps()
+		_sync_guard_boundaries()
 		obstacle_revision = -1
 	if obstacle_revision != game.world.obstacle_revision:
 		_sync_occluders()
+	_tick_guard_light()
 
 func _draw() -> void:
 	for spec in lamp_specs:
@@ -145,4 +205,4 @@ func _fixture() -> StyleBoxFlat:
 	return box
 
 func snapshot() -> Dictionary:
-	return {"version":settings.version,"period":period,"room":room_id,"ambient":ambient.color.to_html(),"sun_enabled":sun.enabled,"lamps":lamps.map(func(lamp): return {"position":[lamp.position.x,lamp.position.y],"enabled":lamp.enabled,"shadows":lamp.shadow_enabled,"energy":lamp.energy}),"occluder_count":occluders.size(),"obstacle_revision":obstacle_revision}
+	return {"version":settings.version,"period":period,"room":room_id,"ambient":ambient.color.to_html(),"sun_enabled":sun.enabled,"lamps":lamps.map(func(lamp): return {"position":[lamp.position.x,lamp.position.y],"enabled":lamp.enabled,"shadows":lamp.shadow_enabled,"energy":lamp.energy}),"occluder_count":occluders.size(),"obstacle_revision":obstacle_revision,"flashlight_radius":game.guard.view_radius(),"flashlight_enabled":guard_light.enabled}

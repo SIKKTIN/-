@@ -64,6 +64,8 @@ func paint_information(canvas: CanvasItem) -> void:
 	if separate_information and not is_guard and actor.selected:
 		canvas.draw_arc(Vector2.ZERO,23,0,TAU,40,Color("328b82"),3,true)
 	var direction_color := Color("c9534b") if is_guard and actor.state == "chasing" else Color("303b46") if is_guard else Color("328b82")
+	if is_guard and actor.state != "chasing" and game.presentation and game.presentation.lighting and game.presentation.lighting.period == "night":
+		direction_color = Color("e5dfce")
 	canvas.draw_line(actor.facing*18,actor.facing*31,direction_color,3,true)
 	canvas.draw_line(actor.facing*31,actor.facing*25+actor.facing.orthogonal()*4,direction_color,2,true)
 	canvas.draw_line(actor.facing*31,actor.facing*25-actor.facing.orthogonal()*4,direction_color,2,true)

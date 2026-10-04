@@ -30,7 +30,7 @@ func target_reason(actor) -> String:
 		return "锁门已经打开。"
 	var point: Vector2 = game.world.door.position + Vector2(-27,game.world.door.size.y*0.5)
 	if actor.position.distance_to(point) > float(definition.range):
-		return "到锁门左侧的操作点再撬锁。"
+		return "靠近锁门左侧，会出现撬锁图标。"
 	if not game.world.line_clear(actor.position,point):
 		return "你和门边操作点之间有遮挡。"
 	return ""

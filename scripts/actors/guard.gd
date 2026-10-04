@@ -1,6 +1,8 @@
 extends Node2D
 
-const VIEW_RADIUS := 110.0
+const VIEW_RADIUS := 210.0
+const DAY_VIEW_RADIUS := 210.0
+const NIGHT_VIEW_RADIUS := 155.0
 const HALF_FOV := PI / 3.0
 var world
 var game
@@ -43,9 +45,25 @@ func reset_guard() -> void:
 	skipped_waypoints = 0
 	queue_redraw()
 
+func view_radius() -> float:
+	var night: bool = game.presentation != null and game.presentation.lighting != null and game.presentation.lighting.period == "night"
+	return NIGHT_VIEW_RADIUS if night else DAY_VIEW_RADIUS
+
+func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
+	return world.guard_zone.grow(-radius).has_point(point)
+
+func release_target() -> void:
+	state = "patrol"
+	target_id = -1
+	lost_time = 0.0
+	path.clear()
+	stalled_time = 0
+
 func sees(point: Vector2) -> bool:
+	if not world.guard_zone.has_point(point):
+		return false
 	var offset := point - position
-	if offset.length() > VIEW_RADIUS:
+	if offset.length() > view_radius():
 		return false
 	if offset.length_squared() > 0.001 and facing.dot(offset.normalized()) < cos(HALF_FOV):
 		return false
@@ -55,6 +73,8 @@ func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing":
 		return
+	if state == "chasing" and (target_id < 0 or not world.guard_zone.has_point(game.actors[target_id].position)):
+		release_target()
 	var nearest_id: int = -1
 	var nearest_distance: float = INF
 	for actor in game.actors:
@@ -120,7 +140,7 @@ func _capture_if_touching() -> void:
 	if state != "chasing" or target_id < 0:
 		return
 	var target = game.actors[target_id]
-	if target.escaped or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
+	if target.escaped or not world.guard_zone.has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
 		return
 	game.capture_actor(target_id)
 	state = "patrol"
@@ -158,7 +178,14 @@ func view_polygon() -> PackedVector2Array:
 	angles.sort()
 	var polygon := PackedVector2Array([Vector2.ZERO])
 	for angle in angles:
-		polygon.append(world.clip_ray(position,Vector2.from_angle(angle),VIEW_RADIUS)-position)
+		var direction := Vector2.from_angle(angle)
+		var distance := view_radius()
+		var zone: Rect2 = world.guard_zone
+		if absf(direction.x) > 0.00001:
+			distance = minf(distance,((zone.end.x if direction.x > 0 else zone.position.x)-position.x)/direction.x)
+		if absf(direction.y) > 0.00001:
+			distance = minf(distance,((zone.end.y if direction.y > 0 else zone.position.y)-position.y)/direction.y)
+		polygon.append(world.clip_ray(position,direction,maxf(0,distance))-position)
 	return polygon
 
 func _draw() -> void:
@@ -183,4 +210,4 @@ func _draw() -> void:
 	draw_string(ThemeDB.fallback_font,Vector2(-22,-52),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("c9534b") if dangerous else Color("303b46"))
 
 func snapshot() -> Dictionary:
-	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":VIEW_RADIUS,"fov_degrees":120,"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}
+	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":view_radius(),"guard_zone":[world.guard_zone.position.x,world.guard_zone.position.y,world.guard_zone.size.x,world.guard_zone.size.y],"fov_degrees":120,"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}

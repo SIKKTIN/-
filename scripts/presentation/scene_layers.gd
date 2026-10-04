@@ -21,11 +21,6 @@ func _draw() -> void:
 		return
 	var world = game.world
 	if kind == "ground":
-		var tint := Color("c9534b") if game.guard.state == "chasing" else Color("d9ac54")
-		tint.a = 0.21
-		draw_set_transform(game.guard.position)
-		draw_colored_polygon(game.guard.view_polygon(),tint)
-		draw_set_transform(Vector2.ZERO)
 		for r in world.walls+[world.crate,world.door]:
 			if r == world.door and world.door_open:
 				continue
@@ -46,8 +41,18 @@ func _draw() -> void:
 		draw_rect(Rect2(986,355,10,180),Color("328b82"))
 		draw_texture_rect(world.art_textures.exit_v01,Rect2(927,410,54,54),false)
 	else:
+		var zone: Rect2 = world.guard_zone
+		var boundary := Color(0.20,0.55,0.51,0.42)
+		for y in range(int(zone.position.y+12),int(zone.end.y),24):
+			draw_line(Vector2(zone.position.x,y),Vector2(zone.position.x,y+10),boundary,1.5,true)
+		var label_color := Color("d8e8dc") if presentation.lighting.period == "night" else Color("536052")
+		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"安全房间",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+		var edge_color := Color("eb977b") if game.guard.state == "chasing" else Color("e1c787")
+		edge_color.a = 0.48
+		draw_set_transform(game.guard.position)
+		draw_polyline(game.guard.view_polygon(),edge_color,1.2,true)
+		draw_set_transform(Vector2.ZERO)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
-		draw_arc(point,10,0,TAU,24,Color("9a8fb9"),2,true)
 		if world.lock_progress > 0 and not world.door_open:
 			var progress_offset := Vector2(-28,-float(presentation.visuals[0].definition.world_height)-48)
 			draw_rect(Rect2(point+progress_offset,Vector2(56,6)),Color("536052"))
