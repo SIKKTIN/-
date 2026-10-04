@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-04T17:12:18.761Z
-> 文档内容基准：92ace8d26c040b15c9ad600538dc66470c35ce5bbbd1fc5e0fe1199efd78c22a
+> 文档生成时间：2026-10-04T17:26:45.597Z
+> 文档内容基准：28a46d973c21848ba7f3198e3b4e079f4e3fc9bd9a4e6198327597ff5cb2a224
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -35,7 +35,7 @@
 - P17 物品拾取、使用与商人双向交易 [5af015eb-3478-43ac-8d69-b58c3535d659] · 已完成
 - P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 已完成
 - P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 已完成
-- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 进行中
+- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -579,7 +579,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P20 背包商人与R03完整集成及三关回归
 - ID：7aa6c897-f07b-49f2-b73d-02f12c3ecf93
-- 当前状态：进行中
+- 当前状态：已完成
 - 内容：将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。
 - 前置任务：dd171bf5-a85b-4729-a8bf-9d71bdcddf98、1f52ca69-414a-44d3-9654-f3b3b358ac9a
 - 允许修改路径：E:/Project/Godot/这次怎么逃/scripts/、E:/Project/Godot/这次怎么逃/scenes/、E:/Project/Godot/这次怎么逃/data/、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/、E:/Project/Godot/这次怎么逃/README.md
@@ -616,7 +616,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 已完成
 - P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 已完成
 - A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成
-- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 进行中
+- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

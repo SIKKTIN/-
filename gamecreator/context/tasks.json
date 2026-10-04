@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "4a74245d28718f19b7864659302e47cb580b0a0eaec0cad13814c4076410a375",
+  "snapshotId": "ef6cb60fb0573b16e04c3a28fe5b5db85c015254c95b9c630d775538fac0ecae",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -1389,15 +1389,15 @@
       "description": "将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。",
       "kind": "程序",
       "owner": "制作人",
-      "status": "进行中",
+      "status": "已完成",
       "priority": "高",
       "start": "",
       "end": "",
       "actualStart": "2026-10-04",
-      "actualEnd": "",
+      "actualEnd": "2026-10-04",
       "milestoneId": "",
       "acceptance": "P19/A05已accepted；同一构建R01/R02保持、R03至少两类完整路线与金额/物品守恒；两尺寸相机/输入/HUD/商店/图标/背包可读，满包/抓回/中断/重開边界通过。提交版本/源码哈希/运行记录/遗留风险，技术验收不冒充P09真人趣味性。",
-      "result": "P19和A05已完成，开始实际资产接入、R03灯具/昼夜、真实GUI/相机测试及三关回归，最后正式设计回写与发布。",
+      "result": "v0.7完整集成并发布：独立1/3格背包、物品使用/交接、双向商人、大地图相机、R03及7盏灯，美术主美A05接入。236项技术检查、三关原生实际帧时钟全员逃脱均0抓回。最后真实窗口发现首次空槽撑大按钮已修复，两尺寸GUI各22项及实际编辑器首屏空包重新验证；逻辑通关证据为UI修复前同v0.7游戏逻辑。源码/资源哈希、未覆盖项记录完备，GitHub main已推送b6d260b。\n\n验收通过：制作人主干集成任务自验收：A05资源已独立验收，236项技术检查、3关原生完整流程、1/3格运输差异及真实GUI证据齐备。初始空图标撑大UI已修复并补两尺寸首屏/实际编辑器检查，明确它晚于完整路线且只改UI尺寸。代码已推送GitHub main b6d260ba28f500368b4d73e142f07cec6ffa0572并核对远端。接受v0.7工程与技术验证，不宣称真人趣味性、所有技能组合或其他帧率已证明；P09仍独立待组织。",
       "dependencyIds": [
         "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
         "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
@@ -1849,6 +1849,17 @@
         "design-documents",
         "gameplay",
         "map-design"
+      ]
+    },
+    {
+      "id": "p20-empty-slot-evidence-20261005",
+      "digest": "dcf3a81344098035a7b6f75c67e6ecd716636601add4cab1952d28efcbb42f6f",
+      "summary": "首屏空背包尺寸问题修复，两尺寸原生GUI各22项通过；最终技术检查合计236，记录实际窗口验证。",
+      "memberName": "制作人",
+      "at": "2026-10-04T17:25:16.610Z",
+      "modules": [
+        "design-documents",
+        "gameplay"
       ]
     }
   ],
@@ -6034,6 +6045,98 @@
             "at": "2026-10-04T16:14:28.928Z"
           }
         ]
+      }
+    },
+    {
+      "id": "p20-final-v07-20261005",
+      "taskId": "7aa6c897-f07b-49f2-b73d-02f12c3ecf93",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "v0.7完整集成并发布：独立1/3格背包、物品使用/交接、双向商人、大地图相机、R03及7盏灯，美术主美A05接入。236项技术检查、三关原生实际帧时钟全员逃脱均0抓回。最后真实窗口发现首次空槽撑大按钮已修复，两尺寸GUI各22项及实际编辑器首屏空包重新验证；逻辑通关证据为UI修复前同v0.7游戏逻辑。源码/资源哈希、未覆盖项记录完备，GitHub main已推送b6d260b。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p20-integration.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p20-build.json：236检查、105源文件SHA256；nativeRouteSourceCommit区分最后UI修正",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p20-live-r01.json、p20-live-r02.json、p20-live-r03.json：非headless、全员逃脱、0抓回",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p20-native-ui-1280x720.json、p20-native-ui-960x540.json：各22原生GUI/像素检查",
+        "E:/Project/Godot/这次怎么逃/docs/art/a05-delivery-v07.json：26个主美文件hash匹配，旧PNG未改",
+        "https://github.com/SIKKTIN/-/commit/7e275b76267dae2fb832c648d8745f4a82677e42：完整功能集成",
+        "https://github.com/SIKKTIN/-/commit/b6d260b：首次空包UI修复与补充原生证据",
+        "Godot MCP当前run_token23 / R03 / texture11 / lamps7 / three empty slots47x48 / 无运行错误；真人P09仍待组织"
+      ],
+      "at": "2026-10-04T17:26:05.974Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "7aa6c897-f07b-49f2-b73d-02f12c3ecf93",
+        "title": "P20 背包商人与R03完整集成及三关回归",
+        "description": "将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "P19/A05已accepted；同一构建R01/R02保持、R03至少两类完整路线与金额/物品守恒；两尺寸相机/输入/HUD/商店/图标/背包可读，满包/抓回/中断/重開边界通过。提交版本/源码哈希/运行记录/遗留风险，技术验收不冒充P09真人趣味性。",
+        "result": "v0.7完整集成并发布：独立1/3格背包、物品使用/交接、双向商人、大地图相机、R03及7盏灯，美术主美A05接入。236项技术检查、三关原生实际帧时钟全员逃脱均0抓回。最后真实窗口发现首次空槽撑大按钮已修复，两尺寸GUI各22项及实际编辑器首屏空包重新验证；逻辑通关证据为UI修复前同v0.7游戏逻辑。源码/资源哈希、未覆盖项记录完备，GitHub main已推送b6d260b。",
+        "dependencyIds": [
+          "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+          "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+        ],
+        "references": [
+          {
+            "kind": "map",
+            "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+          },
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+          "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+          "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "bag-r03-tasks-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T16:14:28.928Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-04T17:26:44.716Z",
+        "note": "制作人主干集成任务自验收：A05资源已独立验收，236项技术检查、3关原生完整流程、1/3格运输差异及真实GUI证据齐备。初始空图标撑大UI已修复并补两尺寸首屏/实际编辑器检查，明确它晚于完整路线且只改UI尺寸。代码已推送GitHub main b6d260ba28f500368b4d73e142f07cec6ffa0572并核对远端。接受v0.7工程与技术验证，不宣称真人趣味性、所有技能组合或其他帧率已证明；P09仍独立待组织。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
       }
     }
   ]
