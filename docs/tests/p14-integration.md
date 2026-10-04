@@ -16,3 +16,9 @@
 与首次发布基线比较，`scripts/actors/`、`scripts/world/`、`scripts/skills/`、`move_orders.gd`、房间/技能数据以及全部美术文件无改动。核心入口仅移出纸张背景绘制，交互仍由原逻辑处理。
 
 当前证据为自动运行与实际渲染检查，不等于真人趣味性测试。后续扩展参见 `docs/dev/lighting-system.md`。
+
+## 独立 checkout 检查
+
+功能提交 `25cd8bc947d84d680a469a1b38efc672e8a410b7` 与远端 `main` 一致。首次全量远端下载停滞，停止本任务该次 Git 进程后，以 `git clone --reference <本机工程> --dissociate --branch main <远端>` 获取同一远端版本；最终 checkout 自带完整对象，不保留 alternates，不依赖原目录。该方法验证工程完整性和可移植性，不表示全量网络下载成功。
+
+在全新 Godot 缓存中导入及启动主场景退出码均为 0；字体冷导入有 3 条 Unicode surrogate 解析提示，主场景无脚本错误。进一步在该 checkout 的实际 960×540 窗口重跑双关 34 项灯光/交互检查全部通过，中文、灯光和 HUD 截图正常，结果见 `p14-clean-lighting-960x540.json` 及 `p14-clean-r01-night-960x540.png`。

@@ -975,6 +975,58 @@
             "at": "2026-10-04T14:13:31.351Z"
           }
         ]
+      },
+      {
+        "id": "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+        "title": "P14 GitHub工程发布与房间光源/昼夜系统",
+        "description": "先发布v0.4可运行源码/资产到用户仓库https://github.com/SIKKTIN/-，排除凭证及机器缓存。随后实现真正的2D灯光、房间环境光和手动昼夜切换，墙/门/箱动态遮光，HUD保持可读。本轮昼夜作为表现层，不改变固定视野、技能和寻路。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
+        "milestoneId": "",
+        "acceptance": "远端存在当前工程提交，新克隆能导入主场景；不含私钥/本机缓存且单文件<100MB。双房间在1280×720/960×540白天夜晚有真实截图；实测灯光/阻挡随开门移箱同步，HUD不变暗，切换不重置技能/独立操作；RTS/人物朝向与原生两关路线回归通过。交付文档和测试证据，上传包含最终实现。",
+        "result": "v0.4基线8da6ee4与v0.5灯光25cd8bc均已成功push main。两关两尺寸各34项灯光像素/遮挡与交互检查、RTS20项通过；原生夜间全员路线R01 17.344s/R02 15.808s均零抓回，逻辑/技能/AI/地图/原PNG不变。独立Git checkout使用reference+dissociate优化传输（不保留alternates），远端SHA匹配，新Godot缓存导入与主场景启动退出0；初次整包远端下载停滞已终止，字体冷导入出现Unicode代理字符警告，主场景无脚本错误。已启动主干夜间供试玩；未验证真人趣味性或黑暗潜行规则。\n\n验收通过：制作人程序任务单独自验收：远端main实际含v0.4与v0.5提交，无凭证/缓存或超限文件。双关两尺寸灯光34项和RTS20项通过，墙遮光/真实开门/碰撞有效移箱像素对照成立；HUD与纸张保持、切换不影响操作。夜间原生两关全员零抓回。独立checkout完整对象且无alternates，新缓存导入/启动及实际960窗口34项通过；字体导入3项Unicode提示无运行影响，首次整包下载停滞已如实记录。接受lighting-v01手动昼夜交付，灯具占位与黑暗潜行/真人趣味性未验证边界明确。",
+        "dependencyIds": [
+          "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/.gitignore",
+            "E:/Project/Godot/这次怎么逃/.git/",
+            "E:/Project/Godot/这次怎么逃/README.md",
+            "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+            "E:/Project/Godot/这次怎么逃/data/presentation/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/"
+          ],
+          "entry": "Godot4.7.2 F5主场景；右上昼夜切换；GitHub main",
+          "interfaceContract": "程序消费现有手绘资产，不修改原PNG或已冻结v03参数；通过独立照明配置/节点接入。碰撞/AI/技能/地图不变；输入只增加昼夜快捷键。不得上传gamecreator/personal或其他凭证；管理导出仍使用签名工具。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p14-github-light-plan-20261004",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T15:15:01.907Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1182,6 +1234,18 @@
         "createdTaskIds": [
           "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
           "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p14-github-light-plan-20261004",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-04T15:15:01.907Z",
+        "reason": "用户明确要求把当前项目上传到指定GitHub仓库并接入光源与昼夜；新增制作人程序任务，保留P13已验收版本。",
+        "createdTaskIds": [
+          "a09fd1ce-819c-4c3b-9bfc-2667069c7a14"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -4066,6 +4130,167 @@
           "note": "producer-self自验收：A04已独立accepted，最终FINAL-WARM-01资产原PNG/Atlas取图、12帧脚底与三姿势高度稳定；24源文件与自身交付哈希一致，14非presentation文件与P12完全一致。主美20张实际Godot图逐张对照概念美术通过且哈希吻合；暖浅顶面/暗前侧面、floor384与60/72角色、柔和阴影、交互信息和两尺寸可读，记录模块化颗粒/重复感及克制投影边界。24×2场景、21×2表现、RTS20/巡逻/路线回归通过；最终warm原生路线17.330/15.796秒均零抓回。v01/v02原生回退可用，主干已启动确认当前warm；不把自动测试当真人趣味性。接受v0.4交付，P09真人尝试仍独立待完成。",
           "mode": "producer-self",
           "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p14-start-20261004",
+        "taskId": "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已接手P14：核对空远端、现有Godot工程、凭证排除与文件大小；开始创建可复现版本并接入表现层光源。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/project.godot",
+          "https://github.com/SIKKTIN/-"
+        ],
+        "at": "2026-10-04T15:15:28.683Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+          "title": "P14 GitHub工程发布与房间光源/昼夜系统",
+          "description": "先发布v0.4可运行源码/资产到用户仓库https://github.com/SIKKTIN/-，排除凭证及机器缓存。随后实现真正的2D灯光、房间环境光和手动昼夜切换，墙/门/箱动态遮光，HUD保持可读。本轮昼夜作为表现层，不改变固定视野、技能和寻路。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "远端存在当前工程提交，新克隆能导入主场景；不含私钥/本机缓存且单文件<100MB。双房间在1280×720/960×540白天夜晚有真实截图；实测灯光/阻挡随开门移箱同步，HUD不变暗，切换不重置技能/独立操作；RTS/人物朝向与原生两关路线回归通过。交付文档和测试证据，上传包含最终实现。",
+          "result": "已接手P14：核对空远端、现有Godot工程、凭证排除与文件大小；开始创建可复现版本并接入表现层光源。",
+          "dependencyIds": [
+            "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/.gitignore",
+              "E:/Project/Godot/这次怎么逃/.git/",
+              "E:/Project/Godot/这次怎么逃/README.md",
+              "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/data/presentation/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/"
+            ],
+            "entry": "Godot4.7.2 F5主场景；右上昼夜切换；GitHub main",
+            "interfaceContract": "程序消费现有手绘资产，不修改原PNG或已冻结v03参数；通过独立照明配置/节点接入。碰撞/AI/技能/地图不变；输入只增加昼夜快捷键。不得上传gamecreator/personal或其他凭证；管理导出仍使用签名工具。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p14-github-light-plan-20261004",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T15:15:01.907Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p14-final-20261004",
+        "taskId": "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.4基线8da6ee4与v0.5灯光25cd8bc均已成功push main。两关两尺寸各34项灯光像素/遮挡与交互检查、RTS20项通过；原生夜间全员路线R01 17.344s/R02 15.808s均零抓回，逻辑/技能/AI/地图/原PNG不变。独立Git checkout使用reference+dissociate优化传输（不保留alternates），远端SHA匹配，新Godot缓存导入与主场景启动退出0；初次整包远端下载停滞已终止，字体冷导入出现Unicode代理字符警告，主场景无脚本错误。已启动主干夜间供试玩；未验证真人趣味性或黑暗潜行规则。",
+        "evidence": [
+          "https://github.com/SIKKTIN/-/commit/25cd8bc947d84d680a469a1b38efc672e8a410b7",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-integration.md",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-publish.json",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-lighting-1280x720.json",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-lighting-960x540.json",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-rts.json",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-live-r01.json",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p14-live-r02.json"
+        ],
+        "at": "2026-10-04T15:26:32.357Z",
+        "evidenceVersion": 2,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "a09fd1ce-819c-4c3b-9bfc-2667069c7a14",
+          "title": "P14 GitHub工程发布与房间光源/昼夜系统",
+          "description": "先发布v0.4可运行源码/资产到用户仓库https://github.com/SIKKTIN/-，排除凭证及机器缓存。随后实现真正的2D灯光、房间环境光和手动昼夜切换，墙/门/箱动态遮光，HUD保持可读。本轮昼夜作为表现层，不改变固定视野、技能和寻路。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "远端存在当前工程提交，新克隆能导入主场景；不含私钥/本机缓存且单文件<100MB。双房间在1280×720/960×540白天夜晚有真实截图；实测灯光/阻挡随开门移箱同步，HUD不变暗，切换不重置技能/独立操作；RTS/人物朝向与原生两关路线回归通过。交付文档和测试证据，上传包含最终实现。",
+          "result": "v0.4基线8da6ee4与v0.5灯光25cd8bc均已成功push main。两关两尺寸各34项灯光像素/遮挡与交互检查、RTS20项通过；原生夜间全员路线R01 17.344s/R02 15.808s均零抓回，逻辑/技能/AI/地图/原PNG不变。独立Git checkout使用reference+dissociate优化传输（不保留alternates），远端SHA匹配，新Godot缓存导入与主场景启动退出0；初次整包远端下载停滞已终止，字体冷导入出现Unicode代理字符警告，主场景无脚本错误。已启动主干夜间供试玩；未验证真人趣味性或黑暗潜行规则。",
+          "dependencyIds": [
+            "9a67a3b8-7c28-4d44-a769-e2c542bd4aa7"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/.gitignore",
+              "E:/Project/Godot/这次怎么逃/.git/",
+              "E:/Project/Godot/这次怎么逃/README.md",
+              "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/data/presentation/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/"
+            ],
+            "entry": "Godot4.7.2 F5主场景；右上昼夜切换；GitHub main",
+            "interfaceContract": "程序消费现有手绘资产，不修改原PNG或已冻结v03参数；通过独立照明配置/节点接入。碰撞/AI/技能/地图不变；输入只增加昼夜快捷键。不得上传gamecreator/personal或其他凭证；管理导出仍使用签名工具。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p14-github-light-plan-20261004",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T15:15:01.907Z"
+            }
+          ]
+        },
+        "supplements": [
+          {
+            "id": "p14-clean-evidence-20261004",
+            "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T15:27:29.047Z",
+            "note": "补充独立checkout新缓存后的实际GPU960×540验证：同一版本双关34项全部通过，字体/中文/HUD和灯光实截图正常，无运行错误。该checkout以reference+dissociate复制完整对象、不保留alternates；初次全量网络传输停止事实保留。",
+            "deliveryVersion": "v0.5/lighting-v01/25cd8bc947d84d680a469a1b38efc672e8a410b7",
+            "evidence": [
+              "E:/Project/Godot/这次怎么逃/docs/tests/p14-clean-lighting-960x540.json",
+              "E:/Project/Godot/这次怎么逃/docs/tests/p14-clean-r01-night-960x540.png",
+              "E:/Project/Godot/这次怎么逃/docs/tests/p14-integration.md"
+            ]
+          }
+        ],
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T15:27:52.530Z",
+          "note": "制作人程序任务单独自验收：远端main实际含v0.4与v0.5提交，无凭证/缓存或超限文件。双关两尺寸灯光34项和RTS20项通过，墙遮光/真实开门/碰撞有效移箱像素对照成立；HUD与纸张保持、切换不影响操作。夜间原生两关全员零抓回。独立checkout完整对象且无alternates，新缓存导入/启动及实际960窗口34项通过；字体导入3项Unicode提示无运行影响，首次整包下载停滞已如实记录。接受lighting-v01手动昼夜交付，灯具占位与黑暗潜行/真人趣味性未验证边界明确。",
+          "mode": "producer-self",
+          "evidenceVersion": 2
         }
       }
     ]
