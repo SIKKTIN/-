@@ -1,0 +1,120 @@
+{
+	"checks": {
+		"arrival_releases_order": true,
+		"automatically_routes_through_door": true,
+		"capture_clears_only_own_order": true,
+		"closed_partition_rejected": true,
+		"friendly_mirrors_left": true,
+		"friendly_restores_right": true,
+		"guard_mirrors_left": true,
+		"guard_restores_right": true,
+		"idle_preserves_left": true,
+		"left_select_without_drag": true,
+		"open_door_path_started": true,
+		"operator_move_cancels_only_self": true,
+		"other_order_keeps_actions": true,
+		"reset_clears_orders": true,
+		"right_click_exit_sign_extracts": true,
+		"right_click_moves_selected": true,
+		"routes_around_parked_friend": true,
+		"stop_only_selected": true,
+		"switch_keeps_first_order": true,
+		"wall_target_rejected": true
+	},
+	"minimum_friend_distance": 35.0219993591309,
+	"passed": true,
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					180.0,
+					235.0
+				],
+				"selected": true,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					235.0,
+					375.0
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					185.0,
+					510.0
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 8,
+		"elapsed": 0.0,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				0.0,
+				-1.0
+			],
+			"fov_degrees": 120,
+			"lost_time": 0.0,
+			"path_size": 0,
+			"position": [
+				735.0,
+				280.0
+			],
+			"route_index": 0,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 110.0
+		},
+		"guard_position": [
+			735.0,
+			280.0
+		],
+		"orders": [],
+		"phase": "playing",
+		"seed": 33,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				467.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": false,
+			"lock_progress": 0.0,
+			"obstacle_revision": 11,
+			"push_distance": 0.0,
+			"room_id": "r01"
+		}
+	}
+}

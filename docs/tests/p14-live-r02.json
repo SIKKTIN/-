@@ -1,0 +1,305 @@
+{
+	"passed": true,
+	"presentation": {
+		"asset_version": "art-v03-handpaint-20261004-05ac759ba4ad",
+		"events": [
+			{
+				"elapsed": 9.22647393939373,
+				"id": "door_open"
+			},
+			{
+				"elapsed": 9.94162545454522,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 13.4749587878785,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 13.4870799999997,
+				"id": "detected"
+			},
+			{
+				"elapsed": 13.4870799999997,
+				"id": "cancelled"
+			},
+			{
+				"elapsed": 15.8082921212117,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 15.8082921212117,
+				"id": "complete"
+			}
+		],
+		"lighting": {
+			"ambient": "536587ff",
+			"lamps": [
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						240.0,
+						150.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						705.0,
+						150.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						945.0,
+						620.0
+					],
+					"shadows": true
+				}
+			],
+			"obstacle_revision": 5,
+			"occluder_count": 4,
+			"period": "night",
+			"room": "r02",
+			"sun_enabled": false,
+			"version": "lighting-v01"
+		},
+		"loops": {
+			"chat_loop": false,
+			"crate_move_loop": false,
+			"lockpick_loop": false
+		},
+		"muted": false,
+		"profile": "v03",
+		"render_settings": {
+			"block_elevation": 24.0,
+			"block_top_tiled": false,
+			"characters": "res://art/characters/manifest-v03.json",
+			"contact_alpha": 0.16,
+			"delivery": "res://docs/art/delivery-v03.json",
+			"environment": "res://art/environment/manifest-v03.json",
+			"floor_asset": "floor_handpaint_v03",
+			"floor_tile_size": 384.0,
+			"material_slots": {
+				"block_top": "block_top_handpaint_v03",
+				"crate": "heavy_crate_handpaint_v03",
+				"door_closed": "locked_door_closed_v02",
+				"door_open": "locked_door_open_v02",
+				"wall_front": "stone_front_handpaint_v03",
+				"wall_top": "stone_top_handpaint_v03"
+			},
+			"outline_color": "434941",
+			"outline_width": 1.4,
+			"perspective": true,
+			"projection_alpha": 0.1,
+			"projection_offset": [
+				11.0,
+				8.0
+			],
+			"props": "res://art/props/manifest-v03.json",
+			"soft_shadows": true,
+			"top_modulate": [
+				1.18,
+				1.14,
+				1.08,
+				1.0
+			],
+			"wall_elevation": 18.0,
+			"wall_side_shade": 0.68,
+			"wall_side_width": 4.0
+		},
+		"visuals": [
+			{
+				"destination": [
+					-18.3993663787842,
+					-59.4294776916504,
+					35.3724250793457,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					254.0,
+					57.0,
+					372.0,
+					631.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-21.3259658813477,
+					-59.3370170593262,
+					39.0055236816406,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					201.0,
+					92.0,
+					353.0,
+					543.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-17.7796325683594,
+					-59.398998260498,
+					35.9599342346191,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					187.0,
+					52.0,
+					359.0,
+					599.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-23.4333896636963,
+					-71.2714996337891,
+					44.3170318603516,
+					72.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					230.0,
+					84.0,
+					365.0,
+					593.0
+				],
+				"visible": true,
+				"world_height": 72.0
+			}
+		]
+	},
+	"reason": "completed",
+	"route": "chat_lock",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.949768006801605,
+					0.312954753637314
+				],
+				"position": [
+					997.836059570313,
+					381.106597900391
+				],
+				"selected": true,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.999999761581421,
+					0.000658480683341622
+				],
+				"position": [
+					997.280334472656,
+					394.971984863281
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					0.949947953224182,
+					0.312407970428467
+				],
+				"position": [
+					997.816284179688,
+					421.127593994141
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 2,
+		"elapsed": 15.8082921212117,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				0.360578387975693,
+				0.932728946208954
+			],
+			"fov_degrees": 120,
+			"lost_time": 1.50303030303031,
+			"path_size": 1,
+			"position": [
+				717.421813964844,
+				372.794372558594
+			],
+			"route_index": 2,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 110.0
+		},
+		"guard_position": [
+			717.421813964844,
+			372.794372558594
+		],
+		"orders": [],
+		"phase": "complete",
+		"seed": 33,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				831.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": true,
+			"lock_progress": 1.0,
+			"obstacle_revision": 5,
+			"push_distance": 0.0,
+			"room_id": "r02"
+		}
+	},
+	"trace": [
+		{
+			"actor": 1,
+			"elapsed": 9.94162545454522,
+			"escaped": true
+		},
+		{
+			"actor": 2,
+			"elapsed": 13.4749587878785,
+			"escaped": true
+		},
+		{
+			"actor": 0,
+			"elapsed": 15.8082921212117,
+			"escaped": true
+		}
+	]
+}

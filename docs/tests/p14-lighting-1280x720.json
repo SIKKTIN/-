@@ -1,0 +1,99 @@
+{
+	"checks": {
+		"actual_size": true,
+		"button_fits": true,
+		"hud_unmodulated": true,
+		"r01_button_keeps_action": true,
+		"r01_crate_shadow_moves": true,
+		"r01_day_night_different": true,
+		"r01_door_shadow_removed": true,
+		"r01_hud_card_unchanged": true,
+		"r01_independent_selection": true,
+		"r01_lamps_from_room": true,
+		"r01_left_facing": true,
+		"r01_occluders_match_solids": true,
+		"r01_paper_unchanged": true,
+		"r01_reload_restores_geometry": true,
+		"r01_rts_order_keeps_colleague": true,
+		"r01_shortcut_toggles": true,
+		"r01_toggle_preserves_game": true,
+		"r01_wall_blocks_light": true,
+		"r02_button_keeps_action": true,
+		"r02_crate_shadow_moves": true,
+		"r02_day_night_different": true,
+		"r02_door_shadow_removed": true,
+		"r02_hud_card_unchanged": true,
+		"r02_independent_selection": true,
+		"r02_lamps_from_room": true,
+		"r02_left_facing": true,
+		"r02_occluders_match_solids": true,
+		"r02_paper_unchanged": true,
+		"r02_reload_restores_geometry": true,
+		"r02_rts_order_keeps_colleague": true,
+		"r02_shortcut_toggles": true,
+		"r02_toggle_preserves_game": true,
+		"r02_wall_blocks_light": true,
+		"real_godot_lights": true
+	},
+	"lighting": {
+		"ambient": "e8eef2ff",
+		"lamps": [
+			{
+				"enabled": false,
+				"energy": 0.850000023841858,
+				"position": [
+					240.0,
+					150.0
+				],
+				"shadows": true
+			},
+			{
+				"enabled": false,
+				"energy": 0.850000023841858,
+				"position": [
+					705.0,
+					150.0
+				],
+				"shadows": true
+			},
+			{
+				"enabled": false,
+				"energy": 0.850000023841858,
+				"position": [
+					945.0,
+					620.0
+				],
+				"shadows": true
+			}
+		],
+		"obstacle_revision": 18,
+		"occluder_count": 5,
+		"period": "day",
+		"room": "r02",
+		"sun_enabled": true,
+		"version": "lighting-v01"
+	},
+	"metrics": {
+		"r01_crate_light_gain": 0.167500650268793,
+		"r01_day_dark": 0.604225030708313,
+		"r01_door_light_gain": 0.291501500508189,
+		"r01_night_dark": 0.229900040411949,
+		"r01_wall_light_gain": 0.0905661287367344,
+		"r02_crate_light_gain": 0.165418815618753,
+		"r02_day_dark": 0.604225030708313,
+		"r02_door_light_gain": 0.296094496786594,
+		"r02_night_dark": 0.229900040411949,
+		"r02_wall_light_gain": 0.0888863936573267
+	},
+	"passed": true,
+	"screenshots": [
+		"res://docs/tests/p14-r01-day-1280x720.png",
+		"res://docs/tests/p14-r01-night-1280x720.png",
+		"res://docs/tests/p14-r02-day-1280x720.png",
+		"res://docs/tests/p14-r02-night-1280x720.png"
+	],
+	"window": [
+		1280,
+		720
+	]
+}

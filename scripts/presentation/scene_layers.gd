@@ -11,6 +11,10 @@ func configure(owner_game, owner_presentation, type: String) -> void:
 	presentation = owner_presentation
 	kind = type
 	z_index = 10 if kind == "ground" else 2000
+	if kind == "information":
+		var unshaded := CanvasItemMaterial.new()
+		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+		material = unshaded
 
 func _draw() -> void:
 	if not game:

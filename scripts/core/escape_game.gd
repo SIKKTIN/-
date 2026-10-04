@@ -259,7 +259,6 @@ func _update_ui() -> void:
 		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("伙伴留在原地操作，可以换人行动。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
 
 func _draw() -> void:
-	draw_rect(get_viewport_rect(), Color("f2ebdd"))
 	draw_style_box(_floor_style(), ROOM)
 	if floor_texture:
 		TextureTiles.paint(self,floor_texture,Rect2(75,115,920,558),Vector2(floor_tile_size,floor_tile_size),ROOM)

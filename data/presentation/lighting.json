@@ -1,0 +1,22 @@
+{
+  "version": "lighting-v01",
+  "default_period": "day",
+  "day_ambient": "e8eef2",
+  "night_ambient": "536587",
+  "sun_color": "fff0d0",
+  "sun_energy": 0.10,
+  "lamp_color": "ffe0a4",
+  "lamp_energy": 0.85,
+  "rooms": {
+    "r01": [
+      {"position": [240, 150], "radius": 330},
+      {"position": [620, 150], "radius": 290},
+      {"position": [930, 620], "radius": 260}
+    ],
+    "r02": [
+      {"position": [240, 150], "radius": 330},
+      {"position": [705, 150], "radius": 290},
+      {"position": [945, 620], "radius": 260}
+    ]
+  }
+}
