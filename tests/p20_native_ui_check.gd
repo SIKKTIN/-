@@ -47,6 +47,7 @@ func run() -> void:
 	checks.item_and_feedback_assets = ["scrap","door_key","lock_tool","backpack","trade","pickup","drop","transfer","full","empty"].all(func(id): return game.items_view.icon_for(id) != null)
 	checks.seven_room_lamps = game.presentation.lighting.lamps.size() == 7
 	checks.backpack_three_slots = game.inventory_panel.slots.all(func(s): return s.visible)
+	checks.initial_empty_slots_fit = game.inventory_panel.slots.all(func(s): return s.size.x <= 48 and s.size.y <= 49)
 	game.presentation.lighting.set_period("night")
 	await frame("r03-night-start")
 	checks.night_real_lights = game.presentation.lighting.lamps.all(func(l): return l.enabled and l.shadow_enabled) and game.guard.view_radius() == 155

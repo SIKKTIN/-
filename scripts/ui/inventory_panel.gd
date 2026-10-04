@@ -74,6 +74,9 @@ func refresh() -> void:
 	label.add_theme_color_override("font_color", Color("a75d47") if bag.size() >= game.inventory.capacity(id) else Color("536052"))
 	for index in range(slots.size()):
 		var slot: Button = slots[index]
+		slot.expand_icon = true
+		slot.add_theme_constant_override("icon_max_width",22)
+		slot.size = Vector2(47,48)
 		slot.visible = index < game.inventory.capacity(id)
 		slot.disabled = game.actors[id].escaped or game.phase != "playing"
 		slot.theme = game.cards[0].theme
