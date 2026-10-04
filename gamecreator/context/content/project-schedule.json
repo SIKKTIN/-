@@ -1446,6 +1446,55 @@
             "at": "2026-10-04T16:14:28.928Z"
           }
         ]
+      },
+      {
+        "id": "4c400a19-c2b8-4d62-bba9-a61aba5b0182",
+        "title": "P21 RTS边缘与方向键滚屏",
+        "description": "给R03加入鼠标在地图窗口内边缘24单位滚屏和方向键平移；中键/空格左拖与F定位保留。只移动Camera2D，不拖动角色或HUD。商店打开、窗口失焦、鼠标在HUD/窗口外时避免误滚，边界夹制，旧小地图仍不滚。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
+        "milestoneId": "",
+        "acceptance": "两种原生窗口尺寸下验证左右上下/斜向边缘及方向键连续移动；HUD/地图中心/窗口外/商店/失焦抑制，地图四边夹制。滚屏后右键世界坐标正确、左选不会拖人，角色独立订单不被改。中键/空格拖动、F和切房重开兼容，最终实际编辑器运行可操作，无错误。测试和正式记录同步并推送。",
+        "result": "v0.7.1完成地图窗口边缘与方向键RTS相机操作，保留中键/空格拖动与F定位；两尺寸28+28项、P18回归15项共71项通过。实际编辑器主场景已运行，边缘实测约0.25秒平移129.21单位，0运行错误。\n\n验收通过：制作人单独复核相机实现、两尺寸28+28原生检查及P18 15项，实际主场景run24鼠标边缘滚动0.25秒约129.21单位、截图提示完整、无运行错误，5个源文件SHA256匹配，Git main已推送3521f0d。接受本轮RTS相机输入/阻断/边界/坐标/持续命令与兼容拖动定位；未当作完整v0.7复测或P09真人玩法证明。",
+        "dependencyIds": [
+          "7aa6c897-f07b-49f2-b73d-02f12c3ecf93"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "positionIds": [
+          "producer"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/core/map_camera.gd",
+            "E:/Project/Godot/这次怎么逃/scripts/presentation/game_presentation.gd",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/dev/",
+            "E:/Project/Godot/这次怎么逃/docs/tests/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "res://scenes/main.tscn / R03",
+          "interfaceContract": "v0.7基线7a95001；地图屏幕窗口[74,114,922,560]，世界坐标逆变换及HUD保持。画面滚动只修改Camera2D.position，每秒固定速度、按delta更新，无技能/地图资产调整。用户授权修复；制作人本人独立执行及自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p21-rts-camera-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-04T17:37:39.982Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1660,6 +1709,17 @@
           "design-documents",
           "gameplay"
         ]
+      },
+      {
+        "id": "p21-camera-controls-20261005",
+        "digest": "e7eb795da0e18b70f2dc6ef75e9aec86d86aeddf59e2dcfc82845ed5ed5b3280",
+        "summary": "v0.7.1补齐RTS边缘及方向键相机操作，保留独立命令和拖动定位；记录两尺寸原生相机检查。",
+        "memberName": "制作人",
+        "at": "2026-10-04T17:47:03.684Z",
+        "modules": [
+          "gameplay",
+          "design-documents"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -1761,6 +1821,18 @@
           "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
           "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
           "7aa6c897-f07b-49f2-b73d-02f12c3ecf93"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p21-rts-camera-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-04T17:37:39.982Z",
+        "reason": "用户反馈需要RTS移动摄像机窗口，现有视野只有中键/空格拖动，不符合常用边缘滚屏体验。新增边缘/方向键滚屏，保留拖动/F并验证窗口坐标与HUD隔离。",
+        "createdTaskIds": [
+          "4c400a19-c2b8-4d62-bba9-a61aba5b0182"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -5934,6 +6006,146 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-04T17:26:44.716Z",
           "note": "制作人主干集成任务自验收：A05资源已独立验收，236项技术检查、3关原生完整流程、1/3格运输差异及真实GUI证据齐备。初始空图标撑大UI已修复并补两尺寸首屏/实际编辑器检查，明确它晚于完整路线且只改UI尺寸。代码已推送GitHub main b6d260ba28f500368b4d73e142f07cec6ffa0572并核对远端。接受v0.7工程与技术验证，不宣称真人趣味性、所有技能组合或其他帧率已证明；P09仍独立待组织。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p21-start-20261005",
+        "taskId": "4c400a19-c2b8-4d62-bba9-a61aba5b0182",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "按用户反馈补常见RTS滚屏：地图边缘持续滚动、方向键平移。现有中键/空格拖动保留，调整可见说明并做实际窗口检查。",
+        "evidence": [
+          "用户截图：R03人物可走到视野外，要求RTS摄像机窗口移动",
+          "当前map_camera.gd仅支持中键/空格拖动与F，无边缘/方向键滚屏",
+          "代码基线7a95001054548193bab5f7b8c2c2be4f347306fe"
+        ],
+        "at": "2026-10-04T17:38:49.517Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "4c400a19-c2b8-4d62-bba9-a61aba5b0182",
+          "title": "P21 RTS边缘与方向键滚屏",
+          "description": "给R03加入鼠标在地图窗口内边缘24单位滚屏和方向键平移；中键/空格左拖与F定位保留。只移动Camera2D，不拖动角色或HUD。商店打开、窗口失焦、鼠标在HUD/窗口外时避免误滚，边界夹制，旧小地图仍不滚。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "两种原生窗口尺寸下验证左右上下/斜向边缘及方向键连续移动；HUD/地图中心/窗口外/商店/失焦抑制，地图四边夹制。滚屏后右键世界坐标正确、左选不会拖人，角色独立订单不被改。中键/空格拖动、F和切房重开兼容，最终实际编辑器运行可操作，无错误。测试和正式记录同步并推送。",
+          "result": "按用户反馈补常见RTS滚屏：地图边缘持续滚动、方向键平移。现有中键/空格拖动保留，调整可见说明并做实际窗口检查。",
+          "dependencyIds": [
+            "7aa6c897-f07b-49f2-b73d-02f12c3ecf93"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "positionIds": [
+            "producer"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/core/map_camera.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/game_presentation.gd",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "res://scenes/main.tscn / R03",
+            "interfaceContract": "v0.7基线7a95001；地图屏幕窗口[74,114,922,560]，世界坐标逆变换及HUD保持。画面滚动只修改Camera2D.position，每秒固定速度、按delta更新，无技能/地图资产调整。用户授权修复；制作人本人独立执行及自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p21-rts-camera-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T17:37:39.982Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p21-rts-camera-delivery-20261005",
+        "taskId": "4c400a19-c2b8-4d62-bba9-a61aba5b0182",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.7.1完成地图窗口边缘与方向键RTS相机操作，保留中键/空格拖动与F定位；两尺寸28+28项、P18回归15项共71项通过。实际编辑器主场景已运行，边缘实测约0.25秒平移129.21单位，0运行错误。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p21-rts-camera.md",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p21-rts-camera-1280x720.json、p21-rts-camera-960x540.json：每尺寸28项，实际OS鼠标/物理键/窗口失焦/原生Viewport/持续命令。",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p18-camera.json：15项回归通过。",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p21-live-camera.json：编辑器run24实际主场景R03，视野(6,-14)→(135.212,-14)，已回到伙伴并鼠标移回地图中心。",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p21-build.json：本轮5个源文件SHA256；不覆盖旧v0.7完整证据。",
+          "已推送main 3521f0dcb54acdef0e1ed327875190ce053aef73；本轮仅相机和提示，不是真人试玩。"
+        ],
+        "at": "2026-10-04T17:48:43.428Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "4c400a19-c2b8-4d62-bba9-a61aba5b0182",
+          "title": "P21 RTS边缘与方向键滚屏",
+          "description": "给R03加入鼠标在地图窗口内边缘24单位滚屏和方向键平移；中键/空格左拖与F定位保留。只移动Camera2D，不拖动角色或HUD。商店打开、窗口失焦、鼠标在HUD/窗口外时避免误滚，边界夹制，旧小地图仍不滚。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "两种原生窗口尺寸下验证左右上下/斜向边缘及方向键连续移动；HUD/地图中心/窗口外/商店/失焦抑制，地图四边夹制。滚屏后右键世界坐标正确、左选不会拖人，角色独立订单不被改。中键/空格拖动、F和切房重开兼容，最终实际编辑器运行可操作，无错误。测试和正式记录同步并推送。",
+          "result": "v0.7.1完成地图窗口边缘与方向键RTS相机操作，保留中键/空格拖动与F定位；两尺寸28+28项、P18回归15项共71项通过。实际编辑器主场景已运行，边缘实测约0.25秒平移129.21单位，0运行错误。",
+          "dependencyIds": [
+            "7aa6c897-f07b-49f2-b73d-02f12c3ecf93"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "positionIds": [
+            "producer"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/core/map_camera.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/game_presentation.gd",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "res://scenes/main.tscn / R03",
+            "interfaceContract": "v0.7基线7a95001；地图屏幕窗口[74,114,922,560]，世界坐标逆变换及HUD保持。画面滚动只修改Camera2D.position，每秒固定速度、按delta更新，无技能/地图资产调整。用户授权修复；制作人本人独立执行及自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p21-rts-camera-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T17:37:39.982Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T17:49:02.040Z",
+          "note": "制作人单独复核相机实现、两尺寸28+28原生检查及P18 15项，实际主场景run24鼠标边缘滚动0.25秒约129.21单位、截图提示完整、无运行错误，5个源文件SHA256匹配，Git main已推送3521f0d。接受本轮RTS相机输入/阻断/边界/坐标/持续命令与兼容拖动定位；未当作完整v0.7复测或P09真人玩法证明。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
