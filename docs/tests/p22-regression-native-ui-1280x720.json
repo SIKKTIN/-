@@ -1,0 +1,36 @@
+{
+	"checks": {
+		"actual_click_buys_key": true,
+		"actual_click_drops": true,
+		"actual_click_opens_shop": true,
+		"actual_click_pickup": true,
+		"actual_click_selects_item": true,
+		"actual_click_sells": true,
+		"actual_click_transfers": true,
+		"actual_f_locates": true,
+		"actual_middle_drag_pans": true,
+		"backpack_three_slots": true,
+		"card_select_one_slot": true,
+		"default_new_map": true,
+		"drag_does_not_move_actors_hud": true,
+		"initial_empty_slots_fit": true,
+		"item_and_feedback_assets": true,
+		"merchant_asset": true,
+		"nearby_trade_icon": true,
+		"night_real_lights": true,
+		"offscreen_prompt_hidden": true,
+		"seven_room_lamps": true,
+		"slots_fit_panel": true,
+		"world_clipped_paper_unshaded": true
+	},
+	"headless": false,
+	"images": [
+		"res://docs/tests/p22-regression-r03-day-start-1280x720.png",
+		"res://docs/tests/p22-regression-r03-night-start-1280x720.png",
+		"res://docs/tests/p22-regression-r03-shop-1280x720.png",
+		"res://docs/tests/p22-regression-r03-pickup-1280x720.png",
+		"res://docs/tests/p22-regression-r03-scrolled-1280x720.png"
+	],
+	"note": "Native synthetic Viewport.push_input GUI dispatch and rendered scene pixels; staged UI fixture, not human play or full-route proof.",
+	"passed": true
+}

@@ -25,11 +25,17 @@ func configure(owner_game, owner_presentation) -> void:
 	refresh()
 
 func refresh() -> void:
-	button.visible = false
+	_refresh_targets()
+	# Keep valid buttons visible across frames so a held touch can release normally.
+	if not targets.any(func(t): return t.button == button):
+		button.visible = false
+	for b in extras.values():
+		if not targets.any(func(t): return t.button == b):
+			b.visible = false
+
+func _refresh_targets() -> void:
 	kind = ""
 	targets.clear()
-	for b in extras.values():
-		b.visible = false
 	actor_id = game.selected_actor_id
 	if game.phase != "playing" or game.get_tree().paused:
 		return

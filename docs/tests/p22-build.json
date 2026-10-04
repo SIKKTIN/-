@@ -1,0 +1,75 @@
+{
+  "version": "v0.7.2",
+  "sourceHashes": [
+    {
+      "sha256": "2c3d485cef23f32f1bb27a273d68621a1f9f857d978d1f98905ad58c8fdf1050",
+      "path": "README.md"
+    },
+    {
+      "sha256": "04e2c7dbaec3d5a7f4aa666ef4bdfc8102263818837a250106dfc8d4edc8e737",
+      "path": "project.godot"
+    },
+    {
+      "sha256": "404c95c73da32c9fb6c7e3a48de7fd2a98b0452dfd99a404379d5c8eb6a9939c",
+      "path": "scripts/core/escape_game.gd"
+    },
+    {
+      "sha256": "4ba334f62b4ab69452ca905349fb927560641975e1a0cf69870eecc525c0921f",
+      "path": "scripts/core/map_camera.gd"
+    },
+    {
+      "sha256": "16fda8d526b51520f17dd710eafa55e5bc2d2c781cc00db4825aed14417464b0",
+      "path": "scripts/presentation/game_presentation.gd"
+    },
+    {
+      "sha256": "27eced7f52befbb40c6a7829538bb286716b239e5c1226b806ba541e1b711e02",
+      "path": "scripts/presentation/interaction_prompt.gd"
+    },
+    {
+      "sha256": "79368049da6277e586b769b5b707085e499c7de089e25c5abc4bbfa614ab6e12",
+      "path": "scripts/ui/mini_map.gd"
+    },
+    {
+      "sha256": "d23e4b545f5739ee8ddead2b023c5bb8a2ee4897284e68a6f8c19b947100984c",
+      "path": "tests/p22_mobile_minimap_check.gd"
+    },
+    {
+      "sha256": "95208d25879e3f2f5b5f6935a0b77e96777bf2e7a2e12aaa1c0264f328639915",
+      "path": "tests/p22_inventory_ui_regression.gd"
+    },
+    {
+      "sha256": "7ad4795b5ffb61d189d7ef5d5fa71f7642e728cd815029078986139c92584c9e",
+      "path": "docs/dev/p22-mobile-minimap.md"
+    }
+  ],
+  "date": "2026-10-05",
+  "reports": [
+    {
+      "path": "docs/tests/p22-mobile-minimap-1280x720.json",
+      "checks": 38,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p22-mobile-minimap-960x540.json",
+      "checks": 38,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p22-regression-native-ui-1280x720.json",
+      "checks": 22,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p22-regression-native-ui-960x540.json",
+      "checks": 22,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p18-camera.json",
+      "checks": 15,
+      "passed": true
+    }
+  ],
+  "checks": 135.0,
+  "scope": "Mobile minimap / world gestures / prompt stability; Windows native touch simulation, not Android/iOS device or full-route retest."
+}

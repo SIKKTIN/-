@@ -13,6 +13,7 @@ const Trade = preload("res://scripts/items/trade.gd")
 const ItemsView = preload("res://scripts/presentation/items_view.gd")
 const ShopPanel = preload("res://scripts/ui/shop_panel.gd")
 const MapCamera = preload("res://scripts/core/map_camera.gd")
+const MiniMap = preload("res://scripts/ui/mini_map.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -26,11 +27,12 @@ var trade
 var items_view
 var shop_panel
 var map_camera
+var mini_map
 
 var actors: Array = []
 var selected_actor_id: int = 0
 var orders
-var status_text: String = "左键选人，右键地面移动；E使用技能，S停止。"
+var status_text: String = "轻点选人或空地移动，拖动主图/小地图查看房间。"
 var cards: Array[Button] = []
 var status_label: Label
 var phase: String = "playing"
@@ -100,6 +102,10 @@ func _ready() -> void:
 	map_camera.name = "MapCamera"
 	add_child(map_camera)
 	map_camera.configure(self)
+	mini_map = MiniMap.new()
+	mini_map.name = "MiniMap"
+	get_node("HUD").add_child(mini_map)
+	mini_map.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -181,6 +187,8 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if shop_panel != null and shop_panel.panel.visible and not event is InputEventKey:
+		return
 	if event is InputEventMouseButton and event.pressed:
 		if not MapCamera.VIEW.has_point(event.position):
 			return
@@ -188,9 +196,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			select_at(point)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			if world.exit_area.has_point(point) or world.exit_icon_rect().has_point(point):
-				point = world.exit_area.get_center() if world.bounds.encloses(world.exit_area) else Vector2(maxf(point.x,world.bounds.end.x+ACTOR_RADIUS+4),clampf(point.y,world.exit_area.position.y+ACTOR_RADIUS+1,world.exit_area.end.y-ACTOR_RADIUS-1))
-			command_move(selected_actor_id,point)
+			command_at(point)
 	elif event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_3:
 			select_actor(event.keycode - KEY_1)
@@ -218,6 +224,11 @@ func command_move(actor_id: int, target: Vector2) -> bool:
 	_update_ui()
 	queue_redraw()
 	return accepted
+
+func command_at(point: Vector2) -> bool:
+	if world.exit_area.has_point(point) or world.exit_icon_rect().has_point(point):
+		point = world.exit_area.get_center() if world.bounds.encloses(world.exit_area) else Vector2(maxf(point.x,world.bounds.end.x+ACTOR_RADIUS+4),clampf(point.y,world.exit_area.position.y+ACTOR_RADIUS+1,world.exit_area.end.y-ACTOR_RADIUS-1))
+	return command_move(selected_actor_id,point)
 
 func stop_selected() -> void:
 	orders.stop(selected_actor_id)

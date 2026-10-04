@@ -1,0 +1,64 @@
+{
+	"checks": {
+		"aspect_preserved": true,
+		"close_shop_restores_minimap": true,
+		"fast_swipe_release_is_not_tap": true,
+		"frame_matches_view": true,
+		"independent_order_runs_while_view_moves": true,
+		"minimap_does_not_command": true,
+		"minimap_never_moves_actors_or_hud": true,
+		"minimap_visible_and_in_map": true,
+		"mouse_main_drag_no_command": true,
+		"mouse_minimap_centers": true,
+		"native_focused": true,
+		"no_edge_scroll_(535.0, 120.0)": true,
+		"no_edge_scroll_(535.0, 669.0)": true,
+		"no_edge_scroll_(80.0, 394.0)": true,
+		"no_edge_scroll_(990.0, 394.0)": true,
+		"no_edge_scroll_(990.0, 669.0)": true,
+		"phone_actions_visible": true,
+		"r01_fixed_camera_full_frame": true,
+		"r01_touch_move": true,
+		"r02_fixed_camera_full_frame": true,
+		"r02_touch_move": true,
+		"right_click_scrolled_world_position": true,
+		"second_finger_and_cancel_no_command": true,
+		"shop_blocks_minimap": true,
+		"shop_has_priority_over_minimap": true,
+		"touch_chat_once_across_frames": true,
+		"touch_chat_stop_once": true,
+		"touch_ground_moves_selected_once": true,
+		"touch_interaction_opens_shop_once": true,
+		"touch_locate_button": true,
+		"touch_main_drag_only_camera": true,
+		"touch_minimap_drag_outside_clamped": true,
+		"touch_minimap_top_left_clamp": true,
+		"touch_mouse_emulation_enabled": true,
+		"touch_pickup_once_across_frames": true,
+		"touch_selects_actor": true,
+		"touch_sidebar_selects_no_move": true,
+		"touch_stop_button": true
+	},
+	"image": "res://docs/tests/p22-mobile-minimap-1280x720.png",
+	"metrics": {
+		"touch_minimap_top_left": [
+			6.0,
+			-14.0
+		],
+		"trade_after": {
+			"open": true,
+			"orders": 0,
+			"pointer": -2,
+			"presses": 1,
+			"status": "伙伴2前往目标；可以切换其他人，S停止当前人物。"
+		},
+		"trade_before": {
+			"point": "(360.0, 400.0)",
+			"rect": "[P: (269.0, 219.0), S: (70.0, 38.0)]",
+			"selected": 0,
+			"visible": true
+		}
+	},
+	"note": "Native Windows Godot real event dispatch, raw ScreenTouch/ScreenDrag via Input.parse_input_event with touch-to-mouse emulation enabled, plus mouse GUI input. Most gameplay frozen as fixtures; one independent-order case runs real frames. Not Android/iOS device testing.",
+	"passed": true
+}
