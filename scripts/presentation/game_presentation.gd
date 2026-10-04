@@ -149,13 +149,13 @@ func _make_ui() -> void:
 	game.skill_button.visible = false
 	var controls := Label.new()
 	controls.name = "ControlHint"
-	controls.text = "左选 · 右移 · E互动\n中键/空格拖 · F定位\nS停 · N昼夜 · R重开"
+	controls.text = "边缘/方向键移视野\n中键/空格拖 · F定位\nS停 · N昼夜 · R重开"
 	controls.position = Vector2(1029,648)
 	controls.theme = theme
 	controls.add_theme_font_size_override("font_size",12)
 	game.get_node("HUD").add_child(controls)
 	var instructions := Label.new()
-	instructions.text = "左选 · 右移 · 靠近点击/E互动 · 中键或空格+左拖视野 · F定位"
+	instructions.text = "左选 · 右移 · E互动 · 地图边缘/方向键移视野 · 中键拖 · F定位"
 	instructions.position = Vector2(34,91)
 	instructions.theme = theme
 	instructions.add_theme_font_size_override("font_size",15)

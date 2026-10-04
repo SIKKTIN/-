@@ -1,0 +1,213 @@
+{
+	"checks": {
+		"actors_and_hud_not_dragged": true,
+		"arrow_4194319": true,
+		"arrow_4194320": true,
+		"arrow_4194321": true,
+		"arrow_4194322": true,
+		"arrow_diagonal": true,
+		"bottom_edge": true,
+		"bottom_right_clamp": true,
+		"corner_scroll": true,
+		"f_locates": true,
+		"held_left_prevents_edge": true,
+		"independent_order_keeps_running": true,
+		"left_edge": true,
+		"middle_drag_preserved": true,
+		"native_focus": true,
+		"no_edge_(1100.0, 394.0)": true,
+		"no_edge_(50.0, 394.0)": true,
+		"no_edge_(535.0, 394.0)": true,
+		"no_edge_(535.0, 700.0)": true,
+		"no_edge_(535.0, 80.0)": true,
+		"right_edge": true,
+		"scrolled_right_click_world_coordinates": true,
+		"shop_suppresses_edge_and_arrows": true,
+		"small_room_no_scrolling": true,
+		"space_drag_preserved": true,
+		"top_edge": true,
+		"top_left_clamp": true,
+		"unfocused_window_stops": true
+	},
+	"image": "res://docs/tests/p21-rts-camera-960x540.png",
+	"metrics": {
+		"(1100.0, 394.0)[]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				1100.0,
+				393.333374023438
+			]
+		},
+		"(50.0, 394.0)[]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				49.3333740234375,
+				393.333374023438
+			]
+		},
+		"(535.0, 120.0)[]": {
+			"delta": [
+				0.0,
+				-94.6069793701172
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				120.0
+			]
+		},
+		"(535.0, 394.0)[4194319]": {
+			"delta": [
+				-91.3940734863281,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 394.0)[4194320]": {
+			"delta": [
+				0.0,
+				-91.3940734863281
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 394.0)[4194321, 4194322]": {
+			"delta": [
+				64.6251831054688,
+				64.6251831054688
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 394.0)[4194321]": {
+			"delta": [
+				91.3940734863281,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 394.0)[4194322]": {
+			"delta": [
+				0.0,
+				91.3940734863281
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 394.0)[]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				393.333374023438
+			]
+		},
+		"(535.0, 669.0)[]": {
+			"delta": [
+				0.0,
+				94.5455932617188
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				668.0
+			]
+		},
+		"(535.0, 700.0)[]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				700.0
+			]
+		},
+		"(535.0, 80.0)[]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				534.666748046875,
+				80.0
+			]
+		},
+		"(80.0, 394.0)[]": {
+			"delta": [
+				-94.6622314453125,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				80.0,
+				393.333374023438
+			]
+		},
+		"(990.0, 394.0)[4194321]": {
+			"delta": [
+				0.0,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				989.333374023438,
+				393.333374023438
+			]
+		},
+		"(990.0, 394.0)[]": {
+			"delta": [
+				94.0636901855469,
+				0.0
+			],
+			"focused": true,
+			"mouse": [
+				989.333374023438,
+				393.333374023438
+			]
+		},
+		"(990.0, 669.0)[]": {
+			"delta": [
+				66.8536376953125,
+				66.8536376953125
+			],
+			"focused": true,
+			"mouse": [
+				989.333374023438,
+				668.0
+			]
+		}
+	},
+	"note": "Native OS cursor warp and physical-key input with real frame-clock camera updates; gameplay mostly isolated as UI fixture, independent-order case runs actual AI/game processing.",
+	"passed": true
+}

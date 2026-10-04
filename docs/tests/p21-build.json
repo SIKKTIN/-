@@ -1,0 +1,44 @@
+{
+  "reports": [
+    {
+      "path": "docs/tests/p21-rts-camera-1280x720.json",
+      "checks": 28,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p21-rts-camera-960x540.json",
+      "checks": 28,
+      "passed": true
+    },
+    {
+      "path": "docs/tests/p18-camera.json",
+      "checks": 15,
+      "passed": true
+    }
+  ],
+  "sourceHashes": [
+    {
+      "sha256": "11bfda1ae7b3359bf95e9c1bf899c35bc189d745d13723bd9f9b16b5dd1650b3",
+      "path": "README.md"
+    },
+    {
+      "sha256": "19d382961ba458948ed90c97b589d471d7b1802fb03a53a9a1999ec7674eea2d",
+      "path": "scripts/core/map_camera.gd"
+    },
+    {
+      "sha256": "1017c613f8c50ce3d9d94c1351beb2f9f3097945ab7dcde500609ae3f01a6db3",
+      "path": "scripts/presentation/game_presentation.gd"
+    },
+    {
+      "sha256": "e9f4c20686b5582121cc84a6edf80268294e93e7d43153777f56445023a98823",
+      "path": "tests/p21_rts_camera_check.gd"
+    },
+    {
+      "sha256": "0e36a736d91ce661276ba12c64d1b38b299c00223f7657e75b60c714b7486253",
+      "path": "docs/dev/p21-rts-camera.md"
+    }
+  ],
+  "version": "v0.7.1",
+  "date": "2026-10-05",
+  "scope": "RTS camera inputs and hints only; previous full gameplay evidence stays historical"
+}
