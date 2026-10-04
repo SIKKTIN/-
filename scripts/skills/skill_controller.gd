@@ -14,6 +14,8 @@ func target_reason(actor) -> String:
 	if actor.escaped or game.phase != "playing":
 		return "这个伙伴已经逃脱。"
 	var definition: Dictionary = library[actor.skill_id]
+	if actor.skill_id == "backpack":
+		return "被动能力：背包3格。"
 	if actor.skill_id == "strong":
 		return "右键箱子另一侧移动；接触后自动施力推箱。"
 	if actor.skill_id == "chat":
@@ -26,10 +28,15 @@ func target_reason(actor) -> String:
 		if not game.world.line_clear(actor.position,game.guard.position):
 			return "你和狱警之间有遮挡。"
 		return ""
+	return door_reason(actor, float(definition.range))
+
+func door_reason(actor, distance: float = 55) -> String:
+	if actor.escaped or game.phase != "playing":
+		return "这个伙伴已经逃脱。"
 	if game.world.door_open:
 		return "锁门已经打开。"
 	var point: Vector2 = game.world.door.position + Vector2(-27,game.world.door.size.y*0.5)
-	if actor.position.distance_to(point) > float(definition.range):
+	if actor.position.distance_to(point) > distance:
 		return "靠近锁门左侧，会出现撬锁图标。"
 	if not game.world.line_clear(actor.position,point):
 		return "你和门边操作点之间有遮挡。"
@@ -77,7 +84,7 @@ func clear_all() -> void:
 		cancel(actor_id)
 
 func tick(delta: float) -> void:
-	var contributors: int = 0
+	var contribution: float = 0
 	for actor_id in actions.keys():
 		var actor = game.actors[actor_id]
 		var action: Dictionary = actions[actor_id]
@@ -87,21 +94,21 @@ func tick(delta: float) -> void:
 		if actor.position.distance_to(action.anchor) > 12:
 			cancel(actor_id,"伙伴%d离开了操作位置，技能中断。" % (actor_id+1))
 			continue
-		var reason := target_reason(actor)
+		var reason := door_reason(actor) if action.kind == "lock_tool" else target_reason(actor)
 		if reason != "":
 			cancel(actor_id,reason)
 			continue
 		if action.kind == "chat":
 			game.guard.facing = game.guard.position.direction_to(actor.position)
 		else:
-			contributors += 1
-	if contributors > 0:
-		game.world.lock_progress = minf(1.0,game.world.lock_progress + contributors * delta / float(library.lockpick.duration))
+			contribution += delta / (float(game.inventory.definitions.lock_tool.duration) if action.kind == "lock_tool" else float(library.lockpick.duration))
+	if contribution > 0:
+		game.world.lock_progress = minf(1.0,game.world.lock_progress + contribution)
 		game.world.queue_redraw()
 		if game.world.lock_progress >= 1.0:
 			game.world.open_door()
 			for actor_id in actions.keys():
-				if actions[actor_id].kind == "lockpick":
+				if actions[actor_id].kind in ["lockpick", "lock_tool"]:
 					cancel(actor_id)
 			game.show_status("锁撬开了！伙伴和狱警都能走这条通路。")
 

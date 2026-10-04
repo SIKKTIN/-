@@ -1,2 +1,6 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Preserve accepted asset manifest bytes referenced by delivery SHA256 records.
+/docs/art/inventory-assets-v07.json -text whitespace=cr-at-eol
+/docs/art/a05-source-license-v07.json -text whitespace=cr-at-eol

@@ -43,6 +43,7 @@ func configure(escape_game) -> void:
 	asset_version = delivery.version
 	for id in ["chat","lockpick","strong"]:
 		skill_icons[id] = load("res://art/ui/skill_%s_v01.png" % id)
+	skill_icons["backpack"] = null # A05 provides the new passive skill icon.
 	for id in ["selected","detected","searching","escaped","captured","cancelled"]:
 		fx[id] = load("res://art/fx/%s_v01.png" % id)
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile.characters))
@@ -143,16 +144,18 @@ func _make_ui() -> void:
 		card.add_child(symbol)
 		card_symbols.append(symbol)
 	game.hint_label.add_theme_font_size_override("font_size",15)
+	game.hint_label.position.y = 560
+	game.hint_label.size.y = 66
 	game.skill_button.visible = false
 	var controls := Label.new()
 	controls.name = "ControlHint"
-	controls.text = "左键选 · 右键走\nE技能 · S停止\nN昼夜 · R重开"
-	controls.position = Vector2(1029,628)
+	controls.text = "左选 · 右移 · E互动\n中键/空格拖 · F定位\nS停 · N昼夜 · R重开"
+	controls.position = Vector2(1029,648)
 	controls.theme = theme
-	controls.add_theme_font_size_override("font_size",14)
+	controls.add_theme_font_size_override("font_size",12)
 	game.get_node("HUD").add_child(controls)
 	var instructions := Label.new()
-	instructions.text = "左键选人 · 右键移动 · 靠近点图标 / E互动 · S停止"
+	instructions.text = "左选 · 右移 · 靠近点击/E互动 · 中键或空格+左拖视野 · F定位"
 	instructions.position = Vector2(34,91)
 	instructions.theme = theme
 	instructions.add_theme_font_size_override("font_size",15)

@@ -1084,15 +1084,15 @@
         "description": "先冻结inventory实例与容量接口，普通1格、backpack技能3格；R03四技能池，旧两关原三技能池。明确钱包、重开、被抓、离场与快照契约，为物品交互和主美提供规格。",
         "kind": "程序",
         "owner": "制作人",
-        "status": "待开始",
+        "status": "已完成",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
-        "actualEnd": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
         "milestoneId": "",
         "acceptance": "普通1/扩容3格，身份与随机技能解耦，无超容/自动覆盖；切人保留各自物品，重开清空、抓回保留、离场禁止再操作；旧两关抽签不引入扩容。接口/测试与可用占位UI交付，主美能据此制作，不宣称物品或商人已实现。",
-        "result": "",
+        "result": "独立背包接口和占位UI完成，普通1/扩容3格，18项检查通过。切人/抓回/离场/重开守恒，旧两关三技能池未变；R03/商人留在后续任务。用户本轮已授权开始执行。\n\n验收通过：P16制作人本人独立接口任务自验收：18项守恒/容量/状态与随机池证据通过，占位UI和A05规格齐备。仅接受背包基础，不宣称交易、R03或趣味性已通过。",
         "dependencyIds": [
           "e6b91c45-9ba0-4dea-826b-8d8470492914"
         ],
@@ -1146,15 +1146,15 @@
         "description": "实现3类物品、近距离拾取/放下/交接，商人买卖与共享局内钱包。金额/格子/库存/实例事务一次提交。钥匙开普通锁门成功才消耗，工具合法开始时消耗并6秒操作，原技能4秒。场景图标和商店HUD共用真实目标条件。",
         "kind": "程序",
         "owner": "制作人",
-        "status": "待开始",
+        "status": "已完成",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
-        "actualEnd": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
         "milestoneId": "",
         "acceptance": "满包/缺钱/缺库存/过远/遮挡交易无扣款丢物；实例守恒、点击重复无复制、卖价不大于买价。100范围交易、40范围交接，换人/离场/被抓/离开关闭店面且不暂停狱警；原技能与道具开门共享进度且不重复消耗。可用灰盒与规则报告。",
-        "result": "",
+        "result": "三类物品、拾取/放下/交接UI、钥匙即时开门、6秒工具操作、中立商人实例库存及双向原子交易已实现；26项测试通过。R03和大地图待后续，商人美术暂占位。\n\n验收通过：制作人独立程序任务自验收，26项事务及操作证据通过；接受物品与商人基础，不把固定测试夹具当R03通关验证。",
         "dependencyIds": [
           "89994bdf-766d-4eae-982d-26c73dd4e7d2"
         ],
@@ -1210,15 +1210,15 @@
         "description": "根据工程检查改掉ROOM/出口图标/60x36导航/世界UI固定边界，从数据计算房间与出口覆盖。加入局部视窗、中键或空格左拖相机、F定位伙伴；HUD独立，图标按世界目标投影，不拖动人物。制作人顺序维护共享文件。",
         "kind": "程序",
         "owner": "制作人",
-        "status": "待开始",
+        "status": "已完成",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
-        "actualEnd": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
         "milestoneId": "",
         "acceptance": "支持1800x1100房间且导航包括东侧出口，无大图之外路径裁断。两尺寸下相机边界/定位/世界选人/右键目标/近距图标准确，拖视野不移动人物、不取消伙伴技能，HUD/交易窗口固定可读；R01/R02原操作和安全区/灯光回归。",
-        "result": "",
+        "result": "动态世界地板/出口/导航范围与Camera2D完成，中键或空格左拖、F定位、HUD固定和世界提示投影，15项检查通过。原生视觉和实际R03待P19/P20。\n\n验收通过：P18独立程序任务自验收，15项坐标/导航/兼容检查通过。接受大地图基础，实际巡逻通关和原生像素另验。",
         "dependencyIds": [
           "5af015eb-3478-43ac-8d69-b58c3535d659"
         ],
@@ -1273,15 +1273,15 @@
         "description": "落地已应用R03设计初稿，不按图直接宣称可解。活动区域1800x1100，左侧商人/安全区，6件旧零件，1名狱警，主锁门和下箱路径。对照普通1格/扩容3格往返、技能开门/买钥匙/买工具与力量通路，基于实测调整布局价格。",
         "kind": "关卡",
         "owner": "制作人",
-        "status": "待开始",
+        "status": "已完成",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
-        "actualEnd": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
         "milestoneId": "",
         "acceptance": "地图净空、边界、灯光/巡逻与推箱余量通过；至少两类不同规则产生可复现全员逃脱，在AI持续运行下记录配置/昼夜/步骤/失败/未覆盖；1格vs3格返程差异可观察，买卖账本守恒，无只靠地图专用脚本成功。仓库不只增加空走路，核心乐趣留真人观察。",
-        "result": "",
+        "result": "R03灰盒接入：7条60Hz持续AI完整路线通过、均0抓回，技能开门/商人物品/力量推箱三类路径。1/3格同三件零件实际3/1趟，普通全聊天队伍也买钥匙完成。120秒巡逻20次切换；初始失败快照保留。\n\n验收通过：P19独立关卡任务自验收，三类持续AI完整路线、运输次数差异和巡逻/净空证据通过。接受灰盒规则可用，不推断所有随机配置和真人趣味性已验证。",
         "dependencyIds": [
           "5af015eb-3478-43ac-8d69-b58c3535d659",
           "d6ac9a97-b54f-4567-b604-302ee0f784db"
@@ -1334,15 +1334,15 @@
         "description": "沿用已确认art-v03手绘纸片风，P16接口冻结后由主美独立交付：商人待机姿态、旧零件/钥匙/工具、扩容技能标志、交易图标与1/3格反馈。只新增资产，不覆盖原PNG或共享渲染脚本；先提供manifest、脚底锚点和UI规格。暂未向主美发出开工消息。",
         "kind": "美术",
         "owner": "主美",
-        "status": "待开始",
+        "status": "已完成",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
-        "actualEnd": "",
+        "actualStart": "2026-10-04",
+        "actualEnd": "2026-10-04",
         "milestoneId": "",
         "acceptance": "原PNG+版本化清单+来源许可+锚点/尺寸/透明边缘检查；商人与狱警/伙伴可区分，物品在两尺寸可识别，满格/空格/买入卖出有清晰反馈。交付前实际图复核，制作人验收；不用资源完成冒充交易实现。",
-        "result": "",
+        "result": "A05最小资源已完成，版本inventory-art-v07-20261005-9c3060439f88，26文件SHA256无差异。1商人原生imagegen透明PNG（独立中立idle、64世界高、Atlas region[314,149,644,1035]/局部脚底[345,1029]，原图逐字节一致）、scrap/door_key/lock_tool3物品，以及backpack/trade/pickup/drop/transfer/full/empty7图标；10图标各交付SVG与128RGBA PNG。11最终PNG透明边框通过，旧v01/v02/v03哈希不变；Godot4.7.2隔离测试项目真实导入11PNG+10SVG，Atlas及脚底误差0，通过；已逐张看两尺寸原生/浏览器资源预览，商人外形、物品与反馈方向可分辨，槽47×48/图标28，24微细节需文字辅助。scrap初稿触边另增v07b，保留旧图不覆盖；只新增授权art/docs/art文件，不改共享逻辑或主工程生成目录，不提交推送。未把资源预览当实际R03/背包交易完成；真实HUD/商人事务由制作人接入独立验收。\n\n验收通过：制作人资产验收：26个交付文件SHA256匹配，商人Atlas/脚底原生QA0误差，11PNG透明边及两尺寸预览通过；已实际看原生预览，外形与物品可辨。旧美术未被修改。接受A05资源，完整游戏HUD/交易接入留P20独立验收。",
         "dependencyIds": [
           "89994bdf-766d-4eae-982d-26c73dd4e7d2"
         ],
@@ -1389,15 +1389,15 @@
         "description": "将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。",
         "kind": "程序",
         "owner": "制作人",
-        "status": "待开始",
+        "status": "进行中",
         "priority": "高",
         "start": "",
         "end": "",
-        "actualStart": "",
+        "actualStart": "2026-10-04",
         "actualEnd": "",
         "milestoneId": "",
         "acceptance": "P19/A05已accepted；同一构建R01/R02保持、R03至少两类完整路线与金额/物品守恒；两尺寸相机/输入/HUD/商店/图标/背包可读，满包/抓回/中断/重開边界通过。提交版本/源码哈希/运行记录/遗留风险，技术验收不冒充P09真人趣味性。",
-        "result": "",
+        "result": "P19和A05已完成，开始实际资产接入、R03灯具/昼夜、真实GUI/相机测试及三关回归，最后正式设计回写与发布。",
         "dependencyIds": [
           "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
           "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
@@ -1635,6 +1635,18 @@
         "at": "2026-10-04T16:25:54.040Z",
         "modules": [
           "design-documents",
+          "map-design"
+        ]
+      },
+      {
+        "id": "p20-v07-completed-design-20261005",
+        "digest": "8ce53264ba2dd3a652b2b2a7314c6a2df0120ce828799d6e89d8ae49c9cdd0ec",
+        "summary": "v0.7实测规则回写：独立背包、双向商人、大地图相机与R03，234项技术检查、三关原生完整路线及明确未覆盖项。",
+        "memberName": "制作人",
+        "at": "2026-10-04T17:11:42.232Z",
+        "modules": [
+          "design-documents",
+          "gameplay",
           "map-design"
         ]
       }
@@ -4927,6 +4939,900 @@
           "note": "制作人程序任务单独自验收：用户确认的左侧安全房间已由移动/寻路/视野/抓回/光束共同限制，回房即时解追；白天210夜晚155真实手电与轮廓共半径，实体遮光且自身不洗白。两关两尺寸50项、巡逻60s与RTS20通过，近距图标既可点击又可E，真实Viewport鼠标已启动撬锁。夜间原生两关全员零抓回；R02新路线实际用到改变朝向、下方接近及安全区回退再撤离。保留旧路线失败对照、真人/白天完整路线/全部随机配置未验证边界；GameCreator规则与地图已应用。接受v0.6交付。",
           "mode": "producer-self",
           "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p16-start-20261005",
+        "taskId": "89994bdf-766d-4eae-982d-26c73dd4e7d2",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "用户已在本轮明确授权开始执行，覆盖工作包中的上一轮仅制定计划限制。开始实现独立背包1/3格、物品实例与重置/抓回/离场接口；主美待接口冻结后调度。",
+        "evidence": [
+          "用户本轮消息：可以，开始执行",
+          "已应用设计：背包、双向商人与R03扩展执行计划；Git基线454d5c5",
+          "任务P16明确由制作人承接，允许路径scripts/items、core、presentation、ui等。"
+        ],
+        "at": "2026-10-04T16:35:05.493Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "89994bdf-766d-4eae-982d-26c73dd4e7d2",
+          "title": "P16 独立背包与扩容技能基础",
+          "description": "先冻结inventory实例与容量接口，普通1格、backpack技能3格；R03四技能池，旧两关原三技能池。明确钱包、重开、被抓、离场与快照契约，为物品交互和主美提供规格。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "普通1/扩容3格，身份与随机技能解耦，无超容/自动覆盖；切人保留各自物品，重开清空、抓回保留、离场禁止再操作；旧两关抽签不引入扩容。接口/测试与可用占位UI交付，主美能据此制作，不宣称物品或商人已实现。",
+          "result": "用户已在本轮明确授权开始执行，覆盖工作包中的上一轮仅制定计划限制。开始实现独立背包1/3格、物品实例与重置/抓回/离场接口；主美待接口冻结后调度。",
+          "dependencyIds": [
+            "e6b91c45-9ba0-4dea-826b-8d8470492914"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/items/",
+              "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/data/skills/",
+              "E:/Project/Godot/这次怎么逃/data/rooms/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p16-delivery-20261005",
+        "taskId": "89994bdf-766d-4eae-982d-26c73dd4e7d2",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "独立背包接口和占位UI完成，普通1/扩容3格，18项检查通过。切人/抓回/离场/重开守恒，旧两关三技能池未变；R03/商人留在后续任务。用户本轮已授权开始执行。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/tests/p16-inventory.json：18项全部通过",
+          "E:/Project/Godot/这次怎么逃/docs/dev/p16-inventory-contract.md：冻结实例/容量/交互和A05资产接口",
+          "res://tests/p16_inventory_check.gd；Godot4.7.2 headless exit0"
+        ],
+        "at": "2026-10-04T16:37:40.056Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "89994bdf-766d-4eae-982d-26c73dd4e7d2",
+          "title": "P16 独立背包与扩容技能基础",
+          "description": "先冻结inventory实例与容量接口，普通1格、backpack技能3格；R03四技能池，旧两关原三技能池。明确钱包、重开、被抓、离场与快照契约，为物品交互和主美提供规格。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "普通1/扩容3格，身份与随机技能解耦，无超容/自动覆盖；切人保留各自物品，重开清空、抓回保留、离场禁止再操作；旧两关抽签不引入扩容。接口/测试与可用占位UI交付，主美能据此制作，不宣称物品或商人已实现。",
+          "result": "独立背包接口和占位UI完成，普通1/扩容3格，18项检查通过。切人/抓回/离场/重开守恒，旧两关三技能池未变；R03/商人留在后续任务。用户本轮已授权开始执行。",
+          "dependencyIds": [
+            "e6b91c45-9ba0-4dea-826b-8d8470492914"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/items/",
+              "E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd",
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/data/skills/",
+              "E:/Project/Godot/这次怎么逃/data/rooms/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T16:37:54.742Z",
+          "note": "P16制作人本人独立接口任务自验收：18项守恒/容量/状态与随机池证据通过，占位UI和A05规格齐备。仅接受背包基础，不宣称交易、R03或趣味性已通过。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p17-start-20261005",
+        "taskId": "5af015eb-3478-43ac-8d69-b58c3535d659",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "P16已验收，用户授权执行。开始三类物品使用、拾取/交接UI及商人原子买卖。已调度现有美术聊天承担A05，不借用主美凭证。",
+        "evidence": [
+          "docs/dev/p16-inventory-contract.md",
+          "docs/tests/p16-inventory.json",
+          "用户本轮：可以，开始执行；主美工作包已发给现有美术聊天。"
+        ],
+        "at": "2026-10-04T16:38:27.575Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "5af015eb-3478-43ac-8d69-b58c3535d659",
+          "title": "P17 物品拾取、使用与商人双向交易",
+          "description": "实现3类物品、近距离拾取/放下/交接，商人买卖与共享局内钱包。金额/格子/库存/实例事务一次提交。钥匙开普通锁门成功才消耗，工具合法开始时消耗并6秒操作，原技能4秒。场景图标和商店HUD共用真实目标条件。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "满包/缺钱/缺库存/过远/遮挡交易无扣款丢物；实例守恒、点击重复无复制、卖价不大于买价。100范围交易、40范围交接，换人/离场/被抓/离开关闭店面且不暂停狱警；原技能与道具开门共享进度且不重复消耗。可用灰盒与规则报告。",
+          "result": "P16已验收，用户授权执行。开始三类物品使用、拾取/交接UI及商人原子买卖。已调度现有美术聊天承担A05，不借用主美凭证。",
+          "dependencyIds": [
+            "89994bdf-766d-4eae-982d-26c73dd4e7d2"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/items/",
+              "E:/Project/Godot/这次怎么逃/scripts/trade/",
+              "E:/Project/Godot/这次怎么逃/scripts/skills/",
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/world/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/data/items/",
+              "E:/Project/Godot/这次怎么逃/data/merchants/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a05-start-20261005",
+        "taskId": "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "按本轮执行授权及已完成P16冻结接口开始资源制作，覆盖任务包旧『仅计划』说明。沿art-v03/FINAL-WARM-01只新增商人idle、3物品及7背包/事务反馈图标；商人独立NPC，64高脚底注册；只写授权art子目录/docs/art，不修改共享逻辑。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p16-inventory-contract.md",
+          "E:/Project/Godot/这次怎么逃/docs/art/p13-visual-review-final-v03.txt"
+        ],
+        "at": "2026-10-04T16:41:30.305Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
+          "title": "A05 商人、物品与背包反馈最小资产",
+          "description": "沿用已确认art-v03手绘纸片风，P16接口冻结后由主美独立交付：商人待机姿态、旧零件/钥匙/工具、扩容技能标志、交易图标与1/3格反馈。只新增资产，不覆盖原PNG或共享渲染脚本；先提供manifest、脚底锚点和UI规格。暂未向主美发出开工消息。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "原PNG+版本化清单+来源许可+锚点/尺寸/透明边缘检查；商人与狱警/伙伴可区分，物品在两尺寸可识别，满格/空格/买入卖出有清晰反馈。交付前实际图复核，制作人验收；不用资源完成冒充交易实现。",
+          "result": "按本轮执行授权及已完成P16冻结接口开始资源制作，覆盖任务包旧『仅计划』说明。沿art-v03/FINAL-WARM-01只新增商人idle、3物品及7背包/事务反馈图标；商人独立NPC，64高脚底注册；只写授权art子目录/docs/art，不修改共享逻辑。",
+          "dependencyIds": [
+            "89994bdf-766d-4eae-982d-26c73dd4e7d2"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/art/characters/merchant/",
+              "E:/Project/Godot/这次怎么逃/art/items/",
+              "E:/Project/Godot/这次怎么逃/art/ui/",
+              "E:/Project/Godot/这次怎么逃/docs/art/"
+            ],
+            "entry": "assets manifest / 后续Godot实际效果复核",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p17-delivery-20261005",
+        "taskId": "5af015eb-3478-43ac-8d69-b58c3535d659",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "三类物品、拾取/放下/交接UI、钥匙即时开门、6秒工具操作、中立商人实例库存及双向原子交易已实现；26项测试通过。R03和大地图待后续，商人美术暂占位。",
+        "evidence": [
+          "docs/tests/p17-trade.json：26项通过，Godot4.7.2 exit0",
+          "docs/dev/p17-trade.md：规则/接口与范围",
+          "tests/p17_trade_check.gd：资金、容量、库存与所有权拒绝、重复点击、回购、工具持续操作和店面关闭"
+        ],
+        "at": "2026-10-04T16:43:00.350Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "5af015eb-3478-43ac-8d69-b58c3535d659",
+          "title": "P17 物品拾取、使用与商人双向交易",
+          "description": "实现3类物品、近距离拾取/放下/交接，商人买卖与共享局内钱包。金额/格子/库存/实例事务一次提交。钥匙开普通锁门成功才消耗，工具合法开始时消耗并6秒操作，原技能4秒。场景图标和商店HUD共用真实目标条件。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "满包/缺钱/缺库存/过远/遮挡交易无扣款丢物；实例守恒、点击重复无复制、卖价不大于买价。100范围交易、40范围交接，换人/离场/被抓/离开关闭店面且不暂停狱警；原技能与道具开门共享进度且不重复消耗。可用灰盒与规则报告。",
+          "result": "三类物品、拾取/放下/交接UI、钥匙即时开门、6秒工具操作、中立商人实例库存及双向原子交易已实现；26项测试通过。R03和大地图待后续，商人美术暂占位。",
+          "dependencyIds": [
+            "89994bdf-766d-4eae-982d-26c73dd4e7d2"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/items/",
+              "E:/Project/Godot/这次怎么逃/scripts/trade/",
+              "E:/Project/Godot/这次怎么逃/scripts/skills/",
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/world/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/data/items/",
+              "E:/Project/Godot/这次怎么逃/data/merchants/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T16:43:27.543Z",
+          "note": "制作人独立程序任务自验收，26项事务及操作证据通过；接受物品与商人基础，不把固定测试夹具当R03通关验证。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p18-start-20261005",
+        "taskId": "d6ac9a97-b54f-4567-b604-302ee0f784db",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "P17已完成，开始数据化地图/出口边界、导航范围与RTS相机；HUD和互动提示投影适配。",
+        "evidence": [
+          "P16/P17已验收",
+          "docs/dev/p17-trade.md"
+        ],
+        "at": "2026-10-04T16:44:33.774Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "d6ac9a97-b54f-4567-b604-302ee0f784db",
+          "title": "P18 大地图坐标、动态导航与RTS相机",
+          "description": "根据工程检查改掉ROOM/出口图标/60x36导航/世界UI固定边界，从数据计算房间与出口覆盖。加入局部视窗、中键或空格左拖相机、F定位伙伴；HUD独立，图标按世界目标投影，不拖动人物。制作人顺序维护共享文件。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "支持1800x1100房间且导航包括东侧出口，无大图之外路径裁断。两尺寸下相机边界/定位/世界选人/右键目标/近距图标准确，拖视野不移动人物、不取消伙伴技能，HUD/交易窗口固定可读；R01/R02原操作和安全区/灯光回归。",
+          "result": "P17已完成，开始数据化地图/出口边界、导航范围与RTS相机；HUD和互动提示投影适配。",
+          "dependencyIds": [
+            "5af015eb-3478-43ac-8d69-b58c3535d659"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/world/",
+              "E:/Project/Godot/这次怎么逃/scripts/actors/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/scenes/",
+              "E:/Project/Godot/这次怎么逃/data/rooms/",
+              "E:/Project/Godot/这次怎么逃/data/presentation/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p18-delivery-20261005",
+        "taskId": "d6ac9a97-b54f-4567-b604-302ee0f784db",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "动态世界地板/出口/导航范围与Camera2D完成，中键或空格左拖、F定位、HUD固定和世界提示投影，15项检查通过。原生视觉和实际R03待P19/P20。",
+        "evidence": [
+          "docs/tests/p18-camera.json：15项通过",
+          "docs/dev/p18-map-camera.md：接口",
+          "tests/p18_camera_check.gd：大地图导航、监管区、相机边界、右键世界逆变换与旧出口兼容，Godot4.7.2 exit0"
+        ],
+        "at": "2026-10-04T16:46:46.755Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "d6ac9a97-b54f-4567-b604-302ee0f784db",
+          "title": "P18 大地图坐标、动态导航与RTS相机",
+          "description": "根据工程检查改掉ROOM/出口图标/60x36导航/世界UI固定边界，从数据计算房间与出口覆盖。加入局部视窗、中键或空格左拖相机、F定位伙伴；HUD独立，图标按世界目标投影，不拖动人物。制作人顺序维护共享文件。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "支持1800x1100房间且导航包括东侧出口，无大图之外路径裁断。两尺寸下相机边界/定位/世界选人/右键目标/近距图标准确，拖视野不移动人物、不取消伙伴技能，HUD/交易窗口固定可读；R01/R02原操作和安全区/灯光回归。",
+          "result": "动态世界地板/出口/导航范围与Camera2D完成，中键或空格左拖、F定位、HUD固定和世界提示投影，15项检查通过。原生视觉和实际R03待P19/P20。",
+          "dependencyIds": [
+            "5af015eb-3478-43ac-8d69-b58c3535d659"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/core/",
+              "E:/Project/Godot/这次怎么逃/scripts/world/",
+              "E:/Project/Godot/这次怎么逃/scripts/actors/",
+              "E:/Project/Godot/这次怎么逃/scripts/presentation/",
+              "E:/Project/Godot/这次怎么逃/scripts/ui/",
+              "E:/Project/Godot/这次怎么逃/scenes/",
+              "E:/Project/Godot/这次怎么逃/data/rooms/",
+              "E:/Project/Godot/这次怎么逃/data/presentation/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T16:50:55.230Z",
+          "note": "P18独立程序任务自验收，15项坐标/导航/兼容检查通过。接受大地图基础，实际巡逻通关和原生像素另验。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p19-start-20261005",
+        "taskId": "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "前置已验收；开始R03仓库交易所配置、物品/商人布点和持续巡逻路线验证，运输次数/经济取舍实测。",
+        "evidence": [
+          "docs/tests/p17-trade.json",
+          "docs/tests/p18-camera.json",
+          "用户授权执行"
+        ],
+        "at": "2026-10-04T16:52:18.309Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+          "title": "P19 R03仓库交易所灰盒与运输策略验证",
+          "description": "落地已应用R03设计初稿，不按图直接宣称可解。活动区域1800x1100，左侧商人/安全区，6件旧零件，1名狱警，主锁门和下箱路径。对照普通1格/扩容3格往返、技能开门/买钥匙/买工具与力量通路，基于实测调整布局价格。",
+          "kind": "关卡",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "地图净空、边界、灯光/巡逻与推箱余量通过；至少两类不同规则产生可复现全员逃脱，在AI持续运行下记录配置/昼夜/步骤/失败/未覆盖；1格vs3格返程差异可观察，买卖账本守恒，无只靠地图专用脚本成功。仓库不只增加空走路，核心乐趣留真人观察。",
+          "result": "前置已验收；开始R03仓库交易所配置、物品/商人布点和持续巡逻路线验证，运输次数/经济取舍实测。",
+          "dependencyIds": [
+            "5af015eb-3478-43ac-8d69-b58c3535d659",
+            "d6ac9a97-b54f-4567-b604-302ee0f784db"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/data/rooms/r03.json",
+              "E:/Project/Godot/这次怎么逃/data/merchants/",
+              "E:/Project/Godot/这次怎么逃/data/items/",
+              "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r03.tscn",
+              "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p19-delivery-20261005",
+        "taskId": "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "R03灰盒接入：7条60Hz持续AI完整路线通过、均0抓回，技能开门/商人物品/力量推箱三类路径。1/3格同三件零件实际3/1趟，普通全聊天队伍也买钥匙完成。120秒巡逻20次切换；初始失败快照保留。",
+        "evidence": [
+          "docs/tests/p19-r03-routes.json：13项通过，7完整路线0抓回",
+          "docs/tests/p19-initial-route-failures.json：最初直冲失败保留",
+          "docs/dev/p19-r03.md：规则/实测/未覆盖项",
+          "tests/p19_r03_routes.gd：真实移动和守卫逻辑，等待巡逻不改AI状态"
+        ],
+        "at": "2026-10-04T16:56:19.917Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+          "title": "P19 R03仓库交易所灰盒与运输策略验证",
+          "description": "落地已应用R03设计初稿，不按图直接宣称可解。活动区域1800x1100，左侧商人/安全区，6件旧零件，1名狱警，主锁门和下箱路径。对照普通1格/扩容3格往返、技能开门/买钥匙/买工具与力量通路，基于实测调整布局价格。",
+          "kind": "关卡",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "地图净空、边界、灯光/巡逻与推箱余量通过；至少两类不同规则产生可复现全员逃脱，在AI持续运行下记录配置/昼夜/步骤/失败/未覆盖；1格vs3格返程差异可观察，买卖账本守恒，无只靠地图专用脚本成功。仓库不只增加空走路，核心乐趣留真人观察。",
+          "result": "R03灰盒接入：7条60Hz持续AI完整路线通过、均0抓回，技能开门/商人物品/力量推箱三类路径。1/3格同三件零件实际3/1趟，普通全聊天队伍也买钥匙完成。120秒巡逻20次切换；初始失败快照保留。",
+          "dependencyIds": [
+            "5af015eb-3478-43ac-8d69-b58c3535d659",
+            "d6ac9a97-b54f-4567-b604-302ee0f784db"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/data/rooms/r03.json",
+              "E:/Project/Godot/这次怎么逃/data/merchants/",
+              "E:/Project/Godot/这次怎么逃/data/items/",
+              "E:/Project/Godot/这次怎么逃/scenes/rooms/room_r03.tscn",
+              "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T16:56:46.171Z",
+          "note": "P19独立关卡任务自验收，三类持续AI完整路线、运输次数差异和巡逻/净空证据通过。接受灰盒规则可用，不推断所有随机配置和真人趣味性已验证。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "a05-final-v07-20261005",
+        "taskId": "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "A05最小资源已完成，版本inventory-art-v07-20261005-9c3060439f88，26文件SHA256无差异。1商人原生imagegen透明PNG（独立中立idle、64世界高、Atlas region[314,149,644,1035]/局部脚底[345,1029]，原图逐字节一致）、scrap/door_key/lock_tool3物品，以及backpack/trade/pickup/drop/transfer/full/empty7图标；10图标各交付SVG与128RGBA PNG。11最终PNG透明边框通过，旧v01/v02/v03哈希不变；Godot4.7.2隔离测试项目真实导入11PNG+10SVG，Atlas及脚底误差0，通过；已逐张看两尺寸原生/浏览器资源预览，商人外形、物品与反馈方向可分辨，槽47×48/图标28，24微细节需文字辅助。scrap初稿触边另增v07b，保留旧图不覆盖；只新增授权art/docs/art文件，不改共享逻辑或主工程生成目录，不提交推送。未把资源预览当实际R03/背包交易完成；真实HUD/商人事务由制作人接入独立验收。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/art/inventory-assets-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-delivery-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-integration-v07.txt",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-source-license-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-merchant-v07.prompt.txt",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-qa-resources-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-qa-native-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-qa-browser-v07.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-visual-review-v07.txt",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-native-preview-1280x720-v07.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-native-preview-960x540-v07.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-resource-preview-1280x720-v07r2.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/a05-resource-preview-960x540-v07r2.png"
+        ],
+        "at": "2026-10-04T16:57:26.801Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
+          "title": "A05 商人、物品与背包反馈最小资产",
+          "description": "沿用已确认art-v03手绘纸片风，P16接口冻结后由主美独立交付：商人待机姿态、旧零件/钥匙/工具、扩容技能标志、交易图标与1/3格反馈。只新增资产，不覆盖原PNG或共享渲染脚本；先提供manifest、脚底锚点和UI规格。暂未向主美发出开工消息。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "原PNG+版本化清单+来源许可+锚点/尺寸/透明边缘检查；商人与狱警/伙伴可区分，物品在两尺寸可识别，满格/空格/买入卖出有清晰反馈。交付前实际图复核，制作人验收；不用资源完成冒充交易实现。",
+          "result": "A05最小资源已完成，版本inventory-art-v07-20261005-9c3060439f88，26文件SHA256无差异。1商人原生imagegen透明PNG（独立中立idle、64世界高、Atlas region[314,149,644,1035]/局部脚底[345,1029]，原图逐字节一致）、scrap/door_key/lock_tool3物品，以及backpack/trade/pickup/drop/transfer/full/empty7图标；10图标各交付SVG与128RGBA PNG。11最终PNG透明边框通过，旧v01/v02/v03哈希不变；Godot4.7.2隔离测试项目真实导入11PNG+10SVG，Atlas及脚底误差0，通过；已逐张看两尺寸原生/浏览器资源预览，商人外形、物品与反馈方向可分辨，槽47×48/图标28，24微细节需文字辅助。scrap初稿触边另增v07b，保留旧图不覆盖；只新增授权art/docs/art文件，不改共享逻辑或主工程生成目录，不提交推送。未把资源预览当实际R03/背包交易完成；真实HUD/商人事务由制作人接入独立验收。",
+          "dependencyIds": [
+            "89994bdf-766d-4eae-982d-26c73dd4e7d2"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/art/characters/merchant/",
+              "E:/Project/Godot/这次怎么逃/art/items/",
+              "E:/Project/Godot/这次怎么逃/art/ui/",
+              "E:/Project/Godot/这次怎么逃/docs/art/"
+            ],
+            "entry": "assets manifest / 后续Godot实际效果复核",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-04T16:58:09.146Z",
+          "note": "制作人资产验收：26个交付文件SHA256匹配，商人Atlas/脚底原生QA0误差，11PNG透明边及两尺寸预览通过；已实际看原生预览，外形与物品可辨。旧美术未被修改。接受A05资源，完整游戏HUD/交易接入留P20独立验收。",
+          "mode": "independent",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p20-start-20261005",
+        "taskId": "7aa6c897-f07b-49f2-b73d-02f12c3ecf93",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "P19和A05已完成，开始实际资产接入、R03灯具/昼夜、真实GUI/相机测试及三关回归，最后正式设计回写与发布。",
+        "evidence": [
+          "docs/dev/p19-r03.md",
+          "docs/art/a05-delivery-v07.json：26文件hash匹配，原生资源QA通过",
+          "用户明确开始执行"
+        ],
+        "at": "2026-10-04T16:58:23.852Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "7aa6c897-f07b-49f2-b73d-02f12c3ecf93",
+          "title": "P20 背包商人与R03完整集成及三关回归",
+          "description": "将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-04",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "P19/A05已accepted；同一构建R01/R02保持、R03至少两类完整路线与金额/物品守恒；两尺寸相机/输入/HUD/商店/图标/背包可读，满包/抓回/中断/重開边界通过。提交版本/源码哈希/运行记录/遗留风险，技术验收不冒充P09真人趣味性。",
+          "result": "P19和A05已完成，开始实际资产接入、R03灯具/昼夜、真实GUI/相机测试及三关回归，最后正式设计回写与发布。",
+          "dependencyIds": [
+            "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+            "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+          ],
+          "references": [
+            {
+              "kind": "map",
+              "targetId": "19c1c9ca-a461-4c54-86d7-0f39d6980519"
+            },
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "selfReviewRole": "producer",
+          "integrationTaskIds": [
+            "dd171bf5-a85b-4729-a8bf-9d71bdcddf98",
+            "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/",
+              "E:/Project/Godot/这次怎么逃/scenes/",
+              "E:/Project/Godot/这次怎么逃/data/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/dev/",
+              "E:/Project/Godot/这次怎么逃/docs/tests/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "res://scenes/main.tscn / 后续R03与相关灰盒测试",
+            "interfaceContract": "基线v0.6；正式方案为《背包、双向商人与R03扩展执行计划》，R03地图初稿ID 19c1c9ca-a461-4c54-86d7-0f39d6980519。三名actor_id不变，商人不作为友军数组成员；资产只读逻辑，原子物品事务，旧两关保持三技能池。用户本轮仅制定计划，任务保持待开始，不自动开始开发。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "bag-r03-tasks-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-04T16:14:28.928Z"
+            }
+          ]
         }
       }
     ]

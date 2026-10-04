@@ -1,0 +1,232 @@
+{
+  "merchant_registration": {
+    "texture": "res://art/characters/merchant/merchant_idle_v07.png",
+    "region": [
+      314,
+      149,
+      644,
+      1035
+    ],
+    "anchor": [
+      345.0,
+      1029
+    ],
+    "world_height": 64,
+    "opaque_bounds": [
+      6,
+      6,
+      632,
+      1023
+    ],
+    "shadow_baked": false,
+    "npc_role": "merchant",
+    "animation": "idle",
+    "actor_id": null
+  },
+  "merchant_visible_height": 63.25797101449275,
+  "merchant_foot_padding_world": 0.3710144927536232,
+  "resources": [
+    {
+      "path": "art/characters/merchant/merchant_idle_v07.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        320,
+        155,
+        952,
+        1178
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "61e43132d13615bf4c712fb16038f4fee03c9bb7d436163919a3d7826b55f7ed"
+    },
+    {
+      "path": "art/items/item_scrap_v07b.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        5,
+        2,
+        124,
+        118
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "ce83e49b778ce93646a092553aa68b9d55e2dffe03b15ffd9ac0f617abb05e4c"
+    },
+    {
+      "path": "art/items/item_door_key_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        4,
+        5,
+        124,
+        108
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "5687bc2b829549a62af5658f55dbea0167cf22024d3066684e186b05f807056b"
+    },
+    {
+      "path": "art/items/item_lock_tool_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        10,
+        12,
+        121,
+        119
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "9777f7fe3f6148a7d85953d6b3e254f90ccdf2975ef9f9bd596c3894b82200a8"
+    },
+    {
+      "path": "art/ui/inventory_backpack_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        9,
+        6,
+        119,
+        120
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "d14eff290434ecf0a5eee25f99fd488af5bb8f5cf111597acda755802d1531ea"
+    },
+    {
+      "path": "art/ui/inventory_trade_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        11,
+        11,
+        117,
+        117
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "d3aa385ebd9bb76033b416cff0f33e46912c96455f2f00c3fee0b3beabe41b06"
+    },
+    {
+      "path": "art/ui/inventory_pickup_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        12,
+        12,
+        116,
+        116
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "49a5a23c7f4e438e7f0ffb5cf50e2bc3992c2ca8c7fdafe18ce5cc6b2d24f16f"
+    },
+    {
+      "path": "art/ui/inventory_drop_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        12,
+        12,
+        116,
+        116
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "2355e4f56959d051650d108a7b354db4651c78c6b351cda67c5e2dc04bbe3f09"
+    },
+    {
+      "path": "art/ui/inventory_transfer_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        6,
+        33,
+        122,
+        97
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "1e218a5d23f9b5afbdee4f8f22eb6cb507ab4b3747f4fd196aad50b2fa23dfd1"
+    },
+    {
+      "path": "art/ui/inventory_full_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        12,
+        8,
+        121,
+        119
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "37ecf5d0e5032478762a9ca217e264462c7d85d41c56edfe62cfc3eae67f7aac"
+    },
+    {
+      "path": "art/ui/inventory_empty_v07.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "opaque_bounds": [
+        12,
+        12,
+        116,
+        116
+      ],
+      "transparent_border": true,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "8bf8b88156d29d1a26638778571382bd15b6c685c1de7edee81e38e1afaf9756"
+    }
+  ],
+  "old_files_unchanged": true,
+  "old_file_count": 85,
+  "original_merchant_copy_matches": true,
+  "passed": true
+}

@@ -125,7 +125,8 @@ func open_door() -> void:
 	_changed()
 
 func check_exit(actor) -> bool:
-	if not actor.escaped and actor.position.x >= bounds.end.x + 1 and actor.position.y >= exit_area.position.y + RADIUS and actor.position.y <= exit_area.end.y - RADIUS:
+	var reached: bool = actor.position.x >= bounds.end.x + 1 if not bounds.encloses(exit_area) else exit_area.grow(-RADIUS).has_point(actor.position)
+	if not actor.escaped and reached and actor.position.y >= exit_area.position.y + RADIUS and actor.position.y <= exit_area.end.y - RADIUS:
 		actor.escaped = true
 		actor.action_state = "idle"
 		actor.queue_redraw()
@@ -170,13 +171,16 @@ func clip_ray(from: Vector2, direction: Vector2, length: float) -> Vector2:
 	return from.lerp(endpoint, fraction)
 
 func _rebuild_navigation() -> void:
-	grid.region = Rect2i(0,0,60,36)
+	var area := bounds.merge(exit_area)
+	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
+	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
+	grid.region = Rect2i(low,high-low)
 	grid.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
 	grid.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
 	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	grid.update()
-	for y in range(36):
-		for x in range(60):
+	for y in range(grid.region.position.y,grid.region.end.y):
+		for x in range(grid.region.position.x,grid.region.end.x):
 			var point := Vector2(x + 0.5,y + 0.5) * GRID_SIZE
 			grid.set_point_solid(Vector2i(x,y), not can_place_circle(point,RADIUS,null,false))
 	nav_dirty = false
@@ -192,8 +196,8 @@ func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool 
 	var cell := Vector2i(floor(point.x / GRID_SIZE), floor(point.y / GRID_SIZE))
 	var best := Vector2i(-1,-1)
 	var best_distance: float = INF
-	for y in range(maxi(0,cell.y-5),mini(36,cell.y+6)):
-		for x in range(maxi(0,cell.x-5),mini(60,cell.x+6)):
+	for y in range(maxi(grid.region.position.y,cell.y-5),mini(grid.region.end.y,cell.y+6)):
+		for x in range(maxi(grid.region.position.x,cell.x-5),mini(grid.region.end.x,cell.x+6)):
 			var candidate := Vector2i(x,y)
 			if not grid.is_point_solid(candidate) and motion_clear(point,grid.get_point_position(candidate),ignore_actor,avoid_actors,ignore_crate):
 				var distance := grid.get_point_position(candidate).distance_squared_to(point)
@@ -212,8 +216,8 @@ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bo
 	# Overlay only this query's body/box constraints, then restore the shared grid.
 	var changed: Array = []
 	if avoid_actors or ignore_crate or (ignore_actor != null and ignore_actor.has_method("movement_allowed")):
-		for y in range(36):
-			for x in range(60):
+		for y in range(grid.region.position.y,grid.region.end.y):
+			for x in range(grid.region.position.x,grid.region.end.x):
 				var cell := Vector2i(x,y)
 				var old: bool = grid.is_point_solid(cell)
 				var blocked: bool = not can_place_circle(grid.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate)
@@ -252,6 +256,12 @@ func _changed() -> void:
 	nav_dirty = true
 	queue_redraw()
 
+func exit_icon_rect() -> Rect2:
+	return Rect2(exit_area.position.x-59 if not bounds.encloses(exit_area) else exit_area.get_center().x-27,exit_area.get_center().y-35,54,54)
+
+func exit_strip_rect() -> Rect2:
+	return Rect2(exit_area.position.x,exit_area.position.y,10,exit_area.size.y)
+
 func _draw() -> void:
 	if presentation_layers:
 		return
@@ -275,10 +285,11 @@ func _draw() -> void:
 	_draw_wall(crate,Color("bc965a"))
 	draw_line(crate.position+Vector2(10,10),crate.end-Vector2(10,10),Color("806441"),3,true)
 	draw_line(crate.position+Vector2(10,crate.size.y-10),crate.position+Vector2(crate.size.x-10,10),Color("806441"),3,true)
-	draw_rect(Rect2(986,355,10,180),Color("328b82"))
-	draw_line(Vector2(944,442),Vector2(974,442),Color("328b82"),4,true)
-	draw_line(Vector2(974,442),Vector2(962,432),Color("328b82"),4,true)
-	draw_line(Vector2(974,442),Vector2(962,452),Color("328b82"),4,true)
+	draw_rect(exit_strip_rect(),Color("328b82"))
+	var arrow := exit_icon_rect().get_center()
+	draw_line(arrow-Vector2(14,0),arrow+Vector2(14,0),Color("328b82"),4,true)
+	draw_line(arrow+Vector2(14,0),arrow+Vector2(2,-10),Color("328b82"),4,true)
+	draw_line(arrow+Vector2(14,0),arrow+Vector2(2,10),Color("328b82"),4,true)
 
 func _draw_art() -> void:
 	for rect in walls:
@@ -291,8 +302,8 @@ func _draw_art() -> void:
 		draw_rect(Rect2(point+Vector2(-28,-23),Vector2(56,6)),Color("536052"))
 		draw_rect(Rect2(point+Vector2(-28,-23),Vector2(56*lock_progress,6)),Color("9a8fb9"))
 	draw_texture_rect(art_textures.heavy_crate_v01,crate,false)
-	draw_rect(Rect2(986,355,10,180),Color("328b82"))
-	draw_texture_rect(art_textures.exit_v01,Rect2(927,410,54,54),false)
+	draw_rect(exit_strip_rect(),Color("328b82"))
+	draw_texture_rect(art_textures.exit_v01,exit_icon_rect(),false)
 
 func _draw_wall(rect: Rect2, fill: Color) -> void:
 	draw_rect(rect,fill)

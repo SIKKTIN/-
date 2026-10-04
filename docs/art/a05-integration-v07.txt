@@ -1,0 +1,36 @@
+A05 商人、物品与背包反馈最小资产
+日期：2026-10-05；主美；沿用art-v03 / FINAL-WARM-01风格。
+入口：docs/art/inventory-assets-v07.json。仅新增资源；UI/背包/商人交易/R03逻辑由制作人接入。
+
+商人
+texture=res://art/characters/merchant/merchant_idle_v07.png，原1254×1254 RGBA。
+region=[314,149,644,1035]；anchor=[345,1029]为region局部坐标，脚底中心在原图[659,1178]。
+world_height=64指Atlas区域显示高；不透明主体高63.258，脚底透明余量0.371世界单位。
+绘制：Atlas.region按原PNG取图；scale=64/1035，draw_position=NPC世界脚点-anchor*scale；不要把anchor当整图坐标，也不要用全图1254高做64缩放。
+棕帽、奶油衬衣、灰绿围裙区别橙服伙伴与深蓝狱警。只有idle；独立固定中立NPC，不使用actor_id 0/1/2，不加入友军数组或选中圈。
+shadow_baked=false；如需落地影由既有渲染画一次。原图无烘焙地面投影、数字、技能或UI；原始imagegen输出逐字节复制。
+
+物品
+scrap→art/items/item_scrap_v07b.png（锈色齿轮旧零件）；注意采用有透明留边的v07b，v07初稿保留作失败证据且不选用。
+door_key→art/items/item_door_key_v07.png（赭金钥匙）；lock_tool→art/items/item_lock_tool_v07.png（灰蓝弯撬具）。
+三图各128×128 RGBA透明，保留对应原创SVG源。地面约26×26；HUD24–28，槽内28。按manifest映射物品definition_id，不从背包/商店复制实例。
+物品纹理是单个静态标识；地面显示、归属和能否拾取读取P16/P17实际状态。
+
+技能与反馈
+backpack：背包与三小点，表达会收纳技能；容量数字与实际槽数由capacity提供，不能让普通伙伴显示额外可用格。
+trade：两条反向箭头和钱币，双向交易入口；买入和卖出按钮分别用明确文字/商品归属与钱包变化，不能只依图标/颜色猜方向。
+pickup：向上箭头离开地面托线；drop：向下箭头落入托线。
+transfer：单向箭头从左容器到右容器，实际交接对象与方向由UI和文字标明。
+full：包与朱红停止横线，配“背包已满”或实际拒绝原因；不通过闪色或遮盖物品虚构事务成功。
+empty：虚线空槽，表达可用空格；仅绘制实际容量以内的槽，不把锁定/不可用槽画成可收纳。
+反馈图标各128×128 RGBA透明，推荐24/28/32显示；拾取/交接/放下/交易成功后更新实际物品与钱包/槽位，短提示由逻辑发出。失败保留原物品，文字说明实际reason。
+槽位47×48；图标28居中，边框/选中/禁用/容量1或3由原生UI绘制。资源不烘焙数字、按钮文案、价格或错误提示，不新增动画状态。
+
+验证与来源
+11张最终PNG全为RGBA、有透明外边框，商人原图SHA256一致；10个图标原创SVG与PNG均交付，未用第三方美术。
+docs/art/a05-source-license-v07.json登记来源；商人内置imagegen提示见a05-merchant-v07.prompt.txt，参考本项目自有v03角色；图标沿既有skill_lockpick_v01.svg深墨线条系统。
+资源测量/旧v01-v03哈希验证：a05-qa-resources-v07.json。
+独立Godot4.7.2测试项目导入11PNG+10SVG，真实Texture2D/AtlasTexture及脚底误差检查通过：a05-qa-native-v07.json。
+已查看a05-native-preview-1280x720-v07.png与960x540，以及a05-resource-preview-两尺寸-v07r2.png；小尺寸形状可分辨，24/28图标信息必须搭配文字。
+独立导入测试项目位于docs/art/a05-native-project-v07，资源是未修改副本；未启动主工程导入或写主工程.godot目录，未更改scripts/data/scenes/project.godot。
+上述图是资源预览，不是R03实际游戏交易已实现的证据；真实地图/HUD/交易动态效果由制作人接入后验收。

@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "version": "inventory-art-v07-20261005",
+  "base_style": "art-v03 / FINAL-WARM-01",
+  "merchant": {
+    "texture": "res://art/characters/merchant/merchant_idle_v07.png",
+    "region": [
+      314,
+      149,
+      644,
+      1035
+    ],
+    "anchor": [
+      345.0,
+      1029
+    ],
+    "world_height": 64,
+    "opaque_bounds": [
+      6,
+      6,
+      632,
+      1023
+    ],
+    "shadow_baked": false,
+    "npc_role": "merchant",
+    "animation": "idle",
+    "actor_id": null
+  },
+  "items": {
+    "scrap": {
+      "texture": "res://art/items/item_scrap_v07b.png",
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "door_key": {
+      "texture": "res://art/items/item_door_key_v07.png",
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "lock_tool": {
+      "texture": "res://art/items/item_lock_tool_v07.png",
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    }
+  },
+  "icons": {
+    "backpack": {
+      "texture": "res://art/ui/inventory_backpack_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "trade": {
+      "texture": "res://art/ui/inventory_trade_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "pickup": {
+      "texture": "res://art/ui/inventory_pickup_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "drop": {
+      "texture": "res://art/ui/inventory_drop_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "transfer": {
+      "texture": "res://art/ui/inventory_transfer_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "full": {
+      "texture": "res://art/ui/inventory_full_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    "empty": {
+      "texture": "res://art/ui/inventory_empty_v07.png",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    }
+  },
+  "slot_size": [
+    47,
+    48
+  ],
+  "shadow_policy": "Merchant ground shadows drawn once by producer; no item/icon cast shadows",
+  "source_license": "docs/art/a05-source-license-v07.json"
+}

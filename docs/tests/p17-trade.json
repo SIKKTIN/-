@@ -1,0 +1,32 @@
+{
+	"checks": {
+		"cannot_sell_other_bag": true,
+		"duplicate_buy_rejected": true,
+		"duplicate_sell_0": true,
+		"duplicate_sell_1": true,
+		"duplicate_sell_2": true,
+		"full_bag_no_charge": true,
+		"interrupt_preserves_progress_no_refund": true,
+		"key_duplicate_no_effect": true,
+		"key_immediate": true,
+		"no_arbitrage": true,
+		"no_money_no_change": true,
+		"open_door_no_consumption": true,
+		"remote_trade_no_charge": true,
+		"remote_use_keeps_key": true,
+		"repurchase_same_instance": true,
+		"reset_stock_wallet": true,
+		"sell_0": true,
+		"sell_1": true,
+		"sell_2": true,
+		"shop_closes_on_capture": true,
+		"shop_closes_on_distance": true,
+		"shop_closes_on_switch": true,
+		"shop_opens": true,
+		"three_scrap_funds_key": true,
+		"tool_six_seconds": true,
+		"tool_start_consumes": true
+	},
+	"note": "Fixture-based atomic transactions and item behavior; R03 runtime routes are P19.",
+	"passed": true
+}

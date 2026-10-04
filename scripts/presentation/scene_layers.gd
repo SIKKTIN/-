@@ -38,8 +38,8 @@ func _draw() -> void:
 						SoftShadow.contact_actor(self,visual.actor.position,presentation.profile)
 				else:
 					draw_ellipse(visual.actor.position+Vector2(0,2),15,4,Color(0,0,0,0.12))
-		draw_rect(Rect2(986,355,10,180),Color("328b82"))
-		draw_texture_rect(world.art_textures.exit_v01,Rect2(927,410,54,54),false)
+		draw_rect(world.exit_strip_rect(),Color("328b82"))
+		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
 		var zone: Rect2 = world.guard_zone
 		var boundary := Color(0.20,0.55,0.51,0.42)
@@ -62,3 +62,5 @@ func _draw() -> void:
 				draw_set_transform(visual.actor.position)
 				visual.paint_information(self)
 				draw_set_transform(Vector2.ZERO)
+		if game.items_view:
+			game.items_view.paint_information(self)

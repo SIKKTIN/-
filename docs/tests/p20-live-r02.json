@@ -1,0 +1,547 @@
+{
+	"command": 12,
+	"headless": false,
+	"passed": true,
+	"presentation": {
+		"asset_version": "art-v03-handpaint-20261004-05ac759ba4ad",
+		"events": [
+			{
+				"elapsed": 9.29872166666644,
+				"id": "door_open"
+			},
+			{
+				"elapsed": 10.0138016666664,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 13.5467816666663,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 13.5589016666663,
+				"id": "detected"
+			},
+			{
+				"elapsed": 13.5589016666663,
+				"id": "cancelled"
+			},
+			{
+				"elapsed": 15.0072416666662,
+				"id": "detected"
+			},
+			{
+				"elapsed": 15.9344216666662,
+				"id": "escaped"
+			},
+			{
+				"elapsed": 15.9344216666662,
+				"id": "complete"
+			}
+		],
+		"interaction": {
+			"actor_id": 0,
+			"kind": "",
+			"position": [
+				777.798522949219,
+				329.125885009766
+			],
+			"visible": false
+		},
+		"lighting": {
+			"ambient": "536587ff",
+			"flashlight_enabled": false,
+			"flashlight_radius": 155.0,
+			"lamps": [
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						240.0,
+						150.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						705.0,
+						150.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": true,
+					"energy": 0.850000023841858,
+					"position": [
+						945.0,
+						620.0
+					],
+					"shadows": true
+				}
+			],
+			"obstacle_revision": 7,
+			"occluder_count": 4,
+			"period": "night",
+			"room": "r02",
+			"sun_enabled": false,
+			"version": "lighting-v02"
+		},
+		"loops": {
+			"chat_loop": false,
+			"crate_move_loop": false,
+			"lockpick_loop": false
+		},
+		"muted": false,
+		"profile": "v03",
+		"render_settings": {
+			"block_elevation": 24.0,
+			"block_top_tiled": false,
+			"characters": "res://art/characters/manifest-v03.json",
+			"contact_alpha": 0.16,
+			"delivery": "res://docs/art/delivery-v03.json",
+			"environment": "res://art/environment/manifest-v03.json",
+			"floor_asset": "floor_handpaint_v03",
+			"floor_tile_size": 384.0,
+			"material_slots": {
+				"block_top": "block_top_handpaint_v03",
+				"crate": "heavy_crate_handpaint_v03",
+				"door_closed": "locked_door_closed_v02",
+				"door_open": "locked_door_open_v02",
+				"wall_front": "stone_front_handpaint_v03",
+				"wall_top": "stone_top_handpaint_v03"
+			},
+			"outline_color": "434941",
+			"outline_width": 1.4,
+			"perspective": true,
+			"projection_alpha": 0.1,
+			"projection_offset": [
+				11.0,
+				8.0
+			],
+			"props": "res://art/props/manifest-v03.json",
+			"soft_shadows": true,
+			"top_modulate": [
+				1.18,
+				1.14,
+				1.08,
+				1.0
+			],
+			"wall_elevation": 18.0,
+			"wall_side_shade": 0.68,
+			"wall_side_width": 4.0
+		},
+		"visuals": [
+			{
+				"destination": [
+					-18.3993663787842,
+					-59.4294776916504,
+					35.3724250793457,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					254.0,
+					57.0,
+					372.0,
+					631.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-21.3259658813477,
+					-59.3370170593262,
+					39.0055236816406,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					201.0,
+					92.0,
+					353.0,
+					543.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-17.7796325683594,
+					-59.398998260498,
+					35.9599342346191,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"region": [
+					187.0,
+					52.0,
+					359.0,
+					599.0
+				],
+				"visible": false,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-23.4333896636963,
+					-71.2714996337891,
+					44.3170318603516,
+					72.0
+				],
+				"flip_h": true,
+				"frame": "idle",
+				"region": [
+					230.0,
+					84.0,
+					365.0,
+					593.0
+				],
+				"visible": true,
+				"world_height": 72.0
+			}
+		]
+	},
+	"reason": "completed",
+	"route": "chat_lock",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.949772000312805,
+					0.312942862510681
+				],
+				"position": [
+					997.805786132813,
+					381.097351074219
+				],
+				"selected": true,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.999999761581421,
+					-0.000658531731460243
+				],
+				"position": [
+					997.2734375,
+					395.027770996094
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					0.949957668781281,
+					0.312378525733948
+				],
+				"position": [
+					997.796020507813,
+					421.122253417969
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 3,
+		"elapsed": 15.9344216666662,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				-0.780944466590881,
+				0.624600470066071
+			],
+			"fov_degrees": 120,
+			"guard_zone": [
+				670.0,
+				114.0,
+				326.0,
+				560.0
+			],
+			"lost_time": 0.0,
+			"path_size": 1,
+			"position": [
+				867.550415039063,
+				375.973083496094
+			],
+			"route_index": 3,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 155.0
+		},
+		"guard_position": [
+			867.550415039063,
+			375.973083496094
+		],
+		"inventory": {
+			"bags": {
+				"0": [],
+				"1": [],
+				"2": []
+			},
+			"capacities": [
+				1,
+				1,
+				1
+			],
+			"instances": {},
+			"wallet": 0
+		},
+		"merchants": {},
+		"orders": [],
+		"phase": "complete",
+		"seed": 33,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				831.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": true,
+			"lock_progress": 1.0,
+			"obstacle_revision": 7,
+			"push_distance": 0.0,
+			"room_id": "r02"
+		}
+	},
+	"trace": [
+		{
+			"actor0": [
+				180.0,
+				235.0
+			],
+			"command": 0,
+			"elapsed": 0.0,
+			"facing": [
+				0.0,
+				-1.0
+			],
+			"guard": [
+				745.0,
+				280.0
+			],
+			"guard_state": "patrol"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 1,
+			"elapsed": 2.53629527272727,
+			"facing": [
+				-0.226283773779869,
+				0.974061369895935
+			],
+			"guard": [
+				763.887634277344,
+				431.742156982422
+			],
+			"guard_state": "patrol"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 2,
+			"elapsed": 2.54235587878787,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 3,
+			"elapsed": 5.28693527272718,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 4,
+			"elapsed": 5.29299587878779,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 5,
+			"elapsed": 9.29872166666644,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor": 1,
+			"elapsed": 10.0138016666664,
+			"escaped": true
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 6,
+			"elapsed": 10.0138016666664,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor": 2,
+			"elapsed": 13.5467816666663,
+			"escaped": true
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 7,
+			"elapsed": 13.5467816666663,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "talking"
+		},
+		{
+			"actor0": [
+				729.175231933594,
+				337.332244873047
+			],
+			"command": 8,
+			"elapsed": 13.5528416666663,
+			"facing": [
+				-0.343080669641495,
+				-0.93930596113205
+			],
+			"guard": [
+				763.798522949219,
+				432.125885009766
+			],
+			"guard_state": "patrol"
+		},
+		{
+			"actor0": [
+				651.328491210938,
+				280.962005615234
+			],
+			"command": 9,
+			"elapsed": 13.9285616666662,
+			"facing": [
+				0.0836123377084732,
+				0.996498346328735
+			],
+			"guard": [
+				749.846008300781,
+				408.574035644531
+			],
+			"guard_state": "patrol"
+		},
+		{
+			"actor0": [
+				651.328491210938,
+				280.962005615234
+			],
+			"command": 10,
+			"elapsed": 13.9346216666662,
+			"facing": [
+				0.0836119428277016,
+				0.996498346328735
+			],
+			"guard": [
+				749.878967285156,
+				408.966552734375
+			],
+			"guard_state": "patrol"
+		},
+		{
+			"actor": 0,
+			"elapsed": 15.9344216666662,
+			"escaped": true
+		},
+		{
+			"actor0": [
+				997.805786132813,
+				381.097351074219
+			],
+			"command": 11,
+			"elapsed": 15.9344216666662,
+			"facing": [
+				-0.780944466590881,
+				0.624600470066071
+			],
+			"guard": [
+				867.550415039063,
+				375.973083496094
+			],
+			"guard_state": "patrol"
+		}
+	]
+}

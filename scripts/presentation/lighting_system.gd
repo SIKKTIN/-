@@ -27,7 +27,7 @@ func configure(owner_game, theme: Theme) -> void:
 	material = unshaded
 	var paper := PaperBackdrop.new()
 	paper.name = "PaperBackdrop"
-	game.add_child(paper)
+	game.get_node("HUD").add_child(paper)
 	ambient = CanvasModulate.new()
 	ambient.name = "RoomAmbient"
 	add_child(ambient)
@@ -142,7 +142,7 @@ func _rebuild_lamps() -> void:
 	for lamp in lamps:
 		lamp.free()
 	lamps.clear()
-	lamp_specs = settings.rooms.get(game.world.room_id,[])
+	lamp_specs = settings.rooms.get(game.world.room_id,game.room_config.get("lamps",[]))
 	for index in range(lamp_specs.size()):
 		var spec: Dictionary = lamp_specs[index]
 		var lamp := PointLight2D.new()

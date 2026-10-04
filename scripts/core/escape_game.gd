@@ -7,11 +7,25 @@ const Skills = preload("res://scripts/skills/skill_controller.gd")
 const Presentation = preload("res://scripts/presentation/game_presentation.gd")
 const MoveOrders = preload("res://scripts/core/move_orders.gd")
 const TextureTiles = preload("res://scripts/presentation/texture_tiles.gd")
+const Inventory = preload("res://scripts/items/inventory.gd")
+const InventoryPanel = preload("res://scripts/ui/inventory_panel.gd")
+const Trade = preload("res://scripts/items/trade.gd")
+const ItemsView = preload("res://scripts/presentation/items_view.gd")
+const ShopPanel = preload("res://scripts/ui/shop_panel.gd")
+const MapCamera = preload("res://scripts/core/map_camera.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
 const MOVE_SPEED := 260.0
-const SKILL_NAMES := {"chat": "会聊天", "lockpick": "会撬锁", "strong": "大力气"}
+const SKILL_NAMES := {"chat": "会聊天", "lockpick": "会撬锁", "strong": "大力气", "backpack": "会收纳"}
+const ROOM_IDS := ["r01", "r02", "r03"]
+var inventory
+var inventory_panel
+var room_config: Dictionary = {}
+var trade
+var items_view
+var shop_panel
+var map_camera
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -51,6 +65,7 @@ func _ready() -> void:
 	world.name = "World"
 	add_child(world)
 	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % room_id))
+	room_config = config
 	world.configure(config,actors)
 	for index in range(actors.size()):
 		var start: Array = config.starts[index]
@@ -61,12 +76,30 @@ func _ready() -> void:
 	guard.configure(world,self)
 	skills = Skills.new(self)
 	orders = MoveOrders.new(self)
+	inventory = Inventory.new(self)
+	trade = Trade.new(self)
 	_build_ui()
 	reset_round()
 	presentation = Presentation.new()
 	presentation.name = "Presentation"
 	add_child(presentation)
 	presentation.configure(self)
+	items_view = ItemsView.new()
+	items_view.name = "ItemsView"
+	add_child(items_view)
+	items_view.configure(self)
+	inventory_panel = InventoryPanel.new()
+	inventory_panel.name = "InventoryPanel"
+	add_child(inventory_panel)
+	inventory_panel.configure(self)
+	shop_panel = ShopPanel.new()
+	shop_panel.name = "ShopPanel"
+	add_child(shop_panel)
+	shop_panel.configure(self)
+	map_camera = MapCamera.new()
+	map_camera.name = "MapCamera"
+	add_child(map_camera)
+	map_camera.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -79,7 +112,7 @@ func _build_ui() -> void:
 	title.add_theme_color_override("font_color", Color("303b46"))
 	layer.add_child(title)
 	var subtitle := Label.new()
-	subtitle.text = "随机技能 · 独立行动 · 留下伙伴操作，再切换其他人"
+	subtitle.text = "随机技能 · 独立背包 · 搬货交易，配合逃脱"
 	subtitle.position = Vector2(34, 70)
 	subtitle.add_theme_color_override("font_color", Color("536052"))
 	layer.add_child(subtitle)
@@ -87,11 +120,11 @@ func _build_ui() -> void:
 	room_selector.name = "RoomSelector"
 	room_selector.position = Vector2(566,35)
 	room_selector.size = Vector2(230,42)
-	room_selector.add_item("R01 · 双通路")
-	room_selector.add_item("R02 · 门边掩护")
-	room_selector.set_item_disabled(1,not FileAccess.file_exists("res://data/rooms/r02.json"))
-	room_selector.select(0 if room_id == "r01" else 1)
-	room_selector.item_selected.connect(func(index): load_room("r01" if index == 0 else "r02"))
+	for index in range(ROOM_IDS.size()):
+		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所"][index])
+		room_selector.set_item_disabled(index,not FileAccess.file_exists("res://data/rooms/%s.json" % ROOM_IDS[index]))
+	room_selector.select(ROOM_IDS.find(room_id))
+	room_selector.item_selected.connect(func(index): load_room(ROOM_IDS[index]))
 	layer.add_child(room_selector)
 	for index in range(3):
 		var card := Button.new()
@@ -149,12 +182,14 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		if not MapCamera.VIEW.has_point(event.position):
+			return
 		var point: Vector2 = get_global_transform_with_canvas().affine_inverse() * event.position
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			select_at(point)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			if world.exit_area.has_point(point) or Rect2(927,410,54,54).has_point(point):
-				point = Vector2(maxf(point.x,world.bounds.end.x+ACTOR_RADIUS+4),clampf(point.y,world.exit_area.position.y+ACTOR_RADIUS+1,world.exit_area.end.y-ACTOR_RADIUS-1))
+			if world.exit_area.has_point(point) or world.exit_icon_rect().has_point(point):
+				point = world.exit_area.get_center() if world.bounds.encloses(world.exit_area) else Vector2(maxf(point.x,world.bounds.end.x+ACTOR_RADIUS+4),clampf(point.y,world.exit_area.position.y+ACTOR_RADIUS+1,world.exit_area.end.y-ACTOR_RADIUS-1))
 			command_move(selected_actor_id,point)
 	elif event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_3:
@@ -162,7 +197,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_R:
 			reset_round()
 		elif event.keycode == KEY_E:
-			use_selected_skill()
+			presentation.interaction.activate_nearest()
 		elif event.keycode == KEY_S:
 			stop_selected()
 
@@ -191,6 +226,7 @@ func stop_selected() -> void:
 	_update_ui()
 
 func on_actor_escaped(actor_id: int) -> void:
+	inventory.carry_out(actor_id)
 	if selected_actor_id == actor_id:
 		for other in actors:
 			if not other.escaped:
@@ -200,11 +236,14 @@ func on_actor_escaped(actor_id: int) -> void:
 		phase = "complete"
 		orders.clear()
 		skills.clear_all()
-		status_text = "三人全部逃脱！用时%.1f秒 · 抓回%d次 · R重新开始" % [elapsed,captures]
+		var carried: int = inventory.instances.values().filter(func(i): return i.location == "escaped").size()
+		status_text = "三人全部逃脱！%.1f秒 · 抓回%d次 · 带出%d件 · 钱%d · R重开" % [elapsed,captures,carried,inventory.wallet]
 
 func select_actor(index: int) -> void:
 	if index < 0 or index >= actors.size() or actors[index].escaped:
 		return
+	if selected_actor_id != index and shop_panel:
+		shop_panel.close()
 	selected_actor_id = index
 	for actor in actors:
 		actor.selected = actor.actor_id == index
@@ -220,14 +259,22 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	deal_seed = randi() if seed_value < 0 else seed_value
 	var random := RandomNumberGenerator.new()
 	random.seed = deal_seed
-	var choices := ["chat","lockpick","strong"]
+	var choices: Array = room_config.get("skill_pool", ["chat","lockpick","strong"])
 	if skills:
 		skills.clear_all()
 	if orders:
 		orders.clear()
 	for actor in actors:
 		actor.reset_actor()
-		actor.skill_id = str(fixed_skills[actor.actor_id]) if fixed_skills.size() == 3 else choices[random.randi_range(0,2)]
+		actor.skill_id = str(fixed_skills[actor.actor_id]) if fixed_skills.size() == 3 else choices[random.randi_range(0,choices.size()-1)]
+	if inventory:
+		inventory.reset(room_config)
+	if trade:
+		trade.reset(room_config)
+	if shop_panel:
+		shop_panel.close()
+	if inventory_panel:
+		inventory_panel.selected_item = ""
 	if world:
 		world.reset_world()
 	if guard:
@@ -237,6 +284,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		presentation.reset()
 	show_status("本局随机技能允许重复；目标是三人全部逃脱。")
 	select_actor(0)
+	if map_camera:
+		map_camera.reset()
 	_update_ui()
 	queue_redraw()
 
@@ -252,21 +301,31 @@ func _update_ui() -> void:
 	if skill_button and skills:
 		var actor = actors[selected_actor_id]
 		var active: bool = skills.actions.has(selected_actor_id)
-		var reason: String = skills.target_reason(actor)
+		var reason: String = "被动能力：背包增加至3格。" if actor.skill_id == "backpack" else skills.target_reason(actor)
 		skill_button.text = "停止技能  E" if active else ("接触重箱自动推" if actor.skill_id == "strong" else "使用%s  E" % SKILL_NAMES[actor.skill_id])
 		skill_button.disabled = phase != "playing" or actor.escaped or actor.skill_id == "strong" or (not active and reason != "")
-		var no_opener: bool = actors.all(func(a): return a.skill_id == "chat")
+		var no_opener: bool = actors.all(func(a): return a.skill_id == "chat") and trade.merchants.is_empty()
 		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("伙伴留在原地操作，可以换人行动。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
+	if inventory_panel:
+		inventory_panel.refresh()
+	if shop_panel:
+		shop_panel.refresh()
+	if items_view:
+		items_view.queue_redraw()
 
 func _draw() -> void:
-	draw_style_box(_floor_style(), ROOM)
+	var floor_area: Rect2 = world.bounds if world else ROOM
+	var clip: Rect2 = floor_area
+	if map_camera and map_camera.enabled_for_room:
+		clip = floor_area.intersection(Rect2(MapCamera.VIEW.position+map_camera.position,MapCamera.VIEW.size))
+	draw_style_box(_floor_style(), floor_area)
 	if floor_texture:
-		TextureTiles.paint(self,floor_texture,Rect2(75,115,920,558),Vector2(floor_tile_size,floor_tile_size),ROOM)
+		TextureTiles.paint(self,floor_texture,floor_area.grow(-1),Vector2(floor_tile_size,floor_tile_size),clip)
 	if not perspective_floor:
-		for x in range(94, 995, 40):
-			draw_line(Vector2(x, 115), Vector2(x, 673), Color(0.2, 0.3, 0.25, 0.04))
-		for y in range(134, 674, 40):
-			draw_line(Vector2(75, y), Vector2(995, y), Color(0.2, 0.3, 0.25, 0.04))
+		for x in range(int(floor_area.position.x+20), int(floor_area.end.x), 40):
+			draw_line(Vector2(x, floor_area.position.y+1), Vector2(x, floor_area.end.y-1), Color(0.2, 0.3, 0.25, 0.04))
+		for y in range(int(floor_area.position.y+20), int(floor_area.end.y), 40):
+			draw_line(Vector2(floor_area.position.x+1, y), Vector2(floor_area.end.x-1, y), Color(0.2, 0.3, 0.25, 0.04))
 	if orders:
 		for id in orders.active:
 			var goal: Vector2 = orders.active[id].goal
@@ -283,9 +342,11 @@ func _floor_style() -> StyleBoxFlat:
 	return style
 
 func snapshot() -> Dictionary:
-	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else []}
+	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}}
 
 func capture_actor(actor_id: int) -> void:
+	if shop_panel and shop_panel.actor_id == actor_id:
+		shop_panel.close()
 	var actor = actors[actor_id]
 	if skills:
 		skills.cancel(actor_id)
@@ -302,6 +363,12 @@ func show_status(text: String, duration: float = 2.5) -> void:
 	status_until = elapsed + duration
 
 func use_selected_skill() -> void:
+	if skills and skills.actions.has(selected_actor_id):
+		skills.cancel(selected_actor_id, "已停止操作，撬锁进度保留。")
+		return
+	if actors[selected_actor_id].skill_id == "backpack":
+		show_status("会收纳是被动能力：背包3格，无需使用技能。")
+		return
 	if skills and phase == "playing":
 		if actors[selected_actor_id].skill_id == "strong" and presentation and presentation.interaction:
 			presentation.interaction.activate(false)
@@ -325,6 +392,7 @@ func load_room(identifier: String, fixed_skills: Array = [], seed_value: int = -
 	if skills:
 		skills.clear_all()
 	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	room_config = config
 	room_id = identifier
 	world.configure(config,actors)
 	for index in range(actors.size()):
@@ -332,6 +400,6 @@ func load_room(identifier: String, fixed_skills: Array = [], seed_value: int = -
 		actors[index].home = Vector2(start[0],start[1])
 	guard.configure(world,self)
 	if room_selector:
-		room_selector.select(0 if identifier == "r01" else 1)
+		room_selector.select(ROOM_IDS.find(identifier))
 	reset_round(fixed_skills,seed_value)
 	return true

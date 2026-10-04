@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-04T16:21:28.497Z
-> 文档内容基准：8df6b93425b3aac8ce9345362ef1e6f2dafbbfff5357cc1546bdc0cbbc1c3541
+> 文档生成时间：2026-10-04T17:12:18.761Z
+> 文档内容基准：92ace8d26c040b15c9ad600538dc66470c35ce5bbbd1fc5e0fe1199efd78c22a
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -31,11 +31,11 @@
 - P13 art-v03集成：柔和阴影与概念风格验收 [9a67a3b8-7c28-4d44-a769-e2c542bd4aa7] · 已完成
 - P14 GitHub工程发布与房间光源/昼夜系统 [a09fd1ce-819c-4c3b-9bfc-2667069c7a14] · 已完成
 - P15 狱警手电、监管区与近距离互动 [e6b91c45-9ba0-4dea-826b-8d8470492914] · 已完成
-- P16 独立背包与扩容技能基础 [89994bdf-766d-4eae-982d-26c73dd4e7d2] · 待开始
-- P17 物品拾取、使用与商人双向交易 [5af015eb-3478-43ac-8d69-b58c3535d659] · 待开始
-- P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 待开始
-- P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 待开始
-- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 待开始
+- P16 独立背包与扩容技能基础 [89994bdf-766d-4eae-982d-26c73dd4e7d2] · 已完成
+- P17 物品拾取、使用与商人双向交易 [5af015eb-3478-43ac-8d69-b58c3535d659] · 已完成
+- P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 已完成
+- P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 已完成
+- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 进行中
 
 ### 主美
 - 岗位 ID：art-director
@@ -45,7 +45,7 @@
 - A02 技能卡、状态符号与轻量音效 [1afc96b7-e11a-4bef-bfe0-639891ac653a] · 已完成
 - A03 已确认轻斜俯视场景资源 art-v02 [a215989b-decd-41ac-8576-9faeb59b363e] · 已完成
 - A04 概念风格对齐：art-v03手绘材质与人物轮廓 [d2e6a54e-f748-4980-b32f-4c5e5d8fcd07] · 已完成
-- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 待开始
+- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -535,7 +535,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P16 独立背包与扩容技能基础
 - ID：89994bdf-766d-4eae-982d-26c73dd4e7d2
-- 当前状态：待开始
+- 当前状态：已完成
 - 内容：先冻结inventory实例与容量接口，普通1格、backpack技能3格；R03四技能池，旧两关原三技能池。明确钱包、重开、被抓、离场与快照契约，为物品交互和主美提供规格。
 - 前置任务：e6b91c45-9ba0-4dea-826b-8d8470492914
 - 允许修改路径：E:/Project/Godot/这次怎么逃/scripts/items/、E:/Project/Godot/这次怎么逃/scripts/actors/prisoner.gd、E:/Project/Godot/这次怎么逃/scripts/core/、E:/Project/Godot/这次怎么逃/scripts/presentation/、E:/Project/Godot/这次怎么逃/scripts/ui/、E:/Project/Godot/这次怎么逃/data/skills/、E:/Project/Godot/这次怎么逃/data/rooms/、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/
@@ -546,7 +546,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P17 物品拾取、使用与商人双向交易
 - ID：5af015eb-3478-43ac-8d69-b58c3535d659
-- 当前状态：待开始
+- 当前状态：已完成
 - 内容：实现3类物品、近距离拾取/放下/交接，商人买卖与共享局内钱包。金额/格子/库存/实例事务一次提交。钥匙开普通锁门成功才消耗，工具合法开始时消耗并6秒操作，原技能4秒。场景图标和商店HUD共用真实目标条件。
 - 前置任务：89994bdf-766d-4eae-982d-26c73dd4e7d2
 - 允许修改路径：E:/Project/Godot/这次怎么逃/scripts/items/、E:/Project/Godot/这次怎么逃/scripts/trade/、E:/Project/Godot/这次怎么逃/scripts/skills/、E:/Project/Godot/这次怎么逃/scripts/core/、E:/Project/Godot/这次怎么逃/scripts/world/、E:/Project/Godot/这次怎么逃/scripts/presentation/、E:/Project/Godot/这次怎么逃/scripts/ui/、E:/Project/Godot/这次怎么逃/data/items/、E:/Project/Godot/这次怎么逃/data/merchants/、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/
@@ -557,7 +557,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P18 大地图坐标、动态导航与RTS相机
 - ID：d6ac9a97-b54f-4567-b604-302ee0f784db
-- 当前状态：待开始
+- 当前状态：已完成
 - 内容：根据工程检查改掉ROOM/出口图标/60x36导航/世界UI固定边界，从数据计算房间与出口覆盖。加入局部视窗、中键或空格左拖相机、F定位伙伴；HUD独立，图标按世界目标投影，不拖动人物。制作人顺序维护共享文件。
 - 前置任务：5af015eb-3478-43ac-8d69-b58c3535d659
 - 允许修改路径：E:/Project/Godot/这次怎么逃/scripts/core/、E:/Project/Godot/这次怎么逃/scripts/world/、E:/Project/Godot/这次怎么逃/scripts/actors/、E:/Project/Godot/这次怎么逃/scripts/presentation/、E:/Project/Godot/这次怎么逃/scripts/ui/、E:/Project/Godot/这次怎么逃/scenes/、E:/Project/Godot/这次怎么逃/data/rooms/、E:/Project/Godot/这次怎么逃/data/presentation/、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/
@@ -568,7 +568,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P19 R03仓库交易所灰盒与运输策略验证
 - ID：dd171bf5-a85b-4729-a8bf-9d71bdcddf98
-- 当前状态：待开始
+- 当前状态：已完成
 - 内容：落地已应用R03设计初稿，不按图直接宣称可解。活动区域1800x1100，左侧商人/安全区，6件旧零件，1名狱警，主锁门和下箱路径。对照普通1格/扩容3格往返、技能开门/买钥匙/买工具与力量通路，基于实测调整布局价格。
 - 前置任务：5af015eb-3478-43ac-8d69-b58c3535d659、d6ac9a97-b54f-4567-b604-302ee0f784db
 - 允许修改路径：E:/Project/Godot/这次怎么逃/data/rooms/r03.json、E:/Project/Godot/这次怎么逃/data/merchants/、E:/Project/Godot/这次怎么逃/data/items/、E:/Project/Godot/这次怎么逃/scenes/rooms/room_r03.tscn、E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/
@@ -579,7 +579,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### P20 背包商人与R03完整集成及三关回归
 - ID：7aa6c897-f07b-49f2-b73d-02f12c3ecf93
-- 当前状态：待开始
+- 当前状态：进行中
 - 内容：将已验收灰盒和A05资源接入完整主干，提供三关选择、独立背包和近距交易，按任务图完成回归并更新GitHub。记录计划参数调整和未证明项，不自动转正式开发。
 - 前置任务：dd171bf5-a85b-4729-a8bf-9d71bdcddf98、1f52ca69-414a-44d3-9654-f3b3b358ac9a
 - 允许修改路径：E:/Project/Godot/这次怎么逃/scripts/、E:/Project/Godot/这次怎么逃/scenes/、E:/Project/Godot/这次怎么逃/data/、E:/Project/Godot/这次怎么逃/tests/、E:/Project/Godot/这次怎么逃/docs/dev/、E:/Project/Godot/这次怎么逃/docs/tests/、E:/Project/Godot/这次怎么逃/README.md
@@ -611,12 +611,12 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P13 art-v03集成：柔和阴影与概念风格验收 [9a67a3b8-7c28-4d44-a769-e2c542bd4aa7] · 已完成
 - P14 GitHub工程发布与房间光源/昼夜系统 [a09fd1ce-819c-4c3b-9bfc-2667069c7a14] · 已完成
 - P15 狱警手电、监管区与近距离互动 [e6b91c45-9ba0-4dea-826b-8d8470492914] · 已完成
-- P16 独立背包与扩容技能基础 [89994bdf-766d-4eae-982d-26c73dd4e7d2] · 待开始
-- P17 物品拾取、使用与商人双向交易 [5af015eb-3478-43ac-8d69-b58c3535d659] · 待开始
-- P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 待开始
-- P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 待开始
-- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 待开始
-- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 待开始
+- P16 独立背包与扩容技能基础 [89994bdf-766d-4eae-982d-26c73dd4e7d2] · 已完成
+- P17 物品拾取、使用与商人双向交易 [5af015eb-3478-43ac-8d69-b58c3535d659] · 已完成
+- P18 大地图坐标、动态导航与RTS相机 [d6ac9a97-b54f-4567-b604-302ee0f784db] · 已完成
+- P19 R03仓库交易所灰盒与运输策略验证 [dd171bf5-a85b-4729-a8bf-9d71bdcddf98] · 已完成
+- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成
+- P20 背包商人与R03完整集成及三关回归 [7aa6c897-f07b-49f2-b73d-02f12c3ecf93] · 进行中
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -944,7 +944,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### A05 商人、物品与背包反馈最小资产
 - ID：1f52ca69-414a-44d3-9654-f3b3b358ac9a
-- 当前状态：待开始
+- 当前状态：已完成
 - 内容：沿用已确认art-v03手绘纸片风，P16接口冻结后由主美独立交付：商人待机姿态、旧零件/钥匙/工具、扩容技能标志、交易图标与1/3格反馈。只新增资产，不覆盖原PNG或共享渲染脚本；先提供manifest、脚底锚点和UI规格。暂未向主美发出开工消息。
 - 前置任务：89994bdf-766d-4eae-982d-26c73dd4e7d2
 - 允许修改路径：E:/Project/Godot/这次怎么逃/art/characters/merchant/、E:/Project/Godot/这次怎么逃/art/items/、E:/Project/Godot/这次怎么逃/art/ui/、E:/Project/Godot/这次怎么逃/docs/art/
@@ -959,4 +959,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A02 技能卡、状态符号与轻量音效 [1afc96b7-e11a-4bef-bfe0-639891ac653a] · 已完成
 - A03 已确认轻斜俯视场景资源 art-v02 [a215989b-decd-41ac-8576-9faeb59b363e] · 已完成
 - A04 概念风格对齐：art-v03手绘材质与人物轮廓 [d2e6a54e-f748-4980-b32f-4c5e5d8fcd07] · 已完成
-- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 待开始
+- A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成

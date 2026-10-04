@@ -1,0 +1,349 @@
+{
+  "manifest": {
+    "schema": 1,
+    "version": "inventory-art-v07-20261005",
+    "base_style": "art-v03 / FINAL-WARM-01",
+    "merchant": {
+      "texture": "res://art/characters/merchant/merchant_idle_v07.png",
+      "region": [
+        314,
+        149,
+        644,
+        1035
+      ],
+      "anchor": [
+        345.0,
+        1029
+      ],
+      "world_height": 64,
+      "opaque_bounds": [
+        6,
+        6,
+        632,
+        1023
+      ],
+      "shadow_baked": false,
+      "npc_role": "merchant",
+      "animation": "idle",
+      "actor_id": null
+    },
+    "items": {
+      "scrap": {
+        "texture": "res://art/items/item_scrap_v07b.png",
+        "world_size": [
+          26,
+          26
+        ],
+        "hud_size": [
+          28,
+          28
+        ]
+      },
+      "door_key": {
+        "texture": "res://art/items/item_door_key_v07.png",
+        "world_size": [
+          26,
+          26
+        ],
+        "hud_size": [
+          28,
+          28
+        ]
+      },
+      "lock_tool": {
+        "texture": "res://art/items/item_lock_tool_v07.png",
+        "world_size": [
+          26,
+          26
+        ],
+        "hud_size": [
+          28,
+          28
+        ]
+      }
+    },
+    "icons": {
+      "backpack": {
+        "texture": "res://art/ui/inventory_backpack_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "trade": {
+        "texture": "res://art/ui/inventory_trade_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "pickup": {
+        "texture": "res://art/ui/inventory_pickup_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "drop": {
+        "texture": "res://art/ui/inventory_drop_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "transfer": {
+        "texture": "res://art/ui/inventory_transfer_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "full": {
+        "texture": "res://art/ui/inventory_full_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      },
+      "empty": {
+        "texture": "res://art/ui/inventory_empty_v07.png",
+        "display_sizes": [
+          24,
+          28,
+          32
+        ]
+      }
+    },
+    "slot_size": [
+      47,
+      48
+    ],
+    "shadow_policy": "Merchant ground shadows drawn once by producer; no item/icon cast shadows",
+    "source_license": "docs/art/a05-source-license-v07.json"
+  },
+  "icons": [
+    {
+      "id": "scrap",
+      "source": "art/items/item_scrap_v07b.svg",
+      "texture": "art/items/item_scrap_v07b.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        26,
+        28
+      ]
+    },
+    {
+      "id": "door_key",
+      "source": "art/items/item_door_key_v07.svg",
+      "texture": "art/items/item_door_key_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        26,
+        28
+      ]
+    },
+    {
+      "id": "lock_tool",
+      "source": "art/items/item_lock_tool_v07.svg",
+      "texture": "art/items/item_lock_tool_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        26,
+        28
+      ]
+    },
+    {
+      "id": "backpack",
+      "source": "art/ui/inventory_backpack_v07.svg",
+      "texture": "art/ui/inventory_backpack_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "trade",
+      "source": "art/ui/inventory_trade_v07.svg",
+      "texture": "art/ui/inventory_trade_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "pickup",
+      "source": "art/ui/inventory_pickup_v07.svg",
+      "texture": "art/ui/inventory_pickup_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "drop",
+      "source": "art/ui/inventory_drop_v07.svg",
+      "texture": "art/ui/inventory_drop_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "transfer",
+      "source": "art/ui/inventory_transfer_v07.svg",
+      "texture": "art/ui/inventory_transfer_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "full",
+      "source": "art/ui/inventory_full_v07.svg",
+      "texture": "art/ui/inventory_full_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    },
+    {
+      "id": "empty",
+      "source": "art/ui/inventory_empty_v07.svg",
+      "texture": "art/ui/inventory_empty_v07.png",
+      "source_kind": "original-vector-authored",
+      "display_sizes": [
+        24,
+        28,
+        32
+      ]
+    }
+  ],
+  "files": [
+    {
+      "project_path": "art/characters/merchant/merchant_idle_v07.png",
+      "test_texture": "res://textures/merchant_idle_v07.png",
+      "sha256": "61e43132d13615bf4c712fb16038f4fee03c9bb7d436163919a3d7826b55f7ed"
+    },
+    {
+      "project_path": "art/items/item_scrap_v07b.png",
+      "test_texture": "res://textures/item_scrap_v07b.png",
+      "sha256": "ce83e49b778ce93646a092553aa68b9d55e2dffe03b15ffd9ac0f617abb05e4c"
+    },
+    {
+      "project_path": "art/items/item_door_key_v07.png",
+      "test_texture": "res://textures/item_door_key_v07.png",
+      "sha256": "5687bc2b829549a62af5658f55dbea0167cf22024d3066684e186b05f807056b"
+    },
+    {
+      "project_path": "art/items/item_lock_tool_v07.png",
+      "test_texture": "res://textures/item_lock_tool_v07.png",
+      "sha256": "9777f7fe3f6148a7d85953d6b3e254f90ccdf2975ef9f9bd596c3894b82200a8"
+    },
+    {
+      "project_path": "art/ui/inventory_backpack_v07.png",
+      "test_texture": "res://textures/inventory_backpack_v07.png",
+      "sha256": "d14eff290434ecf0a5eee25f99fd488af5bb8f5cf111597acda755802d1531ea"
+    },
+    {
+      "project_path": "art/ui/inventory_trade_v07.png",
+      "test_texture": "res://textures/inventory_trade_v07.png",
+      "sha256": "d3aa385ebd9bb76033b416cff0f33e46912c96455f2f00c3fee0b3beabe41b06"
+    },
+    {
+      "project_path": "art/ui/inventory_pickup_v07.png",
+      "test_texture": "res://textures/inventory_pickup_v07.png",
+      "sha256": "49a5a23c7f4e438e7f0ffb5cf50e2bc3992c2ca8c7fdafe18ce5cc6b2d24f16f"
+    },
+    {
+      "project_path": "art/ui/inventory_drop_v07.png",
+      "test_texture": "res://textures/inventory_drop_v07.png",
+      "sha256": "2355e4f56959d051650d108a7b354db4651c78c6b351cda67c5e2dc04bbe3f09"
+    },
+    {
+      "project_path": "art/ui/inventory_transfer_v07.png",
+      "test_texture": "res://textures/inventory_transfer_v07.png",
+      "sha256": "1e218a5d23f9b5afbdee4f8f22eb6cb507ab4b3747f4fd196aad50b2fa23dfd1"
+    },
+    {
+      "project_path": "art/ui/inventory_full_v07.png",
+      "test_texture": "res://textures/inventory_full_v07.png",
+      "sha256": "37ecf5d0e5032478762a9ca217e264462c7d85d41c56edfe62cfc3eae67f7aac"
+    },
+    {
+      "project_path": "art/ui/inventory_empty_v07.png",
+      "test_texture": "res://textures/inventory_empty_v07.png",
+      "sha256": "8bf8b88156d29d1a26638778571382bd15b6c685c1de7edee81e38e1afaf9756"
+    },
+    {
+      "project_path": "art/items/item_scrap_v07b.svg",
+      "test_texture": "res://textures/item_scrap_v07b.svg",
+      "sha256": "fd150efb283207a56127fdf7fb2c55b9aa94c54012888f7d2b1e8c9da0b74150"
+    },
+    {
+      "project_path": "art/items/item_door_key_v07.svg",
+      "test_texture": "res://textures/item_door_key_v07.svg",
+      "sha256": "45df8c34e5e73030a9dafb188965c047ca880e41000cd9fabd981c4fd0b16798"
+    },
+    {
+      "project_path": "art/items/item_lock_tool_v07.svg",
+      "test_texture": "res://textures/item_lock_tool_v07.svg",
+      "sha256": "b7fbbf745bcc83c73dbe3ac65a838dbfcf9820a781f11fdb5b11733a701b43dd"
+    },
+    {
+      "project_path": "art/ui/inventory_backpack_v07.svg",
+      "test_texture": "res://textures/inventory_backpack_v07.svg",
+      "sha256": "6f9ad4efe026e0a84a1e17c38a802b3852e55e95fdd652049d23d7302d97cdcb"
+    },
+    {
+      "project_path": "art/ui/inventory_trade_v07.svg",
+      "test_texture": "res://textures/inventory_trade_v07.svg",
+      "sha256": "a346176c84141c2e2f3f2318bd7d5fef6a6bd52ea1e07696848ab298464217a1"
+    },
+    {
+      "project_path": "art/ui/inventory_pickup_v07.svg",
+      "test_texture": "res://textures/inventory_pickup_v07.svg",
+      "sha256": "700c9a8d0b77f21b8d692957065c0a48a16891d9278529e4b4371db4b7e950c5"
+    },
+    {
+      "project_path": "art/ui/inventory_drop_v07.svg",
+      "test_texture": "res://textures/inventory_drop_v07.svg",
+      "sha256": "ddb3f196c3efca33b132a04b4236ef4829dd37c81f84f8b1a296a91da4e95314"
+    },
+    {
+      "project_path": "art/ui/inventory_transfer_v07.svg",
+      "test_texture": "res://textures/inventory_transfer_v07.svg",
+      "sha256": "3b665fc7f2cab12cb8f5adb8c65b30e696390b12774c418902f47505500f50c2"
+    },
+    {
+      "project_path": "art/ui/inventory_full_v07.svg",
+      "test_texture": "res://textures/inventory_full_v07.svg",
+      "sha256": "848cb452d4d660c008ab6d541771ae98ada35e5be32cf8d1d46262f99f3be727"
+    },
+    {
+      "project_path": "art/ui/inventory_empty_v07.svg",
+      "test_texture": "res://textures/inventory_empty_v07.svg",
+      "sha256": "4b004dd5ff6b0ae8ca09ac9b5a844f6da7df4fddc073e6d68b0806c1724ae31a"
+    }
+  ]
+}

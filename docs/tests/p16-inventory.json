@@ -1,0 +1,24 @@
+{
+	"checks": {
+		"capacities": true,
+		"capture_keeps_items_money": true,
+		"drop": true,
+		"duplicate_pickup_denied": true,
+		"escaped_cannot_drop_transfer": true,
+		"escaped_items_recorded": true,
+		"full_bag_no_overwrite": true,
+		"old_rooms_skill_pool": true,
+		"pickup_0": true,
+		"pickup_1": true,
+		"pickup_2": true,
+		"pickup_after_drop": true,
+		"reset_clears": true,
+		"seed_reproducible": true,
+		"snapshot": true,
+		"switch_keeps_bags": true,
+		"transfer": true,
+		"transfer_full_denied": true
+	},
+	"note": "Logic/interface verification; merchant and R03 not implemented in P16.",
+	"passed": true
+}

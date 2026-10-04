@@ -81,7 +81,9 @@ func paint_information(canvas: CanvasItem) -> void:
 		canvas.draw_string(font,Vector2(-4,17),str(actor.actor_id+1),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 		if actor.action_state != "idle":
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
-			canvas.draw_texture_rect(skill_icons[actor.skill_id],Rect2(8,top-14,24,24),false)
+			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else actor.skill_id)
+			if icon:
+				canvas.draw_texture_rect(icon,Rect2(8,top-14,24,24),false)
 		if game.elapsed < actor.immune_until:
 			canvas.draw_arc(Vector2.ZERO,20,0,TAU,32,Color("c9534b"),2,true)
 		if flash_time > 0 and fx.has(flash_state):

@@ -1,0 +1,463 @@
+{
+	"captures": 0,
+	"elapsed": 58.763513999996,
+	"failure": "",
+	"headless": false,
+	"image": "res://docs/tests/p20-live-r03.png",
+	"note": "Native real-frame-clock continuous AI: actual movement, three pickups, three sales, key purchase/use, all three escape. Automated gameplay, not human observation.",
+	"passed": true,
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": true,
+				"facing": [
+					0.98515909910202,
+					-0.171643599867821
+				],
+				"position": [
+					1808.49194335938,
+					703.746948242188
+				],
+				"selected": false,
+				"skill_id": "backpack"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": true,
+				"facing": [
+					0.985198378562927,
+					-0.171418011188507
+				],
+				"position": [
+					1808.3134765625,
+					703.773681640625
+				],
+				"selected": false,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": true,
+				"facing": [
+					0.985104382038116,
+					-0.171957463026047
+				],
+				"position": [
+					1807.24621582031,
+					703.972290039063
+				],
+				"selected": true,
+				"skill_id": "chat"
+			}
+		],
+		"captures": 0,
+		"deal": 2,
+		"elapsed": 58.763513999996,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				-0.994018375873566,
+				-0.109213091433048
+			],
+			"fov_degrees": 120,
+			"guard_zone": [
+				524.0,
+				100.0,
+				1060.0,
+				1100.0
+			],
+			"lost_time": 0.0,
+			"path_size": 1,
+			"position": [
+				1134.69128417969,
+				996.995971679688
+			],
+			"route_index": 4,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 155.0
+		},
+		"guard_position": [
+			1134.69128417969,
+			996.995971679688
+		],
+		"inventory": {
+			"bags": {
+				"0": [],
+				"1": [],
+				"2": []
+			},
+			"capacities": [
+				3,
+				1,
+				1
+			],
+			"instances": {
+				"r03-2-1": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-1",
+					"location": "ground",
+					"position": [
+						720.0,
+						250.0
+					]
+				},
+				"r03-2-2": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-2",
+					"location": "ground",
+					"position": [
+						1160.0,
+						280.0
+					]
+				},
+				"r03-2-3": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-3",
+					"location": "ground",
+					"position": [
+						1360.0,
+						540.0
+					]
+				},
+				"r03-2-4": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-4",
+					"location": "shop",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						740.0,
+						1000.0
+					]
+				},
+				"r03-2-5": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-5",
+					"location": "shop",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						1130.0,
+						980.0
+					]
+				},
+				"r03-2-6": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r03-2-6",
+					"location": "shop",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						1410.0,
+						1140.0
+					]
+				},
+				"r03-2-7": {
+					"actor_id": -1,
+					"definition_id": "door_key",
+					"id": "r03-2-7",
+					"location": "consumed",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r03-2-8": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r03-2-8",
+					"location": "shop",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r03-2-9": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r03-2-9",
+					"location": "shop",
+					"merchant_id": "warehouse_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				}
+			},
+			"wallet": 0
+		},
+		"merchants": {
+			"warehouse_dealer": {
+				"id": "warehouse_dealer",
+				"name": "仓库商人",
+				"position": [
+					310.0,
+					330.0
+				],
+				"stock": [
+					"r03-2-8",
+					"r03-2-9",
+					"r03-2-4",
+					"r03-2-5",
+					"r03-2-6"
+				]
+			}
+		},
+		"orders": [],
+		"phase": "complete",
+		"seed": 20,
+		"selected_actor_id": 2,
+		"world": {
+			"crate": [
+				1512.0,
+				1076.0,
+				94.0,
+				92.0
+			],
+			"door_open": true,
+			"lock_progress": 1.0,
+			"obstacle_revision": 5,
+			"push_distance": 0.0,
+			"room_id": "r03"
+		}
+	},
+	"trace": [
+		{
+			"actor": 0,
+			"elapsed": 2.31818181818181,
+			"point": [
+				460.0,
+				780.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 3.15454545454542,
+			"point": [
+				640.0,
+				900.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 3.70606060606056,
+			"point": [
+				740.0,
+				1000.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 5.20909090909082,
+			"point": [
+				1130.0,
+				980.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 6.45757575757563,
+			"point": [
+				1410.0,
+				1140.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 8.11818181818164,
+			"point": [
+				1000.0,
+				1000.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 9.29999999999978,
+			"point": [
+				700.0,
+				940.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 9.96060606060582,
+			"point": [
+				640.0,
+				780.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 10.6575757575755,
+			"point": [
+				460.0,
+				780.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 12.1678948181815,
+			"point": [
+				360.0,
+				400.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 17.743144,
+			"point": [
+				460.0,
+				780.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 18.6703240000002,
+			"point": [
+				700.0,
+				780.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 20.1913840000006,
+			"point": [
+				1040.0,
+				580.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 21.5791240000009,
+			"point": [
+				1400.0,
+				580.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 22.3548040000011,
+			"point": [
+				1533.0,
+				730.0
+			]
+		},
+		{
+			"actor": 0,
+			"elapsed": 22.8456640000013,
+			"point": [
+				1660.0,
+				730.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 25.2272440000019,
+			"point": [
+				460.0,
+				780.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 26.1544240000021,
+			"point": [
+				700.0,
+				780.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 27.6754840000025,
+			"point": [
+				1040.0,
+				580.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 29.0632240000028,
+			"point": [
+				1400.0,
+				580.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 29.838904000003,
+			"point": [
+				1533.0,
+				730.0
+			]
+		},
+		{
+			"actor": 1,
+			"elapsed": 30.3297640000031,
+			"point": [
+				1660.0,
+				730.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 53.0731739999979,
+			"point": [
+				460.0,
+				780.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 54.0003539999976,
+			"point": [
+				700.0,
+				780.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 55.5214139999971,
+			"point": [
+				1040.0,
+				580.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 56.9152139999966,
+			"point": [
+				1400.0,
+				580.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 57.6908939999963,
+			"point": [
+				1533.0,
+				730.0
+			]
+		},
+		{
+			"actor": 2,
+			"elapsed": 58.1817539999962,
+			"point": [
+				1660.0,
+				730.0
+			]
+		}
+	]
+}

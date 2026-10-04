@@ -1,0 +1,21 @@
+{
+	"checks": {
+		"camera_max_bound": true,
+		"camera_min_bound": true,
+		"dynamic_exit_icon": true,
+		"exit_within_bounds_works": true,
+		"guard_zone_constraint": true,
+		"hud_stays_fixed": true,
+		"large_map_pan_enabled": true,
+		"locate_selected": true,
+		"navigation_beyond_old_grid": true,
+		"old_exit_still_works": true,
+		"old_exit_trigger_unchanged": true,
+		"pan_does_not_move_people": true,
+		"return_resets_camera": true,
+		"scrolled_right_click_coordinates": true,
+		"small_map_no_pan": true
+	},
+	"note": "Camera/navigation fixture checks; visual clipping and actual R03 paths validated in P19/P20.",
+	"passed": true
+}
