@@ -255,6 +255,8 @@ func refresh() -> void:
 	note.text = "午夜只读；早晨08:00可安排新一天。" if game.schedule.is_sleep_time() else "本关没有工作岗位，可安排休息与自由活动。" if game.room_config.get("routine_points", {}).get("work", []).is_empty() else "点击活动格修改；工作仅限劳动时段，20点后自由活动留在寝室区。"
 	if draft != game.routines.plans:
 		note.text = "尚未应用 · "+note.text
+	if not game.schedule.is_sleep_time() and game.routines.allowed(0, "work"):
+		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"工作：每%d游戏分钟完成一轮，工资 +%d；离岗保留进度，20点后在寝室区活动。" % [roundi(game.routines.work_duration()), game.routines.work_wage()]
 	if picker.visible:
 		if not editable(editing_actor, editing_slot):
 			close_picker()

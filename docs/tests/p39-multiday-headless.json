@@ -1,0 +1,53 @@
+{
+	"checks": {
+		"awake_captured": true,
+		"closed_path": true,
+		"deadline": true,
+		"developer_days": true,
+		"door_collision": true,
+		"doors_locked": true,
+		"dorm_free": true,
+		"evening_move": true,
+		"evening_safe": true,
+		"guard_back_in_zone": true,
+		"guard_ignores_sleep": true,
+		"guard_light_boundary": true,
+		"guard_returns": true,
+		"guard_uses_key": true,
+		"guard_visits_three_rooms": true,
+		"midnight_wrap": true,
+		"morning_opens": true,
+		"morning_safe_dorm": true,
+		"next_morning": true,
+		"night_controllable": true,
+		"r01_compatible": true,
+		"r01_skip": true,
+		"r02_compatible": true,
+		"r02_skip": true,
+		"r03_compatible": true,
+		"r03_skip": true,
+		"second_evening": true,
+		"second_midnight": true,
+		"shared_dorm_zone": true,
+		"skip_rejected": true,
+		"sleep_not_captured": true,
+		"sleeping": true,
+		"state_retained": true,
+		"third_morning": true,
+		"three_days": true,
+		"wake_blocks_skip": true
+	},
+	"gates_opened": [
+		true,
+		true,
+		true
+	],
+	"native": false,
+	"passed": true,
+	"scope": "Real navigation and guard/gate ticks; isolated positions used for wake/capture and inventory persistence fixtures. No human playability claim.",
+	"visited": [
+		true,
+		true,
+		true
+	]
+}

@@ -214,8 +214,9 @@ func _process(delta: float) -> void:
 			presentation.tick(delta)
 		return
 	delta = minf(delta,schedule.real_remaining()) if schedule else delta
+	var workers_before: Array = routines.working_ids() if routines else []
+	var previous_clock: float = schedule.clock_elapsed if schedule else 0.0
 	if schedule:
-		var previous_clock: float = schedule.clock_elapsed
 		schedule.advance(delta)
 		if schedule.time_speed > 0:
 			delta = minf(delta,(schedule.clock_elapsed-previous_clock)/schedule.time_speed)
@@ -223,6 +224,8 @@ func _process(delta: float) -> void:
 	for actor in actors:
 		actor.moved_this_frame = false
 	if routines:
+		# Credit the old work state before tick replaces it at 12:00/18:00.
+		routines.accrue_work(previous_clock, schedule.clock_elapsed, workers_before)
 		routines.tick()
 		# Opening the morning planner inside this tick must also stop the
 		# remainder of this frame, before movement, skills and enemy AI.

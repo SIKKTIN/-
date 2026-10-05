@@ -24,6 +24,8 @@ var flash_state: String = ""
 var flash_time: float = 0
 var flip_h: bool = false
 var separate_information: bool = false
+var working := false
+var work_clock := 0.0
 
 func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, text_font: Font) -> void:
 	actor = owner_actor
@@ -52,6 +54,8 @@ func tick_visual(delta: float) -> void:
 	if game.get_tree().paused:
 		return
 	flash_time = maxf(0,flash_time-delta)
+	working = not is_guard and game.routines != null and game.routines.is_working(actor.actor_id)
+	work_clock = fposmod(work_clock+maxf(0,delta)*TAU/0.8,TAU) if working else 0.0
 	var moving: bool = actor.moved_this_frame and not actor.escaped and game.phase == "playing"
 	walk_frame_index = -1
 	if moving and not walk_frames.is_empty():
@@ -92,12 +96,29 @@ func _draw() -> void:
 		draw_ellipse(Vector2(0,2),15,4,Color(0,0,0,0.12))
 	# Mirror only the body about its registered foot origin. UI and facing
 	# overlays stay in world orientation, including asymmetric frame anchors.
-	if flip_h:
-		draw_set_transform(Vector2.ZERO,0,Vector2(-1,1))
+	var labor_bob: float = maxf(0, sin(work_clock))*1.3 if working else 0.0
+	var labor_lean: float = sin(work_clock)*0.035 if working else 0.0
+	draw_set_transform(Vector2(0,labor_bob),labor_lean,Vector2(-1 if flip_h else 1,1))
 	draw_texture_rect_region(texture,destination,source_region)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	if working:
+		_paint_work_tool()
 	if not separate_information:
 		paint_information(self)
+
+func _paint_work_tool() -> void:
+	var side := -1.0 if flip_h else 1.0
+	var hand := Vector2(side*14,-float(definition.world_height)*0.47)
+	draw_set_transform(hand,side*(-0.5+sin(work_clock)*0.65),Vector2(side,1))
+	draw_line(Vector2(0,7),Vector2(0,-9),Color("303b46"),5,true)
+	draw_line(Vector2(0,7),Vector2(0,-9),Color("b89258"),2,true)
+	draw_rect(Rect2(-7,-14,14,7),Color("303b46"))
+	draw_rect(Rect2(-6,-13,12,4),Color("8f9b94"))
+	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	if sin(work_clock) > 0.72:
+		var contact := hand+Vector2(side*8,4)
+		for direction in [Vector2(side*7,-6),Vector2(side*10,0),Vector2(side*4,7)]:
+			draw_line(contact+direction*0.5,contact+direction,Color("d3a252"),2,true)
 
 func paint_information(canvas: CanvasItem) -> void:
 	var top: float = -float(definition.world_height)-10
@@ -121,8 +142,24 @@ func paint_information(canvas: CanvasItem) -> void:
 		canvas.draw_string(font,Vector2(-4,17),str(actor.actor_id+1),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 		if game.schedule and game.schedule.is_sleeping(actor.actor_id):
 			canvas.draw_string(font,Vector2(14,top),"Zz",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("d8e8dc"))
-		if game.routines and game.routines.is_lawful(actor.actor_id):
+		if game.routines and game.routines.is_working(actor.actor_id):
+			var progress: float = game.routines.work_progress(actor.actor_id)
+			var text := "工作中 %d%%" % floori(progress*100+0.000001)
+			var width := font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x+16
+			canvas.draw_style_box(_work_paper(),Rect2(-width/2,top-20,width,25))
+			canvas.draw_string(font,Vector2(-width/2+8,top-2),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
+			canvas.draw_rect(Rect2(-width/2,top+7,width,4),Color("cdd4c3"))
+			canvas.draw_rect(Rect2(-width/2,top+7,width*progress,4),Color("c69c5e"))
+		elif game.routines and game.routines.is_lawful(actor.actor_id):
 			canvas.draw_string(font,Vector2(-20,top),game.routines.NAMES[game.routines.records[actor.actor_id].kind],HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("328b82"))
+		if game.routines and game.routines.recent_wages.has(actor.actor_id):
+			var payment: Dictionary = game.routines.recent_wages[actor.actor_id]
+			if game.elapsed < payment.until:
+				var rise: float = (game.elapsed-(payment.until-2.4))*8
+				var text := "工资 +%d" % payment.amount
+				var width := font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x+16
+				canvas.draw_style_box(_work_paper(),Rect2(-width/2,top-49-rise,width,25))
+				canvas.draw_string(font,Vector2(-width/2+8,top-31-rise),text,HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("977037"))
 		if actor.action_state != "idle":
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
 			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else actor.skill_id)
@@ -140,6 +177,14 @@ func show_event(state: String) -> void:
 
 func body_bounds() -> Rect2:
 	return Rect2(Vector2(-destination.end.x,destination.position.y),destination.size) if flip_h else destination
+
+func _work_paper() -> StyleBoxFlat:
+	var paper := StyleBoxFlat.new()
+	paper.bg_color = Color("f2ebdd")
+	paper.border_color = Color("b7bca5")
+	paper.set_border_width_all(1)
+	paper.set_corner_radius_all(5)
+	return paper
 
 func snapshot() -> Dictionary:
 	return {"frame":frame_name,"frame_index":walk_frame_index,"walk_frame_count":walk_frames.size() if not walk_frames.is_empty() else 2,"walk_fps":walk_fps if not walk_frames.is_empty() else 1.0/float(definition.initial_walk_frame_seconds),"region":[source_region.position.x,source_region.position.y,source_region.size.x,source_region.size.y],"destination":[destination.position.x,destination.position.y,destination.size.x,destination.size.y],"world_height":definition.world_height,"visible":visible,"flip_h":flip_h}

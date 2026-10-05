@@ -15,6 +15,11 @@ var plans: Array = []
 var records: Dictionary = {}
 var manual: Dictionary = {}
 var morning_pending := true
+var work_minutes: Array = [0.0, 0.0, 0.0]
+var work_rounds: Array = [0, 0, 0]
+var work_earned: Array = [0, 0, 0]
+var work_account_clock := 0.0
+var recent_wages: Dictionary = {}
 
 func _init(owner_game) -> void:
 	game = owner_game
@@ -23,6 +28,11 @@ func _init(owner_game) -> void:
 func reset() -> void:
 	day = 1
 	morning_pending = true
+	work_minutes = [0.0, 0.0, 0.0]
+	work_rounds = [0, 0, 0]
+	work_earned = [0, 0, 0]
+	work_account_clock = 0.0
+	recent_wages.clear()
 	slot = -1
 	plans = []
 	for index in range(3):
@@ -161,13 +171,71 @@ func is_lawful(actor_id: int) -> bool:
 		return true
 	return game.orders.active.has(actor_id) and game.orders.active[actor_id].get("source","") == "routine" and game.orders.active[actor_id].goal == r.goal
 
+func work_duration() -> float:
+	return clampf(float(game.room_config.get("work_pay", {}).get("minutes_per_round", 60)), 1, 240)
+
+func work_wage() -> int:
+	return clampi(int(game.room_config.get("work_pay", {}).get("wage", 4)), 1, 1000)
+
+func is_working(actor_id: int) -> bool:
+	if game.phase != "playing" or slot not in [0, 2] or current_slot() != slot or manual.has(actor_id) or not records.has(actor_id):
+		return false
+	var actor = game.actors[actor_id]
+	var record: Dictionary = records[actor_id]
+	return record.kind == "work" and plans[actor_id][slot] == "work" and allowed(slot, "work") and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
+
+func working_ids() -> Array:
+	return range(3).filter(func(id): return is_working(id))
+
+func work_progress(actor_id: int) -> float:
+	return clampf(float(work_minutes[actor_id])/work_duration(), 0, 1)
+
+func accrue_work(begin_clock: float, end_clock: float, workers: Array) -> void:
+	if game.phase != "playing" or game.get_tree().paused or not is_finite(begin_clock) or not is_finite(end_clock) or end_clock <= begin_clock:
+		return
+	var start: float = maxf(begin_clock, work_account_clock)
+	if end_clock <= start:
+		return
+	# Consume every actual clock interval once, even when nobody was working.
+	work_account_clock = end_clock
+	var begin: float = float(game.schedule.config.start_minutes)+start/game.schedule.day_seconds*1440.0
+	var end: float = float(game.schedule.config.start_minutes)+end_clock/game.schedule.day_seconds*1440.0
+	var minute: float = fposmod(begin, 1440)
+	var shift_end: float = 720.0 if minute >= 480 and minute < 720 else 1080.0 if minute >= 840 and minute < 1080 else -1.0
+	if shift_end < 0:
+		return
+	var actual_minutes: float = maxf(0, minf(end, floorf(begin/1440)*1440+shift_end)-begin)
+	var duration := work_duration()
+	var wage := work_wage()
+	var paid := 0
+	var paid_names := PackedStringArray()
+	for id in range(3):
+		if id not in workers:
+			continue
+		var total: float = float(work_minutes[id])+actual_minutes
+		var rounds := floori((total+0.0000001)/duration)
+		work_minutes[id] = maxf(0, total-rounds*duration)
+		if rounds <= 0:
+			continue
+		var amount: int = rounds*wage
+		work_rounds[id] += rounds
+		work_earned[id] += amount
+		game.inventory.wallet += amount
+		recent_wages[id] = {"amount": amount, "until": game.elapsed+2.4}
+		paid += amount
+		paid_names.append(str(id+1))
+	if paid > 0:
+		game.show_status("伙伴%s完成工作，工资 +%d。" % ["、".join(paid_names), paid], 3)
+
 func status_for(actor_id: int) -> String:
 	if manual.has(actor_id) and slot >= 0 and plans[actor_id][slot] != "idle":
 		return "手动接管"
 	if not records.has(actor_id):
 		return ""
 	var r: Dictionary = records[actor_id]
+	if is_working(actor_id):
+		return "工作中 %d%%" % floori(work_progress(actor_id)*100+0.000001)
 	return "路线受阻" if r.status == "blocked" else "前往"+NAMES[r.kind] if game.orders.active.has(actor_id) else NAMES[r.kind]+"中"
 
 func snapshot() -> Dictionary:
-	return {"day":day,"slot":slot,"plans":plans.duplicate(true),"manual":manual.keys(),"states":game.actors.map(func(a): return status_for(a.actor_id))}
+	return {"day":day,"slot":slot,"plans":plans.duplicate(true),"manual":manual.keys(),"states":game.actors.map(func(a): return status_for(a.actor_id)),"work_minutes":work_minutes.duplicate(),"work_rounds":work_rounds.duplicate(),"work_earned":work_earned.duplicate(),"working":working_ids()}

@@ -53,6 +53,9 @@ class PartnerFace extends Control:
 		if ui.game.schedule.is_curfew() and not actor.escaped:
 			state = ui.game.schedule.actor_status(index)
 		draw_string(ui.font,Vector2(8,73),state,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("536052"))
+		if ui.game.routines and ui.game.routines.is_working(index):
+			draw_rect(Rect2(8,78,size.x-16,3),Color("d3d7c8"))
+			draw_rect(Rect2(8,78,(size.x-16)*ui.game.routines.work_progress(index),3),Color("c69c5e"))
 		if actor.selected and not actor.escaped:
 			draw_circle(Vector2(size.x-17,14),9,Color("328b82"),true,-1,true)
 			draw_line(Vector2(size.x-21,14),Vector2(size.x-17,18),Color.WHITE,2,true)

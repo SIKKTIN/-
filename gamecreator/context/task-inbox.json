@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "2adccba53a8cd5a88b20aab460d073cfaf7d4f45e8cb9cf6886749c57f08bdfc",
+  "snapshotId": "fc57a7f232ebfdb273e0d6df3be6d098ebeeace761505ead1903d036bb82b3d8",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2087,6 +2087,58 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T09:33:19.656Z"
+            }
+          ]
+        },
+        {
+          "id": "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2",
+          "title": "P39 · 工作表现与完成工资",
+          "description": "到岗且按工作日程劳动时，伙伴出现敲打动作、工作中标签与进度，人物卡同步进度；每轮工作完成入账现有钱包并提示工资。暂按60游戏分钟/轮、4元/轮，参数放R04数据。实际有效劳动累计，暂停/走路/离岗/其他时段/手动接管/被抓/逃出/路线受阻不空领。未完成累计进度保留在本局，各人独立，重开清空，工资可商人交易。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "有真实工作动画与进度/工资截图，三人实际赴岗后可见，支付钱包与商人购买贯通；验证重复更新不重复发钱、多轮/多人的公平独立计费、劳动结束边界最后一段正确、暂停/时钟0/离岗/技能/无岗位地图不积累、恢复及跨天进度/钱保留、重开清空、终局不继续。原生多尺寸与日常/暂停晨间/交易/多天回归适当通过。用户选择其他结算规则时遵照最新回复。",
+          "result": "工作时持续敲打、头顶及人物卡进度；有效劳动每60游戏分钟发4元至既有钱包。离岗保留、暂停冻结、班次裁切及重复区间防重付均验证。388项检查通过，实际工资已完成原生触摸商人购买。\n\n验收通过：制作人按已允许自验收的P39程序任务核验：工资31项、原生工作23项及回归334项全通过；实际查看工作/到账/960排班截图。真实进度与工资闭环、暂停/离岗/边界防重付成立，未新增美术资产。",
+          "dependencyIds": [
+            "e0089bd5-a2e9-45aa-a786-b9efdd661393"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/daily_routine.gd",
+              "scripts/core/escape_game.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/ui/routine_panel.gd",
+              "scripts/presentation/actor_visual.gd",
+              "data/rooms/r04.json",
+              "qa/p39*",
+              "docs/dev/p39*",
+              "docs/tests/p39*"
+            ],
+            "entry": "res://scenes/main.tscn；R04劳动改造车间",
+            "interfaceContract": "制作人仅实现程序驱动动作与反馈，复用原角色素材、现有字/图标绘制体系，不代改美术原图。既有工作寻路、暂停每日分配、警卫/犬/技能/商人规则不改变。货币只入现有inventory.wallet，按有效劳动游戏分钟计算，测试明确数据fixture与真实赴岗。保留用户project.godot与偏好。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "4b9c4d26-7f63-4242-97a4-322d5d6e987a",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T10:08:11.713Z"
             }
           ]
         }
@@ -4690,6 +4742,58 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T09:33:19.656Z"
+            }
+          ]
+        },
+        {
+          "id": "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2",
+          "title": "P39 · 工作表现与完成工资",
+          "description": "到岗且按工作日程劳动时，伙伴出现敲打动作、工作中标签与进度，人物卡同步进度；每轮工作完成入账现有钱包并提示工资。暂按60游戏分钟/轮、4元/轮，参数放R04数据。实际有效劳动累计，暂停/走路/离岗/其他时段/手动接管/被抓/逃出/路线受阻不空领。未完成累计进度保留在本局，各人独立，重开清空，工资可商人交易。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "有真实工作动画与进度/工资截图，三人实际赴岗后可见，支付钱包与商人购买贯通；验证重复更新不重复发钱、多轮/多人的公平独立计费、劳动结束边界最后一段正确、暂停/时钟0/离岗/技能/无岗位地图不积累、恢复及跨天进度/钱保留、重开清空、终局不继续。原生多尺寸与日常/暂停晨间/交易/多天回归适当通过。用户选择其他结算规则时遵照最新回复。",
+          "result": "工作时持续敲打、头顶及人物卡进度；有效劳动每60游戏分钟发4元至既有钱包。离岗保留、暂停冻结、班次裁切及重复区间防重付均验证。388项检查通过，实际工资已完成原生触摸商人购买。\n\n验收通过：制作人按已允许自验收的P39程序任务核验：工资31项、原生工作23项及回归334项全通过；实际查看工作/到账/960排班截图。真实进度与工资闭环、暂停/离岗/边界防重付成立，未新增美术资产。",
+          "dependencyIds": [
+            "e0089bd5-a2e9-45aa-a786-b9efdd661393"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/daily_routine.gd",
+              "scripts/core/escape_game.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/ui/routine_panel.gd",
+              "scripts/presentation/actor_visual.gd",
+              "data/rooms/r04.json",
+              "qa/p39*",
+              "docs/dev/p39*",
+              "docs/tests/p39*"
+            ],
+            "entry": "res://scenes/main.tscn；R04劳动改造车间",
+            "interfaceContract": "制作人仅实现程序驱动动作与反馈，复用原角色素材、现有字/图标绘制体系，不代改美术原图。既有工作寻路、暂停每日分配、警卫/犬/技能/商人规则不改变。货币只入现有inventory.wallet，按有效劳动游戏分钟计算，测试明确数据fixture与真实赴岗。保留用户project.godot与偏好。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "4b9c4d26-7f63-4242-97a4-322d5d6e987a",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T10:08:11.713Z"
             }
           ]
         }
