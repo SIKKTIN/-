@@ -5,12 +5,13 @@ const SoftShadow = preload("res://scripts/presentation/soft_shadow.gd")
 var game
 var presentation
 var kind: String
+var fixtures_revision: int = -1
 
 func configure(owner_game, owner_presentation, type: String) -> void:
 	game = owner_game
 	presentation = owner_presentation
 	kind = type
-	z_index = 10 if kind == "ground" else 2000
+	z_index = 10 if kind == "ground" else 11 if kind == "fixture_shadows" else 2000
 	if kind == "information":
 		var unshaded := CanvasItemMaterial.new()
 		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
@@ -20,7 +21,20 @@ func _draw() -> void:
 	if not game:
 		return
 	var world = game.world
+	if kind == "fixture_shadows":
+		# Static furnishings retain cached CanvasItem draw commands between frames.
+		for fixture in world.fixtures:
+			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
+			if not definition.get("shadow_baked",false):
+				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
+		return
 	if kind == "ground":
+		for zone in game.room_config.get("zones",[]):
+			var values: Array = zone.rect
+			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
+			var tint := Color(zone.color)
+			tint.a = 0.13
+			draw_rect(area,tint)
 		for r in world.walls+[world.crate,world.door]:
 			if r == world.door and world.door_open:
 				continue
@@ -41,6 +55,13 @@ func _draw() -> void:
 		draw_rect(world.exit_strip_rect(),Color("328b82"))
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
+		var view: Rect2 = Rect2(game.map_camera.position+Vector2(74,114),Vector2(922,560)) if game.map_camera else world.bounds
+		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
+		for zone in game.room_config.get("zones",[]):
+			var values: Array = zone.rect
+			var visible_area := Rect2(values[0],values[1],values[2],values[3]).intersection(view)
+			if visible_area.size.x >= 150 and visible_area.size.y >= 60:
+				draw_string(presentation.font,visible_area.position+Vector2(16,30),str(zone.name),HORIZONTAL_ALIGNMENT_LEFT,-1,20,zone_label_color)
 		var zone: Rect2 = world.guard_zone
 		var boundary := Color(0.20,0.55,0.51,0.42)
 		for y in range(int(zone.position.y+12),int(zone.end.y),24):

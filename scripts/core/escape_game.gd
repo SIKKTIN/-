@@ -19,7 +19,7 @@ const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
 const MOVE_SPEED := 260.0
 const SKILL_NAMES := {"chat": "会聊天", "lockpick": "会撬锁", "strong": "大力气", "backpack": "会收纳"}
-const ROOM_IDS := ["r01", "r02", "r03"]
+const ROOM_IDS := ["r01", "r02", "r03", "r04"]
 var inventory
 var inventory_panel
 var room_config: Dictionary = {}
@@ -127,7 +127,7 @@ func _build_ui() -> void:
 	room_selector.position = Vector2(566,35)
 	room_selector.size = Vector2(230,42)
 	for index in range(ROOM_IDS.size()):
-		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所"][index])
+		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所", "R04 · 监区生活层"][index])
 		room_selector.set_item_disabled(index,not FileAccess.file_exists("res://data/rooms/%s.json" % ROOM_IDS[index]))
 	room_selector.select(ROOM_IDS.find(room_id))
 	room_selector.item_selected.connect(func(index): load_room(ROOM_IDS[index]))

@@ -1,0 +1,34 @@
+A06 牢房、劳动车间、活动厅七种摆设资源交付
+2026-10-05；主美；art-v03 / FINAL-WARM-01。
+入口art/props/prison_v08/manifest.json，schema=1/assets数组。原PNG逐字节复制内置imagegen输出，只用region与局部ground_rect注册。
+
+绘制接口
+texture_size是完整原画布；AtlasTexture.region按原画布坐标读取；ground_rect是相对Atlas区域的局部地面占地，不是完整PNG坐标。
+对逻辑矩形R：scale=R.size/ground_rect.size；display.position=R.position-ground_rect.position*scale；display.size=region.size*scale。
+按R南侧深度排序，ground_rect南侧对应原物件脚/底边。不应用两次elevation_world偏移，ground_rect绘制公式已经包含抬高。
+elevation_world=ground_rect.y*footprint_world_size.y/ground_rect.height，为参考尺寸下绘制上移量，不是物件物理高度或碰撞高度。复用不同R尺寸时按同一公式推导，不能只靠拉伸整张透明PNG。
+七种均shadow_baked=false；现有程序绘制一次软投影。PNG内部暗面是材质阴影，透明孔与地面投影没有烘焙。
+
+参考占地与绘制上移
+bunk_bed 双层床：110×150；71.2500上移；横杆水平、床长轴竖直，上下床/枕头/梯架可辨。
+cell_bars 横向固定铁栏：180×12；51.7431上移；没有门锁/门操作。150×12与98×12复用按R映射，横向变窄会压缩栏距，不改变通行或视线规则。
+toilet_sink 洁具一体：50×55；34.3041上移；后洗手盆/前便器可辨。
+workbench 固定台钳工作台：180×70；18.8868上移；台钳属于固定摆设，不表现成可拾取工具。
+tool_locker 封闭高工具柜：90×40；82.9971上移；闭门/通风槽/把手可辨；视觉高度区别低桌。
+communal_table 桌凳整套：180×95；20.2847上移；后凳/桌面/前凳为一张完整贴图。
+notice_board 公告板：120×16；56.4364上移；空白旧纸/木框，两底脚落地，无烘焙文字。
+床/桌/工具柜/铁栏的是否挡路与挡视线由fixtures配置决定，素材不写逻辑属性。原碰撞尺寸和分区布局不由主美改变。
+
+来源与透明度
+七图全部来自本项目原创风格参考，内置imagegen单件生成。完整提示a06-imagegen-prompts-v08.json；原图路径及SHA256见a06-source-license-v08.json。
+背景alpha_min=0，五处空洞抽样alpha=0，灰绿底合成未见烘焙投影/底板。公告板/公共桌原图隐藏RGB有棕色值但alpha=0，正确RGBA合成不产生工具预览里看似发光的背景；不需要像素擦除或重绘。
+原生成文件有稀疏1/255边缘alpha量化噪声；四角alpha=0，外围边线最大0或1，保留原PNG字节。Atlas只取主体边界外6像素；可见边缘与背景合成复核通过。
+桌/公告板最高alpha=254/255，属近不透明，QA接受>=254而不是强制255；不为这一量化差异修改原图。
+所有body按alpha>32测量，注册南侧透明余量0.567~1.125世界单位；不是按全图透明边距缩放。
+
+实际验证
+93个既有art PNG/SVG/JSON的SHA256均不变。资源原图/Atlas范围/ground_rect/透明边缘：a06-qa-resources-v08.json。
+独立Godot4.7.2测试目录docs/art/a06-native-v08，复制七原PNG并headless原生导入；真实Texture2D与AtlasTexture、ground映射和上移误差检查通过：a06-qa-native-v08.json。
+全程未启动主项目或任何Godot可见运行窗口，未写主project.godot/主.godot目录，未改共享scripts/data/scenes或.git属性，未提交Git。
+浏览器1280×720及960×540资源预览：a06-resource-preview-尺寸-v08r3.png；按真实占地/ground缩放，字图未裁切、字体加载且无横向溢出，a06-qa-browser-v08.json通过。
+此交付是摆设资源，不把独立预览当R04真实地图、触屏、巡逻、视线差异或通路已验证；P23实际接入由制作人独立验收。

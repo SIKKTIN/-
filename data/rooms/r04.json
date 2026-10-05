@@ -1,0 +1,629 @@
+{
+  "id": "r04",
+  "title": "监区生活层",
+  "bounds": [
+    80,
+    100,
+    2200,
+    1400
+  ],
+  "starts": [
+    [
+      320,
+      280
+    ],
+    [
+      320,
+      570
+    ],
+    [
+      320,
+      860
+    ]
+  ],
+  "skill_pool": [
+    "chat",
+    "lockpick",
+    "strong",
+    "backpack"
+  ],
+  "guard_start": [
+    680,
+    760
+  ],
+  "guard_zone": [
+    624,
+    100,
+    1220,
+    1400
+  ],
+  "patrol": [
+    [
+      680,
+      760
+    ],
+    [
+      1680,
+      760
+    ],
+    [
+      1680,
+      1350
+    ],
+    [
+      680,
+      1350
+    ]
+  ],
+  "walls": [
+    [
+      600,
+      100,
+      24,
+      740
+    ],
+    [
+      600,
+      1040,
+      24,
+      460
+    ],
+    [
+      1844,
+      100,
+      24,
+      580
+    ],
+    [
+      1844,
+      860,
+      24,
+      492
+    ],
+    [
+      100,
+      130,
+      400,
+      16
+    ],
+    [
+      100,
+      130,
+      16,
+      230
+    ],
+    [
+      484,
+      130,
+      16,
+      230
+    ],
+    [
+      100,
+      420,
+      400,
+      16
+    ],
+    [
+      100,
+      420,
+      16,
+      230
+    ],
+    [
+      484,
+      420,
+      16,
+      230
+    ],
+    [
+      100,
+      710,
+      400,
+      16
+    ],
+    [
+      100,
+      710,
+      16,
+      230
+    ],
+    [
+      484,
+      710,
+      16,
+      230
+    ]
+  ],
+  "door": [
+    1844,
+    680,
+    24,
+    180
+  ],
+  "crate": [
+    1818,
+    1384,
+    94,
+    92
+  ],
+  "exit": [
+    2190,
+    670,
+    90,
+    240
+  ],
+  "merchants": [
+    {
+      "id": "prison_dealer",
+      "name": "生活区商人",
+      "position": [
+        540,
+        650
+      ],
+      "stock": [
+        {
+          "definition_id": "door_key",
+          "count": 1
+        },
+        {
+          "definition_id": "lock_tool",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "cells",
+      "name": "牢房区",
+      "rect": [
+        100,
+        130,
+        460,
+        830
+      ],
+      "color": "#bdc4ba"
+    },
+    {
+      "id": "workshop",
+      "name": "劳动改造车间",
+      "rect": [
+        680,
+        130,
+        1080,
+        520
+      ],
+      "color": "#b9aa88"
+    },
+    {
+      "id": "hall",
+      "name": "活动大厅",
+      "rect": [
+        680,
+        900,
+        1080,
+        540
+      ],
+      "color": "#a3b9a0"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "bed_0",
+      "asset_id": "bunk_bed",
+      "rect": [
+        125,
+        180,
+        110,
+        150
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "wash_0",
+      "asset_id": "toilet_sink",
+      "rect": [
+        430,
+        180,
+        50,
+        55
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_left_0",
+      "asset_id": "cell_bars",
+      "rect": [
+        116,
+        350,
+        150,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_right_0",
+      "asset_id": "cell_bars",
+      "rect": [
+        386,
+        350,
+        98,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bed_1",
+      "asset_id": "bunk_bed",
+      "rect": [
+        125,
+        470,
+        110,
+        150
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "wash_1",
+      "asset_id": "toilet_sink",
+      "rect": [
+        430,
+        470,
+        50,
+        55
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_left_1",
+      "asset_id": "cell_bars",
+      "rect": [
+        116,
+        640,
+        150,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_right_1",
+      "asset_id": "cell_bars",
+      "rect": [
+        386,
+        640,
+        98,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bed_2",
+      "asset_id": "bunk_bed",
+      "rect": [
+        125,
+        760,
+        110,
+        150
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "wash_2",
+      "asset_id": "toilet_sink",
+      "rect": [
+        430,
+        760,
+        50,
+        55
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_left_2",
+      "asset_id": "cell_bars",
+      "rect": [
+        116,
+        930,
+        150,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bars_right_2",
+      "asset_id": "cell_bars",
+      "rect": [
+        386,
+        930,
+        98,
+        12
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bench_0",
+      "asset_id": "workbench",
+      "rect": [
+        780,
+        220,
+        180,
+        70
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bench_1",
+      "asset_id": "workbench",
+      "rect": [
+        1170,
+        220,
+        180,
+        70
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bench_2",
+      "asset_id": "workbench",
+      "rect": [
+        780,
+        460,
+        180,
+        70
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "bench_3",
+      "asset_id": "workbench",
+      "rect": [
+        1170,
+        460,
+        180,
+        70
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "locker_0",
+      "asset_id": "tool_locker",
+      "rect": [
+        1550,
+        190,
+        90,
+        40
+      ],
+      "blocks_movement": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "locker_1",
+      "asset_id": "tool_locker",
+      "rect": [
+        1550,
+        350,
+        90,
+        40
+      ],
+      "blocks_movement": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "locker_2",
+      "asset_id": "tool_locker",
+      "rect": [
+        1550,
+        510,
+        90,
+        40
+      ],
+      "blocks_movement": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "table_0",
+      "asset_id": "communal_table",
+      "rect": [
+        780,
+        980,
+        180,
+        95
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "table_1",
+      "asset_id": "communal_table",
+      "rect": [
+        1120,
+        980,
+        180,
+        95
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "table_2",
+      "asset_id": "communal_table",
+      "rect": [
+        780,
+        1240,
+        180,
+        95
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "table_3",
+      "asset_id": "communal_table",
+      "rect": [
+        1120,
+        1240,
+        180,
+        95
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "workshop_notice",
+      "asset_id": "notice_board",
+      "rect": [
+        980,
+        140,
+        120,
+        16
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "hall_notice",
+      "asset_id": "notice_board",
+      "rect": [
+        1500,
+        920,
+        120,
+        16
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    }
+  ],
+  "lamps": [
+    {
+      "position": [
+        330,
+        170
+      ],
+      "radius": 280
+    },
+    {
+      "position": [
+        330,
+        460
+      ],
+      "radius": 280
+    },
+    {
+      "position": [
+        330,
+        750
+      ],
+      "radius": 280
+    },
+    {
+      "position": [
+        800,
+        160
+      ],
+      "radius": 290
+    },
+    {
+      "position": [
+        1450,
+        160
+      ],
+      "radius": 290
+    },
+    {
+      "position": [
+        700,
+        790
+      ],
+      "radius": 300
+    },
+    {
+      "position": [
+        1700,
+        790
+      ],
+      "radius": 300
+    },
+    {
+      "position": [
+        830,
+        1100
+      ],
+      "radius": 290
+    },
+    {
+      "position": [
+        1440,
+        1120
+      ],
+      "radius": 310
+    },
+    {
+      "position": [
+        2120,
+        1060
+      ],
+      "radius": 310
+    }
+  ],
+  "items": [
+    {
+      "definition_id": "scrap",
+      "position": [
+        1020,
+        310
+      ]
+    },
+    {
+      "definition_id": "scrap",
+      "position": [
+        1410,
+        310
+      ]
+    },
+    {
+      "definition_id": "scrap",
+      "position": [
+        1020,
+        550
+      ]
+    },
+    {
+      "definition_id": "scrap",
+      "position": [
+        1410,
+        570
+      ]
+    },
+    {
+      "definition_id": "scrap",
+      "position": [
+        900,
+        1160
+      ]
+    },
+    {
+      "definition_id": "scrap",
+      "position": [
+        1430,
+        1250
+      ]
+    }
+  ]
+}

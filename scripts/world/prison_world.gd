@@ -5,6 +5,8 @@ const GRID_SIZE := 20.0
 var room_id: String = "r01"
 var bounds := Rect2(74,114,922,560)
 var walls: Array[Rect2] = []
+var fixtures: Array = []
+var fixtures_revision: int = 0
 var door := Rect2(486,335,22,120)
 var crate := Rect2(467,572,94,92)
 var original_crate := crate
@@ -24,6 +26,12 @@ var presentation_layers: bool = false
 
 func configure(config: Dictionary, friendlies: Array) -> void:
 	room_id = str(config.get("id", "r01"))
+	fixtures.clear()
+	fixtures_revision += 1
+	for entry in config.get("fixtures", []):
+		var fixture: Dictionary = entry.duplicate(true)
+		fixture.rect = _rect(entry.rect)
+		fixtures.append(fixture)
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
 	walls.clear()
 	for value in config.get("walls", []):
@@ -53,10 +61,23 @@ func reset_world() -> void:
 
 func solid_rects(include_crate: bool = true) -> Array[Rect2]:
 	var result: Array[Rect2] = walls.duplicate()
+	for fixture in fixtures:
+		if fixture.get("blocks_movement",true):
+			result.append(fixture.rect)
 	if not door_open:
 		result.append(door)
 	if include_crate:
 		result.append(crate)
+	return result
+
+func sight_rects() -> Array[Rect2]:
+	var result: Array[Rect2] = walls.duplicate()
+	if not door_open:
+		result.append(door)
+	result.append(crate)
+	for fixture in fixtures:
+		if fixture.get("blocks_sight",false):
+			result.append(fixture.rect)
 	return result
 
 func _circle_hits_rect(point: Vector2, radius: float, rect: Rect2) -> bool:
@@ -155,7 +176,7 @@ func ray_rect_fraction(from: Vector2, to: Vector2, rect: Rect2) -> float:
 	return near
 
 func line_clear(from: Vector2, to: Vector2, inflate: float = 0.0) -> bool:
-	for rect in solid_rects():
+	for rect in sight_rects():
 		var fraction := ray_rect_fraction(from, to, rect.grow(inflate))
 		if fraction >= 0 and fraction <= 1:
 			return false
@@ -164,7 +185,7 @@ func line_clear(from: Vector2, to: Vector2, inflate: float = 0.0) -> bool:
 func clip_ray(from: Vector2, direction: Vector2, length: float) -> Vector2:
 	var endpoint := from + direction * length
 	var fraction: float = 1.0
-	for rect in solid_rects():
+	for rect in sight_rects():
 		var hit := ray_rect_fraction(from, endpoint, rect)
 		if hit >= 0:
 			fraction = minf(fraction, hit)

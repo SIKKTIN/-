@@ -1,0 +1,43 @@
+{
+	"checks": {
+		"all_solid_fixtures_in_navigation": true,
+		"cannot_walk_through_bars": true,
+		"cargo_free": true,
+		"cell_0_has_doorway_route": true,
+		"cell_1_has_doorway_route": true,
+		"cell_2_has_doorway_route": true,
+		"day_longer_sight": true,
+		"exit_initially_blocked": true,
+		"fixture_collision": true,
+		"fixtures_in_bounds": true,
+		"guard_stays_in_supervised_zone": true,
+		"guard_two_minutes_no_stall": true,
+		"guard_waypoints_free": true,
+		"homes_free": true,
+		"locker_blocks_sight": true,
+		"locker_clips_ray": true,
+		"merchant_free": true,
+		"night_shorter_sight": true,
+		"only_high_fixtures_occlude": true,
+		"open_door_reaches_exit": true,
+		"r01_legacy_obstacles_unchanged": true,
+		"r02_legacy_obstacles_unchanged": true,
+		"r03_legacy_obstacles_unchanged": true,
+		"real_lights_use_sight_obstacles": true,
+		"safe_cell_undetected": true,
+		"safe_to_workshop": true,
+		"see_across_bed": true,
+		"see_through_bars": true,
+		"seven_fixture_types": true,
+		"ten_room_lamps": true,
+		"three_prison_zones": true,
+		"workshop_to_hall": true
+	},
+	"metrics": {
+		"fixture_count": 25,
+		"patrol_transitions_120s": 10,
+		"sight_fixture_count": 3
+	},
+	"passed": true,
+	"scope": "Physics/navigation/sight and continuous 120s guard AI at 60Hz; art registration and rendered/mobile checks are separate."
+}

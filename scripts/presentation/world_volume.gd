@@ -22,13 +22,15 @@ func asset_id(slot: String, fallback: String) -> String:
 	return str(profile.get("material_slots",{}).get(slot,fallback))
 
 func prop_id() -> String:
+	if kind == "fixture":
+		return str(world.fixtures[wall_index].asset_id)
 	return asset_id("crate","heavy_crate_v02") if kind == "crate" else asset_id("door_open","locked_door_open_v02") if world.door_open else asset_id("door_closed","locked_door_closed_v02")
 
 func tick_visual() -> void:
-	footprint = world.walls[wall_index] if kind == "wall" else world.door if kind == "door" else world.crate
+	footprint = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
-	if kind != "wall" and definitions.get(prop_id(),{}).has("ground_rect"):
+	if kind != "wall" and world.art_textures.has(prop_id()) and definitions.get(prop_id(),{}).has("ground_rect"):
 		var definition: Dictionary = definitions[prop_id()]
 		var ground: Array = definition.ground_rect
 		var scale := footprint.size/Vector2(ground[2],ground[3])
@@ -77,4 +79,5 @@ func _draw() -> void:
 			draw_line(clipped.position+Vector2(clipped.size.x,0),r.end,color,width)
 			draw_line(clipped.position,r.position+Vector2(0,r.size.y),color,width)
 	else:
-		draw_texture_rect(world.art_textures[prop_id()],display_rect,false)
+		if world.art_textures.has(prop_id()):
+			draw_texture_rect(world.art_textures[prop_id()],display_rect,false)

@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "mode": "built-in imagegen edit",
+  "ids": [
+    "communal_table",
+    "notice_board"
+  ],
+  "prompt": "Use case: background-extraction\nAsset type: transparent original production game prop.\nInput image: EDIT TARGET, preserve the exact object identity, proportions, camera, position, canvas size, wood/metal/paper brush textures and all ink outlines.\nChange ONLY background alpha: completely remove the broad diffuse brown/yellow haze, halo and glow surrounding and behind the furnishing. Also clear all empty holes between legs/benches or posts to actual alpha=0. Keep all pixels INSIDE the solid furnishing painted normally. Transparent background must be genuinely clear up to the contour, with only ordinary antialiased silhouette edges, no large semi-transparent halo. No baked ground cast shadow. Do not redesign, rotate, crop, recolor, redraw, move or resize the furnishing. Do not add a floor, text, border, UI or extra object. Output the complete original isolated prop with clean true RGBA transparency.",
+  "applied": false,
+  "reason": "RGB haze in initial tool preview is hidden in alpha-zero pixels. Raw alpha inspection plus gray-background composite used instead; no pixel edits or imagegen correction needed."
+}

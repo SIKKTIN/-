@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-05",
+  "valid": false,
+  "stage": "Preliminary before importing newly copied PNG files",
+  "error": "ResourceLoader: no loader found for seven newly copied prison_v08 PNGs",
+  "original_report_was_false_positive": true,
+  "cause": "AtlasTexture wrappers and declared regions existed while underlying atlas was null; original check only tested dictionary membership",
+  "repair": "Run Godot asset import; require actual non-null atlas in native checks; failed texture loads no longer register empty wrappers",
+  "final_reports": ["p23-prison-native-1280x720.json", "p23-prison-native-960x540.json"],
+  "note": "Preliminary results are invalid and not counted as successful rendering evidence. Final reports must be rerun after import and inspected visually."
+}

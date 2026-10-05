@@ -163,7 +163,7 @@ func _rebuild_lamps() -> void:
 	queue_redraw()
 
 func _sync_occluders() -> void:
-	var solids: Array = game.world.solid_rects()
+	var solids: Array = game.world.sight_rects()
 	while occluders.size() > solids.size():
 		occluders.pop_back().free()
 	while occluders.size() < solids.size():

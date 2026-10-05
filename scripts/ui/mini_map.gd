@@ -105,8 +105,13 @@ func _draw() -> void:
 	var rect := map_rect()
 	draw_rect(rect,Color("91a190"))
 	draw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color("adab89"))
+	for zone in game.room_config.get("zones",[]):
+		var values: Array = zone.rect
+		draw_world_rect(Rect2(values[0],values[1],values[2],values[3]),Color(zone.color))
 	for wall in game.world.walls:
 		draw_world_rect(wall,Color("465557"))
+	for fixture in game.world.fixtures:
+		draw_world_rect(fixture.rect,Color("526566") if fixture.get("blocks_sight",false) else Color("897b5d"))
 	draw_world_rect(game.world.crate,Color("926d3a"))
 	if not game.world.door_open:
 		draw_world_rect(game.world.door,Color("775b8b"))

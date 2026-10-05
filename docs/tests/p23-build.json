@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "version": "v0.8.0-p23-prison-dressing",
+  "predecessor": "b41ff8a",
+  "task_id": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+  "room": "r04",
+  "props": 25,
+  "types": 7,
+  "rule_checks": 32,
+  "logical_full_routes": 4,
+  "native_checks_per_size": 17,
+  "legacy_mobile_checks_per_size": 38,
+  "native_full_route": 1,
+  "total_technical_results": 147,
+  "sizes": [
+    "1280x720",
+    "960x540"
+  ],
+  "native_route_seconds": 125.550277777777,
+  "native_route_captures": 0,
+  "art_version": "prison-art-v08-20261005-8b37a71e43d6",
+  "art_delivery_sha256": "60caa864d95dbbf3ebf5ff339d1b2e2a87a8d66cd0c960017dbd7d97d9f34af7",
+  "scope": "Windows Godot 4.7.2, native frames and simulated ScreenTouch; no Android/iOS or human gameplay proof. Final UI cases repeated after art freeze. Preimport failure excluded. Old P18 15 checks separately passed and excluded from total.",
+  "preserved_user_config": "project.godot local removal of explicit default touch settings; not staged or overwritten",
+  "sources": [
+    {
+      "path": "README.md",
+      "sha256": "1e277b814d4503dee3958f66a8b84370c3a3cd401f2ddbe4c9f805b4ffb6871a"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "sha256": "5cf52587db3217c3393003c92ca32fa5bee88d2a9494654be9738cf4ff158d4c"
+    },
+    {
+      "path": "scenes/rooms/room_r04.tscn",
+      "sha256": "5cf52587db3217c3393003c92ca32fa5bee88d2a9494654be9738cf4ff158d4c"
+    },
+    {
+      "path": "data/rooms/r04.json",
+      "sha256": "8a957891360774bf76c3e69eedff3ac4e58557f7b8ac5b949f8a3441e6097327"
+    },
+    {
+      "path": "scripts/core/escape_game.gd",
+      "sha256": "8bddbc6a49a2b102846e5869a32e24f1ad139ec97bc67cd8d81bdf9b795cc526"
+    },
+    {
+      "path": "scripts/presentation/game_presentation.gd",
+      "sha256": "6202a136548d4d4f3ccd1cd2f451ad1b4151d4c11eb76de9da5d298d1c347c2c"
+    },
+    {
+      "path": "scripts/presentation/lighting_system.gd",
+      "sha256": "16821854b63bf1859b7edef815f05ef1df3f9987dd121c8d404cd36ff57720ed"
+    },
+    {
+      "path": "scripts/presentation/scene_layers.gd",
+      "sha256": "fcae350a16ce0e46c07506cc07868a64d15bc5b913b7dcd00cbaa7908fd0463d"
+    },
+    {
+      "path": "scripts/presentation/world_volume.gd",
+      "sha256": "568d5bee56174b84339db0e717bec742c6737a43c07104d6ba0800d919ed71db"
+    },
+    {
+      "path": "scripts/ui/mini_map.gd",
+      "sha256": "a740f8c8136a0a71215b0782aa2e555a8e86a7d3943ea28f14a876383039250d"
+    },
+    {
+      "path": "scripts/world/prison_world.gd",
+      "sha256": "20b3eb3c140d7dccbc214069bc4d7a4e44b737be657727eed1ad8b40c3392d7e"
+    },
+    {
+      "path": "tests/p23_legacy_mobile_check.gd",
+      "sha256": "6e742e28b71f25702d6f9dc81c178dccce721ec18d7b9e7397e5b7685daa2e65"
+    },
+    {
+      "path": "tests/p23_legacy_mobile_check.gd.uid",
+      "sha256": "274428a26a4fcd18712ae260278e3a2108fea0425f2224e1cf3542c5e514ea03"
+    },
+    {
+      "path": "tests/p23_native_r04_route.gd",
+      "sha256": "9496bec60d167d41846260ff74be7ce92a74944abf2677bf7ff5feab86777e5e"
+    },
+    {
+      "path": "tests/p23_native_r04_route.gd.uid",
+      "sha256": "43f8f7c140a766ae7c39d01f02596f88e8cdac6af6004fd9b4c2d1fc3b16ecba"
+    },
+    {
+      "path": "tests/p23_prison_native.gd",
+      "sha256": "4db29aab73b2616a380989044ae6a43449cff698b7bd02bb73489dbb0415c30a"
+    },
+    {
+      "path": "tests/p23_prison_native.gd.uid",
+      "sha256": "2d5ca01d272cc1a6ab5634e5a22369c46bc20ae3ce8205983a4f6c12ce02e991"
+    },
+    {
+      "path": "tests/p23_prison_rules.gd",
+      "sha256": "aa8286065879ca2acb2f419fae5d42f6fc54c860c6479075eb2356e7e63cf538"
+    },
+    {
+      "path": "tests/p23_prison_rules.gd.uid",
+      "sha256": "4205a2d50ffbcb346f7e7da5a89f9c7470c0808428fa787a144cd0283bc75e78"
+    },
+    {
+      "path": "tests/p23_r04_routes.gd",
+      "sha256": "ed49f10cc4e1f3e4b6baf8c58e655c3e55f9cdb41f2994c6fe680ac8b9bf6d86"
+    },
+    {
+      "path": "tests/p23_r04_routes.gd.uid",
+      "sha256": "4336f499ace47f50a2125a1ab1f555eb12bc060108d314154ec9e92eaa840308"
+    },
+    {
+      "path": "docs/dev/p23-prison-dressing-contract.md",
+      "sha256": "91a4a5b3b68b740cf17af352236ea63d87c664f4c99ea5cda47e2e1f2f374f8f"
+    },
+    {
+      "path": "docs/dev/p23-prison-dressing.md",
+      "sha256": "7f502af1423b00001cc44115119d261ad9802bb95e5e45e3b0e2110ba82364b6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/tests/p23-legacy-mobile-1280x720.json",
+      "sha256": "76827194a721dd34d346e4f951d5d333f38ab86a3e11f869c75864d400a31da2"
+    },
+    {
+      "path": "docs/tests/p23-legacy-mobile-1280x720.png",
+      "sha256": "0c639bb0ea65c1b1eaa600309470acf0f3abbcfaecff71253ee75407ce04dcce"
+    },
+    {
+      "path": "docs/tests/p23-legacy-mobile-960x540.json",
+      "sha256": "90bdb1c39d665100068566febc75ca7082e640f7a6a49d7c9986729295820420"
+    },
+    {
+      "path": "docs/tests/p23-legacy-mobile-960x540.png",
+      "sha256": "df316c44c9e8e9dbe2cc9c7b22a2072690063eb02774c1714dcec4de973af78c"
+    },
+    {
+      "path": "docs/tests/p23-live-r04.json",
+      "sha256": "4bfed827dd42f7ff5d815596bb7030b3e4cafacf497873215518993c7849204e"
+    },
+    {
+      "path": "docs/tests/p23-live-r04.png",
+      "sha256": "72df122b92d44c78930e8555adedfcaae3e0cbd05dd5eca939f4e6256553ac29"
+    },
+    {
+      "path": "docs/tests/p23-native-preimport-failure.json",
+      "sha256": "6addab299086eedbe2dfe14338690ec1a03745cb7a55536ff69814d07e1640ff"
+    },
+    {
+      "path": "docs/tests/p23-native-r04-route.json",
+      "sha256": "1ce20bf1d49a3215eae5adb1f41a69c4b686eb4f69080056443c444a125d6b6e"
+    },
+    {
+      "path": "docs/tests/p23-native-r04-route.png",
+      "sha256": "205690bd19ee6c7ca9a54de25c1b059d415071582978261dc0ead1e97ade7546"
+    },
+    {
+      "path": "docs/tests/p23-prison-native-1280x720.json",
+      "sha256": "fd2bd30a48d9139d84f2781256391d361d76444d791eba54e5d9bd35f9a95cbf"
+    },
+    {
+      "path": "docs/tests/p23-prison-native-960x540.json",
+      "sha256": "a2376071e1293c5bec708aa7adc0ecea326f2f2ff725df34469d26fe82925ced"
+    },
+    {
+      "path": "docs/tests/p23-prison-rules.json",
+      "sha256": "fd90f200fac58cfab0f70a72e43f268c9171717ead53a2005736571dfebd3c70"
+    },
+    {
+      "path": "docs/tests/p23-r04-cells-day-1280x720.png",
+      "sha256": "363cf340d0b36823de68497ce304bffcf52a5a05fada67b3a097ce3514ef4695"
+    },
+    {
+      "path": "docs/tests/p23-r04-cells-day-960x540.png",
+      "sha256": "1d63a226141cd38701642e782c71df6abcf700641c0299f096affe10f1a5f1e4"
+    },
+    {
+      "path": "docs/tests/p23-r04-cells-night-1280x720.png",
+      "sha256": "49c1c338beee4dd5fae8a15004594b3c89533024d36f6b24c387dcd9541bdd05"
+    },
+    {
+      "path": "docs/tests/p23-r04-cells-night-960x540.png",
+      "sha256": "50aa618de13990abcfde3a58451a20697b55643e6955e4f9ac2bcac5482c9a41"
+    },
+    {
+      "path": "docs/tests/p23-r04-hall-day-1280x720.png",
+      "sha256": "7a85d0d82e4eb386dbbc1b23692c18f4d72b16eea5c3c3f606353ef865f60976"
+    },
+    {
+      "path": "docs/tests/p23-r04-hall-day-960x540.png",
+      "sha256": "d97975a913c59dcf3d1e67442eb7b507d51fa59c51160076e3bde582ae7941be"
+    },
+    {
+      "path": "docs/tests/p23-r04-hall-night-1280x720.png",
+      "sha256": "d3abdcb06ef04a6ece92c75f6bfec8a8ef9a1927fc289e24b35d7188765f4768"
+    },
+    {
+      "path": "docs/tests/p23-r04-hall-night-960x540.png",
+      "sha256": "56424eafa1ab0ebbdb7571e9097565fcd7b8cba73deb66930ffdf4a54bb4b9d3"
+    },
+    {
+      "path": "docs/tests/p23-r04-routes.json",
+      "sha256": "9d20d2a8bd2819fbabf6006876e858b5bbae8abfc847fce6e9cd5d7d77f92ada"
+    },
+    {
+      "path": "docs/tests/p23-r04-start-1280x720.png",
+      "sha256": "28357be77a955407d0cd900791f84875aa9181bdf8bc422bddc228d277e05204"
+    },
+    {
+      "path": "docs/tests/p23-r04-start-960x540.png",
+      "sha256": "0076bbbf6483616c24a9c5fde13eed2b5b08dc7638ae7fb90a059cbfba46101e"
+    },
+    {
+      "path": "docs/tests/p23-r04-workshop-day-1280x720.png",
+      "sha256": "8abadc66a4316d6f2c09f203ba3d2ef031ef14205d26cc0e6003454a65c0de9c"
+    },
+    {
+      "path": "docs/tests/p23-r04-workshop-day-960x540.png",
+      "sha256": "3c5fc6824ce5ca8cf0d109fe839345eaf16889144737ce79df85c0c9463bcedc"
+    },
+    {
+      "path": "docs/tests/p23-r04-workshop-night-1280x720.png",
+      "sha256": "01c7170fcd6c69f1fc834ddf6442a3e1be54d6b95f802f420c505a1cb135691b"
+    },
+    {
+      "path": "docs/tests/p23-r04-workshop-night-960x540.png",
+      "sha256": "9ecf49af25ce24b1badc501c98455999d30923e752d334d6a7718bc129985a8f"
+    }
+  ]
+}

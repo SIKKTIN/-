@@ -1,0 +1,43 @@
+{
+	"checks": {
+		"all_seven_textures_loaded": true,
+		"day_cells_touch_minimap": true,
+		"day_hall_touch_minimap": true,
+		"day_workshop_touch_minimap": true,
+		"four_rooms_available": true,
+		"hud_fixed_across_zones": true,
+		"new_room_selected": true,
+		"night_cells_touch_minimap": true,
+		"night_hall_touch_minimap": true,
+		"night_workshop_touch_minimap": true,
+		"no_edge_scrolling": true,
+		"prop_depth_sorted": true,
+		"real_occluders_match_sight_rules": true,
+		"sprite_ground_registered_to_collision": true,
+		"ten_lights_loaded": true,
+		"touch_returns_to_cell_actor": true,
+		"twenty_five_props_instanced": true
+	},
+	"images": [
+		"res://docs/tests/p23-r04-cells-day-1280x720.png",
+		"res://docs/tests/p23-r04-workshop-day-1280x720.png",
+		"res://docs/tests/p23-r04-hall-day-1280x720.png",
+		"res://docs/tests/p23-r04-cells-night-1280x720.png",
+		"res://docs/tests/p23-r04-workshop-night-1280x720.png",
+		"res://docs/tests/p23-r04-hall-night-1280x720.png",
+		"res://docs/tests/p23-r04-start-1280x720.png"
+	],
+	"metrics": {
+		"locate": {
+			"button_rect": "[P: (784.0, 276.0), S: (94.0, 44.0)]",
+			"focused": true,
+			"offset": [
+				6.0,
+				-14.0
+			],
+			"selected_actor": 0
+		}
+	},
+	"passed": true,
+	"scope": "Rendered native Windows Godot 4.7.2; frozen gameplay fixture for art/GUI registration and real touch events via Input.parse_input_event. No Android/iOS or human gameplay evidence."
+}

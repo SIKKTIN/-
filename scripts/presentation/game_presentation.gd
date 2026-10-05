@@ -67,6 +67,11 @@ func configure(escape_game) -> void:
 		for asset in data.assets:
 			asset_definitions[asset.id] = asset
 			game.world.art_textures[asset.id] = _load_texture(asset)
+	var prison_manifest := "res://art/props/prison_v08/manifest.json"
+	if FileAccess.file_exists(prison_manifest):
+		var prison_assets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(prison_manifest))
+		for asset in prison_assets.assets:
+			asset_definitions[asset.id] = asset
 	game.world.queue_redraw()
 	game.floor_texture = game.world.art_textures[profile.floor_asset] if profile.has("floor_asset") else load(profile.floor)
 	game.floor_tile_size = profile.floor_tile_size
@@ -74,7 +79,7 @@ func configure(escape_game) -> void:
 	if profile.perspective:
 		game.world.presentation_layers = true
 		game.world.art_textures.exit_v01 = load("res://art/props/exit_v01.png")
-		for kind in ["ground","information"]:
+		for kind in ["ground","fixture_shadows","information"]:
 			var layer = SceneLayers.new()
 			layer.name = "Scene_%s" % kind
 			game.add_child(layer)
@@ -95,6 +100,8 @@ func configure(escape_game) -> void:
 
 func _load_texture(asset: Dictionary) -> Texture2D:
 	var original: Texture2D = load(asset.texture)
+	if original == null:
+		return null
 	if not asset.has("region"):
 		return original
 	var region: Array = asset.region
@@ -211,10 +218,21 @@ func _refresh_volumes() -> void:
 	for volume in volumes:
 		volume.free()
 	volumes.clear()
+	for fixture in game.world.fixtures:
+		var id: String = fixture.asset_id
+		if not game.world.art_textures.has(id) and asset_definitions.has(id):
+			var texture: Texture2D = _load_texture(asset_definitions[id])
+			if texture != null:
+				game.world.art_textures[id] = texture
 	for index in range(game.world.walls.size()):
 		_add_volume("wall",index)
+	for index in range(game.world.fixtures.size()):
+		_add_volume("fixture",index)
 	_add_volume("door")
 	_add_volume("crate")
+	for layer in scene_layers:
+		if layer.kind == "fixture_shadows":
+			layer.queue_redraw()
 
 func _add_volume(kind: String, index: int = 0) -> void:
 	var volume = WorldVolume.new()
@@ -225,14 +243,19 @@ func _add_volume(kind: String, index: int = 0) -> void:
 func _tick_scene() -> void:
 	if not profile.get("perspective",false):
 		return
-	if volumes.size() != game.world.walls.size()+2:
+	if volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
 		_refresh_volumes()
 	for visual in visuals:
 		visual.actor.z_index = int(visual.actor.position.y)
 	for volume in volumes:
 		volume.tick_visual()
 	for layer in scene_layers:
-		layer.queue_redraw()
+		if layer.kind == "fixture_shadows":
+			if layer.fixtures_revision != game.world.fixtures_revision:
+				layer.fixtures_revision = game.world.fixtures_revision
+				layer.queue_redraw()
+		else:
+			layer.queue_redraw()
 
 func _state() -> Dictionary:
 	return {"actions":game.skills.actions.duplicate(true),"guard":game.guard.state,"captures":game.captures,"door":game.world.door_open,"escaped":game.actors.map(func(a): return a.escaped),"immune":game.actors.map(func(a): return a.immune_until),"crate":game.world.crate.position,"phase":game.phase,"deal":game.deal_number}
