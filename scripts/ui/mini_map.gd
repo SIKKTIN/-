@@ -57,7 +57,7 @@ func blocked() -> bool:
 	return game == null or game.map_camera.interaction_blocked() or not get_window().has_focus()
 
 func _process(_delta: float) -> void:
-	visible = game != null and not (game.shop_panel != null and game.shop_panel.panel.visible)
+	visible = game != null and not game.world_input_blocked()
 	if blocked():
 		pointer_id = -2
 	queue_redraw()
@@ -124,6 +124,9 @@ func _draw() -> void:
 			var coords: Array = item.position
 			draw_circle(to_map(Vector2(coords[0],coords[1])),2,Color("e6c691"))
 	draw_circle(to_map(game.guard.position),4,Color("c65b4b"))
+	if game.dog:
+		var dog_point := to_map(game.dog.position)
+		draw_rect(Rect2(dog_point-Vector2(3,3),Vector2(6,6)),Color("715037") if game.dog.state == "resting" else Color("df8c39"))
 	for actor in game.actors:
 		if not actor.escaped:
 			var point := to_map(actor.position)

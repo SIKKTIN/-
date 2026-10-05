@@ -4,3 +4,7 @@
 # Preserve accepted asset manifest bytes referenced by delivery SHA256 records.
 /docs/art/inventory-assets-v07.json -text whitespace=cr-at-eol
 /docs/art/a05-source-license-v07.json -text whitespace=cr-at-eol
+
+# Keep the reviewed A08 delivery's SHA256-referenced bytes reproducible.
+/art/characters/dog/** -text whitespace=cr-at-eol
+/docs/art/police-dog/** -text whitespace=cr-at-eol

@@ -14,6 +14,8 @@ const ItemsView = preload("res://scripts/presentation/items_view.gd")
 const ShopPanel = preload("res://scripts/ui/shop_panel.gd")
 const MapCamera = preload("res://scripts/core/map_camera.gd")
 const MiniMap = preload("res://scripts/ui/mini_map.gd")
+const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
+const PoliceDog = preload("res://scripts/actors/police_dog.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -28,6 +30,8 @@ var items_view
 var shop_panel
 var map_camera
 var mini_map
+var schedule
+var dog
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -79,6 +83,10 @@ func _ready() -> void:
 	guard.name = "Guard"
 	add_child(guard)
 	guard.configure(world,self)
+	dog = PoliceDog.new()
+	dog.name = "PoliceDog"
+	add_child(dog)
+	dog.configure(self)
 	skills = Skills.new(self)
 	orders = MoveOrders.new(self)
 	inventory = Inventory.new(self)
@@ -109,6 +117,10 @@ func _ready() -> void:
 	mini_map.name = "MiniMap"
 	get_node("HUD").add_child(mini_map)
 	mini_map.configure(self)
+	schedule = PrisonSchedule.new()
+	schedule.name = "Schedule"
+	add_child(schedule)
+	schedule.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -127,6 +139,7 @@ func _build_ui() -> void:
 	layer.add_child(subtitle)
 	room_selector = OptionButton.new()
 	room_selector.name = "RoomSelector"
+	room_selector.z_index = 210 # Remains usable above a terminal result overlay.
 	room_selector.position = Vector2(566,35)
 	room_selector.size = Vector2(230,42)
 	for index in range(ROOM_IDS.size()):
@@ -177,12 +190,18 @@ func _process(delta: float) -> void:
 		if presentation:
 			presentation.tick(delta)
 		return
+	delta = minf(delta,schedule.remaining()) if schedule else delta
 	elapsed += delta
+	if schedule:
+		schedule.tick()
 	for actor in actors:
 		actor.moved_this_frame = false
 	orders.tick(delta)
 	skills.tick(delta)
+	dog.tick(delta)
 	guard.tick(delta)
+	if schedule and phase == "playing" and schedule.remaining() <= 0:
+		finish_timeout()
 	guard_position = guard.position
 	if map_camera:
 		map_camera.tick(delta)
@@ -194,7 +213,17 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if shop_panel != null and shop_panel.panel.visible and not event is InputEventKey:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_R:
+			reset_round()
+			return
+		if event.keycode == KEY_ESCAPE:
+			if shop_panel:
+				shop_panel.close()
+			if schedule:
+				schedule.close()
+			return
+	if world_input_blocked():
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if not MapCamera.VIEW.has_point(event.position):
@@ -207,8 +236,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_3:
 			select_actor(event.keycode - KEY_1)
-		elif event.keycode == KEY_R:
-			reset_round()
 		elif event.keycode == KEY_E:
 			presentation.interaction.activate_nearest()
 		elif event.keycode == KEY_S:
@@ -256,6 +283,8 @@ func on_actor_escaped(actor_id: int) -> void:
 		skills.clear_all()
 		var carried: int = inventory.instances.values().filter(func(i): return i.location == "escaped").size()
 		status_text = "三人全部逃脱！%.1f秒 · 抓回%d次 · 带出%d件 · 钱%d · R重开" % [elapsed,captures,carried,inventory.wallet]
+		if schedule:
+			schedule.show_result(true)
 
 func select_actor(index: int) -> void:
 	if index < 0 or index >= actors.size() or actors[index].escaped:
@@ -300,9 +329,13 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	if guard:
 		guard.reset_guard()
 		guard_position = guard.position
+	if dog:
+		dog.reset_dog()
 	if presentation:
 		presentation.reset()
-	show_status("本局随机技能允许重复；目标是三人全部逃脱。")
+	if schedule:
+		schedule.reset()
+	show_status("22:00封监前让三人全部逃脱；点击右上日程查看安排。",4)
 	select_actor(0)
 	if map_camera:
 		map_camera.reset()
@@ -326,6 +359,8 @@ func _update_ui() -> void:
 		skill_button.disabled = phase != "playing" or actor.escaped or actor.skill_id == "strong" or (not active and reason != "")
 		var no_opener: bool = actors.all(func(a): return a.skill_id == "chat") and trade.merchants.is_empty()
 		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("伙伴留在原地操作，可以换人行动。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
+		if phase != "playing":
+			hint_label.text = "已封监，点击重新开始。" if phase == "failed" else "全员已逃脱，点击重新开始。"
 	if inventory_panel:
 		inventory_panel.refresh()
 	if shop_panel:
@@ -362,7 +397,21 @@ func _floor_style() -> StyleBoxFlat:
 	return style
 
 func snapshot() -> Dictionary:
-	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}}
+	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"dog":dog.snapshot() if dog else {}}
+
+func world_input_blocked() -> bool:
+	return phase != "playing" or get_tree().paused or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible)
+
+func finish_timeout() -> void:
+	phase = "failed"
+	orders.clear()
+	skills.clear_all()
+	for actor in actors:
+		actor.moved_this_frame = false
+	guard.moved_this_frame = false
+	dog.moved_this_frame = false
+	status_text = "22:00已封监，逃脱行动结束。R重新开始。"
+	schedule.show_result(false)
 
 func capture_actor(actor_id: int) -> void:
 	if shop_panel and shop_panel.actor_id == actor_id:

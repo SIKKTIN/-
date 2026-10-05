@@ -65,7 +65,7 @@ func locate_selected() -> void:
 	pan_by(Vector2.ZERO)
 
 func interaction_blocked() -> bool:
-	return game.get_tree().paused or (game.shop_panel != null and game.shop_panel.panel.visible)
+	return game.world_input_blocked()
 
 func center_on(world_point: Vector2) -> void:
 	following = false

@@ -1,0 +1,146 @@
+{
+	"passed": false,
+	"reason": "door_timeout",
+	"route": "chat_lock",
+	"scope": "Legacy deterministic route with explicit room loading; native renderer and live gameplay clock/AI.",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": false,
+				"facing": [
+					0.013092041015625,
+					0.999914288520813
+				],
+				"position": [
+					180.0,
+					235.0
+				],
+				"selected": false,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": false,
+				"facing": [
+					0.0207227449864149,
+					0.999785304069519
+				],
+				"position": [
+					235.0,
+					375.0
+				],
+				"selected": true,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					185.0,
+					510.0
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 2,
+		"deal": 3,
+		"dog": {
+			"barks": 0,
+			"confirm_radius": 90.0,
+			"path_size": 0,
+			"position": [
+				800.0,
+				430.0
+			],
+			"scent_radius": 180.0,
+			"skipped_waypoints": 0,
+			"state": "resting",
+			"target_id": -1,
+			"trail_seconds": 10.0,
+			"trails": 0
+		},
+		"elapsed": 10.2341640606058,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				-0.222828298807144,
+				0.974857687950134
+			],
+			"fov_degrees": 120,
+			"guard_zone": [
+				670.0,
+				114.0,
+				326.0,
+				560.0
+			],
+			"lost_time": 0.0,
+			"path_size": 1,
+			"position": [
+				773.286865234375,
+				389.996337890625
+			],
+			"route_index": 2,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 210.0
+		},
+		"guard_position": [
+			773.286865234375,
+			389.996337890625
+		],
+		"inventory": {
+			"bags": {
+				"0": [],
+				"1": [],
+				"2": []
+			},
+			"capacities": [
+				1,
+				1,
+				1
+			],
+			"instances": {},
+			"wallet": 0
+		},
+		"merchants": {},
+		"orders": [],
+		"phase": "playing",
+		"schedule": {
+			"clock_minutes": 980.468328121212,
+			"dog_active": false,
+			"limit_seconds": 180.0,
+			"panel_visible": false,
+			"remaining": 169.765835939394,
+			"result_visible": false,
+			"stage": "work"
+		},
+		"seed": 33,
+		"selected_actor_id": 1,
+		"world": {
+			"crate": [
+				831.0,
+				572.0,
+				94.0,
+				92.0
+			],
+			"door_open": false,
+			"lock_progress": 0.277272727272728,
+			"obstacle_revision": 6,
+			"push_distance": 0.0,
+			"room_id": "r02"
+		}
+	},
+	"trace": []
+}

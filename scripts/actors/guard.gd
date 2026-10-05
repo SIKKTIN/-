@@ -24,6 +24,7 @@ var path_revision: int = -1
 var stalled_time: float = 0
 var path_state: String = ""
 var skipped_waypoints: int = 0
+var investigate_until: float = 0
 
 func configure(prison_world, escape_game) -> void:
 	world = prison_world
@@ -43,6 +44,7 @@ func reset_guard() -> void:
 	stalled_time = 0
 	path_state = ""
 	skipped_waypoints = 0
+	investigate_until = 0
 	queue_redraw()
 
 func view_radius() -> float:
@@ -58,6 +60,29 @@ func release_target() -> void:
 	lost_time = 0.0
 	path.clear()
 	stalled_time = 0
+
+func investigate(point: Vector2) -> bool:
+	if game.phase != "playing" or state == "chasing" or not world.guard_zone.grow(-17).has_point(point):
+		return false
+	var goal := point
+	if not world.can_place_circle(goal,17,self,true):
+		var found := false
+		for offset in [Vector2(45,0),Vector2(-45,0),Vector2(0,45),Vector2(0,-45)]:
+			if world.can_place_circle(point+offset,17,self,true):
+				goal = point+offset
+				found = true
+				break
+		if not found:
+			return false
+	if chat_partner_id >= 0:
+		game.cancel_guard_chat("警犬示警，狱警结束交谈并去调查。")
+	chat_partner_id = -1
+	target_id = -1
+	state = "searching"
+	last_seen = goal
+	investigate_until = game.elapsed+6
+	path.clear()
+	return true
 
 func sees(point: Vector2) -> bool:
 	if not world.guard_zone.has_point(point):
@@ -104,7 +129,9 @@ func tick(delta: float) -> void:
 			queue_redraw()
 			return
 		state = "patrol"
-	var goal: Vector2 = last_seen if state == "chasing" else world.patrol[route_index]
+	elif state == "searching" and (game.elapsed >= investigate_until or position.distance_to(last_seen) < 10):
+		release_target()
+	var goal: Vector2 = last_seen if state in ["chasing","searching"] else world.patrol[route_index]
 	if state == "patrol" and position.distance_to(goal) < 12:
 		route_index = (route_index+1) % world.patrol.size()
 		goal = world.patrol[route_index]
@@ -122,7 +149,7 @@ func tick(delta: float) -> void:
 		var offset := path[0] - position
 		if offset.length() > 1:
 			facing = offset.normalized()
-			var speed: float = 155.0 if state == "chasing" else 65.0
+			var speed: float = 155.0 if state == "chasing" else 100.0 if state == "searching" else 65.0
 			var move: Vector2 = facing * minf(speed*delta,offset.length())
 			moved_this_frame = world.move_actor(self,move).length_squared() > 0.001
 	stalled_time = 0 if moved_this_frame else stalled_time + delta

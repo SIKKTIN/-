@@ -1,0 +1,10 @@
+{
+  "start_minutes": 960,
+  "end_minutes": 1320,
+  "room_seconds": {"r01": 180, "r02": 180, "r03": 240, "r04": 300},
+  "stages": [
+    {"id": "work", "name": "劳动", "minute": 960, "period": "day", "dog_active": false, "detail": "白天，狱警巡逻；警犬休息。"},
+    {"id": "yard", "name": "放风", "minute": 1080, "period": "day", "dog_active": true, "detail": "警犬出动，嗅探附近的短时踪迹。"},
+    {"id": "lights_out", "name": "熄灯巡查", "minute": 1200, "period": "night", "dog_active": true, "detail": "狱警视野缩短，警犬嗅探仍有效。"}
+  ]
+}

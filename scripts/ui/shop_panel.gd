@@ -2,6 +2,7 @@ extends Node
 
 var game
 var panel: Panel
+var blocker: ColorRect
 var title: Label
 var offers: ItemList
 var buy: Button
@@ -12,7 +13,16 @@ var listed_ids: Array = []
 
 func configure(owner_game) -> void:
 	game = owner_game
+	blocker = ColorRect.new()
+	blocker.name = "ShopMapBlocker"
+	blocker.position = Vector2(74,114)
+	blocker.size = Vector2(922,560)
+	blocker.color = Color(0,0,0,0.18)
+	blocker.z_index = 100
+	blocker.mouse_filter = Control.MOUSE_FILTER_STOP
+	game.get_node("HUD").add_child(blocker)
 	panel = Panel.new()
+	panel.z_index = 101
 	panel.name = "MerchantShop"
 	panel.position = Vector2(360, 200)
 	panel.size = Vector2(490, 355)
@@ -29,7 +39,7 @@ func configure(owner_game) -> void:
 	panel.add_child(title)
 	var notice := Label.new()
 	notice.position = Vector2(18, 47)
-	notice.text = "出售：先选右侧背包物品。交易时巡逻继续。"
+	notice.text = "出售：先选右侧背包物品。交易时计时与巡逻继续。"
 	notice.add_theme_font_size_override("font_size", 14)
 	panel.add_child(notice)
 	offers = ItemList.new()
@@ -53,17 +63,26 @@ func _button(text: String, point: Vector2, callback: Callable, width: float = 14
 	return b
 
 func open(id: String) -> void:
+	if game.phase != "playing":
+		return
 	if game.trade.reason(game.selected_actor_id, id) != "":
 		return
 	merchant_id = id
 	actor_id = game.selected_actor_id
 	listed_ids.clear()
 	panel.visible = true
+	blocker.visible = true
+	if game.schedule:
+		game.schedule.close()
+	if game.presentation and game.presentation.interaction:
+		game.presentation.interaction.refresh()
 	refresh()
 
 func close() -> void:
 	if panel:
 		panel.visible = false
+	if blocker:
+		blocker.visible = false
 	merchant_id = ""
 	actor_id = -1
 	listed_ids.clear()

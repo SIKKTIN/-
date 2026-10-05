@@ -46,8 +46,7 @@ func configure(owner_game, theme: Theme) -> void:
 	toggle_button.size = Vector2(155,38)
 	toggle_button.theme = theme
 	toggle_button.add_theme_font_size_override("font_size",16)
-	toggle_button.tooltip_text = "切换昼夜（N）；白天狱警看得更远，夜晚视野缩短。左侧起始房间安全。"
-	toggle_button.pressed.connect(toggle_period)
+	toggle_button.tooltip_text = "日程决定昼夜；白天狱警看得更远，夜晚视野缩短。"
 	game.get_node("HUD").add_child(toggle_button)
 	guard_light = PointLight2D.new()
 	guard_light.name = "GuardFlashlight"
@@ -64,8 +63,8 @@ func configure(owner_game, theme: Theme) -> void:
 	set_period(period)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_N:
-		toggle_period()
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_N and game.schedule:
+		game.schedule.toggle()
 		get_viewport().set_input_as_handled()
 
 func toggle_period() -> void:

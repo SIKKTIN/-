@@ -53,8 +53,14 @@ func _draw() -> void:
 				else:
 					draw_ellipse(visual.actor.position+Vector2(0,2),15,4,Color(0,0,0,0.12))
 		draw_rect(world.exit_strip_rect(),Color("328b82"))
+		if game.dog:
+			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
+		if presentation.dog_visual:
+			draw_set_transform(game.dog.position)
+			presentation.dog_visual.paint_information(self,presentation.font)
+			draw_set_transform(Vector2.ZERO)
 		var view: Rect2 = Rect2(game.map_camera.position+Vector2(74,114),Vector2(922,560)) if game.map_camera else world.bounds
 		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
 		for zone in game.room_config.get("zones",[]):

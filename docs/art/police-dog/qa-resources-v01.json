@@ -1,0 +1,190 @@
+{
+  "passed": true,
+  "mode": "RGBA",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "transparent_pixel_fraction": 0.7267894744873047,
+  "background_empty_cell_core_pixels": 0,
+  "background_empty_cell_alpha_max": 1,
+  "copy_matches_original": true,
+  "walk_body_height_spread_fraction": 0.03157894736842111,
+  "walk_head_width_spread_fraction": 0.034782608695652174,
+  "distinct_lower_leg_masks": 4,
+  "frames": [
+    {
+      "id": "idle",
+      "body_bounds": [
+        24,
+        87,
+        459,
+        385
+      ],
+      "head_center_x": 391.0,
+      "head_width": 176,
+      "cell": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "region_inside_cell": true,
+      "complete_core_pixels": true,
+      "core_pixel_count": 81547,
+      "region": [
+        18,
+        81,
+        471,
+        397
+      ],
+      "anchor": [
+        278.0,
+        391
+      ],
+      "visible_world_height": 44.578947368421055,
+      "foot_world_error": 0,
+      "scale": 0.11578947368421053
+    },
+    {
+      "id": "walk_0",
+      "body_bounds": [
+        530,
+        85,
+        463,
+        384
+      ],
+      "head_center_x": 900.5,
+      "head_width": 175,
+      "cell": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "region_inside_cell": true,
+      "complete_core_pixels": true,
+      "core_pixel_count": 83001,
+      "region": [
+        524,
+        79,
+        475,
+        396
+      ],
+      "anchor": [
+        281.5,
+        390
+      ],
+      "visible_world_height": 44.463157894736845,
+      "foot_world_error": 0,
+      "scale": 0.11578947368421053
+    },
+    {
+      "id": "walk_1",
+      "body_bounds": [
+        1045,
+        85,
+        462,
+        385
+      ],
+      "head_center_x": 1414.0,
+      "head_width": 174,
+      "cell": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "region_inside_cell": true,
+      "complete_core_pixels": true,
+      "core_pixel_count": 75616,
+      "region": [
+        1039,
+        79,
+        474,
+        397
+      ],
+      "anchor": [
+        280.0,
+        391
+      ],
+      "visible_world_height": 44.578947368421055,
+      "foot_world_error": 0,
+      "scale": 0.11578947368421053
+    },
+    {
+      "id": "walk_2",
+      "body_bounds": [
+        24,
+        580,
+        462,
+        376
+      ],
+      "head_center_x": 393.5,
+      "head_width": 171,
+      "cell": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "region_inside_cell": true,
+      "complete_core_pixels": true,
+      "core_pixel_count": 81766,
+      "region": [
+        18,
+        574,
+        474,
+        388
+      ],
+      "anchor": [
+        280.5,
+        382
+      ],
+      "visible_world_height": 43.536842105263155,
+      "foot_world_error": 0,
+      "scale": 0.11578947368421053
+    },
+    {
+      "id": "walk_3",
+      "body_bounds": [
+        533,
+        582,
+        472,
+        373
+      ],
+      "head_center_x": 907.5,
+      "head_width": 169,
+      "cell": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "region_inside_cell": true,
+      "complete_core_pixels": true,
+      "core_pixel_count": 80365,
+      "region": [
+        527,
+        576,
+        484,
+        385
+      ],
+      "anchor": [
+        285.5,
+        379
+      ],
+      "visible_world_height": 43.189473684210526,
+      "foot_world_error": 0,
+      "scale": 0.11578947368421053
+    }
+  ],
+  "baseline_file_count": 66,
+  "changed_baseline_files": [
+    "scripts/core/escape_game.gd",
+    "scripts/core/prison_schedule.gd",
+    "scripts/presentation/game_presentation.gd",
+    "scripts/presentation/scene_layers.gd"
+  ],
+  "scope": "source alpha, complete own-core crops, empty cell, distinct leg masks, shared scale and foot registration; source poses also visually reviewed"
+}

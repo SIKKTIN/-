@@ -6,6 +6,7 @@ const SceneLayers = preload("res://scripts/presentation/scene_layers.gd")
 const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
 const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
+const DogVisual = preload("res://scripts/presentation/dog_visual.gd")
 var game
 var visuals: Array = []
 var skill_icons: Dictionary = {}
@@ -29,6 +30,7 @@ var scene_layers: Array = []
 var asset_definitions: Dictionary = {}
 var lighting
 var interaction
+var dog_visual
 
 func configure(escape_game) -> void:
 	game = escape_game
@@ -107,6 +109,10 @@ func configure(escape_game) -> void:
 	interaction.name = "InteractionPrompt"
 	add_child(interaction)
 	interaction.configure(game,self)
+	dog_visual = DogVisual.new()
+	dog_visual.name = "DogVisual"
+	game.dog.add_child(dog_visual)
+	dog_visual.configure(game,str(active.get("police_dog","")))
 	_make_audio()
 	reset()
 
@@ -202,6 +208,8 @@ func _make_audio() -> void:
 
 func reset() -> void:
 	stop_all()
+	if dog_visual:
+		dog_visual.tick_visual(0)
 	events.clear()
 	previous = _state()
 	for visual in visuals:
@@ -265,6 +273,8 @@ func _state() -> Dictionary:
 func tick(delta: float) -> void:
 	for visual in visuals:
 		visual.tick_visual(delta)
+	if dog_visual:
+		dog_visual.tick_visual(delta)
 	_tick_scene()
 	if lighting:
 		lighting.tick()

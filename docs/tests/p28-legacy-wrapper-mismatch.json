@@ -1,0 +1,499 @@
+{
+	"passed": false,
+	"presentation": {
+		"asset_version": "art-v03-handpaint-20261004-05ac759ba4ad",
+		"events": [],
+		"interaction": {
+			"actor_id": 0,
+			"kind": "",
+			"position": [
+				0.0,
+				0.0
+			],
+			"visible": false
+		},
+		"lighting": {
+			"ambient": "e8eef2ff",
+			"flashlight_enabled": true,
+			"flashlight_radius": 210.0,
+			"lamps": [
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						330.0,
+						170.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						330.0,
+						460.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						330.0,
+						750.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						800.0,
+						160.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						1450.0,
+						160.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						700.0,
+						790.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						1700.0,
+						790.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						830.0,
+						1100.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						1440.0,
+						1120.0
+					],
+					"shadows": true
+				},
+				{
+					"enabled": false,
+					"energy": 0.850000023841858,
+					"position": [
+						2120.0,
+						1060.0
+					],
+					"shadows": true
+				}
+			],
+			"obstacle_revision": 3,
+			"occluder_count": 18,
+			"period": "day",
+			"room": "r04",
+			"sun_enabled": true,
+			"version": "lighting-v02"
+		},
+		"loops": {
+			"chat_loop": false,
+			"crate_move_loop": false,
+			"lockpick_loop": false
+		},
+		"muted": false,
+		"profile": "v03",
+		"render_settings": {
+			"block_elevation": 24.0,
+			"block_top_tiled": false,
+			"characters": "res://art/characters/manifest-v03.json",
+			"contact_alpha": 0.16,
+			"delivery": "res://docs/art/delivery-v03.json",
+			"environment": "res://art/environment/manifest-v03.json",
+			"floor_asset": "floor_handpaint_v03",
+			"floor_tile_size": 384.0,
+			"material_slots": {
+				"block_top": "block_top_handpaint_v03",
+				"crate": "heavy_crate_handpaint_v03",
+				"door_closed": "locked_door_closed_v02",
+				"door_open": "locked_door_open_v02",
+				"wall_front": "stone_front_handpaint_v03",
+				"wall_top": "stone_top_handpaint_v03"
+			},
+			"outline_color": "434941",
+			"outline_width": 1.4,
+			"perspective": true,
+			"projection_alpha": 0.1,
+			"projection_offset": [
+				11.0,
+				8.0
+			],
+			"props": "res://art/props/manifest-v03.json",
+			"soft_shadows": true,
+			"top_modulate": [
+				1.18,
+				1.14,
+				1.08,
+				1.0
+			],
+			"wall_elevation": 18.0,
+			"wall_side_shade": 0.68,
+			"wall_side_width": 4.0
+		},
+		"visuals": [
+			{
+				"destination": [
+					-18.3993663787842,
+					-59.4294776916504,
+					35.3724250793457,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"frame_index": -1,
+				"region": [
+					254.0,
+					57.0,
+					372.0,
+					631.0
+				],
+				"visible": true,
+				"walk_fps": 12.0,
+				"walk_frame_count": 8,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-21.3259658813477,
+					-59.3370170593262,
+					39.0055236816406,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"frame_index": -1,
+				"region": [
+					201.0,
+					92.0,
+					353.0,
+					543.0
+				],
+				"visible": true,
+				"walk_fps": 12.0,
+				"walk_frame_count": 8,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-17.7796325683594,
+					-59.398998260498,
+					35.9599342346191,
+					60.0
+				],
+				"flip_h": false,
+				"frame": "idle",
+				"frame_index": -1,
+				"region": [
+					187.0,
+					52.0,
+					359.0,
+					599.0
+				],
+				"visible": true,
+				"walk_fps": 12.0,
+				"walk_frame_count": 8,
+				"world_height": 60.0
+			},
+			{
+				"destination": [
+					-23.2876892089844,
+					-72.9227676391602,
+					48.7851600646973,
+					72.9227676391602
+				],
+				"flip_h": false,
+				"frame": "walk_1",
+				"frame_index": 1,
+				"region": [
+					0.0,
+					0.0,
+					287.0,
+					429.0
+				],
+				"visible": true,
+				"walk_fps": 12.0,
+				"walk_frame_count": 8,
+				"world_height": 72.0
+			}
+		]
+	},
+	"reason": "cannot_start",
+	"route": "lock",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					320.0,
+					280.0
+				],
+				"selected": true,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					320.0,
+					570.0
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					320.0,
+					860.0
+				],
+				"selected": false,
+				"skill_id": "lockpick"
+			}
+		],
+		"captures": 0,
+		"deal": 2,
+		"dog": {
+			"barks": 0,
+			"confirm_radius": 90.0,
+			"path_size": 0,
+			"position": [
+				680.0,
+				1350.0
+			],
+			"scent_radius": 180.0,
+			"skipped_waypoints": 0,
+			"state": "resting",
+			"target_id": -1,
+			"trail_seconds": 10.0,
+			"trails": 0
+		},
+		"elapsed": 0.133374,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				1.0,
+				0.0
+			],
+			"fov_degrees": 120,
+			"guard_zone": [
+				624.0,
+				100.0,
+				1220.0,
+				1400.0
+			],
+			"lost_time": 0.0,
+			"path_size": 1,
+			"position": [
+				688.669311523438,
+				760.0
+			],
+			"route_index": 1,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 210.0
+		},
+		"guard_position": [
+			688.669311523438,
+			760.0
+		],
+		"inventory": {
+			"bags": {
+				"0": [],
+				"1": [],
+				"2": []
+			},
+			"capacities": [
+				1,
+				1,
+				1
+			],
+			"instances": {
+				"r04-2-1": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-1",
+					"location": "ground",
+					"position": [
+						1020.0,
+						310.0
+					]
+				},
+				"r04-2-2": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-2",
+					"location": "ground",
+					"position": [
+						1410.0,
+						310.0
+					]
+				},
+				"r04-2-3": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-3",
+					"location": "ground",
+					"position": [
+						1020.0,
+						550.0
+					]
+				},
+				"r04-2-4": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-4",
+					"location": "ground",
+					"position": [
+						1410.0,
+						570.0
+					]
+				},
+				"r04-2-5": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-5",
+					"location": "ground",
+					"position": [
+						900.0,
+						1160.0
+					]
+				},
+				"r04-2-6": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-2-6",
+					"location": "ground",
+					"position": [
+						1430.0,
+						1250.0
+					]
+				},
+				"r04-2-7": {
+					"actor_id": -1,
+					"definition_id": "door_key",
+					"id": "r04-2-7",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r04-2-8": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r04-2-8",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r04-2-9": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r04-2-9",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				}
+			},
+			"wallet": 0
+		},
+		"merchants": {
+			"prison_dealer": {
+				"id": "prison_dealer",
+				"name": "生活区商人",
+				"position": [
+					540.0,
+					650.0
+				],
+				"stock": [
+					"r04-2-7",
+					"r04-2-8",
+					"r04-2-9"
+				]
+			}
+		},
+		"orders": [],
+		"phase": "playing",
+		"schedule": {
+			"clock_minutes": 960.1600488,
+			"dog_active": false,
+			"limit_seconds": 300.0,
+			"panel_visible": false,
+			"remaining": 299.866626,
+			"result_visible": false,
+			"stage": "work"
+		},
+		"seed": 11,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				1818.0,
+				1384.0,
+				94.0,
+				92.0
+			],
+			"door_open": false,
+			"lock_progress": 0.0,
+			"obstacle_revision": 3,
+			"push_distance": 0.0,
+			"room_id": "r04"
+		}
+	},
+	"trace": []
+}

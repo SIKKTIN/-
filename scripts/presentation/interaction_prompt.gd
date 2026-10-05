@@ -37,7 +37,7 @@ func _refresh_targets() -> void:
 	kind = ""
 	targets.clear()
 	actor_id = game.selected_actor_id
-	if game.phase != "playing" or game.get_tree().paused:
+	if game.world_input_blocked():
 		return
 	var actor = game.actors[actor_id]
 	if actor.escaped:
@@ -122,6 +122,8 @@ func _refresh_items(actor) -> void:
 			extras.erase(key)
 
 func _activate_extra(key: String) -> void:
+	if game.world_input_blocked():
+		return
 	if key.begins_with("pickup:"):
 		var result: Dictionary = game.inventory.try_pickup(game.selected_actor_id, key.substr(7))
 		game.show_status(str(result.reason) if str(result.reason) != "" else "物品已放入当前伙伴背包。")
