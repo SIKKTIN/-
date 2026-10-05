@@ -12,12 +12,19 @@ var pointer_id: int = -2
 var pointer_start := Vector2.ZERO
 var pointer_last := Vector2.ZERO
 var pointer_dragged := false
+var _pointer_world_transform := Transform2D.IDENTITY
 var following: bool = true
+var _previous_target := Vector2.ZERO
+var _target_sample_valid := false
+var _follow_actor: int = -1
 
 func configure(owner_game) -> void:
 	game = owner_game
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+	process_callback = Camera2D.CAMERA2D_PROCESS_IDLE
 	position_smoothing_enabled = false
+	# EscapeGame owns the update order: movement -> camera -> screen prompts.
+	set_process(false)
 	reset()
 
 func reset() -> void:
@@ -46,10 +53,12 @@ func pan_by(delta: Vector2) -> void:
 func manual_pan_by(delta: Vector2) -> void:
 	if delta != Vector2.ZERO:
 		following = false
+		_target_sample_valid = false
 	pan_by(delta)
 
 func locate_selected() -> void:
 	following = true
+	_target_sample_valid = false
 	if not enabled_for_room:
 		return
 	position = game.actors[game.selected_actor_id].position - VIEW.get_center()
@@ -60,6 +69,7 @@ func interaction_blocked() -> bool:
 
 func center_on(world_point: Vector2) -> void:
 	following = false
+	_target_sample_valid = false
 	if enabled_for_room:
 		position = world_point - VIEW.get_center()
 		pan_by(Vector2.ZERO)
@@ -77,6 +87,7 @@ func begin_pointer(id: int, point: Vector2) -> bool:
 	pointer_start = point
 	pointer_last = point
 	pointer_dragged = false
+	_pointer_world_transform = game.get_global_transform_with_canvas().affine_inverse()
 	return true
 
 func move_pointer(point: Vector2) -> void:
@@ -91,25 +102,30 @@ func end_pointer(point: Vector2, cancelled: bool = false) -> void:
 	if not cancelled and not pointer_dragged and point.distance_to(pointer_start) >= DRAG_THRESHOLD:
 		move_pointer(point)
 	if not cancelled and not pointer_dragged and VIEW.has_point(point) and not over_ui(point):
-		var world_point: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*point
+		# Keep the intended tap on the world seen at press time. Following can
+		# continue while a finger is held, without shifting its command target.
+		var world_point: Vector2 = _pointer_world_transform*point
 		if not game.select_at(world_point):
 			game.command_at(world_point)
 	pointer_id = -2
 	pointer_dragged = false
 
-func _process(delta: float) -> void:
+func tick(delta: float) -> void:
 	scroll_direction = Vector2.ZERO
 	if not game:
 		return
 	if not get_window().has_focus() or interaction_blocked():
 		panning = false
 		pointer_id = -2
+		_target_sample_valid = false
 		return
 	if not enabled_for_room:
 		return
-	if panning or pointer_id != -2:
+	if panning or (pointer_id != -2 and pointer_dragged):
+		_target_sample_valid = false
 		return
 	if game.mini_map and game.mini_map.pointer_id != -2:
+		_target_sample_valid = false
 		return
 	var keys := Vector2(
 		float(Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_LEFT)),
@@ -123,9 +139,22 @@ func _process(delta: float) -> void:
 		var low: Vector2 = game.world.bounds.position-VIEW.position
 		var high: Vector2 = (game.world.bounds.end-VIEW.end).max(low)
 		target = target.clamp(low,high)
-		# Exponential smoothing is frame-rate independent; drawing and hit
-		# testing use this same real Camera2D position, without hidden smoothing.
-		pan_by(position.lerp(target,1.0-exp(-FOLLOW_SPEED*delta))-position)
+		var decay := exp(-FOLLOW_SPEED*delta)
+		var next: Vector2
+		if _target_sample_valid and _follow_actor == game.selected_actor_id and delta > 0:
+			# Integrate a linearly moving target analytically. Lerp to just the
+			# endpoint gives a different following distance on long/short frames.
+			var velocity: Vector2 = (target-_previous_target)/delta
+			var lag: Vector2 = velocity/FOLLOW_SPEED
+			next = target-lag+(position-_previous_target+lag)*decay
+		else:
+			next = target+(position-target)*decay
+		_previous_target = target
+		_follow_actor = game.selected_actor_id
+		_target_sample_valid = true
+		if next.distance_squared_to(target) < 0.000001:
+			next = target # Stop tiny residual subpixel movement while standing still.
+		pan_by(next-position)
 
 func _input(event: InputEvent) -> void:
 	if not game:

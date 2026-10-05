@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "version": "v0.8.2-p25-camera-stability",
+  "predecessor": "c4b9c2e",
+  "task_id": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+  "native_checks_per_size": 25,
+  "native_checks_total": 50,
+  "variable_dt_lag_jitter_before": 0.183497101068497,
+  "variable_dt_lag_jitter_after": 0.000140536780236289,
+  "scope": "Native framebuffer and simulated target math; existing linear sampling and vsync kept. No physical scanout, Android/iOS or human proof.",
+  "preserved_user_config": "project.godot not modified, overwritten or staged",
+  "sources": [
+    {
+      "path": "README.md",
+      "sha256": "ff036996d1335dca6f7a6b24d7b409ee4c129f14a98546cc04e4488f5150ef66"
+    },
+    {
+      "path": "scripts/core/map_camera.gd",
+      "sha256": "c42b9fd3c3d3f885cc27cc823057e5c3ae9101cb5b6951c622ef9a9bea8b9345"
+    },
+    {
+      "path": "scripts/core/escape_game.gd",
+      "sha256": "dadd1566682ef1f149150b10df8faa46cb52f15e6c09601d84bbdf665fb6e1d8"
+    },
+    {
+      "path": "docs/dev/p25-camera-stability.md",
+      "sha256": "6bd8ba5ae4ab268df14a9f293886695add982fdabdd8cd7d51bf61ce77b76438"
+    },
+    {
+      "path": "tests/p25_native_follow.gd",
+      "sha256": "86ca8b539c4531c6f5313b2d1abf9479204f277d7153c60123d82428e812410f"
+    },
+    {
+      "path": "tests/p25_native_follow.gd.uid",
+      "sha256": "1baec0597adcf34baf607e404fa9247d760e96f6a67ca52632f99b455970de02"
+    },
+    {
+      "path": "tests/p25_scroll_sampling.gd",
+      "sha256": "00addfad5b305111a80ff5e31aa9b1bd90b8def0c21dd76b8325f03b54431dda"
+    },
+    {
+      "path": "tests/p25_scroll_sampling.gd.uid",
+      "sha256": "2d34aba5a6085dca9b1ec9119b28b12bcd115e4c996ba1526704ac3a1e6b8e03"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/tests/p25-follow-initial-threshold.json",
+      "sha256": "eab2782498822bcedb6965fd8bf8ee1312fe58c9bdb7ae8e0253e39f7a6f727a"
+    },
+    {
+      "path": "docs/tests/p25-live-follow.json",
+      "sha256": "3062233c2307552c02a997ecb6935dbf2bd51672af208c62e2f97dc0b2efeaaa"
+    },
+    {
+      "path": "docs/tests/p25-live-follow.png",
+      "sha256": "b92ca79abf9cd2c58de291012a04a931a36e9639c46566665c81f5c3afcb9995"
+    },
+    {
+      "path": "docs/tests/p25-native-960-initial-failure.json",
+      "sha256": "c3dbb8eca25b94d747d22965606ceb7dff3f199d9404a833f635fca47b2494eb"
+    },
+    {
+      "path": "docs/tests/p25-native-follow-1280x720.json",
+      "sha256": "54fe2bc7521c19d5f631bba8158c15f1560ffcd23c5a94b210bcbf153e95d9cd"
+    },
+    {
+      "path": "docs/tests/p25-native-follow-1280x720.png",
+      "sha256": "56e58560d61c999623dd2d918a34b2665d36d8cbcdf86c4259d823112abc12c2"
+    },
+    {
+      "path": "docs/tests/p25-native-follow-960x540.json",
+      "sha256": "df859a7da0a9d20371f55d604f5a5cbb5336b6aaed8d9ee746ee6fa1541b9fed"
+    },
+    {
+      "path": "docs/tests/p25-native-follow-960x540.png",
+      "sha256": "d695d1dbde79f8c2cc5ba4c40a33b2747fc31fd2059a080a429cbc93bdbe2095"
+    },
+    {
+      "path": "docs/tests/p25-sampling-after.json",
+      "sha256": "40e6c586b6fedc01c613762f99c1ec422ccefc65637f969d70f4e060d7b90780"
+    },
+    {
+      "path": "docs/tests/p25-sampling-after.png",
+      "sha256": "4094a34147dd1d3bcad4a26bfe888dac89d75a9e4e36f9b3b63baaa4ee1215c6"
+    },
+    {
+      "path": "docs/tests/p25-sampling-before.json",
+      "sha256": "af910a211bab76939129d9e197e16f249ffb67e2a0bdcb3c0dfa1d4fad346999"
+    },
+    {
+      "path": "docs/tests/p25-sampling-before.png",
+      "sha256": "4094a34147dd1d3bcad4a26bfe888dac89d75a9e4e36f9b3b63baaa4ee1215c6"
+    }
+  ]
+}

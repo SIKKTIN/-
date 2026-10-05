@@ -169,6 +169,8 @@ func _build_ui() -> void:
 
 func _process(delta: float) -> void:
 	if phase != "playing":
+		if map_camera:
+			map_camera.tick(delta)
 		if presentation:
 			presentation.tick(delta)
 		return
@@ -179,6 +181,8 @@ func _process(delta: float) -> void:
 	skills.tick(delta)
 	guard.tick(delta)
 	guard_position = guard.position
+	if map_camera:
+		map_camera.tick(delta)
 	if phase == "playing" and elapsed >= status_until:
 		status_text = "逃脱 %d / 3 · 锁门%s · 抓回 %d 次 · 狱警%s" % [actors.filter(func(a): return a.escaped).size(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
 	_update_ui()
