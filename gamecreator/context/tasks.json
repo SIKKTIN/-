@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "9630bf0bb14e2093001664be2143b0f3528f10ac7d7419449d35b819e3ddbe7e",
+  "snapshotId": "b7896296eff80143d15d26e674d38b74bb397d98ea0e11d6be738887a2c3caa6",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2073,6 +2073,53 @@
           "at": "2026-10-05T04:05:21.989Z"
         }
       ]
+    },
+    {
+      "id": "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
+      "title": "P31 · 开发者时钟调速与完整日程/宵禁",
+      "description": "新增手机可操作开发者设置面板，首参数仅调整日程时间流速，移动/技能/AI不随之加速；独立时钟从08点开始按用户指定五时段至沿用22点封监。20点自动下达尚未离场囚犯归寝指令、寝室外进入警戒，寝室内安全；玩家可违令继续越狱且承担被发现风险。商人20点收摊，警犬/狱警继续外部戒备。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "验证流速0/慢/快/运行中修改不跳时、跨时段/截止边界、重开/换图与保存偏好；五时段文字与灯光一致；20点安全寝室识别、仅一次归寝命令、受阻提示不瞬移、寝室外警戒/房内豁免，真实两尺寸触摸打开调速/关弹窗且地图输入被挡。保留用户project.godot差异。",
+      "result": "交付7419be1：开发者设置调0~16×日程时钟，动作/技能/免疫/AI实时时间独立；流速偏好持久化且改速不跳时。08–12劳动、12–14吃饭休息、14–18劳动、18–20自由活动、20–22归寝宵禁；20点仅一次正常寻路归寝、堵路提示不瞬移、允许玩家违令；商人收摊/禁聊，监管区内155距离360°红色警戒灯与视线一致，寝室/安全边界保留。55逻辑、两尺寸各20原生触摸/渲染和活编辑器4×/0×测试通过；查看实际截图无重叠。未实现白天劳动/食堂自动岗位行为；22封监沿用，手机真机/真人趣味性仍未验证。用户root project.godot哈希保持不变。\n\n验收通过：制作人独立核对7419be1源代码、55逻辑/两尺寸20项触摸及实际截图、活编辑器计时结果后通过。日程阶段、20点归寝与警戒已实现；白天自主劳动/用餐未实现的边界和真机/真人未测均已清楚记录。未改用户project.godot。",
+      "dependencyIds": [],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/**",
+          "qa/**",
+          "docs/**",
+          "README.md",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn @ E:/Project/Godot/这次怎么逃",
+        "interfaceContract": "实时时间game.elapsed用于免疫/技能/AI；独立schedule.clock_elapsed推进日程/封监；自验收先提交证据后另行审核。保留独立人物命令、小地图、已有资源。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "p31-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T05:19:38.398Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2204,7 +2251,8 @@
             "7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa",
             "7915037d-f2fe-41f9-aa65-94df1401c224",
             "85591515-840e-4aa8-bb7a-ae415b7ad51e",
-            "66100dfe-3511-41ae-af3e-7cb4364fd619"
+            "66100dfe-3511-41ae-af3e-7cb4364fd619",
+            "d5224c01-3063-4c24-a0a6-f3c7b8e719fb"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2589,6 +2637,16 @@
       "modules": [
         "gameplay"
       ]
+    },
+    {
+      "id": "p31-daily-curfew-20261005",
+      "digest": "c0a464c9409da268900800683a0c249b0ceaedd7be1c8a7fd6d94148b5fcc2e1",
+      "summary": "按用户指定08至22日程，增加开发者时钟流速、20点归寝与外部宵禁警戒，回写实际范围与验证。",
+      "memberName": "制作人",
+      "at": "2026-10-05T05:37:32.815Z",
+      "modules": [
+        "gameplay"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -2791,6 +2849,18 @@
         "85591515-840e-4aa8-bb7a-ae415b7ad51e",
         "418e1ea3-5803-41da-82c2-f80939359f52",
         "66100dfe-3511-41ae-af3e-7cb4364fd619"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p31-plan-20261005",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T05:19:38.398Z",
+      "reason": "用户指定开发者时间流速与08~22完整日程、20点归寝与外部警戒。",
+      "createdTaskIds": [
+        "d5224c01-3063-4c24-a0a6-f3c7b8e719fb"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -8913,6 +8983,140 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T04:50:07.677Z",
         "note": "制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p31-start-20261005",
+      "taskId": "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手：时钟独立于动作时间，开发面板调速；五阶段日程与20点自动归寝/外部警戒。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/data/schedule.json"
+      ],
+      "at": "2026-10-05T05:28:47.342Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
+        "title": "P31 · 开发者时钟调速与完整日程/宵禁",
+        "description": "新增手机可操作开发者设置面板，首参数仅调整日程时间流速，移动/技能/AI不随之加速；独立时钟从08点开始按用户指定五时段至沿用22点封监。20点自动下达尚未离场囚犯归寝指令、寝室外进入警戒，寝室内安全；玩家可违令继续越狱且承担被发现风险。商人20点收摊，警犬/狱警继续外部戒备。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "验证流速0/慢/快/运行中修改不跳时、跨时段/截止边界、重开/换图与保存偏好；五时段文字与灯光一致；20点安全寝室识别、仅一次归寝命令、受阻提示不瞬移、寝室外警戒/房内豁免，真实两尺寸触摸打开调速/关弹窗且地图输入被挡。保留用户project.godot差异。",
+        "result": "已接手：时钟独立于动作时间，开发面板调速；五阶段日程与20点自动归寝/外部警戒。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/**",
+            "qa/**",
+            "docs/**",
+            "README.md",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn @ E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "实时时间game.elapsed用于免疫/技能/AI；独立schedule.clock_elapsed推进日程/封监；自验收先提交证据后另行审核。保留独立人物命令、小地图、已有资源。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p31-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T05:19:38.398Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p31-final-20261005",
+      "taskId": "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "交付7419be1：开发者设置调0~16×日程时钟，动作/技能/免疫/AI实时时间独立；流速偏好持久化且改速不跳时。08–12劳动、12–14吃饭休息、14–18劳动、18–20自由活动、20–22归寝宵禁；20点仅一次正常寻路归寝、堵路提示不瞬移、允许玩家违令；商人收摊/禁聊，监管区内155距离360°红色警戒灯与视线一致，寝室/安全边界保留。55逻辑、两尺寸各20原生触摸/渲染和活编辑器4×/0×测试通过；查看实际截图无重叠。未实现白天劳动/食堂自动岗位行为；22封监沿用，手机真机/真人趣味性仍未验证。用户root project.godot哈希保持不变。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p31-developer-schedule.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p31-logic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p31-native-1200x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p31-native-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p31-editor-live.json",
+        "https://github.com/SIKKTIN/-/commit/7419be1"
+      ],
+      "at": "2026-10-05T05:41:33.720Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
+        "title": "P31 · 开发者时钟调速与完整日程/宵禁",
+        "description": "新增手机可操作开发者设置面板，首参数仅调整日程时间流速，移动/技能/AI不随之加速；独立时钟从08点开始按用户指定五时段至沿用22点封监。20点自动下达尚未离场囚犯归寝指令、寝室外进入警戒，寝室内安全；玩家可违令继续越狱且承担被发现风险。商人20点收摊，警犬/狱警继续外部戒备。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "验证流速0/慢/快/运行中修改不跳时、跨时段/截止边界、重开/换图与保存偏好；五时段文字与灯光一致；20点安全寝室识别、仅一次归寝命令、受阻提示不瞬移、寝室外警戒/房内豁免，真实两尺寸触摸打开调速/关弹窗且地图输入被挡。保留用户project.godot差异。",
+        "result": "交付7419be1：开发者设置调0~16×日程时钟，动作/技能/免疫/AI实时时间独立；流速偏好持久化且改速不跳时。08–12劳动、12–14吃饭休息、14–18劳动、18–20自由活动、20–22归寝宵禁；20点仅一次正常寻路归寝、堵路提示不瞬移、允许玩家违令；商人收摊/禁聊，监管区内155距离360°红色警戒灯与视线一致，寝室/安全边界保留。55逻辑、两尺寸各20原生触摸/渲染和活编辑器4×/0×测试通过；查看实际截图无重叠。未实现白天劳动/食堂自动岗位行为；22封监沿用，手机真机/真人趣味性仍未验证。用户root project.godot哈希保持不变。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/**",
+            "qa/**",
+            "docs/**",
+            "README.md",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn @ E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "实时时间game.elapsed用于免疫/技能/AI；独立schedule.clock_elapsed推进日程/封监；自验收先提交证据后另行审核。保留独立人物命令、小地图、已有资源。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p31-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T05:19:38.398Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T05:43:24.442Z",
+        "note": "制作人独立核对7419be1源代码、55逻辑/两尺寸20项触摸及实际截图、活编辑器计时结果后通过。日程阶段、20点归寝与警戒已实现；白天自主劳动/用餐未实现的边界和真机/真人未测均已清楚记录。未改用户project.godot。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }
