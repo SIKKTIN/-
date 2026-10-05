@@ -2167,6 +2167,53 @@
             "at": "2026-10-05T05:50:00.522Z"
           }
         ]
+      },
+      {
+        "id": "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+        "title": "A09 · 手机横屏全屏UI布局概念",
+        "description": "基于最新截图与FINAL-WARM-01风格，制作一张手机横屏全屏游戏HUD概念图。监狱场景铺满屏幕，取消永久页头/右侧白栏/外边框。呈现三伙伴选择、选中技能与1或3格背包、钱包/逃脱目标、游戏钟与封监紧迫感、小地图及定位、情境互动和暂停入口。原轻点选择/移动、单指拖镜头、小地图导航保持；不要添加摇杆、战斗技能、血条等无关系统。非日常调试/关卡选择收进菜单。概念不是运行实装或用户视觉确认。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "内置image_gen产出并实际检查一张20:9或接近手机横屏的精致主概念PNG，地图出血到四边、浮动HUD不形成新白侧栏，文字与触屏层级清楚。复用三伙伴和真实监狱风格，当前1格背包和扩容3格展示逻辑解释清楚；小地图/暂停/选人/移动空间/邻近图标完整。交付PNG、最终提示词、布局/触屏安全边距及主要展开面板说明、可核对路径和报告。提交制作人技术审核后仍等待用户认可风格/布局；不启动程序实装。",
+        "result": "交付手机横屏全屏 HUD 主概念 PNG 与布局说明。满屏监狱世界、四角浮动纸卡、三伙伴一触选择、1格当前背包、小地图/定位/停止/暂停、邻近交易图标；主图及唯一一次定向修订均由内置 image_gen 完成，最终工程图已实际检查。仅概念待用户认可，未改游戏 UI 或正式风格。\n\n验收通过：制作人技术审核概念交付通过：已实际查看1882×836最终PNG与完整提示词/布局说明，世界铺满屏幕四边，三伙伴选择、选中态、单格背包/扩容说明、停止、小地图定位、时钟/封监与目标、情境交易完整，关键角色与通道清楚。首图假第二格已修正。日程进度位置仅示意且文档明确偏差，后续实装必须真实计算；触屏热区/安全区需按手机尺寸验证。此验收仅确认概念交付，不确认用户满意/新正式视觉基线，不授权代码实装。用户将看本图后决定布局，原游戏代码和project.godot差异保持。",
+        "dependencyIds": [],
+        "references": [
+          {
+            "kind": "gameplay",
+            "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+          }
+        ],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "art/concepts/ui-fullscreen/**",
+            "docs/art/a09-*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/art/concepts/ui-fullscreen/；参考最新用户截图和当前R04",
+          "interfaceContract": "仅主美概念图与设计说明，不改scripts/data/scenes/project.godot或共享代码，不更换正式美术基线，不推送或修改他人文件。使用主美本人的协作凭证提交进度和交付，制作人验收技术交付，用户后续决定视觉方案。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "a09-fullscreen-ui-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T06:15:11.880Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -2715,6 +2762,18 @@
         "reason": "用户圈出R04细墙在镜头移动时抖动闪烁；对实际几何和纹理进行隔离对照定位。",
         "createdTaskIds": [
           "7040e23d-a33a-4fe4-84b9-dc19e80e3e38"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "a09-fullscreen-ui-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T06:15:11.880Z",
+        "reason": "用户要求主美先设计正式版全屏手机UI布局概念图，供本人判断满意后再决定引擎落地。本轮只做概念，不修改游戏运行界面。",
+        "createdTaskIds": [
+          "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -9108,6 +9167,140 @@
           "at": "2026-10-05T06:08:38.063Z",
           "note": "制作人自验收（非独立/真人验收）：核对实际同墙/同纹理GPU对照、内墙面差0、两尺寸连续平滑跟随与宵禁灯截图，固定命令缓存和几何重建真实通过。GPU调用增加34、缓存/纹理内存不增；未把过程采样尖峰当帧率提升。保留用户project.godot SHA256一致，PNG/碰撞/相机不改。技术范围通过；用户物理屏幕与手机真机需后续观感复核。",
           "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "a09-start-20261005-art",
+        "taskId": "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "主美实际接手 A09，已读取任务与 FINAL-WARM-01 当前基线并检查最新 R04 截图，开始制作手机横屏全屏浮动 HUD 概念。",
+        "evidence": [
+          "参考已查看：C:/Users/gst20/AppData/Local/Temp/codex-clipboard-98fe5777-2c77-471d-b01c-a380dbda7eca.png",
+          "仅修改 art/concepts/ui-fullscreen/** 与 docs/art/a09-*；保留暂停、小地图定位及停止入口，物品动作按选中才展开。"
+        ],
+        "at": "2026-10-05T06:19:56.457Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+          "title": "A09 · 手机横屏全屏UI布局概念",
+          "description": "基于最新截图与FINAL-WARM-01风格，制作一张手机横屏全屏游戏HUD概念图。监狱场景铺满屏幕，取消永久页头/右侧白栏/外边框。呈现三伙伴选择、选中技能与1或3格背包、钱包/逃脱目标、游戏钟与封监紧迫感、小地图及定位、情境互动和暂停入口。原轻点选择/移动、单指拖镜头、小地图导航保持；不要添加摇杆、战斗技能、血条等无关系统。非日常调试/关卡选择收进菜单。概念不是运行实装或用户视觉确认。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "内置image_gen产出并实际检查一张20:9或接近手机横屏的精致主概念PNG，地图出血到四边、浮动HUD不形成新白侧栏，文字与触屏层级清楚。复用三伙伴和真实监狱风格，当前1格背包和扩容3格展示逻辑解释清楚；小地图/暂停/选人/移动空间/邻近图标完整。交付PNG、最终提示词、布局/触屏安全边距及主要展开面板说明、可核对路径和报告。提交制作人技术审核后仍等待用户认可风格/布局；不启动程序实装。",
+          "result": "主美实际接手 A09，已读取任务与 FINAL-WARM-01 当前基线并检查最新 R04 截图，开始制作手机横屏全屏浮动 HUD 概念。",
+          "dependencyIds": [],
+          "references": [
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/ui-fullscreen/**",
+              "docs/art/a09-*"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/art/concepts/ui-fullscreen/；参考最新用户截图和当前R04",
+            "interfaceContract": "仅主美概念图与设计说明，不改scripts/data/scenes/project.godot或共享代码，不更换正式美术基线，不推送或修改他人文件。使用主美本人的协作凭证提交进度和交付，制作人验收技术交付，用户后续决定视觉方案。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a09-fullscreen-ui-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T06:15:11.880Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a09-fullscreen-ui-ready-20261005",
+        "taskId": "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "交付手机横屏全屏 HUD 主概念 PNG 与布局说明。满屏监狱世界、四角浮动纸卡、三伙伴一触选择、1格当前背包、小地图/定位/停止/暂停、邻近交易图标；主图及唯一一次定向修订均由内置 image_gen 完成，最终工程图已实际检查。仅概念待用户认可，未改游戏 UI 或正式风格。",
+        "evidence": [
+          "PNG：E:/Project/Godot/这次怎么逃/art/concepts/ui-fullscreen/a09-fullscreen-hud-v01.png；1882×836 RGB，2168765 bytes；SHA256 F3F64CDBC4815E2CE035F2823B79F772535BE62F483FF40F735D8BFBBA2F476F。",
+          "设计说明/原始及修订提示词：E:/Project/Godot/这次怎么逃/docs/art/a09-fullscreen-ui.md。说明1/3格适配、手机热区/字号/安全区目标和菜单/日程/交易展开层级。",
+          "实际查看工程 PNG：世界铺满四边、无网页右栏；三卡选中和技能分离；最终背包只一格钥匙；人物、商人与主走道可见。首图多余空格已通过一次定向修订去除。",
+          "已知概念限制：时间圆点/橙条未被修订可靠校正，实际10:56需按08–12约73%计算；暂停/定位热区真机尺寸尚未验证；部分人物3服装/家具为概念变化不要求替换正式资产。静图不是可玩实装或用户满意确认。",
+          "仅新增允许路径内 PNG 与文档；未修改 scripts/data/scenes/project.godot，未提交 Git 或推送；git diff --check 无报错。"
+        ],
+        "at": "2026-10-05T06:26:58.889Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+          "title": "A09 · 手机横屏全屏UI布局概念",
+          "description": "基于最新截图与FINAL-WARM-01风格，制作一张手机横屏全屏游戏HUD概念图。监狱场景铺满屏幕，取消永久页头/右侧白栏/外边框。呈现三伙伴选择、选中技能与1或3格背包、钱包/逃脱目标、游戏钟与封监紧迫感、小地图及定位、情境互动和暂停入口。原轻点选择/移动、单指拖镜头、小地图导航保持；不要添加摇杆、战斗技能、血条等无关系统。非日常调试/关卡选择收进菜单。概念不是运行实装或用户视觉确认。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "内置image_gen产出并实际检查一张20:9或接近手机横屏的精致主概念PNG，地图出血到四边、浮动HUD不形成新白侧栏，文字与触屏层级清楚。复用三伙伴和真实监狱风格，当前1格背包和扩容3格展示逻辑解释清楚；小地图/暂停/选人/移动空间/邻近图标完整。交付PNG、最终提示词、布局/触屏安全边距及主要展开面板说明、可核对路径和报告。提交制作人技术审核后仍等待用户认可风格/布局；不启动程序实装。",
+          "result": "交付手机横屏全屏 HUD 主概念 PNG 与布局说明。满屏监狱世界、四角浮动纸卡、三伙伴一触选择、1格当前背包、小地图/定位/停止/暂停、邻近交易图标；主图及唯一一次定向修订均由内置 image_gen 完成，最终工程图已实际检查。仅概念待用户认可，未改游戏 UI 或正式风格。",
+          "dependencyIds": [],
+          "references": [
+            {
+              "kind": "gameplay",
+              "targetId": "a4539d92-4c10-4137-8796-ce73a71e21e5"
+            }
+          ],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/ui-fullscreen/**",
+              "docs/art/a09-*"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/art/concepts/ui-fullscreen/；参考最新用户截图和当前R04",
+            "interfaceContract": "仅主美概念图与设计说明，不改scripts/data/scenes/project.godot或共享代码，不更换正式美术基线，不推送或修改他人文件。使用主美本人的协作凭证提交进度和交付，制作人验收技术交付，用户后续决定视觉方案。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a09-fullscreen-ui-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T06:15:11.880Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T06:28:28.080Z",
+          "note": "制作人技术审核概念交付通过：已实际查看1882×836最终PNG与完整提示词/布局说明，世界铺满屏幕四边，三伙伴选择、选中态、单格背包/扩容说明、停止、小地图定位、时钟/封监与目标、情境交易完整，关键角色与通道清楚。首图假第二格已修正。日程进度位置仅示意且文档明确偏差，后续实装必须真实计算；触屏热区/安全区需按手机尺寸验证。此验收仅确认概念交付，不确认用户满意/新正式视觉基线，不授权代码实装。用户将看本图后决定布局，原游戏代码和project.godot差异保持。",
+          "mode": "independent",
           "evidenceVersion": 1
         }
       }
