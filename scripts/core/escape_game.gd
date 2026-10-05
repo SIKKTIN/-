@@ -233,6 +233,7 @@ func _process(delta: float) -> void:
 			_update_ui()
 			return
 	orders.tick(delta)
+	trade.tick(delta)
 	skills.tick(delta)
 	dog.tick(delta)
 	guard.tick(delta)

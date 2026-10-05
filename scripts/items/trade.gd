@@ -1,16 +1,26 @@
 extends RefCounted
 
+const Merchant = preload("res://scripts/actors/merchant.gd")
+
 var game
 var merchants: Dictionary = {}
+var actors: Dictionary = {}
 
 func _init(owner_game) -> void:
 	game = owner_game
 
 func reset(config: Dictionary) -> void:
+	for actor in actors.values():
+		actor.free()
+	actors.clear()
 	merchants.clear()
 	for spec in config.get("merchants", []):
 		var id := str(spec.id)
 		merchants[id] = {"id": id, "name": spec.get("name", "商人"), "position": spec.position.duplicate(), "stock": []}
+		var actor = Merchant.new()
+		game.add_child(actor)
+		actor.configure(game,spec)
+		actors[id] = actor
 		for offer in spec.get("stock", []):
 			for n in range(int(offer.count)):
 				var item_id: String = game.inventory.add_ground(str(offer.definition_id), Vector2.ZERO)
@@ -18,11 +28,26 @@ func reset(config: Dictionary) -> void:
 				game.inventory.instances[item_id]["merchant_id"] = id
 				merchants[id].stock.append(item_id)
 
+func tick(delta: float) -> void:
+	for id in actors:
+		actors[id].tick(delta)
+		merchants[id].position = [actors[id].position.x,actors[id].position.y]
+	# Close an already-open shop before UI processing or a late purchase click.
+	if game.shop_panel and game.shop_panel.panel.visible and not is_open(game.shop_panel.merchant_id):
+		game.shop_panel.close()
+		game.show_status("商人已收摊。营业时间：12:00–14:00、18:00–20:00。")
+
+func is_open(id: String) -> bool:
+	if not actors.has(id):
+		return false
+	actors[id].update_schedule()
+	return actors[id].is_open()
+
 func reason(actor_id: int, merchant_id: String) -> String:
-	if game.schedule and game.schedule.is_curfew():
-		return "20:00已收摊，请在白天交易。"
 	if not game.inventory.available(actor_id) or not merchants.has(merchant_id):
 		return "当前伙伴不能交易。"
+	if not is_open(merchant_id):
+		return "商人%s；12:00–14:00、18:00–20:00到摊位营业。" % actors[merchant_id].activity_text()
 	var actor = game.actors[actor_id]
 	var pos: Array = merchants[merchant_id].position
 	var point := Vector2(pos[0], pos[1])
@@ -67,4 +92,7 @@ func try_sell(actor_id: int, merchant_id: String, item_id: String) -> Dictionary
 	return {"ok": true, "reason": "出售成功，共享钱包 +%d。" % price}
 
 func snapshot() -> Dictionary:
-	return merchants.duplicate(true)
+	var result: Dictionary = merchants.duplicate(true)
+	for id in actors:
+		result[id].merge(actors[id].snapshot(),true)
+	return result

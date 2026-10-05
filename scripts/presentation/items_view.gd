@@ -61,8 +61,7 @@ func _draw() -> void:
 			draw_circle(point - Vector2(0, 10), 11, Color("e1c787"))
 			draw_arc(point - Vector2(0, 10), 11, 0, TAU, 24, Color("536052"), 2, true)
 	for merchant in game.trade.merchants.values():
-		if game.schedule and game.schedule.is_curfew():
-			continue
+		var actor = game.trade.actors[merchant.id]
 		var point := Vector2(merchant.position[0], merchant.position[1])
 		if not merchant_asset.get("shadow_baked",false):
 			draw_ellipse(point+Vector2(0,2),15,4,Color(0,0,0,0.14))
@@ -71,7 +70,10 @@ func _draw() -> void:
 			var height := float(merchant_asset.get("world_height", 64))
 			var ratio := height / texture.get_height()
 			var anchor: Array = merchant_asset.get("anchor", [texture.get_width()/2.0, texture.get_height()])
-			draw_texture_rect(texture, Rect2(point - Vector2(anchor[0], anchor[1])*ratio, texture.get_size()*ratio), false)
+			var bob: float = sin(actor.walk_clock)*1.2 if actor.moved_this_frame else 0.0
+			draw_set_transform(point+Vector2(0,bob),0,Vector2(-1 if actor.facing.x < -0.08 else 1,1))
+			draw_texture_rect(texture, Rect2(-Vector2(anchor[0], anchor[1])*ratio, texture.get_size()*ratio), false)
+			draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 		else:
 			draw_circle(point - Vector2(0, 44), 10, Color("e8bf8c"))
 			draw_rect(Rect2(point - Vector2(14, 33), Vector2(28, 31)), Color("568880"))
@@ -86,7 +88,10 @@ func paint_information(canvas: CanvasItem) -> void:
 			var label := str(game.inventory.definitions.get(item.definition_id,{}).get("short",item.definition_id))
 			canvas.draw_string(game.presentation.font,point+Vector2(-14,16),label,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("e1e9df") if game.presentation.lighting.period == "night" else Color("536052"))
 	for merchant in game.trade.merchants.values():
+		var actor = game.trade.actors[merchant.id]
 		var point := Vector2(merchant.position[0],merchant.position[1])
-		var badge := Rect2(point+Vector2(-32,12),Vector2(64,23))
+		var text: String = "商人 · "+("路线受阻" if actor.route_status != "" and not actor.at_destination() else actor.activity_text())
+		var width: float = game.presentation.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x+12
+		var badge := Rect2(point+Vector2(-width/2,12),Vector2(width,23))
 		canvas.draw_rect(badge,Color("f2ebdd"))
-		canvas.draw_string(game.presentation.font,badge.position+Vector2(5,17),"已收摊" if game.schedule and game.schedule.is_curfew() else "商人",HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("303b46"))
+		canvas.draw_string(game.presentation.font,badge.position+Vector2(6,17),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("328b82") if actor.is_open() else Color("536052"))

@@ -99,7 +99,7 @@ func release_target() -> void:
 	stalled_time = 0
 
 func investigate(point: Vector2) -> bool:
-	if game.phase != "playing" or state == "chasing" or not search_zone().grow(-17).has_point(point):
+	if not curfew_alert() or game.phase != "playing" or state == "chasing" or not search_zone().grow(-17).has_point(point):
 		return false
 	var goal := point
 	if not world.can_place_circle(goal,17,self,true):
@@ -135,6 +135,8 @@ func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing":
 		return
+	if not curfew_alert() and state in ["chasing", "searching"]:
+		release_target()
 	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),position)
 	if returning_from_inspection and world.guard_zone.grow(-17).has_point(position):
 		returning_from_inspection = false
@@ -145,6 +147,8 @@ func tick(delta: float) -> void:
 	var nearest_id: int = -1
 	var nearest_distance: float = INF
 	for actor in game.actors:
+		if not curfew_alert():
+			break
 		if actor.escaped or (game.routines != null and game.routines.is_lawful(actor.actor_id)) or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id or (game.schedule != null and game.schedule.is_sleeping(actor.actor_id)):
 			continue
 		var distance: float = position.distance_to(actor.position)
@@ -208,7 +212,7 @@ func tick(delta: float) -> void:
 	queue_redraw()
 
 func _capture_if_touching() -> void:
-	if state != "chasing" or target_id < 0:
+	if not curfew_alert() or state != "chasing" or target_id < 0:
 		return
 	var target = game.actors[target_id]
 	if target.escaped or (game.routines != null and game.routines.is_lawful(target_id)) or (game.schedule != null and game.schedule.is_sleeping(target_id)) or not search_zone().has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):

@@ -60,7 +60,7 @@ func movement_allowed(point: Vector2, radius: float = 17) -> bool:
 	return world.guard_zone.grow(-radius).has_point(point)
 
 func _valid_actor(id: int) -> bool:
-	return id >= 0 and id < game.actors.size() and not game.actors[id].escaped and not (game.routines != null and game.routines.is_lawful(id)) and game.elapsed >= game.actors[id].immune_until and world.guard_zone.has_point(game.actors[id].position)
+	return game.schedule != null and game.schedule.is_curfew() and id >= 0 and id < game.actors.size() and not game.actors[id].escaped and not (game.routines != null and game.routines.is_lawful(id)) and game.elapsed >= game.actors[id].immune_until and world.guard_zone.has_point(game.actors[id].position)
 
 func _sample_trails(delta: float) -> void:
 	trails = trails.filter(func(t): return game.elapsed-float(t.time) <= TRAIL_SECONDS and _valid_actor(int(t.actor_id)))
@@ -85,6 +85,8 @@ func tick(delta: float) -> void:
 		return
 	_sample_trails(delta)
 	if not game.schedule or not game.schedule.dog_active():
+		_release()
+		trails.clear()
 		state = "resting"
 		return
 	if state == "resting":

@@ -1,0 +1,19 @@
+{
+	"checks": {
+		"auto_close_at_14": true,
+		"closed_prompt_hidden": true,
+		"closed_rejects_buy_without_deduction": true,
+		"day_touch_no_capture": true,
+		"merchant_actually_walking": true,
+		"morning_no_trade": true,
+		"night_cone_chases": true,
+		"noon_prompt_visible": true,
+		"real_noon_arrival": true,
+		"touch_buy": true,
+		"touch_opens_business": true,
+		"touch_sell": true,
+		"visible_day_cone_no_chase": true
+	},
+	"passed": true,
+	"scope": "Native D3D12: actual merchant morning commute and noon arrival; real touch buy/sell. Isolated actor/guard positions demonstrate arrest rules; UI purchase uses explicit wallet fixture."
+}

@@ -114,7 +114,7 @@ func _refresh_items(actor) -> void:
 			continue
 		var pos: Array = game.trade.merchants[id].position
 		var point := Vector2(pos[0], pos[1])
-		var b := _extra("trade:"+id, "交易", point+Vector2(0,-86), "商人买卖（E）；巡逻继续运行。")
+		var b := _extra("trade:"+id, "交易", point+Vector2(0,-86), "商人营业中（12–14 / 18–20）；买卖（E），时间继续运行。")
 		targets.append({"button": b, "kind": "trade", "id": id, "distance": actor.position.distance_to(point)})
 	for key in extras.keys():
 		if key.begins_with("pickup:") and not game.inventory.instances.has(key.substr(7)):

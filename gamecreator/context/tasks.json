@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "fc57a7f232ebfdb273e0d6df3be6d098ebeeace761505ead1903d036bb82b3d8",
+  "snapshotId": "4c541160ea45ff331be24c1eec29ff9c720778f84fb2f5128dc72e3dd8344b4d",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2654,6 +2654,111 @@
           "at": "2026-10-05T10:08:11.713Z"
         }
       ]
+    },
+    {
+      "id": "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+      "title": "P40 · 非戒备巡逻与商人日常营业",
+      "description": "用户要求非戒备时间警卫不抓人，商人有日常活动并在某些时间营业。08–20禁止追捕/抓回，20–08按既有室外/午夜查寝范围警戒，切回非戒备立即解除追击。商人真实寻路在营业点/车间/活动区/休息点移动，12–14及18–20到岗营业，其余关闭买卖和交互并显示当前活动。保留工资、库存跨天、暂停日常表与已有素材。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "实际验证08–20所有阶段及白天接触不抓、旧追击/犬调查不复燃、20后追捕与午夜查寝以及08解除、寝室安全区不变。R03/R04商人实际路径移动无穿墙，营业时间与到岗双条件、买卖/余额/库存正确、收摊关交易防迟点击、暂停冻结/跨天复位/四图兼容。原生截图核对非戒备人与警卫、商人走动/营业/未营业提示及真实触屏交易，适当工资/日程回归，GameCreator反馈验收同步与Git推送。",
+      "result": "非戒备08–20无追捕/抓回/犬追踪，20点及午夜原警戒保留；R03/R04商人真实通勤工作休息，12–14/18–20且到岗才营业，自动收摊与晚点击防扣款。402项检查通过，实际原生通勤/触摸买卖和工资消费闭环。\n\n验收通过：制作人本人实现并按已允许自验收任务核验：402项通过，已看通勤/营业/白天不抓截图。非戒备与20点/午夜规则、两图真实通勤及营业条件、收摊防晚点击、实际工资购买闭环成立；主任务完成，配套小地图与交谈提示另任务验收。",
+      "dependencyIds": [
+        "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+      ],
+      "references": [],
+      "producerSelfReview": true,
+      "workScope": {
+        "allowedPaths": [
+          "scripts/actors/guard.gd",
+          "scripts/actors/merchant.gd",
+          "scripts/actors/police_dog.gd",
+          "scripts/items/trade.gd",
+          "scripts/core/escape_game.gd",
+          "scripts/core/prison_schedule.gd",
+          "scripts/presentation/items_view.gd",
+          "scripts/presentation/interaction_prompt.gd",
+          "scripts/ui/shop_panel.gd",
+          "data/rooms/r03.json",
+          "data/rooms/r04.json",
+          "qa/p40*",
+          "docs/dev/p40*",
+          "docs/tests/p40*"
+        ],
+        "entry": "res://scenes/main.tscn @ R04 / R03",
+        "interfaceContract": "用户新要求覆盖旧白天手动移动会被抓的规则。按schedule戒备而非仅照明颜色，常规安全区及午夜查寝保留。商人使用既有角色素材程序绘制朝向/走动与活动标签，独立路径真实移动，库存位置由运行角色驱动，不新建美术资产或新货币，不改project.godot已有差异。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "293d6e24-93c2-4943-b5fb-2b623b968e97",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T10:56:31.972Z"
+        }
+      ]
+    },
+    {
+      "id": "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
+      "title": "P40B · 流动商人小地图与非戒备交谈提示",
+      "description": "配套P40将小地图商人标记改为实际运行位置，营业/休息有颜色区别；非戒备与警卫交谈文字符合最新不追捕规则。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "普通",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "商人移动后小地图位置使用实际商人数据，非营业仍可定位；非戒备交谈提示不误导追捕，午夜交谈限制保持。P40原生触摸/截图联合检查通过。",
+      "result": "小地图读取商人实际位置，营业亮黄、休息暗黄且夜晚可定位；非戒备聊天提示按新规则改写。原生12项含实际通勤帧缓冲标记验证通过，P40合计414项。\n\n验收通过：制作人本人执行并按自验收约定核验，12项原生帧缓冲/真实通勤/交谈检查通过，已查看最新移动标记截图。商人标记跟随实际坐标、营业/休息颜色和夜间可见、非戒备提示正确，P40核心402项独立证据保留。",
+      "dependencyIds": [
+        "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288"
+      ],
+      "references": [],
+      "producerSelfReview": true,
+      "workScope": {
+        "allowedPaths": [
+          "scripts/ui/mini_map.gd",
+          "scripts/skills/skill_controller.gd",
+          "qa/p40*",
+          "docs/dev/p40*",
+          "docs/tests/p40*"
+        ],
+        "entry": "res://scenes/main.tscn @ R03/R04",
+        "interfaceContract": "只改原接口读取位置/颜色与提示，既有美术只读，不增加操作规则。主任务与配套任务分别证据验收。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "f077826f-7326-496d-ab91-c56791527bce",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T10:59:39.434Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2794,7 +2899,9 @@
             "ac460622-c9c9-499f-bdd4-70501d244c36",
             "97cb6b0e-1980-457d-bef2-7d51486748d8",
             "e0089bd5-a2e9-45aa-a786-b9efdd661393",
-            "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+            "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2",
+            "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+            "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -3546,6 +3653,30 @@
       "reason": "用户要求展示正在工作，并在工作完成后获得金钱。按已授权工作系统做短循环程序扩展，复用原人物与钱包。",
       "createdTaskIds": [
         "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "293d6e24-93c2-4943-b5fb-2b623b968e97",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T10:56:31.972Z",
+      "reason": "用户新增非戒备不抓人与流动商人日程要求，制作人本人实现规则和现有素材程序呈现。",
+      "createdTaskIds": [
+        "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "f077826f-7326-496d-ab91-c56791527bce",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T10:59:39.434Z",
+      "reason": "移动商人需要小地图显示真实位置，白天不抓人使聊天旧提示失效；作为本轮配套显示集成，扩充这两个原共享接口。",
+      "createdTaskIds": [
+        "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -11401,6 +11532,296 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T10:26:52.832Z",
         "note": "制作人按已允许自验收的P39程序任务核验：工资31项、原生工作23项及回归334项全通过；实际查看工作/到账/960排班截图。真实进度与工资闭环、暂停/离岗/边界防重付成立，未新增美术资产。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p40-start-20261005",
+      "taskId": "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手。警卫按实际戒备时段门控追捕/抓回/犬调查，商人以真实路径按日程走动并到岗营业。复用已有素材。",
+      "evidence": [
+        "已读取guard、schedule、dog、trade、ItemsView、R03/R04布局与交易界面。"
+      ],
+      "at": "2026-10-05T10:56:57.633Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+        "title": "P40 · 非戒备巡逻与商人日常营业",
+        "description": "用户要求非戒备时间警卫不抓人，商人有日常活动并在某些时间营业。08–20禁止追捕/抓回，20–08按既有室外/午夜查寝范围警戒，切回非戒备立即解除追击。商人真实寻路在营业点/车间/活动区/休息点移动，12–14及18–20到岗营业，其余关闭买卖和交互并显示当前活动。保留工资、库存跨天、暂停日常表与已有素材。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "实际验证08–20所有阶段及白天接触不抓、旧追击/犬调查不复燃、20后追捕与午夜查寝以及08解除、寝室安全区不变。R03/R04商人实际路径移动无穿墙，营业时间与到岗双条件、买卖/余额/库存正确、收摊关交易防迟点击、暂停冻结/跨天复位/四图兼容。原生截图核对非戒备人与警卫、商人走动/营业/未营业提示及真实触屏交易，适当工资/日程回归，GameCreator反馈验收同步与Git推送。",
+        "result": "已接手。警卫按实际戒备时段门控追捕/抓回/犬调查，商人以真实路径按日程走动并到岗营业。复用已有素材。",
+        "dependencyIds": [
+          "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/actors/guard.gd",
+            "scripts/actors/merchant.gd",
+            "scripts/actors/police_dog.gd",
+            "scripts/items/trade.gd",
+            "scripts/core/escape_game.gd",
+            "scripts/core/prison_schedule.gd",
+            "scripts/presentation/items_view.gd",
+            "scripts/presentation/interaction_prompt.gd",
+            "scripts/ui/shop_panel.gd",
+            "data/rooms/r03.json",
+            "data/rooms/r04.json",
+            "qa/p40*",
+            "docs/dev/p40*",
+            "docs/tests/p40*"
+          ],
+          "entry": "res://scenes/main.tscn @ R04 / R03",
+          "interfaceContract": "用户新要求覆盖旧白天手动移动会被抓的规则。按schedule戒备而非仅照明颜色，常规安全区及午夜查寝保留。商人使用既有角色素材程序绘制朝向/走动与活动标签，独立路径真实移动，库存位置由运行角色驱动，不新建美术资产或新货币，不改project.godot已有差异。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "293d6e24-93c2-4943-b5fb-2b623b968e97",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T10:56:31.972Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p40-delivery-20261005",
+      "taskId": "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "非戒备08–20无追捕/抓回/犬追踪，20点及午夜原警戒保留；R03/R04商人真实通勤工作休息，12–14/18–20且到岗才营业，自动收摊与晚点击防扣款。402项检查通过，实际原生通勤/触摸买卖和工资消费闭环。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p40-guard-merchant.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40-rules.json（75项，真实两图商人上午下午路径及逐帧不穿墙）",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40-native-routines.json（13项，真实通勤和ScreenTouch买卖）",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40-routines-merchant-commute.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40-routines-merchant-open.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40-routines-day-no-capture.png",
+        "P40工资31+原生23、日常30、多天36、1200/960日常各74、UI46均通过；原project.godot hash保留。"
+      ],
+      "at": "2026-10-05T11:11:47.473Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+        "title": "P40 · 非戒备巡逻与商人日常营业",
+        "description": "用户要求非戒备时间警卫不抓人，商人有日常活动并在某些时间营业。08–20禁止追捕/抓回，20–08按既有室外/午夜查寝范围警戒，切回非戒备立即解除追击。商人真实寻路在营业点/车间/活动区/休息点移动，12–14及18–20到岗营业，其余关闭买卖和交互并显示当前活动。保留工资、库存跨天、暂停日常表与已有素材。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "实际验证08–20所有阶段及白天接触不抓、旧追击/犬调查不复燃、20后追捕与午夜查寝以及08解除、寝室安全区不变。R03/R04商人实际路径移动无穿墙，营业时间与到岗双条件、买卖/余额/库存正确、收摊关交易防迟点击、暂停冻结/跨天复位/四图兼容。原生截图核对非戒备人与警卫、商人走动/营业/未营业提示及真实触屏交易，适当工资/日程回归，GameCreator反馈验收同步与Git推送。",
+        "result": "非戒备08–20无追捕/抓回/犬追踪，20点及午夜原警戒保留；R03/R04商人真实通勤工作休息，12–14/18–20且到岗才营业，自动收摊与晚点击防扣款。402项检查通过，实际原生通勤/触摸买卖和工资消费闭环。",
+        "dependencyIds": [
+          "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/actors/guard.gd",
+            "scripts/actors/merchant.gd",
+            "scripts/actors/police_dog.gd",
+            "scripts/items/trade.gd",
+            "scripts/core/escape_game.gd",
+            "scripts/core/prison_schedule.gd",
+            "scripts/presentation/items_view.gd",
+            "scripts/presentation/interaction_prompt.gd",
+            "scripts/ui/shop_panel.gd",
+            "data/rooms/r03.json",
+            "data/rooms/r04.json",
+            "qa/p40*",
+            "docs/dev/p40*",
+            "docs/tests/p40*"
+          ],
+          "entry": "res://scenes/main.tscn @ R04 / R03",
+          "interfaceContract": "用户新要求覆盖旧白天手动移动会被抓的规则。按schedule戒备而非仅照明颜色，常规安全区及午夜查寝保留。商人使用既有角色素材程序绘制朝向/走动与活动标签，独立路径真实移动，库存位置由运行角色驱动，不新建美术资产或新货币，不改project.godot已有差异。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "293d6e24-93c2-4943-b5fb-2b623b968e97",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T10:56:31.972Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T11:12:09.292Z",
+        "note": "制作人本人实现并按已允许自验收任务核验：402项通过，已看通勤/营业/白天不抓截图。非戒备与20点/午夜规则、两图真实通勤及营业条件、收摊防晚点击、实际工资购买闭环成立；主任务完成，配套小地图与交谈提示另任务验收。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p40b-start-20261005",
+      "taskId": "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "P40核心已完成，开始配套集成商人小地图动态标记与非戒备交谈提示。",
+      "evidence": [
+        "P40主任务402项验证通过，复用Trade运行位置和is_open接口。"
+      ],
+      "at": "2026-10-05T11:13:02.039Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
+        "title": "P40B · 流动商人小地图与非戒备交谈提示",
+        "description": "配套P40将小地图商人标记改为实际运行位置，营业/休息有颜色区别；非戒备与警卫交谈文字符合最新不追捕规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "商人移动后小地图位置使用实际商人数据，非营业仍可定位；非戒备交谈提示不误导追捕，午夜交谈限制保持。P40原生触摸/截图联合检查通过。",
+        "result": "P40核心已完成，开始配套集成商人小地图动态标记与非戒备交谈提示。",
+        "dependencyIds": [
+          "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/mini_map.gd",
+            "scripts/skills/skill_controller.gd",
+            "qa/p40*",
+            "docs/dev/p40*",
+            "docs/tests/p40*"
+          ],
+          "entry": "res://scenes/main.tscn @ R03/R04",
+          "interfaceContract": "只改原接口读取位置/颜色与提示，既有美术只读，不增加操作规则。主任务与配套任务分别证据验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "f077826f-7326-496d-ab91-c56791527bce",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T10:59:39.434Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p40b-delivery-20261005",
+      "taskId": "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "小地图读取商人实际位置，营业亮黄、休息暗黄且夜晚可定位；非戒备聊天提示按新规则改写。原生12项含实际通勤帧缓冲标记验证通过，P40合计414项。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p40b-map-chat.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40b-map-chat.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40b-moving-marker.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40b-open-marker.png",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p40b-day-chat.png"
+      ],
+      "at": "2026-10-05T11:14:50.454Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
+        "title": "P40B · 流动商人小地图与非戒备交谈提示",
+        "description": "配套P40将小地图商人标记改为实际运行位置，营业/休息有颜色区别；非戒备与警卫交谈文字符合最新不追捕规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "商人移动后小地图位置使用实际商人数据，非营业仍可定位；非戒备交谈提示不误导追捕，午夜交谈限制保持。P40原生触摸/截图联合检查通过。",
+        "result": "小地图读取商人实际位置，营业亮黄、休息暗黄且夜晚可定位；非戒备聊天提示按新规则改写。原生12项含实际通勤帧缓冲标记验证通过，P40合计414项。",
+        "dependencyIds": [
+          "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/mini_map.gd",
+            "scripts/skills/skill_controller.gd",
+            "qa/p40*",
+            "docs/dev/p40*",
+            "docs/tests/p40*"
+          ],
+          "entry": "res://scenes/main.tscn @ R03/R04",
+          "interfaceContract": "只改原接口读取位置/颜色与提示，既有美术只读，不增加操作规则。主任务与配套任务分别证据验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "f077826f-7326-496d-ab91-c56791527bce",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T10:59:39.434Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T11:15:32.764Z",
+        "note": "制作人本人执行并按自验收约定核验，12项原生帧缓冲/真实通勤/交谈检查通过，已查看最新移动标记截图。商人标记跟随实际坐标、营业/休息颜色和夜间可见、非戒备提示正确，P40核心402项独立证据保留。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

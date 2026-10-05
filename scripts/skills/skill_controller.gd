@@ -60,7 +60,7 @@ func toggle(actor_id: int) -> bool:
 	actor.queue_redraw()
 	if actor.skill_id == "chat":
 		game.guard.start_chat(actor_id)
-		game.show_status("伙伴%d交谈中；狱警仍会发现其他人。" % (actor_id+1))
+		game.show_status("伙伴%d交谈中；当前非戒备，狱警不追捕。" % (actor_id+1))
 	else:
 		game.show_status("伙伴%d撬锁中；可以换人行动，离开会中断。" % (actor_id+1))
 	return true

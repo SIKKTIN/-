@@ -120,11 +120,9 @@ func _draw() -> void:
 	if not game.world.door_open:
 		draw_world_rect(game.world.door,Color("775b8b"))
 	draw_world_rect(game.world.exit_area.intersection(game.world.bounds),Color("36ab92"))
-	for merchant in game.room_config.get("merchants",[]):
-		if game.schedule and game.schedule.is_curfew():
-			continue
+	for merchant in game.trade.merchants.values():
 		var coords: Array = merchant.position
-		draw_circle(to_map(Vector2(coords[0],coords[1])),3,Color("ebcb75"))
+		draw_circle(to_map(Vector2(coords[0],coords[1])),3,Color("ebcb75") if game.trade.is_open(merchant.id) else Color("a79768"))
 	for item in game.inventory.instances.values():
 		if item.location == "ground":
 			var coords: Array = item.position
