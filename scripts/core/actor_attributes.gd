@@ -36,6 +36,8 @@ func behaviors() -> Array:
 			kind = "chat"
 		elif actor.action_state != "idle":
 			kind = "skill"
+		elif game.routines.is_eating(actor.actor_id):
+			kind = "meal"
 		elif game.routines.is_working(actor.actor_id):
 			kind = "work"
 		elif actor.moved_this_frame:
@@ -83,8 +85,11 @@ func accrue(begin_clock: float, end_clock: float, states: Array) -> Dictionary:
 				state.stamina -= float(config.chat_stamina_per_minute if kind == "chat" else config.skill_stamina_per_minute)*minutes
 			elif kind == "rest":
 				state.stamina += float(config.rest_stamina_per_minute)*minutes
-				if minute >= 720 and minute < 840:
+				if not game.routines.has_cafeteria() and minute >= 720 and minute < 840:
 					state.fullness += float(config.meal_fullness_per_minute)*minutes
+			elif kind == "meal" and minute >= 720 and minute < 840:
+				state.stamina += float(config.rest_stamina_per_minute)*minutes
+				state.fullness += float(config.meal_fullness_per_minute)*minutes
 			elif kind == "sleep":
 				state.stamina += float(config.sleep_stamina_per_minute)*minutes
 			state.stamina = clampf(state.stamina,0,100)

@@ -7,7 +7,7 @@ const SLOTS := [
 	{"id":"free_time","label":"18–20","start":1080,"end":1200},
 	{"id":"dorm_free","label":"20–24","start":1200,"end":1440}
 ]
-const NAMES := {"idle":"待命","work":"工作","rest":"休息","free":"自由活动"}
+const NAMES := {"idle":"待命","work":"工作","rest":"休息","free":"自由活动","meal":"吃饭"}
 var game
 var day := 1
 var slot := -1
@@ -50,7 +50,13 @@ func current_slot() -> int:
 	return -1
 
 func allowed(index: int, kind: String) -> bool:
+	if kind == "meal":
+		return index == 1 and has_cafeteria()
 	return NAMES.has(kind) and (kind != "work" or (index in [0,2] and not game.room_config.get("routine_points",{}).get("work",[]).is_empty()))
+
+func has_cafeteria() -> bool:
+	var points: Dictionary = game.room_config.get("routine_points",{})
+	return points.get("meal",[]).size() >= 3 and points.get("dine",[]).size() >= 3
 
 func apply_today(value: Array) -> bool:
 	if value.size() != 3 or game.schedule.is_sleep_time():
@@ -85,28 +91,70 @@ func resume(actor_id: int) -> void:
 
 func _target(actor_id: int, kind: String) -> Vector2:
 	var points: Array = game.room_config.get("routine_points",{}).get(kind,[])
-	if kind == "work" or (kind == "free" and slot != 4 and not points.is_empty()):
+	if kind in ["work","meal"] or (kind == "free" and slot != 4 and not points.is_empty()):
 		var coords: Array = points[actor_id % points.size()]
 		return Vector2(coords[0],coords[1])
 	return game.actors[actor_id].home
 
-func _start(actor_id: int) -> void:
+func _start(actor_id: int, override_kind: String = "") -> void:
 	var actor = game.actors[actor_id]
 	if actor.escaped or slot < 0 or manual.has(actor_id):
 		return
-	var kind: String = plans[actor_id][slot]
+	var kind: String = str(plans[actor_id][slot]) if override_kind.is_empty() else override_kind
 	if kind == "idle":
 		return
 	game.orders.stop(actor_id)
 	game.skills.cancel(actor_id)
 	var goal := _target(actor_id,kind)
 	var record := {"kind":kind,"goal":goal,"status":"moving","retry":game.elapsed+3.0}
+	if kind == "meal":
+		record["meal_stage"] = "pickup"
 	records[actor_id] = record
+	_send(actor_id,record)
+
+func _send(actor_id: int, record: Dictionary) -> void:
+	var actor = game.actors[actor_id]
+	var goal: Vector2 = record.goal
+	record.retry = game.elapsed+3.0
 	if actor.position.distance_to(goal) <= 12:
 		record.status = "arrived"
 	elif not game.orders.issue(actor_id,goal,"routine"):
 		record.status = "blocked"
-		game.show_status("伙伴%d的%s路线受阻，请手动开路或改安排。" % [actor_id+1,NAMES[kind]],4)
+		game.show_status("伙伴%d的%s路线受阻，请手动开路或改安排。" % [actor_id+1,NAMES[record.kind]],4)
+	else:
+		record.status = "moving"
+
+func is_eating(actor_id: int) -> bool:
+	if game.phase != "playing" or current_slot() != 1 or slot != 1 or manual.has(actor_id) or not records.has(actor_id):
+		return false
+	var actor = game.actors[actor_id]
+	var record: Dictionary = records[actor_id]
+	return record.kind == "meal" and record.get("meal_stage","") == "dine" and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
+
+func carries_meal(actor_id: int) -> bool:
+	return current_slot() == 1 and records.has(actor_id) and records[actor_id].kind == "meal" and records[actor_id].get("meal_stage","") == "dine" and not manual.has(actor_id)
+
+func meal_reason(actor_id: int) -> String:
+	if not has_cafeteria() or current_slot() != 1 or game.phase != "playing":
+		return "食堂供应午餐的时间为12:00–14:00。"
+	var actor = game.actors[actor_id]
+	if actor.escaped or (records.has(actor_id) and records[actor_id].kind == "meal"):
+		return "当前伙伴已在取餐或用餐。"
+	for coords in game.room_config.routine_points.meal:
+		var point := Vector2(coords[0],coords[1])
+		if actor.position.distance_to(point) <= 75 and game.world.line_clear(actor.position,point):
+			return ""
+	return "靠近取餐窗口后领取午餐。"
+
+func start_meal(actor_id: int) -> bool:
+	var reason := meal_reason(actor_id)
+	if not reason.is_empty():
+		game.show_status(reason)
+		return false
+	manual.erase(actor_id)
+	_start(actor_id,"meal")
+	game.show_status("伙伴%d领取午餐，前往饭桌用餐。" % (actor_id+1),3)
+	return true
 
 func tick() -> void:
 	if game.phase != "playing" or game.schedule.remaining() <= 0:
@@ -141,8 +189,15 @@ func tick() -> void:
 			continue
 		if game.actors[id].position.distance_to(record.goal) <= 12 and not game.orders.active.has(id):
 			record.status = "arrived"
+			if record.kind == "meal" and record.get("meal_stage","") == "pickup":
+				record.meal_stage = "dine"
+				var seats: Array = game.room_config.get("routine_points",{}).get("dine",[])
+				record.goal = Vector2(seats[id % seats.size()][0],seats[id % seats.size()][1])
+				_send(id,record)
+			elif record.kind == "meal":
+				game.actors[id].facing = Vector2.UP
 		elif not game.orders.active.has(id) and game.elapsed >= record.retry:
-			_start(id) # A blocked route retries at most once every three seconds.
+			_send(id,record) # Retain the already collected meal when a route retries.
 	offer_morning()
 
 func offer_morning() -> void:
@@ -235,6 +290,8 @@ func status_for(actor_id: int) -> String:
 	if not records.has(actor_id):
 		return ""
 	var r: Dictionary = records[actor_id]
+	if r.kind == "meal":
+		return "路线受阻" if r.status == "blocked" else "用餐中" if is_eating(actor_id) else "前往饭桌" if carries_meal(actor_id) else "前往取餐"
 	if r.kind == "work" and game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
 		return "疲惫 · 请休息"
 	if is_working(actor_id):

@@ -49,7 +49,7 @@ func tick_visual() -> void:
 		var scale := footprint.size/Vector2(ground[2],ground[3])
 		display_rect = Rect2(footprint.position-Vector2(ground[0],ground[1])*scale,world.art_textures[prop_id()].get_size()*scale)
 		elevation = float(definition.get("elevation_world",20))
-	z_index = int(footprint.end.y)
+	z_index = int(world.fixtures[wall_index].get("draw_depth",footprint.end.y)) if kind == "fixture" else int(footprint.end.y)
 	queue_redraw()
 
 func _draw() -> void:

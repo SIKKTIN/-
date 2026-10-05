@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "passed": true,
+  "assets": [
+    {
+      "id": "cafeteria_counter",
+      "rgba": true,
+      "source_size": [
+        2070,
+        760
+      ],
+      "opaque_bounds": [
+        218,
+        79,
+        1634,
+        607
+      ],
+      "alpha0_fraction": 0.431964,
+      "crop_excludes_core_pixels": 0,
+      "ground_enclosed": true,
+      "uniform_scale": true,
+      "scale": 0.37082818294190356,
+      "visible_core_world_size": [
+        605.9333,
+        225.0927
+      ],
+      "copy_matches_source": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a10ab4-5cf7-7c70-8247-13b529a3f2da/exec-b0afe226-5751-4a02-8319-694476a2219e.png",
+      "source_sha256": "bbd616034f5179cf12a5778a80fc293885be8df7db0a5333d323f8ed8a5fd0d3",
+      "registration": "South counter-base projected ground; rear kitchenette rises north and needs separate hidden map collision.",
+      "passed": true
+    },
+    {
+      "id": "cafeteria_return",
+      "rgba": true,
+      "source_size": [
+        1322,
+        1190
+      ],
+      "opaque_bounds": [
+        290,
+        300,
+        744,
+        705
+      ],
+      "alpha0_fraction": 0.699772,
+      "crop_excludes_core_pixels": 0,
+      "ground_enclosed": true,
+      "uniform_scale": true,
+      "scale": 0.1478494623655914,
+      "visible_core_world_size": [
+        110.0,
+        104.2339
+      ],
+      "copy_matches_source": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a10ab4-5cf7-7c70-8247-13b529a3f2da/exec-25c2357d-1e38-4ae6-83ec-f6fdebe6f7db.png",
+      "source_sha256": "0a35b6091aec7be14d335ee69863633b7af27d9f83c3e8b12abf7c59b6a770e9",
+      "registration": "South rack-base projected ground; upper tray stacks rise north. Original short-rack proportions preserved.",
+      "passed": true
+    },
+    {
+      "id": "cafeteria_tray",
+      "rgba": true,
+      "source_size": [
+        1683,
+        935
+      ],
+      "opaque_bounds": [
+        352,
+        282,
+        1030,
+        395
+      ],
+      "alpha0_fraction": 0.762747,
+      "crop_excludes_core_pixels": 0,
+      "ground_enclosed": true,
+      "uniform_scale": true,
+      "scale": 0.03495145631067961,
+      "visible_core_world_size": [
+        36.0,
+        13.8058
+      ],
+      "copy_matches_source": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a10ab4-5cf7-7c70-8247-13b529a3f2da/exec-f862d6dd-82ec-4064-bc87-0f254cbd9ae8.png",
+      "source_sha256": "fd065f3cd7c9d37b4e57b0f83dde91e82172a8df5612d91ed899fb2e0be26d71",
+      "registration": "Nonblocking tabletop36x20 placement cell; region keeps transparent spare depth to avoid deforming the tray/cup. Actual colored silhouette is shallower.",
+      "passed": true
+    },
+    {
+      "id": "cafeteria_queue",
+      "rgba": true,
+      "source_size": [
+        1536,
+        1024
+      ],
+      "opaque_bounds": [
+        53,
+        371,
+        1431,
+        282
+      ],
+      "alpha0_fraction": 0.910922,
+      "crop_excludes_core_pixels": 0,
+      "ground_enclosed": true,
+      "uniform_scale": true,
+      "scale": 0.1258741258741259,
+      "visible_core_world_size": [
+        180.1259,
+        35.4965
+      ],
+      "copy_matches_source": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a10ab4-5cf7-7c70-8247-13b529a3f2da/exec-3c4c8edc-030e-443f-b661-b0354f26df7b.png",
+      "source_sha256": "eabb6106a4f21d1ebe7ed0fb4285c3babad13d1ef323d558766dadd0dd918942",
+      "registration": "Three post bases share a south baseline; narrow projected ground strip preserves uniform scale.",
+      "passed": true
+    }
+  ],
+  "scope": "original RGBA/crop/uniform registration checks; actual native composite separately reviewed; no collision or meal-logic tests"
+}

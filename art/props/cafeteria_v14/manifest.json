@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "version": "cafeteria-art-v14-20261005",
+  "style": "art-v03 / FINAL-WARM-01; approved A13 plain ration",
+  "assets": [
+    {
+      "id": "cafeteria_counter",
+      "texture": "res://art/props/cafeteria_v14/cafeteria_counter_v14.png",
+      "texture_size": [
+        2070,
+        760
+      ],
+      "region": [
+        212,
+        73,
+        1646,
+        619
+      ],
+      "ground_rect": [
+        14,
+        397.266667,
+        1618,
+        215.733333
+      ],
+      "footprint_world_size": [
+        600,
+        80
+      ],
+      "world_size": [
+        610.383189,
+        229.542645
+      ],
+      "elevation_world": 147.317676,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "bbd616034f5179cf12a5778a80fc293885be8df7db0a5333d323f8ed8a5fd0d3",
+      "registration_note": "South counter-base projected ground; rear kitchenette rises north and needs separate hidden map collision."
+    },
+    {
+      "id": "cafeteria_return",
+      "texture": "res://art/props/cafeteria_v14/cafeteria_return_v14.png",
+      "texture_size": [
+        1322,
+        1190
+      ],
+      "region": [
+        284,
+        294,
+        756,
+        717
+      ],
+      "ground_rect": [
+        6,
+        237.545455,
+        744,
+        473.454545
+      ],
+      "footprint_world_size": [
+        110,
+        70
+      ],
+      "world_size": [
+        111.774194,
+        106.008065
+      ],
+      "elevation_world": 35.120968,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0a35b6091aec7be14d335ee69863633b7af27d9f83c3e8b12abf7c59b6a770e9",
+      "registration_note": "South rack-base projected ground; upper tray stacks rise north. Original short-rack proportions preserved."
+    },
+    {
+      "id": "cafeteria_tray",
+      "texture": "res://art/props/cafeteria_v14/cafeteria_tray_v14.png",
+      "texture_size": [
+        1683,
+        935
+      ],
+      "region": [
+        346,
+        276,
+        1042,
+        585
+      ],
+      "ground_rect": [
+        6,
+        6,
+        1030,
+        572.222222
+      ],
+      "footprint_world_size": [
+        36,
+        20
+      ],
+      "world_size": [
+        36.419417,
+        20.446602
+      ],
+      "elevation_world": 0.209709,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fd065f3cd7c9d37b4e57b0f83dde91e82172a8df5612d91ed899fb2e0be26d71",
+      "registration_note": "Nonblocking tabletop36x20 placement cell; region keeps transparent spare depth to avoid deforming the tray/cup. Actual colored silhouette is shallower."
+    },
+    {
+      "id": "cafeteria_queue",
+      "texture": "res://art/props/cafeteria_v14/cafeteria_queue_v14.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        47,
+        365,
+        1443,
+        294
+      ],
+      "ground_rect": [
+        7,
+        192.666667,
+        1430,
+        95.333333
+      ],
+      "footprint_world_size": [
+        180,
+        12
+      ],
+      "world_size": [
+        181.636364,
+        37.006993
+      ],
+      "elevation_world": 24.251748,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "eabb6106a4f21d1ebe7ed0fb4285c3babad13d1ef323d558766dadd0dd918942",
+      "registration_note": "Three post bases share a south baseline; narrow projected ground strip preserves uniform scale."
+    }
+  ],
+  "reuse": [
+    "res://art/props/prison_v08/communal_table_v08.png"
+  ],
+  "pixel_policy": "source PNG byte-identical; crop/registration metadata only"
+}

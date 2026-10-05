@@ -1,8 +1,8 @@
 extends Node
 
 const Board = preload("res://scripts/ui/routine_board.gd")
-const KINDS := ["idle", "work", "rest", "free"]
-const COLORS := {"idle": Color("eee7d9"), "work": Color("efd09c"), "rest": Color("d5dcc3"), "free": Color("cce0de")}
+const KINDS := ["idle", "work", "rest", "free", "meal"]
+const COLORS := {"idle": Color("eee7d9"), "work": Color("efd09c"), "rest": Color("d5dcc3"), "free": Color("cce0de"), "meal":Color("e6d9ba")}
 
 class ActivityCell extends Button:
 	var ui
@@ -146,7 +146,7 @@ func _make_picker() -> void:
 	picker = Panel.new()
 	picker.name = "ActivityPicker"
 	picker.z_index = 2
-	picker.size = Vector2(236, 292)
+	picker.size = Vector2(236, 316)
 	picker.add_theme_stylebox_override("panel", panel.get_theme_stylebox("panel").duplicate())
 	panel.add_child(picker)
 	picker_title = game.schedule._label(picker, Vector2(16, 12), "", 16)
@@ -155,8 +155,8 @@ func _make_picker() -> void:
 		b.ui = self
 		b.kind = KINDS[index]
 		b.name = "Choose_"+b.kind
-		b.position = Vector2(12, 48+index*56)
-		b.size = Vector2(212, 52)
+		b.position = Vector2(12, 44+index*52)
+		b.size = Vector2(212, 48)
 		b.focus_mode = Control.FOCUS_ALL
 		b.pressed.connect(func(): choose_activity(b.kind))
 		picker.add_child(b)
@@ -256,7 +256,7 @@ func refresh() -> void:
 	if draft != game.routines.plans:
 		note.text = "尚未应用 · "+note.text
 	if not game.schedule.is_sleep_time() and game.routines.allowed(0, "work"):
-		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"工作耗体力/饱腹，满%d有效分钟工资 +%d；休息恢复体力，12–14寝室进食。" % [roundi(game.routines.work_duration()), game.routines.work_wage()]
+		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"满%d有效分钟工资 +%d；休息恢复体力，" % [roundi(game.routines.work_duration()), game.routines.work_wage()]+("12–14选吃饭，赴食堂取餐就座。" if game.routines.has_cafeteria() else "12–14寝室进食。")
 	if picker.visible:
 		if not editable(editing_actor, editing_slot):
 			close_picker()
@@ -278,7 +278,9 @@ func open_picker(id: int, index: int) -> void:
 	editing_slot = index
 	game.select_actor(id)
 	picker_title.text = "伙伴%d · %s" % [id+1, game.routines.SLOTS[index].label]
+	picker.size.y = 316 if game.routines.has_cafeteria() else 292
 	for b in picker_options:
+		b.visible = b.kind != "meal" or game.routines.has_cafeteria()
 		b.disabled = not game.routines.allowed(index, b.kind)
 		_skin(b, draft[id][index] == b.kind)
 	picker_blocker.show()

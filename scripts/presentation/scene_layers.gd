@@ -24,6 +24,8 @@ func _draw() -> void:
 	if kind == "fixture_shadows":
 		# Static furnishings retain cached CanvasItem draw commands between frames.
 		for fixture in world.fixtures:
+			if fixture.get("hidden",false):
+				continue
 			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
 			if not definition.get("shadow_baked",false):
 				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
@@ -108,3 +110,9 @@ func _draw() -> void:
 				draw_set_transform(Vector2.ZERO)
 		if game.items_view:
 			game.items_view.paint_information(self)
+		if game.room_config.has("cafeteria"):
+			var cafeteria: Dictionary = game.room_config.cafeteria
+			var pickup: Array = cafeteria.pickup_label
+			var returned: Array = cafeteria.return_label
+			draw_string(presentation.font,Vector2(pickup[0],pickup[1]),"取餐 · 12:00–14:00",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
+			draw_string(presentation.font,Vector2(returned[0],returned[1]),"餐盘回收",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)

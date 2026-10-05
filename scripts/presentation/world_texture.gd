@@ -9,7 +9,14 @@ static func load_asset(asset: Dictionary) -> Texture2D:
 	var key := str(asset.texture)+JSON.stringify(asset.get("region",[]))
 	if cache.has(key):
 		return cache[key]
-	var original: Texture2D = load(asset.texture)
+	var original: Texture2D
+	if FileAccess.file_exists(str(asset.texture)+".import"):
+		original = load(asset.texture)
+	elif FileAccess.file_exists(asset.texture):
+		# Newly delivered sprites can be previewed before the editor imports them.
+		var raw := Image.load_from_file(asset.texture)
+		if raw != null and not raw.is_empty():
+			original = ImageTexture.create_from_image(raw)
 	if original == null:
 		return null
 	var fallback: Texture2D = original

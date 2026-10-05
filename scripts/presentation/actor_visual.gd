@@ -26,6 +26,7 @@ var flip_h: bool = false
 var separate_information: bool = false
 var working := false
 var work_clock := 0.0
+var meal_clock := 0.0
 
 func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, text_font: Font) -> void:
 	actor = owner_actor
@@ -56,6 +57,7 @@ func tick_visual(delta: float) -> void:
 	flash_time = maxf(0,flash_time-delta)
 	working = not is_guard and game.routines != null and game.routines.is_working(actor.actor_id)
 	work_clock = fposmod(work_clock+maxf(0,delta)*TAU/0.8,TAU) if working else 0.0
+	meal_clock = fposmod(meal_clock+maxf(0,delta)*TAU/1.1,TAU) if not is_guard and game.routines != null and game.routines.is_eating(actor.actor_id) else 0.0
 	var moving: bool = actor.moved_this_frame and not actor.escaped and game.phase == "playing"
 	walk_frame_index = -1
 	if moving and not walk_frames.is_empty():
@@ -103,6 +105,14 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 	if working:
 		_paint_work_tool()
+	if not is_guard and game.routines and game.routines.carries_meal(actor.actor_id):
+		var tray: Texture2D = game.world.art_textures.get("cafeteria_tray")
+		if tray:
+			draw_texture_rect(tray,Rect2(-17,-30,34,19),false)
+		if game.routines.is_eating(actor.actor_id):
+			var hand := Vector2(15,-28-absf(sin(meal_clock))*10)
+			draw_line(Vector2(12,-30),hand,Color("dfb27f"),3,true)
+			draw_line(hand,hand+Vector2(-5,-4),Color("9aa29a"),2,true)
 	if not separate_information:
 		paint_information(self)
 
@@ -150,6 +160,11 @@ func paint_information(canvas: CanvasItem) -> void:
 			canvas.draw_string(font,Vector2(-width/2+8,top-2),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 			canvas.draw_rect(Rect2(-width/2,top+7,width,4),Color("cdd4c3"))
 			canvas.draw_rect(Rect2(-width/2,top+7,width*progress,4),Color("c69c5e"))
+		elif game.routines and game.routines.is_eating(actor.actor_id):
+			canvas.draw_style_box(_work_paper(),Rect2(-30,top-20,60,25))
+			canvas.draw_string(font,Vector2(-21,top-2),"用餐中",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
+			canvas.draw_rect(Rect2(-24,top+5,48,4),Color("cdd4c3"))
+			canvas.draw_rect(Rect2(-24,top+5,48*game.attributes.values[actor.actor_id].fullness/100.0,4),Color("c69c5e"))
 		elif game.routines and game.routines.is_lawful(actor.actor_id):
 			canvas.draw_string(font,Vector2(-20,top),game.routines.NAMES[game.routines.records[actor.actor_id].kind],HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("328b82"))
 		if game.routines and game.routines.recent_wages.has(actor.actor_id):

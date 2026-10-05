@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "82b4b70a0e1505bb1978f1416c3e0dd7010fb56c4409fa4472967ebf7e376abd",
+  "snapshotId": "a2669e3c9b9b96353c15fd10c69270fb81bb178144fa415bdcae8905e153ff31",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2899,6 +2899,140 @@
           "at": "2026-10-05T11:37:03.043Z"
         }
       ]
+    },
+    {
+      "id": "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+      "title": "A13 · 监狱食堂场景概念图",
+      "description": "以用户最新R04截图为依据，延续已应用灰绿石地、暖木家具、俯视2D卡通监狱风格与人物比例，设计横屏手机可读食堂概念。包含取餐窗口/后厨隔断、长桌长凳、入口排队区、回收区、守卫观察点和宽通道。用于后续12–14吃饭日程及点选移动，先提出空间美术方向，不改当前地图/代码/启用资源。执行人为已接入主美助手。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "一张可以直接展示用户的食堂概念PNG，延续当前视角和风格；空间分区明确、三伙伴比例合适且保留移动通道；附精简布局和素材拆分说明及生成来源。标注为概念而非已实现截图，未获用户确认前不发布新风格或替换当前资产。",
+      "result": "A13食堂概念完成并整合用户伙食反馈：统一朴素少量米饭/煮菜土豆/清汤，窗口减少开放菜种、全场托盘与后厨锅/残食桶一致；保留俯视四长桌、入口队列与宽通道、回收和守卫观察点。仅概念交付待用户视觉认可，未接入新食堂或发布新风格。\n\n验收通过：制作人已实际查看最终PNG与说明：统一朴素饭菜、手持/桌盘/汤锅/残食全部一致，去掉肉丸与鲜亮拼盘，空间分区明确、宽通道与既有风格保留。通过本轮概念交付验收；用户视觉认可仍待，未实施食堂地图或确认新风格，不将静图认定为寻路/真机验证。",
+      "dependencyIds": [],
+      "references": [],
+      "workScope": {
+        "allowedPaths": [
+          "docs/art/a13*",
+          "art/concepts/cafeteria_v13/**"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/docs/art/a13-cafeteria-concept.png",
+        "interfaceContract": "概念设计交付，仅新增PNG及说明/来源元数据；不改既有PNG、data、scripts、场景、UI或project.godot。使用主美本人凭证反馈；制作人审核概念交付，用户决定视觉方向。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "a7be09d2-a4ee-4395-9212-74fc39a20154",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-05T12:33:51.390Z"
+        }
+      ]
+    },
+    {
+      "id": "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
+      "title": "A14 · 食堂场景可用素材",
+      "description": "延续A13经用户确认的朴素配餐，交付取餐台/后厨组合、餐盘回收架、配餐托盘及短排队栏的透明素材。现有长木桌复用。提供ground_rect等世界摆放契约，三种食物均低饱和简朴。主美实际助手已接收工作包。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "素材真实透明、无地板/文字/人物，无丰盛肉丸或鲜亮菜色；方向比例贴合现有俯视监狱，裁区/脚印明确、在预期世界尺寸清晰；主图来源与真实资源检查可追溯。代码/地图启用由制作人集成任务承担。",
+      "result": "已交付四件内置imagegen透明食堂素材及WorldVolume裁区局部ground_rect契约，朴素米饭/煮菜/清汤延续用户认可A13。源PNG逐字节保留，RGBA/裁框/统一缩放与1280×720原生合成检查通过。仅素材交付，R04地图、碰撞与日程吃饭由制作人集成；回收架实际绘制高度106保留比例，餐盘36×20为非碰撞桌面占位。\n\n验收通过：制作人实际查看前三件源图、A14原生合成与P43游戏接入截图。四件透明/裁框/统一缩放契约有效，菜色与A13朴素配餐一致，排队栏间隙在合成中确实透明。P43已按显示范围补后厨碰撞，并设置桌盘独立深度；资源任务通过，地图及吃饭功能另由P43验收。",
+      "dependencyIds": [
+        "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+      ],
+      "references": [],
+      "workScope": {
+        "allowedPaths": [
+          "art/props/cafeteria_v14/**",
+          "docs/art/a14*"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/art/props/cafeteria_v14/manifest.json",
+        "interfaceContract": "兼容WorldVolume资产定义assets[]、id/texture/region/ground_rect/world_size/elevation_world/shadow_baked；ground_rect以裁区局部坐标标定脚印。逻辑脚印：counter600×80，return110×70，tray36×20，queue180×12。只新增透明PNG和元数据/说明，不修改既有资源、scripts、data、UI或project.godot；本人凭证反馈，制作人审核。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "c0d4fb64-e6b6-4daf-849d-1e83e8fa0138",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-05T13:15:46.264Z"
+        }
+      ]
+    },
+    {
+      "id": "6111af3a-de2a-4d09-8c37-48caa1697c98",
+      "title": "P43 · R04食堂改装与午餐日程",
+      "description": "将R04活动大厅改为批准概念的食堂，扩展下侧空间，取餐台/四桌宽通道/排队/回收架。加载A14已验收素材，日常午餐安排去食堂取餐和就餐，真正到点吃饭才能恢复饱腹；寝室休息继续恢复体力。保留其他关卡原有午休机制、三天期限、商店/门口守卫/查寝规则。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "R04地图内可见与概念一致的朴素配餐食堂，素材缩放清晰且遮挡正确；三人独立排班可真实寻路到取餐点/饭桌，行进或寝室不空吃；移动接管/暂停/跨时段/重开正确；主通道、工作/商人路线/铁门及午夜查寝回归通过，至少1200及960原生截图检查，A14素材独立验收后启用；只提交本轮文件且保护用户project.godot差异。",
+      "result": "R04按用户认可的A13朴素配餐概念改装食堂，启用已独立验收A14四件素材，四桌宽通道/后厨碰撞/回收与桌盘排序到位；日常表午餐+靠近取餐互动接入真实取餐/饭桌进食，途中和R04寝室不空吃。139项程序检查通过，两逻辑画布尺寸原生触控、昼夜和主干回归通过；其他地图旧午休与project.godot用户差异保留。\n\n验收通过：本制作人明确承担的程序任务按约定自验收。已核对139项运行检查与1200/960实际截图，三人真实取餐/用餐、主通路、巡逻查寝、旧图兼容有效；素材A14另行独立验收。只确认程序/地图已实现，未把自动检查当真人趣味性或手机真机验证。",
+      "dependencyIds": [
+        "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+      ],
+      "references": [],
+      "producerSelfReview": true,
+      "workScope": {
+        "allowedPaths": [
+          "data/rooms/r04.json",
+          "scripts/**",
+          "qa/p43*",
+          "docs/dev/p43*",
+          "docs/tests/p43*"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/res://scenes/main.tscn",
+        "interfaceContract": "主美拥有art/props/cafeteria_v14/**，制作人消费manifest、维护地图碰撞/日程/表现接入，不改源PNG；地图JSON含餐点/座位/回收点。规则按真实位移/时钟结算，饱腹不重复恢复；不改Godot设置与其它地图配置。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "120dcb38-336c-45c8-bab2-c93c444ac00f",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T13:18:22.603Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -3043,7 +3177,8 @@
             "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
             "97d99b03-19e6-47d5-b8cd-f3a4c025cf40",
             "bd7784c5-20dc-460f-9b73-e9ce1484f519",
-            "8f14d139-9187-4918-9112-e8e10bcb0ee2"
+            "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+            "6111af3a-de2a-4d09-8c37-48caa1697c98"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -3105,7 +3240,9 @@
             "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
             "9e101654-14f2-47f3-a88e-101d3fe6d383",
             "13de730b-bafb-4413-b24a-d2731a4d54a7",
-            "ee12d268-9e8e-4cb1-a4f1-032386940126"
+            "ee12d268-9e8e-4cb1-a4f1-032386940126",
+            "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+            "c2c6c499-e6e9-4568-b807-7a71c92c1eab"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -3845,6 +3982,42 @@
       "reason": "用户已异步确认本轮加入体力和饱腹度，生命值以后再做；与只买商店/门口守卫拆分验收。",
       "createdTaskIds": [
         "8f14d139-9187-4918-9112-e8e10bcb0ee2"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "a7be09d2-a4ee-4395-9212-74fc39a20154",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T12:33:51.390Z",
+      "reason": "用户要求先由主美设计监狱食堂概念图，待用户确认再开发食堂场景。",
+      "createdTaskIds": [
+        "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "c0d4fb64-e6b6-4daf-849d-1e83e8fa0138",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T13:15:46.264Z",
+      "reason": "用户已认可A13概念并要求按该设计改装R04食堂，主美制作透明素材，制作人另行地图程序集成。",
+      "createdTaskIds": [
+        "c2c6c499-e6e9-4568-b807-7a71c92c1eab"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "120dcb38-336c-45c8-bab2-c93c444ac00f",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T13:18:22.603Z",
+      "reason": "用户确认A13概念，授权制作人改装R04食堂；程序与地图由制作人本人承担，A14素材并行由主美交付，最终启用前独立验收。",
+      "createdTaskIds": [
+        "6111af3a-de2a-4d09-8c37-48caa1697c98"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -12390,6 +12563,397 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T12:20:08.722Z",
         "note": "核对22项属性检查、联合372项程序检查及原生两尺寸截图；体力/饱腹度接入真实行为，暂停与跨天不重复结算，生命值按用户要求后续再做。本制作人开发任务允许自验收，交付符合本轮约定。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "a13-cafeteria-start-20261005",
+      "taskId": "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "主美接手 A13 食堂概念；已查看最新监区截图及协作规范，采用同角度灰绿地板/暖木长桌，分出取餐后厨、入口队列、疏排就餐、回收与守卫观察点。仅场景概念待用户审阅，不制作启用地图或模块。",
+      "evidence": [
+        "参考已view_image：C:/Users/gst20/AppData/Local/Temp/codex-clipboard-40c53ceb-8390-4c63-a65e-e36561d3000a.png，1200×720。",
+        "主图/说明使用docs/art/a13-cafeteria-concept.png/.md，原始生成PNG另存art/concepts/cafeteria_v13/；使用主美本人凭证，不改代码/旧图/HUD/场景配置。"
+      ],
+      "at": "2026-10-05T12:38:22.191Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+        "title": "A13 · 监狱食堂场景概念图",
+        "description": "以用户最新R04截图为依据，延续已应用灰绿石地、暖木家具、俯视2D卡通监狱风格与人物比例，设计横屏手机可读食堂概念。包含取餐窗口/后厨隔断、长桌长凳、入口排队区、回收区、守卫观察点和宽通道。用于后续12–14吃饭日程及点选移动，先提出空间美术方向，不改当前地图/代码/启用资源。执行人为已接入主美助手。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "一张可以直接展示用户的食堂概念PNG，延续当前视角和风格；空间分区明确、三伙伴比例合适且保留移动通道；附精简布局和素材拆分说明及生成来源。标注为概念而非已实现截图，未获用户确认前不发布新风格或替换当前资产。",
+        "result": "主美接手 A13 食堂概念；已查看最新监区截图及协作规范，采用同角度灰绿地板/暖木长桌，分出取餐后厨、入口队列、疏排就餐、回收与守卫观察点。仅场景概念待用户审阅，不制作启用地图或模块。",
+        "dependencyIds": [],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "docs/art/a13*",
+            "art/concepts/cafeteria_v13/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/docs/art/a13-cafeteria-concept.png",
+          "interfaceContract": "概念设计交付，仅新增PNG及说明/来源元数据；不改既有PNG、data、scripts、场景、UI或project.godot。使用主美本人凭证反馈；制作人审核概念交付，用户决定视觉方向。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a7be09d2-a4ee-4395-9212-74fc39a20154",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T12:33:51.390Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a13-cafeteria-ration-ready-20261005",
+      "taskId": "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "A13食堂概念完成并整合用户伙食反馈：统一朴素少量米饭/煮菜土豆/清汤，窗口减少开放菜种、全场托盘与后厨锅/残食桶一致；保留俯视四长桌、入口队列与宽通道、回收和守卫观察点。仅概念交付待用户视觉认可，未接入新食堂或发布新风格。",
+      "evidence": [
+        "主图：E:/Project/Godot/这次怎么逃/docs/art/a13-cafeteria-concept.png；1619×971 RGB，1909494 bytes；SHA256 896f5d3d6cf3a67ea917ba1f05d1c1cb082c98aaf8f5fd67ff8414a15bdadb23。",
+        "原PNG归档：E:/Project/Godot/这次怎么逃/art/concepts/cafeteria_v13/cafeteria-ration-v01.png，与内置imagegen最终原件及主图逐字节相同，未程序改像素或强缩尺寸。",
+        "说明：E:/Project/Godot/这次怎么逃/docs/art/a13-cafeteria-concept.md；完整提示词/来源链/用户原话：docs/art/a13-imagegen-source.json。记录当前阶段参考、入口/HUD一致修正与用户要求朴素伙食的定向编辑。",
+        "主美已实际view_image检查：横竖轴线偏俯视，四桌疏排、低后厨隔断、左门口和排队旁路、餐盘回收及右守卫点清楚；12:30吃饭休息，选中3卡片与背包/场景圈一致；食物全场低饱和无肉丸/彩色拼盘。制作人也已只读查看最终图并确认概念技术方向。",
+        "边界：只有场景概念，非实际运行截图/精确地图或已验证寻路。HUD细字与小刻度仍是示意，不改正式UI；白围裙身影不当作新增可操作NPC；未切模块、未启用食堂/代码/地图/新风格。用户最终视觉认可仍待。",
+        "只新增docs/art/a13*及art/concepts/cafeteria_v13/**，未改旧PNG、代码、场景、data、UI、project.godot；未commit/push。"
+      ],
+      "at": "2026-10-05T13:00:26.778Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "f8548250-e6e4-4267-9b03-5c6bbe4e41b0",
+        "title": "A13 · 监狱食堂场景概念图",
+        "description": "以用户最新R04截图为依据，延续已应用灰绿石地、暖木家具、俯视2D卡通监狱风格与人物比例，设计横屏手机可读食堂概念。包含取餐窗口/后厨隔断、长桌长凳、入口排队区、回收区、守卫观察点和宽通道。用于后续12–14吃饭日程及点选移动，先提出空间美术方向，不改当前地图/代码/启用资源。执行人为已接入主美助手。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "一张可以直接展示用户的食堂概念PNG，延续当前视角和风格；空间分区明确、三伙伴比例合适且保留移动通道；附精简布局和素材拆分说明及生成来源。标注为概念而非已实现截图，未获用户确认前不发布新风格或替换当前资产。",
+        "result": "A13食堂概念完成并整合用户伙食反馈：统一朴素少量米饭/煮菜土豆/清汤，窗口减少开放菜种、全场托盘与后厨锅/残食桶一致；保留俯视四长桌、入口队列与宽通道、回收和守卫观察点。仅概念交付待用户视觉认可，未接入新食堂或发布新风格。",
+        "dependencyIds": [],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "docs/art/a13*",
+            "art/concepts/cafeteria_v13/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/docs/art/a13-cafeteria-concept.png",
+          "interfaceContract": "概念设计交付，仅新增PNG及说明/来源元数据；不改既有PNG、data、scripts、场景、UI或project.godot。使用主美本人凭证反馈；制作人审核概念交付，用户决定视觉方向。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a7be09d2-a4ee-4395-9212-74fc39a20154",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T12:33:51.390Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T13:02:16.734Z",
+        "note": "制作人已实际查看最终PNG与说明：统一朴素饭菜、手持/桌盘/汤锅/残食全部一致，去掉肉丸与鲜亮拼盘，空间分区明确、宽通道与既有风格保留。通过本轮概念交付验收；用户视觉认可仍待，未实施食堂地图或确认新风格，不将静图认定为寻路/真机验证。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p43-start-20261005",
+      "taskId": "6111af3a-de2a-4d09-8c37-48caa1697c98",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手R04食堂地图/日程/表现集成。先做宽通道布局与午餐取餐/就餐行为，主美A14透明素材并行制作，最终接入前单独验收；保护project.godot现有用户差异。",
+      "evidence": [
+        "已读取R04配置、WorldVolume资产脚印契约、DailyRoutine与ActorAttributes及现有回归入口",
+        "设计基准 docs/art/a13-cafeteria-concept.png，用户已确认朴素配餐概念"
+      ],
+      "at": "2026-10-05T13:19:09.979Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "6111af3a-de2a-4d09-8c37-48caa1697c98",
+        "title": "P43 · R04食堂改装与午餐日程",
+        "description": "将R04活动大厅改为批准概念的食堂，扩展下侧空间，取餐台/四桌宽通道/排队/回收架。加载A14已验收素材，日常午餐安排去食堂取餐和就餐，真正到点吃饭才能恢复饱腹；寝室休息继续恢复体力。保留其他关卡原有午休机制、三天期限、商店/门口守卫/查寝规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04地图内可见与概念一致的朴素配餐食堂，素材缩放清晰且遮挡正确；三人独立排班可真实寻路到取餐点/饭桌，行进或寝室不空吃；移动接管/暂停/跨时段/重开正确；主通道、工作/商人路线/铁门及午夜查寝回归通过，至少1200及960原生截图检查，A14素材独立验收后启用；只提交本轮文件且保护用户project.godot差异。",
+        "result": "已接手R04食堂地图/日程/表现集成。先做宽通道布局与午餐取餐/就餐行为，主美A14透明素材并行制作，最终接入前单独验收；保护project.godot现有用户差异。",
+        "dependencyIds": [
+          "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "data/rooms/r04.json",
+            "scripts/**",
+            "qa/p43*",
+            "docs/dev/p43*",
+            "docs/tests/p43*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/res://scenes/main.tscn",
+          "interfaceContract": "主美拥有art/props/cafeteria_v14/**，制作人消费manifest、维护地图碰撞/日程/表现接入，不改源PNG；地图JSON含餐点/座位/回收点。规则按真实位移/时钟结算，饱腹不重复恢复；不改Godot设置与其它地图配置。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "120dcb38-336c-45c8-bab2-c93c444ac00f",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T13:18:22.603Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a14-cafeteria-assets-start-20261005",
+      "taskId": "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "主美接手 A14，用户已认可A13朴素配餐。制作四件透明模块并沿用v08地面裁框契约；四张communal_table复用，不改旧图或程序。",
+      "evidence": [
+        "已查看 docs/art/a13-cafeteria-concept.png，读取prison_v08/manifest和WorldVolume真实ground_rect消费方式。",
+        "asset IDs固定cafeteria_counter/cafeteria_return/cafeteria_tray/cafeteria_queue；manifest包含region、裁区局部ground_rect、footprint_world_size、world_size、elevation_world、shadow_baked=false。"
+      ],
+      "at": "2026-10-05T13:20:48.921Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
+        "title": "A14 · 食堂场景可用素材",
+        "description": "延续A13经用户确认的朴素配餐，交付取餐台/后厨组合、餐盘回收架、配餐托盘及短排队栏的透明素材。现有长木桌复用。提供ground_rect等世界摆放契约，三种食物均低饱和简朴。主美实际助手已接收工作包。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "素材真实透明、无地板/文字/人物，无丰盛肉丸或鲜亮菜色；方向比例贴合现有俯视监狱，裁区/脚印明确、在预期世界尺寸清晰；主图来源与真实资源检查可追溯。代码/地图启用由制作人集成任务承担。",
+        "result": "主美接手 A14，用户已认可A13朴素配餐。制作四件透明模块并沿用v08地面裁框契约；四张communal_table复用，不改旧图或程序。",
+        "dependencyIds": [
+          "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/props/cafeteria_v14/**",
+            "docs/art/a14*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/art/props/cafeteria_v14/manifest.json",
+          "interfaceContract": "兼容WorldVolume资产定义assets[]、id/texture/region/ground_rect/world_size/elevation_world/shadow_baked；ground_rect以裁区局部坐标标定脚印。逻辑脚印：counter600×80，return110×70，tray36×20，queue180×12。只新增透明PNG和元数据/说明，不修改既有资源、scripts、data、UI或project.godot；本人凭证反馈，制作人审核。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "c0d4fb64-e6b6-4daf-849d-1e83e8fa0138",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T13:15:46.264Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a14-cafeteria-assets-ready-20261005",
+      "taskId": "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "已交付四件内置imagegen透明食堂素材及WorldVolume裁区局部ground_rect契约，朴素米饭/煮菜/清汤延续用户认可A13。源PNG逐字节保留，RGBA/裁框/统一缩放与1280×720原生合成检查通过。仅素材交付，R04地图、碰撞与日程吃饭由制作人集成；回收架实际绘制高度106保留比例，餐盘36×20为非碰撞桌面占位。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/props/cafeteria_v14/manifest.json：四资产固定ID、texture/region/ground_rect/footprint_world_size/world_size/elevation_world/shadow_baked，原PNG SHA256。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a14-cafeteria-assets.md：尺寸、后厨隐藏碰撞职责、餐盘透明余深例外、缩小清晰度、交付边界与全部文件。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a14-imagegen-source.json：四件完整准确生成prompt、A13参考及排队栏去背景修订来源。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a14-qa-resources.json：四RGBA、alpha0、零漏裁主体、ground_rect在裁区内、横纵相等、交付PNG哈希匹配源；passed=true。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a14-contact-1280x720.png：Godot4.7.2原生D3D12生成且主美实际查看，四素材世界尺寸可辨识、排队栏空隙无灰晕；a14-resource-native.gd可复现。",
+        "工程project.godot SHA256仍为C92BE6253B1D9417C3DD019A12ABF986C1D992808EB9313E5D0B14AC87682B7E；未改scripts/data/旧PNG/配置，未commit/push或整工程同步。"
+      ],
+      "at": "2026-10-05T13:52:51.329Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
+        "title": "A14 · 食堂场景可用素材",
+        "description": "延续A13经用户确认的朴素配餐，交付取餐台/后厨组合、餐盘回收架、配餐托盘及短排队栏的透明素材。现有长木桌复用。提供ground_rect等世界摆放契约，三种食物均低饱和简朴。主美实际助手已接收工作包。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "素材真实透明、无地板/文字/人物，无丰盛肉丸或鲜亮菜色；方向比例贴合现有俯视监狱，裁区/脚印明确、在预期世界尺寸清晰；主图来源与真实资源检查可追溯。代码/地图启用由制作人集成任务承担。",
+        "result": "已交付四件内置imagegen透明食堂素材及WorldVolume裁区局部ground_rect契约，朴素米饭/煮菜/清汤延续用户认可A13。源PNG逐字节保留，RGBA/裁框/统一缩放与1280×720原生合成检查通过。仅素材交付，R04地图、碰撞与日程吃饭由制作人集成；回收架实际绘制高度106保留比例，餐盘36×20为非碰撞桌面占位。",
+        "dependencyIds": [
+          "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/props/cafeteria_v14/**",
+            "docs/art/a14*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/art/props/cafeteria_v14/manifest.json",
+          "interfaceContract": "兼容WorldVolume资产定义assets[]、id/texture/region/ground_rect/world_size/elevation_world/shadow_baked；ground_rect以裁区局部坐标标定脚印。逻辑脚印：counter600×80，return110×70，tray36×20，queue180×12。只新增透明PNG和元数据/说明，不修改既有资源、scripts、data、UI或project.godot；本人凭证反馈，制作人审核。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "c0d4fb64-e6b6-4daf-849d-1e83e8fa0138",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T13:15:46.264Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T13:55:04.265Z",
+        "note": "制作人实际查看前三件源图、A14原生合成与P43游戏接入截图。四件透明/裁框/统一缩放契约有效，菜色与A13朴素配餐一致，排队栏间隙在合成中确实透明。P43已按显示范围补后厨碰撞，并设置桌盘独立深度；资源任务通过，地图及吃饭功能另由P43验收。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p43-cafeteria-ready-20261005",
+      "taskId": "6111af3a-de2a-4d09-8c37-48caa1697c98",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "R04按用户认可的A13朴素配餐概念改装食堂，启用已独立验收A14四件素材，四桌宽通道/后厨碰撞/回收与桌盘排序到位；日常表午餐+靠近取餐互动接入真实取餐/饭桌进食，途中和R04寝室不空吃。139项程序检查通过，两逻辑画布尺寸原生触控、昼夜和主干回归通过；其他地图旧午休与project.godot用户差异保留。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p43-r04-cafeteria.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p43-cafeteria-logic.json（31项、4倍流速与实际巡逻）",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p43-native-1200-qa.json、p43-native-960-qa.json（各26项）",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p43-native-1200-eating.png、p43-native-960-meal-picker.png、p43-native-960-canteen-night.png（实际查看）",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p43-gate-rules.json（20项）、p43-multiday-headless.json（36项）",
+        "A14素材独立验收 accepted；源PNG未修改，未做真机或真人测试。"
+      ],
+      "at": "2026-10-05T13:59:35.608Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "6111af3a-de2a-4d09-8c37-48caa1697c98",
+        "title": "P43 · R04食堂改装与午餐日程",
+        "description": "将R04活动大厅改为批准概念的食堂，扩展下侧空间，取餐台/四桌宽通道/排队/回收架。加载A14已验收素材，日常午餐安排去食堂取餐和就餐，真正到点吃饭才能恢复饱腹；寝室休息继续恢复体力。保留其他关卡原有午休机制、三天期限、商店/门口守卫/查寝规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04地图内可见与概念一致的朴素配餐食堂，素材缩放清晰且遮挡正确；三人独立排班可真实寻路到取餐点/饭桌，行进或寝室不空吃；移动接管/暂停/跨时段/重开正确；主通道、工作/商人路线/铁门及午夜查寝回归通过，至少1200及960原生截图检查，A14素材独立验收后启用；只提交本轮文件且保护用户project.godot差异。",
+        "result": "R04按用户认可的A13朴素配餐概念改装食堂，启用已独立验收A14四件素材，四桌宽通道/后厨碰撞/回收与桌盘排序到位；日常表午餐+靠近取餐互动接入真实取餐/饭桌进食，途中和R04寝室不空吃。139项程序检查通过，两逻辑画布尺寸原生触控、昼夜和主干回归通过；其他地图旧午休与project.godot用户差异保留。",
+        "dependencyIds": [
+          "f8548250-e6e4-4267-9b03-5c6bbe4e41b0"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "data/rooms/r04.json",
+            "scripts/**",
+            "qa/p43*",
+            "docs/dev/p43*",
+            "docs/tests/p43*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/res://scenes/main.tscn",
+          "interfaceContract": "主美拥有art/props/cafeteria_v14/**，制作人消费manifest、维护地图碰撞/日程/表现接入，不改源PNG；地图JSON含餐点/座位/回收点。规则按真实位移/时钟结算，饱腹不重复恢复；不改Godot设置与其它地图配置。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "120dcb38-336c-45c8-bab2-c93c444ac00f",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T13:18:22.603Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T14:00:41.093Z",
+        "note": "本制作人明确承担的程序任务按约定自验收。已核对139项运行检查与1200/960实际截图，三人真实取餐/用餐、主通路、巡逻查寝、旧图兼容有效；素材A14另行独立验收。只确认程序/地图已实现，未把自动检查当真人趣味性或手机真机验证。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

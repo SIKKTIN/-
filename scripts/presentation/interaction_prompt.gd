@@ -87,7 +87,9 @@ func _extra(key: String, text: String, anchor: Vector2, tooltip: String) -> Butt
 		b.icon = game.items_view.icon_for(icon_id)
 		b.add_theme_constant_override("icon_max_width",20)
 		b.expand_icon = true
-		if icon_id == "full":
+		if key.begins_with("meal:"):
+			b.icon = game.world.art_textures.get("cafeteria_tray")
+		elif icon_id == "full":
 			b.text = "满包"
 	b.tooltip_text = tooltip
 	_place(b, game.get_global_transform_with_canvas()*anchor)
@@ -117,6 +119,10 @@ func _refresh_items(actor) -> void:
 		var point := Vector2(pos[0], pos[1])
 		var b := _extra("trade:"+id, "购买", point+Vector2(0,-86), "商人营业中（12–14 / 18–20）；购买（E），时间继续运行。")
 		targets.append({"button": b, "kind": "trade", "id": id, "distance": actor.position.distance_to(point)})
+	if game.routines and game.routines.meal_reason(actor.actor_id).is_empty():
+		var point: Vector2 = game.routines._target(actor.actor_id,"meal")
+		var b := _extra("meal:cafeteria","取餐",point+Vector2(0,-76),"领取午餐（E）；自动前往自己的饭桌用餐，不占背包格。")
+		targets.append({"button":b,"kind":"meal","id":"cafeteria","distance":actor.position.distance_to(point)})
 	for key in extras.keys():
 		if key.begins_with("pickup:") and not game.inventory.instances.has(key.substr(7)):
 			extras[key].queue_free()
@@ -128,6 +134,8 @@ func _activate_extra(key: String) -> void:
 	if key.begins_with("pickup:"):
 		var result: Dictionary = game.inventory.try_pickup(game.selected_actor_id, key.substr(7))
 		game.show_status(str(result.reason) if str(result.reason) != "" else "物品已放入当前伙伴背包。")
+	elif key.begins_with("meal:"):
+		game.routines.start_meal(game.selected_actor_id)
 	else:
 		game.shop_panel.open(key.substr(6))
 	game._update_ui()

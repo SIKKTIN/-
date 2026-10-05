@@ -86,6 +86,11 @@ func configure(escape_game) -> void:
 		var prison_assets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(prison_manifest))
 		for asset in prison_assets.assets:
 			asset_definitions[asset.id] = asset
+	var cafeteria_manifest := "res://art/props/cafeteria_v14/manifest.json"
+	if FileAccess.file_exists(cafeteria_manifest):
+		var cafeteria_assets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(cafeteria_manifest))
+		for asset in cafeteria_assets.assets:
+			asset_definitions[asset.id] = asset
 	game.world.queue_redraw()
 	game.floor_texture = game.world.art_textures[profile.floor_asset] if profile.has("floor_asset") else load(profile.floor)
 	game.floor_tile_size = profile.floor_tile_size

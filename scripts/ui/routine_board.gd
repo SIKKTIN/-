@@ -6,6 +6,11 @@ var ui
 
 static func draw_activity_icon(canvas: CanvasItem, kind: String, p: Vector2, ink: Color) -> void:
 	match kind:
+		"meal":
+			canvas.draw_arc(p+Vector2(0,-1),9,0,PI,16,ink,3,true)
+			canvas.draw_line(p+Vector2(-10,1),p+Vector2(10,1),ink,2,true)
+			canvas.draw_line(p+Vector2(-5,-11),p+Vector2(-4,-5),ink,2,true)
+			canvas.draw_line(p+Vector2(4,-11),p+Vector2(5,-5),ink,2,true)
 		"work":
 			canvas.draw_line(p+Vector2(-7,9), p+Vector2(6,-5), ink, 5, true)
 			canvas.draw_line(p+Vector2(0,-10), p+Vector2(11,0), ink, 8, true)
@@ -82,9 +87,11 @@ func _draw() -> void:
 		draw_string(font, rect.position+Vector2(78,61), "已逃脱" if ui.game.actors[id].escaped else "伙伴%d" % (id+1), HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
 	var x: float = pad+22
 	for kind in ui.KINDS:
+		if kind == "meal" and not ui.game.routines.has_cafeteria():
+			continue
 		draw_activity_icon(self,kind,Vector2(x,ui.legend_y+12),ink)
 		draw_string(font,Vector2(x+22,ui.legend_y+18),ui.game.routines.NAMES[kind],HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
-		x += 130 if kind != "free" else 140
+		x += 105 if ui.game.routines.has_cafeteria() else 130 if kind != "free" else 140
 	var night := "00:00–08:00  自动睡觉与查寝"
 	var width := font.get_string_size(night,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
 	draw_string(font,Vector2(size.x-pad-width,ui.legend_y+18),night,HORIZONTAL_ALIGNMENT_LEFT,-1,14,muted)
