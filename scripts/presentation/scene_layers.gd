@@ -90,13 +90,16 @@ func _draw() -> void:
 				var dorm: Rect2 = game.schedule.dormitory(index)
 				draw_rect(dorm,Color(0.3,0.7,0.6,0.1))
 				draw_rect(dorm,Color("328b82"),false,1.5,true)
-		var edge_color := Color("eb977b") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("e1c787")
-		edge_color.a = 0.48
-		draw_set_transform(game.guard.position)
-		var outline: PackedVector2Array = game.guard.view_polygon()
-		if game.guard.curfew_alert() and not outline.is_empty():
-			outline.append(outline[0])
-		draw_polyline(outline,edge_color,1.2,true)
+		var officers: Array = game.prison_alert.officers() if game.prison_alert != null and game.prison_alert.active else [game.guard]
+		for officer in officers:
+			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.curfew_alert() else Color("e1c787")
+			edge_color.a = 0.48
+			draw_set_transform(officer.position)
+			var outline: PackedVector2Array = officer.view_polygon()
+			if officer.curfew_alert() and not outline.is_empty():
+				outline.append(outline[0])
+			if outline.size() >= 2:
+				draw_polyline(outline,edge_color,1.2,true)
 		draw_set_transform(Vector2.ZERO)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
 		if world.lock_progress > 0 and not world.door_open:

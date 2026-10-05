@@ -56,18 +56,23 @@ func view_radius() -> float:
 	return NIGHT_VIEW_RADIUS if night else DAY_VIEW_RADIUS
 
 func inspection_allowed() -> bool:
-	return returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
+	return global_alert() or returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
+
+func global_alert() -> bool:
+	return game.prison_alert != null and game.prison_alert.active
 
 func allowed_zone() -> Rect2:
 	return world.bounds if inspection_allowed() else world.guard_zone
 
 func search_zone() -> Rect2:
-	return world.bounds if game.schedule != null and game.schedule.is_sleep_time() else world.guard_zone
+	return world.bounds if global_alert() or (game.schedule != null and game.schedule.is_sleep_time()) else world.guard_zone
 
 func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
 	return allowed_zone().grow(-radius).has_point(point)
 
 func schedule_changed(sleep_time: bool) -> void:
+	if global_alert():
+		return
 	release_target()
 	chat_partner_id = -1
 	route_index = 0
@@ -76,17 +81,19 @@ func schedule_changed(sleep_time: bool) -> void:
 		returning_from_inspection = false
 		for actor in game.actors:
 			# Inspect from beside the bed rather than stepping onto a sleeping body.
-			inspection_route.append(actor.home+Vector2(65,0))
+			inspection_route.append(game.schedule.inspection_point(actor.actor_id))
 	else:
 		returning_from_inspection = not world.guard_zone.grow(-17).has_point(position)
 
 func patrol_route() -> Array[Vector2]:
+	if global_alert():
+		return game.prison_alert.search_route(self)
 	if returning_from_inspection:
 		return [world.guard_start]
 	return inspection_route if game.schedule != null and game.schedule.is_sleep_time() and not inspection_route.is_empty() else world.patrol
 
 func curfew_alert() -> bool:
-	return game.schedule != null and game.schedule.is_curfew()
+	return global_alert() or (game.schedule != null and game.schedule.is_curfew())
 
 func half_fov() -> float:
 	return PI if curfew_alert() else HALF_FOV
@@ -137,7 +144,7 @@ func tick(delta: float) -> void:
 		return
 	if not curfew_alert() and state in ["chasing", "searching"]:
 		release_target()
-	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),position)
+	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),game.inspection_positions())
 	if returning_from_inspection and world.guard_zone.grow(-17).has_point(position):
 		returning_from_inspection = false
 		path.clear()

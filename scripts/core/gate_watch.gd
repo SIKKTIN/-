@@ -21,16 +21,21 @@ func reset(config: Dictionary) -> void:
 		actor.post = Vector2(spec.position[0],spec.position[1])
 		game.add_child(actor)
 		actor.configure(game.world,game)
-		actor.art_body = true
-		actor.presentation_layers = game.perspective_floor
-		var visual = ActorVisual.new()
-		actor.add_child(visual)
-		visual.configure(actor,game,base.definition.duplicate(true),game.presentation.skill_icons,game.presentation.font)
-		visual.separate_information = game.perspective_floor
-		visual.light_mask = 2
-		game.presentation.visuals.append(visual)
+		attach_visual(actor,base)
 		guards.append(actor)
 	tick(0)
+
+func attach_visual(actor, base = null) -> void:
+	if base == null:
+		base = game.presentation.visuals.filter(func(v): return v.actor == game.guard)[0]
+	actor.art_body = true
+	actor.presentation_layers = game.perspective_floor
+	var visual = ActorVisual.new()
+	actor.add_child(visual)
+	visual.configure(actor,game,base.definition.duplicate(true),game.presentation.skill_icons,game.presentation.font)
+	visual.separate_information = game.perspective_floor
+	visual.light_mask = 2
+	game.presentation.visuals.append(visual)
 
 func by_id(id: String):
 	for actor in guards:

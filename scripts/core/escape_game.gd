@@ -22,6 +22,7 @@ const FullscreenHUD = preload("res://scripts/ui/fullscreen_hud.gd")
 const GateWatch = preload("res://scripts/core/gate_watch.gd")
 const ActorAttributes = preload("res://scripts/core/actor_attributes.gd")
 const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
+const PrisonAlert = preload("res://scripts/core/prison_alert.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -44,6 +45,7 @@ var routine_panel
 var fullscreen_ui
 var gate_watch
 var attributes
+var prison_alert
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -147,6 +149,7 @@ func _ready() -> void:
 	fullscreen_ui.configure(self)
 	gate_watch = GateWatch.new(self)
 	gate_watch.reset(room_config)
+	prison_alert = PrisonAlert.new(self)
 	attributes = ActorAttributes.new(self)
 	fullscreen_ui.layout()
 	routines.offer_morning()
@@ -251,6 +254,8 @@ func _process(delta: float) -> void:
 		gate_watch.tick(0)
 	dog.tick(delta)
 	guard.tick(delta)
+	if prison_alert:
+		prison_alert.tick(delta)
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
 		finish_timeout()
 	guard_position = guard.position
@@ -384,6 +389,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		shop_panel.close()
 	if inventory_panel:
 		inventory_panel.selected_item = ""
+	if prison_alert:
+		prison_alert.reset()
 	if world:
 		world.reset_world()
 	if guard:
@@ -479,8 +486,13 @@ func _floor_style() -> StyleBoxFlat:
 	style.set_border_width_all(5)
 	return style
 
+func inspection_positions() -> Array:
+	var team: Array = prison_alert.officers() if prison_alert else [guard]
+	return team.filter(func(g): return g.inspection_allowed() and not g.escaped).map(func(g): return g.position)
+
 func snapshot() -> Dictionary:
-	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"routines":routines.snapshot() if routines else {},"dog":dog.snapshot() if dog else {}}
+	var alarm: Dictionary = prison_alert.snapshot() if prison_alert else {}
+	return {"prison_alert":alarm,"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"routines":routines.snapshot() if routines else {},"dog":dog.snapshot() if dog else {}}
 
 func world_input_blocked() -> bool:
 	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible) or (routine_panel != null and routine_panel.panel.visible)

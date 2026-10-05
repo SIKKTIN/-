@@ -78,11 +78,12 @@ func reset_world() -> void:
 		gate.closed = false
 	_changed(true)
 
-func update_dorm_doors(locked: bool, guard_point: Vector2) -> void:
+func update_dorm_doors(locked: bool, keyholders: Variant) -> void:
+	var points: Array = keyholders if keyholders is Array else [keyholders]
 	var changed := false
 	for gate in dorm_doors:
 		# The guard uses a key and opens the gate before crossing its collider.
-		var closed: bool = locked and gate.rect.get_center().distance_to(guard_point) > 85
+		var closed: bool = locked and not points.any(func(point): return gate.rect.get_center().distance_to(point) <= 85)
 		if bool(gate.closed) != closed:
 			gate.closed = closed
 			changed = true

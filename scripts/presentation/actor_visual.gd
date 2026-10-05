@@ -143,6 +143,8 @@ func paint_information(canvas: CanvasItem) -> void:
 	if is_guard:
 		if separate_information:
 			var label := "交谈中" if actor.state == "talking" else "守门" if actor.has_method("is_gate_guard") else "追击！" if actor.state == "chasing" else "调查" if actor.state == "searching" else "查寝" if game.schedule and game.schedule.is_sleep_time() else "宵禁警戒" if actor.curfew_alert() else "巡逻"
+			if actor.global_alert():
+				label = "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "增援搜查" if actor in game.prison_alert.reinforcements else "警戒搜查"
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"

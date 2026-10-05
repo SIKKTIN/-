@@ -215,6 +215,8 @@ func offer_morning() -> void:
 		morning_pending = false
 
 func is_lawful(actor_id: int) -> bool:
+	if game.prison_alert != null and game.prison_alert.active:
+		return false
 	if slot < 0 or game.schedule.is_curfew() or manual.has(actor_id) or not records.has(actor_id):
 		return false
 	var r: Dictionary = records[actor_id]

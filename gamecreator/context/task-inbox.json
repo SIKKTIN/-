@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "9f2780bece8b6f16d1e101ca2cb0e60581bc58f9b5082adaf0535193cee329f8",
+  "snapshotId": "ac2768847585c7c9a9c26dc7821e8bb659ca1175b6e0914875cbb806caf523ed",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2437,6 +2437,64 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T14:17:49.700Z"
+            }
+          ]
+        },
+        {
+          "id": "p45-rollcall-alert-20261005",
+          "title": "P45 · 查寝缺员警报与警员增援",
+          "description": "午夜警卫实际进入寝室查点，人员不在对应寝室（含已逃脱）触发持续全监狱警戒；现有巡警、门岗及两名增援分路搜索，白天不自动解除。人在自己寝室即在场，不因没睡着误报。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "实测实际查房后触发、不在午夜提前触发、在场不误报、已逃脱计缺员、增援真实导航与发现捕获、晨间继续警戒、暂停及重开清理、小地图和HUD显示；回归正常白天与多日查寝。",
+          "result": "已完成查寝实际进房核对、缺员（含已逃脱）触发持续全监狱警报，原巡警/两门岗和两名真实增援分路搜索，支持开门、视线、抓捕、灯光、动画、小地图和红色时钟状态；跨晨持续、暂停、跳夜限制、重开清理已验证。正常白天不抓人、围合食堂、门岗配合与三日流程回归通过。程序自测249项通过，原生Windows两尺寸已复核；无真人或手机真机结论。\n\n验收通过：制作人按明确独立程序任务自验收：249项程序/Windows原生尺寸验证通过，真实查点、增援巡路、开寝室门、增援实际捕获、墙遮挡、暂停/跳夜/跨晨警报与重开清理有报告；夜间及晨间画面复核通过。旧图位置兼容与个别判定为明确fixture，未宣称真人或移动真机验证。保持原有project.godot差异。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "interfaceContract": "共用警报状态与既有碰撞/视线/寻路，保留正常白天不抓人规则；报警后全员搜查。非本任务改动及project.godot保留。",
+            "entry": "res://scenes/main.tscn，R04，午夜查寝；CLI qa/p45_rollcall.gd",
+            "allowedPaths": [
+              "scripts/core/escape_game.gd",
+              "scripts/core/prison_alert.gd",
+              "scripts/core/prison_schedule.gd",
+              "scripts/core/daily_routine.gd",
+              "scripts/core/gate_watch.gd",
+              "scripts/actors/guard.gd",
+              "scripts/actors/gate_guard.gd",
+              "scripts/actors/police_dog.gd",
+              "scripts/world/prison_world.gd",
+              "scripts/presentation/scene_layers.gd",
+              "scripts/presentation/actor_visual.gd",
+              "scripts/presentation/lighting_system.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/ui/mini_map.gd",
+              "qa/p45*",
+              "docs/dev/p45*",
+              "docs/tests/p45*"
+            ]
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "79a05a6b-5131-4f3d-b403-d88c10eb6f52",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T15:27:24.006Z"
             }
           ]
         }
@@ -5518,6 +5576,64 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T14:17:49.700Z"
+            }
+          ]
+        },
+        {
+          "id": "p45-rollcall-alert-20261005",
+          "title": "P45 · 查寝缺员警报与警员增援",
+          "description": "午夜警卫实际进入寝室查点，人员不在对应寝室（含已逃脱）触发持续全监狱警戒；现有巡警、门岗及两名增援分路搜索，白天不自动解除。人在自己寝室即在场，不因没睡着误报。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "实测实际查房后触发、不在午夜提前触发、在场不误报、已逃脱计缺员、增援真实导航与发现捕获、晨间继续警戒、暂停及重开清理、小地图和HUD显示；回归正常白天与多日查寝。",
+          "result": "已完成查寝实际进房核对、缺员（含已逃脱）触发持续全监狱警报，原巡警/两门岗和两名真实增援分路搜索，支持开门、视线、抓捕、灯光、动画、小地图和红色时钟状态；跨晨持续、暂停、跳夜限制、重开清理已验证。正常白天不抓人、围合食堂、门岗配合与三日流程回归通过。程序自测249项通过，原生Windows两尺寸已复核；无真人或手机真机结论。\n\n验收通过：制作人按明确独立程序任务自验收：249项程序/Windows原生尺寸验证通过，真实查点、增援巡路、开寝室门、增援实际捕获、墙遮挡、暂停/跳夜/跨晨警报与重开清理有报告；夜间及晨间画面复核通过。旧图位置兼容与个别判定为明确fixture，未宣称真人或移动真机验证。保持原有project.godot差异。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "interfaceContract": "共用警报状态与既有碰撞/视线/寻路，保留正常白天不抓人规则；报警后全员搜查。非本任务改动及project.godot保留。",
+            "entry": "res://scenes/main.tscn，R04，午夜查寝；CLI qa/p45_rollcall.gd",
+            "allowedPaths": [
+              "scripts/core/escape_game.gd",
+              "scripts/core/prison_alert.gd",
+              "scripts/core/prison_schedule.gd",
+              "scripts/core/daily_routine.gd",
+              "scripts/core/gate_watch.gd",
+              "scripts/actors/guard.gd",
+              "scripts/actors/gate_guard.gd",
+              "scripts/actors/police_dog.gd",
+              "scripts/world/prison_world.gd",
+              "scripts/presentation/scene_layers.gd",
+              "scripts/presentation/actor_visual.gd",
+              "scripts/presentation/lighting_system.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/ui/mini_map.gd",
+              "qa/p45*",
+              "docs/dev/p45*",
+              "docs/tests/p45*"
+            ]
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "79a05a6b-5131-4f3d-b403-d88c10eb6f52",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T15:27:24.006Z"
             }
           ]
         }

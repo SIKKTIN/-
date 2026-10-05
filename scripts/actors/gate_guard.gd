@@ -13,12 +13,17 @@ func reset_guard() -> void:
 	escaped = false
 
 func on_duty() -> bool:
-	return game.schedule != null and not game.schedule.is_curfew()
+	return global_alert() or (game.schedule != null and not game.schedule.is_curfew())
 
 func blocking_gate() -> bool:
-	return on_duty() and state != "talking"
+	return on_duty() and not global_alert() and state != "talking"
 
 func tick(_delta: float) -> void:
+	if global_alert():
+		escaped = false
+		show()
+		super.tick(_delta)
+		return
 	moved_this_frame = false
 	escaped = not on_duty()
 	visible = not escaped

@@ -167,11 +167,11 @@ func is_sleeping(actor_id: int) -> bool:
 	return is_sleep_time() and not actor.escaped and in_dormitory(actor_id) and actor.position.distance_to(actor.home) <= 28 and not game.orders.active.has(actor_id) and actor.action_state == "idle"
 
 func can_skip_night() -> bool:
-	return game.phase == "playing" and is_sleep_time() and game.actors.all(func(a): return a.escaped or is_sleeping(a.actor_id))
+	return game.phase == "playing" and is_sleep_time() and not (game.prison_alert != null and game.prison_alert.active) and game.actors.all(func(a): return not a.escaped and is_sleeping(a.actor_id))
 
 func skip_night() -> void:
 	if not can_skip_night():
-		game.show_status("所有未逃出的伙伴需回到各自床位，停止行动后才能跳过夜晚。")
+		game.show_status("已触发警报或有人缺员，不能跳过查寝。" if (game.prison_alert != null and game.prison_alert.active) or game.actors.any(func(a): return a.escaped) else "所有伙伴需回到各自床位，停止行动后才能跳过夜晚。")
 		return
 	var target := absolute_minutes()-clock_minutes()+480.0
 	var previous_clock := clock_elapsed
@@ -207,6 +207,11 @@ func dormitory(actor_id: int) -> Rect2:
 func in_dormitory(actor_id: int) -> bool:
 	return dormitory(actor_id).grow(-17).has_point(game.actors[actor_id].position)
 
+func inspection_point(actor_id: int) -> Vector2:
+	var home: Vector2 = game.actors[actor_id].home
+	var interior := dormitory(actor_id).grow(-18)
+	return (home+Vector2(65,0)).clamp(interior.position,interior.end-Vector2(0.01,0.01))
+
 func enter_curfew() -> void:
 	game.skills.clear_all()
 	game.orders.clear()
@@ -226,10 +231,13 @@ func enter_curfew() -> void:
 				accepted = true
 				break
 		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"
-	game.show_status("午夜锁寝：回床睡觉可跳过；继续行动要避开进房查寝的警卫。" if is_sleep_time() else "20:00：寝室区自由活动，室外进入警戒；午夜锁寝查房。",6)
+	if game.prison_alert != null and game.prison_alert.active:
+		game.show_status("缺员警报持续：全监狱搜查中，夜晚无法跳过。",6)
+	else:
+		game.show_status("午夜锁寝：回床睡觉可跳过；继续行动要避开进房查寝的警卫。" if is_sleep_time() else "20:00：寝室区自由活动，室外进入警戒；午夜锁寝查房。",6)
 
 func dog_active() -> bool:
-	return stage_index >= 0 and bool(config.stages[stage_index].dog_active)
+	return (game.prison_alert != null and game.prison_alert.active) or (stage_index >= 0 and bool(config.stages[stage_index].dog_active))
 
 func tick(announce: bool = true) -> void:
 	var minute := clock_minutes()
@@ -245,18 +253,21 @@ func tick(announce: bool = true) -> void:
 		game.presentation.lighting.set_period(str(stage.period))
 		if bool(stage.get("curfew",false)) and game.phase == "playing":
 			enter_curfew()
-		game.world.update_dorm_doors(is_sleep_time(),game.guard.position)
+		game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
 		if is_sleep_time() != was_sleep:
 			game.guard.schedule_changed(is_sleep_time())
 		if announce:
 			if not is_curfew():
-				game.show_status("%s开始：%s" % [stage.name,stage.detail],4)
-	game.world.update_dorm_doors(is_sleep_time(),game.guard.position)
+				game.show_status("缺员警报仍未解除，全监狱继续搜查。" if game.prison_alert != null and game.prison_alert.active else "%s开始：%s" % [stage.name,stage.detail],4)
+	game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
 	skip_button.visible = is_sleep_time()
 	if game.gate_watch:
 		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
+	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
 	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
+	if game.prison_alert != null and game.prison_alert.active:
+		schedule_note.text = "查寝发现缺员：全监狱警戒，增派2名警员。\n警报持续到本局结束，无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
 	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"

@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T14:51:11.990Z
-> 文档内容基准：3ee1769cbd62d394470bcd52557a22d5e17ad3b947a971ff7c6afb4364f3c520
+> 文档生成时间：2026-10-05T15:59:42.938Z
+> 文档内容基准：55fe6a30ba3061170c181ebfbf81115155e5eacb2ab9350d8d83b04449792f60
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1194,6 +1194,25 @@
 - 允许修改路径：data/rooms/r04.json、scripts/presentation/scene_layers.gd、scripts/presentation/world_volume.gd、qa/p44*、docs/dev/p44*、docs/tests/p44*
 - 接口契约：制作人维护关卡围墙与碰撞、必要渲染文字/深度，复用已有低墙材质和A14资源；摄像机正常默认不改，仅QA临时缩放看全结构。其它地图和属性/背包/日程规则不改，实际餐点/巡逻/商人路线按配置调整。
 - 交付入口：E:/Project/Godot/这次怎么逃/res://scenes/main.tscn
+- 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P45 · 查寝缺员警报与警员增援
+- ID：p45-rollcall-alert-20261005
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-05 → 2026-10-05
+午夜警卫实际进入寝室查点，人员不在对应寝室（含已逃脱）触发持续全监狱警戒；现有巡警、门岗及两名增援分路搜索，白天不自动解除。人在自己寝室即在场，不因没睡着误报。
+- 验收条件：实测实际查房后触发、不在午夜提前触发、在场不误报、已逃脱计缺员、增援真实导航与发现捕获、晨间继续警戒、暂停及重开清理、小地图和HUD显示；回归正常白天与多日查寝。
+- 验收结果：已完成查寝实际进房核对、缺员（含已逃脱）触发持续全监狱警报，原巡警/两门岗和两名真实增援分路搜索，支持开门、视线、抓捕、灯光、动画、小地图和红色时钟状态；跨晨持续、暂停、跳夜限制、重开清理已验证。正常白天不抓人、围合食堂、门岗配合与三日流程回归通过。程序自测249项通过，原生Windows两尺寸已复核；无真人或手机真机结论。
+
+验收通过：制作人按明确独立程序任务自验收：249项程序/Windows原生尺寸验证通过，真实查点、增援巡路、开寝室门、增援实际捕获、墙遮挡、暂停/跳夜/跨晨警报与重开清理有报告；夜间及晨间画面复核通过。旧图位置兼容与个别判定为明确fixture，未宣称真人或移动真机验证。保持原有project.godot差异。
+- 前置任务：无
+- 工作岗位：producer
+- 允许修改路径：scripts/core/escape_game.gd、scripts/core/prison_alert.gd、scripts/core/prison_schedule.gd、scripts/core/daily_routine.gd、scripts/core/gate_watch.gd、scripts/actors/guard.gd、scripts/actors/gate_guard.gd、scripts/actors/police_dog.gd、scripts/world/prison_world.gd、scripts/presentation/scene_layers.gd、scripts/presentation/actor_visual.gd、scripts/presentation/lighting_system.gd、scripts/ui/fullscreen_hud.gd、scripts/ui/mini_map.gd、qa/p45*、docs/dev/p45*、docs/tests/p45*
+- 接口契约：共用警报状态与既有碰撞/视线/寻路，保留正常白天不抓人规则；报警后全员搜查。非本任务改动及project.godot保留。
+- 交付入口：res://scenes/main.tscn，R04，午夜查寝；CLI qa/p45_rollcall.gd
 - 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
 

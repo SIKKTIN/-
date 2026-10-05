@@ -8,12 +8,15 @@ class ClockFace extends Button:
 		var schedule = ui.game.schedule
 		var minute: float = schedule.clock_minutes()
 		var ink := Color("303b46")
-		var danger: bool = schedule.is_curfew() or schedule.real_remaining() <= 30
+		var alarm: bool = ui.game.prison_alert != null and ui.game.prison_alert.active
+		var danger: bool = alarm or schedule.is_curfew() or schedule.real_remaining() <= 30
 		var accent := Color("bc5348") if danger else ink
 		draw_circle(Vector2(32,28),14,ink,false,2,true)
 		draw_line(Vector2(32,28),Vector2(32,18),ink,2,true)
 		draw_line(Vector2(32,28),Vector2(40,33),ink,2,true)
 		var stage: String = schedule.config.stages[schedule.stage_index].name
+		if alarm:
+			stage = "全员警戒"
 		draw_string(ui.font,Vector2(58,36),"%02d:%02d" % [floori(minute/60),floori(minute)%60],HORIZONTAL_ALIGNMENT_LEFT,-1,25,accent)
 		draw_string(ui.font,Vector2(154,34),stage,HORIZONTAL_ALIGNMENT_LEFT,-1,18,accent)
 		var start := Vector2(24,54)
@@ -338,6 +341,7 @@ func refresh() -> void:
 	routine_button.text = "日常表"
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
 	sleep_button.disabled = not game.schedule.can_skip_night()
+	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text
 	goal.text = "逃脱 %d/3" % game.actors.filter(func(a): return a.escaped).size()
 	wallet.text = str(game.inventory.wallet)
 	for face in faces:

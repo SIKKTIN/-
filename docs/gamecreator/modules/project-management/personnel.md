@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T14:51:11.995Z
-> 文档内容基准：fd360a2c7afb6455b98c120177e527511adaeb323f527c018f6608a3cdc15248
+> 文档生成时间：2026-10-05T15:59:42.943Z
+> 文档内容基准：2a2e1a9f0bf102f6760307c25072c96268cc79161d6cc38c8febfd05a56746e0
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -61,6 +61,7 @@
 - P42 · 体力与饱腹度接入日常活动 [8f14d139-9187-4918-9112-e8e10bcb0ee2] · 已完成
 - P43 · R04食堂改装与午餐日程 [6111af3a-de2a-4d09-8c37-48caa1697c98] · 已完成
 - P44 · 围合食堂与后厨房间结构 [40f6576a-d8d7-422d-897c-8a330019c9d1] · 已完成
+- P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -902,6 +903,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：实际游戏可看出食堂围合结构及单独出入口，取餐后厨有真实围墙遮挡/碰撞；桌椅/回收/排队动线可用。三人从寝室或岗位真实通过入口到取餐点/饭桌，并能回寝室；警察巡逻/商人工作营业/午夜查房/出口路径通过。1200和960原生画面检查，有全结构俯视总览与正常镜头试玩证据；保留project.godot用户差异、不改其它地图/源PNG。
 - 验收负责人：制作人
+### P45 · 查寝缺员警报与警员增援
+- ID：p45-rollcall-alert-20261005
+- 当前状态：已完成
+- 内容：午夜警卫实际进入寝室查点，人员不在对应寝室（含已逃脱）触发持续全监狱警戒；现有巡警、门岗及两名增援分路搜索，白天不自动解除。人在自己寝室即在场，不因没睡着误报。
+- 前置任务：无
+- 允许修改路径：scripts/core/escape_game.gd、scripts/core/prison_alert.gd、scripts/core/prison_schedule.gd、scripts/core/daily_routine.gd、scripts/core/gate_watch.gd、scripts/actors/guard.gd、scripts/actors/gate_guard.gd、scripts/actors/police_dog.gd、scripts/world/prison_world.gd、scripts/presentation/scene_layers.gd、scripts/presentation/actor_visual.gd、scripts/presentation/lighting_system.gd、scripts/ui/fullscreen_hud.gd、scripts/ui/mini_map.gd、qa/p45*、docs/dev/p45*、docs/tests/p45*
+- 接口契约：共用警报状态与既有碰撞/视线/寻路，保留正常白天不抓人规则；报警后全员搜查。非本任务改动及project.godot保留。
+- 交付入口：res://scenes/main.tscn，R04，午夜查寝；CLI qa/p45_rollcall.gd
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：实测实际查房后触发、不在午夜提前触发、在场不误报、已逃脱计缺员、增援真实导航与发现捕获、晨间继续警戒、暂停及重开清理、小地图和HUD显示；回归正常白天与多日查寝。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -964,6 +976,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - P43 · R04食堂改装与午餐日程 [6111af3a-de2a-4d09-8c37-48caa1697c98] · 已完成
 - P44 · 围合食堂与后厨房间结构 [40f6576a-d8d7-422d-897c-8a330019c9d1] · 已完成
+- P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

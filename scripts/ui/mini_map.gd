@@ -128,6 +128,9 @@ func _draw() -> void:
 			var coords: Array = item.position
 			draw_circle(to_map(Vector2(coords[0],coords[1])),2,Color("e6c691"))
 	draw_circle(to_map(game.guard.position),4,Color("c65b4b"))
+	if game.prison_alert:
+		for officer in game.prison_alert.reinforcements:
+			draw_circle(to_map(officer.position),4,Color("c65b4b"))
 	if game.gate_watch:
 		for guard in game.gate_watch.guards:
 			if guard.on_duty():

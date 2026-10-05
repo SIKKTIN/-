@@ -15,6 +15,7 @@ var guard_light: PointLight2D
 var guard_boundaries: Array[LightOccluder2D] = []
 var beam_texture: Texture2D
 var curfew_beam_texture: Texture2D
+var search_lights: Dictionary = {}
 
 func configure(owner_game, theme: Theme) -> void:
 	game = owner_game
@@ -108,6 +109,27 @@ func _tick_guard_light() -> void:
 	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("ffe5b2")
 	guard_light.energy = 0.65 if period == "night" else 0.26
 	guard_light.enabled = game.phase == "playing" and game.guard.search_zone().has_point(game.guard.position)
+	var team: Array = game.prison_alert.officers().slice(1) if game.prison_alert != null and game.prison_alert.active else []
+	var ids: Array = team.map(func(g): return g.get_instance_id())
+	for id in search_lights.keys():
+		if id not in ids:
+			search_lights[id].free()
+			search_lights.erase(id)
+	for officer in team:
+		var id: int = officer.get_instance_id()
+		if not search_lights.has(id):
+			var light: PointLight2D = guard_light.duplicate()
+			light.name = "SearchFlashlight%d" % id
+			add_child(light)
+			search_lights[id] = light
+		var light: PointLight2D = search_lights[id]
+		light.position = officer.position
+		light.texture = curfew_beam_texture
+		light.rotation = 0
+		light.texture_scale = officer.view_radius()/128.0
+		light.color = Color("ff9a74")
+		light.energy = guard_light.energy
+		light.enabled = game.phase == "playing" and officer.visible
 
 func _sync_guard_boundaries() -> void:
 	for node in guard_boundaries:
