@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "0af738aef18fb73ec8db655b5d8e57da6ececdb53176f94665c20197154387ac",
+  "snapshotId": "d79c95ef9fea091af741ab43e2081e05fa8fbb32424e9c95c83580173a657e32",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2498,6 +2498,59 @@
           "at": "2026-10-05T08:30:12.965Z"
         }
       ]
+    },
+    {
+      "id": "97cb6b0e-1980-457d-bef2-7d51486748d8",
+      "title": "P37 · A11日常表概念程序落地",
+      "description": "按用户认可A11横向日程排班板概念实现日常表UI：三个人物行、五时段共用标题、活动图标/短文字/柔色、选中青绿、轻选项、应用主要动作。复用A10原肖像和Theme，保持P36日程规则与活跃时钟。制作人仅代码集成，无需制作新人物素材。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "1200×720、1600×720、960×540原生窗口检查并查看实际截图；安全区/手机48逻辑单位点击目标、三个肖像、五准确时段与时钟/期限/午夜说明/应用恢复关闭可读。真实触摸点击活动格与轻菜单、草稿应用/取消/禁用规则/跨天清表/过去时段/午夜、面板输入遮挡与互斥、恢复安排正常，回归实际赴岗与多天逃脱规则。不改project.godot用户差异，无新增玩法。保存证据、GC反馈并独立自验收，更新仓库。",
+      "result": "已按用户认可A11实现三人物行/横向时段/颜色图标/轻活动菜单/青绿应用按钮，原头像接入；原生触摸、草稿/应用/恢复、日期和禁用限制通过。实际查看三尺寸排班板和活动菜单，主项目已重新启动live无错误并打开日常表。\n\n验收通过：核对独立待验收证据、259项最终通过报告及三尺寸排班板/活动菜单真实截图，A11布局与已认可色彩语义落地，A10原角色身份/原日程逻辑保留。主项目run_token19 live且无当前错误，日常表可直接操作。通过程序集成自验收。未覆盖手机真机与真人易用性，不把它们标已测。",
+      "dependencyIds": [
+        "13de730b-bafb-4413-b24a-d2731a4d54a7",
+        "ac460622-c9c9-499f-bdd4-70501d244c36"
+      ],
+      "references": [],
+      "producerSelfReview": true,
+      "integrationTaskIds": [
+        "13de730b-bafb-4413-b24a-d2731a4d54a7"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "scripts/ui/routine_panel.gd",
+          "scripts/ui/fullscreen_hud.gd",
+          "scripts/ui/routine_board.gd",
+          "qa/p37*",
+          "docs/dev/p37*",
+          "docs/tests/p37*"
+        ],
+        "entry": "res://scenes/main.tscn；docs/art/a11-daily-planner.md；art/concepts/ui-routine/a11-daily-planner-v01.png",
+        "interfaceContract": "保持DailyRoutine接口/活动限制/持续行为、原日程/交易/开发互斥与活跃时间。原肖像只读复用，不修改A11/A10已交付资产、世界/人物/碰撞、project.godot和GameCreator正式档案。仅专用工具同步GC。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "1e7c585b-2ce9-4268-883d-ec47754be4ed",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T08:59:32.545Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2635,7 +2688,8 @@
             "e434a572-786f-4e21-bc35-cc4db198be06",
             "d8bfad4b-71ec-4487-9110-ae6577433117",
             "f6ed3698-dcd4-47f1-817d-1d45143679ba",
-            "ac460622-c9c9-499f-bdd4-70501d244c36"
+            "ac460622-c9c9-499f-bdd4-70501d244c36",
+            "97cb6b0e-1980-457d-bef2-7d51486748d8"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -3351,6 +3405,18 @@
       "reason": "用户要求主美重新设计日常表概念图，先视觉评审，暂不实施运行时界面。",
       "createdTaskIds": [
         "13de730b-bafb-4413-b24a-d2731a4d54a7"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "1e7c585b-2ce9-4268-883d-ec47754be4ed",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T08:59:32.545Z",
+      "reason": "用户认可A11概念并授权按图实现。制作人承接明确的程序集成任务，复用A10资产，不重新制作美术。",
+      "createdTaskIds": [
+        "97cb6b0e-1980-457d-bef2-7d51486748d8"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -10775,6 +10841,151 @@
         "at": "2026-10-05T08:52:47.521Z",
         "note": "制作人已实际查看1882×836主概念图并阅读说明：三人五时段、活动语义/3天期限/活跃时钟/按钮层级正确，暖色纸面与A09一致，图例非交互、48逻辑px目标和草稿应用语义明确。概念交付技术通过，可给用户评价；不是用户视觉认可，不授权修改运行界面或正式视觉基准。头像3的旧帽形偏差已披露，实施时复用A10原PNG。",
         "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p37-start-20261005",
+      "taskId": "97cb6b0e-1980-457d-bef2-7d51486748d8",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手用户认可A11的UI代码落地，重构日常表为人物行与活动时段，复用A10既有素材。",
+      "evidence": [
+        "已读取A11概念/说明及P36当前UI、日程逻辑、FullscreenHUD层级和原生测试。保持项目配置既有差异。"
+      ],
+      "at": "2026-10-05T09:00:03.059Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "97cb6b0e-1980-457d-bef2-7d51486748d8",
+        "title": "P37 · A11日常表概念程序落地",
+        "description": "按用户认可A11横向日程排班板概念实现日常表UI：三个人物行、五时段共用标题、活动图标/短文字/柔色、选中青绿、轻选项、应用主要动作。复用A10原肖像和Theme，保持P36日程规则与活跃时钟。制作人仅代码集成，无需制作新人物素材。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "1200×720、1600×720、960×540原生窗口检查并查看实际截图；安全区/手机48逻辑单位点击目标、三个肖像、五准确时段与时钟/期限/午夜说明/应用恢复关闭可读。真实触摸点击活动格与轻菜单、草稿应用/取消/禁用规则/跨天清表/过去时段/午夜、面板输入遮挡与互斥、恢复安排正常，回归实际赴岗与多天逃脱规则。不改project.godot用户差异，无新增玩法。保存证据、GC反馈并独立自验收，更新仓库。",
+        "result": "制作人已接手用户认可A11的UI代码落地，重构日常表为人物行与活动时段，复用A10既有素材。",
+        "dependencyIds": [
+          "13de730b-bafb-4413-b24a-d2731a4d54a7",
+          "ac460622-c9c9-499f-bdd4-70501d244c36"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "integrationTaskIds": [
+          "13de730b-bafb-4413-b24a-d2731a4d54a7"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/routine_panel.gd",
+            "scripts/ui/fullscreen_hud.gd",
+            "scripts/ui/routine_board.gd",
+            "qa/p37*",
+            "docs/dev/p37*",
+            "docs/tests/p37*"
+          ],
+          "entry": "res://scenes/main.tscn；docs/art/a11-daily-planner.md；art/concepts/ui-routine/a11-daily-planner-v01.png",
+          "interfaceContract": "保持DailyRoutine接口/活动限制/持续行为、原日程/交易/开发互斥与活跃时间。原肖像只读复用，不修改A11/A10已交付资产、世界/人物/碰撞、project.godot和GameCreator正式档案。仅专用工具同步GC。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "1e7c585b-2ce9-4268-883d-ec47754be4ed",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T08:59:32.545Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p37-routine-board-ready-20261005",
+      "taskId": "97cb6b0e-1980-457d-bef2-7d51486748d8",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "已按用户认可A11实现三人物行/横向时段/颜色图标/轻活动菜单/青绿应用按钮，原头像接入；原生触摸、草稿/应用/恢复、日期和禁用限制通过。实际查看三尺寸排班板和活动菜单，主项目已重新启动live无错误并打开日常表。",
+      "evidence": [
+        "设计与范围说明 E:/Project/Godot/这次怎么逃/docs/dev/p37-routine-board.md。复用A10原Theme/AtlasTexture，无新人物或玩法，主干仅UI与验证代码。",
+        "实际截图 docs/tests/p37-native-1200-routine-table.png、p37-native-1200-activity-picker.png、p37-native-1600-routine-table.png、p37-native-960-routine-table.png，制作人已view_image检查。",
+        "Windows Godot4.7.2 D3D12三尺寸原生ScreenTouch各49项全通过，docs/tests/p37-native-{1200,1600,960}.json；逻辑回归30项、交易等UI46项、多天查寝36项，共259项全通过；不宣称手机真机验证。",
+        "安全区/48逻辑单位/56按钮、原三头像、禁用工作/午夜/过期/已逃脱、草稿不执行/取消/提交、选人不接管、恢复安排/赴岗零抓回、Esc先收起菜单/阻断世界输入/面板互斥检查通过。时段结束会关闭过期菜单并回退该段未提交草稿。",
+        "project.godot既有差异保持，SHA256 C92BE6253B1D9417C3DD019A12ABF986C1D992808EB9313E5D0B14AC87682B7E，qa/p34旧UID不纳入。最终主项目MCP run_token19 live，current_run_errors空、recent_errors空、R04日常表真实打开，保留用户时间流速设置。"
+      ],
+      "at": "2026-10-05T09:20:44.033Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "97cb6b0e-1980-457d-bef2-7d51486748d8",
+        "title": "P37 · A11日常表概念程序落地",
+        "description": "按用户认可A11横向日程排班板概念实现日常表UI：三个人物行、五时段共用标题、活动图标/短文字/柔色、选中青绿、轻选项、应用主要动作。复用A10原肖像和Theme，保持P36日程规则与活跃时钟。制作人仅代码集成，无需制作新人物素材。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "1200×720、1600×720、960×540原生窗口检查并查看实际截图；安全区/手机48逻辑单位点击目标、三个肖像、五准确时段与时钟/期限/午夜说明/应用恢复关闭可读。真实触摸点击活动格与轻菜单、草稿应用/取消/禁用规则/跨天清表/过去时段/午夜、面板输入遮挡与互斥、恢复安排正常，回归实际赴岗与多天逃脱规则。不改project.godot用户差异，无新增玩法。保存证据、GC反馈并独立自验收，更新仓库。",
+        "result": "已按用户认可A11实现三人物行/横向时段/颜色图标/轻活动菜单/青绿应用按钮，原头像接入；原生触摸、草稿/应用/恢复、日期和禁用限制通过。实际查看三尺寸排班板和活动菜单，主项目已重新启动live无错误并打开日常表。",
+        "dependencyIds": [
+          "13de730b-bafb-4413-b24a-d2731a4d54a7",
+          "ac460622-c9c9-499f-bdd4-70501d244c36"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "integrationTaskIds": [
+          "13de730b-bafb-4413-b24a-d2731a4d54a7"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/routine_panel.gd",
+            "scripts/ui/fullscreen_hud.gd",
+            "scripts/ui/routine_board.gd",
+            "qa/p37*",
+            "docs/dev/p37*",
+            "docs/tests/p37*"
+          ],
+          "entry": "res://scenes/main.tscn；docs/art/a11-daily-planner.md；art/concepts/ui-routine/a11-daily-planner-v01.png",
+          "interfaceContract": "保持DailyRoutine接口/活动限制/持续行为、原日程/交易/开发互斥与活跃时间。原肖像只读复用，不修改A11/A10已交付资产、世界/人物/碰撞、project.godot和GameCreator正式档案。仅专用工具同步GC。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "1e7c585b-2ce9-4268-883d-ec47754be4ed",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T08:59:32.545Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T09:21:17.894Z",
+        "note": "核对独立待验收证据、259项最终通过报告及三尺寸排班板/活动菜单真实截图，A11布局与已认可色彩语义落地，A10原角色身份/原日程逻辑保留。主项目run_token19 live且无当前错误，日常表可直接操作。通过程序集成自验收。未覆盖手机真机与真人易用性，不把它们标已测。",
+        "mode": "producer-self",
         "evidenceVersion": 1
       }
     }

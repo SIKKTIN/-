@@ -260,6 +260,7 @@ func layout() -> void:
 		for child in p.get_children():
 			if child is Button:
 				child.size.y = maxf(48,child.size.y)
+	game.routine_panel.layout(safe)
 	toast.size = Vector2(360,56)
 	toast.position = Vector2(safe.get_center().x-toast.size.x/2,safe.end.y-toast.size.y)
 	game.status_label.position = Vector2(12,7)
@@ -362,7 +363,10 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
 		if game.routine_panel.panel.visible:
-			game.routine_panel.close()
+			if game.routine_panel.picker.visible:
+				game.routine_panel.close_picker()
+			else:
+				game.routine_panel.close()
 		elif game.shop_panel.panel.visible:
 			game.shop_panel.close()
 		elif game.schedule.panel.visible:
