@@ -1,0 +1,56 @@
+{
+	"camera": {
+		"fractional_frames": 180,
+		"max_step": 2.16669416427612,
+		"reverse_steps": 0
+	},
+	"checks": {
+		"camera_follows_distance": true,
+		"curfew_rules": true,
+		"focused": true,
+		"following_still_enabled": true,
+		"geometry_invalidates_commands": true,
+		"no_capture_safe_corridor": true,
+		"no_extra_texture_cache": true,
+		"no_extra_texture_memory": true,
+		"prefiltered_texture": true,
+		"production_flags": true,
+		"restored_geometry": true,
+		"route_accepted": true,
+		"route_arrived": true,
+		"smooth_fractional_camera": true,
+		"wall_commands_cached": true,
+		"wall_geometry_unchanged": true
+	},
+	"focused_frames": 551,
+	"frames": 551,
+	"passed": true,
+	"performance": {
+		"baseline": {
+			"cached_wall_cpu_us_median": 0,
+			"draw_calls_median": 436.0,
+			"process_ms_median": 12.996,
+			"process_ms_p95": 146.704,
+			"samples": 59,
+			"wall_initial_rebuild_us": 884,
+			"wall_redraw_count": 13
+		},
+		"candidate": {
+			"cached_wall_cpu_us_median": 0,
+			"draw_calls_median": 470.0,
+			"process_ms_median": 12.669,
+			"process_ms_p95": 24.83,
+			"samples": 79,
+			"wall_initial_rebuild_us": 1200,
+			"wall_redraw_count": 13
+		},
+		"texture_cache_count": 51,
+		"texture_memory_after": 205942784.0,
+		"texture_memory_bytes": 205942784.0
+	},
+	"scope": "Native D3D12 full scene. Normal orders/AI/rendering run with controlled 1/120 delta; native framebuffer captures. Performance samples are single sequential batches under current GPU load after 1.2s warmup per mode, not device benchmarks or physical display tearing measurements.",
+	"window": [
+		900,
+		540
+	]
+}

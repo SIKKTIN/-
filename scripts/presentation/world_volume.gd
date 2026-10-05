@@ -9,6 +9,8 @@ var display_rect := Rect2()
 var profile: Dictionary = {}
 var definitions: Dictionary = {}
 var elevation: float = 20.0
+var _wall_geometry_valid := false
+var _wall_bounds := Rect2()
 
 func configure(owner_world, type: String, index: int = 0, render_profile: Dictionary = {}, assets: Dictionary = {}) -> void:
 	world = owner_world
@@ -16,6 +18,7 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 	wall_index = index
 	profile = render_profile
 	definitions = assets
+	_wall_geometry_valid = false
 	# Minified bars and furniture need prefiltered texture levels. Fractional
 	# camera motion stays smooth; snapping the camera would introduce stepping.
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
@@ -30,7 +33,14 @@ func prop_id() -> String:
 	return asset_id("crate","heavy_crate_v02") if kind == "crate" else asset_id("door_open","locked_door_open_v02") if world.door_open else asset_id("door_closed","locked_door_closed_v02")
 
 func tick_visual() -> void:
-	footprint = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate
+	var next_footprint: Rect2 = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate
+	# Godot retains canvas commands across camera transforms and light updates.
+	# Static wall polygons only need rebuilding on configure/geometry changes.
+	if kind == "wall" and _wall_geometry_valid and next_footprint == footprint and _wall_bounds == world.bounds:
+		return
+	footprint = next_footprint
+	_wall_geometry_valid = kind == "wall"
+	_wall_bounds = world.bounds
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
 	if kind != "wall" and world.art_textures.has(prop_id()) and definitions.get(prop_id(),{}).has("ground_rect"):
@@ -64,11 +74,14 @@ func _draw() -> void:
 			if side_width > 0:
 				var side := Rect2(Vector2(top.end.x-side_width,top.position.y),Vector2(side_width,top.size.y)).intersection(world.bounds)
 				var shade: float = profile.get("wall_side_shade",0.68)
-				Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),side,Color(shade,shade,shade,1))
-				for step in range(2):
-					var transition := Rect2(side.position+Vector2(step*0.55,0),Vector2(0.55,side.size.y))
-					var value := lerpf(1.0,shade,float(step+1)/3)
-					Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),transition,Color(value,value,value,1))
+				if profile.get("wall_side_gradient",false):
+					Tiles.paint_side_gradient(self,world.art_textures[id],top,Vector2(size[0],size[1]),side,top_color,Color(shade,shade,shade,1))
+				else:
+					Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),side,Color(shade,shade,shade,1))
+					for step in range(2):
+						var transition := Rect2(side.position+Vector2(step*0.55,0),Vector2(0.55,side.size.y))
+						var value := lerpf(1.0,shade,float(step+1)/3)
+						Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),transition,Color(value,value,value,1))
 		var front := Rect2(r.position+Vector2(0,r.size.y-height),Vector2(r.size.x,height))
 		var front_id := asset_id("wall_front","low_wall_front_v02")
 		var front_size: Array = definitions.get(front_id,{}).get("world_size",[64,18])
@@ -77,10 +90,11 @@ func _draw() -> void:
 		var width: float = profile.get("outline_width",2.0)
 		if width > 0:
 			var color := Color(profile.get("outline_color","303b46"))
-			draw_rect(clipped,color,false,width)
-			draw_line(front.position+Vector2(0,height),front.end,color,width)
-			draw_line(clipped.position+Vector2(clipped.size.x,0),r.end,color,width)
-			draw_line(clipped.position,r.position+Vector2(0,r.size.y),color,width)
+			var aa: bool = profile.get("wall_outline_aa",false)
+			draw_rect(clipped,color,false,width,aa)
+			draw_line(front.position+Vector2(0,height),front.end,color,width,aa)
+			draw_line(clipped.position+Vector2(clipped.size.x,0),r.end,color,width,aa)
+			draw_line(clipped.position,r.position+Vector2(0,r.size.y),color,width,aa)
 	else:
 		if world.art_textures.has(prop_id()):
 			draw_texture_rect(world.art_textures[prop_id()],display_rect,false)

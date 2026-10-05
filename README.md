@@ -26,6 +26,8 @@
 
 ## 工程结构
 
+细竖墙移动闪烁修复、GPU对照与缓存成本见 `docs/dev/p32-wall-stability.md`（v0.9.2）。
+
 - `scripts/`：核心流程、移动、技能、狱警与表现。
 - `data/rooms/`、`data/skills/`、`data/items/`：房间、技能、物品价格与作用配置。
 - `art/`、`audio/`：运行素材与来源说明；`data/presentation/active.json` 控制美术版本。
