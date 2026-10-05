@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "2b7cbc5b49bf03ebc4791afbb9faf8f625723cef9b6c10366978fdc6fdc9fa8e",
+  "snapshotId": "6ff149121f3d6ce58b10c54c440eb62a6dfb34521ab2df4bb790237f35f8523c",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2407,6 +2407,53 @@
           "at": "2026-10-05T07:25:11.154Z"
         }
       ]
+    },
+    {
+      "id": "ac460622-c9c9-499f-bdd4-70501d244c36",
+      "title": "P36 · 紧凑人物卡、底部提示与每日人员活动安排",
+      "description": "复用纸卡风格缩小三伙伴卡与肖像排版，提示移到底部正中，避免背包扩展遮挡。新增可触摸日常表入口，以当天五个时间段给三伙伴安排待命/工作/休息/自由活动；应用后真实寻路赴岗位/活动区域，夜间归寝和锁门继续生效。每日08点新表与提醒；手动移动、停止、主动操作接管当前时段，可恢复安排。合法按表活动不被警卫/警犬当逃跑，手动越狱恢复原检测。R04提供数据化工作/公共活动点，旧图有明确兼容提示。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "原生1200/1600/960布局与触屏：紧凑卡、底部提示、1/3背包及展开操作不重叠，日常表编辑/应用/关闭/模态互斥可用。逻辑验证三人独立安排、真实赴工作区、合法活动/手动接管检测区别、工作时段切换、次日清表、睡觉跳夜、受阻提示且不瞬移、四图兼容、重开换图复位及原库存/技能不改。保留project.godot用户差异，文档与GC反馈/验收/工程同步，仓库推送和试玩打开。",
+      "result": "214aa7a已推送main。人物卡124×84、提示底部中央，新增当天五时段×三人独立日常表，真实赴工作/休息/大厅、合法活动与手动接管、次日清表、午夜继承。30逻辑+三尺寸78原生+46UI及36查房回归共190项通过，实际帧已查看；原配置SHA保持。GC三处规则已应用，Godot试玩已重开。未做真机/真人规划，未加劳动收益或工作动画。\n\n验收通过：制作人自验收：214aa7a主干及190项技术证据通过，实际三工位寻路零抓回、手动/停止/恢复/犬检测、按段执行/次日清表/午夜查寝兼容、旧图无假工作均核对。三横屏真实ScreenTouch/Popup输入与全景/日常表/赴岗帧已检查，背包/暂停/交易回归通过。MCP main token18 live，启动无错误，根配置用户SHA不变。当前工作为到岗活动状态，未加劳动生产/收益/专用动画；真机/真人规划未测试。正式规则提交已应用。",
+      "dependencyIds": [],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/rooms/**",
+          "qa/**",
+          "docs/**",
+          "gamecreator/**",
+          "README.md"
+        ],
+        "entry": "res://scenes/main.tscn @ R04 / HUD日常表",
+        "interfaceContract": "制作人承担本轮程序与复用现有Theme/肖像排版，不修改主美PNG或既有UI资源。日常安排单独状态机消费每日时钟，以实际碰撞寻路执行，不传送、不解锁主出口、不扩大常规检测区。午夜仍执行P35锁寝；手动有效行为接管当前时段。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p36-daily-routine-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T07:59:20.905Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2543,7 +2590,8 @@
             "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
             "e434a572-786f-4e21-bc35-cc4db198be06",
             "d8bfad4b-71ec-4487-9110-ae6577433117",
-            "f6ed3698-dcd4-47f1-817d-1d45143679ba"
+            "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+            "ac460622-c9c9-499f-bdd4-70501d244c36"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2960,6 +3008,16 @@
       "modules": [
         "gameplay"
       ]
+    },
+    {
+      "id": "p36-daily-routine-rules-20261005",
+      "digest": "11adbb8a0bf9209c1fb45b71c82cd47a1dcb6c232b3a20a52c2845562ab68b40",
+      "summary": "落实紧凑HUD及每日可编辑人员活动安排、实际赴岗与手动接管规则。",
+      "memberName": "制作人",
+      "at": "2026-10-05T08:18:07.763Z",
+      "modules": [
+        "gameplay"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -3224,6 +3282,18 @@
       "reason": "用户将日程改为多天循环，并明确午夜锁寝、可继续操作或跳过夜晚。",
       "createdTaskIds": [
         "f6ed3698-dcd4-47f1-817d-1d45143679ba"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p36-daily-routine-plan-20261005",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T07:59:20.905Z",
+      "reason": "用户要求人物卡收缩、底部居中提示，以及每日可安排伙伴实际去工作等活动的日常表。",
+      "createdTaskIds": [
+        "ac460622-c9c9-499f-bdd4-70501d244c36"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -10380,6 +10450,144 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T07:45:57.197Z",
         "note": "制作人主干整合自验收：A10/P33接入四尺寸184项原生输入通过，P35三天/查房72项通过，9ef0600额外修正左寝区边界并6项独立检查通过。真实帧与MCP可玩启动证据完整；用户根配置SHA保持。初次反馈退回与修正记录保留。已确认规则正式应用，无真机/真人趣味性结论。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p36-start-20261005",
+      "taskId": "ac460622-c9c9-499f-bdd4-70501d244c36",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始紧凑HUD排版及每日人员活动表，复用现有纸卡资源。R04安排合法工作/公共活动，手动接管当前时段。",
+      "evidence": [
+        "scripts/ui/fullscreen_hud.gd",
+        "scripts/core/prison_schedule.gd"
+      ],
+      "at": "2026-10-05T07:59:53.328Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "ac460622-c9c9-499f-bdd4-70501d244c36",
+        "title": "P36 · 紧凑人物卡、底部提示与每日人员活动安排",
+        "description": "复用纸卡风格缩小三伙伴卡与肖像排版，提示移到底部正中，避免背包扩展遮挡。新增可触摸日常表入口，以当天五个时间段给三伙伴安排待命/工作/休息/自由活动；应用后真实寻路赴岗位/活动区域，夜间归寝和锁门继续生效。每日08点新表与提醒；手动移动、停止、主动操作接管当前时段，可恢复安排。合法按表活动不被警卫/警犬当逃跑，手动越狱恢复原检测。R04提供数据化工作/公共活动点，旧图有明确兼容提示。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "原生1200/1600/960布局与触屏：紧凑卡、底部提示、1/3背包及展开操作不重叠，日常表编辑/应用/关闭/模态互斥可用。逻辑验证三人独立安排、真实赴工作区、合法活动/手动接管检测区别、工作时段切换、次日清表、睡觉跳夜、受阻提示且不瞬移、四图兼容、重开换图复位及原库存/技能不改。保留project.godot用户差异，文档与GC反馈/验收/工程同步，仓库推送和试玩打开。",
+        "result": "开始紧凑HUD排版及每日人员活动表，复用现有纸卡资源。R04安排合法工作/公共活动，手动接管当前时段。",
+        "dependencyIds": [],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/**",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "res://scenes/main.tscn @ R04 / HUD日常表",
+          "interfaceContract": "制作人承担本轮程序与复用现有Theme/肖像排版，不修改主美PNG或既有UI资源。日常安排单独状态机消费每日时钟，以实际碰撞寻路执行，不传送、不解锁主出口、不扩大常规检测区。午夜仍执行P35锁寝；手动有效行为接管当前时段。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p36-daily-routine-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T07:59:20.905Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p36-ready-20261005",
+      "taskId": "ac460622-c9c9-499f-bdd4-70501d244c36",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "214aa7a已推送main。人物卡124×84、提示底部中央，新增当天五时段×三人独立日常表，真实赴工作/休息/大厅、合法活动与手动接管、次日清表、午夜继承。30逻辑+三尺寸78原生+46UI及36查房回归共190项通过，实际帧已查看；原配置SHA保持。GC三处规则已应用，Godot试玩已重开。未做真机/真人规划，未加劳动收益或工作动画。",
+      "evidence": [
+        "docs/dev/p36-daily-routine.md",
+        "docs/tests/p36-routine-logic.json",
+        "docs/tests/p36-native-1200.json",
+        "docs/tests/p36-native-1600.json",
+        "docs/tests/p36-native-960.json",
+        "docs/tests/p36-regression-1200.json",
+        "docs/tests/p36-multiday-headless.json",
+        "docs/tests/p36-native-1200-routine-table.png",
+        "docs/tests/p36-native-1200-workers.png"
+      ],
+      "at": "2026-10-05T08:19:34.079Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "ac460622-c9c9-499f-bdd4-70501d244c36",
+        "title": "P36 · 紧凑人物卡、底部提示与每日人员活动安排",
+        "description": "复用纸卡风格缩小三伙伴卡与肖像排版，提示移到底部正中，避免背包扩展遮挡。新增可触摸日常表入口，以当天五个时间段给三伙伴安排待命/工作/休息/自由活动；应用后真实寻路赴岗位/活动区域，夜间归寝和锁门继续生效。每日08点新表与提醒；手动移动、停止、主动操作接管当前时段，可恢复安排。合法按表活动不被警卫/警犬当逃跑，手动越狱恢复原检测。R04提供数据化工作/公共活动点，旧图有明确兼容提示。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "原生1200/1600/960布局与触屏：紧凑卡、底部提示、1/3背包及展开操作不重叠，日常表编辑/应用/关闭/模态互斥可用。逻辑验证三人独立安排、真实赴工作区、合法活动/手动接管检测区别、工作时段切换、次日清表、睡觉跳夜、受阻提示且不瞬移、四图兼容、重开换图复位及原库存/技能不改。保留project.godot用户差异，文档与GC反馈/验收/工程同步，仓库推送和试玩打开。",
+        "result": "214aa7a已推送main。人物卡124×84、提示底部中央，新增当天五时段×三人独立日常表，真实赴工作/休息/大厅、合法活动与手动接管、次日清表、午夜继承。30逻辑+三尺寸78原生+46UI及36查房回归共190项通过，实际帧已查看；原配置SHA保持。GC三处规则已应用，Godot试玩已重开。未做真机/真人规划，未加劳动收益或工作动画。",
+        "dependencyIds": [],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/**",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "res://scenes/main.tscn @ R04 / HUD日常表",
+          "interfaceContract": "制作人承担本轮程序与复用现有Theme/肖像排版，不修改主美PNG或既有UI资源。日常安排单独状态机消费每日时钟，以实际碰撞寻路执行，不传送、不解锁主出口、不扩大常规检测区。午夜仍执行P35锁寝；手动有效行为接管当前时段。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p36-daily-routine-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T07:59:20.905Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T08:21:00.238Z",
+        "note": "制作人自验收：214aa7a主干及190项技术证据通过，实际三工位寻路零抓回、手动/停止/恢复/犬检测、按段执行/次日清表/午夜查寝兼容、旧图无假工作均核对。三横屏真实ScreenTouch/Popup输入与全景/日常表/赴岗帧已检查，背包/暂停/交易回归通过。MCP main token18 live，启动无错误，根配置用户SHA不变。当前工作为到岗活动状态，未加劳动生产/收益/专用动画；真机/真人规划未测试。正式规则提交已应用。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }
