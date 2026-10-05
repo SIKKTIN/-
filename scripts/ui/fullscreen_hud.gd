@@ -314,6 +314,11 @@ func position_toast() -> void:
 func refresh() -> void:
 	if not clock:
 		return
+	var planning: bool = game.routine_panel.panel.visible
+	# z_index alone does not determine Control input order; hide the covered
+	# global entry as well, so the last HUD child cannot intercept planner taps.
+	menu_button.z_index = 120 if planning else 240
+	menu_button.visible = not planning
 	clock.queue_redraw()
 	routine_button.disabled = game.phase != "playing"
 	routine_button.visible = not game.world_input_blocked()
@@ -351,7 +356,7 @@ func close_menu() -> void:
 		menu.hide()
 		menu_blocker.hide()
 	if game:
-		game.get_tree().paused = false
+		game.get_tree().paused = game.routine_panel != null and game.routine_panel.panel.visible
 		refresh()
 
 func _process(_delta: float) -> void:

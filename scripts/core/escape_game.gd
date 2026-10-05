@@ -141,6 +141,7 @@ func _ready() -> void:
 	fullscreen_ui = FullscreenHUD.new()
 	add_child(fullscreen_ui)
 	fullscreen_ui.configure(self)
+	routines.offer_morning()
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -204,6 +205,8 @@ func _build_ui() -> void:
 	layer.add_child(hint_label)
 
 func _process(delta: float) -> void:
+	if get_tree().paused:
+		return
 	if phase != "playing":
 		if map_camera:
 			map_camera.tick(delta)
@@ -211,13 +214,21 @@ func _process(delta: float) -> void:
 			presentation.tick(delta)
 		return
 	delta = minf(delta,schedule.real_remaining()) if schedule else delta
-	elapsed += delta
 	if schedule:
+		var previous_clock: float = schedule.clock_elapsed
 		schedule.advance(delta)
+		if schedule.time_speed > 0:
+			delta = minf(delta,(schedule.clock_elapsed-previous_clock)/schedule.time_speed)
+	elapsed += delta
 	for actor in actors:
 		actor.moved_this_frame = false
 	if routines:
 		routines.tick()
+		# Opening the morning planner inside this tick must also stop the
+		# remainder of this frame, before movement, skills and enemy AI.
+		if get_tree().paused:
+			_update_ui()
+			return
 	orders.tick(delta)
 	skills.tick(delta)
 	dog.tick(delta)
@@ -374,6 +385,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		developer_settings.close()
 	show_status("三天内让三人逃脱；日常表可安排伙伴工作和活动。",4)
 	select_actor(0)
+	if routine_panel and routine_panel.panel.visible:
+		routine_panel.reload()
 	if map_camera:
 		map_camera.reset()
 	_update_ui()

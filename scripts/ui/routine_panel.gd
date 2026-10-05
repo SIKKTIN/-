@@ -39,6 +39,8 @@ var picker_title: Label
 var picker_options: Array = []
 var draft: Array = []
 var loaded_day := -1
+var pause_active := false
+var paused_before_open := false
 var editing_actor := 0
 var editing_slot := -1
 var row_rects: Array = []
@@ -51,9 +53,12 @@ var legend_y := 476.0
 
 func configure(owner_game) -> void:
 	game = owner_game
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	blocker = game.schedule._blocker("RoutineBlocker", Rect2(), 130)
+	blocker.process_mode = Node.PROCESS_MODE_ALWAYS
 	blocker.color = Color(0.12, 0.17, 0.15, 0.48)
 	panel = game.schedule._paper_panel("DailyRoutine", Vector2.ZERO, Vector2(1144, 622), 131)
+	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.theme = load("res://art/ui/fullscreen/theme.tres")
 	var paper := panel.theme.get_stylebox("panel", "HudPanel").duplicate() as StyleBoxFlat
 	paper.bg_color = Color("f4eedf")
@@ -70,7 +75,7 @@ func configure(owner_game) -> void:
 	day_label = _label("", 20)
 	clock_label = _label("", 22)
 	deadline_label = _label("", 14)
-	live_label = _label("安排期间时间仍会流逝", 14)
+	live_label = _label("已暂停 · 安排后继续", 14)
 	note = _label("", 14)
 	for id in range(3):
 		portraits.append(load("res://art/ui/fullscreen/portrait_%d.tres" % (id+1)))
@@ -321,14 +326,27 @@ func toggle() -> void:
 	if panel.visible:
 		close()
 	else:
-		game.shop_panel.close()
-		game.schedule.close()
-		game.developer_settings.close()
-		layout(game.fullscreen_ui.safe_area())
-		panel.show()
-		blocker.show()
-		reload()
-		game.presentation.interaction.refresh()
+		open()
+
+func open() -> void:
+	if game.phase != "playing" or panel.visible:
+		return
+	if game.fullscreen_ui.menu.visible:
+		game.fullscreen_ui.close_menu()
+	game.shop_panel.close()
+	game.schedule.close()
+	game.developer_settings.close()
+	paused_before_open = game.get_tree().paused
+	pause_active = true
+	layout(game.fullscreen_ui.safe_area())
+	panel.show()
+	blocker.show()
+	# Its normal visibility tick is pausable, so hide it before freezing.
+	game.mini_map.hide()
+	game.get_tree().paused = true
+	reload()
+	game.presentation.interaction.refresh()
+	game.fullscreen_ui.refresh()
 
 func close() -> void:
 	close_picker()
@@ -336,6 +354,12 @@ func close() -> void:
 		panel.hide()
 	if blocker:
 		blocker.hide()
+	if pause_active:
+		pause_active = false
+		var menu_paused: bool = game.fullscreen_ui != null and game.fullscreen_ui.menu.visible
+		game.get_tree().paused = paused_before_open or menu_paused
+	if game and game.fullscreen_ui:
+		game.fullscreen_ui.refresh()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if picker and picker.visible and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:

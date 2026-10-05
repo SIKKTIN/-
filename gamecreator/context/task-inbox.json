@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "d79c95ef9fea091af741ab43e2081e05fa8fbb32424e9c95c83580173a657e32",
+  "snapshotId": "2adccba53a8cd5a88b20aab460d073cfaf7d4f45e8cb9cf6886749c57f08bdfc",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2036,6 +2036,57 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T08:59:32.545Z"
+            }
+          ]
+        },
+        {
+          "id": "e0089bd5-a2e9-45aa-a786-b9efdd661393",
+          "title": "P38 · 日常表暂停与每日晨间分配",
+          "description": "日常表打开暂停完整游戏，表和活动菜单仍可操作；应用/关闭/恢复回到正确暂停状态；全局暂停按钮位于表下且不截获表输入。开局、重开/换图及每日08点（自然/跳夜）自动打开新日空白日常表，每个安排日仅一次，逃脱期限终点不弹。旧活跃时间文案改已暂停。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "原生触摸验证暂停时钟/角色/警卫/警犬与可编辑菜单、应用恢复继续、关闭/Esc正确解暂停、暂停入口不盖表且不可穿透。第1天及自然跨晨/跳夜/重开/换图只弹一次，精准08:00，不在午夜弹或期限结束弹，旧计划/草稿清除。多分辨率检查和日常/午夜/交易/暂停回归通过；保存截图报告并同步GC与Git。",
+          "result": "人员日常表现在暂停完整世界且保持活动菜单可触摸；暂停入口不再盖表或截获输入。开局/重开/换图及自然/跳夜08:00自动弹一次空表，关闭或应用继续，午夜与终点不弹。用户新规则覆盖旧活跃面板约定。\n\n验收通过：核对334项最终通过报告和真实晨间/菜单/窄屏截图，主项目live真实暂停在第1天08:00且可操作。暂停占用/恢复、层级输入、每晨一次/高流速边界/跳夜与期限终点均通过。用户最新暂停及每日自动弹窗规则已覆盖旧活跃规则，保留既有日程/行为/素材。通过自验收，不宣称手机真机。",
+          "dependencyIds": [
+            "97cb6b0e-1980-457d-bef2-7d51486748d8"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/ui/routine_panel.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/core/daily_routine.gd",
+              "scripts/core/prison_schedule.gd",
+              "scripts/core/escape_game.gd",
+              "qa/p38*",
+              "docs/dev/p38*",
+              "docs/tests/p38*"
+            ],
+            "entry": "res://scenes/main.tscn；docs/dev/p37-routine-board.md",
+            "interfaceContract": "用户新规则优先旧A11/P37活跃面板说明。复用已有美术，不改地图、行动能力、时间偏好、project.godot已有差异。分别维护日常表/暂停菜单的暂停占用，表可编辑而世界停，每日早晨一次自动弹窗。GC正式记录使用工具。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "109f66c5-e6b2-4c10-bcd8-c8dc4d80abca",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T09:33:19.656Z"
             }
           ]
         }
@@ -4588,6 +4639,57 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T08:59:32.545Z"
+            }
+          ]
+        },
+        {
+          "id": "e0089bd5-a2e9-45aa-a786-b9efdd661393",
+          "title": "P38 · 日常表暂停与每日晨间分配",
+          "description": "日常表打开暂停完整游戏，表和活动菜单仍可操作；应用/关闭/恢复回到正确暂停状态；全局暂停按钮位于表下且不截获表输入。开局、重开/换图及每日08点（自然/跳夜）自动打开新日空白日常表，每个安排日仅一次，逃脱期限终点不弹。旧活跃时间文案改已暂停。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "原生触摸验证暂停时钟/角色/警卫/警犬与可编辑菜单、应用恢复继续、关闭/Esc正确解暂停、暂停入口不盖表且不可穿透。第1天及自然跨晨/跳夜/重开/换图只弹一次，精准08:00，不在午夜弹或期限结束弹，旧计划/草稿清除。多分辨率检查和日常/午夜/交易/暂停回归通过；保存截图报告并同步GC与Git。",
+          "result": "人员日常表现在暂停完整世界且保持活动菜单可触摸；暂停入口不再盖表或截获输入。开局/重开/换图及自然/跳夜08:00自动弹一次空表，关闭或应用继续，午夜与终点不弹。用户新规则覆盖旧活跃面板约定。\n\n验收通过：核对334项最终通过报告和真实晨间/菜单/窄屏截图，主项目live真实暂停在第1天08:00且可操作。暂停占用/恢复、层级输入、每晨一次/高流速边界/跳夜与期限终点均通过。用户最新暂停及每日自动弹窗规则已覆盖旧活跃规则，保留既有日程/行为/素材。通过自验收，不宣称手机真机。",
+          "dependencyIds": [
+            "97cb6b0e-1980-457d-bef2-7d51486748d8"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/ui/routine_panel.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/core/daily_routine.gd",
+              "scripts/core/prison_schedule.gd",
+              "scripts/core/escape_game.gd",
+              "qa/p38*",
+              "docs/dev/p38*",
+              "docs/tests/p38*"
+            ],
+            "entry": "res://scenes/main.tscn；docs/dev/p37-routine-board.md",
+            "interfaceContract": "用户新规则优先旧A11/P37活跃面板说明。复用已有美术，不改地图、行动能力、时间偏好、project.godot已有差异。分别维护日常表/暂停菜单的暂停占用，表可编辑而世界停，每日早晨一次自动弹窗。GC正式记录使用工具。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "109f66c5-e6b2-4c10-bcd8-c8dc4d80abca",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T09:33:19.656Z"
             }
           ]
         }

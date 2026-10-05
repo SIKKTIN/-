@@ -14,6 +14,7 @@ var slot := -1
 var plans: Array = []
 var records: Dictionary = {}
 var manual: Dictionary = {}
+var morning_pending := true
 
 func _init(owner_game) -> void:
 	game = owner_game
@@ -21,6 +22,7 @@ func _init(owner_game) -> void:
 
 func reset() -> void:
 	day = 1
+	morning_pending = true
 	slot = -1
 	plans = []
 	for index in range(3):
@@ -105,13 +107,14 @@ func tick() -> void:
 			if game.orders.active.has(id) and game.orders.active[id].get("source","") == "routine":
 				game.orders.stop(id)
 		day = game.schedule.day_number()
+		morning_pending = true
 		plans.clear()
 		for id in range(3):
 			plans.append(["idle","idle","idle","idle","idle"])
 		records.clear()
 		manual.clear()
 		slot = -1
-		game.show_status("第%d天开始：点日常表安排今天的工作与活动。" % day,5)
+		game.show_status("第%d天开始：安排今天的工作与活动。" % day,5)
 	if slot != next_slot:
 		for id in records.keys():
 			if game.orders.active.has(id) and game.orders.active[id].get("source","") == "routine":
@@ -130,6 +133,21 @@ func tick() -> void:
 			record.status = "arrived"
 		elif not game.orders.active.has(id) and game.elapsed >= record.retry:
 			_start(id) # A blocked route retries at most once every three seconds.
+	offer_morning()
+
+func offer_morning() -> void:
+	# The first routine tick precedes the UI's construction. Keep the request
+	# pending until both panels exist; each new arrangement day gets one offer.
+	if not morning_pending or game.phase != "playing" or game.schedule.remaining() <= 0 or current_slot() < 0:
+		return
+	if game.routine_panel == null or game.fullscreen_ui == null:
+		return
+	if game.routine_panel.panel.visible:
+		game.routine_panel.reload()
+	else:
+		game.routine_panel.open()
+	if game.routine_panel.panel.visible:
+		morning_pending = false
 
 func is_lawful(actor_id: int) -> bool:
 	if slot < 0 or game.schedule.is_curfew() or manual.has(actor_id) or not records.has(actor_id):
