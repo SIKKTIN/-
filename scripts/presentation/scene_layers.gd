@@ -116,3 +116,19 @@ func _draw() -> void:
 			var returned: Array = cafeteria.return_label
 			draw_string(presentation.font,Vector2(pickup[0],pickup[1]),"取餐 · 12:00–14:00",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
 			draw_string(presentation.font,Vector2(returned[0],returned[1]),"餐盘回收",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
+			if cafeteria.get("enclosed",false):
+				var entrance: Array = cafeteria.entrance
+				var door_center := Vector2(entrance[0]+entrance[2]/2.0,entrance[1]+entrance[3]/2.0)
+				draw_rect(Rect2(door_center-Vector2(20,entrance[3]/2.0),Vector2(40,entrance[3])),Color(0.20,0.55,0.51,0.08))
+				draw_string(presentation.font,door_center+Vector2(35,-60),"食堂入口",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
+				var sign: Array = cafeteria.wall_sign
+				var sign_rect := Rect2(sign[0],sign[1],sign[2],sign[3])
+				draw_rect(sign_rect,Color("ded2ad"))
+				draw_rect(sign_rect,Color("716d5b"),false,2,true)
+				draw_string(presentation.font,sign_rect.position+Vector2(12,29),"食堂",HORIZONTAL_ALIGNMENT_LEFT,-1,24,Color("403f35"))
+				var rules: Array = cafeteria.discipline_sign
+				var rules_rect := Rect2(rules[0],rules[1],rules[2],rules[3])
+				draw_rect(rules_rect,Color("ded2ad"))
+				draw_rect(rules_rect,Color("716d5b"),false,1.5,true)
+				draw_string(presentation.font,rules_rect.position+Vector2(14,25),"遵守纪律",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))
+				draw_string(presentation.font,rules_rect.position+Vector2(14,49),"文明用餐",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))

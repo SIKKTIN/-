@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "a2669e3c9b9b96353c15fd10c69270fb81bb178144fa415bdcae8905e153ff31",
+  "snapshotId": "9f2780bece8b6f16d1e101ca2cb0e60581bc58f9b5082adaf0535193cee329f8",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2390,6 +2390,53 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T13:18:22.603Z"
+            }
+          ]
+        },
+        {
+          "id": "40f6576a-d8d7-422d-897c-8a330019c9d1",
+          "title": "P44 · 围合食堂与后厨房间结构",
+          "description": "重排R04食堂为有四边围墙、左入口和封闭后厨取餐窗口的独立房间。复用已验收墙材质与A14摆设，增加门口/食堂墙牌、调整餐点与巡逻，不再只是开放地面上的架子；主要结构按用户参考还原。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "实际游戏可看出食堂围合结构及单独出入口，取餐后厨有真实围墙遮挡/碰撞；桌椅/回收/排队动线可用。三人从寝室或岗位真实通过入口到取餐点/饭桌，并能回寝室；警察巡逻/商人工作营业/午夜查房/出口路径通过。1200和960原生画面检查，有全结构俯视总览与正常镜头试玩证据；保留project.godot用户差异、不改其它地图/源PNG。",
+          "result": "R04食堂改为四边实体围墙、左侧200宽入口；取餐台两侧隔墙连接北墙，后厨封闭。回收架/地面分区/入口及墙牌对应结构；真实入场取餐就餐返寝、巡逻/商人及查寝均通过。157项程序检查，两尺寸正常镜头及QA全结构总览已实际查看。\n\n验收通过：本制作人明确开发任务自验收：已核对157项检查和两尺寸实际画面，独立围合食堂、左入口、后厨实体隔墙、出入动线有效；正常1倍日程真实到餐，巡逻/商人/查寝回归通过。QA总览缩放与正常试玩镜头分开，不将自动检查当真人/真机验证。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "data/rooms/r04.json",
+              "scripts/presentation/scene_layers.gd",
+              "scripts/presentation/world_volume.gd",
+              "qa/p44*",
+              "docs/dev/p44*",
+              "docs/tests/p44*"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/res://scenes/main.tscn",
+            "interfaceContract": "制作人维护关卡围墙与碰撞、必要渲染文字/深度，复用已有低墙材质和A14资源；摄像机正常默认不改，仅QA临时缩放看全结构。其它地图和属性/背包/日程规则不改，实际餐点/巡逻/商人路线按配置调整。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "c073595e-239b-4f3f-8c56-57ee6c7b6dc1",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T14:17:49.700Z"
             }
           ]
         }
@@ -5424,6 +5471,53 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T13:18:22.603Z"
+            }
+          ]
+        },
+        {
+          "id": "40f6576a-d8d7-422d-897c-8a330019c9d1",
+          "title": "P44 · 围合食堂与后厨房间结构",
+          "description": "重排R04食堂为有四边围墙、左入口和封闭后厨取餐窗口的独立房间。复用已验收墙材质与A14摆设，增加门口/食堂墙牌、调整餐点与巡逻，不再只是开放地面上的架子；主要结构按用户参考还原。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "实际游戏可看出食堂围合结构及单独出入口，取餐后厨有真实围墙遮挡/碰撞；桌椅/回收/排队动线可用。三人从寝室或岗位真实通过入口到取餐点/饭桌，并能回寝室；警察巡逻/商人工作营业/午夜查房/出口路径通过。1200和960原生画面检查，有全结构俯视总览与正常镜头试玩证据；保留project.godot用户差异、不改其它地图/源PNG。",
+          "result": "R04食堂改为四边实体围墙、左侧200宽入口；取餐台两侧隔墙连接北墙，后厨封闭。回收架/地面分区/入口及墙牌对应结构；真实入场取餐就餐返寝、巡逻/商人及查寝均通过。157项程序检查，两尺寸正常镜头及QA全结构总览已实际查看。\n\n验收通过：本制作人明确开发任务自验收：已核对157项检查和两尺寸实际画面，独立围合食堂、左入口、后厨实体隔墙、出入动线有效；正常1倍日程真实到餐，巡逻/商人/查寝回归通过。QA总览缩放与正常试玩镜头分开，不将自动检查当真人/真机验证。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "data/rooms/r04.json",
+              "scripts/presentation/scene_layers.gd",
+              "scripts/presentation/world_volume.gd",
+              "qa/p44*",
+              "docs/dev/p44*",
+              "docs/tests/p44*"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/res://scenes/main.tscn",
+            "interfaceContract": "制作人维护关卡围墙与碰撞、必要渲染文字/深度，复用已有低墙材质和A14资源；摄像机正常默认不改，仅QA临时缩放看全结构。其它地图和属性/背包/日程规则不改，实际餐点/巡逻/商人路线按配置调整。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "c073595e-239b-4f3f-8c56-57ee6c7b6dc1",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T14:17:49.700Z"
             }
           ]
         }
