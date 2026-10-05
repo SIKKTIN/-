@@ -1,9 +1,17 @@
 extends Node2D
 
+const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
+
 var actor
 var game
 var definition: Dictionary
 var texture: Texture2D
+var idle_texture: Texture2D
+var walk_textures: Array[Texture2D] = []
+var walk_frames: Array = []
+var walk_fps: float = 12.0
+var walk_scale_height: float = 0.0
+var walk_frame_index: int = -1
 var frame_name: String = "idle"
 var walk_clock: float = 0.0
 var destination := Rect2()
@@ -22,24 +30,56 @@ func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, t
 	game = escape_game
 	definition = asset
 	texture = load(asset.texture)
+	idle_texture = texture
+	var animation: Dictionary = asset.get("walk_animation",{})
+	if animation.has("texture") and ResourceLoader.exists(animation.texture) and animation.get("frames",[]).size() > 1:
+		walk_frames = animation.frames
+		walk_fps = clampf(float(animation.get("fps",12)),1,60)
+		walk_scale_height = float(animation.get("scale_height",walk_frames[0].region[3]))
+		for frame in walk_frames:
+			walk_textures.append(WorldTexture.load_asset({"texture":animation.texture,"region":frame.region}))
+		if walk_scale_height <= 0 or walk_textures.any(func(t): return t == null):
+			walk_frames = []
+			walk_textures.clear()
+			push_warning("Walk texture unavailable; retaining legacy animation for "+str(asset.actor_id))
 	skill_icons = icons
 	font = text_font
 	is_guard = str(asset.actor_id) == "guard"
 	tick_visual(0)
 
 func tick_visual(delta: float) -> void:
-	flash_time = maxf(0,flash_time-delta)
 	visible = not actor.escaped
-	if actor.moved_this_frame and game.phase == "playing" and not game.get_tree().paused:
-		walk_clock += delta
+	if game.get_tree().paused:
+		return
+	flash_time = maxf(0,flash_time-delta)
+	var moving: bool = actor.moved_this_frame and not actor.escaped and game.phase == "playing"
+	walk_frame_index = -1
+	if moving and not walk_frames.is_empty():
+		var cycle: float = walk_frames.size()/walk_fps
+		walk_clock = fposmod(walk_clock+maxf(delta,0),cycle)
+		walk_frame_index = mini(int(walk_clock*walk_fps),walk_frames.size()-1)
+		frame_name = str(walk_frames[walk_frame_index].id)
+	elif moving:
+		walk_clock = fposmod(walk_clock+maxf(delta,0),2*float(definition.initial_walk_frame_seconds))
 		frame_name = "walk_a" if int(walk_clock / float(definition.initial_walk_frame_seconds)) % 2 == 0 else "walk_b"
 	else:
 		walk_clock = 0
 		frame_name = "idle"
-	var region: Array = definition.frames[frame_name]
-	var anchor: Array = definition.anchor[frame_name]
-	source_region = Rect2(region[0],region[1],region[2],region[3])
-	var ratio: float = float(definition.world_height) / source_region.size.y
+	var anchor: Array
+	var scale_height: float
+	if walk_frame_index >= 0:
+		var frame: Dictionary = walk_frames[walk_frame_index]
+		texture = walk_textures[walk_frame_index]
+		source_region = Rect2(0,0,frame.region[2],frame.region[3])
+		anchor = frame.anchor
+		scale_height = walk_scale_height
+	else:
+		texture = idle_texture
+		var region: Array = definition.frames[frame_name]
+		anchor = definition.anchor[frame_name]
+		source_region = Rect2(region[0],region[1],region[2],region[3])
+		scale_height = source_region.size.y
+	var ratio: float = float(definition.world_height) / scale_height
 	destination = Rect2(-Vector2(anchor[0],anchor[1])*ratio,source_region.size*ratio)
 	if absf(actor.facing.x) > 0.08:
 		flip_h = actor.facing.x < 0
@@ -98,4 +138,4 @@ func body_bounds() -> Rect2:
 	return Rect2(Vector2(-destination.end.x,destination.position.y),destination.size) if flip_h else destination
 
 func snapshot() -> Dictionary:
-	return {"frame":frame_name,"region":[source_region.position.x,source_region.position.y,source_region.size.x,source_region.size.y],"destination":[destination.position.x,destination.position.y,destination.size.x,destination.size.y],"world_height":definition.world_height,"visible":visible,"flip_h":flip_h}
+	return {"frame":frame_name,"frame_index":walk_frame_index,"walk_frame_count":walk_frames.size() if not walk_frames.is_empty() else 2,"walk_fps":walk_fps if not walk_frames.is_empty() else 1.0/float(definition.initial_walk_frame_seconds),"region":[source_region.position.x,source_region.position.y,source_region.size.x,source_region.size.y],"destination":[destination.position.x,destination.position.y,destination.size.x,destination.size.y],"world_height":definition.world_height,"visible":visible,"flip_h":flip_h}

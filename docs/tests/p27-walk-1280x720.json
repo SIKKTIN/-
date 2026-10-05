@@ -1,0 +1,153 @@
+{
+	"actual_actor_frames": [
+		"walk_1",
+		"walk_2",
+		"walk_3",
+		"walk_4",
+		"walk_5",
+		"walk_6",
+		"walk_7",
+		"walk_0"
+	],
+	"actual_guard_frames": [
+		"walk_1",
+		"walk_2",
+		"walk_3",
+		"walk_4",
+		"walk_5",
+		"walk_6",
+		"walk_7",
+		"walk_0"
+	],
+	"checks": {
+		"0.0_all_poses_play": true,
+		"0.0_eight_frames": true,
+		"0.0_escaped_hidden": true,
+		"0.0_left_mirrors_body": true,
+		"0.0_pause_freezes": true,
+		"0.0_rate_independent": true,
+		"0.0_right_restores_body": true,
+		"0.0_stop_original_idle": true,
+		"0.0_twelve_fps": true,
+		"0.0_uses_walk_texture": true,
+		"0.0_visible_scale_stable": true,
+		"1.0_all_poses_play": true,
+		"1.0_eight_frames": true,
+		"1.0_escaped_hidden": true,
+		"1.0_left_mirrors_body": true,
+		"1.0_pause_freezes": true,
+		"1.0_rate_independent": true,
+		"1.0_right_restores_body": true,
+		"1.0_stop_original_idle": true,
+		"1.0_twelve_fps": true,
+		"1.0_uses_walk_texture": true,
+		"1.0_visible_scale_stable": true,
+		"2.0_all_poses_play": true,
+		"2.0_eight_frames": true,
+		"2.0_escaped_hidden": true,
+		"2.0_left_mirrors_body": true,
+		"2.0_pause_freezes": true,
+		"2.0_rate_independent": true,
+		"2.0_right_restores_body": true,
+		"2.0_stop_original_idle": true,
+		"2.0_twelve_fps": true,
+		"2.0_uses_walk_texture": true,
+		"2.0_visible_scale_stable": true,
+		"actual_follow_continues": true,
+		"actual_move_animates": true,
+		"actual_patrol_animates": true,
+		"guard_all_poses_play": true,
+		"guard_eight_frames": true,
+		"guard_escaped_hidden": true,
+		"guard_left_mirrors_body": true,
+		"guard_pause_freezes": true,
+		"guard_rate_independent": true,
+		"guard_right_restores_body": true,
+		"guard_stop_original_idle": true,
+		"guard_twelve_fps": true,
+		"guard_uses_walk_texture": true,
+		"guard_visible_scale_stable": true,
+		"legacy_two_frame_fallback": true,
+		"reload_idle": true
+	},
+	"observed": [
+		{
+			"actor_id": "0.0",
+			"endings": [
+				"walk_1",
+				"walk_1",
+				"walk_1"
+			],
+			"fps": 12.0,
+			"frames": [
+				"walk_0",
+				"walk_1",
+				"walk_2",
+				"walk_3",
+				"walk_4",
+				"walk_5",
+				"walk_6",
+				"walk_7"
+			]
+		},
+		{
+			"actor_id": "1.0",
+			"endings": [
+				"walk_1",
+				"walk_1",
+				"walk_1"
+			],
+			"fps": 12.0,
+			"frames": [
+				"walk_0",
+				"walk_1",
+				"walk_2",
+				"walk_3",
+				"walk_4",
+				"walk_5",
+				"walk_6",
+				"walk_7"
+			]
+		},
+		{
+			"actor_id": "2.0",
+			"endings": [
+				"walk_1",
+				"walk_1",
+				"walk_1"
+			],
+			"fps": 12.0,
+			"frames": [
+				"walk_0",
+				"walk_1",
+				"walk_2",
+				"walk_3",
+				"walk_4",
+				"walk_5",
+				"walk_6",
+				"walk_7"
+			]
+		},
+		{
+			"actor_id": "guard",
+			"endings": [
+				"walk_1",
+				"walk_1",
+				"walk_1"
+			],
+			"fps": 12.0,
+			"frames": [
+				"walk_0",
+				"walk_1",
+				"walk_2",
+				"walk_3",
+				"walk_4",
+				"walk_5",
+				"walk_6",
+				"walk_7"
+			]
+		}
+	],
+	"passed": true,
+	"scope": "Native GPU frames and actual movement/guard; separate deterministic playback fixtures test clock/stop/pause/flip. No human or Android/iOS verdict."
+}

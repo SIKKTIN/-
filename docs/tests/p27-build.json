@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "version": "v0.8.4-p27-eight-frame-walk",
+  "predecessor": "44e5c2f",
+  "task_id": "7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa",
+  "asset_task_id": "d0871b1e-3ce7-4923-bf0c-56e6a03dfaad",
+  "asset_delivery": "walk-art-v09-20261005-cd6f7b85a197",
+  "scope": "32 drawn poses, native per-actor playback fixtures and actual movement/guard/input checks; no human or mobile-device verdict",
+  "native_walk_checks": 98,
+  "native_input_checks": 31,
+  "preserved_user_config": "project.godot bytes unchanged and excluded from commit",
+  "sources": [
+    {
+      "path": "README.md",
+      "sha256": "29979423423e258e07cc7924456b9b3f52b4b47e1bf4a1555577af3176ce6dc6"
+    },
+    {
+      "path": "data/presentation/active.json",
+      "sha256": "71965bf6763066b99c486d6eddf041bfd49769c8ddd4e347ff53eb86e2cda460"
+    },
+    {
+      "path": "scripts/presentation/actor_visual.gd",
+      "sha256": "87469b366dc90c463f6fffb9b7f0174a79cf67ad28c1bb8203aaa10241224aac"
+    },
+    {
+      "path": "scripts/presentation/game_presentation.gd",
+      "sha256": "bbad859fbdc4bfd8ce6be9747ab83a77d21c5c1db47b04b2ca69a1fa541ea5b4"
+    },
+    {
+      "path": "tests/p27_walk_check.gd",
+      "sha256": "c4099e485e13c834297f2934bb0340b560a4815ce52f0aee9f1eaa99f82eced4"
+    },
+    {
+      "path": "tests/p27_walk_check.gd.uid",
+      "sha256": "116810f705f4cf38e94629bfac3c5995b25377363fbd8d0367124b099656d7c6"
+    },
+    {
+      "path": "tests/p27_native_input.gd",
+      "sha256": "e7646011608118f34c4e5ea42b7d42fd350b12cae79ab253fcae03f5999f7f3e"
+    },
+    {
+      "path": "tests/p27_native_input.gd.uid",
+      "sha256": "d81cf27dd3add66b0100e22b4d9b1f3c07b5a3846c112fdf60fdeb43f07a1267"
+    },
+    {
+      "path": "docs/dev/p27-walk-contract.md",
+      "sha256": "990da7cf04c577b79e501b39cc236caade2732c2270abe17793aaba00583ae16"
+    },
+    {
+      "path": "docs/dev/p27-walk-animation.md",
+      "sha256": "2343436b9a894b094c106cb2d3ab5562200da9c450e7ba5be7a1101ca7f075c9"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/tests/p27-baseline.json",
+      "sha256": "fb52ca8ef7513a76650a1ee1263001780eca2a7eca2734973b62aeeefb3acabb"
+    },
+    {
+      "path": "docs/tests/p27-day-1280x720.png",
+      "sha256": "635c51a77d7e9a89f14e639f1fbfcd64f0aa0ffcf116d00e4568f407c724fedb"
+    },
+    {
+      "path": "docs/tests/p27-day-1280x720.png.import",
+      "sha256": "c9cfc65bddd2f1c1e21d43b85f5cdcbd3237f210fe4d8d8b510f9611fdb031b4"
+    },
+    {
+      "path": "docs/tests/p27-day-960x540.png",
+      "sha256": "f68e5b83d40263a130275ecca95475224815657508f5c13fff735e7bcf9746d5"
+    },
+    {
+      "path": "docs/tests/p27-day-960x540.png.import",
+      "sha256": "997a9590167b5cfb8aa46369ff6eda26ea604e585154dd41f224771a5982cfcd"
+    },
+    {
+      "path": "docs/tests/p27-draft-initial-invalid-textures.json",
+      "sha256": "e0d019d4f4ee276f1f34532622bc2d23c5e11bc86b70ab4a4fb4bfde976f712e"
+    },
+    {
+      "path": "docs/tests/p27-input-day-1280x720.png",
+      "sha256": "de4fc795c0c808ad91a29239bbc75a6bb92f850ae4cdd9349d5afff60fed8b6f"
+    },
+    {
+      "path": "docs/tests/p27-input-day-1280x720.png.import",
+      "sha256": "3e60ebd4020d98fe6f13acc2a5cfbe4c8af724bc9921248a90b286b1a3f09944"
+    },
+    {
+      "path": "docs/tests/p27-input-follow-1280x720.json",
+      "sha256": "243025ea9341dc02b4a63e5930dee8502334013b70ffcc1282cefa4951c845c8"
+    },
+    {
+      "path": "docs/tests/p27-input-initial-failure.json",
+      "sha256": "6667faad98c6f7cdd2bd3abe21a4013066a7ae2a97b933b4679fc6a855a7392f"
+    },
+    {
+      "path": "docs/tests/p27-input-night-1280x720.png",
+      "sha256": "06e471ae434a0d73587b04bc466bae7c9ea5b40df54c7d0155252f8c340664aa"
+    },
+    {
+      "path": "docs/tests/p27-input-night-1280x720.png.import",
+      "sha256": "16b1afea4e844690ecfb33bbe8af591a3fb02d48344109d6d576c314318d7f55"
+    },
+    {
+      "path": "docs/tests/p27-night-1280x720.png",
+      "sha256": "f34be65bdecbc37fe788dfe1eabd067049b4c1d60d878cc857c443ae81326863"
+    },
+    {
+      "path": "docs/tests/p27-night-1280x720.png.import",
+      "sha256": "ae9ddd614c859d1d174c0d4ce16664af3c02dfc16e965c83ae83db8ffd5e918e"
+    },
+    {
+      "path": "docs/tests/p27-night-960x540.png",
+      "sha256": "dfbbe51ec0d17485c75287392458beceb123fab85a5743a77f4fc688d72869d4"
+    },
+    {
+      "path": "docs/tests/p27-night-960x540.png.import",
+      "sha256": "c575cc8c2b0c197d31c4977ebb2864a872d5ef4c7fdf5a4063965cbbc1a0c407"
+    },
+    {
+      "path": "docs/tests/p27-walk-1280x720.json",
+      "sha256": "f622203609d716fe943b5d2830e77c0b68deb54b7954ade81b03841c6ca2bf9b"
+    },
+    {
+      "path": "docs/tests/p27-walk-960x540.json",
+      "sha256": "f622203609d716fe943b5d2830e77c0b68deb54b7954ade81b03841c6ca2bf9b"
+    }
+  ]
+}

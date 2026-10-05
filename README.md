@@ -31,7 +31,7 @@
 
 内附 Godot AI 开发插件及其许可证，普通运行不依赖 MCP 连接。`.godot`、本机同步备份与个人凭证不会提交。既有素材版本保留用于回退；素材来源与字体许可见 `docs/art/`、`art/fonts/`。
 
-当前版本：**v0.8.3 / art-v03 / inventory-art-v07 / prison-art-v08 / lighting-v02 + 房间灯具**；手绘素材基线为 **FINAL-WARM-01**。旧三关原生完整路线、两尺寸GUI点击和自动规则检查见 `docs/dev/p20-integration.md`，新关与监狱摆设见 `docs/dev/p23-prison-dressing.md`，寻路优化与镜头跟随见 `docs/dev/p24-navigation-follow.md`，画面同步见 `docs/dev/p25-camera-stability.md`，本次栏杆等缩小纹理的移动闪烁改善见 `docs/dev/p26-texture-stability.md`。自动检查与真人试玩观察分别记录，尚未把技术通过当作趣味性结论，见 `docs/playtests/`。
+当前版本：**v0.8.4 / art-v03 / walk-art-v09 / inventory-art-v07 / prison-art-v08 / lighting-v02 + 房间灯具**；手绘素材基线为 **FINAL-WARM-01**。三伙伴与狱警各8帧走路循环、12fps，停步保留原待机，详见 `docs/dev/p27-walk-animation.md`。旧三关原生完整路线、两尺寸GUI点击和自动规则检查见 `docs/dev/p20-integration.md`，新关与监狱摆设见 `docs/dev/p23-prison-dressing.md`，寻路优化与镜头跟随见 `docs/dev/p24-navigation-follow.md`，画面同步见 `docs/dev/p25-camera-stability.md`，栏杆等缩小纹理的移动闪烁改善见 `docs/dev/p26-texture-stability.md`。自动检查与真人试玩观察分别记录，尚未把技术通过当作趣味性结论，见 `docs/playtests/`。
 
 手机小地图与手势补充见 `docs/dev/p22-mobile-minimap.md`。两尺寸原生触屏事件模拟与GUI回归通过，尚未做Android/iOS真机测试；v0.7完整玩法与P21旧边缘操作证据保留为历史，当前边缘滚屏已删除。
 

@@ -1,0 +1,1592 @@
+{
+  "actors": [
+    {
+      "actor_id": 0,
+      "texture": "res://art/characters/walk_v09/inmate_01_walk8_v09.png",
+      "copy_matches_original": true,
+      "mode": "RGBA",
+      "source_size": [
+        1774,
+        887
+      ],
+      "body_height_spread_fraction": 0.0144,
+      "head_width_spread_fraction": 0.0167,
+      "legacy_idle_visible_world_height": 58.858954041204434,
+      "new_median_visible_world_height": 58.85895404120443,
+      "distinct_lower_silhouettes": 8,
+      "neighbor_lower_silhouette_changes": [
+        {
+          "from": 0,
+          "to": 1,
+          "lower_silhouette_changed_fraction": 0.2885
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "lower_silhouette_changed_fraction": 0.2688
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "lower_silhouette_changed_fraction": 0.4877
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "lower_silhouette_changed_fraction": 0.3205
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "lower_silhouette_changed_fraction": 0.3527
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "lower_silhouette_changed_fraction": 0.3038
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "lower_silhouette_changed_fraction": 0.5296
+        },
+        {
+          "from": 7,
+          "to": 0,
+          "lower_silhouette_changed_fraction": 0.3886
+        }
+      ],
+      "frames": [
+        {
+          "id": "walk_0",
+          "cell": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            97,
+            24,
+            300,
+            418
+          ],
+          "body_height_px": 418,
+          "head_width_px": 239,
+          "head_root_x": 258,
+          "foot_y": 442,
+          "left_extent": 161,
+          "right_extent": 139,
+          "nominal_cell_core_pixels": 78409,
+          "region": [
+            91,
+            18,
+            312,
+            425
+          ],
+          "anchor": [
+            167,
+            424
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 78409,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.92944380652324,
+          "head_world_width": 33.69410782239008,
+          "head_top_world_y": -58.92944380652324,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_1",
+          "cell": [
+            443,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            546,
+            24,
+            261,
+            419
+          ],
+          "body_height_px": 419,
+          "head_width_px": 240,
+          "head_root_x": 687,
+          "foot_y": 443,
+          "left_extent": 141,
+          "right_extent": 120,
+          "nominal_cell_core_pixels": 73934,
+          "region": [
+            540,
+            18,
+            273,
+            425
+          ],
+          "anchor": [
+            147,
+            425
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 73934,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 59.070423337160854,
+          "head_world_width": 33.835087353027696,
+          "head_top_world_y": -59.070423337160854,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_2",
+          "cell": [
+            887,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            984,
+            24,
+            242,
+            418
+          ],
+          "body_height_px": 418,
+          "head_width_px": 238,
+          "head_root_x": 1107,
+          "foot_y": 442,
+          "left_extent": 123,
+          "right_extent": 119,
+          "nominal_cell_core_pixels": 68315,
+          "region": [
+            978,
+            18,
+            254,
+            425
+          ],
+          "anchor": [
+            129,
+            424
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 68315,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.92944380652324,
+          "head_world_width": 33.553128291752465,
+          "head_top_world_y": -58.92944380652324,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_3",
+          "cell": [
+            1330,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            1389,
+            24,
+            286,
+            413
+          ],
+          "body_height_px": 413,
+          "head_width_px": 239,
+          "head_root_x": 1528,
+          "foot_y": 437,
+          "left_extent": 139,
+          "right_extent": 147,
+          "nominal_cell_core_pixels": 76835,
+          "region": [
+            1383,
+            18,
+            298,
+            425
+          ],
+          "anchor": [
+            145,
+            419
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 76835,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.22454615333516,
+          "head_world_width": 33.69410782239008,
+          "head_top_world_y": -58.22454615333516,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_4",
+          "cell": [
+            0,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            93,
+            451,
+            291,
+            414
+          ],
+          "body_height_px": 414,
+          "head_width_px": 242,
+          "head_root_x": 252,
+          "foot_y": 865,
+          "left_extent": 159,
+          "right_extent": 132,
+          "nominal_cell_core_pixels": 76223,
+          "region": [
+            87,
+            445,
+            303,
+            426
+          ],
+          "anchor": [
+            165,
+            420
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 76223,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.36552568397278,
+          "head_world_width": 34.117046414302926,
+          "head_top_world_y": -58.36552568397278,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_5",
+          "cell": [
+            443,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            537,
+            451,
+            271,
+            418
+          ],
+          "body_height_px": 418,
+          "head_width_px": 240,
+          "head_root_x": 687,
+          "foot_y": 869,
+          "left_extent": 150,
+          "right_extent": 121,
+          "nominal_cell_core_pixels": 73363,
+          "region": [
+            531,
+            445,
+            283,
+            430
+          ],
+          "anchor": [
+            156,
+            424
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 73363,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.92944380652324,
+          "head_world_width": 33.835087353027696,
+          "head_top_world_y": -58.92944380652324,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_6",
+          "cell": [
+            887,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            986,
+            451,
+            240,
+            417
+          ],
+          "body_height_px": 417,
+          "head_width_px": 239,
+          "head_root_x": 1106,
+          "foot_y": 868,
+          "left_extent": 120,
+          "right_extent": 120,
+          "nominal_cell_core_pixels": 67328,
+          "region": [
+            980,
+            445,
+            252,
+            429
+          ],
+          "anchor": [
+            126,
+            423
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 67328,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.78846427588562,
+          "head_world_width": 33.69410782239008,
+          "head_top_world_y": -58.78846427588562,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_7",
+          "cell": [
+            1330,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            1391,
+            452,
+            283,
+            413
+          ],
+          "body_height_px": 413,
+          "head_width_px": 239,
+          "head_root_x": 1532,
+          "foot_y": 865,
+          "left_extent": 141,
+          "right_extent": 142,
+          "nominal_cell_core_pixels": 75906,
+          "region": [
+            1385,
+            446,
+            295,
+            425
+          ],
+          "anchor": [
+            147,
+            419
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 75906,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.22454615333516,
+          "head_world_width": 33.69410782239008,
+          "head_top_world_y": -58.22454615333516,
+          "foot_world_error": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "actor_id": 1,
+      "texture": "res://art/characters/walk_v09/inmate_02_walk8_v09.png",
+      "copy_matches_original": true,
+      "mode": "RGBA",
+      "source_size": [
+        1774,
+        887
+      ],
+      "body_height_spread_fraction": 0.0338,
+      "head_width_spread_fraction": 0.0146,
+      "legacy_idle_visible_world_height": 58.67403314917127,
+      "new_median_visible_world_height": 58.67403314917127,
+      "distinct_lower_silhouettes": 8,
+      "neighbor_lower_silhouette_changes": [
+        {
+          "from": 0,
+          "to": 1,
+          "lower_silhouette_changed_fraction": 0.3412
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "lower_silhouette_changed_fraction": 0.249
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "lower_silhouette_changed_fraction": 0.4654
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "lower_silhouette_changed_fraction": 0.3815
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "lower_silhouette_changed_fraction": 0.2819
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "lower_silhouette_changed_fraction": 0.4444
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "lower_silhouette_changed_fraction": 0.4656
+        },
+        {
+          "from": 7,
+          "to": 0,
+          "lower_silhouette_changed_fraction": 0.3476
+        }
+      ],
+      "frames": [
+        {
+          "id": "walk_0",
+          "cell": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            76,
+            46,
+            317,
+            386
+          ],
+          "body_height_px": 386,
+          "head_width_px": 205,
+          "head_root_x": 234,
+          "foot_y": 432,
+          "left_extent": 158,
+          "right_extent": 159,
+          "nominal_cell_core_pixels": 74508,
+          "region": [
+            70,
+            40,
+            329,
+            398
+          ],
+          "anchor": [
+            164,
+            392
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 74508,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.9029305476726,
+          "head_world_width": 31.282644461846843,
+          "head_top_world_y": -58.9029305476726,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_1",
+          "cell": [
+            443,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            529,
+            46,
+            286,
+            387
+          ],
+          "body_height_px": 387,
+          "head_width_px": 206,
+          "head_root_x": 677,
+          "foot_y": 433,
+          "left_extent": 148,
+          "right_extent": 138,
+          "nominal_cell_core_pixels": 69610,
+          "region": [
+            523,
+            40,
+            298,
+            399
+          ],
+          "anchor": [
+            154,
+            393
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 69610,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 59.05552881334013,
+          "head_world_width": 31.43524272751439,
+          "head_top_world_y": -59.05552881334013,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_2",
+          "cell": [
+            887,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            989,
+            46,
+            243,
+            386
+          ],
+          "body_height_px": 386,
+          "head_width_px": 205,
+          "head_root_x": 1116,
+          "foot_y": 432,
+          "left_extent": 127,
+          "right_extent": 116,
+          "nominal_cell_core_pixels": 64029,
+          "region": [
+            983,
+            40,
+            255,
+            398
+          ],
+          "anchor": [
+            133,
+            392
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 64029,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.9029305476726,
+          "head_world_width": 31.282644461846843,
+          "head_top_world_y": -58.9029305476726,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_3",
+          "cell": [
+            1330,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            1403,
+            46,
+            308,
+            380
+          ],
+          "body_height_px": 380,
+          "head_width_px": 205,
+          "head_root_x": 1556,
+          "foot_y": 426,
+          "left_extent": 153,
+          "right_extent": 155,
+          "nominal_cell_core_pixels": 71336,
+          "region": [
+            1397,
+            40,
+            320,
+            392
+          ],
+          "anchor": [
+            159,
+            386
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 71336,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 57.98734095366732,
+          "head_world_width": 31.282644461846843,
+          "head_top_world_y": -57.98734095366732,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_4",
+          "cell": [
+            0,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            66,
+            480,
+            313,
+            383
+          ],
+          "body_height_px": 383,
+          "head_width_px": 208,
+          "head_root_x": 236,
+          "foot_y": 863,
+          "left_extent": 170,
+          "right_extent": 143,
+          "nominal_cell_core_pixels": 73359,
+          "region": [
+            60,
+            474,
+            325,
+            395
+          ],
+          "anchor": [
+            176,
+            389
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 73359,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.445135750669955,
+          "head_world_width": 31.74043925884948,
+          "head_top_world_y": -58.445135750669955,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_5",
+          "cell": [
+            443,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            512,
+            480,
+            279,
+            384
+          ],
+          "body_height_px": 384,
+          "head_width_px": 208,
+          "head_root_x": 676,
+          "foot_y": 864,
+          "left_extent": 164,
+          "right_extent": 115,
+          "nominal_cell_core_pixels": 67847,
+          "region": [
+            506,
+            474,
+            291,
+            396
+          ],
+          "anchor": [
+            170,
+            390
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 67847,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.5977340163375,
+          "head_world_width": 31.74043925884948,
+          "head_top_world_y": -58.5977340163375,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_6",
+          "cell": [
+            887,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            966,
+            479,
+            262,
+            385
+          ],
+          "body_height_px": 385,
+          "head_width_px": 207,
+          "head_root_x": 1118,
+          "foot_y": 864,
+          "left_extent": 152,
+          "right_extent": 110,
+          "nominal_cell_core_pixels": 63528,
+          "region": [
+            960,
+            473,
+            274,
+            397
+          ],
+          "anchor": [
+            158,
+            391
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 63528,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.75033228200505,
+          "head_world_width": 31.58784099318193,
+          "head_top_world_y": -58.75033228200505,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_7",
+          "cell": [
+            1330,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            1404,
+            479,
+            306,
+            374
+          ],
+          "body_height_px": 374,
+          "head_width_px": 206,
+          "head_root_x": 1555,
+          "foot_y": 853,
+          "left_extent": 151,
+          "right_extent": 155,
+          "nominal_cell_core_pixels": 70561,
+          "region": [
+            1398,
+            473,
+            318,
+            386
+          ],
+          "anchor": [
+            157,
+            380
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 70561,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 57.071751359662045,
+          "head_world_width": 31.43524272751439,
+          "head_top_world_y": -57.071751359662045,
+          "foot_world_error": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "actor_id": 2,
+      "texture": "res://art/characters/walk_v09/inmate_03_walk8_v09.png",
+      "copy_matches_original": true,
+      "mode": "RGBA",
+      "source_size": [
+        1774,
+        887
+      ],
+      "body_height_spread_fraction": 0.0328,
+      "head_width_spread_fraction": 0.0146,
+      "legacy_idle_visible_world_height": 58.797996661101834,
+      "new_median_visible_world_height": 58.79799666110185,
+      "distinct_lower_silhouettes": 8,
+      "neighbor_lower_silhouette_changes": [
+        {
+          "from": 0,
+          "to": 1,
+          "lower_silhouette_changed_fraction": 0.3043
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "lower_silhouette_changed_fraction": 0.2977
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "lower_silhouette_changed_fraction": 0.4783
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "lower_silhouette_changed_fraction": 0.3049
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "lower_silhouette_changed_fraction": 0.3075
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "lower_silhouette_changed_fraction": 0.364
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "lower_silhouette_changed_fraction": 0.4145
+        },
+        {
+          "from": 7,
+          "to": 0,
+          "lower_silhouette_changed_fraction": 0.2516
+        }
+      ],
+      "frames": [
+        {
+          "id": "walk_0",
+          "cell": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            91,
+            28,
+            303,
+            403
+          ],
+          "body_height_px": 403,
+          "head_width_px": 207,
+          "head_root_x": 234,
+          "foot_y": 431,
+          "left_extent": 143,
+          "right_extent": 160,
+          "nominal_cell_core_pixels": 76490,
+          "region": [
+            85,
+            22,
+            315,
+            415
+          ],
+          "anchor": [
+            149,
+            409
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 76490,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 59.837355187939494,
+          "head_world_width": 30.73531643648505,
+          "head_top_world_y": -59.837355187939494,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_1",
+          "cell": [
+            443,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            532,
+            28,
+            262,
+            400
+          ],
+          "body_height_px": 400,
+          "head_width_px": 206,
+          "head_root_x": 664,
+          "foot_y": 428,
+          "left_extent": 132,
+          "right_extent": 130,
+          "nominal_cell_core_pixels": 71505,
+          "region": [
+            526,
+            22,
+            274,
+            412
+          ],
+          "anchor": [
+            138,
+            406
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 71505,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 59.39191581929478,
+          "head_world_width": 30.586836646936813,
+          "head_top_world_y": -59.39191581929478,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_2",
+          "cell": [
+            887,
+            0,
+            443,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            980,
+            29,
+            220,
+            399
+          ],
+          "body_height_px": 399,
+          "head_width_px": 206,
+          "head_root_x": 1091,
+          "foot_y": 428,
+          "left_extent": 111,
+          "right_extent": 109,
+          "nominal_cell_core_pixels": 65291,
+          "region": [
+            974,
+            23,
+            232,
+            411
+          ],
+          "anchor": [
+            117,
+            405
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 65291,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 59.24343602974655,
+          "head_world_width": 30.586836646936813,
+          "head_top_world_y": -59.24343602974655,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_3",
+          "cell": [
+            1330,
+            0,
+            444,
+            443
+          ],
+          "opaque_canvas_bounds": [
+            1375,
+            28,
+            293,
+            393
+          ],
+          "body_height_px": 393,
+          "head_width_px": 204,
+          "head_root_x": 1519,
+          "foot_y": 421,
+          "left_extent": 144,
+          "right_extent": 149,
+          "nominal_cell_core_pixels": 73417,
+          "region": [
+            1369,
+            22,
+            305,
+            405
+          ],
+          "anchor": [
+            150,
+            399
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 73417,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.35255729245712,
+          "head_world_width": 30.28987706784034,
+          "head_top_world_y": -58.35255729245712,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_4",
+          "cell": [
+            0,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            83,
+            454,
+            292,
+            397
+          ],
+          "body_height_px": 397,
+          "head_width_px": 207,
+          "head_root_x": 236,
+          "foot_y": 851,
+          "left_extent": 153,
+          "right_extent": 139,
+          "nominal_cell_core_pixels": 73295,
+          "region": [
+            77,
+            448,
+            304,
+            409
+          ],
+          "anchor": [
+            159,
+            403
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 73295,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.94647645065008,
+          "head_world_width": 30.73531643648505,
+          "head_top_world_y": -58.94647645065008,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_5",
+          "cell": [
+            443,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            526,
+            454,
+            259,
+            395
+          ],
+          "body_height_px": 395,
+          "head_width_px": 206,
+          "head_root_x": 666,
+          "foot_y": 849,
+          "left_extent": 140,
+          "right_extent": 119,
+          "nominal_cell_core_pixels": 68759,
+          "region": [
+            520,
+            448,
+            271,
+            407
+          ],
+          "anchor": [
+            146,
+            401
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 68759,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.64951687155361,
+          "head_world_width": 30.586836646936813,
+          "head_top_world_y": -58.64951687155361,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_6",
+          "cell": [
+            887,
+            443,
+            443,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            971,
+            454,
+            230,
+            395
+          ],
+          "body_height_px": 395,
+          "head_width_px": 205,
+          "head_root_x": 1092,
+          "foot_y": 849,
+          "left_extent": 121,
+          "right_extent": 109,
+          "nominal_cell_core_pixels": 64185,
+          "region": [
+            965,
+            448,
+            242,
+            407
+          ],
+          "anchor": [
+            127,
+            401
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 64185,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 58.64951687155361,
+          "head_world_width": 30.438356857388577,
+          "head_top_world_y": -58.64951687155361,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_7",
+          "cell": [
+            1330,
+            443,
+            444,
+            444
+          ],
+          "opaque_canvas_bounds": [
+            1378,
+            454,
+            296,
+            390
+          ],
+          "body_height_px": 390,
+          "head_width_px": 204,
+          "head_root_x": 1519,
+          "foot_y": 844,
+          "left_extent": 141,
+          "right_extent": 155,
+          "nominal_cell_core_pixels": 72386,
+          "region": [
+            1372,
+            448,
+            308,
+            402
+          ],
+          "anchor": [
+            147,
+            396
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 72386,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 57.90711792381242,
+          "head_world_width": 30.28987706784034,
+          "head_top_world_y": -57.90711792381242,
+          "foot_world_error": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "actor_id": "guard",
+      "texture": "res://art/characters/walk_v09/guard_01_walk8_v09.png",
+      "copy_matches_original": true,
+      "mode": "RGBA",
+      "source_size": [
+        1774,
+        887
+      ],
+      "body_height_spread_fraction": 0.0313,
+      "head_width_spread_fraction": 0.0225,
+      "legacy_idle_visible_world_height": 70.54300168634065,
+      "new_median_visible_world_height": 70.54300168634066,
+      "distinct_lower_silhouettes": 8,
+      "neighbor_lower_silhouette_changes": [
+        {
+          "from": 0,
+          "to": 1,
+          "lower_silhouette_changed_fraction": 0.4351
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "lower_silhouette_changed_fraction": 0.2031
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "lower_silhouette_changed_fraction": 0.3841
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "lower_silhouette_changed_fraction": 0.3065
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "lower_silhouette_changed_fraction": 0.284
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "lower_silhouette_changed_fraction": 0.3177
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "lower_silhouette_changed_fraction": 0.3815
+        },
+        {
+          "from": 7,
+          "to": 0,
+          "lower_silhouette_changed_fraction": 0.4125
+        }
+      ],
+      "frames": [
+        {
+          "id": "walk_0",
+          "cell": [
+            0,
+            0,
+            443,
+            455
+          ],
+          "opaque_canvas_bounds": [
+            83,
+            33,
+            329,
+            420
+          ],
+          "body_height_px": 420,
+          "head_width_px": 223,
+          "head_root_x": 252,
+          "foot_y": 453,
+          "left_extent": 169,
+          "right_extent": 160,
+          "nominal_cell_core_pixels": 87397,
+          "region": [
+            77,
+            27,
+            341,
+            428
+          ],
+          "anchor": [
+            175,
+            426
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 87397,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 71.3929173693086,
+          "head_world_width": 37.906239460371005,
+          "head_top_world_y": -71.3929173693086,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_1",
+          "cell": [
+            443,
+            0,
+            444,
+            455
+          ],
+          "opaque_canvas_bounds": [
+            535,
+            32,
+            275,
+            423
+          ],
+          "body_height_px": 423,
+          "head_width_px": 223,
+          "head_root_x": 666,
+          "foot_y": 455,
+          "left_extent": 131,
+          "right_extent": 144,
+          "nominal_cell_core_pixels": 76832,
+          "region": [
+            529,
+            26,
+            287,
+            429
+          ],
+          "anchor": [
+            137,
+            429
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 76832,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 71.90286677908938,
+          "head_world_width": 37.906239460371005,
+          "head_top_world_y": -71.90286677908938,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_2",
+          "cell": [
+            887,
+            0,
+            443,
+            455
+          ],
+          "opaque_canvas_bounds": [
+            962,
+            32,
+            236,
+            422
+          ],
+          "body_height_px": 422,
+          "head_width_px": 222,
+          "head_root_x": 1083,
+          "foot_y": 454,
+          "left_extent": 121,
+          "right_extent": 115,
+          "nominal_cell_core_pixels": 75077,
+          "region": [
+            956,
+            26,
+            248,
+            429
+          ],
+          "anchor": [
+            127,
+            428
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 75077,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 71.73288364249579,
+          "head_world_width": 37.73625632377741,
+          "head_top_world_y": -71.73288364249579,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_3",
+          "cell": [
+            1330,
+            0,
+            444,
+            455
+          ],
+          "opaque_canvas_bounds": [
+            1362,
+            32,
+            323,
+            417
+          ],
+          "body_height_px": 417,
+          "head_width_px": 222,
+          "head_root_x": 1515,
+          "foot_y": 449,
+          "left_extent": 153,
+          "right_extent": 170,
+          "nominal_cell_core_pixels": 83300,
+          "region": [
+            1356,
+            26,
+            335,
+            429
+          ],
+          "anchor": [
+            159,
+            423
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 83300,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 70.88296795952783,
+          "head_world_width": 37.73625632377741,
+          "head_top_world_y": -70.88296795952783,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_4",
+          "cell": [
+            0,
+            455,
+            443,
+            432
+          ],
+          "opaque_canvas_bounds": [
+            86,
+            460,
+            323,
+            410
+          ],
+          "body_height_px": 410,
+          "head_width_px": 221,
+          "head_root_x": 254,
+          "foot_y": 870,
+          "left_extent": 168,
+          "right_extent": 155,
+          "nominal_cell_core_pixels": 82380,
+          "region": [
+            80,
+            455,
+            335,
+            421
+          ],
+          "anchor": [
+            174,
+            415
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 82380,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 69.69308600337268,
+          "head_world_width": 37.56627318718382,
+          "head_top_world_y": -69.69308600337268,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_5",
+          "cell": [
+            443,
+            455,
+            444,
+            432
+          ],
+          "opaque_canvas_bounds": [
+            521,
+            460,
+            297,
+            413
+          ],
+          "body_height_px": 413,
+          "head_width_px": 222,
+          "head_root_x": 671,
+          "foot_y": 873,
+          "left_extent": 150,
+          "right_extent": 147,
+          "nominal_cell_core_pixels": 77838,
+          "region": [
+            515,
+            455,
+            309,
+            424
+          ],
+          "anchor": [
+            156,
+            418
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 77838,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 70.20303541315347,
+          "head_world_width": 37.73625632377741,
+          "head_top_world_y": -70.20303541315347,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_6",
+          "cell": [
+            887,
+            455,
+            443,
+            432
+          ],
+          "opaque_canvas_bounds": [
+            940,
+            461,
+            265,
+            411
+          ],
+          "body_height_px": 411,
+          "head_width_px": 219,
+          "head_root_x": 1082,
+          "foot_y": 872,
+          "left_extent": 142,
+          "right_extent": 123,
+          "nominal_cell_core_pixels": 72631,
+          "region": [
+            934,
+            455,
+            277,
+            423
+          ],
+          "anchor": [
+            148,
+            417
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 72631,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 69.86306913996629,
+          "head_world_width": 37.22630691399663,
+          "head_top_world_y": -69.86306913996629,
+          "foot_world_error": 0
+        },
+        {
+          "id": "walk_7",
+          "cell": [
+            1330,
+            455,
+            444,
+            432
+          ],
+          "opaque_canvas_bounds": [
+            1363,
+            461,
+            321,
+            411
+          ],
+          "body_height_px": 411,
+          "head_width_px": 224,
+          "head_root_x": 1521,
+          "foot_y": 872,
+          "left_extent": 158,
+          "right_extent": 163,
+          "nominal_cell_core_pixels": 79219,
+          "region": [
+            1357,
+            455,
+            333,
+            423
+          ],
+          "anchor": [
+            164,
+            417
+          ],
+          "region_valid": true,
+          "inside_regular_cell": true,
+          "outside_nominal_cell_core_pixels": 0,
+          "actual_region_core_pixels": 79219,
+          "own_pose_core_pixel_count_equal": true,
+          "neighbor_pose_isolated": true,
+          "visible_world_height": 69.86306913996629,
+          "head_world_width": 38.07622259696459,
+          "head_top_world_y": -69.86306913996629,
+          "foot_world_error": 0
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "old_assets_checked": 101,
+  "changed_old_assets": [],
+  "passed": true,
+  "scope": "per-frame clean regions/shared scale/foot metadata and lower-mask distinction; actual pose order/identity/loop visually reviewed separately"
+}

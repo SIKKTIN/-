@@ -48,7 +48,18 @@ func configure(escape_game) -> void:
 	for id in ["selected","detected","searching","escaped","captured","cancelled"]:
 		fx[id] = load("res://art/fx/%s_v01.png" % id)
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile.characters))
+	var walk_definitions := {}
+	var motion_path: String = OS.get_environment("ESCAPE_WALK_MANIFEST")
+	if motion_path.is_empty():
+		motion_path = str(active.get("character_motion",""))
+	if profile_id == "v03" and not motion_path.is_empty() and FileAccess.file_exists(motion_path):
+		var motion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(motion_path))
+		for entry in motion.actors:
+			walk_definitions[str(entry.actor_id)] = entry.walk_animation
 	for asset in manifest.actors:
+		asset = asset.duplicate(true)
+		if walk_definitions.has(str(asset.actor_id)):
+			asset.walk_animation = walk_definitions[str(asset.actor_id)]
 		var actor = game.guard if str(asset.actor_id) == "guard" else game.actors[int(asset.actor_id)]
 		actor.art_body = true
 		actor.z_index = 15 if actor == game.guard else 20
