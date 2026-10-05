@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T02:48:41.580Z
-> 文档内容基准：fe3635764637fb6ece3abfac802e13145ec0bc0870873d136c687e9c41817462
+> 文档生成时间：2026-10-05T03:52:29.838Z
+> 文档内容基准：8154d349dc452a24f6956fba2b457e794a3fdef6c1344b559cd2419168ba6e62
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -42,6 +42,7 @@
 - P24 连点寻路优化与选中镜头跟随 [9726b094-4fa1-43b5-8190-83287d4d3f90] · 已完成
 - P25 跟随镜头画面稳定与采样修复 [bd71d2f4-948f-4eec-819c-7f4a6f0148bc] · 已完成
 - P26 铁栏杆与世界贴图移动闪烁修复 [0edca471-cafb-43ec-9554-de439482bdaf] · 已完成
+- P27 多帧移动动画播放与接入 [7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -53,6 +54,7 @@
 - A04 概念风格对齐：art-v03手绘材质与人物轮廓 [d2e6a54e-f748-4980-b32f-4c5e5d8fcd07] · 已完成
 - A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成
 - A06 牢房车间活动厅七种摆设资产 [3fd8d3a2-e0da-4c04-b2d8-3b0640a94391] · 已完成
+- A07 四角色八帧行走动作补帧 [d0871b1e-3ce7-4923-bf0c-56e6a03dfaad] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -663,6 +665,18 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：两种栏杆实际尺寸和1/0.75屏幕比例的分数像素GPU对照留证，亮度跨度与列变化相对原采样下降；生产缓存复用、绘制尺寸、两尺寸原生选人/连续命令/拖图/小地图/跟随/图标与昼夜检查通过。保留PNG与用户project.godot；技术验收不代表真人屏幕或手机真机确认无闪烁。
 - 验收负责人：制作人
+### P27 多帧移动动画播放与接入
+- ID：7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa
+- 当前状态：已完成
+- 内容：接入主美四角色8帧行走数据，约12fps、实际位移驱动，停步回旧idle且身体水平翻转。支持旧两帧资源，角色身份/高度与信息层不变。
+- 前置任务：d0871b1e-3ce7-4923-bf0c-56e6a03dfaad
+- 允许修改路径：scripts/presentation/actor_visual.gd、scripts/presentation/game_presentation.gd、data/presentation/、tests/、docs/dev/、docs/tests/、README.md
+- 接口契约：读取A07清单中的walk_animation，旧idle素材和v01/v02两帧回退保留；不修改寻路、移动速度、碰撞、镜头或用户project.godot。
+- 交付入口：res://scenes/main.tscn
+- 集成来源任务：d0871b1e-3ce7-4923-bf0c-56e6a03dfaad
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：四角色8帧12fps循环实际运行；停步/暂停/逃脱/左右方向正确，固定脚底注册；短/长帧时间播放一致；真实原生移动/镜头与昼夜截图无错误，Git及GameCreator记录同步。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -698,6 +712,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P24 连点寻路优化与选中镜头跟随 [9726b094-4fa1-43b5-8190-83287d4d3f90] · 已完成
 - P25 跟随镜头画面稳定与采样修复 [bd71d2f4-948f-4eec-819c-7f4a6f0148bc] · 已完成
 - P26 铁栏杆与世界贴图移动闪烁修复 [0edca471-cafb-43ec-9554-de439482bdaf] · 已完成
+- A07 四角色八帧行走动作补帧 [d0871b1e-3ce7-4923-bf0c-56e6a03dfaad] · 已完成
+- P27 多帧移动动画播放与接入 [7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1043,6 +1059,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：docs/dev/p23-prison-dressing-contract.md
 - 验收要求：bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board七资产，水平轴线轻斜俯视，原PNG透明，ground_rect注册、纹理/比例小尺寸可辨认，两尺寸资源预览与SHA256/提示词完整。不修改旧素材或共享代码。
 - 验收负责人：制作人
+### A07 四角色八帧行走动作补帧
+- ID：d0871b1e-3ce7-4923-bf0c-56e6a03dfaad
+- 当前状态：已完成
+- 内容：在FINAL-WARM-01现有三伙伴与狱警身份基线上，每个交付8个真实不同姿态的连续行走帧，含迈步/经过/抬脚/落脚，透明PNG序列图及脚底注册清单；不以重复两帧、溶图或整人摆动充当补帧。旧idle素材保留。
+- 前置任务：无
+- 允许修改路径：art/characters/walk_v09/、art/characters/manifest-v09.json、docs/art/、docs/tests/a07-*
+- 接口契约：manifest schema1 actors:[{actor_id:0|1|2|"guard",walk_animation:{texture:"res://art/characters/walk_v09/...png",fps:12,frames:[{id:"walk_0",region:[x,y,w,h],anchor:[footx,footy]},...8]}}]。区域应统一画布/高度/注册点，共享尺度；原idle、world_height、身份、碰撞及逻辑不改。仅PNG/清单/资产文档，不动共享scripts/data/project.godot，不提交Git。
+- 交付入口：art/characters/manifest-v09.json
+- 验收要求：四角色各8帧，闭合循环且头身/颜色/脚底尺度一致；PNG透明无阴影/技能符号；manifest-v09.json按下述接口，源及预览自检证据齐全。制作人接入后验收。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1052,3 +1078,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A04 概念风格对齐：art-v03手绘材质与人物轮廓 [d2e6a54e-f748-4980-b32f-4c5e5d8fcd07] · 已完成
 - A05 商人、物品与背包反馈最小资产 [1f52ca69-414a-44d3-9654-f3b3b358ac9a] · 已完成
 - A06 牢房车间活动厅七种摆设资产 [3fd8d3a2-e0da-4c04-b2d8-3b0640a94391] · 已完成
+- A07 四角色八帧行走动作补帧 [d0871b1e-3ce7-4923-bf0c-56e6a03dfaad] · 已完成

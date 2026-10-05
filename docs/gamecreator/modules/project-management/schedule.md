@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T02:48:41.577Z
-> 文档内容基准：1b639439493cc8c81d42ad32cc693599116ff02519f50d1e27f268693bbced24
+> 文档生成时间：2026-10-05T03:52:29.834Z
+> 文档内容基准：239911001d60c03f102a39aad2dfc34c7635b796dfbc7e72453559cfbbd2fecd
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -685,6 +685,44 @@
 - 允许修改路径：scripts/core/、scripts/presentation/、scenes/、tests/、docs/dev/、docs/tests/、README.md、tools/
 - 接口契约：不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。
 - 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A07 四角色八帧行走动作补帧
+- ID：d0871b1e-3ce7-4923-bf0c-56e6a03dfaad
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-05 → 2026-10-05
+在FINAL-WARM-01现有三伙伴与狱警身份基线上，每个交付8个真实不同姿态的连续行走帧，含迈步/经过/抬脚/落脚，透明PNG序列图及脚底注册清单；不以重复两帧、溶图或整人摆动充当补帧。旧idle素材保留。
+- 验收条件：四角色各8帧，闭合循环且头身/颜色/脚底尺度一致；PNG透明无阴影/技能符号；manifest-v09.json按下述接口，源及预览自检证据齐全。制作人接入后验收。
+- 验收结果：交付 walk-art-v09-20261005-cd6f7b85a197：四角色各8个不同走路姿态、12fps闭环，4张1774×887原样透明PNG与manifest-v09，旧idle/60-72世界尺寸保留。按制作人最新反馈采用逐帧干净region、逐帧脚底anchor和统一scale_height；已消除狱警帽上邻帧鞋底碎片和预览负帧号。32帧邻帧核心像素0、脚底误差0，四角色可见高度波动1.44/3.38/3.28/3.13%，头宽波动<=2.25%，101旧素材SHA未改。浏览器1280x720/960x540与Godot4.7.2隔离headless Image/AtlasTexture/SpriteFrames检查通过；原生尺寸左右镜像GIF与旧idle接触表、两轮原提示词、来源/许可证/22文件SHA清单齐全。PNG没有代码修改；未动共享脚本/数据/场景/根project.godot、未打开生产项目或占用可见Godot窗口。正式图为v09r3，历史v09/v09r2排查图不采用。请制作人独立验收并在P27接入后确认实际移动、idle切换及mipmap效果。
+
+验收通过：制作人独立核对22文件哈希、资源QA与正式v09r3接触表，32姿态、邻帧隔离与统一脚底/缩放通过。已对初稿帽上混入鞋底及负帧预览提出修正并查看最终修正。接受逐帧干净region/anchor搭配统一scale_height的接口，不强求透明裁框同尺寸。初步实际Godot播放8帧/12fps及角色尺度通过；P27正式接入单独验收。
+- 前置任务：无
+- 工作岗位：art-director
+- 允许修改路径：art/characters/walk_v09/、art/characters/manifest-v09.json、docs/art/、docs/tests/a07-*
+- 接口契约：manifest schema1 actors:[{actor_id:0|1|2|"guard",walk_animation:{texture:"res://art/characters/walk_v09/...png",fps:12,frames:[{id:"walk_0",region:[x,y,w,h],anchor:[footx,footy]},...8]}}]。区域应统一画布/高度/注册点，共享尺度；原idle、world_height、身份、碰撞及逻辑不改。仅PNG/清单/资产文档，不动共享scripts/data/project.godot，不提交Git。
+- 交付入口：art/characters/manifest-v09.json
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P27 多帧移动动画播放与接入
+- ID：7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-05 → 2026-10-05
+接入主美四角色8帧行走数据，约12fps、实际位移驱动，停步回旧idle且身体水平翻转。支持旧两帧资源，角色身份/高度与信息层不变。
+- 验收条件：四角色8帧12fps循环实际运行；停步/暂停/逃脱/左右方向正确，固定脚底注册；短/长帧时间播放一致；真实原生移动/镜头与昼夜截图无错误，Git及GameCreator记录同步。
+- 验收结果：ada675a接入已验收A07 walk-art-v09：4人各8姿态12fps，旧idle、真实位移、暂停冻结、逃脱隐藏、左右身体镜像、v01/v02回退与逐帧mipmap缓存。逐帧干净region配统一scale_height/脚底，无邻帧碎片；active显式启用。两尺寸各49动画项通过，共98；1280原生输入/相机/昼夜31项通过，合计129。当前编辑器随机R04已运行，四人实际frames8/fps12，旧idle与follow保留，无启动错误。22美术文件哈希无差异、用户根project.godot原字节不改且未提交。初稿空纹理误报及一次输入失败已留证与重测说明；未真人/手机真机验证。
+
+验收通过：制作人独立核对已验收A07与主干接入。32真实姿态/8帧12fps、旧idle及透明裁框统一尺度正确，98动画+31原生输入/镜头/昼夜项通过，当前真实编辑器四人均8帧12fps，无启动错误；28源/证据与22美术文件哈希无差异，ada675a已推送。保留初稿空纹理弱断言误报和一次原生输入失败，修正断言后复测通过，不隐去旧证据或猜测初次失败原因。技术接入通过，真人及移动真机观感待后续反馈。
+- 前置任务：A07 四角色八帧行走动作补帧 [d0871b1e-3ce7-4923-bf0c-56e6a03dfaad]
+- 工作岗位：producer
+- 允许修改路径：scripts/presentation/actor_visual.gd、scripts/presentation/game_presentation.gd、data/presentation/、tests/、docs/dev/、docs/tests/、README.md
+- 接口契约：读取A07清单中的walk_animation，旧idle素材和v01/v02两帧回退保留；不修改寻路、移动速度、碰撞、镜头或用户project.godot。
+- 交付入口：res://scenes/main.tscn
+- 主干集成来源任务：d0871b1e-3ce7-4923-bf0c-56e6a03dfaad；模块通过不等于主干已集成
 - 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
 
