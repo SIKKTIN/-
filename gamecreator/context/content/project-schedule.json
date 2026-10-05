@@ -2120,6 +2120,53 @@
             "at": "2026-10-05T05:19:38.398Z"
           }
         ]
+      },
+      {
+        "id": "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+        "title": "P32 · 细墙移动闪烁的绘制稳定性",
+        "description": "针对截图R04两段细竖墙复现分数像素移动闪烁，区分已mipmap纹理与细轮廓/侧边绘制的覆盖混叠。先记录同尺寸对照再修复；保持相机平滑、墙体碰撞、阴影和昼夜规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "实际24/16单位细墙在1/.75屏幕比例的原生分数像素相位对照，检查墙边缘/内部闪烁指标；两尺寸连续相机移动、昼夜/宵禁、布局与碰撞不变、缓存或性能开销均有真实证据。用户屏幕及真机观感未测如实说明。保护root project.godot既有差异。",
+        "result": "59ecc46已推送main。v03细墙描边AA+连续侧面渐变；固定墙绘制命令缓存、几何/边界变化重建。真实24/16墙×两比例×17相位跳变降低73%–85%、内部像素不变；两尺寸原生寻路/180帧跟随/宵禁灯光/缓存/失效均通过。根配置用户差异保留。GameCreator规则提交p32-wall-stability-20261005已应用。\n\n验收通过：制作人自验收（非独立/真人验收）：核对实际同墙/同纹理GPU对照、内墙面差0、两尺寸连续平滑跟随与宵禁灯截图，固定命令缓存和几何重建真实通过。GPU调用增加34、缓存/纹理内存不增；未把过程采样尖峰当帧率提升。保留用户project.godot SHA256一致，PNG/碰撞/相机不改。技术范围通过；用户物理屏幕与手机真机需后续观感复核。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/presentation/**",
+            "data/presentation/**",
+            "qa/**",
+            "docs/**",
+            "README.md",
+            "gamecreator/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃 @ res://scenes/main.tscn R04",
+          "interfaceContract": "制作人修复代码绘制与采样，不修改原始PNG/人物动画/逻辑碰撞，不让日程流速改变相机或动作速度。必要时运行时生成缓存纹理并记录新开销。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p32-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T05:50:00.522Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -2432,6 +2479,16 @@
         "modules": [
           "gameplay"
         ]
+      },
+      {
+        "id": "p32-wall-stability-20261005",
+        "digest": "f322e08eb5e7bee1be6a705a5c84cc63e4402d0280b0453f2317fbe7008781c5",
+        "summary": "P32：修复R04细竖墙移动时硬描边/侧面窄条闪烁，记录实际对照与缓存成本。",
+        "memberName": "制作人",
+        "at": "2026-10-05T06:07:27.300Z",
+        "modules": [
+          "gameplay"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -2646,6 +2703,18 @@
         "reason": "用户指定开发者时间流速与08~22完整日程、20点归寝与外部警戒。",
         "createdTaskIds": [
           "d5224c01-3063-4c24-a0a6-f3c7b8e719fb"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p32-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T05:50:00.522Z",
+        "reason": "用户圈出R04细墙在镜头移动时抖动闪烁；对实际几何和纹理进行隔离对照定位。",
+        "createdTaskIds": [
+          "7040e23d-a33a-4fe4-84b9-dc19e80e3e38"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -8902,6 +8971,142 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-05T05:43:24.442Z",
           "note": "制作人独立核对7419be1源代码、55逻辑/两尺寸20项触摸及实际截图、活编辑器计时结果后通过。日程阶段、20点归寝与警戒已实现；白天自主劳动/用餐未实现的边界和真机/真人未测均已清楚记录。未改用户project.godot。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p32-progress-20261005",
+        "taskId": "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已用R04实际24/16细竖墙的17个分数像素相位完成原生D3D12隔离对照。确认硬描边与0.55宽侧面阶梯条共同造成覆盖跳变；抗锯齿描边+连续顶点渐变将四组列亮度二阶跳变降低73%–85%。准备完整场景两尺寸移动/昼夜/性能验证。",
+        "evidence": [
+          "docs/tests/p32-wall-sampling.json",
+          "docs/tests/p32-wall-sampling.png"
+        ],
+        "at": "2026-10-05T05:56:46.999Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+          "title": "P32 · 细墙移动闪烁的绘制稳定性",
+          "description": "针对截图R04两段细竖墙复现分数像素移动闪烁，区分已mipmap纹理与细轮廓/侧边绘制的覆盖混叠。先记录同尺寸对照再修复；保持相机平滑、墙体碰撞、阴影和昼夜规则。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "实际24/16单位细墙在1/.75屏幕比例的原生分数像素相位对照，检查墙边缘/内部闪烁指标；两尺寸连续相机移动、昼夜/宵禁、布局与碰撞不变、缓存或性能开销均有真实证据。用户屏幕及真机观感未测如实说明。保护root project.godot既有差异。",
+          "result": "已用R04实际24/16细竖墙的17个分数像素相位完成原生D3D12隔离对照。确认硬描边与0.55宽侧面阶梯条共同造成覆盖跳变；抗锯齿描边+连续顶点渐变将四组列亮度二阶跳变降低73%–85%。准备完整场景两尺寸移动/昼夜/性能验证。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/presentation/**",
+              "data/presentation/**",
+              "qa/**",
+              "docs/**",
+              "README.md",
+              "gamecreator/**"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃 @ res://scenes/main.tscn R04",
+            "interfaceContract": "制作人修复代码绘制与采样，不修改原始PNG/人物动画/逻辑碰撞，不让日程流速改变相机或动作速度。必要时运行时生成缓存纹理并记录新开销。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p32-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T05:50:00.522Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p32-delivery-20261005",
+        "taskId": "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "59ecc46已推送main。v03细墙描边AA+连续侧面渐变；固定墙绘制命令缓存、几何/边界变化重建。真实24/16墙×两比例×17相位跳变降低73%–85%、内部像素不变；两尺寸原生寻路/180帧跟随/宵禁灯光/缓存/失效均通过。根配置用户差异保留。GameCreator规则提交p32-wall-stability-20261005已应用。",
+        "evidence": [
+          "commit 59ecc46 https://github.com/SIKKTIN/-/commit/59ecc46",
+          "docs/dev/p32-wall-stability.md",
+          "docs/tests/p32-wall-sampling.json",
+          "docs/tests/p32-native-1200.json",
+          "docs/tests/p32-native-900.json",
+          "docs/tests/p32-native-1200-day-follow.png",
+          "docs/tests/p32-native-900-curfew-follow.png"
+        ],
+        "at": "2026-10-05T06:08:01.085Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+          "title": "P32 · 细墙移动闪烁的绘制稳定性",
+          "description": "针对截图R04两段细竖墙复现分数像素移动闪烁，区分已mipmap纹理与细轮廓/侧边绘制的覆盖混叠。先记录同尺寸对照再修复；保持相机平滑、墙体碰撞、阴影和昼夜规则。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "实际24/16单位细墙在1/.75屏幕比例的原生分数像素相位对照，检查墙边缘/内部闪烁指标；两尺寸连续相机移动、昼夜/宵禁、布局与碰撞不变、缓存或性能开销均有真实证据。用户屏幕及真机观感未测如实说明。保护root project.godot既有差异。",
+          "result": "59ecc46已推送main。v03细墙描边AA+连续侧面渐变；固定墙绘制命令缓存、几何/边界变化重建。真实24/16墙×两比例×17相位跳变降低73%–85%、内部像素不变；两尺寸原生寻路/180帧跟随/宵禁灯光/缓存/失效均通过。根配置用户差异保留。GameCreator规则提交p32-wall-stability-20261005已应用。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/presentation/**",
+              "data/presentation/**",
+              "qa/**",
+              "docs/**",
+              "README.md",
+              "gamecreator/**"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃 @ res://scenes/main.tscn R04",
+            "interfaceContract": "制作人修复代码绘制与采样，不修改原始PNG/人物动画/逻辑碰撞，不让日程流速改变相机或动作速度。必要时运行时生成缓存纹理并记录新开销。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p32-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T05:50:00.522Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T06:08:38.063Z",
+          "note": "制作人自验收（非独立/真人验收）：核对实际同墙/同纹理GPU对照、内墙面差0、两尺寸连续平滑跟随与宵禁灯截图，固定命令缓存和几何重建真实通过。GPU调用增加34、缓存/纹理内存不增；未把过程采样尖峰当帧率提升。保留用户project.godot SHA256一致，PNG/碰撞/相机不改。技术范围通过；用户物理屏幕与手机真机需后续观感复核。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
