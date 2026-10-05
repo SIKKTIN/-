@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "native_checks_total": 62,
+  "scope": "Native framebuffer aliasing fixture and native input regression; user screen and mobile-device verdict pending",
+  "native_checks_per_size": 31,
+  "task_id": "0edca471-cafb-43ec-9554-de439482bdaf",
+  "evidence": [
+    {
+      "sha256": "03e1c2c191c90175f38495e4f736a4af68cf1a7c77dd804bc4b75f2f7b9cd6be",
+      "path": "docs/tests/p26-bar-sampling.json"
+    },
+    {
+      "sha256": "1de61cbc16470fa45487666daeb0708de0638966726446a9d4a2b8c016bfe02a",
+      "path": "docs/tests/p26-bar-sampling.png"
+    },
+    {
+      "sha256": "b34feb81d1d7c600db07977033ad673161c39b60d0086b6b8338ce24fec6b641",
+      "path": "docs/tests/p26-bar-sampling.png.import"
+    },
+    {
+      "sha256": "0f41047a11c1d8b19c428f6c517a6be914b805623170ae369c75a2c5f938bf24",
+      "path": "docs/tests/p26-frame-pacing-d3d12.json"
+    },
+    {
+      "sha256": "c15c0c685ede07e82162fef5a736a9d1ab6c44f6d40627ab68c4c719e0da817a",
+      "path": "docs/tests/p26-frame-pacing-d3d12.png"
+    },
+    {
+      "sha256": "e5b5aa016634ae574dc92fa7d75e49fd2c99e1f9c050a79beacf1cb38fc66355",
+      "path": "docs/tests/p26-frame-pacing-d3d12.png.import"
+    },
+    {
+      "sha256": "af1aba9c6d640bb9e3a8a98ab3b216231e05c1c542d2a4a34e560d7c82ce97a6",
+      "path": "docs/tests/p26-native-day-1280x720.png"
+    },
+    {
+      "sha256": "102eba6f60c901bacae5395584fdd2c767750cfb78a8d9f69ea8c874b6cc9856",
+      "path": "docs/tests/p26-native-day-1280x720.png.import"
+    },
+    {
+      "sha256": "f0b1329012aa45bc5740b6925bb6e05ccd1209826544c3d7d6ccbfd7af23eb6b",
+      "path": "docs/tests/p26-native-day-960x540.png"
+    },
+    {
+      "sha256": "03898f52c5c499db38f21c951e09d5d047592d9310eccbf2df87a59628007491",
+      "path": "docs/tests/p26-native-day-960x540.png.import"
+    },
+    {
+      "sha256": "8af1635e15b9a3e8ea2d49324363c950ea734909f6b0b6c60a3f07b5a9e6da8c",
+      "path": "docs/tests/p26-native-follow-1280x720.json"
+    },
+    {
+      "sha256": "d0e279fc950f69cced330dce4228ee1b5cff7491ddd160bdaafff03cedd52f5a",
+      "path": "docs/tests/p26-native-follow-960x540.json"
+    },
+    {
+      "sha256": "11db339f649e03399d36d6481986d54d648b9cd3251e647b9a37e37b0c2223d5",
+      "path": "docs/tests/p26-native-night-1280x720.png"
+    },
+    {
+      "sha256": "87d7c30a66ec8ccde136aea48026b8c46a6ee1c8d00efc97a57c0819714530e4",
+      "path": "docs/tests/p26-native-night-1280x720.png.import"
+    },
+    {
+      "sha256": "a40c0920f7b8a8a8ba004d7b25eeaf21e2e97d7f6c241235f0d1395972232a98",
+      "path": "docs/tests/p26-native-night-960x540.png"
+    },
+    {
+      "sha256": "488a30fd66ad31d8e0e11ed1ebf5e518d8df7f649c9f3dd91aac90226b7b1984",
+      "path": "docs/tests/p26-native-night-960x540.png.import"
+    }
+  ],
+  "preserved_user_config": "project.godot not modified or staged",
+  "version": "v0.8.3-p26-world-texture-stability",
+  "predecessor": "bee13d8",
+  "sampling_cases": 4,
+  "sources": [
+    {
+      "sha256": "81f5a0758bb375576691f97bc8a1876368af05af3b44d8a0628628935f14542a",
+      "path": "README.md"
+    },
+    {
+      "sha256": "f32a6d7319430a6a05ffab9e5342ef247007e5abbc8d4ba1ee49e33316f5bd9a",
+      "path": "scripts/core/escape_game.gd"
+    },
+    {
+      "sha256": "6fd830d301c49a982135c71f60bb230abbe15e65ea7aa531286465bf779ce685",
+      "path": "scripts/presentation/game_presentation.gd"
+    },
+    {
+      "sha256": "35b9cf3d9674553f7e53292f19cce04ee737c9758f81b9f095d075a683010c9a",
+      "path": "scripts/presentation/world_volume.gd"
+    },
+    {
+      "sha256": "e9f7e31b96eac8c6779351e0be091019cabee7527c66cfa3ac98b30dc62b9fac",
+      "path": "scripts/presentation/world_texture.gd"
+    },
+    {
+      "sha256": "f54b681f78a2daddcb33cd2f90dd7d4b62dd8beedf282c388e5ee91f3715b583",
+      "path": "scripts/presentation/world_texture.gd.uid"
+    },
+    {
+      "sha256": "96804de3d296f4b2e60a21ccd649988fc4c44563af261d210363382512bb0dd9",
+      "path": "docs/dev/p26-texture-stability.md"
+    },
+    {
+      "sha256": "a2f0a1417390c57ce8127fffc2f0a611ca02db3d16dcc274397efcddc67b9bae",
+      "path": "tests/p26_bar_sampling.gd"
+    },
+    {
+      "sha256": "24376042505b56480e2e5ece68f3422c04d3d997d4cac632e53de0d61f643141",
+      "path": "tests/p26_bar_sampling.gd.uid"
+    },
+    {
+      "sha256": "81632a1fe11b2035d8a19b758be5a66b5044771ecdcde9b98d4bd7b15054bede",
+      "path": "tests/p26_frame_pacing.gd"
+    },
+    {
+      "sha256": "76cacf79781e5dc269570cdf115dcdf682ff2319b20dfa33a2776a5300388e6b",
+      "path": "tests/p26_frame_pacing.gd.uid"
+    },
+    {
+      "sha256": "128b1a94c6f47e28902b83676af6d030e8557cb45cf95fd97cac59e6aa974991",
+      "path": "tests/p26_native_follow.gd"
+    },
+    {
+      "sha256": "291534f0970fe522a8eb36b31b766df5b89c0ab6538902d1e69f802c22b8e4c5",
+      "path": "tests/p26_native_follow.gd.uid"
+    }
+  ]
+}

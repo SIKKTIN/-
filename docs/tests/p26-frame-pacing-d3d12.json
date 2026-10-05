@@ -1,0 +1,32 @@
+{
+	"captures": 0,
+	"driver": "d3d12",
+	"lights": 10,
+	"method": "forward_plus",
+	"occluders": 18,
+	"refresh_hz": 165.001602172852,
+	"results": [
+		{
+			"cap": 0,
+			"focus_frames": 180,
+			"max_ms": 12.504,
+			"mean_ms": 8.69812777777777,
+			"p50_ms": 8.624,
+			"p95_ms": 9.954,
+			"p99_ms": 11.826,
+			"samples": 180
+		},
+		{
+			"cap": 55,
+			"focus_frames": 180,
+			"max_ms": 20.031,
+			"mean_ms": 18.1685055555556,
+			"p50_ms": 18.152,
+			"p95_ms": 19.203,
+			"p99_ms": 20.018,
+			"samples": 180
+		}
+	],
+	"scope": "Native Windows moving-follow camera with night lights/guard, safe-corridor start fixture. Framebuffer clocks only, no physical display scanout or human verdict.",
+	"vsync": 1
+}

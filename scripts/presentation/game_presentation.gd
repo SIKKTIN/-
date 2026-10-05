@@ -5,6 +5,7 @@ const WorldVolume = preload("res://scripts/presentation/world_volume.gd")
 const SceneLayers = preload("res://scripts/presentation/scene_layers.gd")
 const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
 const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
+const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 var game
 var visuals: Array = []
 var skill_icons: Dictionary = {}
@@ -99,17 +100,7 @@ func configure(escape_game) -> void:
 	reset()
 
 func _load_texture(asset: Dictionary) -> Texture2D:
-	var original: Texture2D = load(asset.texture)
-	if original == null:
-		return null
-	if not asset.has("region"):
-		return original
-	var region: Array = asset.region
-	var texture := AtlasTexture.new()
-	texture.atlas = original
-	texture.region = Rect2(region[0],region[1],region[2],region[3])
-	texture.filter_clip = true
-	return texture
+	return WorldTexture.load_asset(asset)
 
 func _make_ui() -> void:
 	var theme := Theme.new()

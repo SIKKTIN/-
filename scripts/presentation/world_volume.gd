@@ -16,6 +16,9 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 	wall_index = index
 	profile = render_profile
 	definitions = assets
+	# Minified bars and furniture need prefiltered texture levels. Fractional
+	# camera motion stays smooth; snapping the camera would introduce stepping.
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	tick_visual()
 
 func asset_id(slot: String, fallback: String) -> String:

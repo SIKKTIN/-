@@ -55,6 +55,9 @@ var perspective_floor: bool = false
 @export var room_id: String = "r01"
 
 func _ready() -> void:
+	# The floor shares the prefiltered static-world textures; character sheets
+	# retain their existing linear sampling (they have no mipmap chain).
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	for index in range(3):
 		var actor = Prisoner.new()
 		actor.name = "Prisoner%d" % (index + 1)
