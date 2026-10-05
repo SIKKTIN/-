@@ -36,21 +36,23 @@ class PartnerFace extends Control:
 		var actor = ui.game.actors[index]
 		var portrait: Texture2D = ui.portraits[index]
 		if portrait:
-			var area := Rect2(10,14,52,74)
+			var area := Rect2(8,8,38,48)
 			var fitted := portrait.get_size()*minf(area.size.x/portrait.get_width(),area.size.y/portrait.get_height())
 			draw_texture_rect(portrait,Rect2(area.position+(area.size-fitted)/2,fitted),false)
 		var ink := Color("303b46")
-		draw_string(ui.font,Vector2(75,31),str(index+1),HORIZONTAL_ALIGNMENT_LEFT,-1,25,ink)
+		draw_string(ui.font,Vector2(53,25),str(index+1),HORIZONTAL_ALIGNMENT_LEFT,-1,18,ink)
 		var icon: Texture2D = ui.game.presentation.skill_icons.get(actor.skill_id)
 		if actor.skill_id == "backpack":
 			icon = ui.game.items_view.icon_for("backpack")
 		if icon:
-			draw_texture_rect(icon,Rect2(75,41,19,19),false)
-		draw_string(ui.font,Vector2(75,80),ui.game.SKILL_NAMES[actor.skill_id],HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
+			draw_texture_rect(icon,Rect2(53,32,16,16),false)
+		draw_string(ui.font,Vector2(53,57),ui.game.SKILL_NAMES[actor.skill_id],HORIZONTAL_ALIGNMENT_LEFT,-1,12,ink)
 		var state: String = "已逃脱" if actor.escaped else "移动中" if ui.game.orders.active.has(index) else {"idle":"待命","chatting":"交谈中","lockpicking":"撬锁中"}.get(actor.action_state,"待命")
+		if ui.game.routines and ui.game.routines.status_for(index) != "" and not actor.escaped:
+			state = ui.game.routines.status_for(index)
 		if ui.game.schedule.is_curfew() and not actor.escaped:
 			state = ui.game.schedule.actor_status(index)
-		draw_string(ui.font,Vector2(75,102),state,HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("536052"))
+		draw_string(ui.font,Vector2(8,73),state,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("536052"))
 		if actor.selected and not actor.escaped:
 			draw_circle(Vector2(size.x-17,14),9,Color("328b82"),true,-1,true)
 			draw_line(Vector2(size.x-21,14),Vector2(size.x-17,18),Color.WHITE,2,true)
@@ -62,6 +64,7 @@ var theme: Theme
 var clock: ClockFace
 var goal: Button
 var wallet: Button
+var routine_button: Button
 var sleep_button: Button
 var menu_button: Button
 var menu: Panel
@@ -94,6 +97,8 @@ func configure(owner_game) -> void:
 	clock.focus_mode = Control.FOCUS_NONE
 	clock.pressed.connect(func(): game.schedule.toggle())
 	hud.add_child(clock)
+	routine_button = _button("日常表",func(): game.routine_panel.toggle())
+	routine_button.tooltip_text = "安排三位伙伴今天的工作、休息和活动。"
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
 	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日08:00。"
 	goal = _button("逃脱 0/3",Callable())
@@ -106,6 +111,8 @@ func configure(owner_game) -> void:
 		var portrait: Texture2D = load("res://art/ui/fullscreen/portrait_%d.tres" % (index+1)) if ResourceLoader.exists("res://art/ui/fullscreen/portrait_%d.tres" % (index+1)) else null
 		portraits.append(portrait)
 		var card: Button = game.cards[index]
+		card.text = ""
+		card.icon = null
 		card.theme_type_variation = "PartnerCard"
 		card.set_meta("base_style",theme.get_stylebox("normal","PartnerCard"))
 		card.set_meta("selected_style",theme.get_stylebox("normal","SelectedPartnerCard"))
@@ -218,7 +225,9 @@ func layout() -> void:
 	last_size = game.get_viewport_rect().size
 	clock.position = safe.position
 	clock.size = Vector2(300,100)
-	sleep_button.position = safe.position+Vector2(0,108)
+	routine_button.position = safe.position+Vector2(0,108)
+	routine_button.size = Vector2(124,48)
+	sleep_button.position = safe.position+Vector2(0,164)
 	sleep_button.size = Vector2(148,48)
 	menu_button.position = Vector2(safe.end.x-52,safe.position.y)
 	menu_button.size = Vector2(52,52)
@@ -237,22 +246,22 @@ func layout() -> void:
 	map_collapse.size = Vector2(68,48)
 	map_toggle.position = Vector2(safe.end.x-94,safe.position.y+64)
 	map_toggle.size = Vector2(94,48)
-	var card_width := minf(156,(safe.size.x*0.4-16)/3)
+	var card_width := minf(124,(safe.size.x*0.34-16)/3)
 	for index in range(3):
-		game.cards[index].position = Vector2(safe.position.x+index*(card_width+8),safe.end.y-116)
-		game.cards[index].size = Vector2(card_width,116)
+		game.cards[index].position = Vector2(safe.position.x+index*(card_width+8),safe.end.y-84)
+		game.cards[index].size = Vector2(card_width,84)
 		faces[index].size = game.cards[index].size
 	menu.position = safe.get_center()-menu.size/2
-	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker]:
+	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker,game.routine_panel.blocker]:
 		blocker.position = Vector2.ZERO
 		blocker.size = last_size
-	for p in [game.shop_panel.panel,game.schedule.panel,game.schedule.result_panel,game.developer_settings.panel]:
+	for p in [game.shop_panel.panel,game.schedule.panel,game.schedule.result_panel,game.developer_settings.panel,game.routine_panel.panel]:
 		p.position = safe.get_center()-p.size/2
 		for child in p.get_children():
 			if child is Button:
 				child.size.y = maxf(48,child.size.y)
-	toast.size = Vector2(minf(430,safe.size.x-610),62)
-	toast.position = Vector2(safe.get_center().x-toast.size.x/2,safe.end.y-toast.size.y-132)
+	toast.size = Vector2(360,56)
+	toast.position = Vector2(safe.get_center().x-toast.size.x/2,safe.end.y-toast.size.y)
 	game.status_label.position = Vector2(12,7)
 	game.status_label.size = toast.size-Vector2(24,14)
 	game.map_camera.reset()
@@ -289,12 +298,25 @@ func refresh_inventory() -> void:
 		b.visible = actions
 		b.position = Vector2(14+(index%2)*(width-36)/2,120+(index/2)*46)
 		b.size = Vector2((width-44)/2,42)
-	inventory_paper.visible = not menu.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible and game.phase == "playing"
+	position_toast()
+	inventory_paper.visible = not game.routine_panel.panel.visible and not menu.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible and game.phase == "playing"
+
+func position_toast() -> void:
+	var safe := safe_area()
+	var left: float = game.cards[-1].position.x+game.cards[-1].size.x+12
+	var right: float = inventory_paper.position.x-12
+	var width: float = minf(360,maxf(120,right-left))
+	toast.size = Vector2(width,56)
+	toast.position = Vector2(clampf(safe.get_center().x-width/2,left,right-width),safe.end.y-56)
+	game.status_label.size = toast.size-Vector2(24,14)
 
 func refresh() -> void:
 	if not clock:
 		return
 	clock.queue_redraw()
+	routine_button.disabled = game.phase != "playing"
+	routine_button.visible = not game.world_input_blocked()
+	routine_button.text = "日常表"
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	goal.text = "逃脱 %d/3" % game.actors.filter(func(a): return a.escaped).size()
@@ -313,6 +335,7 @@ func toggle_menu() -> void:
 	if menu.visible:
 		close_menu()
 	else:
+		game.routine_panel.close()
 		game.shop_panel.close()
 		game.schedule.close()
 		game.developer_settings.close()
@@ -338,7 +361,9 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
-		if game.shop_panel.panel.visible:
+		if game.routine_panel.panel.visible:
+			game.routine_panel.close()
+		elif game.shop_panel.panel.visible:
 			game.shop_panel.close()
 		elif game.schedule.panel.visible:
 			game.schedule.close()

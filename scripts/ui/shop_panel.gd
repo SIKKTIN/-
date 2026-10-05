@@ -67,6 +67,10 @@ func open(id: String) -> void:
 		return
 	if game.trade.reason(game.selected_actor_id, id) != "":
 		return
+	if game.routine_panel:
+		game.routine_panel.close()
+	if game.routines:
+		game.routines.take_control(game.selected_actor_id)
 	merchant_id = id
 	actor_id = game.selected_actor_id
 	listed_ids.clear()

@@ -99,6 +99,8 @@ func toggle() -> void:
 	if panel.visible:
 		close()
 	else:
+		if game.routine_panel:
+			game.routine_panel.close()
 		game.schedule.close()
 		game.shop_panel.close()
 		_refresh()

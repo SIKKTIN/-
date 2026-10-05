@@ -121,6 +121,8 @@ func paint_information(canvas: CanvasItem) -> void:
 		canvas.draw_string(font,Vector2(-4,17),str(actor.actor_id+1),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 		if game.schedule and game.schedule.is_sleeping(actor.actor_id):
 			canvas.draw_string(font,Vector2(14,top),"Zz",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("d8e8dc"))
+		if game.routines and game.routines.is_lawful(actor.actor_id):
+			canvas.draw_string(font,Vector2(-20,top),game.routines.NAMES[game.routines.records[actor.actor_id].kind],HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("328b82"))
 		if actor.action_state != "idle":
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
 			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else actor.skill_id)

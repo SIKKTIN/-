@@ -53,6 +53,8 @@ func toggle(actor_id: int) -> bool:
 	if reason != "":
 		game.show_status(reason)
 		return false
+	if game.routines:
+		game.routines.take_control(actor_id)
 	actions[actor_id] = {"kind":actor.skill_id,"anchor":actor.position}
 	actor.action_state = "chatting" if actor.skill_id == "chat" else "lockpicking"
 	actor.queue_redraw()

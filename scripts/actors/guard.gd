@@ -140,12 +140,12 @@ func tick(delta: float) -> void:
 		returning_from_inspection = false
 		path.clear()
 		route_index = 0
-	if state == "chasing" and (target_id < 0 or not search_zone().has_point(game.actors[target_id].position)):
+	if state == "chasing" and (target_id < 0 or (game.routines != null and game.routines.is_lawful(target_id)) or not search_zone().has_point(game.actors[target_id].position)):
 		release_target()
 	var nearest_id: int = -1
 	var nearest_distance: float = INF
 	for actor in game.actors:
-		if actor.escaped or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id or (game.schedule != null and game.schedule.is_sleeping(actor.actor_id)):
+		if actor.escaped or (game.routines != null and game.routines.is_lawful(actor.actor_id)) or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id or (game.schedule != null and game.schedule.is_sleeping(actor.actor_id)):
 			continue
 		var distance: float = position.distance_to(actor.position)
 		if distance < nearest_distance and sees(actor.position):
@@ -211,7 +211,7 @@ func _capture_if_touching() -> void:
 	if state != "chasing" or target_id < 0:
 		return
 	var target = game.actors[target_id]
-	if target.escaped or (game.schedule != null and game.schedule.is_sleeping(target_id)) or not search_zone().has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
+	if target.escaped or (game.routines != null and game.routines.is_lawful(target_id)) or (game.schedule != null and game.schedule.is_sleeping(target_id)) or not search_zone().has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
 		return
 	game.capture_actor(target_id)
 	state = "patrol"

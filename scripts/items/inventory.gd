@@ -50,6 +50,8 @@ func try_pickup(actor_id: int, id: String) -> Dictionary:
 		return _result(false, "靠近物品且无遮挡才能拾取。")
 	if bags[actor_id].size() >= capacity(actor_id):
 		return _result(false, "背包已满：先放下或交给伙伴。")
+	if game.routines:
+		game.routines.take_control(actor_id)
 	bags[actor_id].append(id)
 	instances[id].location = "bag"
 	instances[id].actor_id = actor_id
@@ -61,6 +63,8 @@ func owns(actor_id: int, id: String) -> bool:
 func try_drop(actor_id: int, id: String) -> Dictionary:
 	if not owns(actor_id, id):
 		return _result(false, "当前伙伴不能操作这件物品。")
+	if game.routines:
+		game.routines.take_control(actor_id)
 	var point: Vector2 = game.actors[actor_id].position
 	bags[actor_id].erase(id)
 	instances[id].location = "ground"
@@ -77,6 +81,8 @@ func try_transfer(actor_id: int, receiver_id: int, id: String) -> Dictionary:
 		return _result(false, "交接需要两人靠近40单位且无遮挡。")
 	if bags[receiver_id].size() >= capacity(receiver_id):
 		return _result(false, "对方背包已满。")
+	if game.routines:
+		game.routines.take_control(actor_id)
 	bags[actor_id].erase(id)
 	bags[receiver_id].append(id)
 	instances[id].actor_id = receiver_id
@@ -105,6 +111,8 @@ func try_use(actor_id: int, id: String) -> Dictionary:
 		return _result(false, error)
 	if game.skills.actions.has(actor_id):
 		return _result(false, "先停止当前操作，再使用物品。")
+	if game.routines:
+		game.routines.take_control(actor_id)
 	game.orders.stop(actor_id)
 	if kind == "door_key":
 		consume(actor_id, id)

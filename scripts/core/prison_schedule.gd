@@ -166,6 +166,8 @@ func skip_night() -> void:
 	clock_elapsed = minf(limit_seconds,(target-float(config.start_minutes))/1440.0*day_seconds)
 	tick(false)
 	close()
+	if game.routines:
+		game.routines.tick()
 	if remaining() <= 0:
 		game.finish_timeout()
 	else:
@@ -206,7 +208,7 @@ func enter_curfew() -> void:
 		var accepted := false
 		for offset in [Vector2.ZERO,Vector2(40,0),Vector2(-40,0),Vector2(0,40),Vector2(0,-40)]:
 			var goal: Vector2 = actor.home+offset
-			if dormitory(actor.actor_id).grow(-17).has_point(goal) and game.world.can_place_circle(goal,17,actor,true) and game.orders.issue(actor.actor_id,goal):
+			if dormitory(actor.actor_id).grow(-17).has_point(goal) and game.world.can_place_circle(goal,17,actor,true) and game.orders.issue(actor.actor_id,goal,"curfew"):
 				accepted = true
 				break
 		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"
@@ -260,6 +262,8 @@ func toggle() -> void:
 			game.shop_panel.close()
 		if game.developer_settings:
 			game.developer_settings.close()
+		if game.routine_panel:
+			game.routine_panel.close()
 		panel.show()
 		blocker.show()
 		game.presentation.interaction.refresh()
@@ -272,6 +276,8 @@ func close() -> void:
 
 func show_result(success: bool) -> void:
 	close()
+	if game.routine_panel:
+		game.routine_panel.close()
 	if game.developer_settings:
 		game.developer_settings.close()
 	if game.shop_panel:

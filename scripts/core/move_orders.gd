@@ -6,13 +6,13 @@ var active: Dictionary = {}
 func _init(escape_game) -> void:
 	game = escape_game
 
-func issue(actor_id: int, goal: Vector2) -> bool:
+func issue(actor_id: int, goal: Vector2, source: String = "manual") -> bool:
 	if game.phase != "playing" or actor_id < 0 or actor_id >= game.actors.size():
 		return false
 	var actor = game.actors[actor_id]
 	if actor.escaped:
 		return false
-	var push: bool = actor.skill_id == "strong"
+	var push: bool = source == "manual" and actor.skill_id == "strong"
 	if not game.world.can_place_circle(goal,17,actor,true,not push):
 		game.show_status("目标被墙、门或伙伴占据，请选择可站立的位置。")
 		return false
@@ -20,9 +20,12 @@ func issue(actor_id: int, goal: Vector2) -> bool:
 	if path.is_empty():
 		game.show_status("这里暂时走不到：先打开通路，再下达移动指令。")
 		return false
+	if source == "manual" and game.routines:
+		game.routines.take_control(actor_id)
 	game.skills.cancel(actor_id,"收到移动指令，当前操作停止；撬锁进度保留。")
-	active[actor_id] = {"goal":goal,"path":path,"push":push,"stalled":0.0,"repath":0.0,"revision":game.world.obstacle_revision}
-	game.show_status("伙伴%d前往目标；可以切换其他人，S停止当前人物。" % (actor_id+1),1.5)
+	active[actor_id] = {"source":source,"goal":goal,"path":path,"push":push,"stalled":0.0,"repath":0.0,"revision":game.world.obstacle_revision}
+	if source == "manual":
+		game.show_status("伙伴%d前往目标；可以切换其他人，S停止当前人物。" % (actor_id+1),1.5)
 	return true
 
 func stop(actor_id: int) -> void:
