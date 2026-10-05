@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "cdff0e76df1dcd6ff7df46ffb93e8b077730732ee382129ddaf33bf36c2d6078",
+  "snapshotId": "9630bf0bb14e2093001664be2143b0f3528f10ac7d7419449d35b819e3ddbe7e",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -1888,6 +1888,191 @@
           "at": "2026-10-05T03:01:37.156Z"
         }
       ]
+    },
+    {
+      "id": "7915037d-f2fe-41f9-aa65-94df1401c224",
+      "title": "P28 · 商店弹窗层级与交互遮挡",
+      "description": "交易弹窗高于所有世界互动按钮；弹窗期间隐藏世界提示并阻止地图误操作，右侧背包仍可选择出售物品。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "原截图遮挡复现修复；真实运行打开/关闭商店，图标不盖商品，库存选择与买卖可用，巡逻与计时继续。",
+      "result": "P28已实现并交付Git d763b2c：商店/日程/终局显式层级与GUI遮挡，世界互动即时隐藏且旧回调拒绝，背包选择出售仍可用；终局关卡下拉同时调整HUD树顺序，解决仅z_index不改变GUI命中的问题。两尺寸各20项原生触摸检查通过，截图已查看，无按钮盖住商品。\n\n验收通过：制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+      "dependencyIds": [],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/ui/shop_panel.gd",
+          "scripts/presentation/interaction_prompt.gd",
+          "scripts/core/escape_game.gd",
+          "qa/**",
+          "docs/**"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃",
+        "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "8925c633-2815-49da-8023-0ed61313730a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T04:05:21.989Z"
+        }
+      ]
+    },
+    {
+      "id": "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+      "title": "P29 · 日程时钟与限时逃脱",
+      "description": "配置R01/R02三分钟、R03四分钟、R04五分钟。16:00劳动→18:00放风→20:00熄灯巡查→22:00封监。同步昼夜；剩余时间与阶段可见；超时结束并显示结算。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "阶段边界、昼夜视野、超时/三人逃脱边界、重开/换图重置、商店不暂停均有测试证据。",
+      "result": "P29已实现并交付Git d763b2c：R01/R02 180s、R03 240s、R04 300s，16/18/20/22点日程和自动昼夜、时钟与超时结果。59项逻辑集成含最后有效一步成功/不足一步失败、delta钳制、超时清理、重置/换图、交易不暂停通过；两尺寸原生20项各通过。参数是首版，尚未真人/Android/iOS试玩，不保证所有随机技能可解。\n\n验收通过：制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+      "dependencyIds": [],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/core/**",
+          "scripts/ui/**",
+          "scripts/presentation/**",
+          "data/**",
+          "qa/**",
+          "docs/**"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃",
+        "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "8925c633-2815-49da-8023-0ed61313730a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T04:05:21.989Z"
+        }
+      ]
+    },
+    {
+      "id": "418e1ea3-5803-41da-82c2-f80939359f52",
+      "title": "A08 · 警犬角色与行走图集",
+      "description": "制作匹配现有监狱角色风格的德国牧羊警犬，右向原始素材、透明底，独立待机与至少四帧步态。足底稳定、同一大小。只交付美术，不改主干脚本与接入配置。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "透明图集、裁切/脚底锚点manifest、生成来源和QA；检查轮廓与帧间足底稳定；制作人验收后接入。",
+      "result": "A08交付 police-dog-art-v01-20261005-486b82974f51（18文件SHA清单）。按DogVisual现约定提供入口 res://art/characters/dog/manifest.json；manifest-v01.json 为逐字节相同存档。德国牧羊警犬1536x1024透明RGBA原图，1idle+4真实不同步态，右向/程序镜像左向，world_height44、idle/walk共同scale_height380、10fps/400ms闭环。5帧完整核心轮廓保留、裁框仅本格、足底误差0；walk实际高度波动3.16%、头宽3.48%。源PNG原样复制，SHA a3d04b14d749b5942769fb1dbdb759723d85e5c60b6098fc12555a27c6ce2f3e；内置imagegen完整提示词/自有狱警参考与源路径齐全。浏览器1280x720及960x540和隔离Godot4.7.2 headless Image/AtlasTexture/SpriteFrames检查通过，原生44尺寸与72狱警对照/左右镜像/3倍步态GIF齐全。空格可见核心像素0，残余最大alpha1/255如实登记。只写允许的dog和police-dog目录，未改现有manifest-v09/active/共享脚本/根project.godot，无Git提交或可见Godot窗口；基线的4个程序文件变化是制作人并行任务，不作为主美无改动的资产证据。请独立验收后接入DogVisual/犬只AI。\n\n验收通过：制作人独立核对18文件SHA、RGBA及Godot读取报告，并查看1280x720警犬/狱警同场接触图：四步态有区别、暖色轮廓一致、脚底注册与左右镜像接口清楚。资源交付通过；P30另行验证主游戏AI/日程及实际显示，不把资源预览视为真人试玩。",
+      "dependencyIds": [],
+      "references": [],
+      "positionIds": [
+        "art-director"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "art/characters/dog/**",
+          "docs/art/police-dog/**"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃",
+        "interfaceContract": "dog manifest schema: idle asset(texture,region,anchor) + walk_animation(texture,frames[{region,anchor}],fps,scale_height); world_height建议40~48。右向镜像处理由程序负责。使用自身协作凭证反馈。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "8925c633-2815-49da-8023-0ed61313730a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-05T04:05:21.989Z"
+        }
+      ]
+    },
+    {
+      "id": "66100dfe-3511-41ae-af3e-7cb4364fd619",
+      "title": "P30 · 警犬嗅探示警与美术接入",
+      "description": "放风后警犬在狱警允许区域巡逻，嗅探短时地面踪迹并追踪；近距离确认伙伴后犬吠，狱警只调查示警位置，再按真实视野追击。不得穿墙、进入安全区或自动捕获。接入A08素材与小地图标记。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "踪迹过期/回安全区停止目标、墙体寻路、犬吠冷却、狱警位置调查与视野确认、夜间鼻嗅不因灯光扩大、重置及终局停止均验证；实际截图检查警犬风格和锚点。",
+      "result": "P30已实现并交付Git d763b2c：A08独立验收后显式激活四帧10fps犬只图集；放风后逆向巡逻、10秒地面踪迹、180嗅探/90确认、4秒犬吠冷却，狱警只调查位置再真实视线追击。59项逻辑集成与两尺寸原生触摸/四帧/镜像/锚点/终局测试通过，编辑器活游戏0.3秒巡逻移动通过。R04家具中30秒犬巡逻不穿墙。R01旧路径17.34秒0捕获通过；R02旧P13白天路径被抓2次保留失败，旧P20此前使用手动夜晚，不能当新日程通关保证。真人难度仍待试玩。\n\n验收通过：制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+      "dependencyIds": [
+        "418e1ea3-5803-41da-82c2-f80939359f52"
+      ],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/actors/**",
+          "scripts/core/**",
+          "scripts/presentation/**",
+          "scripts/ui/**",
+          "data/**",
+          "qa/**",
+          "docs/**"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃",
+        "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "8925c633-2815-49da-8023-0ed61313730a",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T04:05:21.989Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2016,7 +2201,10 @@
             "9726b094-4fa1-43b5-8190-83287d4d3f90",
             "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
             "0edca471-cafb-43ec-9554-de439482bdaf",
-            "7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa"
+            "7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa",
+            "7915037d-f2fe-41f9-aa65-94df1401c224",
+            "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+            "66100dfe-3511-41ae-af3e-7cb4364fd619"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2073,7 +2261,8 @@
             "d2e6a54e-f748-4980-b32f-4c5e5d8fcd07",
             "1f52ca69-414a-44d3-9654-f3b3b358ac9a",
             "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
-            "d0871b1e-3ce7-4923-bf0c-56e6a03dfaad"
+            "d0871b1e-3ce7-4923-bf0c-56e6a03dfaad",
+            "418e1ea3-5803-41da-82c2-f80939359f52"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2390,6 +2579,16 @@
         "project-schedule",
         "gameplay"
       ]
+    },
+    {
+      "id": "p28-schedule-dog-design-20261005",
+      "digest": "f75c371268eafdc284c31b8429fd924d385f4c83d37b7e6c7b48bc48126e380d",
+      "summary": "将真实已实现的限时日程、警犬、弹窗层级和终局条件写回核心设计。",
+      "memberName": "制作人",
+      "at": "2026-10-05T04:38:18.077Z",
+      "modules": [
+        "gameplay"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -2577,6 +2776,21 @@
       "createdTaskIds": [
         "d0871b1e-3ce7-4923-bf0c-56e6a03dfaad",
         "7c8b938a-4a5e-474e-8f86-bcc6b6bd37fa"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "8925c633-2815-49da-8023-0ed61313730a",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T04:05:21.989Z",
+      "reason": "用户要求修复商店UI层级，并加入限时日程和警犬。",
+      "createdTaskIds": [
+        "7915037d-f2fe-41f9-aa65-94df1401c224",
+        "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+        "418e1ea3-5803-41da-82c2-f80939359f52",
+        "66100dfe-3511-41ae-af3e-7cb4364fd619"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -8162,6 +8376,543 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T03:51:27.193Z",
         "note": "制作人独立核对已验收A07与主干接入。32真实姿态/8帧12fps、旧idle及透明裁框统一尺度正确，98动画+31原生输入/镜头/昼夜项通过，当前真实编辑器四人均8帧12fps，无启动错误；28源/证据与22美术文件哈希无差异，ada675a已推送。保留初稿空纹理弱断言误报和一次原生输入失败，修正断言后复测通过，不隐去旧证据或猜测初次失败原因。技术接入通过，真人及移动真机观感待后续反馈。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "ui-start-20261005",
+      "taskId": "7915037d-f2fe-41f9-aa65-94df1401c224",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手：根据截图复现弹窗遮挡，同时实现配置化日程及倒计时终局。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/scripts/core/escape_game.gd"
+      ],
+      "at": "2026-10-05T04:07:32.679Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "7915037d-f2fe-41f9-aa65-94df1401c224",
+        "title": "P28 · 商店弹窗层级与交互遮挡",
+        "description": "交易弹窗高于所有世界互动按钮；弹窗期间隐藏世界提示并阻止地图误操作，右侧背包仍可选择出售物品。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "原截图遮挡复现修复；真实运行打开/关闭商店，图标不盖商品，库存选择与买卖可用，巡逻与计时继续。",
+        "result": "已接手：根据截图复现弹窗遮挡，同时实现配置化日程及倒计时终局。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/shop_panel.gd",
+            "scripts/presentation/interaction_prompt.gd",
+            "scripts/core/escape_game.gd",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a08-start-20261005",
+      "taskId": "418e1ea3-5803-41da-82c2-f80939359f52",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已读取A08。参考现有FINAL-WARM-01深蓝狱警笔触/轮廓与暖色明暗，制作右向德国牧羊犬待机+四帧真实四足行走，透明原始图集及脚底清单，world_height44、统一scale_height。仅新增art/characters/dog与docs/art/police-dog；现有manifest-v09、active配置、脚本和Git不改。完成透明/邻帧/尺度/步态及原生尺寸预览检查后提交独立验收。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/characters/guard_01_handpaint_v03.png"
+      ],
+      "at": "2026-10-05T04:09:14.999Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "418e1ea3-5803-41da-82c2-f80939359f52",
+        "title": "A08 · 警犬角色与行走图集",
+        "description": "制作匹配现有监狱角色风格的德国牧羊警犬，右向原始素材、透明底，独立待机与至少四帧步态。足底稳定、同一大小。只交付美术，不改主干脚本与接入配置。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "透明图集、裁切/脚底锚点manifest、生成来源和QA；检查轮廓与帧间足底稳定；制作人验收后接入。",
+        "result": "已读取A08。参考现有FINAL-WARM-01深蓝狱警笔触/轮廓与暖色明暗，制作右向德国牧羊犬待机+四帧真实四足行走，透明原始图集及脚底清单，world_height44、统一scale_height。仅新增art/characters/dog与docs/art/police-dog；现有manifest-v09、active配置、脚本和Git不改。完成透明/邻帧/尺度/步态及原生尺寸预览检查后提交独立验收。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "art/characters/dog/**",
+            "docs/art/police-dog/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "dog manifest schema: idle asset(texture,region,anchor) + walk_animation(texture,frames[{region,anchor}],fps,scale_height); world_height建议40~48。右向镜像处理由程序负责。使用自身协作凭证反馈。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "schedule-start-20261005",
+      "taskId": "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手并实现日程配置、时钟、阶段昼夜与超时结算；准备边界测试。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/data/schedule.json"
+      ],
+      "at": "2026-10-05T04:12:13.862Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+        "title": "P29 · 日程时钟与限时逃脱",
+        "description": "配置R01/R02三分钟、R03四分钟、R04五分钟。16:00劳动→18:00放风→20:00熄灯巡查→22:00封监。同步昼夜；剩余时间与阶段可见；超时结束并显示结算。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "阶段边界、昼夜视野、超时/三人逃脱边界、重开/换图重置、商店不暂停均有测试证据。",
+        "result": "已接手并实现日程配置、时钟、阶段昼夜与超时结算；准备边界测试。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "data/**",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a08-final-v01-20261005",
+      "taskId": "418e1ea3-5803-41da-82c2-f80939359f52",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "A08交付 police-dog-art-v01-20261005-486b82974f51（18文件SHA清单）。按DogVisual现约定提供入口 res://art/characters/dog/manifest.json；manifest-v01.json 为逐字节相同存档。德国牧羊警犬1536x1024透明RGBA原图，1idle+4真实不同步态，右向/程序镜像左向，world_height44、idle/walk共同scale_height380、10fps/400ms闭环。5帧完整核心轮廓保留、裁框仅本格、足底误差0；walk实际高度波动3.16%、头宽3.48%。源PNG原样复制，SHA a3d04b14d749b5942769fb1dbdb759723d85e5c60b6098fc12555a27c6ce2f3e；内置imagegen完整提示词/自有狱警参考与源路径齐全。浏览器1280x720及960x540和隔离Godot4.7.2 headless Image/AtlasTexture/SpriteFrames检查通过，原生44尺寸与72狱警对照/左右镜像/3倍步态GIF齐全。空格可见核心像素0，残余最大alpha1/255如实登记。只写允许的dog和police-dog目录，未改现有manifest-v09/active/共享脚本/根project.godot，无Git提交或可见Godot窗口；基线的4个程序文件变化是制作人并行任务，不作为主美无改动的资产证据。请独立验收后接入DogVisual/犬只AI。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/characters/dog/manifest.json",
+        "E:/Project/Godot/这次怎么逃/art/characters/dog/police-dog-atlas-v01.png",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/README.md",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/delivery-filelist-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/source-license-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/prompt-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/qa-resources-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/qa-browser-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/qa-godot-v01.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/contact-1280x720-v01.png",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/contact-960x540-v01.png",
+        "E:/Project/Godot/这次怎么逃/docs/art/police-dog/walk-cycle-10fps-v01.gif"
+      ],
+      "at": "2026-10-05T04:26:44.561Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "418e1ea3-5803-41da-82c2-f80939359f52",
+        "title": "A08 · 警犬角色与行走图集",
+        "description": "制作匹配现有监狱角色风格的德国牧羊警犬，右向原始素材、透明底，独立待机与至少四帧步态。足底稳定、同一大小。只交付美术，不改主干脚本与接入配置。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "透明图集、裁切/脚底锚点manifest、生成来源和QA；检查轮廓与帧间足底稳定；制作人验收后接入。",
+        "result": "A08交付 police-dog-art-v01-20261005-486b82974f51（18文件SHA清单）。按DogVisual现约定提供入口 res://art/characters/dog/manifest.json；manifest-v01.json 为逐字节相同存档。德国牧羊警犬1536x1024透明RGBA原图，1idle+4真实不同步态，右向/程序镜像左向，world_height44、idle/walk共同scale_height380、10fps/400ms闭环。5帧完整核心轮廓保留、裁框仅本格、足底误差0；walk实际高度波动3.16%、头宽3.48%。源PNG原样复制，SHA a3d04b14d749b5942769fb1dbdb759723d85e5c60b6098fc12555a27c6ce2f3e；内置imagegen完整提示词/自有狱警参考与源路径齐全。浏览器1280x720及960x540和隔离Godot4.7.2 headless Image/AtlasTexture/SpriteFrames检查通过，原生44尺寸与72狱警对照/左右镜像/3倍步态GIF齐全。空格可见核心像素0，残余最大alpha1/255如实登记。只写允许的dog和police-dog目录，未改现有manifest-v09/active/共享脚本/根project.godot，无Git提交或可见Godot窗口；基线的4个程序文件变化是制作人并行任务，不作为主美无改动的资产证据。请独立验收后接入DogVisual/犬只AI。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "art/characters/dog/**",
+            "docs/art/police-dog/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "dog manifest schema: idle asset(texture,region,anchor) + walk_animation(texture,frames[{region,anchor}],fps,scale_height); world_height建议40~48。右向镜像处理由程序负责。使用自身协作凭证反馈。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T04:28:41.777Z",
+        "note": "制作人独立核对18文件SHA、RGBA及Godot读取报告，并查看1280x720警犬/狱警同场接触图：四步态有区别、暖色轮廓一致、脚底注册与左右镜像接口清楚。资源交付通过；P30另行验证主游戏AI/日程及实际显示，不把资源预览视为真人试玩。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "dog-start-20261005",
+      "taskId": "66100dfe-3511-41ae-af3e-7cb4364fd619",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "A08资源通过制作人独立验收，P30正式接入犬只图集、嗅探/示警与小地图标记，正在进行主游戏触摸与渲染测试。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-schedule-dog-logic.json",
+        "E:/Project/Godot/这次怎么逃/scripts/actors/police_dog.gd"
+      ],
+      "at": "2026-10-05T04:30:19.567Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "66100dfe-3511-41ae-af3e-7cb4364fd619",
+        "title": "P30 · 警犬嗅探示警与美术接入",
+        "description": "放风后警犬在狱警允许区域巡逻，嗅探短时地面踪迹并追踪；近距离确认伙伴后犬吠，狱警只调查示警位置，再按真实视野追击。不得穿墙、进入安全区或自动捕获。接入A08素材与小地图标记。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "踪迹过期/回安全区停止目标、墙体寻路、犬吠冷却、狱警位置调查与视野确认、夜间鼻嗅不因灯光扩大、重置及终局停止均验证；实际截图检查警犬风格和锚点。",
+        "result": "A08资源通过制作人独立验收，P30正式接入犬只图集、嗅探/示警与小地图标记，正在进行主游戏触摸与渲染测试。",
+        "dependencyIds": [
+          "418e1ea3-5803-41da-82c2-f80939359f52"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/actors/**",
+            "scripts/core/**",
+            "scripts/presentation/**",
+            "scripts/ui/**",
+            "data/**",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p28-final-ui-20261005",
+      "taskId": "7915037d-f2fe-41f9-aa65-94df1401c224",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P28已实现并交付Git d763b2c：商店/日程/终局显式层级与GUI遮挡，世界互动即时隐藏且旧回调拒绝，背包选择出售仍可用；终局关卡下拉同时调整HUD树顺序，解决仅z_index不改变GUI命中的问题。两尺寸各20项原生触摸检查通过，截图已查看，无按钮盖住商品。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p28-schedule-dog.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-schedule-dog-logic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-1200x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-editor-live.json",
+        "https://github.com/SIKKTIN/-/commit/d763b2c"
+      ],
+      "at": "2026-10-05T04:48:34.756Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "7915037d-f2fe-41f9-aa65-94df1401c224",
+        "title": "P28 · 商店弹窗层级与交互遮挡",
+        "description": "交易弹窗高于所有世界互动按钮；弹窗期间隐藏世界提示并阻止地图误操作，右侧背包仍可选择出售物品。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "原截图遮挡复现修复；真实运行打开/关闭商店，图标不盖商品，库存选择与买卖可用，巡逻与计时继续。",
+        "result": "P28已实现并交付Git d763b2c：商店/日程/终局显式层级与GUI遮挡，世界互动即时隐藏且旧回调拒绝，背包选择出售仍可用；终局关卡下拉同时调整HUD树顺序，解决仅z_index不改变GUI命中的问题。两尺寸各20项原生触摸检查通过，截图已查看，无按钮盖住商品。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/shop_panel.gd",
+            "scripts/presentation/interaction_prompt.gd",
+            "scripts/core/escape_game.gd",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T04:49:03.355Z",
+        "note": "制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p28-final-dog-20261005",
+      "taskId": "66100dfe-3511-41ae-af3e-7cb4364fd619",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P30已实现并交付Git d763b2c：A08独立验收后显式激活四帧10fps犬只图集；放风后逆向巡逻、10秒地面踪迹、180嗅探/90确认、4秒犬吠冷却，狱警只调查位置再真实视线追击。59项逻辑集成与两尺寸原生触摸/四帧/镜像/锚点/终局测试通过，编辑器活游戏0.3秒巡逻移动通过。R04家具中30秒犬巡逻不穿墙。R01旧路径17.34秒0捕获通过；R02旧P13白天路径被抓2次保留失败，旧P20此前使用手动夜晚，不能当新日程通关保证。真人难度仍待试玩。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p28-schedule-dog.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-schedule-dog-logic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-1200x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-editor-live.json",
+        "https://github.com/SIKKTIN/-/commit/d763b2c"
+      ],
+      "at": "2026-10-05T04:48:36.291Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "66100dfe-3511-41ae-af3e-7cb4364fd619",
+        "title": "P30 · 警犬嗅探示警与美术接入",
+        "description": "放风后警犬在狱警允许区域巡逻，嗅探短时地面踪迹并追踪；近距离确认伙伴后犬吠，狱警只调查示警位置，再按真实视野追击。不得穿墙、进入安全区或自动捕获。接入A08素材与小地图标记。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "踪迹过期/回安全区停止目标、墙体寻路、犬吠冷却、狱警位置调查与视野确认、夜间鼻嗅不因灯光扩大、重置及终局停止均验证；实际截图检查警犬风格和锚点。",
+        "result": "P30已实现并交付Git d763b2c：A08独立验收后显式激活四帧10fps犬只图集；放风后逆向巡逻、10秒地面踪迹、180嗅探/90确认、4秒犬吠冷却，狱警只调查位置再真实视线追击。59项逻辑集成与两尺寸原生触摸/四帧/镜像/锚点/终局测试通过，编辑器活游戏0.3秒巡逻移动通过。R04家具中30秒犬巡逻不穿墙。R01旧路径17.34秒0捕获通过；R02旧P13白天路径被抓2次保留失败，旧P20此前使用手动夜晚，不能当新日程通关保证。真人难度仍待试玩。",
+        "dependencyIds": [
+          "418e1ea3-5803-41da-82c2-f80939359f52"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/actors/**",
+            "scripts/core/**",
+            "scripts/presentation/**",
+            "scripts/ui/**",
+            "data/**",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T04:50:05.351Z",
+        "note": "制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p28-final-schedule-20261005",
+      "taskId": "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P29已实现并交付Git d763b2c：R01/R02 180s、R03 240s、R04 300s，16/18/20/22点日程和自动昼夜、时钟与超时结果。59项逻辑集成含最后有效一步成功/不足一步失败、delta钳制、超时清理、重置/换图、交易不暂停通过；两尺寸原生20项各通过。参数是首版，尚未真人/Android/iOS试玩，不保证所有随机技能可解。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/dev/p28-schedule-dog.md",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-schedule-dog-logic.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-1200x720.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-native-960x540.json",
+        "E:/Project/Godot/这次怎么逃/docs/tests/p28-editor-live.json",
+        "https://github.com/SIKKTIN/-/commit/d763b2c"
+      ],
+      "at": "2026-10-05T04:49:31.609Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "85591515-840e-4aa8-bb7a-ae415b7ad51e",
+        "title": "P29 · 日程时钟与限时逃脱",
+        "description": "配置R01/R02三分钟、R03四分钟、R04五分钟。16:00劳动→18:00放风→20:00熄灯巡查→22:00封监。同步昼夜；剩余时间与阶段可见；超时结束并显示结算。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "阶段边界、昼夜视野、超时/三人逃脱边界、重开/换图重置、商店不暂停均有测试证据。",
+        "result": "P29已实现并交付Git d763b2c：R01/R02 180s、R03 240s、R04 300s，16/18/20/22点日程和自动昼夜、时钟与超时结果。59项逻辑集成含最后有效一步成功/不足一步失败、delta钳制、超时清理、重置/换图、交易不暂停通过；两尺寸原生20项各通过。参数是首版，尚未真人/Android/iOS试玩，不保证所有随机技能可解。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "data/**",
+            "qa/**",
+            "docs/**"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃",
+          "interfaceContract": "保留独立行动、背包交易、安全区和小地图；不得修改用户已有project.godot差异。证据提交与验收分开。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "8925c633-2815-49da-8023-0ed61313730a",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T04:05:21.989Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T04:50:07.677Z",
+        "note": "制作人核对同一d763b2c交付及逻辑/两尺寸原生触摸报告、实际截图和编辑器运行证据后通过。仅确认本任务技术实现；R02旧路线失败与真人/移动真机未验证均如实保留，不把自测写成玩法体验已证明。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }
