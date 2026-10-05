@@ -1,0 +1,48 @@
+{
+	"checks": {
+		"cargo_shop_key_day": true,
+		"cargo_shop_key_night": true,
+		"skill_lock_day": true,
+		"skill_lock_night": true
+	},
+	"passed": true,
+	"routes": [
+		{
+			"captures": 0,
+			"elapsed": 125.616666666661,
+			"failures": [],
+			"kind": "skill_lock",
+			"passed": true,
+			"period": "day",
+			"wallet": 0
+		},
+		{
+			"captures": 0,
+			"elapsed": 173.883333333364,
+			"failures": [],
+			"kind": "cargo_shop_key",
+			"passed": true,
+			"period": "day",
+			"wallet": 0
+		},
+		{
+			"captures": 0,
+			"elapsed": 125.616666666661,
+			"failures": [],
+			"kind": "skill_lock",
+			"passed": true,
+			"period": "night",
+			"wallet": 0
+		},
+		{
+			"captures": 0,
+			"elapsed": 173.883333333364,
+			"failures": [],
+			"kind": "cargo_shop_key",
+			"passed": true,
+			"period": "night",
+			"wallet": 0
+		}
+	],
+	"scope": "Continuous 60Hz actual gameplay and guard AI from real cell starts, no teleport/pause/AI disabling during routes; art/mobile/device evidence separate."
+}

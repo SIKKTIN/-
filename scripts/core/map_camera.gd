@@ -3,6 +3,7 @@ extends Camera2D
 const VIEW := Rect2(74,114,922,560)
 const SCROLL_SPEED := 520.0
 const DRAG_THRESHOLD := 12.0
+const FOLLOW_SPEED := 10.0
 var game
 var panning: bool = false
 var enabled_for_room: bool = false
@@ -11,6 +12,7 @@ var pointer_id: int = -2
 var pointer_start := Vector2.ZERO
 var pointer_last := Vector2.ZERO
 var pointer_dragged := false
+var following: bool = true
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -41,7 +43,13 @@ func pan_by(delta: Vector2) -> void:
 	force_update_scroll()
 	game.queue_redraw()
 
+func manual_pan_by(delta: Vector2) -> void:
+	if delta != Vector2.ZERO:
+		following = false
+	pan_by(delta)
+
 func locate_selected() -> void:
+	following = true
 	if not enabled_for_room:
 		return
 	position = game.actors[game.selected_actor_id].position - VIEW.get_center()
@@ -51,6 +59,7 @@ func interaction_blocked() -> bool:
 	return game.get_tree().paused or (game.shop_panel != null and game.shop_panel.panel.visible)
 
 func center_on(world_point: Vector2) -> void:
+	following = false
 	if enabled_for_room:
 		position = world_point - VIEW.get_center()
 		pan_by(Vector2.ZERO)
@@ -73,9 +82,9 @@ func begin_pointer(id: int, point: Vector2) -> bool:
 func move_pointer(point: Vector2) -> void:
 	if not pointer_dragged and point.distance_to(pointer_start) >= DRAG_THRESHOLD:
 		pointer_dragged = true
-		pan_by(pointer_start-point)
+		manual_pan_by(pointer_start-point)
 	elif pointer_dragged:
-		pan_by(pointer_last-point)
+		manual_pan_by(pointer_last-point)
 	pointer_last = point
 
 func end_pointer(point: Vector2, cancelled: bool = false) -> void:
@@ -100,13 +109,23 @@ func _process(delta: float) -> void:
 		return
 	if panning or pointer_id != -2:
 		return
+	if game.mini_map and game.mini_map.pointer_id != -2:
+		return
 	var keys := Vector2(
 		float(Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_LEFT)),
 		float(Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_UP)))
 	if keys != Vector2.ZERO:
 		scroll_direction = keys.normalized()
 	if scroll_direction != Vector2.ZERO:
-		pan_by(scroll_direction * SCROLL_SPEED * delta)
+		manual_pan_by(scroll_direction * SCROLL_SPEED * delta)
+	elif following and not game.actors[game.selected_actor_id].escaped:
+		var target: Vector2 = game.actors[game.selected_actor_id].position-VIEW.get_center()
+		var low: Vector2 = game.world.bounds.position-VIEW.position
+		var high: Vector2 = (game.world.bounds.end-VIEW.end).max(low)
+		target = target.clamp(low,high)
+		# Exponential smoothing is frame-rate independent; drawing and hit
+		# testing use this same real Camera2D position, without hidden smoothing.
+		pan_by(position.lerp(target,1.0-exp(-FOLLOW_SPEED*delta))-position)
 
 func _input(event: InputEvent) -> void:
 	if not game:
@@ -148,7 +167,7 @@ func _input(event: InputEvent) -> void:
 				end_pointer(event.position)
 				get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and panning:
-		pan_by(-event.relative)
+		manual_pan_by(-event.relative)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and pointer_id == -1:
 		move_pointer(event.position)
@@ -161,4 +180,4 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func snapshot() -> Dictionary:
-	return {"offset": [position.x,position.y],"enabled":enabled_for_room,"panning":panning,"viewport":[74,114,922,560],"edge_scroll":false,"pointer_active":pointer_id != -2,"drag_threshold":DRAG_THRESHOLD,"scroll_speed":SCROLL_SPEED}
+	return {"offset": [position.x,position.y],"enabled":enabled_for_room,"following":following,"panning":panning,"viewport":[74,114,922,560],"edge_scroll":false,"pointer_active":pointer_id != -2,"drag_threshold":DRAG_THRESHOLD,"scroll_speed":SCROLL_SPEED}

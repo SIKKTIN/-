@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "version": "v0.8.1-p24-navigation-follow",
+  "predecessor": "07456b3",
+  "task_id": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+  "navigation_checks": 19,
+  "environment_checks": 18,
+  "guard_checks": 12,
+  "r03_checks": 13,
+  "r04_checks": 4,
+  "native_checks_per_size": 20,
+  "total_technical_results": 106,
+  "benchmark_before_median_ms": 303.249,
+  "benchmark_after_median_ms": 3.04,
+  "benchmark_scope": "80 same-machine headless synchronous queries, not rendered frame or physical phone timing",
+  "native_scope": "Actual frame clocks and raw touch/Viewport mouse, safe corridor fixture",
+  "preserved_user_config": "project.godot not overwritten or staged",
+  "sources": [
+    {
+      "path": "README.md",
+      "sha256": "3ef28cd00f19af165c071830c2d155609c3718d946a55b4505437482a1f7841f"
+    },
+    {
+      "path": "scripts/core/map_camera.gd",
+      "sha256": "b967cda2936bed7ef2cf5dbfe3e8b256513f4f99e919c3d1ddcc4dc3d7f669ff"
+    },
+    {
+      "path": "scripts/core/escape_game.gd",
+      "sha256": "643694c87347542d20b3df1130437eb7553528c1b57d8db9b52aad6e585ba4c5"
+    },
+    {
+      "path": "scripts/world/prison_world.gd",
+      "sha256": "7e6ec46a836b965c1dfabb59be037a8243f95b1abf1b771b3e97ba9a85fa3216"
+    },
+    {
+      "path": "docs/dev/p24-navigation-follow.md",
+      "sha256": "4cedeb3fcf35818d9afee4ef7f80fd3f113b7ee25f3444d7cba9ca69663badbc"
+    },
+    {
+      "path": "tests/p24_environment_check.gd",
+      "sha256": "edb6551fd2fad0f5aaa156b5f8c5a23c0cfbc946e105688c236ce62d4860f596"
+    },
+    {
+      "path": "tests/p24_environment_check.gd.uid",
+      "sha256": "dd2872d839087dbeeda064032c416225e0eb34b67f15120449a51a5d25b60ffe"
+    },
+    {
+      "path": "tests/p24_guard_check.gd",
+      "sha256": "9094e3bb5d20bb48f89d818813d417656f681f1e6b1530821a01fae53ade3253"
+    },
+    {
+      "path": "tests/p24_guard_check.gd.uid",
+      "sha256": "1f9e264005f31f283482a7be762831caba1efd7276b1f299c9e1d53f669d3c72"
+    },
+    {
+      "path": "tests/p24_native_follow.gd",
+      "sha256": "5bf6d88b4fab729467f3290ee942a61c825175b1fd259fb6bc6d8ab0e0d3372c"
+    },
+    {
+      "path": "tests/p24_native_follow.gd.uid",
+      "sha256": "3b0ef27f78a84fcff2bbbdc12564d6117e9e590c01e47b88c96633704a06c651"
+    },
+    {
+      "path": "tests/p24_navigation_bench.gd",
+      "sha256": "6c406dd85ea7888d7a7d5a98cf7ca1ca670599fc489d2cbafb0381d4fa8c2525"
+    },
+    {
+      "path": "tests/p24_navigation_bench.gd.uid",
+      "sha256": "cfbf87fa6c590c67f26b7955f7bc4f64d80312cf9377a2921626e0ccf20c3e72"
+    },
+    {
+      "path": "tests/p24_navigation_check.gd",
+      "sha256": "2a4c89365a327d43e8cf16e39721153c1ab3704d0d44ec495bae50ed99b99999"
+    },
+    {
+      "path": "tests/p24_navigation_check.gd.uid",
+      "sha256": "37df22d8d21e77e38e77391e3cd984d8396e386a0ee50d33bddc0a919a60a09d"
+    },
+    {
+      "path": "tests/p24_r03_routes.gd",
+      "sha256": "3e82f00ef2d42d7d1826afa179361ceb4fbf45f38873263321512cd8ff4b63e7"
+    },
+    {
+      "path": "tests/p24_r03_routes.gd.uid",
+      "sha256": "aa4a5b54a213a4ea5ac52bed647340e422eb38cd373893eb2c5f608e2301043a"
+    },
+    {
+      "path": "tests/p24_r04_routes.gd",
+      "sha256": "020b1c8dd2f63a73e727c22870d444ead01847c0eaa7e247f577db62a23d9c4b"
+    },
+    {
+      "path": "tests/p24_r04_routes.gd.uid",
+      "sha256": "682f5e022611bce7740895fe99df5c3fdbe6ea717edf7724c5eea0f6584f82a0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/tests/p24-environment.json",
+      "sha256": "44ae0485b811cb7fdc46f8106e00640943a316c6e7cecd646c98c55960a84cb9"
+    },
+    {
+      "path": "docs/tests/p24-guard.json",
+      "sha256": "7d2403879f91e8761bdf99333fd77c8dbb01f04d89202bfe5aeec806bdc3984f"
+    },
+    {
+      "path": "docs/tests/p24-live-follow.json",
+      "sha256": "dba6219aa2fdbfe9c025c5efae9b9244d4bcc7dddf66f423f05f9cbb16ae9ae8"
+    },
+    {
+      "path": "docs/tests/p24-live-follow.png",
+      "sha256": "511bb2aa3cfc93b43a516acc246382b582d4adbf5187dc8d624a74bfc091bd2d"
+    },
+    {
+      "path": "docs/tests/p24-native-follow-1280x720.json",
+      "sha256": "28d1ba2f2d42a28de041ba7f7679d80c14d9c0fc3db76f8c46c5c647b11a013c"
+    },
+    {
+      "path": "docs/tests/p24-native-follow-1280x720.png",
+      "sha256": "417b831288dbe0b3ae68c92a6311ce92695e000940b5e4d9e418796d1bb26409"
+    },
+    {
+      "path": "docs/tests/p24-native-follow-960x540.json",
+      "sha256": "26ea186ddf7c729fca31e7edb38d7c6b540a9cad8b2cbcdffbf796a15f4ef8c4"
+    },
+    {
+      "path": "docs/tests/p24-native-follow-960x540.png",
+      "sha256": "2c6726c5f0bb7d0945e8649c7e8c208cc71348ab5fe700311657630ee58de5ae"
+    },
+    {
+      "path": "docs/tests/p24-navigation-after.json",
+      "sha256": "f9faf409019f4c13035c57434c94fa3ccb34fbb017d6408fdc8d3f893f8960d9"
+    },
+    {
+      "path": "docs/tests/p24-navigation-before.json",
+      "sha256": "a6ca3ada1353540c22a097b7dafcbb08a916a414f4d69c84e60538921688249d"
+    },
+    {
+      "path": "docs/tests/p24-navigation-check.json",
+      "sha256": "0c0deae39ca06db6fec571dadcc0644a332d1ba94253a7520b4f2eec9fc3555b"
+    },
+    {
+      "path": "docs/tests/p24-navigation-initial-failure.json",
+      "sha256": "1ad715a60251fa14e63f47f7492ea4761e41a78ed43aa426450e8a967ee72b4f"
+    },
+    {
+      "path": "docs/tests/p24-r03-routes.json",
+      "sha256": "4638585107f27b286d3e45eaea8a69ed6e28fb8a93ef3efd10a8154669bdfb41"
+    },
+    {
+      "path": "docs/tests/p24-r04-routes.json",
+      "sha256": "9d20d2a8bd2819fbabf6006876e858b5bbae8abfc847fce6e9cd5d7d77f92ada"
+    }
+  ]
+}

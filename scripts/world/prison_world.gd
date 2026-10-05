@@ -20,7 +20,15 @@ var patrol: Array[Vector2] = []
 var guard_start := Vector2(735,280)
 var guard_zone := bounds
 var grid := AStarGrid2D.new()
+var guard_grid := AStarGrid2D.new()
 var nav_dirty: bool = true
+var static_nav_dirty: bool = true
+var static_solids: Array[Rect2] = []
+var cached_solids: Array[Rect2] = []
+var cached_sight: Array[Rect2] = []
+var cached_crate: Rect2
+var navigation_builds: int = 0
+var last_overlay_cells: int = 0
 var art_textures: Dictionary = {}
 var presentation_layers: bool = false
 
@@ -57,28 +65,23 @@ func reset_world() -> void:
 	lock_progress = 0.0
 	crate = original_crate
 	push_distance = 0.0
-	_changed()
+	_changed(true)
 
 func solid_rects(include_crate: bool = true) -> Array[Rect2]:
-	var result: Array[Rect2] = walls.duplicate()
-	for fixture in fixtures:
-		if fixture.get("blocks_movement",true):
-			result.append(fixture.rect)
-	if not door_open:
-		result.append(door)
-	if include_crate:
-		result.append(crate)
-	return result
+	_refresh_box_cache()
+	return cached_solids if include_crate else static_solids
 
 func sight_rects() -> Array[Rect2]:
-	var result: Array[Rect2] = walls.duplicate()
-	if not door_open:
-		result.append(door)
-	result.append(crate)
-	for fixture in fixtures:
-		if fixture.get("blocks_sight",false):
-			result.append(fixture.rect)
-	return result
+	_refresh_box_cache()
+	return cached_sight
+
+func _refresh_box_cache() -> void:
+	if cached_crate != crate:
+		cached_crate = crate
+		cached_solids = static_solids.duplicate()
+		cached_solids.append(crate)
+		if not cached_sight.is_empty():
+			cached_sight[cached_sight.size()-1] = crate
 
 func _circle_hits_rect(point: Vector2, radius: float, rect: Rect2) -> bool:
 	var closest := point.clamp(rect.position, rect.end)
@@ -143,7 +146,7 @@ func _move_crate(displacement: Vector2, pusher = null) -> bool:
 func open_door() -> void:
 	door_open = true
 	lock_progress = 1.0
-	_changed()
+	_changed(true)
 
 func check_exit(actor) -> bool:
 	var reached: bool = actor.position.x >= bounds.end.x + 1 if not bounds.encloses(exit_area) else exit_area.grow(-RADIUS).has_point(actor.position)
@@ -195,34 +198,85 @@ func _rebuild_navigation() -> void:
 	var area := bounds.merge(exit_area)
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
 	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
-	grid.region = Rect2i(low,high-low)
-	grid.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
-	grid.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
-	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
-	grid.update()
+	for navigation in [grid,guard_grid]:
+		navigation.region = Rect2i(low,high-low)
+		navigation.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
+		navigation.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
+		navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+		navigation.update()
 	for y in range(grid.region.position.y,grid.region.end.y):
 		for x in range(grid.region.position.x,grid.region.end.x):
 			var point := Vector2(x + 0.5,y + 0.5) * GRID_SIZE
-			grid.set_point_solid(Vector2i(x,y), not can_place_circle(point,RADIUS,null,false))
+			var blocked := not inside_room(point)
+			grid.set_point_solid(Vector2i(x,y),blocked)
+			guard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))
+	for rect in static_solids:
+		var inflated := rect.grow(RADIUS)
+		var start := Vector2i(floori(inflated.position.x/GRID_SIZE),floori(inflated.position.y/GRID_SIZE))
+		var end := Vector2i(ceili(inflated.end.x/GRID_SIZE),ceili(inflated.end.y/GRID_SIZE))
+		for y in range(maxi(start.y,low.y),mini(end.y,high.y)):
+			for x in range(maxi(start.x,low.x),mini(end.x,high.x)):
+				var cell := Vector2i(x,y)
+				if _circle_hits_rect(grid.get_point_position(cell),RADIUS,rect):
+					grid.set_point_solid(cell,true)
+					guard_grid.set_point_solid(cell,true)
+	navigation_builds += 1
+	static_nav_dirty = false
 	nav_dirty = false
 
+func _segment_hits_circle(from: Vector2, to: Vector2, center: Vector2, radius: float) -> bool:
+	return Geometry2D.get_closest_point_to_segment(center,from,to).distance_squared_to(center) < radius*radius-0.001
+
+func _segment_hits_rect(from: Vector2, to: Vector2, rect: Rect2) -> bool:
+	# Swept circle against a rectangle, retaining rounded corners rather than
+	# treating the entire grown AABB as solid. No repeated four-unit samples.
+	if ray_rect_fraction(from,to,rect.grow(RADIUS)) < 0:
+		return false
+	if ray_rect_fraction(from,to,rect) >= 0:
+		return true
+	if _circle_hits_rect(from,RADIUS,rect) or _circle_hits_rect(to,RADIUS,rect):
+		return true
+	for corner in [rect.position,rect.end,Vector2(rect.position.x,rect.end.y),Vector2(rect.end.x,rect.position.y)]:
+		if _segment_hits_circle(from,to,corner,RADIUS):
+			return true
+	return false
+
 func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> bool:
-	var steps := maxi(1,ceili(from.distance_to(to)/4.0))
-	for index in range(1,steps+1):
-		if not can_place_circle(from.lerp(to,float(index)/steps),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
+	if not inside_room(from) or not inside_room(to):
+		return false
+	if ignore_actor != null and ignore_actor.has_method("movement_allowed"):
+		if not ignore_actor.movement_allowed(from,RADIUS) or not ignore_actor.movement_allowed(to,RADIUS):
 			return false
+	# The room interior is convex. Only the legacy external exit needs a seam check.
+	if maxf(from.x,to.x) > bounds.end.x-RADIUS and absf(to.x-from.x) > 0.001:
+		var crossing := from.lerp(to,clampf((bounds.end.x-RADIUS-from.x)/(to.x-from.x),0,1))
+		if crossing.y < exit_area.position.y+RADIUS or crossing.y > exit_area.end.y-RADIUS:
+			return false
+	for rect in solid_rects(not ignore_crate):
+		if _segment_hits_rect(from,to,rect):
+			return false
+	if avoid_actors:
+		for actor in actors:
+			if actor == ignore_actor or actor.escaped:
+				continue
+			if ignore_actor != null and from.distance_to(actor.position) < RADIUS*2 and (to-from).dot(from-actor.position) >= 0 and to.distance_to(actor.position) > from.distance_to(actor.position):
+				continue # Allow an occupied capture home to separate monotonically.
+			if _segment_hits_circle(from,to,actor.position,RADIUS*2):
+				return false
 	return true
 
-func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> Vector2i:
+func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false, navigation: AStarGrid2D = null) -> Vector2i:
+	if navigation == null:
+		navigation = grid
 	var cell := Vector2i(floor(point.x / GRID_SIZE), floor(point.y / GRID_SIZE))
 	var best := Vector2i(-1,-1)
 	var best_distance: float = INF
 	for y in range(maxi(grid.region.position.y,cell.y-5),mini(grid.region.end.y,cell.y+6)):
 		for x in range(maxi(grid.region.position.x,cell.x-5),mini(grid.region.end.x,cell.x+6)):
 			var candidate := Vector2i(x,y)
-			if not grid.is_point_solid(candidate) and motion_clear(point,grid.get_point_position(candidate),ignore_actor,avoid_actors,ignore_crate):
-				var distance := grid.get_point_position(candidate).distance_squared_to(point)
-				if distance < best_distance:
+			if not navigation.is_point_solid(candidate):
+				var distance := navigation.get_point_position(candidate).distance_squared_to(point)
+				if distance < best_distance and motion_clear(point,navigation.get_point_position(candidate),ignore_actor,avoid_actors,ignore_crate):
 					best = candidate
 					best_distance = distance
 	return best
@@ -232,28 +286,29 @@ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bo
 		return PackedVector2Array()
 	if motion_clear(from,to,ignore_actor,avoid_actors,ignore_crate):
 		return PackedVector2Array([to])
-	if nav_dirty:
+	if static_nav_dirty:
 		_rebuild_navigation()
-	# Overlay only this query's body/box constraints, then restore the shared grid.
-	var changed: Array = []
-	if avoid_actors or ignore_crate or (ignore_actor != null and ignore_actor.has_method("movement_allowed")):
-		for y in range(grid.region.position.y,grid.region.end.y):
-			for x in range(grid.region.position.x,grid.region.end.x):
-				var cell := Vector2i(x,y)
-				var old: bool = grid.is_point_solid(cell)
-				var blocked: bool = not can_place_circle(grid.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate)
-				if blocked != old:
-					changed.append([cell,old])
-					grid.set_point_solid(cell,blocked)
-	var start := _nearest_nav_point(from,ignore_actor,avoid_actors,ignore_crate)
-	var finish := _nearest_nav_point(to,ignore_actor,avoid_actors,ignore_crate)
+	var navigation: AStarGrid2D = guard_grid if ignore_actor != null and ignore_actor.has_method("movement_allowed") else grid
+	# Overlay just the small footprints of moving bodies and the box. The
+	# cached grids contain static walls/furniture (and the guard's boundary).
+	var changed: Array[Vector2i] = []
+	if not ignore_crate:
+		_overlay_rect(navigation,crate.grow(RADIUS),changed,ignore_actor,avoid_actors,ignore_crate)
+	if avoid_actors:
+		for actor in actors:
+			if actor != ignore_actor and not actor.escaped:
+				_overlay_rect(navigation,Rect2(actor.position-Vector2.ONE*RADIUS*2,Vector2.ONE*RADIUS*4),changed,ignore_actor,avoid_actors,ignore_crate)
+	last_overlay_cells = changed.size()
+	nav_dirty = false
+	var start := _nearest_nav_point(from,ignore_actor,avoid_actors,ignore_crate,navigation)
+	var finish := _nearest_nav_point(to,ignore_actor,avoid_actors,ignore_crate,navigation)
 	var raw := PackedVector2Array()
 	if start.x >= 0 and finish.x >= 0:
-		raw = grid.get_point_path(start,finish)
+		raw = navigation.get_point_path(start,finish)
 		if not raw.is_empty():
 			raw.append(to)
 	for change in changed:
-		grid.set_point_solid(change[0],change[1])
+		navigation.set_point_solid(change,false)
 	# Start at the furthest safely reachable waypoint, rather than walking back
 	# to the nearest cell center each time a path is recalculated.
 	var result := PackedVector2Array()
@@ -272,9 +327,34 @@ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bo
 		next = reachable + 1
 	return result
 
-func _changed() -> void:
+func _overlay_rect(navigation: AStarGrid2D, area: Rect2, changed: Array[Vector2i], ignore_actor, avoid_actors: bool, ignore_crate: bool) -> void:
+	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
+	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
+	for y in range(maxi(low.y,navigation.region.position.y),mini(high.y,navigation.region.end.y)):
+		for x in range(maxi(low.x,navigation.region.position.x),mini(high.x,navigation.region.end.x)):
+			var cell := Vector2i(x,y)
+			if not navigation.is_point_solid(cell) and not can_place_circle(navigation.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
+				changed.append(cell)
+				navigation.set_point_solid(cell,true)
+
+func _changed(static_changed: bool = false) -> void:
 	obstacle_revision += 1
 	nav_dirty = true
+	static_nav_dirty = static_nav_dirty or static_changed
+	static_solids = walls.duplicate()
+	cached_sight = walls.duplicate()
+	if not door_open:
+		static_solids.append(door)
+		cached_sight.append(door)
+	for fixture in fixtures:
+		if fixture.get("blocks_movement",true):
+			static_solids.append(fixture.rect)
+		if fixture.get("blocks_sight",false):
+			cached_sight.append(fixture.rect)
+	cached_solids = static_solids.duplicate()
+	cached_solids.append(crate)
+	cached_sight.append(crate)
+	cached_crate = crate
 	queue_redraw()
 
 func exit_icon_rect() -> Rect2:

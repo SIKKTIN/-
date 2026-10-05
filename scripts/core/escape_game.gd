@@ -256,6 +256,8 @@ func select_actor(index: int) -> void:
 	if selected_actor_id != index and shop_panel:
 		shop_panel.close()
 	selected_actor_id = index
+	if map_camera:
+		map_camera.following = true
 	for actor in actors:
 		actor.selected = actor.actor_id == index
 		actor.queue_redraw()

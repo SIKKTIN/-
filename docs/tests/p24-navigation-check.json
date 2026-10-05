@@ -1,0 +1,26 @@
+{
+	"checks": {
+		"benchmark_reachability_unchanged": true,
+		"box_does_not_rebuild_static_grid": true,
+		"cannot_move_further_into_peer": true,
+		"corner_collision_detected": true,
+		"door_invalidates_static_grid": true,
+		"initial_route": true,
+		"local_dynamic_overlay": true,
+		"locked_gate_has_no_route": true,
+		"long_segment_cannot_tunnel": true,
+		"moved_box_still_collides": true,
+		"open_gate_has_route": true,
+		"overlapping_home_can_separate": true,
+		"overlay_restored": true,
+		"push_path_ignores_crate": true,
+		"push_query_still_avoids_peer": true,
+		"rounded_corner_remains_open": true,
+		"same_machine_speed_improved": true,
+		"sixty_commands_keep_latest": true,
+		"static_grid_reused": true
+	},
+	"local_overlay_cells": 56,
+	"passed": true,
+	"scope": "Geometry, cached navigation and immediate latest-command semantics; speed compares this machine's saved before/after results, not a universal device budget."
+}

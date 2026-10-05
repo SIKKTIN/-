@@ -1,0 +1,245 @@
+{
+	"camera": {
+		"drag_threshold": 12.0,
+		"edge_scroll": false,
+		"enabled": true,
+		"following": true,
+		"offset": [
+			6.0,
+			574.198425292969
+		],
+		"panning": false,
+		"pointer_active": false,
+		"scroll_speed": 520.0,
+		"viewport": [
+			74,
+			114,
+			922,
+			560
+		]
+	},
+	"scope": "Actual editor main R04 normal randomized run, command from birth to safe corridor; native Windows, not phone/human test.",
+	"snapshot": {
+		"actions": [],
+		"actors": [
+			{
+				"action": "idle",
+				"actor_id": 0,
+				"escaped": false,
+				"facing": [
+					0.0189639236778021,
+					0.999820172786713
+				],
+				"position": [
+					539.965881347656,
+					968.198547363281
+				],
+				"selected": true,
+				"skill_id": "strong"
+			},
+			{
+				"action": "idle",
+				"actor_id": 1,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					320.0,
+					570.0
+				],
+				"selected": false,
+				"skill_id": "chat"
+			},
+			{
+				"action": "idle",
+				"actor_id": 2,
+				"escaped": false,
+				"facing": [
+					0.0,
+					-1.0
+				],
+				"position": [
+					320.0,
+					860.0
+				],
+				"selected": false,
+				"skill_id": "strong"
+			}
+		],
+		"captures": 0,
+		"deal": 1,
+		"elapsed": 160.867076666656,
+		"guard": {
+			"chat_partner_id": -1,
+			"facing": [
+				0.0197487641125917,
+				0.99980491399765
+			],
+			"fov_degrees": 120,
+			"guard_zone": [
+				624.0,
+				100.0,
+				1220.0,
+				1400.0
+			],
+			"lost_time": 0.0,
+			"path_size": 1,
+			"position": [
+				1669.52465820313,
+				819.6748046875
+			],
+			"route_index": 2,
+			"skipped_waypoints": 0,
+			"stalled_time": 0.0,
+			"state": "patrol",
+			"target_id": -1,
+			"view_radius": 210.0
+		},
+		"guard_position": [
+			1669.52465820313,
+			819.6748046875
+		],
+		"inventory": {
+			"bags": {
+				"0": [],
+				"1": [],
+				"2": []
+			},
+			"capacities": [
+				1,
+				1,
+				1
+			],
+			"instances": {
+				"r04-1-1": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-1",
+					"location": "ground",
+					"position": [
+						1020.0,
+						310.0
+					]
+				},
+				"r04-1-2": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-2",
+					"location": "ground",
+					"position": [
+						1410.0,
+						310.0
+					]
+				},
+				"r04-1-3": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-3",
+					"location": "ground",
+					"position": [
+						1020.0,
+						550.0
+					]
+				},
+				"r04-1-4": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-4",
+					"location": "ground",
+					"position": [
+						1410.0,
+						570.0
+					]
+				},
+				"r04-1-5": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-5",
+					"location": "ground",
+					"position": [
+						900.0,
+						1160.0
+					]
+				},
+				"r04-1-6": {
+					"actor_id": -1,
+					"definition_id": "scrap",
+					"id": "r04-1-6",
+					"location": "ground",
+					"position": [
+						1430.0,
+						1250.0
+					]
+				},
+				"r04-1-7": {
+					"actor_id": -1,
+					"definition_id": "door_key",
+					"id": "r04-1-7",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r04-1-8": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r04-1-8",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				},
+				"r04-1-9": {
+					"actor_id": -1,
+					"definition_id": "lock_tool",
+					"id": "r04-1-9",
+					"location": "shop",
+					"merchant_id": "prison_dealer",
+					"position": [
+						0.0,
+						0.0
+					]
+				}
+			},
+			"wallet": 0
+		},
+		"merchants": {
+			"prison_dealer": {
+				"id": "prison_dealer",
+				"name": "生活区商人",
+				"position": [
+					540.0,
+					650.0
+				],
+				"stock": [
+					"r04-1-7",
+					"r04-1-8",
+					"r04-1-9"
+				]
+			}
+		},
+		"orders": [],
+		"phase": "playing",
+		"seed": 3348383574,
+		"selected_actor_id": 0,
+		"world": {
+			"crate": [
+				1818.0,
+				1384.0,
+				94.0,
+				92.0
+			],
+			"door_open": false,
+			"lock_progress": 0.0,
+			"obstacle_revision": 2,
+			"push_distance": 0.0,
+			"room_id": "r04"
+		}
+	}
+}
