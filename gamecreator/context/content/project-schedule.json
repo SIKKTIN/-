@@ -2454,6 +2454,50 @@
             "at": "2026-10-05T07:59:20.905Z"
           }
         ]
+      },
+      {
+        "id": "13de730b-bafb-4413-b24a-d2731a4d54a7",
+        "title": "A11 · 日常表视觉重设计概念",
+        "description": "用户认为已实现的日常表 UI 太丑，要求主美重新制作一张完整横屏手机概念图。沿用 FINAL-WARM-01 暖色手绘监狱风格和 A09 全屏 HUD，优先人物与日程的视觉层级，减少十五个等权下拉框的行政表格感。读取实际 P36 截图和功能说明，以人物行、时间条、活动图标、轻量选项等方式组织。只制作概念，不修改游戏代码。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "使用内置 image_gen 产出并实际查看一张可评审的完整横屏日常表概念 PNG；三个伙伴、五段日程清楚；保留待命、工作、休息、自由活动与应用今日安排/恢复选中伙伴/关闭语义；工作仅 08–12、14–18，20–24 寝室区自由，午夜睡觉查寝不可误画成一天逃脱。模态期间时间继续流逝。手机目标按钮至少48逻辑像素。交付布局说明、准确提示词、图像路径和 SHA256；技术验收不等于用户认可样式，不能直接实施。",
+        "result": "日常表概念交付：三伙伴人物行、五时段活动色带和轻量图标；当前段青绿描边、清晰3天期限及活跃时钟提示，午夜只作注释。替代15个等权下拉框外观，保留应用/恢复/关闭。仅概念，制作人技术审核后仍待用户视觉认可。\n\n验收通过：制作人已实际查看1882×836主概念图并阅读说明：三人五时段、活动语义/3天期限/活跃时钟/按钮层级正确，暖色纸面与A09一致，图例非交互、48逻辑px目标和草稿应用语义明确。概念交付技术通过，可给用户评价；不是用户视觉认可，不授权修改运行界面或正式视觉基准。头像3的旧帽形偏差已披露，实施时复用A10原PNG。",
+        "dependencyIds": [
+          "ac460622-c9c9-499f-bdd4-70501d244c36"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/concepts/ui-routine/",
+            "docs/art/a11-"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/docs/tests/p36-native-1200-routine-table.png；docs/tests/p36-native-1600-overview.png；art/concepts/ui-fullscreen/a09-fullscreen-hud-v01.png；docs/dev/p36-daily-routine.md",
+          "interfaceContract": "只能新增 A11 概念图与说明。scripts/scenes/project.godot/Theme/旧素材均只读，不修改视觉基准、不提交推送。用分配给主美的个人凭证独立提交反馈，制作人验收。无新增玩法或参数。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "70db4b53-7c6e-4adf-b908-faa07c557884",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T08:30:12.965Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -3072,6 +3116,18 @@
         "reason": "用户要求人物卡收缩、底部居中提示，以及每日可安排伙伴实际去工作等活动的日常表。",
         "createdTaskIds": [
           "ac460622-c9c9-499f-bdd4-70501d244c36"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "70db4b53-7c6e-4adf-b908-faa07c557884",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T08:30:12.965Z",
+        "reason": "用户要求主美重新设计日常表概念图，先视觉评审，暂不实施运行时界面。",
+        "createdTaskIds": [
+          "13de730b-bafb-4413-b24a-d2731a4d54a7"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -10367,6 +10423,135 @@
           "at": "2026-10-05T08:21:00.238Z",
           "note": "制作人自验收：214aa7a主干及190项技术证据通过，实际三工位寻路零抓回、手动/停止/恢复/犬检测、按段执行/次日清表/午夜查寝兼容、旧图无假工作均核对。三横屏真实ScreenTouch/Popup输入与全景/日常表/赴岗帧已检查，背包/暂停/交易回归通过。MCP main token18 live，启动无错误，根配置用户SHA不变。当前工作为到岗活动状态，未加劳动生产/收益/专用动画；真机/真人规划未测试。正式规则提交已应用。",
           "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "a11-routine-art-start-20261005",
+        "taskId": "13de730b-bafb-4413-b24a-d2731a4d54a7",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "主美接手 A11 日常表概念重设计；已查看 P36 真实表格、全屏游戏及 A09 已认可风格，采用三伙伴人物行与五时段活动条，消除等权下拉控件堆叠。",
+        "evidence": [
+          "参考：docs/tests/p36-native-1200-routine-table.png、p36-native-1600-overview.png，已实际查看。",
+          "按当前P36规则：五时段08–12/12–14/14–18/18–20/20–24；工作仅第一第三阶段；00–08只提示自动睡觉查寝；只新增概念与说明，不改运行界面。"
+        ],
+        "at": "2026-10-05T08:37:30.027Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "13de730b-bafb-4413-b24a-d2731a4d54a7",
+          "title": "A11 · 日常表视觉重设计概念",
+          "description": "用户认为已实现的日常表 UI 太丑，要求主美重新制作一张完整横屏手机概念图。沿用 FINAL-WARM-01 暖色手绘监狱风格和 A09 全屏 HUD，优先人物与日程的视觉层级，减少十五个等权下拉框的行政表格感。读取实际 P36 截图和功能说明，以人物行、时间条、活动图标、轻量选项等方式组织。只制作概念，不修改游戏代码。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "使用内置 image_gen 产出并实际查看一张可评审的完整横屏日常表概念 PNG；三个伙伴、五段日程清楚；保留待命、工作、休息、自由活动与应用今日安排/恢复选中伙伴/关闭语义；工作仅 08–12、14–18，20–24 寝室区自由，午夜睡觉查寝不可误画成一天逃脱。模态期间时间继续流逝。手机目标按钮至少48逻辑像素。交付布局说明、准确提示词、图像路径和 SHA256；技术验收不等于用户认可样式，不能直接实施。",
+          "result": "主美接手 A11 日常表概念重设计；已查看 P36 真实表格、全屏游戏及 A09 已认可风格，采用三伙伴人物行与五时段活动条，消除等权下拉控件堆叠。",
+          "dependencyIds": [
+            "ac460622-c9c9-499f-bdd4-70501d244c36"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/ui-routine/",
+              "docs/art/a11-"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/docs/tests/p36-native-1200-routine-table.png；docs/tests/p36-native-1600-overview.png；art/concepts/ui-fullscreen/a09-fullscreen-hud-v01.png；docs/dev/p36-daily-routine.md",
+            "interfaceContract": "只能新增 A11 概念图与说明。scripts/scenes/project.godot/Theme/旧素材均只读，不修改视觉基准、不提交推送。用分配给主美的个人凭证独立提交反馈，制作人验收。无新增玩法或参数。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "70db4b53-7c6e-4adf-b908-faa07c557884",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T08:30:12.965Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a11-daily-planner-ready-20261005",
+        "taskId": "13de730b-bafb-4413-b24a-d2731a4d54a7",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "日常表概念交付：三伙伴人物行、五时段活动色带和轻量图标；当前段青绿描边、清晰3天期限及活跃时钟提示，午夜只作注释。替代15个等权下拉框外观，保留应用/恢复/关闭。仅概念，制作人技术审核后仍待用户视觉认可。",
+        "evidence": [
+          "主概念：E:/Project/Godot/这次怎么逃/art/concepts/ui-routine/a11-daily-planner-v01.png；1882×836 RGB、1759850 bytes，SHA256 9E728B1409ABFC8B5B9285CC2CACB4C21D5EE5081AE5A7571442BCDAC76C53DB。",
+          "说明及完整准确主图/修订提示词：E:/Project/Godot/这次怎么逃/docs/art/a11-daily-planner.md。内置 image_gen 主生成1次、局部修订1次，原PNG复制，不程序改像素。",
+          "已view_image检查：五时段08–12/12–14/14–18/18–20/20–24准确无重复；三人身份行及活动可读；工作仅第一/第三列；第1天09:08劳动，期限3天；00–08自动睡觉查寝仅小注释；应用今日安排/恢复选中伙伴/关闭与时间流逝提示均可读。",
+          "文档明确点击活动段弹出四活动轻量选项，工作按现有规则禁用；图中底部是一行非交互图例，不能变成新增常驻编辑工具。手机实装重新布局，热区不得等比缩到48逻辑单位以下。",
+          "已知概念偏差：局部修订恢复背景伙伴3身份，面板小头像仍有旧帽形倾向。正式落地继续使用A10 portrait_3.tres原PNG肖像，不改变人物身份/随机技能；静图没有真机或可玩验证。",
+          "仅新增art/concepts/ui-routine/**与docs/art/a11-*，未改代码/Theme/配置/旧图/视觉基准，未Git提交推送；制作人已只读查看主图，概念技术检查与用户认可分别处理。"
+        ],
+        "at": "2026-10-05T08:51:09.920Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "13de730b-bafb-4413-b24a-d2731a4d54a7",
+          "title": "A11 · 日常表视觉重设计概念",
+          "description": "用户认为已实现的日常表 UI 太丑，要求主美重新制作一张完整横屏手机概念图。沿用 FINAL-WARM-01 暖色手绘监狱风格和 A09 全屏 HUD，优先人物与日程的视觉层级，减少十五个等权下拉框的行政表格感。读取实际 P36 截图和功能说明，以人物行、时间条、活动图标、轻量选项等方式组织。只制作概念，不修改游戏代码。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "使用内置 image_gen 产出并实际查看一张可评审的完整横屏日常表概念 PNG；三个伙伴、五段日程清楚；保留待命、工作、休息、自由活动与应用今日安排/恢复选中伙伴/关闭语义；工作仅 08–12、14–18，20–24 寝室区自由，午夜睡觉查寝不可误画成一天逃脱。模态期间时间继续流逝。手机目标按钮至少48逻辑像素。交付布局说明、准确提示词、图像路径和 SHA256；技术验收不等于用户认可样式，不能直接实施。",
+          "result": "日常表概念交付：三伙伴人物行、五时段活动色带和轻量图标；当前段青绿描边、清晰3天期限及活跃时钟提示，午夜只作注释。替代15个等权下拉框外观，保留应用/恢复/关闭。仅概念，制作人技术审核后仍待用户视觉认可。",
+          "dependencyIds": [
+            "ac460622-c9c9-499f-bdd4-70501d244c36"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/ui-routine/",
+              "docs/art/a11-"
+            ],
+            "entry": "E:/Project/Godot/这次怎么逃/docs/tests/p36-native-1200-routine-table.png；docs/tests/p36-native-1600-overview.png；art/concepts/ui-fullscreen/a09-fullscreen-hud-v01.png；docs/dev/p36-daily-routine.md",
+            "interfaceContract": "只能新增 A11 概念图与说明。scripts/scenes/project.godot/Theme/旧素材均只读，不修改视觉基准、不提交推送。用分配给主美的个人凭证独立提交反馈，制作人验收。无新增玩法或参数。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "70db4b53-7c6e-4adf-b908-faa07c557884",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T08:30:12.965Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T08:52:47.521Z",
+          "note": "制作人已实际查看1882×836主概念图并阅读说明：三人五时段、活动语义/3天期限/活跃时钟/按钮层级正确，暖色纸面与A09一致，图例非交互、48逻辑px目标和草稿应用语义明确。概念交付技术通过，可给用户评价；不是用户视觉认可，不授权修改运行界面或正式视觉基准。头像3的旧帽形偏差已披露，实施时复用A10原PNG。",
+          "mode": "independent",
           "evidenceVersion": 1
         }
       }
