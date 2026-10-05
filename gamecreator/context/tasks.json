@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "205bb1e6c5d314d8951c4502e20f28d8db224a4881d88fb1c14e09d9e6ae3f17",
+  "snapshotId": "bd5b473b0ec47123d69083389cf14bc6ff05c7b828ab95eb4e34829e30c3a49f",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -1740,6 +1740,57 @@
           "at": "2026-10-05T02:21:34.036Z"
         }
       ]
+    },
+    {
+      "id": "0edca471-cafb-43ec-9554-de439482bdaf",
+      "title": "P26 铁栏杆与世界贴图移动闪烁修复",
+      "description": "用户澄清铁栏杆明显闪烁抖动后，优先验证原图缩小的采样混叠，裁切区域后建立mipmap并缓存；保留平滑相机与P25输入。已做D3D12帧节奏诊断，不要求继续未证实相关的多后端实验。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "两种栏杆实际尺寸和1/0.75屏幕比例的分数像素GPU对照留证，亮度跨度与列变化相对原采样下降；生产缓存复用、绘制尺寸、两尺寸原生选人/连续命令/拖图/小地图/跟随/图标与昼夜检查通过。保留PNG与用户project.godot；技术验收不代表真人屏幕或手机真机确认无闪烁。",
+      "result": "98e26c5已推送。用户明确铁栏杆闪烁后复现缩小混叠，世界区域裁切后mipmap缓存与各向异性滤波已实现。四组原生栏杆采样亮度跨度降低87%～97%，列二阶变化降低86%～92%；两尺寸各31原生选人/连点/镜头/小地图/图标/纹理/昼夜项通过，共62。实际编辑器随机R04正常运行，灯10/遮挡18、VSYNC1、fps不限；相机和PNG未改。细节稍柔和，真人屏幕/Android/iOS复核未完成，不宣称全部闪烁消失。\n\n验收通过：制作人本人程序任务独立证据核对后接受技术交付：四组缩小采样亮度与列变化改善，62项原生输入/镜头/缓存/昼夜项通过，PNG与用户配置保留。改进针对已复现的栏杆采样混叠；屏幕观感需用户复测，未将技术通过等同所有闪烁已消除。多后端实验按用户澄清后更新的正式验收范围不继续，生产VSYNC和帧限制保持原状。",
+      "dependencyIds": [
+        "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/core/",
+          "scripts/presentation/",
+          "scenes/",
+          "tests/",
+          "docs/dev/",
+          "docs/tests/",
+          "README.md",
+          "tools/"
+        ],
+        "entry": "res://scenes/main.tscn",
+        "interfaceContract": "不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p26-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T02:37:13.375Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -1866,7 +1917,8 @@
             "75b9d962-39c7-4a5f-8f51-5b793c0f2801",
             "2c995e18-07a6-4848-a2a8-41129f74f90f",
             "9726b094-4fa1-43b5-8190-83287d4d3f90",
-            "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+            "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+            "0edca471-cafb-43ec-9554-de439482bdaf"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2228,6 +2280,17 @@
         "gameplay",
         "design-documents"
       ]
+    },
+    {
+      "id": "p26-sampling-design-20261005",
+      "digest": "52a164c7b0399163de3a213612a4c0a4821f2c3429b84c49c8cf61a655518d94",
+      "summary": "依据用户澄清将P26改为栏杆缩小纹理稳定采样；保留输入、相机、灯光及真实复核边界。",
+      "memberName": "制作人",
+      "at": "2026-10-05T02:47:42.140Z",
+      "modules": [
+        "project-schedule",
+        "gameplay"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -2390,6 +2453,18 @@
       "reason": "用户反馈跟随镜头震动与画面撕裂，修复实际滚动画面稳定性。",
       "createdTaskIds": [
         "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p26-plan-20261005",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T02:37:13.375Z",
+      "reason": "用户复测仍有撕裂，要求尝试其他解决办法，需显示节奏/渲染后端对照。",
+      "createdTaskIds": [
+        "0edca471-cafb-43ec-9554-de439482bdaf"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -7479,6 +7554,149 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-05T02:31:34.967Z",
         "note": "制作人按producer自验收单独核对68fccbe及8源/12证据哈希；50两尺寸原生检查通过，实际按住轻点继续跟随且世界目标一致，12帧图标投影同帧匹配。解析跟随变dt误差约0.00014单位，改善已测出的滞后抖动。原纹理线性/VSYNC事实已纠正并保留，无效采样改动撤销；失败夹具和960过程记录未掩盖，不作物理扫描撕裂或真人/手机真机确认。主窗口运行正常随机R04新版本，独立命令、手动查看与用户配置保留。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p26-start-20261005",
+      "taskId": "0edca471-cafb-43ec-9554-de439482bdaf",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "用户复测P25仍撕裂，已问现象分类并继续原生显示对照。当前165Hz屏、D3D12/Forward+、VSYNC开但无帧限制、实际约95fps。先对照夜间移动镜头无上限与55fps以及其他后端；不以帧缓冲冒充物理显示结论。",
+      "evidence": [
+        "tests/p26_frame_pacing.gd"
+      ],
+      "at": "2026-10-05T02:37:14.173Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "0edca471-cafb-43ec-9554-de439482bdaf",
+        "title": "P26 显示撕裂的呈现方案对照",
+        "description": "对照帧节奏、垂直同步及D3D12/Vulkan/Compatibility，必要时提供可复核的稳定呈现模式；保留P25输入与镜头规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "用户现象分类与原生帧时间、后端对照留证；选择可运行方案验证昼夜灯光/阴影/交互与跟随。保留未提交的用户project.godot配置，未确认物理屏幕观感时不得称用户问题已消除。",
+        "result": "用户复测P25仍撕裂，已问现象分类并继续原生显示对照。当前165Hz屏、D3D12/Forward+、VSYNC开但无帧限制、实际约95fps。先对照夜间移动镜头无上限与55fps以及其他后端；不以帧缓冲冒充物理显示结论。",
+        "dependencyIds": [
+          "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/",
+            "scripts/presentation/",
+            "scenes/",
+            "tests/",
+            "docs/dev/",
+            "docs/tests/",
+            "README.md",
+            "tools/"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p26-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T02:37:13.375Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p26-mipmap-delivery-20261005",
+      "taskId": "0edca471-cafb-43ec-9554-de439482bdaf",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "98e26c5已推送。用户明确铁栏杆闪烁后复现缩小混叠，世界区域裁切后mipmap缓存与各向异性滤波已实现。四组原生栏杆采样亮度跨度降低87%～97%，列二阶变化降低86%～92%；两尺寸各31原生选人/连点/镜头/小地图/图标/纹理/昼夜项通过，共62。实际编辑器随机R04正常运行，灯10/遮挡18、VSYNC1、fps不限；相机和PNG未改。细节稍柔和，真人屏幕/Android/iOS复核未完成，不宣称全部闪烁消失。",
+      "evidence": [
+        "Git commit 98e26c5 pushed to origin/main",
+        "docs/dev/p26-texture-stability.md",
+        "docs/tests/p26-build.json",
+        "docs/tests/p26-bar-sampling.json/.png",
+        "docs/tests/p26-native-follow-1280x720.json + 960x540.json",
+        "docs/tests/p26-native-day-*.png / p26-native-night-*.png",
+        "docs/tests/p26-frame-pacing-d3d12.json (diagnostic only)"
+      ],
+      "at": "2026-10-05T02:48:20.211Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "0edca471-cafb-43ec-9554-de439482bdaf",
+        "title": "P26 铁栏杆与世界贴图移动闪烁修复",
+        "description": "用户澄清铁栏杆明显闪烁抖动后，优先验证原图缩小的采样混叠，裁切区域后建立mipmap并缓存；保留平滑相机与P25输入。已做D3D12帧节奏诊断，不要求继续未证实相关的多后端实验。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "两种栏杆实际尺寸和1/0.75屏幕比例的分数像素GPU对照留证，亮度跨度与列变化相对原采样下降；生产缓存复用、绘制尺寸、两尺寸原生选人/连续命令/拖图/小地图/跟随/图标与昼夜检查通过。保留PNG与用户project.godot；技术验收不代表真人屏幕或手机真机确认无闪烁。",
+        "result": "98e26c5已推送。用户明确铁栏杆闪烁后复现缩小混叠，世界区域裁切后mipmap缓存与各向异性滤波已实现。四组原生栏杆采样亮度跨度降低87%～97%，列二阶变化降低86%～92%；两尺寸各31原生选人/连点/镜头/小地图/图标/纹理/昼夜项通过，共62。实际编辑器随机R04正常运行，灯10/遮挡18、VSYNC1、fps不限；相机和PNG未改。细节稍柔和，真人屏幕/Android/iOS复核未完成，不宣称全部闪烁消失。",
+        "dependencyIds": [
+          "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/",
+            "scripts/presentation/",
+            "scenes/",
+            "tests/",
+            "docs/dev/",
+            "docs/tests/",
+            "README.md",
+            "tools/"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p26-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T02:37:13.375Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T02:48:40.217Z",
+        "note": "制作人本人程序任务独立证据核对后接受技术交付：四组缩小采样亮度与列变化改善，62项原生输入/镜头/缓存/昼夜项通过，PNG与用户配置保留。改进针对已复现的栏杆采样混叠；屏幕观感需用户复测，未将技术通过等同所有闪烁已消除。多后端实验按用户澄清后更新的正式验收范围不继续，生产VSYNC和帧限制保持原状。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

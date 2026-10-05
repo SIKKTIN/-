@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "205bb1e6c5d314d8951c4502e20f28d8db224a4881d88fb1c14e09d9e6ae3f17",
+  "snapshotId": "bd5b473b0ec47123d69083389cf14bc6ff05c7b828ab95eb4e34829e30c3a49f",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -1446,6 +1446,57 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T02:21:34.036Z"
+            }
+          ]
+        },
+        {
+          "id": "0edca471-cafb-43ec-9554-de439482bdaf",
+          "title": "P26 铁栏杆与世界贴图移动闪烁修复",
+          "description": "用户澄清铁栏杆明显闪烁抖动后，优先验证原图缩小的采样混叠，裁切区域后建立mipmap并缓存；保留平滑相机与P25输入。已做D3D12帧节奏诊断，不要求继续未证实相关的多后端实验。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "两种栏杆实际尺寸和1/0.75屏幕比例的分数像素GPU对照留证，亮度跨度与列变化相对原采样下降；生产缓存复用、绘制尺寸、两尺寸原生选人/连续命令/拖图/小地图/跟随/图标与昼夜检查通过。保留PNG与用户project.godot；技术验收不代表真人屏幕或手机真机确认无闪烁。",
+          "result": "98e26c5已推送。用户明确铁栏杆闪烁后复现缩小混叠，世界区域裁切后mipmap缓存与各向异性滤波已实现。四组原生栏杆采样亮度跨度降低87%～97%，列二阶变化降低86%～92%；两尺寸各31原生选人/连点/镜头/小地图/图标/纹理/昼夜项通过，共62。实际编辑器随机R04正常运行，灯10/遮挡18、VSYNC1、fps不限；相机和PNG未改。细节稍柔和，真人屏幕/Android/iOS复核未完成，不宣称全部闪烁消失。\n\n验收通过：制作人本人程序任务独立证据核对后接受技术交付：四组缩小采样亮度与列变化改善，62项原生输入/镜头/缓存/昼夜项通过，PNG与用户配置保留。改进针对已复现的栏杆采样混叠；屏幕观感需用户复测，未将技术通过等同所有闪烁已消除。多后端实验按用户澄清后更新的正式验收范围不继续，生产VSYNC和帧限制保持原状。",
+          "dependencyIds": [
+            "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/presentation/",
+              "scenes/",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md",
+              "tools/"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p26-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:37:13.375Z"
             }
           ]
         }
@@ -3187,6 +3238,57 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-05T02:21:34.036Z"
+            }
+          ]
+        },
+        {
+          "id": "0edca471-cafb-43ec-9554-de439482bdaf",
+          "title": "P26 铁栏杆与世界贴图移动闪烁修复",
+          "description": "用户澄清铁栏杆明显闪烁抖动后，优先验证原图缩小的采样混叠，裁切区域后建立mipmap并缓存；保留平滑相机与P25输入。已做D3D12帧节奏诊断，不要求继续未证实相关的多后端实验。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "2026-10-05",
+          "milestoneId": "",
+          "acceptance": "两种栏杆实际尺寸和1/0.75屏幕比例的分数像素GPU对照留证，亮度跨度与列变化相对原采样下降；生产缓存复用、绘制尺寸、两尺寸原生选人/连续命令/拖图/小地图/跟随/图标与昼夜检查通过。保留PNG与用户project.godot；技术验收不代表真人屏幕或手机真机确认无闪烁。",
+          "result": "98e26c5已推送。用户明确铁栏杆闪烁后复现缩小混叠，世界区域裁切后mipmap缓存与各向异性滤波已实现。四组原生栏杆采样亮度跨度降低87%～97%，列二阶变化降低86%～92%；两尺寸各31原生选人/连点/镜头/小地图/图标/纹理/昼夜项通过，共62。实际编辑器随机R04正常运行，灯10/遮挡18、VSYNC1、fps不限；相机和PNG未改。细节稍柔和，真人屏幕/Android/iOS复核未完成，不宣称全部闪烁消失。\n\n验收通过：制作人本人程序任务独立证据核对后接受技术交付：四组缩小采样亮度与列变化改善，62项原生输入/镜头/缓存/昼夜项通过，PNG与用户配置保留。改进针对已复现的栏杆采样混叠；屏幕观感需用户复测，未将技术通过等同所有闪烁已消除。多后端实验按用户澄清后更新的正式验收范围不继续，生产VSYNC和帧限制保持原状。",
+          "dependencyIds": [
+            "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/presentation/",
+              "scenes/",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md",
+              "tools/"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "不改移动/寻路/碰撞或PNG；后端对照用命令行，不覆盖用户工程配置。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p26-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:37:13.375Z"
             }
           ]
         }
