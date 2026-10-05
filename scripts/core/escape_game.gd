@@ -16,6 +16,7 @@ const MapCamera = preload("res://scripts/core/map_camera.gd")
 const MiniMap = preload("res://scripts/ui/mini_map.gd")
 const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
 const PoliceDog = preload("res://scripts/actors/police_dog.gd")
+const FullscreenHUD = preload("res://scripts/ui/fullscreen_hud.gd")
 const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
@@ -34,6 +35,7 @@ var mini_map
 var schedule
 var dog
 var developer_settings
+var fullscreen_ui
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -127,6 +129,9 @@ func _ready() -> void:
 	developer_settings.name = "DeveloperSettings"
 	add_child(developer_settings)
 	developer_settings.configure(self)
+	fullscreen_ui = FullscreenHUD.new()
+	add_child(fullscreen_ui)
+	fullscreen_ui.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -224,6 +229,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			reset_round()
 			return
 		if event.keycode == KEY_ESCAPE:
+			if fullscreen_ui:
+				fullscreen_ui.toggle_menu()
+				return
 			if shop_panel:
 				shop_panel.close()
 			if schedule:
@@ -234,7 +242,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if world_input_blocked():
 		return
 	if event is InputEventMouseButton and event.pressed:
-		if not MapCamera.VIEW.has_point(event.position):
+		if not map_camera.view_rect().has_point(event.position):
 			return
 		var point: Vector2 = get_global_transform_with_canvas().affine_inverse() * event.position
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -308,6 +316,8 @@ func select_actor(index: int) -> void:
 	_update_ui()
 
 func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
+	if fullscreen_ui:
+		fullscreen_ui.close_menu()
 	phase = "playing"
 	elapsed = 0
 	status_until = 0
@@ -345,7 +355,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		schedule.reset()
 	if developer_settings:
 		developer_settings.close()
-	show_status("22:00封监前让三人全部逃脱；点击右上日程查看安排。",4)
+	show_status("三天内让三人逃脱；点左上时钟查看每日作息。",4)
 	select_actor(0)
 	if map_camera:
 		map_camera.reset()
@@ -378,17 +388,22 @@ func _update_ui() -> void:
 		inventory_panel.refresh()
 	if shop_panel:
 		shop_panel.refresh()
+	if fullscreen_ui:
+		fullscreen_ui.refresh()
 	if items_view:
 		items_view.queue_redraw()
 
 func _draw() -> void:
 	var floor_area: Rect2 = world.bounds if world else ROOM
 	var clip: Rect2 = floor_area
-	if map_camera and map_camera.enabled_for_room:
-		clip = floor_area.intersection(Rect2(MapCamera.VIEW.position+map_camera.position,MapCamera.VIEW.size))
-	draw_style_box(_floor_style(), floor_area)
+	if map_camera:
+		clip = map_camera.world_view_rect()
+	draw_rect(clip,Color("a6b2a3"))
 	if floor_texture:
-		TextureTiles.paint(self,floor_texture,floor_area.grow(-1),Vector2(floor_tile_size,floor_tile_size),clip)
+		var tile := Vector2(floor_tile_size,floor_tile_size)
+		var origin := floor_area.position+((clip.position-floor_area.position)/tile).floor()*tile
+		var painted := Rect2(origin,((clip.end-origin)/tile).ceil()*tile)
+		TextureTiles.paint(self,floor_texture,painted,tile,clip)
 	if not perspective_floor:
 		for x in range(int(floor_area.position.x+20), int(floor_area.end.x), 40):
 			draw_line(Vector2(x, floor_area.position.y+1), Vector2(x, floor_area.end.y-1), Color(0.2, 0.3, 0.25, 0.04))
@@ -413,7 +428,7 @@ func snapshot() -> Dictionary:
 	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"dog":dog.snapshot() if dog else {}}
 
 func world_input_blocked() -> bool:
-	return phase != "playing" or get_tree().paused or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible)
+	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible)
 
 func finish_timeout() -> void:
 	phase = "failed"
@@ -423,7 +438,7 @@ func finish_timeout() -> void:
 		actor.moved_this_frame = false
 	guard.moved_this_frame = false
 	dog.moved_this_frame = false
-	status_text = "22:00已封监，逃脱行动结束。R重新开始。"
+	status_text = "逃脱期限已到，行动结束。可重新开始。"
 	schedule.show_result(false)
 
 func capture_actor(actor_id: int) -> void:

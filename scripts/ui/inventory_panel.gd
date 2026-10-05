@@ -61,6 +61,8 @@ func _select(index: int) -> void:
 	var bag: Array = game.inventory.items(game.selected_actor_id)
 	selected_item = str(bag[index]) if index < bag.size() else ""
 	refresh()
+	if game.shop_panel:
+		game.shop_panel.refresh()
 
 func refresh() -> void:
 	var id: int = game.selected_actor_id
@@ -119,3 +121,5 @@ func refresh() -> void:
 		b.add_theme_constant_override("icon_max_width",16)
 		b.expand_icon = true
 		n += 1
+	if game.fullscreen_ui:
+		game.fullscreen_ui.refresh_inventory()

@@ -45,6 +45,15 @@ func _draw() -> void:
 					SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)
 			else:
 				draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
+		for gate in world.dorm_doors:
+			var r: Rect2 = gate.rect
+			if gate.closed:
+				var rail := Rect2(r.position-Vector2(0,34),Vector2(r.size.x,38))
+				draw_rect(rail,Color(0.18,0.23,0.25,0.35))
+				for x in range(int(r.position.x+5),int(r.end.x),14):
+					draw_line(Vector2(x,r.position.y-34),Vector2(x,r.end.y),Color("475452"),4,true)
+				draw_line(rail.position,Vector2(rail.end.x,rail.position.y),Color("738176"),4,true)
+				draw_line(Vector2(r.position.x,r.end.y),r.end,Color("738176"),4,true)
 		for visual in presentation.visuals:
 			if not visual.actor.escaped:
 				if presentation.profile.get("soft_shadows",false):
@@ -61,19 +70,19 @@ func _draw() -> void:
 			draw_set_transform(game.dog.position)
 			presentation.dog_visual.paint_information(self,presentation.font)
 			draw_set_transform(Vector2.ZERO)
-		var view: Rect2 = Rect2(game.map_camera.position+Vector2(74,114),Vector2(922,560)) if game.map_camera else world.bounds
+		var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else world.bounds
 		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
 		for zone in game.room_config.get("zones",[]):
 			var values: Array = zone.rect
 			var visible_area := Rect2(values[0],values[1],values[2],values[3]).intersection(view)
 			if visible_area.size.x >= 150 and visible_area.size.y >= 60:
 				draw_string(presentation.font,visible_area.position+Vector2(16,30),str(zone.name),HORIZONTAL_ALIGNMENT_LEFT,-1,20,zone_label_color)
-		var zone: Rect2 = world.guard_zone
+		var zone: Rect2 = game.guard.search_zone()
 		var boundary := Color(0.20,0.55,0.51,0.42)
 		for y in range(int(zone.position.y+12),int(zone.end.y),24):
 			draw_line(Vector2(zone.position.x,y),Vector2(zone.position.x,y+10),boundary,1.5,true)
 		var label_color := Color("d8e8dc") if presentation.lighting.period == "night" else Color("536052")
-		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"寝室内安全 · 宵禁禁止外出" if game.schedule and game.schedule.is_curfew() else "安全房间",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"午夜锁寝 · 警卫查房" if game.schedule and game.schedule.is_sleep_time() else "寝区自由 · 室外警戒" if game.schedule and game.schedule.is_curfew() else "寝室区",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 		if game.schedule and game.schedule.is_curfew():
 			for index in range(game.actors.size()):
 				var dorm: Rect2 = game.schedule.dormitory(index)

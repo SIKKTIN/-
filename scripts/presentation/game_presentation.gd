@@ -315,10 +315,12 @@ func update_cards() -> void:
 	for index in range(game.cards.size()):
 		var card = game.cards[index]
 		var actor = game.actors[index]
-		card.icon = skill_icons[actor.skill_id]
+		card.icon = null if game.fullscreen_ui else skill_icons[actor.skill_id]
+		if game.fullscreen_ui:
+			card.text = ""
 		card.add_theme_stylebox_override("normal",card.get_meta("selected_style") if actor.selected and not actor.escaped else card.get_meta("base_style"))
 		var symbol: TextureRect = card_symbols[index]
-		symbol.visible = actor.escaped or actor.selected or visuals[index].flash_time > 0
+		symbol.visible = not game.fullscreen_ui and (actor.escaped or actor.selected or visuals[index].flash_time > 0)
 		symbol.texture = fx.escaped if actor.escaped else (fx[visuals[index].flash_state] if visuals[index].flash_time > 0 else fx.selected)
 
 func _loop(id: String, active: bool) -> void:

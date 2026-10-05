@@ -25,6 +25,8 @@ var stalled_time: float = 0
 var path_state: String = ""
 var skipped_waypoints: int = 0
 var investigate_until: float = 0
+var returning_from_inspection := false
+var inspection_route: Array[Vector2] = []
 
 func configure(prison_world, escape_game) -> void:
 	world = prison_world
@@ -35,6 +37,8 @@ func reset_guard() -> void:
 	position = world.guard_start
 	facing = Vector2.UP
 	state = "patrol"
+	returning_from_inspection = false
+	inspection_route.clear()
 	route_index = 0
 	target_id = -1
 	chat_partner_id = -1
@@ -51,8 +55,35 @@ func view_radius() -> float:
 	var night: bool = game.presentation != null and game.presentation.lighting != null and game.presentation.lighting.period == "night"
 	return NIGHT_VIEW_RADIUS if night else DAY_VIEW_RADIUS
 
+func inspection_allowed() -> bool:
+	return returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
+
+func allowed_zone() -> Rect2:
+	return world.bounds if inspection_allowed() else world.guard_zone
+
+func search_zone() -> Rect2:
+	return world.bounds if game.schedule != null and game.schedule.is_sleep_time() else world.guard_zone
+
 func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
-	return world.guard_zone.grow(-radius).has_point(point)
+	return allowed_zone().grow(-radius).has_point(point)
+
+func schedule_changed(sleep_time: bool) -> void:
+	release_target()
+	chat_partner_id = -1
+	route_index = 0
+	inspection_route.clear()
+	if sleep_time:
+		returning_from_inspection = false
+		for actor in game.actors:
+			# Inspect from beside the bed rather than stepping onto a sleeping body.
+			inspection_route.append(actor.home+Vector2(65,0))
+	else:
+		returning_from_inspection = not world.guard_zone.grow(-17).has_point(position)
+
+func patrol_route() -> Array[Vector2]:
+	if returning_from_inspection:
+		return [world.guard_start]
+	return inspection_route if game.schedule != null and game.schedule.is_sleep_time() and not inspection_route.is_empty() else world.patrol
 
 func curfew_alert() -> bool:
 	return game.schedule != null and game.schedule.is_curfew()
@@ -68,7 +99,7 @@ func release_target() -> void:
 	stalled_time = 0
 
 func investigate(point: Vector2) -> bool:
-	if game.phase != "playing" or state == "chasing" or not world.guard_zone.grow(-17).has_point(point):
+	if game.phase != "playing" or state == "chasing" or not search_zone().grow(-17).has_point(point):
 		return false
 	var goal := point
 	if not world.can_place_circle(goal,17,self,true):
@@ -91,7 +122,7 @@ func investigate(point: Vector2) -> bool:
 	return true
 
 func sees(point: Vector2) -> bool:
-	if not world.guard_zone.has_point(point):
+	if not search_zone().has_point(point):
 		return false
 	var offset := point - position
 	if offset.length() > view_radius():
@@ -104,12 +135,17 @@ func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing":
 		return
-	if state == "chasing" and (target_id < 0 or not world.guard_zone.has_point(game.actors[target_id].position)):
+	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),position)
+	if returning_from_inspection and world.guard_zone.grow(-17).has_point(position):
+		returning_from_inspection = false
+		path.clear()
+		route_index = 0
+	if state == "chasing" and (target_id < 0 or not search_zone().has_point(game.actors[target_id].position)):
 		release_target()
 	var nearest_id: int = -1
 	var nearest_distance: float = INF
 	for actor in game.actors:
-		if actor.escaped or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id:
+		if actor.escaped or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id or (game.schedule != null and game.schedule.is_sleeping(actor.actor_id)):
 			continue
 		var distance: float = position.distance_to(actor.position)
 		if distance < nearest_distance and sees(actor.position):
@@ -137,10 +173,12 @@ func tick(delta: float) -> void:
 		state = "patrol"
 	elif state == "searching" and (game.elapsed >= investigate_until or position.distance_to(last_seen) < 10):
 		release_target()
-	var goal: Vector2 = last_seen if state in ["chasing","searching"] else world.patrol[route_index]
+	var route := patrol_route()
+	route_index %= route.size()
+	var goal: Vector2 = last_seen if state in ["chasing","searching"] else route[route_index]
 	if state == "patrol" and position.distance_to(goal) < 12:
-		route_index = (route_index+1) % world.patrol.size()
-		goal = world.patrol[route_index]
+		route_index = (route_index+1) % route.size()
+		goal = route[route_index]
 	path_timer -= delta
 	var invalid: bool = not path.is_empty() and path_revision != world.obstacle_revision and not world.motion_clear(position,path[0])
 	if path.is_empty() or invalid or path_state != state or path_goal.distance_to(goal) > 10 or (stalled_time >= 0.35 and path_timer <= 0):
@@ -162,7 +200,7 @@ func tick(delta: float) -> void:
 	if state == "patrol" and stalled_time > 0.8:
 		# A moved box or parked unit can make a patrol point unreachable.
 		# Resume toward the next point using the same collision rules.
-		route_index = (route_index+1) % world.patrol.size()
+		route_index = (route_index+1) % route.size()
 		skipped_waypoints += 1
 		path.clear()
 		stalled_time = 0
@@ -173,7 +211,7 @@ func _capture_if_touching() -> void:
 	if state != "chasing" or target_id < 0:
 		return
 	var target = game.actors[target_id]
-	if target.escaped or not world.guard_zone.has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
+	if target.escaped or (game.schedule != null and game.schedule.is_sleeping(target_id)) or not search_zone().has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
 		return
 	game.capture_actor(target_id)
 	state = "patrol"
@@ -214,7 +252,7 @@ func view_polygon() -> PackedVector2Array:
 	for angle in angles:
 		var direction := Vector2.from_angle(angle)
 		var distance := view_radius()
-		var zone: Rect2 = world.guard_zone
+		var zone: Rect2 = search_zone()
 		if absf(direction.x) > 0.00001:
 			distance = minf(distance,((zone.end.x if direction.x > 0 else zone.position.x)-position.x)/direction.x)
 		if absf(direction.y) > 0.00001:

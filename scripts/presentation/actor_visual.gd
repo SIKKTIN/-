@@ -111,7 +111,7 @@ func paint_information(canvas: CanvasItem) -> void:
 	canvas.draw_line(actor.facing*31,actor.facing*25-actor.facing.orthogonal()*4,direction_color,2,true)
 	if is_guard:
 		if separate_information:
-			var label := "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "调查" if actor.state == "searching" else "宵禁警戒" if actor.curfew_alert() else "巡逻"
+			var label := "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "调查" if actor.state == "searching" else "查寝" if game.schedule and game.schedule.is_sleep_time() else "宵禁警戒" if actor.curfew_alert() else "巡逻"
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"
@@ -119,6 +119,8 @@ func paint_information(canvas: CanvasItem) -> void:
 	if not is_guard:
 		canvas.draw_circle(Vector2(0,12),9,Color("f2ebdd"))
 		canvas.draw_string(font,Vector2(-4,17),str(actor.actor_id+1),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
+		if game.schedule and game.schedule.is_sleeping(actor.actor_id):
+			canvas.draw_string(font,Vector2(14,top),"Zz",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("d8e8dc"))
 		if actor.action_state != "idle":
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
 			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else actor.skill_id)

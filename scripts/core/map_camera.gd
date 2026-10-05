@@ -1,6 +1,6 @@
 extends Camera2D
 
-const VIEW := Rect2(74,114,922,560)
+const VIEW := Rect2(0,0,1200,720) # Legacy test default; runtime uses view_rect().
 const SCROLL_SPEED := 520.0
 const DRAG_THRESHOLD := 12.0
 const FOLLOW_SPEED := 10.0
@@ -33,8 +33,8 @@ func reset() -> void:
 	if game.mini_map:
 		game.mini_map.pointer_id = -2
 	scroll_direction = Vector2.ZERO
-	enabled_for_room = game.world.bounds.size.x > VIEW.size.x + 1 or game.world.bounds.size.y > VIEW.size.y + 1
-	position = Vector2.ZERO
+	enabled_for_room = game.world.bounds.size.x > view_rect().size.x + 1 or game.world.bounds.size.y > view_rect().size.y + 1
+	position = game.world.bounds.get_center()-view_rect().get_center()
 	if enabled_for_room:
 		locate_selected()
 	else:
@@ -44,8 +44,9 @@ func pan_by(delta: Vector2) -> void:
 	if not enabled_for_room:
 		return
 	var map: Rect2 = game.world.bounds
-	var low := map.position - VIEW.position
-	var high := map.end - VIEW.end
+	var limits := camera_limits()
+	var low: Vector2 = limits[0]
+	var high: Vector2 = limits[1]
 	position = (position + delta).clamp(low, high.max(low))
 	force_update_scroll()
 	game.queue_redraw()
@@ -61,7 +62,7 @@ func locate_selected() -> void:
 	_target_sample_valid = false
 	if not enabled_for_room:
 		return
-	position = game.actors[game.selected_actor_id].position - VIEW.get_center()
+	position = game.actors[game.selected_actor_id].position - view_rect().get_center()
 	pan_by(Vector2.ZERO)
 
 func interaction_blocked() -> bool:
@@ -71,8 +72,23 @@ func center_on(world_point: Vector2) -> void:
 	following = false
 	_target_sample_valid = false
 	if enabled_for_room:
-		position = world_point - VIEW.get_center()
+		position = world_point - view_rect().get_center()
 		pan_by(Vector2.ZERO)
+
+func view_rect() -> Rect2:
+	return Rect2(Vector2.ZERO,get_viewport_rect().size)
+
+func world_view_rect() -> Rect2:
+	return Rect2(position,view_rect().size)
+
+func camera_limits() -> Array:
+	var low: Vector2 = game.world.bounds.position
+	var high: Vector2 = game.world.bounds.end-view_rect().size
+	for axis in range(2):
+		if high[axis] < low[axis]:
+			low[axis] = game.world.bounds.get_center()[axis]-view_rect().size[axis]/2
+			high[axis] = low[axis]
+	return [low,high]
 
 func over_ui(point: Vector2) -> bool:
 	for control in game.get_node("HUD").get_children():
@@ -81,7 +97,7 @@ func over_ui(point: Vector2) -> bool:
 	return false
 
 func begin_pointer(id: int, point: Vector2) -> bool:
-	if pointer_id != -2 or not VIEW.has_point(point) or over_ui(point):
+	if pointer_id != -2 or not view_rect().has_point(point) or over_ui(point):
 		return false
 	pointer_id = id
 	pointer_start = point
@@ -101,7 +117,7 @@ func move_pointer(point: Vector2) -> void:
 func end_pointer(point: Vector2, cancelled: bool = false) -> void:
 	if not cancelled and not pointer_dragged and point.distance_to(pointer_start) >= DRAG_THRESHOLD:
 		move_pointer(point)
-	if not cancelled and not pointer_dragged and VIEW.has_point(point) and not over_ui(point):
+	if not cancelled and not pointer_dragged and view_rect().has_point(point) and not over_ui(point):
 		# Keep the intended tap on the world seen at press time. Following can
 		# continue while a finger is held, without shifting its command target.
 		var world_point: Vector2 = _pointer_world_transform*point
@@ -135,9 +151,10 @@ func tick(delta: float) -> void:
 	if scroll_direction != Vector2.ZERO:
 		manual_pan_by(scroll_direction * SCROLL_SPEED * delta)
 	elif following and not game.actors[game.selected_actor_id].escaped:
-		var target: Vector2 = game.actors[game.selected_actor_id].position-VIEW.get_center()
-		var low: Vector2 = game.world.bounds.position-VIEW.position
-		var high: Vector2 = (game.world.bounds.end-VIEW.end).max(low)
+		var target: Vector2 = game.actors[game.selected_actor_id].position-view_rect().get_center()
+		var limits := camera_limits()
+		var low: Vector2 = limits[0]
+		var high: Vector2 = limits[1]
 		target = target.clamp(low,high)
 		var decay := exp(-FOLLOW_SPEED*delta)
 		var next: Vector2
@@ -178,12 +195,12 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device == -1:
-		if VIEW.has_point(event.position) and not over_ui(event.position):
+		if view_rect().has_point(event.position) and not over_ui(event.position):
 			get_viewport().set_input_as_handled()
 		return
 	if event is InputEventMouseButton:
 		var pan_button: bool = event.button_index == MOUSE_BUTTON_MIDDLE or (event.button_index == MOUSE_BUTTON_LEFT and Input.is_key_pressed(KEY_SPACE))
-		if event.pressed and pan_button and VIEW.has_point(event.position) and not over_ui(event.position):
+		if event.pressed and pan_button and view_rect().has_point(event.position) and not over_ui(event.position):
 			panning = true
 			get_viewport().set_input_as_handled()
 		elif not event.pressed and panning and event.button_index in [MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_LEFT]:
@@ -209,4 +226,4 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func snapshot() -> Dictionary:
-	return {"offset": [position.x,position.y],"enabled":enabled_for_room,"following":following,"panning":panning,"viewport":[74,114,922,560],"edge_scroll":false,"pointer_active":pointer_id != -2,"drag_threshold":DRAG_THRESHOLD,"scroll_speed":SCROLL_SPEED}
+	return {"offset": [position.x,position.y],"enabled":enabled_for_room,"following":following,"panning":panning,"viewport":[0,0,view_rect().size.x,view_rect().size.y],"edge_scroll":false,"pointer_active":pointer_id != -2,"drag_threshold":DRAG_THRESHOLD,"scroll_speed":SCROLL_SPEED}

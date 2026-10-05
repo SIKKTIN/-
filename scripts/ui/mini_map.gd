@@ -33,11 +33,14 @@ func configure(owner_game) -> void:
 	stop_button.pressed.connect(game.stop_selected)
 	add_child(stop_button)
 
+func map_area() -> Rect2:
+	return Rect2(10,10,size.x-20,size.y-70) if game.fullscreen_ui else MAP
+
 func map_rect() -> Rect2:
 	var bounds: Rect2 = game.world.bounds
-	var scale_factor: float = minf(MAP.size.x/bounds.size.x,MAP.size.y/bounds.size.y)
+	var scale_factor: float = minf(map_area().size.x/bounds.size.x,map_area().size.y/bounds.size.y)
 	var fitted: Vector2 = bounds.size*scale_factor
-	return Rect2(MAP.get_center()-fitted/2,fitted)
+	return Rect2(map_area().get_center()-fitted/2,fitted)
 
 func to_map(point: Vector2) -> Vector2:
 	var rect := map_rect()
@@ -50,14 +53,14 @@ func to_world(point: Vector2) -> Vector2:
 	return game.world.bounds.position+uv*game.world.bounds.size
 
 func frame_rect() -> Rect2:
-	var view: Rect2 = Rect2(game.map_camera.position+game.map_camera.VIEW.position,game.map_camera.VIEW.size).intersection(game.world.bounds)
+	var view: Rect2 = game.map_camera.world_view_rect().intersection(game.world.bounds)
 	return Rect2(to_map(view.position),to_map(view.end)-to_map(view.position))
 
 func blocked() -> bool:
 	return game == null or game.map_camera.interaction_blocked() or not get_window().has_focus()
 
 func _process(_delta: float) -> void:
-	visible = game != null and not game.world_input_blocked()
+	visible = game != null and not game.world_input_blocked() and (game.fullscreen_ui == null or not game.fullscreen_ui.minimap_collapsed)
 	if blocked():
 		pointer_id = -2
 	queue_redraw()
@@ -100,8 +103,9 @@ func _draw() -> void:
 	if not game:
 		return
 	draw_style_box(game.presentation.mute_button.theme.get_stylebox("normal","Button"),Rect2(Vector2.ZERO,size))
-	draw_string(game.presentation.font,Vector2(10,22),"小地图 · 点击 / 拖动",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
-	draw_rect(MAP,Color("465557"))
+	if not game.fullscreen_ui:
+		draw_string(game.presentation.font,Vector2(10,22),"小地图 · 点击 / 拖动",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
+	draw_rect(map_area(),Color("465557"))
 	var rect := map_rect()
 	draw_rect(rect,Color("91a190"))
 	draw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color("adab89"))

@@ -6,6 +6,10 @@ var room_id: String = "r01"
 var bounds := Rect2(74,114,922,560)
 var walls: Array[Rect2] = []
 var fixtures: Array = []
+var dorm_doors: Array = []
+var inspection_grid := AStarGrid2D.new()
+var inspection_solids: Array[Rect2] = []
+var planning_guard_doors := false
 var fixtures_revision: int = 0
 var door := Rect2(486,335,22,120)
 var crate := Rect2(467,572,94,92)
@@ -40,6 +44,9 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 		var fixture: Dictionary = entry.duplicate(true)
 		fixture.rect = _rect(entry.rect)
 		fixtures.append(fixture)
+	dorm_doors.clear()
+	for entry in config.get("dorm_doors",[]):
+		dorm_doors.append({"actor_id":int(entry.actor_id),"rect":_rect(entry.rect),"closed":false})
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
 	walls.clear()
 	for value in config.get("walls", []):
@@ -65,10 +72,28 @@ func reset_world() -> void:
 	lock_progress = 0.0
 	crate = original_crate
 	push_distance = 0.0
+	for gate in dorm_doors:
+		gate.closed = false
 	_changed(true)
+
+func update_dorm_doors(locked: bool, guard_point: Vector2) -> void:
+	var changed := false
+	for gate in dorm_doors:
+		# The guard uses a key and opens the gate before crossing its collider.
+		var closed: bool = locked and gate.rect.get_center().distance_to(guard_point) > 85
+		if bool(gate.closed) != closed:
+			gate.closed = closed
+			changed = true
+	if changed:
+		_changed(true)
 
 func solid_rects(include_crate: bool = true) -> Array[Rect2]:
 	_refresh_box_cache()
+	if planning_guard_doors:
+		var result: Array[Rect2] = inspection_solids.duplicate()
+		if include_crate:
+			result.append(crate)
+		return result
 	return cached_solids if include_crate else static_solids
 
 func sight_rects() -> Array[Rect2]:
@@ -198,7 +223,7 @@ func _rebuild_navigation() -> void:
 	var area := bounds.merge(exit_area)
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
 	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
-	for navigation in [grid,guard_grid]:
+	for navigation in [grid,guard_grid,inspection_grid]:
 		navigation.region = Rect2i(low,high-low)
 		navigation.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
 		navigation.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
@@ -208,6 +233,7 @@ func _rebuild_navigation() -> void:
 		for x in range(grid.region.position.x,grid.region.end.x):
 			var point := Vector2(x + 0.5,y + 0.5) * GRID_SIZE
 			var blocked := not inside_room(point)
+			inspection_grid.set_point_solid(Vector2i(x,y),blocked)
 			grid.set_point_solid(Vector2i(x,y),blocked)
 			guard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))
 	for rect in static_solids:
@@ -220,6 +246,8 @@ func _rebuild_navigation() -> void:
 				if _circle_hits_rect(grid.get_point_position(cell),RADIUS,rect):
 					grid.set_point_solid(cell,true)
 					guard_grid.set_point_solid(cell,true)
+					if inspection_solids.has(rect):
+						inspection_grid.set_point_solid(cell,true)
 	navigation_builds += 1
 	static_nav_dirty = false
 	nav_dirty = false
@@ -282,13 +310,19 @@ func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool 
 	return best
 
 func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> PackedVector2Array:
+	planning_guard_doors = ignore_actor != null and ignore_actor.has_method("inspection_allowed") and ignore_actor.inspection_allowed()
+	var result := _find_path(from,to,ignore_actor,avoid_actors,ignore_crate)
+	planning_guard_doors = false
+	return result
+
+func _find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> PackedVector2Array:
 	if not can_place_circle(to,RADIUS,ignore_actor,avoid_actors,not ignore_crate):
 		return PackedVector2Array()
 	if motion_clear(from,to,ignore_actor,avoid_actors,ignore_crate):
 		return PackedVector2Array([to])
 	if static_nav_dirty:
 		_rebuild_navigation()
-	var navigation: AStarGrid2D = guard_grid if ignore_actor != null and ignore_actor.has_method("movement_allowed") else grid
+	var navigation: AStarGrid2D = inspection_grid if planning_guard_doors else guard_grid if ignore_actor != null and ignore_actor.has_method("movement_allowed") else grid
 	# Overlay just the small footprints of moving bodies and the box. The
 	# cached grids contain static walls/furniture (and the guard's boundary).
 	var changed: Array[Vector2i] = []
@@ -351,6 +385,10 @@ func _changed(static_changed: bool = false) -> void:
 			static_solids.append(fixture.rect)
 		if fixture.get("blocks_sight",false):
 			cached_sight.append(fixture.rect)
+	inspection_solids = static_solids.duplicate()
+	for gate in dorm_doors:
+		if gate.closed:
+			static_solids.append(gate.rect)
 	cached_solids = static_solids.duplicate()
 	cached_solids.append(crate)
 	cached_sight.append(crate)
@@ -412,4 +450,4 @@ func _draw_wall(rect: Rect2, fill: Color) -> void:
 	draw_line(rect.position+Vector2(1,3),rect.position+Vector2(rect.size.x-1,3),fill.lightened(0.25),3)
 
 func snapshot() -> Dictionary:
-	return {"room_id":room_id,"door_open":door_open,"lock_progress":lock_progress,"crate":[crate.position.x,crate.position.y,crate.size.x,crate.size.y],"push_distance":push_distance,"obstacle_revision":obstacle_revision}
+	return {"dorm_doors":dorm_doors.map(func(g): return {"actor_id":g.actor_id,"closed":g.closed}),"room_id":room_id,"door_open":door_open,"lock_progress":lock_progress,"crate":[crate.position.x,crate.position.y,crate.size.x,crate.size.y],"push_distance":push_distance,"obstacle_revision":obstacle_revision}

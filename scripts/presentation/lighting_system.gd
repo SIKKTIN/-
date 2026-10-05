@@ -1,7 +1,5 @@
 extends Node2D
 
-const PaperBackdrop = preload("res://scripts/presentation/paper_backdrop.gd")
-
 var game
 var settings: Dictionary
 var period: String = "day"
@@ -26,9 +24,6 @@ func configure(owner_game, theme: Theme) -> void:
 	var unshaded := CanvasItemMaterial.new()
 	unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 	material = unshaded
-	var paper := PaperBackdrop.new()
-	paper.name = "PaperBackdrop"
-	game.get_node("HUD").add_child(paper)
 	ambient = CanvasModulate.new()
 	ambient.name = "RoomAmbient"
 	add_child(ambient)
@@ -99,6 +94,11 @@ func _beam_texture(half_angle: float = PI/3) -> ImageTexture:
 func _tick_guard_light() -> void:
 	if not guard_light:
 		return
+	# Boundary occluders track the midnight inspection permission.
+	if not guard_boundaries.is_empty():
+		var zone: Rect2 = game.guard.search_zone()
+		if guard_boundaries[0].occluder.polygon[0] != zone.position:
+			_sync_guard_boundaries()
 	guard_light.position = game.guard.position
 	var desired: Texture2D = curfew_beam_texture if game.guard.curfew_alert() else beam_texture
 	if guard_light.texture != desired:
@@ -107,13 +107,13 @@ func _tick_guard_light() -> void:
 	guard_light.texture_scale = game.guard.view_radius()/128.0
 	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("ffe5b2")
 	guard_light.energy = 0.65 if period == "night" else 0.26
-	guard_light.enabled = game.phase == "playing"
+	guard_light.enabled = game.phase == "playing" and game.guard.search_zone().has_point(game.guard.position)
 
 func _sync_guard_boundaries() -> void:
 	for node in guard_boundaries:
 		node.free()
 	guard_boundaries.clear()
-	var zone: Rect2 = game.world.guard_zone
+	var zone: Rect2 = game.guard.search_zone()
 	var edges := [
 		PackedVector2Array([zone.position,Vector2(zone.end.x,zone.position.y)]),
 		PackedVector2Array([Vector2(zone.end.x,zone.position.y),zone.end]),

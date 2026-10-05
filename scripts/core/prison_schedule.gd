@@ -2,7 +2,12 @@ extends Node
 
 var game
 var config: Dictionary
-var limit_seconds: float = 300
+var limit_seconds: float = 900
+var day_seconds: float = 300
+var escape_days: int = 3
+var stage_day: int = -1
+var skip_button: Button
+var schedule_note: Label
 var clock_elapsed: float = 0
 var time_speed: float = 1
 var curfew_returns: Dictionary = {}
@@ -76,15 +81,11 @@ func _make_ui() -> void:
 	blocker = _blocker("ScheduleMapBlocker",Rect2(74,114,922,560),110)
 	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,364),111)
 	_label(panel,Vector2(20,16),"今日监区日程",22)
-	var lines := ""
-	for index in range(config.stages.size()):
-		var stage: Dictionary = config.stages[index]
-		var end_minute: int = int(config.stages[index+1].minute) if index+1 < config.stages.size() else int(config.end_minutes)
-		lines += "%02d:%02d–%02d:%02d  %s\n" % [int(stage.minute)/60,int(stage.minute)%60,end_minute/60,end_minute%60,stage.name]
-	lines += "22:00  封监 · 未全部逃出则本局失败"
+	var lines := "08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–08:00  锁寝睡觉 · 警卫进房查寝"
 	_label(panel,Vector2(20,60),lines,17)
-	_label(panel,Vector2(20,245),"20:00各自归寝；外出违规，警卫加强戒备。\n查看日程、交易时，时间仍然流逝。",15)
-	_button(panel,Vector2(195,304),"继续行动",close)
+	schedule_note = _label(panel,Vector2(20,235),"",15)
+	skip_button = _button(panel,Vector2(20,304),"跳过夜晚",skip_night)
+	_button(panel,Vector2(358,304),"继续行动",close)
 	result_blocker = _blocker("RoundResultBlocker",Rect2(0,0,1200,720),200)
 	result_panel = _paper_panel("RoundResult",Vector2(340,234),Vector2(500,255),201)
 	result_label = _label(result_panel,Vector2(24,24),"",20)
@@ -94,10 +95,13 @@ func _make_ui() -> void:
 	result_blocker.hide()
 
 func reset() -> void:
-	limit_seconds = float(config.room_seconds.get(game.room_id,300))
+	day_seconds = float(config.room_seconds.get(game.room_id,300))
+	escape_days = int(config.get("escape_days",3)) if escape_days < 1 else escape_days
+	limit_seconds = day_seconds*escape_days
 	clock_elapsed = 0
 	curfew_returns.clear()
 	stage_index = -1
+	stage_day = -1
 	close()
 	result_panel.hide()
 	result_blocker.hide()
@@ -120,8 +124,59 @@ func set_time_speed(value: float) -> bool:
 	tick(false)
 	return true
 
+func absolute_minutes() -> float:
+	return float(config.start_minutes)+clock_elapsed/day_seconds*1440.0
+
 func clock_minutes() -> float:
-	return lerpf(float(config.start_minutes),float(config.end_minutes),clampf(clock_elapsed/limit_seconds,0,1))
+	return fposmod(absolute_minutes(),1440.0)
+
+func day_number() -> int:
+	return 1+floori(absolute_minutes()/1440.0)
+
+func time_left_text() -> String:
+	var minutes := ceili(remaining()/day_seconds*1440)
+	return "余 %d天 %02d:%02d" % [minutes/1440,(minutes%1440)/60,minutes%60]
+
+func set_escape_days(value: int) -> bool:
+	if value < 1 or value > 10:
+		return false
+	escape_days = value
+	limit_seconds = day_seconds*escape_days
+	tick(false)
+	return true
+
+func is_sleep_time() -> bool:
+	return stage_index >= 0 and str(config.stages[stage_index].id) == "sleep"
+
+func in_dorm_zone(actor_id: int) -> bool:
+	return game.world.bounds.has_point(game.actors[actor_id].position) and not game.world.guard_zone.has_point(game.actors[actor_id].position)
+
+func is_sleeping(actor_id: int) -> bool:
+	var actor = game.actors[actor_id]
+	return is_sleep_time() and not actor.escaped and in_dormitory(actor_id) and actor.position.distance_to(actor.home) <= 28 and not game.orders.active.has(actor_id) and actor.action_state == "idle"
+
+func can_skip_night() -> bool:
+	return game.phase == "playing" and is_sleep_time() and game.actors.all(func(a): return a.escaped or is_sleeping(a.actor_id))
+
+func skip_night() -> void:
+	if not can_skip_night():
+		game.show_status("所有未逃出的伙伴需回到各自床位，停止行动后才能跳过夜晚。")
+		return
+	var target := absolute_minutes()-clock_minutes()+480.0
+	clock_elapsed = minf(limit_seconds,(target-float(config.start_minutes))/1440.0*day_seconds)
+	tick(false)
+	close()
+	if remaining() <= 0:
+		game.finish_timeout()
+	else:
+		game.show_status("第%d天 08:00，寝室门已打开，继续逃脱。" % day_number(),5)
+
+func actor_status(actor_id: int) -> String:
+	if is_sleeping(actor_id):
+		return "睡觉中"
+	if is_sleep_time():
+		return "醒着 · 查寝中"
+	return "寝区自由" if in_dorm_zone(actor_id) else "室外警戒"
 
 func is_curfew() -> bool:
 	return stage_index >= 0 and bool(config.stages[stage_index].get("curfew",false))
@@ -144,7 +199,8 @@ func enter_curfew() -> void:
 	for actor in game.actors:
 		if actor.escaped:
 			continue
-		if in_dormitory(actor.actor_id):
+		var at_home: bool = in_dormitory(actor.actor_id) and actor.position.distance_to(actor.home) <= 28 if is_sleep_time() else in_dorm_zone(actor.actor_id)
+		if at_home:
 			curfew_returns[actor.actor_id] = "home"
 			continue
 		var accepted := false
@@ -154,7 +210,7 @@ func enter_curfew() -> void:
 				accepted = true
 				break
 		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"
-	game.show_status("20:00归寝：路线受阻的伙伴需手动开路；寝室外已进入宵禁警戒。" if curfew_returns.values().has("blocked") else "20:00归寝：伙伴返回各自寝室；寝室外已进入宵禁警戒。",6)
+	game.show_status("午夜锁寝：回床睡觉可跳过；继续行动要避开进房查寝的警卫。" if is_sleep_time() else "20:00：寝室区自由活动，室外进入警戒；午夜锁寝查房。",6)
 
 func dog_active() -> bool:
 	return stage_index >= 0 and bool(config.stages[stage_index].dog_active)
@@ -165,24 +221,33 @@ func tick(announce: bool = true) -> void:
 	for index in range(config.stages.size()):
 		if minute >= float(config.stages[index].minute):
 			next_index = index
-	if stage_index != next_index:
+	if stage_index != next_index or stage_day != day_number():
+		var was_sleep: bool = is_sleep_time()
+		stage_day = day_number()
 		stage_index = next_index
 		var stage: Dictionary = config.stages[stage_index]
 		game.presentation.lighting.set_period(str(stage.period))
 		if bool(stage.get("curfew",false)) and game.phase == "playing":
 			enter_curfew()
+		game.world.update_dorm_doors(is_sleep_time(),game.guard.position)
+		if is_sleep_time() != was_sleep:
+			game.guard.schedule_changed(is_sleep_time())
 		if announce:
 			if not is_curfew():
 				game.show_status("%s开始：%s" % [stage.name,stage.detail],4)
+	game.world.update_dorm_doors(is_sleep_time(),game.guard.position)
+	skip_button.visible = is_sleep_time()
+	skip_button.disabled = not can_skip_night()
+	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "日程每日循环；查看日程和交易时，时间仍流逝。")
 	var stage: Dictionary = config.stages[stage_index]
 	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
 	clock_label.text = "%02d:%02d · %s · %s" % [floori(minute/60),floori(minute)%60,stage.name,left]
 	clock_label.add_theme_color_override("font_color",Color("bc5348") if is_curfew() or real_remaining() <= 30 else Color("303b46"))
 	stage_button.text = "日程 · %s" % stage.name
-	stage_button.tooltip_text = "查看日程；22:00封监。时间不会因交易或查看日程暂停。"
+	stage_button.tooltip_text = "%d天内逃脱；日程和交易不会暂停时钟。" % escape_days
 	if remaining() <= 0:
-		clock_label.text = "22:00 · 封监 · 剩余 00:00"
+		clock_label.text = "逃脱期限已到"
 		stage_button.text = "日程 · 已封监"
 
 func toggle() -> void:
@@ -213,14 +278,16 @@ func show_result(success: bool) -> void:
 		game.shop_panel.close()
 	var count: int = game.actors.filter(func(a): return a.escaped).size()
 	var carried: int = game.inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-	result_label.text = "%s\n逃出 %d / 3 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "22:00 封监 · 时间耗尽",count,carried,game.elapsed,game.captures,"三位伙伴都已逃出。" if success else "未逃出的伙伴被留在监区。"]
+	result_label.text = "%s\n逃出 %d / 3 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"三位伙伴都已逃出。" if success else "未逃出的伙伴被留在监区。"]
 	result_panel.show()
 	result_blocker.show()
 	# Draw depth does not determine GUI hit order. Bring the allowed control
 	# after the blocker in the HUD tree as well, so a phone can switch rooms.
 	var hud: Node = game.get_node("HUD")
-	hud.move_child(game.room_selector,hud.get_child_count()-1)
+	if game.fullscreen_ui:
+		game.fullscreen_ui.close_menu()
+		hud.move_child(game.fullscreen_ui.menu_button,hud.get_child_count()-1)
 	game.presentation.interaction.refresh()
 
 func snapshot() -> Dictionary:
-	return {"limit_seconds":limit_seconds,"clock_elapsed":clock_elapsed,"time_speed":time_speed,"remaining":remaining(),"clock_minutes":clock_minutes(),"stage":config.stages[stage_index].id,"curfew":is_curfew(),"curfew_returns":curfew_returns.duplicate(),"dog_active":dog_active(),"panel_visible":panel.visible,"result_visible":result_panel.visible}
+	return {"day":day_number(),"escape_days":escape_days,"sleep_time":is_sleep_time(),"can_skip_night":can_skip_night(),"limit_seconds":limit_seconds,"clock_elapsed":clock_elapsed,"time_speed":time_speed,"remaining":remaining(),"clock_minutes":clock_minutes(),"stage":config.stages[stage_index].id,"curfew":is_curfew(),"curfew_returns":curfew_returns.duplicate(),"dog_active":dog_active(),"panel_visible":panel.visible,"result_visible":result_panel.visible}

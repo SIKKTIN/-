@@ -4,6 +4,7 @@ var game
 var button: Button
 var panel: Panel
 var blocker: ColorRect
+var days_input: SpinBox
 var speed_input: SpinBox
 var summary: Label
 var preference_path := "user://developer-settings.cfg"
@@ -18,6 +19,7 @@ func configure(owner_game) -> void:
 		var value = saved.get_value("clock","speed",1.0)
 		if typeof(value) in [TYPE_INT,TYPE_FLOAT]:
 			game.schedule.set_time_speed(float(value))
+		game.schedule.set_escape_days(int(saved.get_value("clock","days",3)))
 	button = Button.new()
 	button.name = "DeveloperSettingsButton"
 	button.text = "开发者设置"
@@ -30,10 +32,10 @@ func configure(owner_game) -> void:
 	game.presentation.mute_button.position.y = 16
 	game.presentation.mute_button.size.y = 38
 	blocker = game.schedule._blocker("DeveloperMapBlocker",Rect2(74,114,922,560),120)
-	panel = game.schedule._paper_panel("DeveloperSettings",Vector2(310,202),Vector2(510,336),121)
+	panel = game.schedule._paper_panel("DeveloperSettings",Vector2(310,202),Vector2(510,406),121)
 	game.schedule._label(panel,Vector2(22,18),"开发者设置",23)
 	game.schedule._label(panel,Vector2(22,61),"时间流速",18)
-	summary = game.schedule._label(panel,Vector2(22,230),"",15)
+	summary = game.schedule._label(panel,Vector2(22,308),"",15)
 	game.schedule._label(panel,Vector2(22,87),"只调整日程时钟；人物、技能、巡逻保持原速。",15)
 	speed_input = SpinBox.new()
 	speed_input.name = "ClockSpeed"
@@ -54,7 +56,20 @@ func configure(owner_game) -> void:
 		var preset: Button = game.schedule._button(panel,Vector2(22+index*118,181),"暂停时钟" if index == 0 else "%s×" % str(values[index]),change_speed.bind(values[index]))
 		preset.name = "SpeedPreset%d" % index
 		preset.size = Vector2(110,42)
-	game.schedule._button(panel,Vector2(185,276),"继续行动",close)
+	game.schedule._button(panel,Vector2(185,350),"继续行动",close)
+	game.schedule._label(panel,Vector2(22,251),"逃脱期限（天）",18)
+	days_input = SpinBox.new()
+	days_input.name = "EscapeDays"
+	days_input.position = Vector2(250,242)
+	days_input.size = Vector2(238,48)
+	days_input.min_value = 1
+	days_input.max_value = 10
+	days_input.step = 1
+	days_input.value_changed.connect(func(value):
+		game.schedule.set_escape_days(int(value))
+		_save_preferences()
+		_refresh())
+	panel.add_child(days_input)
 	_refresh()
 	close()
 
@@ -62,7 +77,11 @@ func change_speed(value: float) -> void:
 	if not game.schedule.set_time_speed(value):
 		return
 	_refresh()
+	_save_preferences()
+
+func _save_preferences() -> void:
 	var saved := ConfigFile.new()
+	saved.set_value("clock","days",game.schedule.escape_days)
 	saved.set_value("clock","speed",game.schedule.time_speed)
 	var error := saved.save(preference_path)
 	if error != OK:
@@ -70,7 +89,8 @@ func change_speed(value: float) -> void:
 
 func _refresh() -> void:
 	speed_input.set_value_no_signal(game.schedule.time_speed)
-	summary.text = "0×只暂停时钟。偏好会保留到重开、换图和下次启动。"
+	days_input.set_value_no_signal(game.schedule.escape_days)
+	summary.text = "0×暂停时钟；期限按24小时/天计算，偏好会保存。"
 	button.tooltip_text = "当前日程流速 %s×；不会改变移动或技能速度。" % str(game.schedule.time_speed)
 
 func toggle() -> void:

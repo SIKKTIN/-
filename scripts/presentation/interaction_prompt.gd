@@ -13,7 +13,7 @@ func configure(owner_game, owner_presentation) -> void:
 	presentation = owner_presentation
 	button = Button.new()
 	button.name = "WorldInteraction"
-	button.size = Vector2(52,46)
+	button.size = Vector2(64,48)
 	button.theme = presentation.mute_button.theme
 	button.text = "E"
 	button.add_theme_font_size_override("font_size",13)
@@ -72,7 +72,7 @@ func _extra(key: String, text: String, anchor: Vector2, tooltip: String) -> Butt
 	if not extras.has(key):
 		var b := Button.new()
 		b.name = "Interact_"+key
-		b.size = Vector2(70, 38)
+		b.size = Vector2(84, 48)
 		b.theme = button.theme
 		b.add_theme_font_size_override("font_size", 13)
 		b.focus_mode = Control.FOCUS_NONE
@@ -93,7 +93,7 @@ func _extra(key: String, text: String, anchor: Vector2, tooltip: String) -> Butt
 	return b
 
 func _place(b: Button, screen: Vector2) -> void:
-	var view := Rect2(74,114,922,560)
+	var view: Rect2 = game.map_camera.view_rect() if game.map_camera else Rect2(Vector2.ZERO,game.get_viewport_rect().size)
 	b.visible = view.has_point(screen)
 	b.position = (screen-b.size/2).clamp(view.position+Vector2(3,3),view.end-b.size-Vector2(3,3))
 
