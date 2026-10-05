@@ -149,7 +149,7 @@ func is_sleep_time() -> bool:
 	return stage_index >= 0 and str(config.stages[stage_index].id) == "sleep"
 
 func in_dorm_zone(actor_id: int) -> bool:
-	return game.world.bounds.has_point(game.actors[actor_id].position) and not game.world.guard_zone.has_point(game.actors[actor_id].position)
+	return game.world.bounds.has_point(game.actors[actor_id].position) and game.actors[actor_id].position.x < game.world.guard_zone.position.x
 
 func is_sleeping(actor_id: int) -> bool:
 	var actor = game.actors[actor_id]
