@@ -111,7 +111,7 @@ func paint_information(canvas: CanvasItem) -> void:
 	canvas.draw_line(actor.facing*31,actor.facing*25-actor.facing.orthogonal()*4,direction_color,2,true)
 	if is_guard:
 		if separate_information:
-			var label := "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "调查" if actor.state == "searching" else "巡逻"
+			var label := "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "调查" if actor.state == "searching" else "宵禁警戒" if actor.curfew_alert() else "巡逻"
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"

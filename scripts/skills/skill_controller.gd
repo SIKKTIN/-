@@ -19,6 +19,8 @@ func target_reason(actor) -> String:
 	if actor.skill_id == "strong":
 		return "右键箱子另一侧移动；接触后自动施力推箱。"
 	if actor.skill_id == "chat":
+		if game.schedule and game.schedule.is_curfew():
+			return "宵禁警戒中，狱警不接受交谈。"
 		if game.guard.state == "chasing":
 			return "狱警正在追击，不能交谈。"
 		if game.guard.chat_partner_id >= 0 and game.guard.chat_partner_id != actor.actor_id:

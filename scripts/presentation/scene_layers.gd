@@ -73,11 +73,19 @@ func _draw() -> void:
 		for y in range(int(zone.position.y+12),int(zone.end.y),24):
 			draw_line(Vector2(zone.position.x,y),Vector2(zone.position.x,y+10),boundary,1.5,true)
 		var label_color := Color("d8e8dc") if presentation.lighting.period == "night" else Color("536052")
-		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"安全房间",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
-		var edge_color := Color("eb977b") if game.guard.state == "chasing" else Color("e1c787")
+		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"寝室内安全 · 宵禁禁止外出" if game.schedule and game.schedule.is_curfew() else "安全房间",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+		if game.schedule and game.schedule.is_curfew():
+			for index in range(game.actors.size()):
+				var dorm: Rect2 = game.schedule.dormitory(index)
+				draw_rect(dorm,Color(0.3,0.7,0.6,0.1))
+				draw_rect(dorm,Color("328b82"),false,1.5,true)
+		var edge_color := Color("eb977b") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("e1c787")
 		edge_color.a = 0.48
 		draw_set_transform(game.guard.position)
-		draw_polyline(game.guard.view_polygon(),edge_color,1.2,true)
+		var outline: PackedVector2Array = game.guard.view_polygon()
+		if game.guard.curfew_alert() and not outline.is_empty():
+			outline.append(outline[0])
+		draw_polyline(outline,edge_color,1.2,true)
 		draw_set_transform(Vector2.ZERO)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
 		if world.lock_progress > 0 and not world.door_open:

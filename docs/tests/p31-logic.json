@@ -1,0 +1,142 @@
+{
+	"checks": {
+		"before_curfew_normal": true,
+		"blocked_return_not_teleported": true,
+		"change_room_keeps_speed": true,
+		"change_speed_does_not_jump": true,
+		"curfew_chat_forbidden": true,
+		"curfew_omnidirectional": true,
+		"curfew_preserves_escaped": true,
+		"curfew_return_once_allows_disobedience": true,
+		"curfew_returns_outside": true,
+		"curfew_sees_behind": true,
+		"fast_deadline_clamps_actual_step": true,
+		"final_effective_step_can_win": true,
+		"half_speed": true,
+		"invalid_speed_rejected": true,
+		"merchant_closes_at_20": true,
+		"new_launch_loads_speed": true,
+		"r01_afternoon_work": true,
+		"r01_curfew": true,
+		"r01_curfew_night": true,
+		"r01_free_time": true,
+		"r01_meal_rest": true,
+		"r01_morning_work": true,
+		"r01_own_home_safe": true,
+		"r01_starts_at_08": true,
+		"r02_afternoon_work": true,
+		"r02_curfew": true,
+		"r02_curfew_night": true,
+		"r02_free_time": true,
+		"r02_meal_rest": true,
+		"r02_morning_work": true,
+		"r02_own_home_safe": true,
+		"r02_starts_at_08": true,
+		"r03_afternoon_work": true,
+		"r03_curfew": true,
+		"r03_curfew_night": true,
+		"r03_free_time": true,
+		"r03_meal_rest": true,
+		"r03_morning_work": true,
+		"r03_own_home_safe": true,
+		"r03_starts_at_08": true,
+		"r04_afternoon_work": true,
+		"r04_curfew": true,
+		"r04_curfew_night": true,
+		"r04_free_time": true,
+		"r04_meal_rest": true,
+		"r04_morning_work": true,
+		"r04_own_home_safe": true,
+		"r04_starts_at_08": true,
+		"red_curfew_light": true,
+		"reset_keeps_speed_resets_clock": true,
+		"safe_room_not_seen": true,
+		"speed_four_clock_only": true,
+		"speed_preference_saved": true,
+		"zero_clock_skill_still_runs": true,
+		"zero_freezes_clock_not_movement": true
+	},
+	"observations": {
+		"config": {
+			"end_minutes": 1320.0,
+			"room_dormitories": {
+				"r04": [
+					[
+						116.0,
+						146.0,
+						368.0,
+						214.0
+					],
+					[
+						116.0,
+						436.0,
+						368.0,
+						214.0
+					],
+					[
+						116.0,
+						726.0,
+						368.0,
+						214.0
+					]
+				]
+			},
+			"room_seconds": {
+				"r01": 180.0,
+				"r02": 180.0,
+				"r03": 240.0,
+				"r04": 300.0
+			},
+			"stages": [
+				{
+					"curfew": false,
+					"detail": "08:00–12:00，上午劳动。",
+					"dog_active": false,
+					"id": "morning_work",
+					"minute": 480.0,
+					"name": "劳动",
+					"period": "day"
+				},
+				{
+					"curfew": false,
+					"detail": "12:00–14:00，吃饭与休息。",
+					"dog_active": false,
+					"id": "meal_rest",
+					"minute": 720.0,
+					"name": "吃饭休息",
+					"period": "day"
+				},
+				{
+					"curfew": false,
+					"detail": "14:00–18:00，下午劳动。",
+					"dog_active": false,
+					"id": "afternoon_work",
+					"minute": 840.0,
+					"name": "劳动",
+					"period": "day"
+				},
+				{
+					"curfew": false,
+					"detail": "18:00–20:00，自由活动，警犬巡逻。",
+					"dog_active": true,
+					"id": "free_time",
+					"minute": 1080.0,
+					"name": "自由活动",
+					"period": "day"
+				},
+				{
+					"curfew": true,
+					"detail": "20:00起各自归寝，寝室外宵禁警戒；22:00封监。",
+					"dog_active": true,
+					"id": "curfew",
+					"minute": 1200.0,
+					"name": "归寝警戒",
+					"period": "night"
+				}
+			],
+			"start_minutes": 480.0
+		}
+	},
+	"passed": true,
+	"scope": "Deterministic logic fixtures; developer test preference isolated; no mobile device or human playtest."
+}

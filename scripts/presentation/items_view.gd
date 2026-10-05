@@ -61,6 +61,8 @@ func _draw() -> void:
 			draw_circle(point - Vector2(0, 10), 11, Color("e1c787"))
 			draw_arc(point - Vector2(0, 10), 11, 0, TAU, 24, Color("536052"), 2, true)
 	for merchant in game.trade.merchants.values():
+		if game.schedule and game.schedule.is_curfew():
+			continue
 		var point := Vector2(merchant.position[0], merchant.position[1])
 		if not merchant_asset.get("shadow_baked",false):
 			draw_ellipse(point+Vector2(0,2),15,4,Color(0,0,0,0.14))
@@ -87,4 +89,4 @@ func paint_information(canvas: CanvasItem) -> void:
 		var point := Vector2(merchant.position[0],merchant.position[1])
 		var badge := Rect2(point+Vector2(-32,12),Vector2(64,23))
 		canvas.draw_rect(badge,Color("f2ebdd"))
-		canvas.draw_string(game.presentation.font,badge.position+Vector2(5,17),"商人",HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("303b46"))
+		canvas.draw_string(game.presentation.font,badge.position+Vector2(5,17),"已收摊" if game.schedule and game.schedule.is_curfew() else "商人",HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("303b46"))

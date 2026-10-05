@@ -19,6 +19,8 @@ func reset(config: Dictionary) -> void:
 				merchants[id].stock.append(item_id)
 
 func reason(actor_id: int, merchant_id: String) -> String:
+	if game.schedule and game.schedule.is_curfew():
+		return "20:00已收摊，请在白天交易。"
 	if not game.inventory.available(actor_id) or not merchants.has(merchant_id):
 		return "当前伙伴不能交易。"
 	var actor = game.actors[actor_id]

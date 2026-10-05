@@ -1,10 +1,15 @@
 {
-  "start_minutes": 960,
+  "start_minutes": 480,
   "end_minutes": 1320,
   "room_seconds": {"r01": 180, "r02": 180, "r03": 240, "r04": 300},
   "stages": [
-    {"id": "work", "name": "劳动", "minute": 960, "period": "day", "dog_active": false, "detail": "白天，狱警巡逻；警犬休息。"},
-    {"id": "yard", "name": "放风", "minute": 1080, "period": "day", "dog_active": true, "detail": "警犬出动，嗅探附近的短时踪迹。"},
-    {"id": "lights_out", "name": "熄灯巡查", "minute": 1200, "period": "night", "dog_active": true, "detail": "狱警视野缩短，警犬嗅探仍有效。"}
-  ]
+    {"id": "morning_work", "name": "劳动", "minute": 480, "period": "day", "dog_active": false, "curfew": false, "detail": "08:00–12:00，上午劳动。"},
+    {"id": "meal_rest", "name": "吃饭休息", "minute": 720, "period": "day", "dog_active": false, "curfew": false, "detail": "12:00–14:00，吃饭与休息。"},
+    {"id": "afternoon_work", "name": "劳动", "minute": 840, "period": "day", "dog_active": false, "curfew": false, "detail": "14:00–18:00，下午劳动。"},
+    {"id": "free_time", "name": "自由活动", "minute": 1080, "period": "day", "dog_active": true, "curfew": false, "detail": "18:00–20:00，自由活动，警犬巡逻。"},
+    {"id": "curfew", "name": "归寝警戒", "minute": 1200, "period": "night", "dog_active": true, "curfew": true, "detail": "20:00起各自归寝，寝室外宵禁警戒；22:00封监。"}
+  ],
+  "room_dormitories": {
+    "r04": [[116,146,368,214], [116,436,368,214], [116,726,368,214]]
+  }
 }

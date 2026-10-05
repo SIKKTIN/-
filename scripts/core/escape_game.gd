@@ -16,6 +16,7 @@ const MapCamera = preload("res://scripts/core/map_camera.gd")
 const MiniMap = preload("res://scripts/ui/mini_map.gd")
 const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
 const PoliceDog = preload("res://scripts/actors/police_dog.gd")
+const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -32,6 +33,7 @@ var map_camera
 var mini_map
 var schedule
 var dog
+var developer_settings
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -121,6 +123,10 @@ func _ready() -> void:
 	schedule.name = "Schedule"
 	add_child(schedule)
 	schedule.configure(self)
+	developer_settings = DeveloperSettings.new()
+	developer_settings.name = "DeveloperSettings"
+	add_child(developer_settings)
+	developer_settings.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -190,10 +196,10 @@ func _process(delta: float) -> void:
 		if presentation:
 			presentation.tick(delta)
 		return
-	delta = minf(delta,schedule.remaining()) if schedule else delta
+	delta = minf(delta,schedule.real_remaining()) if schedule else delta
 	elapsed += delta
 	if schedule:
-		schedule.tick()
+		schedule.advance(delta)
 	for actor in actors:
 		actor.moved_this_frame = false
 	orders.tick(delta)
@@ -222,6 +228,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				shop_panel.close()
 			if schedule:
 				schedule.close()
+			if developer_settings:
+				developer_settings.close()
 			return
 	if world_input_blocked():
 		return
@@ -335,6 +343,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		presentation.reset()
 	if schedule:
 		schedule.reset()
+	if developer_settings:
+		developer_settings.close()
 	show_status("22:00封监前让三人全部逃脱；点击右上日程查看安排。",4)
 	select_actor(0)
 	if map_camera:
@@ -349,6 +359,9 @@ func _update_ui() -> void:
 		var actor = actors[index]
 		var action_labels := {"idle":"待命","chatting":"交谈中","lockpicking":"撬锁中"}
 		cards[index].text = "%s伙伴 %d\n%s\n%s" % ["● " if actor.selected else "", index + 1, SKILL_NAMES[actor.skill_id], "已逃脱" if actor.escaped else ("移动中" if orders and orders.active.has(index) else action_labels.get(actor.action_state,"待命"))]
+		if schedule and schedule.is_curfew() and not actor.escaped and phase == "playing":
+			var label: String = "寝室内" if schedule.in_dormitory(index) else "归寝中" if orders.active.has(index) and schedule.dormitory(index).has_point(orders.active[index].goal) else "宵禁外出！"
+			cards[index].text = "%s伙伴 %d\n%s\n%s" % ["● " if actor.selected else "",index+1,SKILL_NAMES[actor.skill_id],label]
 		cards[index].disabled = actor.escaped
 	status_label.text = status_text
 	if skill_button and skills:
@@ -400,7 +413,7 @@ func snapshot() -> Dictionary:
 	return {"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"dog":dog.snapshot() if dog else {}}
 
 func world_input_blocked() -> bool:
-	return phase != "playing" or get_tree().paused or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible)
+	return phase != "playing" or get_tree().paused or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible)
 
 func finish_timeout() -> void:
 	phase = "failed"

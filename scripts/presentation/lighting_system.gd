@@ -16,6 +16,7 @@ var toggle_button: Button
 var guard_light: PointLight2D
 var guard_boundaries: Array[LightOccluder2D] = []
 var beam_texture: Texture2D
+var curfew_beam_texture: Texture2D
 
 func configure(owner_game, theme: Theme) -> void:
 	game = owner_game
@@ -51,6 +52,7 @@ func configure(owner_game, theme: Theme) -> void:
 	guard_light = PointLight2D.new()
 	guard_light.name = "GuardFlashlight"
 	beam_texture = _beam_texture()
+	curfew_beam_texture = _beam_texture(PI)
 	guard_light.texture = beam_texture
 	guard_light.shadow_enabled = true
 	guard_light.shadow_item_cull_mask = 3
@@ -83,14 +85,14 @@ func set_period(value: String) -> void:
 	queue_redraw()
 	_tick_guard_light()
 
-func _beam_texture() -> ImageTexture:
+func _beam_texture(half_angle: float = PI/3) -> ImageTexture:
 	# A procedural light texture, not a modified art asset. +X is its direction.
 	var image := Image.create(256,256,false,Image.FORMAT_RGBA8)
 	for y in range(256):
 		for x in range(256):
 			var offset := (Vector2(x+0.5,y+0.5)-Vector2(128,128))/128.0
 			var radial := 1.0-smoothstep(0.65,1.0,offset.length())
-			var angular := 1.0-smoothstep(game.guard.HALF_FOV-0.025,game.guard.HALF_FOV,absf(offset.angle()))
+			var angular := 1.0 if half_angle >= PI else 1.0-smoothstep(half_angle-0.025,half_angle,absf(offset.angle()))
 			image.set_pixel(x,y,Color(1,1,1,maxf(0,radial*angular)))
 	return ImageTexture.create_from_image(image)
 
@@ -98,9 +100,12 @@ func _tick_guard_light() -> void:
 	if not guard_light:
 		return
 	guard_light.position = game.guard.position
-	guard_light.rotation = game.guard.facing.angle()
+	var desired: Texture2D = curfew_beam_texture if game.guard.curfew_alert() else beam_texture
+	if guard_light.texture != desired:
+		guard_light.texture = desired
+	guard_light.rotation = 0 if game.guard.curfew_alert() else game.guard.facing.angle()
 	guard_light.texture_scale = game.guard.view_radius()/128.0
-	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" else Color("ffe5b2")
+	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("ffe5b2")
 	guard_light.energy = 0.65 if period == "night" else 0.26
 	guard_light.enabled = game.phase == "playing"
 

@@ -74,6 +74,8 @@ func open(id: String) -> void:
 	blocker.visible = true
 	if game.schedule:
 		game.schedule.close()
+	if game.developer_settings:
+		game.developer_settings.close()
 	if game.presentation and game.presentation.interaction:
 		game.presentation.interaction.refresh()
 	refresh()

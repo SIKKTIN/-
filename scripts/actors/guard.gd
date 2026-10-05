@@ -54,6 +54,12 @@ func view_radius() -> float:
 func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
 	return world.guard_zone.grow(-radius).has_point(point)
 
+func curfew_alert() -> bool:
+	return game.schedule != null and game.schedule.is_curfew()
+
+func half_fov() -> float:
+	return PI if curfew_alert() else HALF_FOV
+
 func release_target() -> void:
 	state = "patrol"
 	target_id = -1
@@ -90,7 +96,7 @@ func sees(point: Vector2) -> bool:
 	var offset := point - position
 	if offset.length() > view_radius():
 		return false
-	if offset.length_squared() > 0.001 and facing.dot(offset.normalized()) < cos(HALF_FOV):
+	if offset.length_squared() > 0.001 and facing.dot(offset.normalized()) < cos(half_fov()):
 		return false
 	return world.line_clear(position,point)
 
@@ -149,7 +155,7 @@ func tick(delta: float) -> void:
 		var offset := path[0] - position
 		if offset.length() > 1:
 			facing = offset.normalized()
-			var speed: float = 155.0 if state == "chasing" else 100.0 if state == "searching" else 65.0
+			var speed: float = 155.0 if state == "chasing" else 100.0 if state == "searching" or curfew_alert() else 65.0
 			var move: Vector2 = facing * minf(speed*delta,offset.length())
 			moved_this_frame = world.move_actor(self,move).length_squared() > 0.001
 	stalled_time = 0 if moved_this_frame else stalled_time + delta
@@ -194,16 +200,17 @@ func stop_chat() -> void:
 func view_polygon() -> PackedVector2Array:
 	var angles: Array[float] = []
 	var base_angle := facing.angle()
-	for index in range(41):
-		angles.append(base_angle-HALF_FOV+2*HALF_FOV*index/40.0)
+	var half := half_fov()
+	for index in range(40 if curfew_alert() else 41):
+		angles.append(base_angle-half+2*half*index/40.0)
 	for rect in world.solid_rects():
 		for corner in [rect.position,rect.position+Vector2(rect.size.x,0),rect.end,rect.position+Vector2(0,rect.size.y)]:
 			var relative := wrapf((corner-position).angle()-base_angle,-PI,PI)
-			if absf(relative) < HALF_FOV:
+			if absf(relative) < half:
 				for epsilon in [-0.0001,0.0,0.0001]:
 					angles.append(base_angle+relative+epsilon)
 	angles.sort()
-	var polygon := PackedVector2Array([Vector2.ZERO])
+	var polygon := PackedVector2Array() if curfew_alert() else PackedVector2Array([Vector2.ZERO])
 	for angle in angles:
 		var direction := Vector2.from_angle(angle)
 		var distance := view_radius()
@@ -221,7 +228,7 @@ func _draw() -> void:
 	if presentation_layers:
 		return
 	var dangerous: bool = state == "chasing"
-	var tint := Color("c9534b") if dangerous else Color("d9ac54")
+	var tint := Color("c9534b") if dangerous or curfew_alert() else Color("d9ac54")
 	tint.a = 0.21
 	draw_colored_polygon(view_polygon(),tint)
 	if not art_body:
@@ -233,8 +240,8 @@ func _draw() -> void:
 	draw_line(facing*17,facing*30,Color("c9534b") if dangerous else Color("303b46"),3,true)
 	draw_line(facing*30,facing*24+facing.orthogonal()*4,Color("303b46"),2,true)
 	draw_line(facing*30,facing*24-facing.orthogonal()*4,Color("303b46"),2,true)
-	var label := "追击！" if dangerous else ("交谈中" if state == "talking" else "巡逻")
+	var label := "追击！" if dangerous else "宵禁警戒" if curfew_alert() else ("交谈中" if state == "talking" else "巡逻")
 	draw_string(ThemeDB.fallback_font,Vector2(-22,-52),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("c9534b") if dangerous else Color("303b46"))
 
 func snapshot() -> Dictionary:
-	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":view_radius(),"guard_zone":[world.guard_zone.position.x,world.guard_zone.position.y,world.guard_zone.size.x,world.guard_zone.size.y],"fov_degrees":120,"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}
+	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":view_radius(),"guard_zone":[world.guard_zone.position.x,world.guard_zone.position.y,world.guard_zone.size.x,world.guard_zone.size.y],"fov_degrees":360 if curfew_alert() else 120,"curfew_alert":curfew_alert(),"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}

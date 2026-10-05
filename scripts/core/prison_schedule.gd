@@ -3,6 +3,9 @@ extends Node
 var game
 var config: Dictionary
 var limit_seconds: float = 300
+var clock_elapsed: float = 0
+var time_speed: float = 1
+var curfew_returns: Dictionary = {}
 var stage_index: int = -1
 var clock_label: Label
 var stage_button: Button
@@ -71,12 +74,17 @@ func _make_ui() -> void:
 	stage_button = game.presentation.lighting.toggle_button
 	stage_button.pressed.connect(toggle)
 	blocker = _blocker("ScheduleMapBlocker",Rect2(74,114,922,560),110)
-	panel = _paper_panel("DailySchedule",Vector2(325,218),Vector2(460,302),111)
+	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,364),111)
 	_label(panel,Vector2(20,16),"今日监区日程",22)
-	var lines := "16:00  劳动  ·  狱警巡逻，警犬休息\n18:00  放风  ·  警犬出动，追踪气味\n20:00  熄灯  ·  狱警视野缩短\n22:00  封监  ·  未全部逃出则本局失败"
+	var lines := ""
+	for index in range(config.stages.size()):
+		var stage: Dictionary = config.stages[index]
+		var end_minute: int = int(config.stages[index+1].minute) if index+1 < config.stages.size() else int(config.end_minutes)
+		lines += "%02d:%02d–%02d:%02d  %s\n" % [int(stage.minute)/60,int(stage.minute)%60,end_minute/60,end_minute%60,stage.name]
+	lines += "22:00  封监 · 未全部逃出则本局失败"
 	_label(panel,Vector2(20,60),lines,17)
-	_label(panel,Vector2(20,198),"查看日程、交易时，时间仍然流逝。",15)
-	_button(panel,Vector2(160,242),"继续行动",close)
+	_label(panel,Vector2(20,245),"20:00各自归寝；外出违规，警卫加强戒备。\n查看日程、交易时，时间仍然流逝。",15)
+	_button(panel,Vector2(195,304),"继续行动",close)
 	result_blocker = _blocker("RoundResultBlocker",Rect2(0,0,1200,720),200)
 	result_panel = _paper_panel("RoundResult",Vector2(340,234),Vector2(500,255),201)
 	result_label = _label(result_panel,Vector2(24,24),"",20)
@@ -87,6 +95,8 @@ func _make_ui() -> void:
 
 func reset() -> void:
 	limit_seconds = float(config.room_seconds.get(game.room_id,300))
+	clock_elapsed = 0
+	curfew_returns.clear()
 	stage_index = -1
 	close()
 	result_panel.hide()
@@ -94,10 +104,57 @@ func reset() -> void:
 	tick(false)
 
 func remaining() -> float:
-	return maxf(0,limit_seconds-game.elapsed)
+	return maxf(0,limit_seconds-clock_elapsed)
+
+func real_remaining() -> float:
+	return remaining()/time_speed if time_speed > 0 else INF
+
+func advance(real_delta: float) -> void:
+	clock_elapsed = minf(limit_seconds,clock_elapsed+maxf(0,real_delta)*time_speed)
+	tick()
+
+func set_time_speed(value: float) -> bool:
+	if not is_finite(value) or value < 0 or value > 16:
+		return false
+	time_speed = value
+	tick(false)
+	return true
 
 func clock_minutes() -> float:
-	return lerpf(float(config.start_minutes),float(config.end_minutes),clampf(game.elapsed/limit_seconds,0,1))
+	return lerpf(float(config.start_minutes),float(config.end_minutes),clampf(clock_elapsed/limit_seconds,0,1))
+
+func is_curfew() -> bool:
+	return stage_index >= 0 and bool(config.stages[stage_index].get("curfew",false))
+
+func dormitory(actor_id: int) -> Rect2:
+	var rooms: Array = config.get("room_dormitories",{}).get(game.room_id,[])
+	if actor_id < rooms.size():
+		var values: Array = rooms[actor_id]
+		return Rect2(values[0],values[1],values[2],values[3])
+	return Rect2(game.actors[actor_id].home-Vector2(64,64),Vector2(128,128)).intersection(game.world.bounds)
+
+func in_dormitory(actor_id: int) -> bool:
+	return dormitory(actor_id).grow(-17).has_point(game.actors[actor_id].position)
+
+func enter_curfew() -> void:
+	game.skills.clear_all()
+	game.orders.clear()
+	if game.shop_panel:
+		game.shop_panel.close()
+	for actor in game.actors:
+		if actor.escaped:
+			continue
+		if in_dormitory(actor.actor_id):
+			curfew_returns[actor.actor_id] = "home"
+			continue
+		var accepted := false
+		for offset in [Vector2.ZERO,Vector2(40,0),Vector2(-40,0),Vector2(0,40),Vector2(0,-40)]:
+			var goal: Vector2 = actor.home+offset
+			if dormitory(actor.actor_id).grow(-17).has_point(goal) and game.world.can_place_circle(goal,17,actor,true) and game.orders.issue(actor.actor_id,goal):
+				accepted = true
+				break
+		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"
+	game.show_status("20:00归寝：路线受阻的伙伴需手动开路；寝室外已进入宵禁警戒。" if curfew_returns.values().has("blocked") else "20:00归寝：伙伴返回各自寝室；寝室外已进入宵禁警戒。",6)
 
 func dog_active() -> bool:
 	return stage_index >= 0 and bool(config.stages[stage_index].dog_active)
@@ -112,12 +169,16 @@ func tick(announce: bool = true) -> void:
 		stage_index = next_index
 		var stage: Dictionary = config.stages[stage_index]
 		game.presentation.lighting.set_period(str(stage.period))
+		if bool(stage.get("curfew",false)) and game.phase == "playing":
+			enter_curfew()
 		if announce:
-			game.show_status("%s开始：%s" % [stage.name,stage.detail],4)
+			if not is_curfew():
+				game.show_status("%s开始：%s" % [stage.name,stage.detail],4)
 	var stage: Dictionary = config.stages[stage_index]
-	var seconds := ceili(remaining())
-	clock_label.text = "%02d:%02d · %s · 剩余 %02d:%02d" % [floori(minute/60),floori(minute)%60,stage.name,seconds/60,seconds%60]
-	clock_label.add_theme_color_override("font_color",Color("bc5348") if remaining() <= 30 else Color("303b46"))
+	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
+	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
+	clock_label.text = "%02d:%02d · %s · %s" % [floori(minute/60),floori(minute)%60,stage.name,left]
+	clock_label.add_theme_color_override("font_color",Color("bc5348") if is_curfew() or real_remaining() <= 30 else Color("303b46"))
 	stage_button.text = "日程 · %s" % stage.name
 	stage_button.tooltip_text = "查看日程；22:00封监。时间不会因交易或查看日程暂停。"
 	if remaining() <= 0:
@@ -132,6 +193,8 @@ func toggle() -> void:
 	else:
 		if game.shop_panel:
 			game.shop_panel.close()
+		if game.developer_settings:
+			game.developer_settings.close()
 		panel.show()
 		blocker.show()
 		game.presentation.interaction.refresh()
@@ -144,6 +207,8 @@ func close() -> void:
 
 func show_result(success: bool) -> void:
 	close()
+	if game.developer_settings:
+		game.developer_settings.close()
 	if game.shop_panel:
 		game.shop_panel.close()
 	var count: int = game.actors.filter(func(a): return a.escaped).size()
@@ -158,4 +223,4 @@ func show_result(success: bool) -> void:
 	game.presentation.interaction.refresh()
 
 func snapshot() -> Dictionary:
-	return {"limit_seconds":limit_seconds,"remaining":remaining(),"clock_minutes":clock_minutes(),"stage":config.stages[stage_index].id,"dog_active":dog_active(),"panel_visible":panel.visible,"result_visible":result_panel.visible}
+	return {"limit_seconds":limit_seconds,"clock_elapsed":clock_elapsed,"time_speed":time_speed,"remaining":remaining(),"clock_minutes":clock_minutes(),"stage":config.stages[stage_index].id,"curfew":is_curfew(),"curfew_returns":curfew_returns.duplicate(),"dog_active":dog_active(),"panel_visible":panel.visible,"result_visible":result_panel.visible}
