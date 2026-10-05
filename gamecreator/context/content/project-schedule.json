@@ -1690,6 +1690,56 @@
             "at": "2026-10-05T02:00:47.160Z"
           }
         ]
+      },
+      {
+        "id": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+        "title": "P25 跟随镜头画面稳定与采样修复",
+        "description": "检查最近邻纹理、相机/提示更新时序和变帧率跟随误差，保持P24独立命令及手机操作；原生滚动画面与采样对比验证。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "记录滚动前后纹理与帧同步证据；稳定速度下变帧率镜头相对位移不抖，摄像机在动作后/图标前一次更新；两尺寸原生拖图/小地图/定位/连点回归，无遮挡/边界/固定HUD，保留用户project.godot修改。不把截图验证说成物理显示扫描撕裂已证实消除。",
+        "result": "v0.8.2主干68fccbe修复相机与屏幕提示同帧更新：人物/警卫后相机tick一次、表现投影随后，取消独立相机脚本_process。跟随对线性目标解析积分，变帧率滞后波动0.183497→0.000140537，静止微小残余归零；非拖动按住轻点镜头继续移动，按下保存世界变换、松开指令不偏，拖动仍暂停。两尺寸各25原生检查=50通过，含30右键/30触摸、0.18秒按住、12帧拾取图标与渲染相机匹配、独立命令/小地图/边界/HUD/定位。实际正常随机R04从出生移动120帧记录，当前运行无游戏错误。原Viewport采样实际已经线性（枚举与CanvasItem不同）、VSYNC已开启；撤销无效滤波改动，原静态纹理对照不变，不宣称物理扫描撕裂/手机真机/真人效果消除。修正旧滞后阈值25为解析v/10+3，失败保留；一次960失败同代码独立重跑通过，缺焦点记录不臆断原因。未改寻路/碰撞/地图/PNG，用户project.godot修改保留未提交。8源与12证据SHA登记。\n\n验收通过：制作人按producer自验收单独核对68fccbe及8源/12证据哈希；50两尺寸原生检查通过，实际按住轻点继续跟随且世界目标一致，12帧图标投影同帧匹配。解析跟随变dt误差约0.00014单位，改善已测出的滞后抖动。原纹理线性/VSYNC事实已纠正并保留，无效采样改动撤销；失败夹具和960过程记录未掩盖，不作物理扫描撕裂或真人/手机真机确认。主窗口运行正常随机R04新版本，独立命令、手动查看与用户配置保留。",
+        "dependencyIds": [
+          "9726b094-4fa1-43b5-8190-83287d4d3f90"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/",
+            "scripts/presentation/",
+            "scenes/main.tscn",
+            "tests/",
+            "docs/dev/",
+            "docs/tests/",
+            "README.md"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "不修改移动、寻路、碰撞或美术PNG；由制作人维护主干。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p25-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T02:21:34.036Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1960,6 +2010,17 @@
           "gameplay",
           "design-documents"
         ]
+      },
+      {
+        "id": "p25-camera-stability-design-20261005",
+        "digest": "70c112b1c385e06ad404a28d2ce30b9ed2d85679234f29d5985086e505c5be8f",
+        "summary": "v0.8.2相机解析跟随、单帧投影同步与按住轻点不断镜头；排除采样误判，50原生检查通过。",
+        "memberName": "制作人",
+        "at": "2026-10-05T02:30:12.594Z",
+        "modules": [
+          "gameplay",
+          "design-documents"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -2110,6 +2171,18 @@
         "reason": "用户要求优化连续点击寻路卡顿并让镜头跟随选中伙伴。",
         "createdTaskIds": [
           "9726b094-4fa1-43b5-8190-83287d4d3f90"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p25-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T02:21:34.036Z",
+        "reason": "用户反馈跟随镜头震动与画面撕裂，修复实际滚动画面稳定性。",
+        "createdTaskIds": [
+          "bd71d2f4-948f-4eec-819c-7f4a6f0148bc"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -7056,6 +7129,149 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-05T02:15:53.749Z",
           "note": "制作人按producer任务单独自验收，核对db51a65、19源/14证据哈希一致，106技术结果通过。性能基准同机同80查询，结果60/20一致，典型局部56格替代整图重算；实际原生两尺寸各30右键/30触摸最终目标到达，跟随及手动暂停/重新选人和定位恢复正确。R03七条/R04四条持续AI完整路线均0抓回，四图60秒巡逻与边界正常。失败夹具明确记录并排除，不宣称真机/真人或普适帧预算。主窗口运行当前版本，用户配置保留未覆盖未提交。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p25-start-20261005",
+        "taskId": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "实际运行VSYNC已开启，世界继承最近邻采样；镜头与交互图标更新分离。录制分数像素滚动基准并验证变帧率跟随误差，修复采样和时序，不改寻路或物理参数。",
+        "evidence": [
+          "tests/p25_scroll_sampling.gd",
+          "docs/tests/p25-sampling-before.json"
+        ],
+        "at": "2026-10-05T02:22:24.035Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+          "title": "P25 跟随镜头画面稳定与采样修复",
+          "description": "检查最近邻纹理、相机/提示更新时序和变帧率跟随误差，保持P24独立命令及手机操作；原生滚动画面与采样对比验证。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "记录滚动前后纹理与帧同步证据；稳定速度下变帧率镜头相对位移不抖，摄像机在动作后/图标前一次更新；两尺寸原生拖图/小地图/定位/连点回归，无遮挡/边界/固定HUD，保留用户project.godot修改。不把截图验证说成物理显示扫描撕裂已证实消除。",
+          "result": "实际运行VSYNC已开启，世界继承最近邻采样；镜头与交互图标更新分离。录制分数像素滚动基准并验证变帧率跟随误差，修复采样和时序，不改寻路或物理参数。",
+          "dependencyIds": [
+            "9726b094-4fa1-43b5-8190-83287d4d3f90"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/presentation/",
+              "scenes/main.tscn",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "不修改移动、寻路、碰撞或美术PNG；由制作人维护主干。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p25-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:21:34.036Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p25-delivery-20261005",
+        "taskId": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.8.2主干68fccbe修复相机与屏幕提示同帧更新：人物/警卫后相机tick一次、表现投影随后，取消独立相机脚本_process。跟随对线性目标解析积分，变帧率滞后波动0.183497→0.000140537，静止微小残余归零；非拖动按住轻点镜头继续移动，按下保存世界变换、松开指令不偏，拖动仍暂停。两尺寸各25原生检查=50通过，含30右键/30触摸、0.18秒按住、12帧拾取图标与渲染相机匹配、独立命令/小地图/边界/HUD/定位。实际正常随机R04从出生移动120帧记录，当前运行无游戏错误。原Viewport采样实际已经线性（枚举与CanvasItem不同）、VSYNC已开启；撤销无效滤波改动，原静态纹理对照不变，不宣称物理扫描撕裂/手机真机/真人效果消除。修正旧滞后阈值25为解析v/10+3，失败保留；一次960失败同代码独立重跑通过，缺焦点记录不臆断原因。未改寻路/碰撞/地图/PNG，用户project.godot修改保留未提交。8源与12证据SHA登记。",
+        "evidence": [
+          "git:68fccbe",
+          "docs/dev/p25-camera-stability.md",
+          "docs/tests/p25-build.json",
+          "docs/tests/p25-sampling-before.json",
+          "docs/tests/p25-sampling-after.json",
+          "docs/tests/p25-native-follow-1280x720.json",
+          "docs/tests/p25-native-follow-960x540.json",
+          "docs/tests/p25-live-follow.json"
+        ],
+        "at": "2026-10-05T02:31:06.480Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "bd71d2f4-948f-4eec-819c-7f4a6f0148bc",
+          "title": "P25 跟随镜头画面稳定与采样修复",
+          "description": "检查最近邻纹理、相机/提示更新时序和变帧率跟随误差，保持P24独立命令及手机操作；原生滚动画面与采样对比验证。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "记录滚动前后纹理与帧同步证据；稳定速度下变帧率镜头相对位移不抖，摄像机在动作后/图标前一次更新；两尺寸原生拖图/小地图/定位/连点回归，无遮挡/边界/固定HUD，保留用户project.godot修改。不把截图验证说成物理显示扫描撕裂已证实消除。",
+          "result": "v0.8.2主干68fccbe修复相机与屏幕提示同帧更新：人物/警卫后相机tick一次、表现投影随后，取消独立相机脚本_process。跟随对线性目标解析积分，变帧率滞后波动0.183497→0.000140537，静止微小残余归零；非拖动按住轻点镜头继续移动，按下保存世界变换、松开指令不偏，拖动仍暂停。两尺寸各25原生检查=50通过，含30右键/30触摸、0.18秒按住、12帧拾取图标与渲染相机匹配、独立命令/小地图/边界/HUD/定位。实际正常随机R04从出生移动120帧记录，当前运行无游戏错误。原Viewport采样实际已经线性（枚举与CanvasItem不同）、VSYNC已开启；撤销无效滤波改动，原静态纹理对照不变，不宣称物理扫描撕裂/手机真机/真人效果消除。修正旧滞后阈值25为解析v/10+3，失败保留；一次960失败同代码独立重跑通过，缺焦点记录不臆断原因。未改寻路/碰撞/地图/PNG，用户project.godot修改保留未提交。8源与12证据SHA登记。",
+          "dependencyIds": [
+            "9726b094-4fa1-43b5-8190-83287d4d3f90"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/presentation/",
+              "scenes/main.tscn",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "不修改移动、寻路、碰撞或美术PNG；由制作人维护主干。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p25-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:21:34.036Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T02:31:34.967Z",
+          "note": "制作人按producer自验收单独核对68fccbe及8源/12证据哈希；50两尺寸原生检查通过，实际按住轻点继续跟随且世界目标一致，12帧图标投影同帧匹配。解析跟随变dt误差约0.00014单位，改善已测出的滞后抖动。原纹理线性/VSYNC事实已纠正并保留，无效采样改动撤销；失败夹具和960过程记录未掩盖，不作物理扫描撕裂或真人/手机真机确认。主窗口运行正常随机R04新版本，独立命令、手动查看与用户配置保留。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
