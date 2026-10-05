@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "4b66c70769492f84991bd45c54f7960d32e7091913f2148233eaadd5bc54c459",
+  "snapshotId": "2b7cbc5b49bf03ebc4791afbb9faf8f625723cef9b6c10366978fdc6fdc9fa8e",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -2214,6 +2214,199 @@
           "at": "2026-10-05T06:15:11.880Z"
         }
       ]
+    },
+    {
+      "id": "9e101654-14f2-47f3-a88e-101d3fe6d383",
+      "title": "A10 · 全屏浮动HUD素材与规格",
+      "description": "按用户确认A09概念交付可复用纸卡/选中态/图标与三人物肖像引用，配套布局规格。优先使用现有纸卡和人物图集，无需新角色和整张烘焙界面；提供九宫格/Theme资源及SVG图标等可编辑资产。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "交付可加载的Theme/纸卡样式和暂停/停止/定位/钟/币等小图标，三伙伴肖像从现有素材裁切引用不修改PNG；给出接口路径/适配规格/自检截图或图集。不将概念图作为整张游戏UI贴图，普通1格/收纳3格明确。",
+      "result": "A10 全屏 HUD 素材完成：可加载 Theme、6个可编辑SVG图标与3个原角色上半身AtlasTexture引用，配套规格与真实Godot资源预览。用户已认可A09样式；本轮主美仅交付资源，制作人并行集成。\n\n验收通过：制作人独立审核：已实际查看资源预览和主游戏集成截图，Theme暖纸卡/青绿状态与A09一致，三肖像引用现有PNG，SVG清晰、无整图烘焙。主游戏1200×720原生触屏34项通过；主美加载23/原生24项报告交付完整。资源范围通过，手机真机热区在程序集成阶段继续验证。",
+      "dependencyIds": [
+        "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+      ],
+      "references": [],
+      "positionIds": [
+        "art-director"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "art/ui/fullscreen/**",
+          "docs/art/a10-*"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/art/ui/fullscreen/",
+        "interfaceContract": "主美只改自己的UI资源/文档，不改scripts/scenes/data/project.godot。制作人读取资源；不改已交付角色/玩法。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "fullscreen-ui-execution-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-05T06:32:38.925Z"
+        }
+      ]
+    },
+    {
+      "id": "e434a572-786f-4e21-bc35-cc4db198be06",
+      "title": "P33 · 全屏HUD与自适应视野程序",
+      "description": "去掉原网页边框，地图占满视口，响应16:9/20:9安全区。左上真实时钟日程，右上目标/钱/菜单和可收起小地图，左下三伙伴肖像卡，右下当前1/3格背包与停止。菜单容纳旧调试入口，真正暂停且继续无时间跃迁，普通日程/交易仍流逝。保留触摸/RTS移动、独立技能、相机平滑与P32采样。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "全屏场景无原114页头/右栏纸框；镜头/小地图/触摸命令使用动态视口且正确钳制。四地图正常加载，三伙伴技能状态/背包买卖交接/日程调速/停止/遮挡层级可用；头像身份独立于技能。旧小地图无边缘滚屏保持，16:9与20:9可用。",
+      "result": "全屏浮动HUD与动态视口已实现，四尺寸各46项原生触屏检查通过，菜单真实暂停、交易背包及相机路径验证完整。新多天规则由独立P35承接，P33未更换游戏世界布局。\n\n验收通过：制作人自验收：a128d77全屏世界/动态视口、四尺寸原生ScreenTouch各46通过，实际交易/物品/暂停/日程/调速/终局可用，肖像不随技能变化。已检查实际截图，A10资源另有主美交付/制作人审核；P35独立记录日程新规则。未做Android/iOS真机或真人趣味性验证。",
+      "dependencyIds": [
+        "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+      ],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "qa/**",
+          "docs/dev/p33-*",
+          "docs/tests/p33-*"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+        "interfaceContract": "制作人仅程序与测试，沿用A09布局与现有占位美术接口，不改主美资源。root project.godot原差异保留不提交；不改变世界布局/时间预算/敌对规则。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "fullscreen-ui-execution-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T06:32:38.925Z"
+        }
+      ]
+    },
+    {
+      "id": "d8bfad4b-71ec-4487-9110-ae6577433117",
+      "title": "P34 · 全屏UI整合与原生触屏验证",
+      "description": "接入A10正式资源和P33程序，验证全屏UI的原生手机横屏模拟、模态层级、交易保留背包与连续相机表现，保存截图、推送仓库、同步GC并重新打开游戏。",
+      "kind": "其他",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "1200×720/1280×720/1600×720及960×540原生GUI/触摸事件检查，实际背包1/3格、买卖/选人/停止/小地图/菜单暂停恢复/日程时间流逝/开发设置/重开换图路径，至少白天/夜晚截图核对。代码资源诊断通过，未做手机真机如实记录，原root配置SHA一致。",
+      "result": "主干a128d77已推送，9ef0600补充集成复核：R04公共寝区限定左侧，右出口走廊不会误标，6项独立边界回归通过；四尺寸184原生UI和72日程检查证据保持。指定MCP实例live无启动错误，根配置SHA不变。GC规则已应用。真机/真人仍未测。\n\n验收通过：制作人主干整合自验收：A10/P33接入四尺寸184项原生输入通过，P35三天/查房72项通过，9ef0600额外修正左寝区边界并6项独立检查通过。真实帧与MCP可玩启动证据完整；用户根配置SHA保持。初次反馈退回与修正记录保留。已确认规则正式应用，无真机/真人趣味性结论。",
+      "dependencyIds": [
+        "9e101654-14f2-47f3-a88e-101d3fe6d383",
+        "e434a572-786f-4e21-bc35-cc4db198be06"
+      ],
+      "references": [],
+      "positionIds": [
+        "producer"
+      ],
+      "selfReviewRole": "producer",
+      "integrationTaskIds": [
+        "9e101654-14f2-47f3-a88e-101d3fe6d383",
+        "e434a572-786f-4e21-bc35-cc4db198be06"
+      ],
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/presentation/**",
+          "qa/**",
+          "docs/**",
+          "gamecreator/**",
+          "README.md"
+        ],
+        "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn @ R04",
+        "interfaceContract": "明确整合A10/P33已交付资源与程序；程序接入只读主美资源，碰撞/玩法/PNG保持。可在引擎验证并完成发布前审查，用户本轮已授权执行与既有仓库推送。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "fullscreen-ui-execution-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T06:32:38.925Z"
+        }
+      ]
+    },
+    {
+      "id": "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+      "title": "P35 · 多天逃脱、午夜锁寝与查房",
+      "description": "默认三天持续逃脱期限。每日20–24寝室区自由活动；00–08寝室门锁住，伙伴仍可控制，警卫进寝室查房。所有未逃出的伙伴在各自床位睡好后可跳过至08点；不传送伙伴。日程循环保持背包、交易与地图状态。接入全屏时钟、日程、开发设置。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-05",
+      "actualEnd": "2026-10-05",
+      "milestoneId": "",
+      "acceptance": "验证三天期限和跨午夜日期、20点归寝、午夜实体门碰撞、警卫开门进入查房及睡觉/醒着的区别、可操作、跳过条件及次日开门；R04三寝室完整验证，其余房间兼容。原生全屏UI与限时结算验证，保留project.godot用户改动。",
+      "result": "三天连续时钟/每日作息、R04三实体寝室门、真实查房与睡觉、可继续操作/可选跳夜已实现。无头36与原生36通过；原生触摸跳夜，保留状态，早晨返回安全边界。旧三图兼容，不新增独立寝门。\n\n验收通过：制作人自验收：a128d77，无头与原生各36检查通过；警卫真实行走进入三寝室并使用门钥匙、闭门阻挡、睡者零抓回/醒着捕获、跨天状态保留/原生触摸跳夜、08点开门并恢复安全区及返回巡视均有证据。默认72小时、旧图兼容记录明确；未做手机真机/真人夜间解谜。",
+      "dependencyIds": [],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/rooms/**",
+          "data/schedule.json",
+          "qa/**",
+          "docs/**",
+          "gamecreator/**",
+          "README.md"
+        ],
+        "entry": "scripts/core/prison_schedule.gd",
+        "interfaceContract": "时间由clock_elapsed独立驱动，游戏elapsed不跳跃；仅锁寝室门，出口锁进度与库存跨天保留；午夜新增查房允许警卫进入寝室，其他日程仍遵守安全区规则。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p35-multiday-plan-20261005",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T07:25:11.154Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -2347,7 +2540,10 @@
             "85591515-840e-4aa8-bb7a-ae415b7ad51e",
             "66100dfe-3511-41ae-af3e-7cb4364fd619",
             "d5224c01-3063-4c24-a0a6-f3c7b8e719fb",
-            "7040e23d-a33a-4fe4-84b9-dc19e80e3e38"
+            "7040e23d-a33a-4fe4-84b9-dc19e80e3e38",
+            "e434a572-786f-4e21-bc35-cc4db198be06",
+            "d8bfad4b-71ec-4487-9110-ae6577433117",
+            "f6ed3698-dcd4-47f1-817d-1d45143679ba"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2406,7 +2602,8 @@
             "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
             "d0871b1e-3ce7-4923-bf0c-56e6a03dfaad",
             "418e1ea3-5803-41da-82c2-f80939359f52",
-            "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+            "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b",
+            "9e101654-14f2-47f3-a88e-101d3fe6d383"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -2753,6 +2950,16 @@
       "modules": [
         "gameplay"
       ]
+    },
+    {
+      "id": "fullscreen-multiday-rules-20261005",
+      "digest": "c970a08fd5af32edb2bd9b8d1d9782d03df5710c9019882b53b171334e5a5396",
+      "summary": "落实用户确认全屏UI与三天循环、午夜锁寝/可操作/跳过，替代单日22点封监。",
+      "memberName": "制作人",
+      "at": "2026-10-05T07:40:36.148Z",
+      "modules": [
+        "gameplay"
+      ]
     }
   ],
   "taskPlanHistory": [
@@ -2991,6 +3198,32 @@
       "reason": "用户要求主美先设计正式版全屏手机UI布局概念图，供本人判断满意后再决定引擎落地。本轮只做概念，不修改游戏运行界面。",
       "createdTaskIds": [
         "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "fullscreen-ui-execution-plan-20261005",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T06:32:38.925Z",
+      "reason": "用户认可A09概念并明确开始执行：主美制作复用UI资产，制作人实现全屏自适应HUD与摄像机/输入，再整合验证。保留原美术/玩法与用户project.godot差异。",
+      "createdTaskIds": [
+        "9e101654-14f2-47f3-a88e-101d3fe6d383",
+        "e434a572-786f-4e21-bc35-cc4db198be06",
+        "d8bfad4b-71ec-4487-9110-ae6577433117"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p35-multiday-plan-20261005",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-05T07:25:11.154Z",
+      "reason": "用户将日程改为多天循环，并明确午夜锁寝、可继续操作或跳过夜晚。",
+      "createdTaskIds": [
+        "f6ed3698-dcd4-47f1-817d-1d45143679ba"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -9518,6 +9751,636 @@
         "at": "2026-10-05T06:28:28.080Z",
         "note": "制作人技术审核概念交付通过：已实际查看1882×836最终PNG与完整提示词/布局说明，世界铺满屏幕四边，三伙伴选择、选中态、单格背包/扩容说明、停止、小地图定位、时钟/封监与目标、情境交易完整，关键角色与通道清楚。首图假第二格已修正。日程进度位置仅示意且文档明确偏差，后续实装必须真实计算；触屏热区/安全区需按手机尺寸验证。此验收仅确认概念交付，不确认用户满意/新正式视觉基线，不授权代码实装。用户将看本图后决定布局，原游戏代码和project.godot差异保持。",
         "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p33-start-20261005",
+      "taskId": "e434a572-786f-4e21-bc35-cc4db198be06",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "用户认可A09并授权实装；主美已接手A10资源包，制作人开始重构全屏动态视野、浮动HUD及模态输入。保护root project.godot差异。",
+      "evidence": [
+        "art/concepts/ui-fullscreen/a09-fullscreen-hud-v01.png",
+        "docs/art/a09-fullscreen-ui.md"
+      ],
+      "at": "2026-10-05T06:33:33.006Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "e434a572-786f-4e21-bc35-cc4db198be06",
+        "title": "P33 · 全屏HUD与自适应视野程序",
+        "description": "去掉原网页边框，地图占满视口，响应16:9/20:9安全区。左上真实时钟日程，右上目标/钱/菜单和可收起小地图，左下三伙伴肖像卡，右下当前1/3格背包与停止。菜单容纳旧调试入口，真正暂停且继续无时间跃迁，普通日程/交易仍流逝。保留触摸/RTS移动、独立技能、相机平滑与P32采样。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "全屏场景无原114页头/右栏纸框；镜头/小地图/触摸命令使用动态视口且正确钳制。四地图正常加载，三伙伴技能状态/背包买卖交接/日程调速/停止/遮挡层级可用；头像身份独立于技能。旧小地图无边缘滚屏保持，16:9与20:9可用。",
+        "result": "用户认可A09并授权实装；主美已接手A10资源包，制作人开始重构全屏动态视野、浮动HUD及模态输入。保护root project.godot差异。",
+        "dependencyIds": [
+          "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/**",
+            "docs/dev/p33-*",
+            "docs/tests/p33-*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+          "interfaceContract": "制作人仅程序与测试，沿用A09布局与现有占位美术接口，不改主美资源。root project.godot原差异保留不提交；不改变世界布局/时间预算/敌对规则。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a10-art-start-20261005",
+      "taskId": "9e101654-14f2-47f3-a88e-101d3fe6d383",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "主美接手 A10，用户已认可 A09 全屏布局；开始制作可编辑 Theme/SVG 与现有角色上半身 AtlasTexture 引用，制作人并行接入程序。",
+      "evidence": [
+        "仅修改 art/ui/fullscreen/** 和 docs/art/a10-*。",
+        "复用 art/characters/*_handpaint_v03.png 及 art/fonts/NotoSansCJKsc-Regular.otf，保留已交付角色像素及世界风格。"
+      ],
+      "at": "2026-10-05T06:34:25.585Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "9e101654-14f2-47f3-a88e-101d3fe6d383",
+        "title": "A10 · 全屏浮动HUD素材与规格",
+        "description": "按用户确认A09概念交付可复用纸卡/选中态/图标与三人物肖像引用，配套布局规格。优先使用现有纸卡和人物图集，无需新角色和整张烘焙界面；提供九宫格/Theme资源及SVG图标等可编辑资产。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "交付可加载的Theme/纸卡样式和暂停/停止/定位/钟/币等小图标，三伙伴肖像从现有素材裁切引用不修改PNG；给出接口路径/适配规格/自检截图或图集。不将概念图作为整张游戏UI贴图，普通1格/收纳3格明确。",
+        "result": "主美接手 A10，用户已认可 A09 全屏布局；开始制作可编辑 Theme/SVG 与现有角色上半身 AtlasTexture 引用，制作人并行接入程序。",
+        "dependencyIds": [
+          "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+        ],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "art/ui/fullscreen/**",
+            "docs/art/a10-*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/art/ui/fullscreen/",
+          "interfaceContract": "主美只改自己的UI资源/文档，不改scripts/scenes/data/project.godot。制作人读取资源；不改已交付角色/玩法。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a10-fullscreen-assets-ready-20261005",
+      "taskId": "9e101654-14f2-47f3-a88e-101d3fe6d383",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "A10 全屏 HUD 素材完成：可加载 Theme、6个可编辑SVG图标与3个原角色上半身AtlasTexture引用，配套规格与真实Godot资源预览。用户已认可A09样式；本轮主美仅交付资源，制作人并行集成。",
+      "evidence": [
+        "资源入口：E:/Project/Godot/这次怎么逃/art/ui/fullscreen/theme.tres；默认NotoSans18、暖纸底深墨线青绿选中，normal/hover/pressed/disabled/focus及HudPanel/HudChip/PartnerCard/SelectedPartnerCard/InventorySlot/QuietButton变体。",
+        "6SVG：art/ui/fullscreen/pause.svg、stop.svg、locate.svg、clock.svg、coin.svg、chevron.svg，32×32透明可编辑代码原生矢量。",
+        "肖像：art/ui/fullscreen/portrait_1.tres/2.tres/3.tres，只引用现有v03 PNG上半身；原PNG SHA256与manifest一致，filter_clip=true。TextureRect先设EXPAND_IGNORE_SIZE再赋纹理可避免初始最小尺寸溢出。",
+        "报告：E:/Project/Godot/这次怎么逃/docs/art/a10-resource-qa.json（headless23项通过）与a10-resource-qa-native.json（Windows D3D12 24项通过）；真实资源渲染预览a10-resource-preview.png已实际查看，三头像、四按钮状态、六图标及1/3格可辨认。",
+        "规格：E:/Project/Godot/这次怎么逃/docs/art/a10-fullscreen-ui.md，包含接口/边距/字与热区/1与3槽/层级/源PNG哈希/执行命令和边界。",
+        "只新增art/ui/fullscreen/**与docs/art/a10-*，没有修改共享程序/项目配置/原角色PNG或A09说明，没有Git提交/推送。QA是独立资源预览，未宣称游戏实装或真机触屏验证；制作人接入与整体验证另任务。"
+      ],
+      "at": "2026-10-05T06:44:39.600Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "9e101654-14f2-47f3-a88e-101d3fe6d383",
+        "title": "A10 · 全屏浮动HUD素材与规格",
+        "description": "按用户确认A09概念交付可复用纸卡/选中态/图标与三人物肖像引用，配套布局规格。优先使用现有纸卡和人物图集，无需新角色和整张烘焙界面；提供九宫格/Theme资源及SVG图标等可编辑资产。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "交付可加载的Theme/纸卡样式和暂停/停止/定位/钟/币等小图标，三伙伴肖像从现有素材裁切引用不修改PNG；给出接口路径/适配规格/自检截图或图集。不将概念图作为整张游戏UI贴图，普通1格/收纳3格明确。",
+        "result": "A10 全屏 HUD 素材完成：可加载 Theme、6个可编辑SVG图标与3个原角色上半身AtlasTexture引用，配套规格与真实Godot资源预览。用户已认可A09样式；本轮主美仅交付资源，制作人并行集成。",
+        "dependencyIds": [
+          "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+        ],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "art/ui/fullscreen/**",
+            "docs/art/a10-*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/art/ui/fullscreen/",
+          "interfaceContract": "主美只改自己的UI资源/文档，不改scripts/scenes/data/project.godot。制作人读取资源；不改已交付角色/玩法。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T06:46:07.781Z",
+        "note": "制作人独立审核：已实际查看资源预览和主游戏集成截图，Theme暖纸卡/青绿状态与A09一致，三肖像引用现有PNG，SVG清晰、无整图烘焙。主游戏1200×720原生触屏34项通过；主美加载23/原生24项报告交付完整。资源范围通过，手机真机热区在程序集成阶段继续验证。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p35-start-20261005",
+      "taskId": "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "开始实现三天连续时钟、午夜实体锁寝、警卫查房与可选跳过。全屏HUD同步接入日期。",
+      "evidence": [
+        "scripts/core/prison_schedule.gd",
+        "data/schedule.json"
+      ],
+      "at": "2026-10-05T07:25:46.218Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+        "title": "P35 · 多天逃脱、午夜锁寝与查房",
+        "description": "默认三天持续逃脱期限。每日20–24寝室区自由活动；00–08寝室门锁住，伙伴仍可控制，警卫进寝室查房。所有未逃出的伙伴在各自床位睡好后可跳过至08点；不传送伙伴。日程循环保持背包、交易与地图状态。接入全屏时钟、日程、开发设置。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "验证三天期限和跨午夜日期、20点归寝、午夜实体门碰撞、警卫开门进入查房及睡觉/醒着的区别、可操作、跳过条件及次日开门；R04三寝室完整验证，其余房间兼容。原生全屏UI与限时结算验证，保留project.godot用户改动。",
+        "result": "开始实现三天连续时钟、午夜实体锁寝、警卫查房与可选跳过。全屏HUD同步接入日期。",
+        "dependencyIds": [],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/**",
+            "data/schedule.json",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "scripts/core/prison_schedule.gd",
+          "interfaceContract": "时间由clock_elapsed独立驱动，游戏elapsed不跳跃；仅锁寝室门，出口锁进度与库存跨天保留；午夜新增查房允许警卫进入寝室，其他日程仍遵守安全区规则。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p35-multiday-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T07:25:11.154Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p33-ready-20261005",
+      "taskId": "e434a572-786f-4e21-bc35-cc4db198be06",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "全屏浮动HUD与动态视口已实现，四尺寸各46项原生触屏检查通过，菜单真实暂停、交易背包及相机路径验证完整。新多天规则由独立P35承接，P33未更换游戏世界布局。",
+      "evidence": [
+        "docs/dev/p33-fullscreen-ui.md",
+        "docs/tests/p33-native-1200.json",
+        "docs/tests/p33-native-1280.json",
+        "docs/tests/p33-native-1600.json",
+        "docs/tests/p33-native-960.json"
+      ],
+      "at": "2026-10-05T07:41:16.291Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "e434a572-786f-4e21-bc35-cc4db198be06",
+        "title": "P33 · 全屏HUD与自适应视野程序",
+        "description": "去掉原网页边框，地图占满视口，响应16:9/20:9安全区。左上真实时钟日程，右上目标/钱/菜单和可收起小地图，左下三伙伴肖像卡，右下当前1/3格背包与停止。菜单容纳旧调试入口，真正暂停且继续无时间跃迁，普通日程/交易仍流逝。保留触摸/RTS移动、独立技能、相机平滑与P32采样。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "全屏场景无原114页头/右栏纸框；镜头/小地图/触摸命令使用动态视口且正确钳制。四地图正常加载，三伙伴技能状态/背包买卖交接/日程调速/停止/遮挡层级可用；头像身份独立于技能。旧小地图无边缘滚屏保持，16:9与20:9可用。",
+        "result": "全屏浮动HUD与动态视口已实现，四尺寸各46项原生触屏检查通过，菜单真实暂停、交易背包及相机路径验证完整。新多天规则由独立P35承接，P33未更换游戏世界布局。",
+        "dependencyIds": [
+          "3ee05e3b-4961-4ccb-ac9c-90b22eb2d45b"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/**",
+            "docs/dev/p33-*",
+            "docs/tests/p33-*"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn",
+          "interfaceContract": "制作人仅程序与测试，沿用A09布局与现有占位美术接口，不改主美资源。root project.godot原差异保留不提交；不改变世界布局/时间预算/敌对规则。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T07:42:05.187Z",
+        "note": "制作人自验收：a128d77全屏世界/动态视口、四尺寸原生ScreenTouch各46通过，实际交易/物品/暂停/日程/调速/终局可用，肖像不随技能变化。已检查实际截图，A10资源另有主美交付/制作人审核；P35独立记录日程新规则。未做Android/iOS真机或真人趣味性验证。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p35-ready-20261005",
+      "taskId": "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "三天连续时钟/每日作息、R04三实体寝室门、真实查房与睡觉、可继续操作/可选跳夜已实现。无头36与原生36通过；原生触摸跳夜，保留状态，早晨返回安全边界。旧三图兼容，不新增独立寝门。",
+      "evidence": [
+        "docs/dev/p35-multiday.md",
+        "docs/tests/p35-headless.json",
+        "docs/tests/p35-native.json",
+        "docs/tests/p35-midnight.png"
+      ],
+      "at": "2026-10-05T07:41:43.991Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "f6ed3698-dcd4-47f1-817d-1d45143679ba",
+        "title": "P35 · 多天逃脱、午夜锁寝与查房",
+        "description": "默认三天持续逃脱期限。每日20–24寝室区自由活动；00–08寝室门锁住，伙伴仍可控制，警卫进寝室查房。所有未逃出的伙伴在各自床位睡好后可跳过至08点；不传送伙伴。日程循环保持背包、交易与地图状态。接入全屏时钟、日程、开发设置。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "验证三天期限和跨午夜日期、20点归寝、午夜实体门碰撞、警卫开门进入查房及睡觉/醒着的区别、可操作、跳过条件及次日开门；R04三寝室完整验证，其余房间兼容。原生全屏UI与限时结算验证，保留project.godot用户改动。",
+        "result": "三天连续时钟/每日作息、R04三实体寝室门、真实查房与睡觉、可继续操作/可选跳夜已实现。无头36与原生36通过；原生触摸跳夜，保留状态，早晨返回安全边界。旧三图兼容，不新增独立寝门。",
+        "dependencyIds": [],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/**",
+            "data/schedule.json",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "scripts/core/prison_schedule.gd",
+          "interfaceContract": "时间由clock_elapsed独立驱动，游戏elapsed不跳跃；仅锁寝室门，出口锁进度与库存跨天保留；午夜新增查房允许警卫进入寝室，其他日程仍遵守安全区规则。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p35-multiday-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T07:25:11.154Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T07:42:27.948Z",
+        "note": "制作人自验收：a128d77，无头与原生各36检查通过；警卫真实行走进入三寝室并使用门钥匙、闭门阻挡、睡者零抓回/醒着捕获、跨天状态保留/原生触摸跳夜、08点开门并恢复安全区及返回巡视均有证据。默认72小时、旧图兼容记录明确；未做手机真机/真人夜间解谜。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p34-start-20261005",
+      "taskId": "d8bfad4b-71ec-4487-9110-ae6577433117",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "A10/P33已接入并完成四尺寸原生UI测试，正在整合新P35日程显示、同步正式规则、仓库与可玩窗口。",
+      "evidence": [
+        "docs/dev/p33-fullscreen-ui.md",
+        "docs/dev/p35-multiday.md"
+      ],
+      "at": "2026-10-05T07:42:46.390Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "d8bfad4b-71ec-4487-9110-ae6577433117",
+        "title": "P34 · 全屏UI整合与原生触屏验证",
+        "description": "接入A10正式资源和P33程序，验证全屏UI的原生手机横屏模拟、模态层级、交易保留背包与连续相机表现，保存截图、推送仓库、同步GC并重新打开游戏。",
+        "kind": "其他",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "1200×720/1280×720/1600×720及960×540原生GUI/触摸事件检查，实际背包1/3格、买卖/选人/停止/小地图/菜单暂停恢复/日程时间流逝/开发设置/重开换图路径，至少白天/夜晚截图核对。代码资源诊断通过，未做手机真机如实记录，原root配置SHA一致。",
+        "result": "A10/P33已接入并完成四尺寸原生UI测试，正在整合新P35日程显示、同步正式规则、仓库与可玩窗口。",
+        "dependencyIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/presentation/**",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn @ R04",
+          "interfaceContract": "明确整合A10/P33已交付资源与程序；程序接入只读主美资源，碰撞/玩法/PNG保持。可在引擎验证并完成发布前审查，用户本轮已授权执行与既有仓库推送。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p34-ready-20261005",
+      "taskId": "d8bfad4b-71ec-4487-9110-ae6577433117",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "a128d77已推送main，A10/P33全屏HUD与P35日期接入可玩主干。四尺寸184原生UI检查+72日程逻辑/原生检查通过，MCP指定实例重开main token15 live且启动无错误。保护原root用户差异，规则已应用，整理工程同步。未做手机真机/真人玩法验证。",
+      "evidence": [
+        "docs/dev/p34-fullscreen-integration.md",
+        "docs/dev/p33-fullscreen-ui.md",
+        "docs/dev/p35-multiday.md",
+        "docs/tests/p34-live.json",
+        "docs/tests/p33-native-1200.json",
+        "docs/tests/p33-native-1600.json",
+        "docs/tests/p35-native.json"
+      ],
+      "at": "2026-10-05T07:43:55.243Z",
+      "evidenceVersion": 1,
+      "state": "returned",
+      "taskSnapshot": {
+        "id": "d8bfad4b-71ec-4487-9110-ae6577433117",
+        "title": "P34 · 全屏UI整合与原生触屏验证",
+        "description": "接入A10正式资源和P33程序，验证全屏UI的原生手机横屏模拟、模态层级、交易保留背包与连续相机表现，保存截图、推送仓库、同步GC并重新打开游戏。",
+        "kind": "其他",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "1200×720/1280×720/1600×720及960×540原生GUI/触摸事件检查，实际背包1/3格、买卖/选人/停止/小地图/菜单暂停恢复/日程时间流逝/开发设置/重开换图路径，至少白天/夜晚截图核对。代码资源诊断通过，未做手机真机如实记录，原root配置SHA一致。",
+        "result": "a128d77已推送main，A10/P33全屏HUD与P35日期接入可玩主干。四尺寸184原生UI检查+72日程逻辑/原生检查通过，MCP指定实例重开main token15 live且启动无错误。保护原root用户差异，规则已应用，整理工程同步。未做手机真机/真人玩法验证。",
+        "dependencyIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/presentation/**",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn @ R04",
+          "interfaceContract": "明确整合A10/P33已交付资源与程序；程序接入只读主美资源，碰撞/玩法/PNG保持。可在引擎验证并完成发布前审查，用户本轮已授权执行与既有仓库推送。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T07:45:02.655Z",
+        "note": "集成复核发现R04监管区右侧出口走廊被寝区判断当成左侧寝区，需要限定公共寝区为监管区左侧。保持UI/日程设计不变，修正这个边界判断并保存独立回归证据后再提交。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p34-final-ready-20261005",
+      "taskId": "d8bfad4b-71ec-4487-9110-ae6577433117",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "主干a128d77已推送，9ef0600补充集成复核：R04公共寝区限定左侧，右出口走廊不会误标，6项独立边界回归通过；四尺寸184原生UI和72日程检查证据保持。指定MCP实例live无启动错误，根配置SHA不变。GC规则已应用。真机/真人仍未测。",
+      "evidence": [
+        "docs/dev/p34-fullscreen-integration.md",
+        "docs/dev/p33-fullscreen-ui.md",
+        "docs/dev/p35-multiday.md",
+        "docs/tests/p34-live.json",
+        "docs/tests/p34-dorm-boundary.json",
+        "docs/tests/p33-native-1200.json",
+        "docs/tests/p33-native-1600.json",
+        "docs/tests/p35-native.json"
+      ],
+      "at": "2026-10-05T07:45:30.993Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "d8bfad4b-71ec-4487-9110-ae6577433117",
+        "title": "P34 · 全屏UI整合与原生触屏验证",
+        "description": "接入A10正式资源和P33程序，验证全屏UI的原生手机横屏模拟、模态层级、交易保留背包与连续相机表现，保存截图、推送仓库、同步GC并重新打开游戏。",
+        "kind": "其他",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "1200×720/1280×720/1600×720及960×540原生GUI/触摸事件检查，实际背包1/3格、买卖/选人/停止/小地图/菜单暂停恢复/日程时间流逝/开发设置/重开换图路径，至少白天/夜晚截图核对。代码资源诊断通过，未做手机真机如实记录，原root配置SHA一致。",
+        "result": "主干a128d77已推送，9ef0600补充集成复核：R04公共寝区限定左侧，右出口走廊不会误标，6项独立边界回归通过；四尺寸184原生UI和72日程检查证据保持。指定MCP实例live无启动错误，根配置SHA不变。GC规则已应用。真机/真人仍未测。",
+        "dependencyIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "references": [],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "integrationTaskIds": [
+          "9e101654-14f2-47f3-a88e-101d3fe6d383",
+          "e434a572-786f-4e21-bc35-cc4db198be06"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/presentation/**",
+            "qa/**",
+            "docs/**",
+            "gamecreator/**",
+            "README.md"
+          ],
+          "entry": "E:/Project/Godot/这次怎么逃/scenes/main.tscn @ R04",
+          "interfaceContract": "明确整合A10/P33已交付资源与程序；程序接入只读主美资源，碰撞/玩法/PNG保持。可在引擎验证并完成发布前审查，用户本轮已授权执行与既有仓库推送。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "fullscreen-ui-execution-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T06:32:38.925Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-05T07:45:57.197Z",
+        "note": "制作人主干整合自验收：A10/P33接入四尺寸184项原生输入通过，P35三天/查房72项通过，9ef0600额外修正左寝区边界并6项独立检查通过。真实帧与MCP可玩启动证据完整；用户根配置SHA保持。初次反馈退回与修正记录保留。已确认规则正式应用，无真机/真人趣味性结论。",
+        "mode": "producer-self",
         "evidenceVersion": 1
       }
     }
