@@ -1640,6 +1640,56 @@
             "at": "2026-10-05T01:14:54.102Z"
           }
         ]
+      },
+      {
+        "id": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+        "title": "P24 连点寻路优化与选中镜头跟随",
+        "description": "测量R04连点路径耗时，减少整图动态覆盖与重复碰撞检查；选择伙伴后跟随，手动主图/小地图查看暂停跟随，重新选人或定位恢复。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "同机优化前后路径基准、连续点击最新目标与不中断/无穿墙，动门箱/伙伴及警卫监管区回归；两尺寸原生输入选择/跟随/手动查看/定位恢复，固定HUD及小图不滚动。保留用户project.godot变更，记录未真机测试。",
+        "result": "v0.8.1主干db51a65完成连点寻路优化与选中镜头跟随。缓存双静态导航图、局部动态覆盖/恢复、连续圆形扫掠及碰撞集合，保留圆角/警卫边界/出口接缝。选中平滑跟随，手动拖图/小地图/方向键暂停，重新选人/定位F恢复，主图按住输入冻结镜头确保点击坐标，HUD和小图不变。同机80查询中位数303.249→3.040ms、P95 623.418→4.514ms、首次483.937→7.629ms，60可达/20不可达一致。106项技术结果通过：19导航、18旧环境、12四图持续巡逻/边界、13 R03含七完整路线、4 R04完整路线，两尺寸各20原生跟随/30触摸轻点/30右键最新目标检查。R03/R04路线均0抓回。原生右键输入P95 0.575/0.539ms、帧等待8.547/8.362ms；仅Windows样本，不冒充真机。初版测试目标在界外造成拒绝，修正夹具并保留失败，不改规则。用户project.godot变更保留未提交，主原生正常随机R04实际移动镜头跟随确认，当前运行无游戏错误。\n\n验收通过：制作人按producer任务单独自验收，核对db51a65、19源/14证据哈希一致，106技术结果通过。性能基准同机同80查询，结果60/20一致，典型局部56格替代整图重算；实际原生两尺寸各30右键/30触摸最终目标到达，跟随及手动暂停/重新选人和定位恢复正确。R03七条/R04四条持续AI完整路线均0抓回，四图60秒巡逻与边界正常。失败夹具明确记录并排除，不宣称真机/真人或普适帧预算。主窗口运行当前版本，用户配置保留未覆盖未提交。",
+        "dependencyIds": [
+          "2c995e18-07a6-4848-a2a8-41129f74f90f"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/",
+            "scripts/world/",
+            "scripts/ui/",
+            "tests/",
+            "docs/dev/",
+            "docs/tests/",
+            "README.md"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "即时移动命令及友军独立行动保留；碰撞/安全区规则不变，不新增美术。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p24-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T02:00:47.160Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1899,6 +1949,17 @@
           "design-documents",
           "gameplay"
         ]
+      },
+      {
+        "id": "p24-navigation-follow-design-20261005",
+        "digest": "3fd2a2f2665c738fe07201502c32453db3b9aee2db3f79af385645d69ac3fc05",
+        "summary": "v0.8.1优化连点寻路并增加选中人物平滑镜头跟随，保留手动小地图查看和暂停/恢复；106技术检查通过。",
+        "memberName": "制作人",
+        "at": "2026-10-05T02:14:30.062Z",
+        "modules": [
+          "gameplay",
+          "design-documents"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -2037,6 +2098,18 @@
         "createdTaskIds": [
           "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
           "2c995e18-07a6-4848-a2a8-41129f74f90f"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p24-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T02:00:47.160Z",
+        "reason": "用户要求优化连续点击寻路卡顿并让镜头跟随选中伙伴。",
+        "createdTaskIds": [
+          "9726b094-4fa1-43b5-8190-83287d4d3f90"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -6836,6 +6909,153 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-05T01:55:10.735Z",
           "note": "制作人按任务允许的producer自验收单独审核：主干732d1bd与构建23源/27证据哈希匹配，原PNG7/25实际实例/占地与南侧深度显示、低物件移动与高柜视线灯光区分均验证；四条持续AI昼夜路线及真实帧125.55秒3人0抓回完成，32规则含120秒巡逻无卡住，两尺寸原生GUI各17与旧三关手机各38通过。实际主运行正常随机R04，地图/背包/商人沿原规则。A06独立资产验收有效；用户配置未覆盖未提交，远端main已732d1bd。147项仅技术结论，不替代P09真人或手机真机，不宣称所有随机技能可解。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p24-start-20261005",
+        "taskId": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已复现同步寻路整图覆盖与重复采样，先录80次优化前基准；缓存静态网格、局部动态覆盖和精简路径采样，另实现选中跟随/手动暂停恢复。",
+        "evidence": [
+          "tests/p24_navigation_bench.gd"
+        ],
+        "at": "2026-10-05T02:01:44.802Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+          "title": "P24 连点寻路优化与选中镜头跟随",
+          "description": "测量R04连点路径耗时，减少整图动态覆盖与重复碰撞检查；选择伙伴后跟随，手动主图/小地图查看暂停跟随，重新选人或定位恢复。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "同机优化前后路径基准、连续点击最新目标与不中断/无穿墙，动门箱/伙伴及警卫监管区回归；两尺寸原生输入选择/跟随/手动查看/定位恢复，固定HUD及小图不滚动。保留用户project.godot变更，记录未真机测试。",
+          "result": "已复现同步寻路整图覆盖与重复采样，先录80次优化前基准；缓存静态网格、局部动态覆盖和精简路径采样，另实现选中跟随/手动暂停恢复。",
+          "dependencyIds": [
+            "2c995e18-07a6-4848-a2a8-41129f74f90f"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/world/",
+              "scripts/ui/",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "即时移动命令及友军独立行动保留；碰撞/安全区规则不变，不新增美术。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p24-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:00:47.160Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p24-delivery-20261005",
+        "taskId": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.8.1主干db51a65完成连点寻路优化与选中镜头跟随。缓存双静态导航图、局部动态覆盖/恢复、连续圆形扫掠及碰撞集合，保留圆角/警卫边界/出口接缝。选中平滑跟随，手动拖图/小地图/方向键暂停，重新选人/定位F恢复，主图按住输入冻结镜头确保点击坐标，HUD和小图不变。同机80查询中位数303.249→3.040ms、P95 623.418→4.514ms、首次483.937→7.629ms，60可达/20不可达一致。106项技术结果通过：19导航、18旧环境、12四图持续巡逻/边界、13 R03含七完整路线、4 R04完整路线，两尺寸各20原生跟随/30触摸轻点/30右键最新目标检查。R03/R04路线均0抓回。原生右键输入P95 0.575/0.539ms、帧等待8.547/8.362ms；仅Windows样本，不冒充真机。初版测试目标在界外造成拒绝，修正夹具并保留失败，不改规则。用户project.godot变更保留未提交，主原生正常随机R04实际移动镜头跟随确认，当前运行无游戏错误。",
+        "evidence": [
+          "git:db51a65",
+          "docs/dev/p24-navigation-follow.md",
+          "docs/tests/p24-build.json",
+          "docs/tests/p24-navigation-before.json",
+          "docs/tests/p24-navigation-after.json",
+          "docs/tests/p24-navigation-check.json",
+          "docs/tests/p24-environment.json",
+          "docs/tests/p24-guard.json",
+          "docs/tests/p24-r03-routes.json",
+          "docs/tests/p24-r04-routes.json",
+          "docs/tests/p24-native-follow-1280x720.json",
+          "docs/tests/p24-native-follow-960x540.json",
+          "docs/tests/p24-live-follow.json"
+        ],
+        "at": "2026-10-05T02:15:28.855Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "9726b094-4fa1-43b5-8190-83287d4d3f90",
+          "title": "P24 连点寻路优化与选中镜头跟随",
+          "description": "测量R04连点路径耗时，减少整图动态覆盖与重复碰撞检查；选择伙伴后跟随，手动主图/小地图查看暂停跟随，重新选人或定位恢复。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "同机优化前后路径基准、连续点击最新目标与不中断/无穿墙，动门箱/伙伴及警卫监管区回归；两尺寸原生输入选择/跟随/手动查看/定位恢复，固定HUD及小图不滚动。保留用户project.godot变更，记录未真机测试。",
+          "result": "v0.8.1主干db51a65完成连点寻路优化与选中镜头跟随。缓存双静态导航图、局部动态覆盖/恢复、连续圆形扫掠及碰撞集合，保留圆角/警卫边界/出口接缝。选中平滑跟随，手动拖图/小地图/方向键暂停，重新选人/定位F恢复，主图按住输入冻结镜头确保点击坐标，HUD和小图不变。同机80查询中位数303.249→3.040ms、P95 623.418→4.514ms、首次483.937→7.629ms，60可达/20不可达一致。106项技术结果通过：19导航、18旧环境、12四图持续巡逻/边界、13 R03含七完整路线、4 R04完整路线，两尺寸各20原生跟随/30触摸轻点/30右键最新目标检查。R03/R04路线均0抓回。原生右键输入P95 0.575/0.539ms、帧等待8.547/8.362ms；仅Windows样本，不冒充真机。初版测试目标在界外造成拒绝，修正夹具并保留失败，不改规则。用户project.godot变更保留未提交，主原生正常随机R04实际移动镜头跟随确认，当前运行无游戏错误。",
+          "dependencyIds": [
+            "2c995e18-07a6-4848-a2a8-41129f74f90f"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/",
+              "scripts/world/",
+              "scripts/ui/",
+              "tests/",
+              "docs/dev/",
+              "docs/tests/",
+              "README.md"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "即时移动命令及友军独立行动保留；碰撞/安全区规则不变，不新增美术。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p24-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T02:00:47.160Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T02:15:53.749Z",
+          "note": "制作人按producer任务单独自验收，核对db51a65、19源/14证据哈希一致，106技术结果通过。性能基准同机同80查询，结果60/20一致，典型局部56格替代整图重算；实际原生两尺寸各30右键/30触摸最终目标到达，跟随及手动暂停/重新选人和定位恢复正确。R03七条/R04四条持续AI完整路线均0抓回，四图60秒巡逻与边界正常。失败夹具明确记录并排除，不宣称真机/真人或普适帧预算。主窗口运行当前版本，用户配置保留未覆盖未提交。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
