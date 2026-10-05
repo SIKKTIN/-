@@ -6,7 +6,6 @@ var blocker: ColorRect
 var title: Label
 var offers: ItemList
 var buy: Button
-var sell: Button
 var merchant_id: String = ""
 var actor_id: int = -1
 var listed_ids: Array = []
@@ -39,7 +38,7 @@ func configure(owner_game) -> void:
 	panel.add_child(title)
 	var notice := Label.new()
 	notice.position = Vector2(18, 47)
-	notice.text = "营业：12–14 / 18–20。出售先选背包，交易时钟继续。"
+	notice.text = "仅可购买 · 营业：12–14 / 18–20，交易时钟继续。"
 	notice.add_theme_font_size_override("font_size", 14)
 	panel.add_child(notice)
 	offers = ItemList.new()
@@ -47,8 +46,7 @@ func configure(owner_game) -> void:
 	offers.size = Vector2(454, 205)
 	offers.fixed_icon_size = Vector2i(24, 24)
 	panel.add_child(offers)
-	buy = _button("购买所选", Vector2(18, 299), func(): transact(true))
-	sell = _button("卖出背包所选", Vector2(168, 299), func(): transact(false))
+	buy = _button("购买所选", Vector2(18, 299), transact, 282)
 	_button("关闭", Vector2(348, 299), close, 120)
 	close()
 
@@ -106,24 +104,19 @@ func refresh() -> void:
 		offers.clear()
 		for id in listed_ids:
 			var def: Dictionary = game.inventory.definitions[game.inventory.instances[id].definition_id]
-			offers.add_item("%s  ·  买 %d / 卖 %d" % [def.name, def.sell_price, def.buy_price], game.items_view.icon_for(str(def.id)))
+			offers.add_item("%s  ·  价格 %d" % [def.name, def.sell_price], game.items_view.icon_for(str(def.id)))
 		if offers.item_count > 0:
 			offers.select(0)
 	buy.disabled = offers.get_selected_items().is_empty()
-	sell.disabled = not game.inventory.owns(actor_id, game.inventory_panel.selected_item)
 
-func transact(purchase: bool) -> void:
+func transact() -> void:
 	refresh()
 	if not panel.visible:
 		return
-	var result: Dictionary
-	if purchase:
-		var selected := offers.get_selected_items()
-		if selected.is_empty():
-			return
-		result = game.trade.try_buy(actor_id, merchant_id, str(listed_ids[selected[0]]))
-	else:
-		result = game.trade.try_sell(actor_id, merchant_id, game.inventory_panel.selected_item)
+	var selected := offers.get_selected_items()
+	if selected.is_empty():
+		return
+	var result: Dictionary = game.trade.try_buy(actor_id, merchant_id, str(listed_ids[selected[0]]))
 	game.show_status(str(result.reason))
 	game.inventory_panel.refresh()
 	refresh()

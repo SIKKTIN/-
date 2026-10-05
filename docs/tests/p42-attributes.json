@@ -1,0 +1,28 @@
+{
+	"checks": {
+		"actual_work_arrival": true,
+		"clock_zero_freezes": true,
+		"exhausted_clamped": true,
+		"exhausted_skill_rejected": true,
+		"exhausted_stops_work": true,
+		"home_rest_recovers": true,
+		"hungry_slow_work": true,
+		"initial_independent": true,
+		"interval_not_double_counted": true,
+		"low_attributes_slow_move": true,
+		"meal_recovers_both": true,
+		"morning_pause_no_double_recovery": true,
+		"no_free_pay_when_exhausted": true,
+		"not_at_home_no_meal": true,
+		"pause_freezes": true,
+		"reset_values": true,
+		"rest_real_home_arrival": true,
+		"skip_sleep_recovers": true,
+		"skip_to_paused_morning": true,
+		"terminal_freezes": true,
+		"wages_full_efficiency": true,
+		"work_60_minutes": true
+	},
+	"passed": true,
+	"scope": "Actual job/rest navigation and game-clock simulation. Explicit low-value/actor-location fixtures for threshold and meal exclusions."
+}

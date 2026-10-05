@@ -66,7 +66,7 @@ func try_buy(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
 	if inv.items(actor_id).size() >= inv.capacity(actor_id):
 		return {"ok": false, "reason": "背包已满，购买未扣款。"}
 	if inv.wallet < price:
-		return {"ok": false, "reason": "钱不够：先卖旧零件换钱。"}
+		return {"ok": false, "reason": "钱不够：安排工作获得工资。"}
 	# All checks above, one synchronous commit below.
 	inv.wallet -= price
 	merchants[merchant_id].stock.erase(item_id)
@@ -76,20 +76,8 @@ func try_buy(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
 	return {"ok": true, "reason": "购买成功，交给当前伙伴。"}
 
 func try_sell(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
-	var error := reason(actor_id, merchant_id)
-	if error != "":
-		return {"ok": false, "reason": error}
-	var inv = game.inventory
-	if not inv.owns(actor_id, item_id):
-		return {"ok": false, "reason": "只能出售当前伙伴背包中的物品。"}
-	var price := int(inv.definitions[inv.instances[item_id].definition_id].buy_price)
-	inv.bags[actor_id].erase(item_id)
-	inv.wallet += price
-	inv.instances[item_id].location = "shop"
-	inv.instances[item_id].actor_id = -1
-	inv.instances[item_id]["merchant_id"] = merchant_id
-	merchants[merchant_id].stock.append(item_id)
-	return {"ok": true, "reason": "出售成功，共享钱包 +%d。" % price}
+	# Retain a safe rejection for old callers; no inventory/currency mutation.
+	return {"ok": false, "reason": "商人不收购物品，仅可购买。"}
 
 func snapshot() -> Dictionary:
 	var result: Dictionary = merchants.duplicate(true)

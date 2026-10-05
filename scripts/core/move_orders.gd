@@ -62,7 +62,8 @@ func tick(delta: float) -> void:
 		var moved := Vector2.ZERO
 		if not path.is_empty():
 			var difference: Vector2 = path[0] - actor.position
-			var request: Vector2 = difference.normalized() * minf(game.MOVE_SPEED*delta,difference.length())
+			var efficiency: float = game.attributes.move_efficiency(id) if game.attributes else 1.0
+			var request: Vector2 = difference.normalized() * minf(game.MOVE_SPEED*efficiency*delta,difference.length())
 			moved = game.world.move_actor(actor,request,order.push,85*delta)
 		actor.moved_this_frame = moved.length_squared() > 0.001
 		if actor.moved_this_frame:

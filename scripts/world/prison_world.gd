@@ -16,6 +16,7 @@ var crate := Rect2(467,572,94,92)
 var original_crate := crate
 var exit_area := Rect2(986,355,194,180)
 var door_open: bool = false
+var gate_guarded := false
 var lock_progress: float = 0.0
 var push_distance: float = 0.0
 var obstacle_revision: int = 0
@@ -69,6 +70,7 @@ func _rect(value: Array) -> Rect2:
 
 func reset_world() -> void:
 	door_open = false
+	gate_guarded = false
 	lock_progress = 0.0
 	crate = original_crate
 	push_distance = 0.0
@@ -171,6 +173,12 @@ func _move_crate(displacement: Vector2, pusher = null) -> bool:
 func open_door() -> void:
 	door_open = true
 	lock_progress = 1.0
+	_changed(true)
+
+func set_gate_guarded(value: bool) -> void:
+	if gate_guarded == value:
+		return
+	gate_guarded = value
 	_changed(true)
 
 func check_exit(actor) -> bool:
@@ -377,8 +385,9 @@ func _changed(static_changed: bool = false) -> void:
 	static_nav_dirty = static_nav_dirty or static_changed
 	static_solids = walls.duplicate()
 	cached_sight = walls.duplicate()
-	if not door_open:
+	if not door_open or gate_guarded:
 		static_solids.append(door)
+	if not door_open:
 		cached_sight.append(door)
 	for fixture in fixtures:
 		if fixture.get("blocks_movement",true):

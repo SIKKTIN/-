@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "version": "merchant-walk-art-v12-20261005",
+  "base_style": "art-v03 / FINAL-WARM-01",
+  "npc_role": "merchant",
+  "world_height": 64,
+  "idle_policy": "keep inventory-assets-v07 merchant idle; this manifest only overrides actual-displacement walk",
+  "walk_animation": {
+    "texture": "res://art/characters/merchant/walk_v12/merchant_walk8_v12.png",
+    "texture_size": [
+      1774,
+      887
+    ],
+    "fps": 12,
+    "scale_height": 417.84457478,
+    "region_policy": "individual clean regions; world_height / scale_height for ALL frames, never divide by region height",
+    "registration_origin": "head-center axis at lowest opaque shoe sole; source anchor maps to shared world foot",
+    "row_separator": 443,
+    "frames": [
+      {
+        "id": "walk_0",
+        "region": [
+          71,
+          14,
+          325,
+          430
+        ],
+        "anchor": [
+          167,
+          424
+        ]
+      },
+      {
+        "id": "walk_1",
+        "region": [
+          512,
+          21,
+          315,
+          421
+        ],
+        "anchor": [
+          168,
+          415
+        ]
+      },
+      {
+        "id": "walk_2",
+        "region": [
+          979,
+          12,
+          248,
+          431
+        ],
+        "anchor": [
+          123,
+          425
+        ]
+      },
+      {
+        "id": "walk_3",
+        "region": [
+          1389,
+          11,
+          323,
+          432
+        ],
+        "anchor": [
+          165,
+          426
+        ]
+      },
+      {
+        "id": "walk_4",
+        "region": [
+          58,
+          452,
+          351,
+          421
+        ],
+        "anchor": [
+          173,
+          415
+        ]
+      },
+      {
+        "id": "walk_5",
+        "region": [
+          526,
+          453,
+          302,
+          424
+        ],
+        "anchor": [
+          157,
+          418
+        ]
+      },
+      {
+        "id": "walk_6",
+        "region": [
+          975,
+          451,
+          273,
+          426
+        ],
+        "anchor": [
+          131,
+          420
+        ]
+      },
+      {
+        "id": "walk_7",
+        "region": [
+          1387,
+          453,
+          330,
+          409
+        ],
+        "anchor": [
+          165,
+          403
+        ]
+      }
+    ],
+    "shadow_baked": false,
+    "direction": "right",
+    "cycle_seconds": 0.6666666666666666,
+    "sha256": "c921dd9ea9c8896a793849396564b01374ed4c506e1c9c2fb4701eb1191a72f8"
+  }
+}

@@ -105,7 +105,7 @@ func try_use(actor_id: int, id: String) -> Dictionary:
 		return _result(false, "请先选择当前伙伴的物品。")
 	var kind := str(instances[id].definition_id)
 	if kind not in ["door_key", "lock_tool"]:
-		return _result(false, "旧零件可以出售或带出。")
+		return _result(false, "旧零件可以携带或带出，商人不收购。")
 	var error: String = game.skills.door_reason(game.actors[actor_id], 55)
 	if error != "":
 		return _result(false, error)

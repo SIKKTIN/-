@@ -174,7 +174,10 @@ func skip_night() -> void:
 		game.show_status("所有未逃出的伙伴需回到各自床位，停止行动后才能跳过夜晚。")
 		return
 	var target := absolute_minutes()-clock_minutes()+480.0
+	var previous_clock := clock_elapsed
 	clock_elapsed = minf(limit_seconds,(target-float(config.start_minutes))/1440.0*day_seconds)
+	if game.attributes:
+		game.attributes.skip_sleep(previous_clock,clock_elapsed)
 	tick(false)
 	close()
 	if game.routines:
@@ -250,6 +253,8 @@ func tick(announce: bool = true) -> void:
 				game.show_status("%s开始：%s" % [stage.name,stage.detail],4)
 	game.world.update_dorm_doors(is_sleep_time(),game.guard.position)
 	skip_button.visible = is_sleep_time()
+	if game.gate_watch:
+		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
 	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
 	var stage: Dictionary = config.stages[stage_index]

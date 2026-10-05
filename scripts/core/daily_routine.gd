@@ -182,6 +182,8 @@ func is_working(actor_id: int) -> bool:
 		return false
 	var actor = game.actors[actor_id]
 	var record: Dictionary = records[actor_id]
+	if game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
+		return false
 	return record.kind == "work" and plans[actor_id][slot] == "work" and allowed(slot, "work") and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
 
 func working_ids() -> Array:
@@ -190,7 +192,7 @@ func working_ids() -> Array:
 func work_progress(actor_id: int) -> float:
 	return clampf(float(work_minutes[actor_id])/work_duration(), 0, 1)
 
-func accrue_work(begin_clock: float, end_clock: float, workers: Array) -> void:
+func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_credit: Dictionary = {}) -> void:
 	if game.phase != "playing" or game.get_tree().paused or not is_finite(begin_clock) or not is_finite(end_clock) or end_clock <= begin_clock:
 		return
 	var start: float = maxf(begin_clock, work_account_clock)
@@ -212,7 +214,7 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array) -> void:
 	for id in range(3):
 		if id not in workers:
 			continue
-		var total: float = float(work_minutes[id])+actual_minutes
+		var total: float = float(work_minutes[id])+float(work_credit.get(id,0) if game.attributes else actual_minutes)
 		var rounds := floori((total+0.0000001)/duration)
 		work_minutes[id] = maxf(0, total-rounds*duration)
 		if rounds <= 0:
@@ -233,6 +235,8 @@ func status_for(actor_id: int) -> String:
 	if not records.has(actor_id):
 		return ""
 	var r: Dictionary = records[actor_id]
+	if r.kind == "work" and game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
+		return "疲惫 · 请休息"
 	if is_working(actor_id):
 		return "工作中 %d%%" % floori(work_progress(actor_id)*100+0.000001)
 	return "路线受阻" if r.status == "blocked" else "前往"+NAMES[r.kind] if game.orders.active.has(actor_id) else NAMES[r.kind]+"中"

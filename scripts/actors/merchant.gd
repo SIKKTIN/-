@@ -5,6 +5,7 @@ var escaped := false
 var facing := Vector2.RIGHT
 var moved_this_frame := false
 var walk_clock := 0.0
+var walk_elapsed := 0.0
 var timetable: Array = []
 var entry: Dictionary = {}
 var goal := Vector2.ZERO
@@ -55,6 +56,7 @@ func tick(delta: float) -> void:
 	update_schedule()
 	if at_destination() or game.schedule.time_speed <= 0:
 		walk_clock = 0.0
+		walk_elapsed = 0.0
 		return
 	# Routine movement follows the game clock, keeping commute duration stable
 	# when the developer changes time speed. Player commands retain their speed.
@@ -74,6 +76,7 @@ func tick(delta: float) -> void:
 		moved_this_frame = game.world.move_actor(self,facing*minf(95*step_time,offset.length())).length_squared() > 0.001
 	stalled_time = 0.0 if moved_this_frame else stalled_time+step_time
 	walk_clock = fposmod(walk_clock+maxf(delta,0)*TAU/0.5,TAU) if moved_this_frame else 0.0
+	walk_elapsed = fposmod(walk_elapsed+maxf(delta,0),1000.0) if moved_this_frame else 0.0
 
 func snapshot() -> Dictionary:
 	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"moving":moved_this_frame,"walk_clock":walk_clock,"activity":activity_text(),"open":is_open(),"goal":[goal.x,goal.y],"path_size":path.size(),"route_status":route_status}

@@ -256,7 +256,7 @@ func refresh() -> void:
 	if draft != game.routines.plans:
 		note.text = "尚未应用 · "+note.text
 	if not game.schedule.is_sleep_time() and game.routines.allowed(0, "work"):
-		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"工作：每%d游戏分钟完成一轮，工资 +%d；离岗保留进度，20点后在寝室区活动。" % [roundi(game.routines.work_duration()), game.routines.work_wage()]
+		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"工作耗体力/饱腹，满%d有效分钟工资 +%d；休息恢复体力，12–14寝室进食。" % [roundi(game.routines.work_duration()), game.routines.work_wage()]
 	if picker.visible:
 		if not editable(editing_actor, editing_slot):
 			close_picker()

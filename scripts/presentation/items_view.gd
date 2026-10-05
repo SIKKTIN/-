@@ -4,6 +4,8 @@ var game
 var assets: Dictionary = {}
 var textures: Dictionary = {}
 var merchant_asset: Dictionary = {}
+var merchant_walk: Dictionary = {}
+var merchant_walk_frames: Array[Texture2D] = []
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -22,6 +24,16 @@ func reload_assets() -> void:
 	merchant_asset = assets.get("merchant", {})
 	if not merchant_asset.is_empty():
 		textures["merchant"] = _texture(merchant_asset)
+	merchant_walk_frames.clear()
+	merchant_walk.clear()
+	var motion_path := "res://art/characters/merchant/walk_v12/manifest.json"
+	if FileAccess.file_exists(motion_path):
+		var motion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(motion_path))
+		merchant_walk = motion.get("walk_animation",{})
+		for frame in merchant_walk.get("frames",[]):
+			merchant_walk_frames.append(_texture({"texture":merchant_walk.texture,"region":frame.region}))
+		if merchant_walk_frames.any(func(frame): return frame == null):
+			merchant_walk_frames.clear()
 	if textures.has("backpack"):
 		game.presentation.skill_icons["backpack"] = textures.backpack
 
@@ -47,6 +59,9 @@ func _texture(spec: Dictionary) -> Texture2D:
 func icon_for(id: String) -> Texture2D:
 	return textures.get(id)
 
+func merchant_frame_index(actor) -> int:
+	return int(actor.walk_elapsed*float(merchant_walk.get("fps",12))) % merchant_walk_frames.size() if actor.moved_this_frame and merchant_walk_frames.size() >= 8 else -1
+
 func _draw() -> void:
 	if not game:
 		return
@@ -70,7 +85,12 @@ func _draw() -> void:
 			var height := float(merchant_asset.get("world_height", 64))
 			var ratio := height / texture.get_height()
 			var anchor: Array = merchant_asset.get("anchor", [texture.get_width()/2.0, texture.get_height()])
-			var bob: float = sin(actor.walk_clock)*1.2 if actor.moved_this_frame else 0.0
+			var index: int = merchant_frame_index(actor)
+			if index >= 0:
+				texture = merchant_walk_frames[index]
+				anchor = merchant_walk.frames[index].anchor
+				ratio = height/float(merchant_walk.scale_height)
+			var bob: float = sin(actor.walk_clock)*1.2 if actor.moved_this_frame and merchant_walk_frames.is_empty() else 0.0
 			draw_set_transform(point+Vector2(0,bob),0,Vector2(-1 if actor.facing.x < -0.08 else 1,1))
 			draw_texture_rect(texture, Rect2(-Vector2(anchor[0], anchor[1])*ratio, texture.get_size()*ratio), false)
 			draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

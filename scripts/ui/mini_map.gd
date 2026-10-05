@@ -128,6 +128,10 @@ func _draw() -> void:
 			var coords: Array = item.position
 			draw_circle(to_map(Vector2(coords[0],coords[1])),2,Color("e6c691"))
 	draw_circle(to_map(game.guard.position),4,Color("c65b4b"))
+	if game.gate_watch:
+		for guard in game.gate_watch.guards:
+			if guard.on_duty():
+				draw_circle(to_map(guard.position),3.5,Color("328b82") if guard.state == "talking" else Color("c65b4b"))
 	if game.dog:
 		var dog_point := to_map(game.dog.position)
 		draw_rect(Rect2(dog_point-Vector2(3,3),Vector2(6,6)),Color("715037") if game.dog.state == "resting" else Color("df8c39"))

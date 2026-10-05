@@ -91,7 +91,8 @@ func refresh() -> void:
 			slot.expand_icon = true
 			if slot.icon:
 				slot.text = ""
-			slot.tooltip_text = "%s：%s" % [definition.get("name", entry.definition_id), definition.get("description", "点击选择物品")]
+			var description: String = "可携带或带出，商人不收购。" if entry.definition_id == "scrap" else str(definition.get("description", "点击选择物品"))
+			slot.tooltip_text = "%s：%s" % [definition.get("name", entry.definition_id), description]
 		else:
 			slot.text = "空"
 			slot.icon = game.items_view.icon_for("empty") if game.items_view else null

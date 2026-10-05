@@ -52,8 +52,17 @@ class PartnerFace extends Control:
 			state = ui.game.routines.status_for(index)
 		if ui.game.schedule.is_curfew() and not actor.escaped:
 			state = ui.game.schedule.actor_status(index)
-		draw_string(ui.font,Vector2(8,73),state,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("536052"))
-		if ui.game.routines and ui.game.routines.is_working(index):
+		draw_string(ui.font,Vector2(8,68 if ui.game.attributes else 73),state,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("536052"))
+		if ui.game.attributes:
+			var values: Dictionary = ui.game.attributes.values[index]
+			for row in range(2):
+				var value: float = values.stamina if row == 0 else values.fullness
+				var y: float = 77+row*14
+				var tint := Color("c9534b") if value < 25 else Color("328b82") if row == 0 else Color("c69c5e")
+				draw_string(ui.font,Vector2(8,y+4),("体 " if row == 0 else "饱 ")+str(roundi(value)),HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("536052"))
+				draw_rect(Rect2(44,y-3,size.x-52,5),Color("d3d7c8"))
+				draw_rect(Rect2(44,y-3,(size.x-52)*value/100.0,5),tint)
+		elif ui.game.routines and ui.game.routines.is_working(index):
 			draw_rect(Rect2(8,78,size.x-16,3),Color("d3d7c8"))
 			draw_rect(Rect2(8,78,(size.x-16)*ui.game.routines.work_progress(index),3),Color("c69c5e"))
 		if actor.selected and not actor.escaped:
@@ -251,8 +260,9 @@ func layout() -> void:
 	map_toggle.size = Vector2(94,48)
 	var card_width := minf(124,(safe.size.x*0.34-16)/3)
 	for index in range(3):
-		game.cards[index].position = Vector2(safe.position.x+index*(card_width+8),safe.end.y-84)
-		game.cards[index].size = Vector2(card_width,84)
+		var card_height := 104 if game.attributes else 84
+		game.cards[index].position = Vector2(safe.position.x+index*(card_width+8),safe.end.y-card_height)
+		game.cards[index].size = Vector2(card_width,card_height)
 		faces[index].size = game.cards[index].size
 	menu.position = safe.get_center()-menu.size/2
 	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker,game.routine_panel.blocker]:

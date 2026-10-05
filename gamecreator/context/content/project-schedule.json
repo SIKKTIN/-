@@ -2759,6 +2759,146 @@
             "at": "2026-10-05T10:59:39.434Z"
           }
         ]
+      },
+      {
+        "id": "ee12d268-9e8e-4cb1-a4f1-032386940126",
+        "title": "A12 · 商人逐帧行走动画",
+        "description": "用户指出商人只有静态移动、缺少行走动画。使用现有merchant_idle_v07为身份与FINAL-WARM-01风格基准，制作透明背景商人右向/三分之四行走循环，至少8帧，腿部迈步、手臂摆动有清晰区别，左向可程序翻转。不用对idle图平移/缩放或扭曲来伪造逐帧走路。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "至少8个真实独立走路姿势循环，透明背景、帧间身份/帽子/衣着一致、无地面影子、原idle不改；完整帧region/foot anchor/统一scale_height/fps元数据与QA联系表，主美实际看图确认；角色64单位显示可读，保存生成提示词和来源说明，先反馈待验收由制作人核验。",
+        "result": "商人逐帧行走图集交付：内置image_gen生成8个独立右向/三分之四姿势并修正后半步，12fps真透明，无烘焙地影；统一scale_height与独立脚点元数据，原idle不改。资源分析、Godot headless/原生联系表QA通过，主美已实际看原图和64单位联系表。\n\n验收通过：制作人已看64单位联系表和完整游戏实际行走截图，八帧姿势有明确腿/臂差异，身份与原idle一致。资源与主美Godot38/原生40项通过；程序真实移动循环8帧、暂停冻结与停止idle已验证。统一scale_height/各帧anchor避免逐帧缩放，原PNG不改。",
+        "dependencyIds": [],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/characters/merchant/walk_v12/**",
+            "docs/art/a12*"
+          ],
+          "entry": "art/characters/merchant/walk_v12/manifest.json",
+          "interfaceContract": "主美独占新PNG及动画元数据，制作人只读接入。身份基准 docs/art/inventory-assets-v07.json及 merchant_idle_v07.png，world_height64。输出walk_animation结构：texture(res://)、fps12、scale_height及frames[{id,region:[x,y,w,h],anchor:[x,y]}]；至少8帧，固定脚点/统一比例。禁止编辑旧PNG、程序、project.godot、其他成员凭证；仅本人凭证反馈。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T11:33:34.164Z"
+          }
+        ]
+      },
+      {
+        "id": "bd7784c5-20dc-460f-9b73-e9ce1484f519",
+        "title": "P41 · 只买入商店与白天铁门守卫",
+        "description": "用户明确要求取消玩家出售物品，只可购买，商人需要逐帧行走动画，白天铁门处增加守卫。先执行交易与守门程序，走路动画准备只读manifest接口，待A12制作后集成。体力/饱腹度目前讨论与可选澄清，不在未确认时扩大为生命系统。守门行为遵从用户异步答复，保留非戒备不抓人。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "出售按钮与售价消失，直接try_sell拒绝且钱包/库存/物品位置不变；购买、工资收入、背包与商人营业正常。白天铁门新增至少两名守卫，可见朝向/状态/小地图，不替代原巡逻；非戒备不抓，夜间/跨天/暂停复位符合规则，按确认口径验证门口/聊天/通行。动画接口读新manifest，无资源时旧idle有效，暂停/站立不步行。适当原生触摸和截图、财产完整性/日程回归；保留用户root配置、GC反馈验收同步并推送。",
+        "result": "只买入商店与防出售旁路完成，R03/R04白天两名守卫阻止解锁/通行，两个实际聊天目标牵制后可操作；A12八帧12fps接入停走/暂停。350项程序检查通过并与P42联合运行，另A12主美78项与P42属性22项通过。\n\n验收通过：制作人本人按允许自验收任务核验350项通过。已查看实际两名守卫交谈与第三人撬锁、只买入、8帧商人走路截图及A12联系表。出售拒绝保护财物，白天不抓人并真实屏障守门/分散放行，真实触摸与实际跨门路径成立；与P42属性22项联合状态通过。",
+        "dependencyIds": [
+          "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+          "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/**",
+            "data/presentation/active.json",
+            "qa/p41*",
+            "docs/dev/p41*",
+            "docs/tests/p41*"
+          ],
+          "entry": "res://scenes/main.tscn @ R03/R04",
+          "interfaceContract": "用户新要求覆盖旧买卖双向规则。只入既有钱包，禁止旧出售入口旁路。复用已有警卫资源新增实例，不改美术PNG，商人animation只读主美manifest。守卫不违背白天不抓人。若确认属性实施，单独建立明确范围任务，不在本任务偷加。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T11:33:34.164Z"
+          }
+        ]
+      },
+      {
+        "id": "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+        "title": "P42 · 体力与饱腹度接入日常活动",
+        "description": "用户确认本轮先加入体力与饱腹度，连接工作、休息、吃饭；生命值暂不做。三伙伴独立属性，用有效游戏分钟结算，暂停/时间0冻结，不让纯计时工作无代价发工资。劳动消耗体力与饱腹，休息/睡眠恢复体力，12–14安排休息且实际到寝室后进食恢复饱腹；低属性减缓行动和工作效率，工作体力耗尽停止累计但不替玩家操作。UI触屏可读，属性跨天、重开清空，跳夜按睡眠时间恢复。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "普通",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "两条属性独立可读、初始值及Clamp正确，工作实际消耗/有效进度、休息实际到位、餐时在休息点进食、流速/暂停/跨时段/跨天/跳夜/终局与重开、移动/技能低体力影响和背包工资不破坏。关键回归与原生截图通过，GC独立反馈验收并同步。",
+        "result": "体力/饱腹度两条独立属性接入工作/移动/技能/寝室休息/午休进食/睡眠跳夜，低值影响效率、耗尽停止劳动和技能但仍可回寝室，无生命/死亡。22项专用检查及P41联合350项通过，原生两尺寸属性条可读。\n\n验收通过：核对22项属性检查、联合372项程序检查及原生两尺寸截图；体力/饱腹度接入真实行为，暂停与跨天不重复结算，生命值按用户要求后续再做。本制作人开发任务允许自验收，交付符合本轮约定。",
+        "dependencyIds": [
+          "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/attributes.json",
+            "qa/p42*",
+            "docs/dev/p42*",
+            "docs/tests/p42*"
+          ],
+          "entry": "res://scenes/main.tscn / HUD伙伴属性",
+          "interfaceContract": "仅体力stamina与饱腹fullness，不生命/伤害/死亡。统一game-clock minutes结算，不按帧扣值；食物表现连接已确认午休/寝室日常，无新增美术PNG。三人独立，工资仅有效劳动，不能复记属性/进度。低值用明确效率惩罚，保留人物可控，休息可恢复，不创建硬饥饿死亡。复用已有UI主题。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "322786e0-d2c7-43eb-83b5-7de77c1c2fbb",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T11:37:03.043Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -3449,6 +3589,31 @@
         "reason": "移动商人需要小地图显示真实位置，白天不抓人使聊天旧提示失效；作为本轮配套显示集成，扩充这两个原共享接口。",
         "createdTaskIds": [
           "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T11:33:34.164Z",
+        "reason": "用户要求单向商店、商人真实走路与铁门守卫；按其既有主美调度授权分开艺术制作和程序，属性先澄清。",
+        "createdTaskIds": [
+          "ee12d268-9e8e-4cb1-a4f1-032386940126",
+          "bd7784c5-20dc-460f-9b73-e9ce1484f519"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "322786e0-d2c7-43eb-83b5-7de77c1c2fbb",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T11:37:03.043Z",
+        "reason": "用户已异步确认本轮加入体力和饱腹度，生命值以后再做；与只买商店/门口守卫拆分验收。",
+        "createdTaskIds": [
+          "8f14d139-9187-4918-9112-e8e10bcb0ee2"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -11594,6 +11759,406 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-05T11:15:32.764Z",
           "note": "制作人本人执行并按自验收约定核验，12项原生帧缓冲/真实通勤/交谈检查通过，已查看最新移动标记截图。商人标记跟随实际坐标、营业/休息颜色和夜间可见、非戒备提示正确，P40核心402项独立证据保留。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p41-start-20261005",
+        "taskId": "bd7784c5-20dc-460f-9b73-e9ce1484f519",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "用户确认白天守门阻止撬锁/通行、聊天可分散且不抓人。开始只买入商店、两名守门警卫与商人走路接口，A12主美并行制作。",
+        "evidence": [
+          "用户异步确认守门口径；保留P40非戒备不抓人。"
+        ],
+        "at": "2026-10-05T11:36:20.909Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "bd7784c5-20dc-460f-9b73-e9ce1484f519",
+          "title": "P41 · 只买入商店与白天铁门守卫",
+          "description": "用户明确要求取消玩家出售物品，只可购买，商人需要逐帧行走动画，白天铁门处增加守卫。先执行交易与守门程序，走路动画准备只读manifest接口，待A12制作后集成。体力/饱腹度目前讨论与可选澄清，不在未确认时扩大为生命系统。守门行为遵从用户异步答复，保留非戒备不抓人。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "出售按钮与售价消失，直接try_sell拒绝且钱包/库存/物品位置不变；购买、工资收入、背包与商人营业正常。白天铁门新增至少两名守卫，可见朝向/状态/小地图，不替代原巡逻；非戒备不抓，夜间/跨天/暂停复位符合规则，按确认口径验证门口/聊天/通行。动画接口读新manifest，无资源时旧idle有效，暂停/站立不步行。适当原生触摸和截图、财产完整性/日程回归；保留用户root配置、GC反馈验收同步并推送。",
+          "result": "用户确认白天守门阻止撬锁/通行、聊天可分散且不抓人。开始只买入商店、两名守门警卫与商人走路接口，A12主美并行制作。",
+          "dependencyIds": [
+            "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+            "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/**",
+              "data/presentation/active.json",
+              "qa/p41*",
+              "docs/dev/p41*",
+              "docs/tests/p41*"
+            ],
+            "entry": "res://scenes/main.tscn @ R03/R04",
+            "interfaceContract": "用户新要求覆盖旧买卖双向规则。只入既有钱包，禁止旧出售入口旁路。复用已有警卫资源新增实例，不改美术PNG，商人animation只读主美manifest。守卫不违背白天不抓人。若确认属性实施，单独建立明确范围任务，不在本任务偷加。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T11:33:34.164Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p42-start-20261005",
+        "taskId": "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已接手用户确认的体力和饱腹度。采用有效游戏分钟记账，连接劳动、寝室休息/午休进食/夜间睡眠，低值影响效率，属性卡复用现有风格。",
+        "evidence": [
+          "保留工资有效劳动累计、三日持续与暂停日常表。"
+        ],
+        "at": "2026-10-05T11:38:33.288Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+          "title": "P42 · 体力与饱腹度接入日常活动",
+          "description": "用户确认本轮先加入体力与饱腹度，连接工作、休息、吃饭；生命值暂不做。三伙伴独立属性，用有效游戏分钟结算，暂停/时间0冻结，不让纯计时工作无代价发工资。劳动消耗体力与饱腹，休息/睡眠恢复体力，12–14安排休息且实际到寝室后进食恢复饱腹；低属性减缓行动和工作效率，工作体力耗尽停止累计但不替玩家操作。UI触屏可读，属性跨天、重开清空，跳夜按睡眠时间恢复。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "普通",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "两条属性独立可读、初始值及Clamp正确，工作实际消耗/有效进度、休息实际到位、餐时在休息点进食、流速/暂停/跨时段/跨天/跳夜/终局与重开、移动/技能低体力影响和背包工资不破坏。关键回归与原生截图通过，GC独立反馈验收并同步。",
+          "result": "已接手用户确认的体力和饱腹度。采用有效游戏分钟记账，连接劳动、寝室休息/午休进食/夜间睡眠，低值影响效率，属性卡复用现有风格。",
+          "dependencyIds": [
+            "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/attributes.json",
+              "qa/p42*",
+              "docs/dev/p42*",
+              "docs/tests/p42*"
+            ],
+            "entry": "res://scenes/main.tscn / HUD伙伴属性",
+            "interfaceContract": "仅体力stamina与饱腹fullness，不生命/伤害/死亡。统一game-clock minutes结算，不按帧扣值；食物表现连接已确认午休/寝室日常，无新增美术PNG。三人独立，工资仅有效劳动，不能复记属性/进度。低值用明确效率惩罚，保留人物可控，休息可恢复，不创建硬饥饿死亡。复用已有UI主题。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "322786e0-d2c7-43eb-83b5-7de77c1c2fbb",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T11:37:03.043Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a12-merchant-walk-start-20261005",
+        "taskId": "ee12d268-9e8e-4cb1-a4f1-032386940126",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "主美实际接手 A12，已查看 merchant_idle_v07 身份基准并核对 FINAL-WARM-01 与 world_height64；开始内置 image_gen 制作8姿势透明右向走路循环，旧idle不变。",
+        "evidence": [
+          "基准art/characters/merchant/merchant_idle_v07.png，docs/art/inventory-assets-v07.json。",
+          "交付范围仅art/characters/merchant/walk_v12/**、docs/art/a12*；使用逐帧原生姿势而非静图变换，参考成熟v09的独立region与统一scale_height元数据。"
+        ],
+        "at": "2026-10-05T11:39:59.038Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "ee12d268-9e8e-4cb1-a4f1-032386940126",
+          "title": "A12 · 商人逐帧行走动画",
+          "description": "用户指出商人只有静态移动、缺少行走动画。使用现有merchant_idle_v07为身份与FINAL-WARM-01风格基准，制作透明背景商人右向/三分之四行走循环，至少8帧，腿部迈步、手臂摆动有清晰区别，左向可程序翻转。不用对idle图平移/缩放或扭曲来伪造逐帧走路。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "至少8个真实独立走路姿势循环，透明背景、帧间身份/帽子/衣着一致、无地面影子、原idle不改；完整帧region/foot anchor/统一scale_height/fps元数据与QA联系表，主美实际看图确认；角色64单位显示可读，保存生成提示词和来源说明，先反馈待验收由制作人核验。",
+          "result": "主美实际接手 A12，已查看 merchant_idle_v07 身份基准并核对 FINAL-WARM-01 与 world_height64；开始内置 image_gen 制作8姿势透明右向走路循环，旧idle不变。",
+          "dependencyIds": [],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/characters/merchant/walk_v12/**",
+              "docs/art/a12*"
+            ],
+            "entry": "art/characters/merchant/walk_v12/manifest.json",
+            "interfaceContract": "主美独占新PNG及动画元数据，制作人只读接入。身份基准 docs/art/inventory-assets-v07.json及 merchant_idle_v07.png，world_height64。输出walk_animation结构：texture(res://)、fps12、scale_height及frames[{id,region:[x,y,w,h],anchor:[x,y]}]；至少8帧，固定脚点/统一比例。禁止编辑旧PNG、程序、project.godot、其他成员凭证；仅本人凭证反馈。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T11:33:34.164Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a12-merchant-walk-ready-20261005",
+        "taskId": "ee12d268-9e8e-4cb1-a4f1-032386940126",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "商人逐帧行走图集交付：内置image_gen生成8个独立右向/三分之四姿势并修正后半步，12fps真透明，无烘焙地影；统一scale_height与独立脚点元数据，原idle不改。资源分析、Godot headless/原生联系表QA通过，主美已实际看原图和64单位联系表。",
+        "evidence": [
+          "入口：E:/Project/Godot/这次怎么逃/art/characters/merchant/walk_v12/manifest.json；walk_animation含texture/fps12/scale_height417.84457478/8个id-region-anchor；world_height64。",
+          "PNG：E:/Project/Godot/这次怎么逃/art/characters/merchant/walk_v12/merchant_walk8_v12.png，1774×887 RGBA，1331452 bytes；SHA256 c921dd9ea9c8896a793849396564b01374ed4c506e1c9c2fb4701eb1191a72f8，与最终imagegen原件逐字节相同。",
+          "独立QA：docs/art/a12-qa-resources.json，8个不同下半身轮廓、无邻帧像素混入、原idle哈希61e43132...55f7ed未改。头宽差2.42%、可见身体高差5.57%、中位可见高度与原idle均63.258；统一缩放不逐帧改尺度。",
+          "Godot实际资源报告：docs/art/a12-qa-godot-headless.json 38项通过，a12-qa-godot-native.json Windows D3D12 40项通过（联系表及48次12fps推进）。docs/art/a12-contact-1280x720.png已view_image查看：原idle/8姿势放大、64单位右向及左镜像，人物帽衣腰包身份清楚、鞋腿及手臂不同、脚点同基线。",
+          "完整提示词及来源：docs/art/a12-imagegen-prompts.json、a12-source-license.json。说明与全部文件表：docs/art/a12-merchant-walk.md；元数据只读像素分析脚本a12-register-frames.py，没有静图平移/扭曲/插值伪造帧。",
+          "边界：自然步态可见高度约60.807–64.330，未承诺零起伏；独立资源预览不等同手机真机/真人感受/完整游戏验收。仅新增walk_v12与a12*，未编辑程序/旧PNG/配置，未全工程同步或Git提交推送。制作人实际移动/暂停/停止/镜像检查另归集成。"
+        ],
+        "at": "2026-10-05T12:09:34.732Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "ee12d268-9e8e-4cb1-a4f1-032386940126",
+          "title": "A12 · 商人逐帧行走动画",
+          "description": "用户指出商人只有静态移动、缺少行走动画。使用现有merchant_idle_v07为身份与FINAL-WARM-01风格基准，制作透明背景商人右向/三分之四行走循环，至少8帧，腿部迈步、手臂摆动有清晰区别，左向可程序翻转。不用对idle图平移/缩放或扭曲来伪造逐帧走路。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "至少8个真实独立走路姿势循环，透明背景、帧间身份/帽子/衣着一致、无地面影子、原idle不改；完整帧region/foot anchor/统一scale_height/fps元数据与QA联系表，主美实际看图确认；角色64单位显示可读，保存生成提示词和来源说明，先反馈待验收由制作人核验。",
+          "result": "商人逐帧行走图集交付：内置image_gen生成8个独立右向/三分之四姿势并修正后半步，12fps真透明，无烘焙地影；统一scale_height与独立脚点元数据，原idle不改。资源分析、Godot headless/原生联系表QA通过，主美已实际看原图和64单位联系表。",
+          "dependencyIds": [],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/characters/merchant/walk_v12/**",
+              "docs/art/a12*"
+            ],
+            "entry": "art/characters/merchant/walk_v12/manifest.json",
+            "interfaceContract": "主美独占新PNG及动画元数据，制作人只读接入。身份基准 docs/art/inventory-assets-v07.json及 merchant_idle_v07.png，world_height64。输出walk_animation结构：texture(res://)、fps12、scale_height及frames[{id,region:[x,y,w,h],anchor:[x,y]}]；至少8帧，固定脚点/统一比例。禁止编辑旧PNG、程序、project.godot、其他成员凭证；仅本人凭证反馈。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T11:33:34.164Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T12:11:48.942Z",
+          "note": "制作人已看64单位联系表和完整游戏实际行走截图，八帧姿势有明确腿/臂差异，身份与原idle一致。资源与主美Godot38/原生40项通过；程序真实移动循环8帧、暂停冻结与停止idle已验证。统一scale_height/各帧anchor避免逐帧缩放，原PNG不改。",
+          "mode": "independent",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p41-delivery-20261005",
+        "taskId": "bd7784c5-20dc-460f-9b73-e9ce1484f519",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "只买入商店与防出售旁路完成，R03/R04白天两名守卫阻止解锁/通行，两个实际聊天目标牵制后可操作；A12八帧12fps接入停走/暂停。350项程序检查通过并与P42联合运行，另A12主美78项与P42属性22项通过。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p41-buy-only-gate-guards.md",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-rules.json（20项）",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-native-features.json（16项，真实两次触摸聊天/开锁/通过及8帧行走）",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-features-two-chats-unlock.png",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-features-buy-only-shop.png",
+          "A12已制作人验收；P41工资31/原生23、日常30、午夜36、UI46、1200/960各74全通过。"
+        ],
+        "at": "2026-10-05T12:15:02.575Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "bd7784c5-20dc-460f-9b73-e9ce1484f519",
+          "title": "P41 · 只买入商店与白天铁门守卫",
+          "description": "用户明确要求取消玩家出售物品，只可购买，商人需要逐帧行走动画，白天铁门处增加守卫。先执行交易与守门程序，走路动画准备只读manifest接口，待A12制作后集成。体力/饱腹度目前讨论与可选澄清，不在未确认时扩大为生命系统。守门行为遵从用户异步答复，保留非戒备不抓人。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "出售按钮与售价消失，直接try_sell拒绝且钱包/库存/物品位置不变；购买、工资收入、背包与商人营业正常。白天铁门新增至少两名守卫，可见朝向/状态/小地图，不替代原巡逻；非戒备不抓，夜间/跨天/暂停复位符合规则，按确认口径验证门口/聊天/通行。动画接口读新manifest，无资源时旧idle有效，暂停/站立不步行。适当原生触摸和截图、财产完整性/日程回归；保留用户root配置、GC反馈验收同步并推送。",
+          "result": "只买入商店与防出售旁路完成，R03/R04白天两名守卫阻止解锁/通行，两个实际聊天目标牵制后可操作；A12八帧12fps接入停走/暂停。350项程序检查通过并与P42联合运行，另A12主美78项与P42属性22项通过。",
+          "dependencyIds": [
+            "3b8c9c9e-0b87-4e51-98fc-2e1967c8d288",
+            "97d99b03-19e6-47d5-b8cd-f3a4c025cf40"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/**",
+              "data/presentation/active.json",
+              "qa/p41*",
+              "docs/dev/p41*",
+              "docs/tests/p41*"
+            ],
+            "entry": "res://scenes/main.tscn @ R03/R04",
+            "interfaceContract": "用户新要求覆盖旧买卖双向规则。只入既有钱包，禁止旧出售入口旁路。复用已有警卫资源新增实例，不改美术PNG，商人animation只读主美manifest。守卫不违背白天不抓人。若确认属性实施，单独建立明确范围任务，不在本任务偷加。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "31bd2b40-a209-4624-b219-7f8f377f3d57",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T11:33:34.164Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T12:15:52.789Z",
+          "note": "制作人本人按允许自验收任务核验350项通过。已查看实际两名守卫交谈与第三人撬锁、只买入、8帧商人走路截图及A12联系表。出售拒绝保护财物，白天不抓人并真实屏障守门/分散放行，真实触摸与实际跨门路径成立；与P42属性22项联合状态通过。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p42-delivery-20261005",
+        "taskId": "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "体力/饱腹度两条独立属性接入工作/移动/技能/寝室休息/午休进食/睡眠跳夜，低值影响效率、耗尽停止劳动和技能但仍可回寝室，无生命/死亡。22项专用检查及P41联合350项通过，原生两尺寸属性条可读。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p42-stamina-fullness.md",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p42-attributes.json（22项）",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-features-attribute-bars.png",
+          "E:/Project/Godot/这次怎么逃/docs/tests/p41-work-native.json（实际工资12元买钥匙）",
+          "P41两尺寸各74、UI46、日常30、午夜36和工资31回归通过，暂停/重复记账/低值截断/真实赴寝午饭/夜跳/跨天/重开均覆盖。"
+        ],
+        "at": "2026-10-05T12:19:08.308Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "8f14d139-9187-4918-9112-e8e10bcb0ee2",
+          "title": "P42 · 体力与饱腹度接入日常活动",
+          "description": "用户确认本轮先加入体力与饱腹度，连接工作、休息、吃饭；生命值暂不做。三伙伴独立属性，用有效游戏分钟结算，暂停/时间0冻结，不让纯计时工作无代价发工资。劳动消耗体力与饱腹，休息/睡眠恢复体力，12–14安排休息且实际到寝室后进食恢复饱腹；低属性减缓行动和工作效率，工作体力耗尽停止累计但不替玩家操作。UI触屏可读，属性跨天、重开清空，跳夜按睡眠时间恢复。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "普通",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "两条属性独立可读、初始值及Clamp正确，工作实际消耗/有效进度、休息实际到位、餐时在休息点进食、流速/暂停/跨时段/跨天/跳夜/终局与重开、移动/技能低体力影响和背包工资不破坏。关键回归与原生截图通过，GC独立反馈验收并同步。",
+          "result": "体力/饱腹度两条独立属性接入工作/移动/技能/寝室休息/午休进食/睡眠跳夜，低值影响效率、耗尽停止劳动和技能但仍可回寝室，无生命/死亡。22项专用检查及P41联合350项通过，原生两尺寸属性条可读。",
+          "dependencyIds": [
+            "2cbd32b4-bc7c-4d6e-84d2-472b74d9d0b2"
+          ],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/attributes.json",
+              "qa/p42*",
+              "docs/dev/p42*",
+              "docs/tests/p42*"
+            ],
+            "entry": "res://scenes/main.tscn / HUD伙伴属性",
+            "interfaceContract": "仅体力stamina与饱腹fullness，不生命/伤害/死亡。统一game-clock minutes结算，不按帧扣值；食物表现连接已确认午休/寝室日常，无新增美术PNG。三人独立，工资仅有效劳动，不能复记属性/进度。低值用明确效率惩罚，保留人物可控，休息可恢复，不创建硬饥饿死亡。复用已有UI主题。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "322786e0-d2c7-43eb-83b5-7de77c1c2fbb",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T11:37:03.043Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T12:20:08.722Z",
+          "note": "核对22项属性检查、联合372项程序检查及原生两尺寸截图；体力/饱腹度接入真实行为，暂停与跨天不重复结算，生命值按用户要求后续再做。本制作人开发任务允许自验收，交付符合本轮约定。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }

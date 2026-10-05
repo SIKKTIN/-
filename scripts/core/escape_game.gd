@@ -19,6 +19,8 @@ const RoutinePanel = preload("res://scripts/ui/routine_panel.gd")
 const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
 const PoliceDog = preload("res://scripts/actors/police_dog.gd")
 const FullscreenHUD = preload("res://scripts/ui/fullscreen_hud.gd")
+const GateWatch = preload("res://scripts/core/gate_watch.gd")
+const ActorAttributes = preload("res://scripts/core/actor_attributes.gd")
 const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
@@ -40,6 +42,8 @@ var developer_settings
 var routines
 var routine_panel
 var fullscreen_ui
+var gate_watch
+var attributes
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -141,6 +145,10 @@ func _ready() -> void:
 	fullscreen_ui = FullscreenHUD.new()
 	add_child(fullscreen_ui)
 	fullscreen_ui.configure(self)
+	gate_watch = GateWatch.new(self)
+	gate_watch.reset(room_config)
+	attributes = ActorAttributes.new(self)
+	fullscreen_ui.layout()
 	routines.offer_morning()
 
 func _build_ui() -> void:
@@ -215,26 +223,32 @@ func _process(delta: float) -> void:
 		return
 	delta = minf(delta,schedule.real_remaining()) if schedule else delta
 	var workers_before: Array = routines.working_ids() if routines else []
+	var behaviors_before: Array = attributes.behaviors() if attributes else []
 	var previous_clock: float = schedule.clock_elapsed if schedule else 0.0
 	if schedule:
 		schedule.advance(delta)
 		if schedule.time_speed > 0:
 			delta = minf(delta,(schedule.clock_elapsed-previous_clock)/schedule.time_speed)
 	elapsed += delta
+	var work_credit: Dictionary = attributes.accrue(previous_clock,schedule.clock_elapsed,behaviors_before) if attributes else {}
 	for actor in actors:
 		actor.moved_this_frame = false
 	if routines:
 		# Credit the old work state before tick replaces it at 12:00/18:00.
-		routines.accrue_work(previous_clock, schedule.clock_elapsed, workers_before)
+		routines.accrue_work(previous_clock, schedule.clock_elapsed, workers_before, work_credit)
 		routines.tick()
 		# Opening the morning planner inside this tick must also stop the
 		# remainder of this frame, before movement, skills and enemy AI.
 		if get_tree().paused:
 			_update_ui()
 			return
+	if gate_watch:
+		gate_watch.tick(delta)
 	orders.tick(delta)
 	trade.tick(delta)
 	skills.tick(delta)
+	if gate_watch:
+		gate_watch.tick(0)
 	dog.tick(delta)
 	guard.tick(delta)
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
@@ -383,6 +397,10 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routines.reset()
 	if schedule:
 		schedule.reset()
+	if gate_watch:
+		gate_watch.reset(room_config)
+	if attributes:
+		attributes.reset()
 	if routines:
 		routines.tick()
 	if developer_settings:
