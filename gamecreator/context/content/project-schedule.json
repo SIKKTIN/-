@@ -1543,6 +1543,103 @@
             "at": "2026-10-04T17:53:04.458Z"
           }
         ]
+      },
+      {
+        "id": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+        "title": "A06 牢房车间活动厅七种摆设资产",
+        "description": "按docs/dev/p23-prison-dressing-contract.md生成七种透明原PNG与注册manifest、来源与QA；延续art-v03。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board七资产，水平轴线轻斜俯视，原PNG透明，ground_rect注册、纹理/比例小尺寸可辨认，两尺寸资源预览与SHA256/提示词完整。不修改旧素材或共享代码。",
+        "result": "A06七摆设资源完成，冻结prison-art-v08-20261005-8b37a71e43d6（19文件SHA256，全部选定文本UTF-8 LF）。bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board分别内置imagegen生成透明RGBA原PNG，未处理像素，原源逐字节相同；manifest提供原尺寸、Atlas region、局部ground_rect、P23占地、上移量及shadow_baked=false。按逻辑南侧注册，不能重复抬高；栏杆可用同资源150/98×12缩放。93个既有art文件哈希未变。透明孔抽样alpha=0、两尺寸灰底合成无背景/投影；原文件少量边线1/255量化噪声、桌/板最高alpha254容差明确记录，四角0，保留原字节。独立Godot4.7.2七PNG原生headless导入/Atlas/映射通过，全程未开任何Godot可见窗口或主项目，未触主project.godot/主生成目录，不抢焦点。1280×720/960×540 v08r3最终资源板逐件查看，字体/完整主体/布局/无横向溢出通过；较高床/柜需实际南侧排序和信息层保持，固定台钳不冒充拾取物。仅新增授权prison_v08与docs/art/a06-*，无共享代码/旧图/Git属性/提交变更。P23/R04实际触屏/巡逻/通路/视线差异由制作人独立验收，此资源反馈不冒充游戏完成。\n\n验收通过：制作人独立核对冻结19文件SHA256全部吻合，查看960最终资源板及R04实际原生地图；七图真实导入和占地注册通过、透明孔及近不透明254量化容差可接受，93旧图未改。画风、类别和小尺寸轮廓可读。资产验收通过；R04移动/视线/真灯光与触屏由P23另行验证，不宣称Android/iOS或真人体验完成。",
+        "dependencyIds": [
+          "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+        ],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/art/props/prison_v08/",
+            "E:/Project/Godot/这次怎么逃/docs/art/a06-"
+          ],
+          "entry": "docs/dev/p23-prison-dressing-contract.md",
+          "interfaceContract": "主美只新增素材及注册，不写共享逻辑；原PNG字节不改，不借用制作人凭证。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p23-a06-prison-dressing-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-05T01:14:54.102Z"
+          }
+        ]
+      },
+      {
+        "id": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+        "title": "P23 监狱分区摆设与R04接入",
+        "description": "复用摆设配置、地面投影和绘制注册，新增R04牢房/劳动车间/活动大厅，移动与视线阻挡分离，手机小地图同步。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-05",
+        "actualEnd": "2026-10-05",
+        "milestoneId": "",
+        "acceptance": "七资产正式集成、R04三分区清楚；高柜挡视线，床/桌/铁栏挡路不遮视线；实体、寻路、狱警检测与真实光影一致；出生/货物/巡逻无遮挡；两尺寸实际图/巡逻/通路/手机视野回归。保留三旧关及用户本机project.godot未提交变更，不宣称真机或真人通过。",
+        "result": "v0.8.0主干732d1bd实现R04监区生活层，2200×1400，三牢房/劳动改造车间/活动大厅，七种透明原PNG为25实例。A06冻结8b37a71e43d6已独立验收。fixtures分别声明移动与视线，铁栏/床/台/桌挡路可看穿，高柜另遮挡狱警视线及真实LightOccluder；地面注册与南侧排序、静态摆设投影缓存、小地图分区及占地。保留旧三关与触屏轻点/拖动，无边缘滚屏。147项本轮技术结果通过：32规则及连续120秒巡逻10切点、4昼夜全员路线、两尺寸各17新关原生/各38旧关手机、1真实原生帧125.55秒0抓回完整路线。初次PNG未导入失败不计通过；最终实际原生底图检查、两尺寸顺序触摸定位均通过。最终编辑器R04正常随机已打开，25摆设/10灯/18真实遮光体、当前运行无游戏错误。本机用户project.godot修改保留未提交。来源/QA/构建哈希完整，未宣称真人/Android或iOS真机/任意随机技能通关。\n\n验收通过：制作人按任务允许的producer自验收单独审核：主干732d1bd与构建23源/27证据哈希匹配，原PNG7/25实际实例/占地与南侧深度显示、低物件移动与高柜视线灯光区分均验证；四条持续AI昼夜路线及真实帧125.55秒3人0抓回完成，32规则含120秒巡逻无卡住，两尺寸原生GUI各17与旧三关手机各38通过。实际主运行正常随机R04，地图/背包/商人沿原规则。A06独立资产验收有效；用户配置未覆盖未提交，远端main已732d1bd。147项仅技术结论，不替代P09真人或手机真机，不宣称所有随机技能可解。",
+        "dependencyIds": [
+          "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+          "75b9d962-39c7-4a5f-8f51-5b793c0f2801"
+        ],
+        "references": [],
+        "integrationTaskIds": [
+          "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391"
+        ],
+        "positionIds": [
+          "producer"
+        ],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "E:/Project/Godot/这次怎么逃/scripts/",
+            "E:/Project/Godot/这次怎么逃/data/",
+            "E:/Project/Godot/这次怎么逃/scenes/",
+            "E:/Project/Godot/这次怎么逃/tests/",
+            "E:/Project/Godot/这次怎么逃/docs/",
+            "E:/Project/Godot/这次怎么逃/README.md"
+          ],
+          "entry": "F5→R04监区生活层→小地图查看分区",
+          "interfaceContract": "只新增房间/摆设接口；主美原PNG不处理，单独验收A06后集成；不提交或覆盖用户project.godot差异。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "p23-a06-prison-dressing-plan-20261005",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-05T01:14:54.102Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -1779,6 +1876,29 @@
           "gameplay",
           "design-documents"
         ]
+      },
+      {
+        "id": "p23-prison-dressing-design-20261005",
+        "digest": "9bfa317511cd7b1d61ad8c59966e4e631942845901764db77b0b88169606d71a",
+        "summary": "新增监狱摆设配置规则与R04三分区设计，保留旧关/手机操作；美术与实际画面仍制作中。",
+        "memberName": "制作人",
+        "at": "2026-10-05T01:19:44.944Z",
+        "modules": [
+          "map-design",
+          "design-documents"
+        ]
+      },
+      {
+        "id": "p23-prison-dressing-final-20261005",
+        "digest": "8dbbc9a9fd4cf469a6081c39645e5e80668c1079c1df121d8a7a4f7b688a5cbb",
+        "summary": "新增监狱摆设配置规则与R04三分区设计，保留旧关/手机操作；美术与实际画面仍制作中。",
+        "memberName": "制作人",
+        "at": "2026-10-05T01:51:51.925Z",
+        "modules": [
+          "map-design",
+          "design-documents",
+          "gameplay"
+        ]
       }
     ],
     "taskPlanHistory": [
@@ -1904,6 +2024,19 @@
         "reason": "用户纠正主要手机平台：撤销鼠标边缘自动滚屏，使用小地图点击/拖动视野，触屏轻点/拖动分开。",
         "createdTaskIds": [
           "75b9d962-39c7-4a5f-8f51-5b793c0f2801"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p23-a06-prison-dressing-plan-20261005",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-05T01:14:54.102Z",
+        "reason": "用户授权监狱主题摆设并沿既有主美调度分工，新增七资产与牢房/车间/活动厅展示关。",
+        "createdTaskIds": [
+          "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+          "2c995e18-07a6-4848-a2a8-41129f74f90f"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -6354,6 +6487,355 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-04T18:09:45.996Z",
           "note": "制作人单独复核源代码、两尺寸渲染与135项技术检查、实际主场景触摸小地图与无边缘滚动、10个源文件哈希及已推送SHA5f2de29。通过本轮相机/手势/互动稳定性范围；P21边缘模式已撤销，P09未改变；Android/iOS真机适配与真人体验仍未验，不宣称移动端安装包或性能已交付。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "a06-start-v08-20261005",
+        "taskId": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已读取P23冻结接口，开始七种独立摆设原PNG制作。沿art-v03/FINAL-WARM-01横竖轴轻斜俯视，用内置imagegen透明RGBA原图与Atlas region/局部ground_rect注册。只新增prison_v08及docs/art/a06-*；不修改共享逻辑、主project.godot、旧素材，不抢主项目窗口。分批资源检查与最后独立QA后提交。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/dev/p23-prison-dressing-contract.md"
+        ],
+        "at": "2026-10-05T01:20:06.603Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+          "title": "A06 牢房车间活动厅七种摆设资产",
+          "description": "按docs/dev/p23-prison-dressing-contract.md生成七种透明原PNG与注册manifest、来源与QA；延续art-v03。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board七资产，水平轴线轻斜俯视，原PNG透明，ground_rect注册、纹理/比例小尺寸可辨认，两尺寸资源预览与SHA256/提示词完整。不修改旧素材或共享代码。",
+          "result": "已读取P23冻结接口，开始七种独立摆设原PNG制作。沿art-v03/FINAL-WARM-01横竖轴轻斜俯视，用内置imagegen透明RGBA原图与Atlas region/局部ground_rect注册。只新增prison_v08及docs/art/a06-*；不修改共享逻辑、主project.godot、旧素材，不抢主项目窗口。分批资源检查与最后独立QA后提交。",
+          "dependencyIds": [
+            "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+          ],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/art/props/prison_v08/",
+              "E:/Project/Godot/这次怎么逃/docs/art/a06-"
+            ],
+            "entry": "docs/dev/p23-prison-dressing-contract.md",
+            "interfaceContract": "主美只新增素材及注册，不写共享逻辑；原PNG字节不改，不借用制作人凭证。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p23-a06-prison-dressing-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T01:14:54.102Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a06-assets-first-v08-20261005",
+        "taskId": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "七原PNG及首版注册manifest已落art/props/prison_v08。按P23占地给region/局部ground_rect/抬高量，全部原PNG与生成源逐字节一致，93个旧art文件哈希不变。两尺寸实际资源板已查看，透空灰底合成正确，未烘焙地面影；正在完善预览布局报告和独立Godot原生导入QA，尚非待验收冻结版本。JSON/脚本LF保存。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/art/props/prison_v08/manifest.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-qa-resources-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-resource-preview-1280x720-v08r2.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-resource-preview-960x540-v08r2.png"
+        ],
+        "at": "2026-10-05T01:38:01.837Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+          "title": "A06 牢房车间活动厅七种摆设资产",
+          "description": "按docs/dev/p23-prison-dressing-contract.md生成七种透明原PNG与注册manifest、来源与QA；延续art-v03。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board七资产，水平轴线轻斜俯视，原PNG透明，ground_rect注册、纹理/比例小尺寸可辨认，两尺寸资源预览与SHA256/提示词完整。不修改旧素材或共享代码。",
+          "result": "七原PNG及首版注册manifest已落art/props/prison_v08。按P23占地给region/局部ground_rect/抬高量，全部原PNG与生成源逐字节一致，93个旧art文件哈希不变。两尺寸实际资源板已查看，透空灰底合成正确，未烘焙地面影；正在完善预览布局报告和独立Godot原生导入QA，尚非待验收冻结版本。JSON/脚本LF保存。",
+          "dependencyIds": [
+            "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+          ],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/art/props/prison_v08/",
+              "E:/Project/Godot/这次怎么逃/docs/art/a06-"
+            ],
+            "entry": "docs/dev/p23-prison-dressing-contract.md",
+            "interfaceContract": "主美只新增素材及注册，不写共享逻辑；原PNG字节不改，不借用制作人凭证。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p23-a06-prison-dressing-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T01:14:54.102Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a06-final-v08-20261005",
+        "taskId": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "A06七摆设资源完成，冻结prison-art-v08-20261005-8b37a71e43d6（19文件SHA256，全部选定文本UTF-8 LF）。bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board分别内置imagegen生成透明RGBA原PNG，未处理像素，原源逐字节相同；manifest提供原尺寸、Atlas region、局部ground_rect、P23占地、上移量及shadow_baked=false。按逻辑南侧注册，不能重复抬高；栏杆可用同资源150/98×12缩放。93个既有art文件哈希未变。透明孔抽样alpha=0、两尺寸灰底合成无背景/投影；原文件少量边线1/255量化噪声、桌/板最高alpha254容差明确记录，四角0，保留原字节。独立Godot4.7.2七PNG原生headless导入/Atlas/映射通过，全程未开任何Godot可见窗口或主项目，未触主project.godot/主生成目录，不抢焦点。1280×720/960×540 v08r3最终资源板逐件查看，字体/完整主体/布局/无横向溢出通过；较高床/柜需实际南侧排序和信息层保持，固定台钳不冒充拾取物。仅新增授权prison_v08与docs/art/a06-*，无共享代码/旧图/Git属性/提交变更。P23/R04实际触屏/巡逻/通路/视线差异由制作人独立验收，此资源反馈不冒充游戏完成。",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/art/props/prison_v08/manifest.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-delivery-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-integration-v08.txt",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-visual-review-v08.txt",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-imagegen-prompts-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-source-license-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-qa-resources-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-qa-native-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-qa-browser-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-transparent-samples-v08.json",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-resource-preview-1280x720-v08r3.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/a06-resource-preview-960x540-v08r3.png"
+        ],
+        "at": "2026-10-05T01:46:53.752Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+          "title": "A06 牢房车间活动厅七种摆设资产",
+          "description": "按docs/dev/p23-prison-dressing-contract.md生成七种透明原PNG与注册manifest、来源与QA；延续art-v03。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board七资产，水平轴线轻斜俯视，原PNG透明，ground_rect注册、纹理/比例小尺寸可辨认，两尺寸资源预览与SHA256/提示词完整。不修改旧素材或共享代码。",
+          "result": "A06七摆设资源完成，冻结prison-art-v08-20261005-8b37a71e43d6（19文件SHA256，全部选定文本UTF-8 LF）。bunk_bed/cell_bars/toilet_sink/workbench/tool_locker/communal_table/notice_board分别内置imagegen生成透明RGBA原PNG，未处理像素，原源逐字节相同；manifest提供原尺寸、Atlas region、局部ground_rect、P23占地、上移量及shadow_baked=false。按逻辑南侧注册，不能重复抬高；栏杆可用同资源150/98×12缩放。93个既有art文件哈希未变。透明孔抽样alpha=0、两尺寸灰底合成无背景/投影；原文件少量边线1/255量化噪声、桌/板最高alpha254容差明确记录，四角0，保留原字节。独立Godot4.7.2七PNG原生headless导入/Atlas/映射通过，全程未开任何Godot可见窗口或主项目，未触主project.godot/主生成目录，不抢焦点。1280×720/960×540 v08r3最终资源板逐件查看，字体/完整主体/布局/无横向溢出通过；较高床/柜需实际南侧排序和信息层保持，固定台钳不冒充拾取物。仅新增授权prison_v08与docs/art/a06-*，无共享代码/旧图/Git属性/提交变更。P23/R04实际触屏/巡逻/通路/视线差异由制作人独立验收，此资源反馈不冒充游戏完成。",
+          "dependencyIds": [
+            "1f52ca69-414a-44d3-9654-f3b3b358ac9a"
+          ],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/art/props/prison_v08/",
+              "E:/Project/Godot/这次怎么逃/docs/art/a06-"
+            ],
+            "entry": "docs/dev/p23-prison-dressing-contract.md",
+            "interfaceContract": "主美只新增素材及注册，不写共享逻辑；原PNG字节不改，不借用制作人凭证。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p23-a06-prison-dressing-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-05T01:14:54.102Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T01:49:14.840Z",
+          "note": "制作人独立核对冻结19文件SHA256全部吻合，查看960最终资源板及R04实际原生地图；七图真实导入和占地注册通过、透明孔及近不透明254量化容差可接受，93旧图未改。画风、类别和小尺寸轮廓可读。资产验收通过；R04移动/视线/真灯光与触屏由P23另行验证，不宣称Android/iOS或真人体验完成。",
+          "mode": "independent",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p23-integration-start-20261005",
+        "taskId": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "A06已独立验收，开始冻结正式接入：R04三分区25摆设，分离移动与视线、实际LightOccluder、深度排序及手机小地图；已完成规则/路线/两尺寸原生准备验证，继续最终交付记录。",
+        "evidence": [
+          "docs/dev/p23-prison-dressing.md",
+          "docs/art/a06-delivery-v08.json"
+        ],
+        "at": "2026-10-05T01:49:30.745Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+          "title": "P23 监狱分区摆设与R04接入",
+          "description": "复用摆设配置、地面投影和绘制注册，新增R04牢房/劳动车间/活动大厅，移动与视线阻挡分离，手机小地图同步。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "七资产正式集成、R04三分区清楚；高柜挡视线，床/桌/铁栏挡路不遮视线；实体、寻路、狱警检测与真实光影一致；出生/货物/巡逻无遮挡；两尺寸实际图/巡逻/通路/手机视野回归。保留三旧关及用户本机project.godot未提交变更，不宣称真机或真人通过。",
+          "result": "A06已独立验收，开始冻结正式接入：R04三分区25摆设，分离移动与视线、实际LightOccluder、深度排序及手机小地图；已完成规则/路线/两尺寸原生准备验证，继续最终交付记录。",
+          "dependencyIds": [
+            "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+            "75b9d962-39c7-4a5f-8f51-5b793c0f2801"
+          ],
+          "references": [],
+          "integrationTaskIds": [
+            "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391"
+          ],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/",
+              "E:/Project/Godot/这次怎么逃/data/",
+              "E:/Project/Godot/这次怎么逃/scenes/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "F5→R04监区生活层→小地图查看分区",
+            "interfaceContract": "只新增房间/摆设接口；主美原PNG不处理，单独验收A06后集成；不提交或覆盖用户project.godot差异。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p23-a06-prison-dressing-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T01:14:54.102Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p23-final-delivery-20261005",
+        "taskId": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "v0.8.0主干732d1bd实现R04监区生活层，2200×1400，三牢房/劳动改造车间/活动大厅，七种透明原PNG为25实例。A06冻结8b37a71e43d6已独立验收。fixtures分别声明移动与视线，铁栏/床/台/桌挡路可看穿，高柜另遮挡狱警视线及真实LightOccluder；地面注册与南侧排序、静态摆设投影缓存、小地图分区及占地。保留旧三关与触屏轻点/拖动，无边缘滚屏。147项本轮技术结果通过：32规则及连续120秒巡逻10切点、4昼夜全员路线、两尺寸各17新关原生/各38旧关手机、1真实原生帧125.55秒0抓回完整路线。初次PNG未导入失败不计通过；最终实际原生底图检查、两尺寸顺序触摸定位均通过。最终编辑器R04正常随机已打开，25摆设/10灯/18真实遮光体、当前运行无游戏错误。本机用户project.godot修改保留未提交。来源/QA/构建哈希完整，未宣称真人/Android或iOS真机/任意随机技能通关。",
+        "evidence": [
+          "git:732d1bd",
+          "docs/dev/p23-prison-dressing.md",
+          "docs/tests/p23-build.json",
+          "docs/art/a06-delivery-v08.json",
+          "docs/tests/p23-prison-rules.json",
+          "docs/tests/p23-r04-routes.json",
+          "docs/tests/p23-prison-native-1280x720.json",
+          "docs/tests/p23-prison-native-960x540.json",
+          "docs/tests/p23-legacy-mobile-1280x720.json",
+          "docs/tests/p23-legacy-mobile-960x540.json",
+          "docs/tests/p23-native-r04-route.json",
+          "docs/tests/p23-live-r04.json",
+          "docs/tests/p23-live-r04.png"
+        ],
+        "at": "2026-10-05T01:54:43.734Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "2c995e18-07a6-4848-a2a8-41129f74f90f",
+          "title": "P23 监狱分区摆设与R04接入",
+          "description": "复用摆设配置、地面投影和绘制注册，新增R04牢房/劳动车间/活动大厅，移动与视线阻挡分离，手机小地图同步。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-05",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "七资产正式集成、R04三分区清楚；高柜挡视线，床/桌/铁栏挡路不遮视线；实体、寻路、狱警检测与真实光影一致；出生/货物/巡逻无遮挡；两尺寸实际图/巡逻/通路/手机视野回归。保留三旧关及用户本机project.godot未提交变更，不宣称真机或真人通过。",
+          "result": "v0.8.0主干732d1bd实现R04监区生活层，2200×1400，三牢房/劳动改造车间/活动大厅，七种透明原PNG为25实例。A06冻结8b37a71e43d6已独立验收。fixtures分别声明移动与视线，铁栏/床/台/桌挡路可看穿，高柜另遮挡狱警视线及真实LightOccluder；地面注册与南侧排序、静态摆设投影缓存、小地图分区及占地。保留旧三关与触屏轻点/拖动，无边缘滚屏。147项本轮技术结果通过：32规则及连续120秒巡逻10切点、4昼夜全员路线、两尺寸各17新关原生/各38旧关手机、1真实原生帧125.55秒0抓回完整路线。初次PNG未导入失败不计通过；最终实际原生底图检查、两尺寸顺序触摸定位均通过。最终编辑器R04正常随机已打开，25摆设/10灯/18真实遮光体、当前运行无游戏错误。本机用户project.godot修改保留未提交。来源/QA/构建哈希完整，未宣称真人/Android或iOS真机/任意随机技能通关。",
+          "dependencyIds": [
+            "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391",
+            "75b9d962-39c7-4a5f-8f51-5b793c0f2801"
+          ],
+          "references": [],
+          "integrationTaskIds": [
+            "3fd8d3a2-e0da-4c04-b2d8-3b0640a94391"
+          ],
+          "positionIds": [
+            "producer"
+          ],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "E:/Project/Godot/这次怎么逃/scripts/",
+              "E:/Project/Godot/这次怎么逃/data/",
+              "E:/Project/Godot/这次怎么逃/scenes/",
+              "E:/Project/Godot/这次怎么逃/tests/",
+              "E:/Project/Godot/这次怎么逃/docs/",
+              "E:/Project/Godot/这次怎么逃/README.md"
+            ],
+            "entry": "F5→R04监区生活层→小地图查看分区",
+            "interfaceContract": "只新增房间/摆设接口；主美原PNG不处理，单独验收A06后集成；不提交或覆盖用户project.godot差异。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p23-a06-prison-dressing-plan-20261005",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-05T01:14:54.102Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-05T01:55:10.735Z",
+          "note": "制作人按任务允许的producer自验收单独审核：主干732d1bd与构建23源/27证据哈希匹配，原PNG7/25实际实例/占地与南侧深度显示、低物件移动与高柜视线灯光区分均验证；四条持续AI昼夜路线及真实帧125.55秒3人0抓回完成，32规则含120秒巡逻无卡住，两尺寸原生GUI各17与旧三关手机各38通过。实际主运行正常随机R04，地图/背包/商人沿原规则。A06独立资产验收有效；用户配置未覆盖未提交，远端main已732d1bd。147项仅技术结论，不替代P09真人或手机真机，不宣称所有随机技能可解。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
