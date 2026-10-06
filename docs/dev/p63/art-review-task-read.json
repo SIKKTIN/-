@@ -1,0 +1,200 @@
+{
+  "task": {
+    "id": "a30-integrated-stone-junction-20261007",
+    "title": "A30 按已批准概念重绘自然石墙接口",
+    "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+    "result": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。",
+    "dependencyIds": [
+      "a29-stone-t-junction-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v30/**",
+        "art/editor/v10/**",
+        "docs/art/architecture-v30/**"
+      ],
+      "entry": "art/architecture/v30/manifest.json",
+      "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p63-natural-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T18:35:04.128Z"
+      }
+    ]
+  },
+  "revision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00",
+  "scheduleRevision": "f84626fa7120678b23e3f6a5cf8e5d236bf950e11eb5169b91befb25552c5e19",
+  "planChanges": [
+    {
+      "id": "p63-natural-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T18:35:04.128Z",
+      "reason": "用户确认自然砌接接口概念，授权生成并替换当前贴片感T。",
+      "createdTaskIds": [
+        "a30-integrated-stone-junction-20261007",
+        "p63-natural-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a29-stone-t-junction-20261007",
+      "title": "A29 同套石墙T形连接瓦片与编辑图标",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "a30-final-v30-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "a30-final-v30-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00"
+  },
+  "feedback": [
+    {
+      "id": "a30-start-20261007",
+      "taskId": "a30-integrated-stone-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已亲眼看人类批准的自然砌接概念。按普通石块与石缝咬合重做新PNG，不给旧大T板调色；浅米灰、线宽/明暗/磨损密度对原H/V，去亮色斑点、独立黑框和双影。拟保留132/136×80、stemx56、北深24、y80接V27，构造改为普通矩形砌块咬合，去旧大三角肩部；先新源和原生试拼，候选交P63接actual再冻结。旧素材/shared代码/data/Git不改。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface-draft.json"
+      ],
+      "at": "2026-10-06T18:38:26.805Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "a30-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "a30-final-v30-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "a30-final-v30-20261007",
+      "taskId": "a30-integrated-stone-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\cafeteria_t_master_v30.png",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v10\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\delivery.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\README.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\prompt.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-preview.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-detail.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-icons-visible.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-review.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-evidence.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\approved-reference.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-editor-t-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-runtime-t-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-editor-t-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-t-palette.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-access-access-headless-1200.json"
+      ],
+      "at": "2026-10-06T18:54:23.056Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "a30-final-v30-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "a30-final-v30-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00",
+      "delivery": "review_inbox",
+      "next": "等待验收；可继续其他已分配任务"
+    }
+  ]
+}

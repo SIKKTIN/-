@@ -1,0 +1,95 @@
+{
+  "schema": 2,
+  "manifest": "res://art/architecture/v30/manifest.json",
+  "source_png": "res://art/architecture/v30/cafeteria_t_master_v30.png",
+  "source_sha256": "0224fee6772744a6035c92e9cadf87ba31c2d8e8afe2b91aad449794dad549f9",
+  "source_size": [
+    1631,
+    964
+  ],
+  "source_grid": {
+    "x": [
+      60,
+      740,
+      744,
+      888,
+      892,
+      1572
+    ],
+    "y": [
+      278,
+      438,
+      800
+    ]
+  },
+  "source_space": "absolute PNG pixels, raw generated source, no phase_axis",
+  "sizes": {
+    "20": [
+      132,
+      80
+    ],
+    "24": [
+      136,
+      80
+    ]
+  },
+  "stem_x": 56,
+  "bar_depth": 24,
+  "stem_bottom_y": 80,
+  "decorative_inner_chamfers": [],
+  "construction": "ordinary rectangular masonry intersection; center seam/header continues into two regular upright stones, no large T plane or carved45-degree shoulder",
+  "anchor": {
+    "origin_from_baseline": [
+      0,
+      -115.02
+    ],
+    "from_original_wing_top_y": 6.48
+  },
+  "kitchen20": {
+    "left_offset": [
+      114,
+      6.48
+    ],
+    "right_offset": [
+      754,
+      6.48
+    ],
+    "size": [
+      132,
+      80
+    ],
+    "cap_cutouts": [
+      [
+        114,
+        0,
+        132,
+        27.48
+      ],
+      [
+        754,
+        0,
+        132,
+        27.48
+      ]
+    ],
+    "stem_world_x": [
+      1270,
+      1910
+    ],
+    "map_mirror_x_left": false,
+    "map_mirror_x_right": true
+  },
+  "mirror_policy": "whole component mirror_x=true only for right kitchen to match V27_r; both arms56, stemx56 remains",
+  "integration": {
+    "replace": "both kitchen T29 IDs with T30; new placement whitelist T30 only, old ID load compatibility retained",
+    "preserve": "V24 H/columns/lintel, V28 exterior L, V27 straight stems",
+    "stem_continuation": "V27 starts at corner_origin_y+80, original period123.1413612565",
+    "notch": "lower lateral voids actual transparent, no separate background/shadow"
+  },
+  "editor": {
+    "manifest": "res://art/editor/v10/manifest.json",
+    "icons": 2,
+    "mode": "architecture_junction_t"
+  },
+  "approved_reference": "docs/dev/p63/approved-wall-junction-concept.png"
+}

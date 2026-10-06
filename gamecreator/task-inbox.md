@@ -94,6 +94,8 @@
 - P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成 · 未排期
 - A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成 · 未排期
 - P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成 · 未排期
+- A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成 · 未排期
+- P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -194,6 +196,8 @@
 - P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
 - A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成
 - P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成
+- A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
+- P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

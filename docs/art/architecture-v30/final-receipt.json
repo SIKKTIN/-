@@ -1,0 +1,69 @@
+{
+  "id": "a30-final-v30-20261007",
+  "digest": "5be55f36605c582213f857644599aa9f3bb5b087c6fce4e4146d14aa5bae4218",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T18:54:22.923Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a30-final-v30-20261007",
+    "taskId": "a30-integrated-stone-junction-20261007",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\cafeteria_t_master_v30.png",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v10\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\delivery.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\README.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\prompt.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\source-review.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-preview.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-detail.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-icons-visible.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-review.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-evidence.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\approved-reference.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-left.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-right.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-editor-t-right.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-runtime-t-right.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-editor-t-left.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-t-palette.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-access-access-headless-1200.json"
+    ],
+    "at": "2026-10-06T18:54:23.056Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a30-final-v30-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a30-final-v30-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "148596462b898214b8e1fee34b9f3a69f3d56660f76861f3d7cce7e367b0ec00",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

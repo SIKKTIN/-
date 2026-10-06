@@ -1,0 +1,52 @@
+{
+  "id": "p63-start-20261007",
+  "digest": "cbd9f6c59c4926f243a64acb0555e5afe8509ad6619c37b9db1f522bd62b84a5",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T18:35:05.733Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p63-start-20261007",
+    "taskId": "p63-natural-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "批准概念已保存，派A30主美重绘自然接口；准备新版本注册/旧T退新建兼容/实际对照和关键回归。",
+    "evidence": [
+      "docs/dev/p63/approved-wall-junction-concept.png",
+      "docs/dev/p63/plan.json"
+    ],
+    "at": "2026-10-06T18:35:05.854Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p63-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "942f939544b8ec63eaefe0761e05ff5603b9c5e93b1a57efff1313c9ae4eceb6"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "942f939544b8ec63eaefe0761e05ff5603b9c5e93b1a57efff1313c9ae4eceb6",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

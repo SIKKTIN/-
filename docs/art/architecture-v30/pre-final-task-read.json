@@ -1,0 +1,137 @@
+{
+  "task": {
+    "id": "a30-integrated-stone-junction-20261007",
+    "title": "A30 按已批准概念重绘自然石墙接口",
+    "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+    "result": "已亲眼看人类批准的自然砌接概念。按普通石块与石缝咬合重做新PNG，不给旧大T板调色；浅米灰、线宽/明暗/磨损密度对原H/V，去亮色斑点、独立黑框和双影。拟保留132/136×80、stemx56、北深24、y80接V27，构造改为普通矩形砌块咬合，去旧大三角肩部；先新源和原生试拼，候选交P63接actual再冻结。旧素材/shared代码/data/Git不改。",
+    "dependencyIds": [
+      "a29-stone-t-junction-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v30/**",
+        "art/editor/v10/**",
+        "docs/art/architecture-v30/**"
+      ],
+      "entry": "art/architecture/v30/manifest.json",
+      "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p63-natural-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T18:35:04.128Z"
+      }
+    ]
+  },
+  "revision": "8dda60dff84a0635dcd17f06054c8f9d85d84c56d292da7ee9515ae3f1b1c20b",
+  "scheduleRevision": "4b589d8ea1c21ea3403a3b1caea437a018d82f3fc27825bc31fb18b2e7e0fc2f",
+  "planChanges": [
+    {
+      "id": "p63-natural-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T18:35:04.128Z",
+      "reason": "用户确认自然砌接接口概念，授权生成并替换当前贴片感T。",
+      "createdTaskIds": [
+        "a30-integrated-stone-junction-20261007",
+        "p63-natural-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a29-stone-t-junction-20261007",
+      "title": "A29 同套石墙T形连接瓦片与编辑图标",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a30-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "8dda60dff84a0635dcd17f06054c8f9d85d84c56d292da7ee9515ae3f1b1c20b"
+  },
+  "feedback": [
+    {
+      "id": "a30-start-20261007",
+      "taskId": "a30-integrated-stone-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已亲眼看人类批准的自然砌接概念。按普通石块与石缝咬合重做新PNG，不给旧大T板调色；浅米灰、线宽/明暗/磨损密度对原H/V，去亮色斑点、独立黑框和双影。拟保留132/136×80、stemx56、北深24、y80接V27，构造改为普通矩形砌块咬合，去旧大三角肩部；先新源和原生试拼，候选交P63接actual再冻结。旧素材/shared代码/data/Git不改。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface-draft.json"
+      ],
+      "at": "2026-10-06T18:38:26.805Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a30-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "8dda60dff84a0635dcd17f06054c8f9d85d84c56d292da7ee9515ae3f1b1c20b"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "8dda60dff84a0635dcd17f06054c8f9d85d84c56d292da7ee9515ae3f1b1c20b",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T18:11:59.157Z
-> 文档内容基准：0c3d9be5ada7f434dd61653d66c1219fadb49b1c803a49ad34af2fa4277ea5c4
+> 文档生成时间：2026-10-06T18:56:20.194Z
+> 文档内容基准：c706c0d48733f66e6f0b96f5905d6162a9568e91fbe2868374b80c10e00ef0ca
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1823,6 +1823,43 @@ P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：�
 - 工作岗位：producer
 - 允许修改路径：scripts/**、data/rooms/r04.json、qa/p62*、docs/dev/p62/**、docs/tests/p62*、docs/gamecreator/**、gamecreator/**
 - 接口契约：制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A30 按已批准概念重绘自然石墙接口
+- ID：a30-integrated-stone-junction-20261007
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。
+- 验收条件：20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。
+- 验收结果：交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。
+
+验收通过：制作人独立验收A30：48交付hash一致。亲眼把修正版1200左右game、960editor与两规格独立T对批准概念：普通头石/纵石续接、正常石缝和同套浅米灰，去除V29大片T轮廓及肩部；3world下沿多出已用原PNG注册及cap27.48修正，原H底线连续，内空无独立底板阴影。轻微块间色/磨损差异属于石材变化，不声称逐像素复刻。主美审美说明与78native/73规则技术结果分别评估，批准方向已落实，旧V24–29冻结hash未变。
+- 前置任务：A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007]
+- 工作岗位：art-director
+- 允许修改路径：art/architecture/v30/**、art/editor/v10/**、docs/art/architecture-v30/**
+- 接口契约：主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。
+- 交付入口：art/architecture/v30/manifest.json
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P63 自然砌接墙体替换与素材统一
+- ID：p63-natural-junction-integration-20261007
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。
+- 验收条件：game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。
+- 验收结果：批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。
+
+验收通过：制作人程序本人自验收，证据与结论分别登记；A30已独立通过。35程序交付hash一致，78原生T/选放/图标/历史ID兼容+73门禁禁闭救援全逃通过。R04只两T资产ID与两cap高度，architecture之外逐值不变。新建仅T30，旧T29仍能加载和保持属性ID，新图标严格MeshTexture检查通过；编辑/runtime同绘制。用户既有project.godot改动未纳入。实际自然接口底线对齐，与批准图构造一致。
+- 前置任务：P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007]
+- 工作岗位：producer
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p63*、docs/dev/p63/**、docs/tests/p63*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。
 - 交付入口：res://scenes/editor/map_editor.tscn
 - 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4

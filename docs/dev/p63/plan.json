@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "b73d0d443adfd3667944bed230ffd1de01bb1240be504853eae1be046cb207d5",
+  "creates": [
+    {
+      "task": {
+        "id": "a30-integrated-stone-junction-20261007",
+        "title": "A30 按已批准概念重绘自然石墙接口",
+        "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "a29-stone-t-junction-20261007"
+        ],
+        "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v30/**",
+            "art/editor/v10/**",
+            "docs/art/architecture-v30/**"
+          ],
+          "entry": "art/architecture/v30/manifest.json",
+          "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p63-natural-junction-integration-20261007",
+        "title": "P63 自然砌接墙体替换与素材统一",
+        "description": "按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p62-t-junction-integration-20261007"
+        ],
+        "acceptance": "game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p63*",
+            "docs/dev/p63/**",
+            "docs/tests/p63*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户确认自然砌接接口概念，授权生成并替换当前贴片感T。",
+  "requestId": "p63-natural-junction-plan-20261007"
+}

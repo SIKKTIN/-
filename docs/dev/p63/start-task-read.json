@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p63-natural-junction-integration-20261007",
+    "title": "P63 自然砌接墙体替换与素材统一",
+    "description": "按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。",
+    "result": "",
+    "dependencyIds": [
+      "p62-t-junction-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p63*",
+        "docs/dev/p63/**",
+        "docs/tests/p63*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p63-natural-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T18:35:04.128Z"
+      }
+    ]
+  },
+  "revision": "d5f38813f0494655a15d866114fe3f9578ebd0b83b85a653cf730dfe5df3fdd6",
+  "scheduleRevision": "68aeac3894912ba173a94f67f8389e7c503785754a80929ab95c18d583a51c46",
+  "planChanges": [
+    {
+      "id": "p63-natural-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T18:35:04.128Z",
+      "reason": "用户确认自然砌接接口概念，授权生成并替换当前贴片感T。",
+      "createdTaskIds": [
+        "a30-integrated-stone-junction-20261007",
+        "p63-natural-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p62-t-junction-integration-20261007",
+      "title": "P62 T形墙体接入游戏及编辑器",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "d5f38813f0494655a15d866114fe3f9578ebd0b83b85a653cf730dfe5df3fdd6"
+  },
+  "feedback": []
+}

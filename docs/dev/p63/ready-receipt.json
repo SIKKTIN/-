@@ -1,0 +1,70 @@
+{
+  "id": "p63-ready-20261007",
+  "digest": "7eadb021bf11798f04ee3be936dd2df7a36e9c45c1334d37b64af8c7a3d693be",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T18:54:24.150Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p63-ready-20261007",
+    "taskId": "p63-natural-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。",
+    "evidence": [
+      "docs/dev/p63/delivery.json",
+      "docs/dev/p63/README.md",
+      "docs/dev/p63/approved-wall-junction-concept.png",
+      "docs/tests/p63-1200-t-native.json",
+      "docs/tests/p63-960-t-native.json",
+      "docs/tests/p63-1200-native.json",
+      "docs/tests/p63-960-native.json",
+      "docs/tests/p63-runtime-t-components.json",
+      "docs/tests/p63-access-access-headless-1200.json",
+      "docs/tests/p63-preservation.json",
+      "docs/tests/p63-1200-runtime-t-left.png",
+      "docs/tests/p63-1200-runtime-t-right.png",
+      "docs/tests/p63-960-editor-t-left.png",
+      "docs/tests/p63-1200-t-palette.png"
+    ],
+    "at": "2026-10-06T18:54:24.261Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p63-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p63-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p63-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f8ab89e17bd017a2356dcb4e6fa780f4f3fc65462a1653b5d0a0b3410f759cd0"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f8ab89e17bd017a2356dcb4e6fa780f4f3fc65462a1653b5d0a0b3410f759cd0",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

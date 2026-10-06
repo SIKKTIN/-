@@ -1,0 +1,66 @@
+{
+  "id": "p63-self-review-20261007",
+  "digest": "2f78269337305e888074b05402500bce657d366266280e9033dad5d7538729de",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T18:56:18.822Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p63-ready-20261007",
+    "taskId": "p63-natural-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。",
+    "evidence": [
+      "docs/dev/p63/delivery.json",
+      "docs/dev/p63/README.md",
+      "docs/dev/p63/approved-wall-junction-concept.png",
+      "docs/tests/p63-1200-t-native.json",
+      "docs/tests/p63-960-t-native.json",
+      "docs/tests/p63-1200-native.json",
+      "docs/tests/p63-960-native.json",
+      "docs/tests/p63-runtime-t-components.json",
+      "docs/tests/p63-access-access-headless-1200.json",
+      "docs/tests/p63-preservation.json",
+      "docs/tests/p63-1200-runtime-t-left.png",
+      "docs/tests/p63-1200-runtime-t-right.png",
+      "docs/tests/p63-960-editor-t-left.png",
+      "docs/tests/p63-1200-t-palette.png"
+    ],
+    "at": "2026-10-06T18:54:24.261Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T18:56:18.931Z",
+      "note": "制作人程序本人自验收，证据与结论分别登记；A30已独立通过。35程序交付hash一致，78原生T/选放/图标/历史ID兼容+73门禁禁闭救援全逃通过。R04只两T资产ID与两cap高度，architecture之外逐值不变。新建仅T30，旧T29仍能加载和保持属性ID，新图标严格MeshTexture检查通过；编辑/runtime同绘制。用户既有project.godot改动未纳入。实际自然接口底线对齐，与批准图构造一致。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p63-ready-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "54425c9f503c1ec6068faa74516489ba664ca911fdb227208ad0b30664211ee7"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "54425c9f503c1ec6068faa74516489ba664ca911fdb227208ad0b30664211ee7",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

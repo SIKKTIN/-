@@ -4688,6 +4688,101 @@
             "at": "2026-10-06T17:45:05.159Z"
           }
         ]
+      },
+      {
+        "id": "a30-integrated-stone-junction-20261007",
+        "title": "A30 按已批准概念重绘自然石墙接口",
+        "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+        "result": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。\n\n验收通过：制作人独立验收A30：48交付hash一致。亲眼把修正版1200左右game、960editor与两规格独立T对批准概念：普通头石/纵石续接、正常石缝和同套浅米灰，去除V29大片T轮廓及肩部；3world下沿多出已用原PNG注册及cap27.48修正，原H底线连续，内空无独立底板阴影。轻微块间色/磨损差异属于石材变化，不声称逐像素复刻。主美审美说明与78native/73规则技术结果分别评估，批准方向已落实，旧V24–29冻结hash未变。",
+        "dependencyIds": [
+          "a29-stone-t-junction-20261007"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v30/**",
+            "art/editor/v10/**",
+            "docs/art/architecture-v30/**"
+          ],
+          "entry": "art/architecture/v30/manifest.json",
+          "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p63-natural-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T18:35:04.128Z"
+          }
+        ]
+      },
+      {
+        "id": "p63-natural-junction-integration-20261007",
+        "title": "P63 自然砌接墙体替换与素材统一",
+        "description": "按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。",
+        "result": "批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。\n\n验收通过：制作人程序本人自验收，证据与结论分别登记；A30已独立通过。35程序交付hash一致，78原生T/选放/图标/历史ID兼容+73门禁禁闭救援全逃通过。R04只两T资产ID与两cap高度，architecture之外逐值不变。新建仅T30，旧T29仍能加载和保持属性ID，新图标严格MeshTexture检查通过；编辑/runtime同绘制。用户既有project.godot改动未纳入。实际自然接口底线对齐，与批准图构造一致。",
+        "dependencyIds": [
+          "p62-t-junction-integration-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p63*",
+            "docs/dev/p63/**",
+            "docs/tests/p63*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p63-natural-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T18:35:04.128Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -5916,6 +6011,19 @@
             "blocksProgress": false
           }
         ],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p63-natural-junction-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-06T18:35:04.128Z",
+        "reason": "用户确认自然砌接接口概念，授权生成并替换当前贴片感T。",
+        "createdTaskIds": [
+          "a30-integrated-stone-junction-20261007",
+          "p63-natural-junction-integration-20261007"
+        ],
+        "dependencyChanges": [],
         "milestoneChanges": []
       }
     ],
@@ -19766,6 +19874,302 @@
           "note": "制作人独立验收ev2：40原交付与3追加SHA全一致，亲眼看1200/960 game/editor两个厨房T、二级T图标和游戏独立20/24组件。双横臂、居中stem、两内凹倒角清晰，透明空区无矩形黑影，原横立面/门柱/外L与纵墙深边保留。材质为同套浅石色，新T磨损比直段密，模块接口可辨，不声称逐像素旧纹理。108原生操作/GPU项及73门禁规则项通过，技术报告辅助审美结论；符合本轮完整T意图。",
           "mode": "independent",
           "evidenceVersion": 2
+        }
+      },
+      {
+        "id": "p63-start-20261007",
+        "taskId": "p63-natural-junction-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "批准概念已保存，派A30主美重绘自然接口；准备新版本注册/旧T退新建兼容/实际对照和关键回归。",
+        "evidence": [
+          "docs/dev/p63/approved-wall-junction-concept.png",
+          "docs/dev/p63/plan.json"
+        ],
+        "at": "2026-10-06T18:35:05.854Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p63-natural-junction-integration-20261007",
+          "title": "P63 自然砌接墙体替换与素材统一",
+          "description": "按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。",
+          "result": "批准概念已保存，派A30主美重绘自然接口；准备新版本注册/旧T退新建兼容/实际对照和关键回归。",
+          "dependencyIds": [
+            "p62-t-junction-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p63*",
+              "docs/dev/p63/**",
+              "docs/tests/p63*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p63-natural-junction-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T18:35:04.128Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a30-start-20261007",
+        "taskId": "a30-integrated-stone-junction-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已亲眼看人类批准的自然砌接概念。按普通石块与石缝咬合重做新PNG，不给旧大T板调色；浅米灰、线宽/明暗/磨损密度对原H/V，去亮色斑点、独立黑框和双影。拟保留132/136×80、stemx56、北深24、y80接V27，构造改为普通矩形砌块咬合，去旧大三角肩部；先新源和原生试拼，候选交P63接actual再冻结。旧素材/shared代码/data/Git不改。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface-draft.json"
+        ],
+        "at": "2026-10-06T18:38:26.805Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "a30-integrated-stone-junction-20261007",
+          "title": "A30 按已批准概念重绘自然石墙接口",
+          "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+          "result": "已亲眼看人类批准的自然砌接概念。按普通石块与石缝咬合重做新PNG，不给旧大T板调色；浅米灰、线宽/明暗/磨损密度对原H/V，去亮色斑点、独立黑框和双影。拟保留132/136×80、stemx56、北深24、y80接V27，构造改为普通矩形砌块咬合，去旧大三角肩部；先新源和原生试拼，候选交P63接actual再冻结。旧素材/shared代码/data/Git不改。",
+          "dependencyIds": [
+            "a29-stone-t-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v30/**",
+              "art/editor/v10/**",
+              "docs/art/architecture-v30/**"
+            ],
+            "entry": "art/architecture/v30/manifest.json",
+            "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p63-natural-junction-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T18:35:04.128Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a30-final-v30-20261007",
+        "taskId": "a30-integrated-stone-junction-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v30\\cafeteria_t_master_v30.png",
+          "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v10\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\delivery.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\README.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\prompt.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\interface.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\source-review.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-preview.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-detail.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\native-icons-visible.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-review.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\p63-visual-evidence.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\approved-reference.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-editor-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-960-editor-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-1200-t-palette.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-runtime-t-components.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v30\\runtime\\p63-access-access-headless-1200.json"
+        ],
+        "at": "2026-10-06T18:54:23.056Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "a30-integrated-stone-junction-20261007",
+          "title": "A30 按已批准概念重绘自然石墙接口",
+          "description": "用户批准新的自然接口概念并要求替换。原T为亮色大片覆盖感；新版同墙厚/石色/分块节奏，中心石缝咬合和明暗连续，不独立贴片。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。",
+          "result": "交付architecture-v30-20261007-b9e0e175d3cb，48文件hash冻结：内置imagegen按人类批准自然砌接概念重绘新RGBA主图，普通横向压顶石+窄中央头石+两竖石，取消V29整块凸T/大三角肩部/密亮斑。PNG原输出字节copy未涂改，旧V24–29所有冻结文件hash均未改。20/24本体132/136×80、stemx56、北横逻辑24、下口80，4源区同一新图，v10两独立MeshTexture图标GPU实际可见。初轮actual发现有效横臂多约3world深而覆盖感突出，已只改新图源注册为y278..438，末部原透明带令可见约21；stem源y438续出，两厨房cap_cutouts27.48保留原H底沿，外围L30.48不动；物理20/24不改。修正版actual亲眼审1200左右game/editor右、960game右/editor左、分类图及独立两尺寸，对批准图普通石缝续接/同底线，无独立额外暗底、透明带漏地、整T牌；顶面有轻微正常石色/磨损变化，不承诺逐像素照搬。主美判可独立审。两尺寸T26+palette40+独立12共78技术项与规则73全部通过，检查数单列不代替审美。P63仅登记/白名单新建换V30、历史V29仍兼容，原墙身/柱楣/外围L/长V27保留。actual原字节复制、提示词/接口/源审/主美审美记录与交付hash齐备；主美没有shared脚本/data/Git写入。待制作人独立验收，不代表人类已对新实际图再批准。",
+          "dependencyIds": [
+            "a29-stone-t-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v30/**",
+              "art/editor/v10/**",
+              "docs/art/architecture-v30/**"
+            ],
+            "entry": "art/architecture/v30/manifest.json",
+            "interfaceContract": "主美本人imagegen参考用户approved概念（docs/dev/p63/approved-wall-junction-concept.png），生成自然砌接T主纹理和20/24图标。默认沿用132/136×80、stem x56/20或24、横臂深24/y80南口接口。可以明确提出必要同源直端过渡，但禁止script/data/Git/冻结art修改。候选一次交接+actual复核后冻结待制作人独立验收。IDs cafeteria_t_20_v30 / cafeteria_t_v30, mode architecture_junction_t。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p63-natural-junction-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T18:35:04.128Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T18:56:17.561Z",
+          "note": "制作人独立验收A30：48交付hash一致。亲眼把修正版1200左右game、960editor与两规格独立T对批准概念：普通头石/纵石续接、正常石缝和同套浅米灰，去除V29大片T轮廓及肩部；3world下沿多出已用原PNG注册及cap27.48修正，原H底线连续，内空无独立底板阴影。轻微块间色/磨损差异属于石材变化，不声称逐像素复刻。主美审美说明与78native/73规则技术结果分别评估，批准方向已落实，旧V24–29冻结hash未变。",
+          "mode": "independent",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p63-ready-20261007",
+        "taskId": "p63-natural-junction-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。",
+        "evidence": [
+          "docs/dev/p63/delivery.json",
+          "docs/dev/p63/README.md",
+          "docs/dev/p63/approved-wall-junction-concept.png",
+          "docs/tests/p63-1200-t-native.json",
+          "docs/tests/p63-960-t-native.json",
+          "docs/tests/p63-1200-native.json",
+          "docs/tests/p63-960-native.json",
+          "docs/tests/p63-runtime-t-components.json",
+          "docs/tests/p63-access-access-headless-1200.json",
+          "docs/tests/p63-preservation.json",
+          "docs/tests/p63-1200-runtime-t-left.png",
+          "docs/tests/p63-1200-runtime-t-right.png",
+          "docs/tests/p63-960-editor-t-left.png",
+          "docs/tests/p63-1200-t-palette.png"
+        ],
+        "at": "2026-10-06T18:54:24.261Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p63-natural-junction-integration-20261007",
+          "title": "P63 自然砌接墙体替换与素材统一",
+          "description": "按批准概念替换R04厨房两个T及编辑新建入口，旧v29仅留旧存图引用；确保横纵连接色/厚度/石缝/阴影自然。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。",
+          "result": "批准概念按自然普通石块T替换：V30/V10注册，厨房两T ID更新及cap_cutouts27.48恢复原H下沿，其他几何和规则不变。V29退新建并保留历史ID属性/纹理加载；新版20/24精确尺寸。两尺寸T13+palette20各自通过，独立12，共78native；规则73；旧20建筑hash不变，35交付hash冻结。actual对照批准图普通中央石块续接、无V29大片T，横臂下沿修正，主美最终A30审后才P63验收。",
+          "dependencyIds": [
+            "p62-t-junction-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p63*",
+              "docs/dev/p63/**",
+              "docs/tests/p63*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p63-natural-junction-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T18:35:04.128Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T18:56:18.931Z",
+          "note": "制作人程序本人自验收，证据与结论分别登记；A30已独立通过。35程序交付hash一致，78原生T/选放/图标/历史ID兼容+73门禁禁闭救援全逃通过。R04只两T资产ID与两cap高度，architecture之外逐值不变。新建仅T30，旧T29仍能加载和保持属性ID，新图标严格MeshTexture检查通过；编辑/runtime同绘制。用户既有project.godot改动未纳入。实际自然接口底线对齐，与批准图构造一致。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
         }
       }
     ]

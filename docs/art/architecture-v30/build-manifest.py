@@ -1,0 +1,19 @@
+from pathlib import Path
+import json,hashlib,shutil
+root=Path(r'E:/Project/Godot/这次怎么逃');doc=root/'docs/art/architecture-v30'
+source=Path(r'C:/Users/gst20/.codex/generated_images/01a10697-9228-7c00-906b-43051bade1e0/exec-94afff07-4727-4cb5-8311-5408720e6fd6.png')
+target=root/'art/architecture/v30/cafeteria_t_master_v30.png';target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
+sha=hashlib.sha256(target.read_bytes()).hexdigest();tex='res://art/architecture/v30/cafeteria_t_master_v30.png'
+rows=[]
+for cross in [20,24]:
+    width=112+cross
+    pairs=[([60,278,684,160],[0,0,56,24]),([744,278,144,160],[56,0,cross,24]),([888,278,684,160],[56+cross,0,56,24]),([740,438,152,362],[56,24,cross,56])]
+    patches=[dict(source=s,destination=d,transpose=False,mirror_x=False,rotation_quarters=0,modulate=[1,1,1,1],role='ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque') for s,d in pairs]
+    id='cafeteria_t_20_v30' if cross==20 else 'cafeteria_t_v30'
+    rows.append(dict(id=id,name='自然石墙向下接口·'+str(cross)+'厚',texture=tex,texture_size=[1631,964],region=[0,0,1631,964],world_size=[width,80],render_size=[width,80],render_mode='architecture_junction_t',assembly_patches=patches,cross_width_world=cross,stem_rect=[56,24,cross,56],north_bar_rect=[0,0,width,24],inner_chamfer_bounds=[],return_start_world=80,blocking=False,interactive=False,shadow_baked=False,self_shading_baked=True,source_coordinate_space='absolute original PNG pixels',sha256=sha,alpha_core_shader='res://art/architecture/v25/safe_edges_v25.gdshader',editor_icon='res://art/editor/v10/icons/'+id+'.tres'))
+m=dict(schema=2,version='architecture-v30-20261007',style='APPROVED-NATURAL-MASONRY-JUNCTION',master_texture=tex,master_sha256=sha,edge_shader='res://art/architecture/v25/safe_edges_v25.gdshader',physical_contract={'exterior_width':24,'interior_width':20,'front_height':90,'door_width':180},assets=rows)
+interface=dict(schema=2,manifest='res://art/architecture/v30/manifest.json',source_png=tex,source_sha256=sha,source_size=[1631,964],source_grid={'x':[60,740,744,888,892,1572],'y':[278,438,800]},source_space='absolute PNG pixels, raw generated source, no phase_axis',sizes={'20':[132,80],'24':[136,80]},stem_x=56,bar_depth=24,stem_bottom_y=80,decorative_inner_chamfers=[],construction='ordinary rectangular masonry intersection; center seam/header continues into two regular upright stones, no large T plane or carved45-degree shoulder',anchor={'origin_from_baseline':[0,-115.02],'from_original_wing_top_y':6.48},kitchen20={'left_offset':[114,6.48],'right_offset':[754,6.48],'size':[132,80],'cap_cutouts':[[114,0,132,27.48],[754,0,132,27.48]],'stem_world_x':[1270,1910],'map_mirror_x_left':False,'map_mirror_x_right':True},mirror_policy='whole component mirror_x=true only for right kitchen to match V27_r; both arms56, stemx56 remains',integration={'replace':'both kitchen T29 IDs with T30; new placement whitelist T30 only, old ID load compatibility retained','preserve':'V24 H/columns/lintel, V28 exterior L, V27 straight stems','stem_continuation':'V27 starts at corner_origin_y+80, original period123.1413612565','notch':'lower lateral voids actual transparent, no separate background/shadow'},editor={'manifest':'res://art/editor/v10/manifest.json','icons':2,'mode':'architecture_junction_t'},approved_reference='docs/dev/p63/approved-wall-junction-concept.png')
+for rel,obj in [('art/architecture/v30/manifest.json',m),('art/editor/v10/manifest.json',dict(schema=1,assets=[dict(id=a['id'],name=a['name'],category='furniture',editor_icon=a['editor_icon']) for a in rows],tools=[])),('docs/art/architecture-v30/interface.json',interface)]:
+    p=root/rel;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'components':2,'sha256':sha,'sizes':[r['render_size'] for r in rows]}))
+
