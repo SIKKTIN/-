@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "bead23a34142af882e0837e7647b01096802a681379bf9ec442c3d493d59dd04",
+  "snapshotId": "2fa304bc4a31dbcc744ce030c5d4c893fca58bf9206f79b76a12cc56d248f443",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -4066,6 +4066,101 @@
           "at": "2026-10-06T10:19:36.283Z"
         }
       ]
+    },
+    {
+      "id": "a25-cafeteria-walls-alpha-20261006",
+      "title": "A25 食堂纵墙与透明边缘返修",
+      "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "竖向墙为平整连续墙顶加窄暗侧面，非连续门柱，接北墙自然；横墙无悬浮黑色散点，透明边缘核心/抗锯齿正确；实际运行近景对照目标、含小地图与编辑器配套资源。",
+      "result": "交付architecture-v25-20261006-b95f9aa0fd04：新增真正平整纵墙顶+窄暗侧、一次南端面、连续L转角，共3资产/2新原图/3图标；左/右外角与厨房20宽接点实际完整图和真实2x近景亲眼复核，压顶连续90度转弯、横front与灰基脚对齐，旧外前柱绘制让位。12源区已按cap/plinth/脚配准；已发现并修正程序重复裁切坐标与负矩形镜像错误。新版alpha shader不放大低alpha杂点，实体核心不透底；真实GPU绘制/资源3项通过，制作人P55最终回归220/220。A24全部交付hash不变，新PNG原样copy。仍有转角石缝略密/描边稍重、south续接略暖的小差异，记录不冒充逐像素还原；运行图FPS非性能benchmark。待制作人独立验收。\n\n验收通过：制作人独立核对最终整场与左右2倍实图：连续L墙顶、窄暗边、基脚对齐与正确镜像已通过；A25完整交付哈希匹配，A24原图不变，资源/图标与GPU测试通过。低alpha安全shader不再放大碎点；旧764边缘对比为前一构建的辅助数据，不作为最终构建定量断言。保留石缝密度与色温的轻微残差；不宣称像素级还原。程序FPS与规则另由P55验收。",
+      "dependencyIds": [
+        "a24-concept-faithful-building-20261006"
+      ],
+      "references": [],
+      "workScope": {
+        "allowedPaths": [
+          "art/architecture/v25/**",
+          "art/editor/v05/**",
+          "docs/art/architecture-v25/**"
+        ],
+        "entry": "art/architecture/v25/manifest.json",
+        "interfaceContract": "只交新增资产/边缘修正shader与图标，不改A24原图/旧hash、scripts/data，不git提交。纵墙需要真正俯视的顶面条+窄暗侧面可重复模块（tile24×约128，非立面柱拉长），无首尾厚框；可提供独立南向端面。横墙先查alpha散点与旧opaque_core shader把低alpha提亮的问题，给出保留抗锯齿、实体核心不透底的新版shader/源图。制作人负责注册/物理墙派生渲染及FPS。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "a25-cafeteria-walls-alpha-20261006-plan",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-06T11:26:52.972Z"
+        }
+      ]
+    },
+    {
+      "id": "p55-cafeteria-walls-fps-20261006",
+      "title": "P55 食堂墙体返修与运行FPS",
+      "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "实图竖墙连续墙顶/窄侧面与横墙散点已修，保留地图/门禁/关押；运行FPS常显、不受暂停或时间流速影响、忽略点击、适配1200与960。主美实际对照与必要回归通过。",
+      "result": "P55最终接入A25连续L墙顶及12源区配准，裁去旧外柱、正尺寸UV镜像修复四接点；安全alpha边缘shader减少横墙碎点。运行FPS读取Engine真实值，墙钟250ms更新、暂停/零时速继续且忽略点击。220/220技术检查、两尺寸实际窗口、2倍左右连接与主美独立视觉复核通过；地图规则和原几何保持。早期错误图已替换为唯一final图，轻微石缝/色温差异记录；不作为性能benchmark或像素级复制。\n\n验收通过：制作人本人P55程序自验收，与提交证据分开执行：最终source哈希与220项报告一致，两尺寸FPS安全区/输入穿透/暂停更新通过，四个连续L接点及实际plinth与镜像像素通过，主美另独立复核实际画面；食堂门禁/禁闭救援及编辑器回归通过。A25由制作人独立验收在先。保留轻微素材风格残差；采图FPS不作正常性能结论，未覆盖真人触屏长时间体验。",
+      "dependencyIds": [
+        "a24-concept-faithful-building-20261006"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/rooms/r04.json",
+          "qa/p55*",
+          "docs/dev/p55/**",
+          "docs/tests/p55*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn R04",
+        "interfaceContract": "消费A25修正纵墙模块及alpha shader，保持A24禁闭建筑、门规则与geometry ID。FPS使用Engine实际帧率、墙钟节流更新、PROCESS_MODE_ALWAYS，不阻挡输入和模态层级。保留用户project.godot与其他旧未跟踪文件。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p55-cafeteria-walls-fps-20261006-plan",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T11:26:54.669Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -4223,7 +4318,8 @@
             "p51-editor-layout-layers-20261006",
             "p52-r04-access-confinement-20261006",
             "p53-architecture-render-20261006",
-            "p54-concept-faithful-render-20261006"
+            "p54-concept-faithful-render-20261006",
+            "p55-cafeteria-walls-fps-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4297,7 +4393,8 @@
             "a21-roof-solitary-concept-20261006",
             "a22-cafeteria-equal-wall-concept-20261006",
             "a23-architecture-production-20261006",
-            "a24-concept-faithful-building-20261006"
+            "a24-concept-faithful-building-20261006",
+            "a25-cafeteria-walls-alpha-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4711,6 +4808,26 @@
       "summary": "按用户概念对照返修R04完整建筑体块与食堂石墙收口，保留原地图及对象ID。",
       "memberName": "制作人",
       "at": "2026-10-06T10:56:20.666Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p55-cafeteria-walls-fps-design-20261006",
+      "digest": "45a42db2fb46da06981030d614c8fa63de1a2d2c84797409e3a2df1180980a28",
+      "summary": "原位修正食堂纵墙/透明边缘并加入运行FPS，保留R04对象ID及规则。",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:57:35.533Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p55-corner-design-20261006",
+      "digest": "d7281da4ff549f9c246ab0756503149263395345f562c07eadb743521348a3cc",
+      "summary": "P55补充实际验证的连续L转角、左右镜像与原图裁区配准，保留地图几何。",
+      "memberName": "制作人",
+      "at": "2026-10-06T12:30:54.954Z",
       "modules": [
         "map-design"
       ]
@@ -5365,6 +5482,30 @@
       "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
       "createdTaskIds": [
         "p54-concept-faithful-render-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "a25-cafeteria-walls-alpha-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:26:52.972Z",
+      "reason": "用户本轮要求返修竖墙、横墙杂点并显示运行FPS。",
+      "createdTaskIds": [
+        "a25-cafeteria-walls-alpha-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p55-cafeteria-walls-fps-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:26:54.669Z",
+      "reason": "用户本轮要求返修竖墙、横墙杂点并显示运行FPS。",
+      "createdTaskIds": [
+        "p55-cafeteria-walls-fps-20261006"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -17333,6 +17474,288 @@
         "at": "2026-10-06T11:02:50.615Z",
         "note": "已对照用户目标和固定无遮挡/HUD/OPEN原生图，4原图及11素材/图标注册正确，厚檐阴影、189/109体块比例、窄门石柱、食堂同源等高和转角已恢复。实际shader错误已修并重跑无错误日志；接受主美交付，保留对照表列明的纹理/基座强度及位置差异，不宣称逐像素一致。",
         "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p55-start-20261006",
+      "taskId": "p55-cafeteria-walls-fps-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "正在修正纵向墙使用立面柱材质的错误，读原始alpha定位横墙杂点，同时制作运行FPS。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-20ffc189-f8b5-4672-9063-da9c8158ecd0.png"
+      ],
+      "at": "2026-10-06T11:26:56.191Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p55-cafeteria-walls-fps-20261006",
+        "title": "P55 食堂墙体返修与运行FPS",
+        "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "实图竖墙连续墙顶/窄侧面与横墙散点已修，保留地图/门禁/关押；运行FPS常显、不受暂停或时间流速影响、忽略点击、适配1200与960。主美实际对照与必要回归通过。",
+        "result": "正在修正纵向墙使用立面柱材质的错误，读原始alpha定位横墙杂点，同时制作运行FPS。",
+        "dependencyIds": [
+          "a24-concept-faithful-building-20261006"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p55*",
+            "docs/dev/p55/**",
+            "docs/tests/p55*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "消费A25修正纵墙模块及alpha shader，保持A24禁闭建筑、门规则与geometry ID。FPS使用Engine实际帧率、墙钟节流更新、PROCESS_MODE_ALWAYS，不阻挡输入和模态层级。保留用户project.godot与其他旧未跟踪文件。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p55-cafeteria-walls-fps-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T11:26:54.669Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a25-start-20261006",
+      "taskId": "a25-cafeteria-walls-alpha-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已读取本轮失败图/目标图和A25任务。源图透明顶部有低alpha杂点，旧smoothstep(.02,.25)有明显放大；先交safe_edges新版shader，只升高alpha核心、不放大低alpha并衰减最低杂点。制作真正俯视24x128墙顶/窄暗侧条，独立24x90南端面只画一次，旧原图与hash保持。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\alpha-source-diagnosis.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\interface-draft.json"
+      ],
+      "at": "2026-10-06T11:32:22.135Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a25-cafeteria-walls-alpha-20261006",
+        "title": "A25 食堂纵墙与透明边缘返修",
+        "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "竖向墙为平整连续墙顶加窄暗侧面，非连续门柱，接北墙自然；横墙无悬浮黑色散点，透明边缘核心/抗锯齿正确；实际运行近景对照目标、含小地图与编辑器配套资源。",
+        "result": "已读取本轮失败图/目标图和A25任务。源图透明顶部有低alpha杂点，旧smoothstep(.02,.25)有明显放大；先交safe_edges新版shader，只升高alpha核心、不放大低alpha并衰减最低杂点。制作真正俯视24x128墙顶/窄暗侧条，独立24x90南端面只画一次，旧原图与hash保持。",
+        "dependencyIds": [
+          "a24-concept-faithful-building-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v25/**",
+            "art/editor/v05/**",
+            "docs/art/architecture-v25/**"
+          ],
+          "entry": "art/architecture/v25/manifest.json",
+          "interfaceContract": "只交新增资产/边缘修正shader与图标，不改A24原图/旧hash、scripts/data，不git提交。纵墙需要真正俯视的顶面条+窄暗侧面可重复模块（tile24×约128，非立面柱拉长），无首尾厚框；可提供独立南向端面。横墙先查alpha散点与旧opaque_core shader把低alpha提亮的问题，给出保留抗锯齿、实体核心不透底的新版shader/源图。制作人负责注册/物理墙派生渲染及FPS。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a25-cafeteria-walls-alpha-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T11:26:52.972Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a25-final-v25-20261006",
+      "taskId": "a25-cafeteria-walls-alpha-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "交付architecture-v25-20261006-b95f9aa0fd04：新增真正平整纵墙顶+窄暗侧、一次南端面、连续L转角，共3资产/2新原图/3图标；左/右外角与厨房20宽接点实际完整图和真实2x近景亲眼复核，压顶连续90度转弯、横front与灰基脚对齐，旧外前柱绘制让位。12源区已按cap/plinth/脚配准；已发现并修正程序重复裁切坐标与负矩形镜像错误。新版alpha shader不放大低alpha杂点，实体核心不透底；真实GPU绘制/资源3项通过，制作人P55最终回归220/220。A24全部交付hash不变，新PNG原样copy。仍有转角石缝略密/描边稍重、south续接略暖的小差异，记录不冒充逐像素还原；运行图FPS非性能benchmark。待制作人独立验收。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v25\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v05\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\delivery.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\p55-visual-review.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\p55-visual-evidence.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-interface.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-prompts.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\alpha-transfer-check.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\shader-native.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-native.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-walls-unobscured-final.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-wall-detail-final.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-right-junctions-final.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-960-walls-hud-final.png"
+      ],
+      "at": "2026-10-06T12:28:04.860Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a25-cafeteria-walls-alpha-20261006",
+        "title": "A25 食堂纵墙与透明边缘返修",
+        "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "竖向墙为平整连续墙顶加窄暗侧面，非连续门柱，接北墙自然；横墙无悬浮黑色散点，透明边缘核心/抗锯齿正确；实际运行近景对照目标、含小地图与编辑器配套资源。",
+        "result": "交付architecture-v25-20261006-b95f9aa0fd04：新增真正平整纵墙顶+窄暗侧、一次南端面、连续L转角，共3资产/2新原图/3图标；左/右外角与厨房20宽接点实际完整图和真实2x近景亲眼复核，压顶连续90度转弯、横front与灰基脚对齐，旧外前柱绘制让位。12源区已按cap/plinth/脚配准；已发现并修正程序重复裁切坐标与负矩形镜像错误。新版alpha shader不放大低alpha杂点，实体核心不透底；真实GPU绘制/资源3项通过，制作人P55最终回归220/220。A24全部交付hash不变，新PNG原样copy。仍有转角石缝略密/描边稍重、south续接略暖的小差异，记录不冒充逐像素还原；运行图FPS非性能benchmark。待制作人独立验收。",
+        "dependencyIds": [
+          "a24-concept-faithful-building-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v25/**",
+            "art/editor/v05/**",
+            "docs/art/architecture-v25/**"
+          ],
+          "entry": "art/architecture/v25/manifest.json",
+          "interfaceContract": "只交新增资产/边缘修正shader与图标，不改A24原图/旧hash、scripts/data，不git提交。纵墙需要真正俯视的顶面条+窄暗侧面可重复模块（tile24×约128，非立面柱拉长），无首尾厚框；可提供独立南向端面。横墙先查alpha散点与旧opaque_core shader把低alpha提亮的问题，给出保留抗锯齿、实体核心不透底的新版shader/源图。制作人负责注册/物理墙派生渲染及FPS。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a25-cafeteria-walls-alpha-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T11:26:52.972Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T12:31:32.584Z",
+        "note": "制作人独立核对最终整场与左右2倍实图：连续L墙顶、窄暗边、基脚对齐与正确镜像已通过；A25完整交付哈希匹配，A24原图不变，资源/图标与GPU测试通过。低alpha安全shader不再放大碎点；旧764边缘对比为前一构建的辅助数据，不作为最终构建定量断言。保留石缝密度与色温的轻微残差；不宣称像素级还原。程序FPS与规则另由P55验收。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p55-ready-20261006",
+      "taskId": "p55-cafeteria-walls-fps-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P55最终接入A25连续L墙顶及12源区配准，裁去旧外柱、正尺寸UV镜像修复四接点；安全alpha边缘shader减少横墙碎点。运行FPS读取Engine真实值，墙钟250ms更新、暂停/零时速继续且忽略点击。220/220技术检查、两尺寸实际窗口、2倍左右连接与主美独立视觉复核通过；地图规则和原几何保持。早期错误图已替换为唯一final图，轻微石缝/色温差异记录；不作为性能benchmark或像素级复制。",
+      "evidence": [
+        "docs/dev/p55/delivery.json",
+        "docs/dev/p55/README.md",
+        "docs/tests/p55-summary.json",
+        "docs/tests/p55-1200-walls-hud-final.png",
+        "docs/tests/p55-960-walls-hud-final.png",
+        "docs/tests/p55-1200-wall-detail-final.png",
+        "docs/tests/p55-1200-right-junctions-final.png",
+        "docs/art/architecture-v25/p55-visual-review.md"
+      ],
+      "at": "2026-10-06T12:32:11.432Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p55-cafeteria-walls-fps-20261006",
+        "title": "P55 食堂墙体返修与运行FPS",
+        "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "实图竖墙连续墙顶/窄侧面与横墙散点已修，保留地图/门禁/关押；运行FPS常显、不受暂停或时间流速影响、忽略点击、适配1200与960。主美实际对照与必要回归通过。",
+        "result": "P55最终接入A25连续L墙顶及12源区配准，裁去旧外柱、正尺寸UV镜像修复四接点；安全alpha边缘shader减少横墙碎点。运行FPS读取Engine真实值，墙钟250ms更新、暂停/零时速继续且忽略点击。220/220技术检查、两尺寸实际窗口、2倍左右连接与主美独立视觉复核通过；地图规则和原几何保持。早期错误图已替换为唯一final图，轻微石缝/色温差异记录；不作为性能benchmark或像素级复制。",
+        "dependencyIds": [
+          "a24-concept-faithful-building-20261006"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p55*",
+            "docs/dev/p55/**",
+            "docs/tests/p55*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "消费A25修正纵墙模块及alpha shader，保持A24禁闭建筑、门规则与geometry ID。FPS使用Engine实际帧率、墙钟节流更新、PROCESS_MODE_ALWAYS，不阻挡输入和模态层级。保留用户project.godot与其他旧未跟踪文件。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p55-cafeteria-walls-fps-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T11:26:54.669Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T12:33:23.330Z",
+        "note": "制作人本人P55程序自验收，与提交证据分开执行：最终source哈希与220项报告一致，两尺寸FPS安全区/输入穿透/暂停更新通过，四个连续L接点及实际plinth与镜像像素通过，主美另独立复核实际画面；食堂门禁/禁闭救援及编辑器回归通过。A25由制作人独立验收在先。保留轻微素材风格残差；采图FPS不作正常性能结论，未覆盖真人触屏长时间体验。",
+        "mode": "producer-self",
         "evidenceVersion": 1
       }
     }

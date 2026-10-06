@@ -1,0 +1,48 @@
+{
+  "passed": 220,
+  "total": 220,
+  "reports": [
+    {
+      "report": "p55-wall-fps-native-1200.json",
+      "passed": 21,
+      "total": 21,
+      "failed": []
+    },
+    {
+      "report": "p55-wall-fps-native-960.json",
+      "passed": 21,
+      "total": 21,
+      "failed": []
+    },
+    {
+      "report": "p55-wall-fps-headless-1200.json",
+      "passed": 20,
+      "total": 20,
+      "failed": []
+    },
+    {
+      "report": "p55-wall-detail-native.json",
+      "passed": 7,
+      "total": 7,
+      "failed": []
+    },
+    {
+      "report": "p55-access-access-headless-1200.json",
+      "passed": 73,
+      "total": 73,
+      "failed": []
+    },
+    {
+      "report": "p55-editor-headless-1280.json",
+      "passed": 78,
+      "total": 78,
+      "failed": []
+    }
+  ],
+  "notes": [
+    "FPS reads Engine actual FPS. Captured values include cold initialization and synchronous GPU readback stalls; these screenshots are not a gameplay benchmark.",
+    "Native alpha ROI includes antialias transition; contrast reduction is verified, not removal of every isolated source pixel.",
+    "Corner plinth transition measured at worldY1224 for both new L and old wing. Actual mirrored sides verified by luminance and visually reviewed.",
+    "Camera teleport QA explicitly rebuilds culled floor canvas commands; game normal pan already did this."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "p55-start-20261006",
+  "digest": "aca04d324c3015bef9a0fa93f5e3db7d51304fa62f41f692abe7d31e1daf6585",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T11:26:56.056Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p55-start-20261006",
+    "taskId": "p55-cafeteria-walls-fps-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "正在修正纵向墙使用立面柱材质的错误，读原始alpha定位横墙杂点，同时制作运行FPS。",
+    "evidence": [
+      "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-20ffc189-f8b5-4672-9063-da9c8158ecd0.png"
+    ],
+    "at": "2026-10-06T11:26:56.191Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p55-start-20261006",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

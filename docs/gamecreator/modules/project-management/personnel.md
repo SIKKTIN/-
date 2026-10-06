@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T11:03:33.392Z
-> 文档内容基准：0f74a12ad7b03022e6b6252ed2fc71e611acc7e4655219f1898f6eee18f29a95
+> 文档生成时间：2026-10-06T12:33:25.646Z
+> 文档内容基准：989a78f8eac4c7061e159628c042a848925b0521284178e63df2cff3a57ae777
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -72,6 +72,7 @@
 - P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
 - P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
+- P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -101,6 +102,7 @@
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
 - A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
+- A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1045,6 +1047,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。
 - 验收负责人：制作人
+### P55 食堂墙体返修与运行FPS
+- ID：p55-cafeteria-walls-fps-20261006
+- 当前状态：已完成
+- 内容：用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。
+- 前置任务：a24-concept-faithful-building-20261006
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p55*、docs/dev/p55/**、docs/tests/p55*、docs/gamecreator/**、gamecreator/**
+- 接口契约：消费A25修正纵墙模块及alpha shader，保持A24禁闭建筑、门规则与geometry ID。FPS使用Engine实际帧率、墙钟节流更新、PROCESS_MODE_ALWAYS，不阻挡输入和模态层级。保留用户project.godot与其他旧未跟踪文件。
+- 交付入口：res://scenes/main.tscn R04
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：实图竖墙连续墙顶/窄侧面与横墙散点已修，保留地图/门禁/关押；运行FPS常显、不受暂停或时间流速影响、忽略点击、适配1200与960。主美实际对照与必要回归通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1128,6 +1141,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
 - A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
 - P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
+- A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
+- P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1653,6 +1668,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v24/manifest.json
 - 验收要求：按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。
 - 验收负责人：制作人
+### A25 食堂纵墙与透明边缘返修
+- ID：a25-cafeteria-walls-alpha-20261006
+- 当前状态：已完成
+- 内容：用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。
+- 前置任务：a24-concept-faithful-building-20261006
+- 允许修改路径：art/architecture/v25/**、art/editor/v05/**、docs/art/architecture-v25/**
+- 接口契约：只交新增资产/边缘修正shader与图标，不改A24原图/旧hash、scripts/data，不git提交。纵墙需要真正俯视的顶面条+窄暗侧面可重复模块（tile24×约128，非立面柱拉长），无首尾厚框；可提供独立南向端面。横墙先查alpha散点与旧opaque_core shader把低alpha提亮的问题，给出保留抗锯齿、实体核心不透底的新版shader/源图。制作人负责注册/物理墙派生渲染及FPS。
+- 交付入口：art/architecture/v25/manifest.json
+- 验收要求：竖向墙为平整连续墙顶加窄暗侧面，非连续门柱，接北墙自然；横墙无悬浮黑色散点，透明边缘核心/抗锯齿正确；实际运行近景对照目标、含小地图与编辑器配套资源。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1680,3 +1705,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
 - A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
+- A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成

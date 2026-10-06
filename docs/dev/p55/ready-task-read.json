@@ -1,0 +1,141 @@
+{
+  "task": {
+    "id": "p55-cafeteria-walls-fps-20261006",
+    "title": "P55 食堂墙体返修与运行FPS",
+    "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "实图竖墙连续墙顶/窄侧面与横墙散点已修，保留地图/门禁/关押；运行FPS常显、不受暂停或时间流速影响、忽略点击、适配1200与960。主美实际对照与必要回归通过。",
+    "result": "正在修正纵向墙使用立面柱材质的错误，读原始alpha定位横墙杂点，同时制作运行FPS。",
+    "dependencyIds": [
+      "a24-concept-faithful-building-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p55*",
+        "docs/dev/p55/**",
+        "docs/tests/p55*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "消费A25修正纵墙模块及alpha shader，保持A24禁闭建筑、门规则与geometry ID。FPS使用Engine实际帧率、墙钟节流更新、PROCESS_MODE_ALWAYS，不阻挡输入和模态层级。保留用户project.godot与其他旧未跟踪文件。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p55-cafeteria-walls-fps-20261006-plan",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T11:26:54.669Z"
+      }
+    ]
+  },
+  "revision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece",
+  "scheduleRevision": "091b57ecae351df4a6390b26c854e42600ae548323fffe800b994be9c28acdce",
+  "planChanges": [
+    {
+      "id": "p55-cafeteria-walls-fps-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:26:54.669Z",
+      "reason": "用户本轮要求返修竖墙、横墙杂点并显示运行FPS。",
+      "createdTaskIds": [
+        "p55-cafeteria-walls-fps-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a24-concept-faithful-building-20261006",
+      "title": "A24 按概念还原完整建筑体块素材",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p55-start-20261006",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece"
+  },
+  "feedback": [
+    {
+      "id": "p55-start-20261006",
+      "taskId": "p55-cafeteria-walls-fps-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "正在修正纵向墙使用立面柱材质的错误，读原始alpha定位横墙杂点，同时制作运行FPS。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-20ffc189-f8b5-4672-9063-da9c8158ecd0.png"
+      ],
+      "at": "2026-10-06T11:26:56.191Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p55-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "7df6a4876bdd3bdbec4b708819ab9ae58316e72247ca1ee61092900737261ece",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

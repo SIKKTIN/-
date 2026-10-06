@@ -1,0 +1,64 @@
+{
+  "id": "p55-ready-20261006",
+  "digest": "89c099eaba65b25384b5d5dd3705f0e320940c1c36cf32c4e1a3a849a47a229d",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T12:32:11.291Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p55-ready-20261006",
+    "taskId": "p55-cafeteria-walls-fps-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "P55最终接入A25连续L墙顶及12源区配准，裁去旧外柱、正尺寸UV镜像修复四接点；安全alpha边缘shader减少横墙碎点。运行FPS读取Engine真实值，墙钟250ms更新、暂停/零时速继续且忽略点击。220/220技术检查、两尺寸实际窗口、2倍左右连接与主美独立视觉复核通过；地图规则和原几何保持。早期错误图已替换为唯一final图，轻微石缝/色温差异记录；不作为性能benchmark或像素级复制。",
+    "evidence": [
+      "docs/dev/p55/delivery.json",
+      "docs/dev/p55/README.md",
+      "docs/tests/p55-summary.json",
+      "docs/tests/p55-1200-walls-hud-final.png",
+      "docs/tests/p55-960-walls-hud-final.png",
+      "docs/tests/p55-1200-wall-detail-final.png",
+      "docs/tests/p55-1200-right-junctions-final.png",
+      "docs/art/architecture-v25/p55-visual-review.md"
+    ],
+    "at": "2026-10-06T12:32:11.432Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p55-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p55-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p55-ready-20261006",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "10a7577f5087ecdca1a10c86aac895e4e5e2a8d4b40bb547851001eb1aaeb56e"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "10a7577f5087ecdca1a10c86aac895e4e5e2a8d4b40bb547851001eb1aaeb56e",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

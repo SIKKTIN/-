@@ -1,0 +1,12 @@
+{
+  "taskId": "a25-cafeteria-walls-alpha-20261006",
+  "revision": "54bdb993faa68e16189b7596cab757870fc3e9474567a3b87f5994774255fea4",
+  "feedbackId": "a25-start-20261006",
+  "status": "进行中",
+  "summary": "已读取本轮失败图/目标图和A25任务。源图透明顶部有低alpha杂点，旧smoothstep(.02,.25)有明显放大；先交safe_edges新版shader，只升高alpha核心、不放大低alpha并衰减最低杂点。制作真正俯视24x128墙顶/窄暗侧条，独立24x90南端面只画一次，旧原图与hash保持。",
+  "evidence": [
+    "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\alpha-source-diagnosis.json",
+    "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\interface-draft.json"
+  ],
+  "requestId": "a25-start-20261006"
+}

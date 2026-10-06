@@ -117,6 +117,9 @@ var bag_button: MobileButton
 var target_button: Button
 var bag_open := false
 var button_layout
+var fps_badge: PanelContainer
+var fps_label: Label
+var fps_sample_time := -1000
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -144,6 +147,24 @@ func configure(owner_game) -> void:
 	goal = _button("逃脱 0/3",Callable())
 	goal.mouse_filter = Control.MOUSE_FILTER_STOP
 	wallet = _button("0",Callable(),"coin")
+	fps_badge = PanelContainer.new()
+	fps_badge.name = "RuntimeFPS"
+	fps_badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fps_badge.z_index = 50
+	var fps_style := StyleBoxFlat.new()
+	fps_style.bg_color = Color(0.13,0.19,0.18,0.82)
+	fps_style.set_corner_radius_all(5)
+	fps_style.set_content_margin_all(5)
+	fps_badge.add_theme_stylebox_override("panel",fps_style)
+	fps_label = Label.new()
+	fps_label.name = "Value"
+	fps_label.text = "FPS —"
+	fps_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fps_label.add_theme_font_override("font",font)
+	fps_label.add_theme_font_size_override("font_size",14)
+	fps_label.add_theme_color_override("font_color",Color("e4edda"))
+	fps_badge.add_child(fps_label)
+	hud.add_child(fps_badge)
 	menu_button = _button("",toggle_menu,"pause")
 	menu_button.z_index = 240
 	menu_button.tooltip_text = "暂停 / 菜单"
@@ -322,6 +343,8 @@ func layout() -> void:
 	wallet.size = Vector2(98,52)
 	goal.position = wallet.position-Vector2(142,0)
 	goal.size = Vector2(134,52)
+	fps_badge.position = Vector2(goal.position.x,goal.position.y+goal.size.y+8)
+	fps_badge.size = Vector2(76,28)
 	var map_width := 200.0 if safe.size.x < 1040 else 220.0
 	var map_height := 160.0 if safe.size.x < 1040 else 174.0
 	game.mini_map.position = Vector2(safe.end.x-map_width,safe.position.y+64)
@@ -508,6 +531,13 @@ func close_menu() -> void:
 
 func _process(_delta: float) -> void:
 	if game:
+		# Wall-clock sampling keeps debug FPS independent of simulation speed
+		# and running when the daily planner or pause menu stops gameplay.
+		var now := Time.get_ticks_msec()
+		if now-fps_sample_time >= 250:
+			fps_sample_time = now
+			var fps := Engine.get_frames_per_second()
+			fps_label.text = "FPS %d" % fps if fps > 0 else "FPS —"
 		if last_size != game.get_viewport_rect().size:
 			layout()
 		refresh()

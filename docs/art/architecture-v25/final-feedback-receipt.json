@@ -1,0 +1,61 @@
+{
+  "id": "a25-final-v25-20261006",
+  "digest": "e1db74a19a4629759325ded48d983d2e228fbd316153d3904a3bdeccf103bba9",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T12:28:04.726Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a25-final-v25-20261006",
+    "taskId": "a25-cafeteria-walls-alpha-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "交付architecture-v25-20261006-b95f9aa0fd04：新增真正平整纵墙顶+窄暗侧、一次南端面、连续L转角，共3资产/2新原图/3图标；左/右外角与厨房20宽接点实际完整图和真实2x近景亲眼复核，压顶连续90度转弯、横front与灰基脚对齐，旧外前柱绘制让位。12源区已按cap/plinth/脚配准；已发现并修正程序重复裁切坐标与负矩形镜像错误。新版alpha shader不放大低alpha杂点，实体核心不透底；真实GPU绘制/资源3项通过，制作人P55最终回归220/220。A24全部交付hash不变，新PNG原样copy。仍有转角石缝略密/描边稍重、south续接略暖的小差异，记录不冒充逐像素还原；运行图FPS非性能benchmark。待制作人独立验收。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v25\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v05\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\delivery.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\p55-visual-review.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\p55-visual-evidence.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-interface.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-source-review.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-prompts.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\alpha-transfer-check.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\shader-native.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\corner-native.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-walls-unobscured-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-wall-detail-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-1200-right-junctions-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v25\\runtime\\p55-960-walls-hud-final.png"
+    ],
+    "at": "2026-10-06T12:28:04.860Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a25-final-v25-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a25-final-v25-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "c7e9e05f132bc0f9a20179f236b7f127c729087c9e933bf8ed1e2051b373643e"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "c7e9e05f132bc0f9a20179f236b7f127c729087c9e933bf8ed1e2051b373643e",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

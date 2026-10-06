@@ -1,0 +1,13 @@
+{
+  "schema":1,
+  "version":"architecture-v25-20261006",
+  "status":"new shader ready, top texture generation pending",
+  "shader":"res://art/architecture/v25/safe_edges_v25.gdshader",
+  "shader_policy":"One texture sample. Alpha below0.90 never increases; lowest-alpha specks fade out; only0.90..0.97 dense core restored to1. RGB/modulate preserved. Oldv24 files unchanged.",
+  "assets":[
+    {"id":"cafeteria_return_top_v25","world_size":[24,128],"render_mode":"architecture_material","opaque":true,"repeat_axes":"y","layout":"~20world flat pale top +~4world dark right side strip, no pillar head/footer or frontal facade"},
+    {"id":"cafeteria_return_end_v25","world_size":[24,90],"render_mode":"architecture_end_face","reuse_source":"res://art/architecture/v24/cafeteria_portal_v24.png","source_region_proposal":[200,259,74,288],"placement":"ONE south-facing terminal face; never repeated along Y"}
+  ],
+  "integration":"Root derives vertical strip from actual wall footprint, with top24x128 alongY; end face only at south endpoint if full wall elevation is shown. Keep corridor width. Existing north wings/piers and solitary source hashes remain fixed.",
+  "editor":"Incremental v05 icons for new two ids, categories furniture, tools[]; also expose in minimap via actual physical wall geometry, not art placement."
+}

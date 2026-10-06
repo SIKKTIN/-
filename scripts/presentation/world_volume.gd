@@ -13,9 +13,9 @@ var _wall_geometry_valid := false
 var _wall_bounds := Rect2()
 var lintel_visual: Sprite2D
 
-func painted_material() -> ShaderMaterial:
+func painted_material(shader_path := "res://art/architecture/v24/opaque_core.gdshader") -> ShaderMaterial:
 	var result := ShaderMaterial.new()
-	result.shader = load("res://art/architecture/v24/opaque_core.gdshader")
+	result.shader = load(shader_path)
 	return result
 
 func configure(owner_world, type: String, index: int = 0, render_profile: Dictionary = {}, assets: Dictionary = {}) -> void:
@@ -25,6 +25,7 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 	profile = render_profile.duplicate(true)
 	if type == "wall" and owner_world.wall_surfaces.has(index):
 		var surface: Dictionary = owner_world.wall_surfaces[index]
+		var alpha_shader := str(surface.get("alpha_shader","res://art/architecture/v24/opaque_core.gdshader"))
 		profile.wall_elevation = float(surface.get("height",100))
 		profile.block_elevation = profile.wall_elevation
 		profile.block_top_tiled = true
@@ -35,17 +36,23 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 		if surface.has("render_top_start"): profile.render_top_start = surface.render_top_start
 		if surface.has("painted_facade"):
 			profile.painted_facade = surface.painted_facade
-			material = painted_material()
+			material = painted_material(alpha_shader)
+		if surface.has("return_wall"):
+			profile.return_wall = surface.return_wall
+			material = painted_material(alpha_shader)
 		if surface.has("return_material"):
 			profile.return_material = surface.return_material
 			material = painted_material()
 	definitions = assets
-	if type == "fixture" and str(owner_world.fixtures[index].asset_id).ends_with("_v24"):
-		material = painted_material()
+	if type == "fixture":
+		var fixture_id := str(owner_world.fixtures[index].asset_id)
+		var definition: Dictionary = definitions.get(fixture_id,{})
+		if definition.has("alpha_core_shader") or fixture_id.ends_with("_v24"):
+			material = painted_material(str(definition.get("alpha_core_shader","res://art/architecture/v24/opaque_core.gdshader")))
 	if type == "fixture" and owner_world.fixtures[index].has("lintel_asset"):
 		lintel_visual = Sprite2D.new()
 		lintel_visual.texture = world.art_textures.get(str(owner_world.fixtures[index].lintel_asset))
-		lintel_visual.material = painted_material()
+		lintel_visual.material = painted_material(str(owner_world.fixtures[index].get("alpha_shader","res://art/architecture/v24/opaque_core.gdshader")))
 		add_child(lintel_visual)
 	_wall_geometry_valid = false
 	# Minified bars and furniture need prefiltered texture levels. Fractional
@@ -101,19 +108,67 @@ func tick_visual() -> void:
 		lintel_visual.scale = Vector2(display_rect.size.x,height)/lintel_visual.texture.get_size()
 	queue_redraw()
 
+func paint_registered(texture: Texture2D, area: Rect2, clip: Rect2) -> void:
+	var visible_area := area.intersection(clip)
+	if not visible_area.has_area(): return
+	var ratio := texture.get_size()/area.size
+	draw_texture_rect_region(texture,visible_area,Rect2((visible_area.position-area.position)*ratio,visible_area.size*ratio))
+
 func paint_facade(area: Rect2) -> void:
 	var facade: Dictionary = profile.painted_facade
-	if facade.get("layout","wing") == "wing":
-		draw_texture_rect(world.art_textures[str(facade.asset)],area,false)
-		return
-	# Extend the original painted middle at its natural width, crop the last
-	# panel and finish with a stone corner. All geometry follows the map wall.
-	var jamb := Rect2(area.position,Vector2(32,area.size.y))
-	var corner := Rect2(area.end.x-28,area.position.y,28,area.size.y)
-	var middle := Rect2(jamb.end.x,area.position.y,maxf(0,corner.position.x-jamb.end.x),area.size.y)
-	draw_texture_rect(world.art_textures[str(facade.jamb)],jamb,false)
-	Tiles.paint(self,world.art_textures[str(facade.middle)],middle,Vector2(144,area.size.y),middle)
-	draw_texture_rect(world.art_textures[str(facade.corner)],corner,false)
+	var left_trim := float(facade.get("trim_left",0))
+	var right_trim := float(facade.get("trim_right",0))
+	var clip := Rect2(area.position+Vector2(left_trim,0),Vector2(maxf(0,area.size.x-left_trim-right_trim),area.size.y))
+	var pieces: Array[Rect2] = [clip]
+	for replacement in facade.get("replace_ranges",[]):
+		var begin := area.position.x+float(replacement[0])
+		var end := begin+float(replacement[1])
+		var next: Array[Rect2] = []
+		for piece in pieces:
+			if end <= piece.position.x or begin >= piece.end.x: next.append(piece)
+			else:
+				if begin > piece.position.x: next.append(Rect2(piece.position,Vector2(begin-piece.position.x,piece.size.y)))
+				if end < piece.end.x: next.append(Rect2(end,piece.position.y,piece.end.x-end,piece.size.y))
+		pieces = next
+	for piece in pieces:
+		if facade.get("layout","wing") == "wing":
+			paint_registered(world.art_textures[str(facade.asset)],area,piece)
+		else:
+			# Preserve source registration while replacing only a corner's footprint.
+			var jamb := Rect2(area.position,Vector2(32,area.size.y))
+			var corner := Rect2(area.end.x-28,area.position.y,28,area.size.y)
+			var middle := Rect2(jamb.end.x,area.position.y,maxf(0,corner.position.x-jamb.end.x),area.size.y)
+			paint_registered(world.art_textures[str(facade.jamb)],jamb,piece)
+			Tiles.paint(self,world.art_textures[str(facade.middle)],middle,Vector2(144,area.size.y),piece)
+			paint_registered(world.art_textures[str(facade.corner)],corner,piece)
+	for patch in facade.get("junctions",[]):
+		var offset: Array = patch.get("offset",[0,0])
+		var size: Array = patch.size
+		var origin := Vector2(area.end.x if patch.get("anchor","") == "right" else area.position.x,area.position.y)
+		var rect := Rect2(origin+Vector2(offset[0],offset[1]),Vector2(size[0],size[1]))
+		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false))
+
+func paint_junction(id: String, rect: Rect2, mirror_x: bool) -> void:
+	var definition: Dictionary = definitions[id]
+	var texture: Texture2D = world.art_textures[id]
+	var source_origin := Vector2.ZERO
+	if texture is AtlasTexture:
+		texture = texture.atlas
+	elif definition.has("region"):
+		# WorldTexture crops before mip generation. Assembly source coordinates
+		# are absolute in the original PNG, so register them to that crop once.
+		var region: Array = definition.region
+		source_origin = Vector2(region[0],region[1])
+	var dims: Array = definition.render_size
+	var scale := rect.size/Vector2(dims[0],dims[1])
+	for patch in definition.assembly_patches:
+		var src: Array = patch.source
+		var dest: Array = patch.destination
+		var region := Rect2(Vector2(src[0],src[1])-source_origin,Vector2(src[2],src[3]))
+		var area := Rect2(rect.position+Vector2(dest[0],dest[1])*scale,Vector2(dest[2],dest[3])*scale)
+		if mirror_x:
+			area.position.x = rect.end.x-(float(dest[0])+float(dest[2]))*scale.x
+		Tiles.paint_region(self,texture,area,region,Color.WHITE,mirror_x)
 
 func _draw() -> void:
 	if not world:
@@ -123,6 +178,18 @@ func _draw() -> void:
 		var height := elevation
 		if profile.has("painted_facade"):
 			paint_facade(Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height)))
+			return
+		if profile.has("return_wall"):
+			# A longitudinal wall shows its narrow horizontal top and east side.
+			# Only its south endpoint gets a front-facing 90-high stone face.
+			var wall: Dictionary = profile.return_wall
+			var top_area := Rect2(r.position-Vector2(0,height),r.size)
+			var start := maxf(world.bounds.position.y,float(profile.get("render_top_start",top_area.position.y)))
+			var clip := Rect2(world.bounds.position.x,start,world.bounds.size.x,maxf(0,world.bounds.end.y-start))
+			var dims: Array = wall.get("tile_size",[24,128])
+			Tiles.paint(self,world.art_textures[str(wall.top)],top_area,Vector2(r.size.x,dims[1]),clip,Color.WHITE,wall.get("mirror_x",false))
+			var south_face := Rect2(r.position.x,r.end.y-height,r.size.x,height).intersection(world.bounds)
+			draw_texture_rect(world.art_textures[str(wall.end)],south_face,false)
 			return
 		if profile.has("return_material"):
 			var side_body := Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height))

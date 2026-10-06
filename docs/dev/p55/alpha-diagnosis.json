@@ -1,0 +1,46 @@
+{
+  "source": "art\\architecture\\v24\\cafeteria_portal_v24.png",
+  "regions": [
+    {
+      "id": "cafeteria_wing_left_v24",
+      "top_18_source_pixels": 14238,
+      "alpha_6_to_64": 92,
+      "dark_low_alpha": 17
+    },
+    {
+      "id": "cafeteria_wall_mid_v24",
+      "top_18_source_pixels": 10314,
+      "alpha_6_to_64": 11,
+      "dark_low_alpha": 10
+    },
+    {
+      "id": "cafeteria_lintel_v24",
+      "top_18_source_pixels": 7326,
+      "alpha_6_to_64": 416,
+      "dark_low_alpha": 12
+    }
+  ],
+  "old_shader": "smoothstep(.02,.25,a) amplifies low-alpha fragments; strip geometry was incorrectly tiled from a front-facing corner post",
+  "isolated_mid_top_components": [
+    {
+      "pixels": 10,
+      "bbox": [
+        0,
+        7,
+        0,
+        16
+      ],
+      "max_alpha": 8
+    },
+    {
+      "pixels": 6,
+      "bbox": [
+        1,
+        17,
+        4,
+        19
+      ],
+      "max_alpha": 17
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "size": [
+    916,
+    1717
+  ],
+  "alpha_range": [
+    0,
+    255
+  ],
+  "solid_bbox_alpha200": [
+    42,
+    287,
+    874,
+    1428
+  ],
+  "sha256": "4d0d3247c9e69d2ce5decc7f5dc66f0b62986fcdb3f4ba33c7df2f3792921366",
+  "source_copy_matches": true,
+  "registration": {
+    "id": "cafeteria_corner_l_v25",
+    "name": "食堂连续L形墙顶转角",
+    "texture": "res://art/architecture/v25/cafeteria_corner_l_v25.png",
+    "texture_size": [
+      916,
+      1717
+    ],
+    "region": [
+      42,
+      287,
+      825,
+      1133
+    ],
+    "world_size": [
+      80,
+      150
+    ],
+    "render_size": [
+      80,
+      150
+    ],
+    "render_mode": "architecture_corner_l",
+    "opaque": false,
+    "blocking": false,
+    "interactive": false,
+    "shadow_baked": false,
+    "self_shading_baked": true,
+    "editor_icon": "res://art/editor/v05/icons/cafeteria_corner_l_v25.tres",
+    "registration_note": "Twelve source-region patches match ordinary A24 cap seam20.412, plinth seam77.436, actual opaque body foot110.484. Logical baseline remains113.724 and transparent source trailingfoot omitted. Return24=20top+4side. No PNG editing. Top origin same ordinary coping elevation, mirrorX for right.",
+    "source_grid_x": [
+      42,
+      238,
+      300,
+      867
+    ],
+    "source_grid_y": [
+      287,
+      467,
+      859,
+      1031,
+      1420
+    ],
+    "destination_grid_x": [
+      0,
+      20,
+      24,
+      80
+    ],
+    "destination_grid_y": [
+      0,
+      20.412,
+      77.436,
+      110.484,
+      150
+    ],
+    "return_width": 24,
+    "top_plane_width_world": 20,
+    "right_side_width_world": 4,
+    "front_bottom_offset": 113.724,
+    "trim_north_wing_world": 80,
+    "top_origin_from_north_baseline": -113.724,
+    "return_continuation_from_north_baseline": 36.276,
+    "assembly_patches": [
+      {
+        "source": [
+          42,
+          287,
+          196,
+          180
+        ],
+        "destination": [
+          0,
+          0,
+          20,
+          20.412
+        ]
+      },
+      {
+        "source": [
+          238,
+          287,
+          62,
+          180
+        ],
+        "destination": [
+          20,
+          0,
+          4,
+          20.412
+        ]
+      },
+      {
+        "source": [
+          300,
+          287,
+          567,
+          180
+        ],
+        "destination": [
+          24,
+          0,
+          56,
+          20.412
+        ]
+      },
+      {
+        "source": [
+          42,
+          467,
+          196,
+          392
+        ],
+        "destination": [
+          0,
+          20.412,
+          20,
+          57.02400000000001
+        ]
+      },
+      {
+        "source": [
+          238,
+          467,
+          62,
+          392
+        ],
+        "destination": [
+          20,
+          20.412,
+          4,
+          57.02400000000001
+        ]
+      },
+      {
+        "source": [
+          300,
+          467,
+          567,
+          392
+        ],
+        "destination": [
+          24,
+          20.412,
+          56,
+          57.02400000000001
+        ]
+      },
+      {
+        "source": [
+          42,
+          859,
+          196,
+          172
+        ],
+        "destination": [
+          0,
+          77.436,
+          20,
+          33.04799999999999
+        ]
+      },
+      {
+        "source": [
+          238,
+          859,
+          62,
+          172
+        ],
+        "destination": [
+          20,
+          77.436,
+          4,
+          33.04799999999999
+        ]
+      },
+      {
+        "source": [
+          300,
+          859,
+          567,
+          172
+        ],
+        "destination": [
+          24,
+          77.436,
+          56,
+          33.04799999999999
+        ]
+      },
+      {
+        "source": [
+          42,
+          1031,
+          196,
+          389
+        ],
+        "destination": [
+          0,
+          110.484,
+          20,
+          39.516000000000005
+        ]
+      },
+      {
+        "source": [
+          238,
+          1031,
+          62,
+          389
+        ],
+        "destination": [
+          20,
+          110.484,
+          4,
+          39.516000000000005
+        ]
+      },
+      {
+        "source": [
+          300,
+          1031,
+          567,
+          389
+        ],
+        "destination": [
+          24,
+          110.484,
+          56,
+          39.516000000000005
+        ]
+      }
+    ],
+    "visible_front_bottom_offset": 110.484,
+    "sha256": "4d0d3247c9e69d2ce5decc7f5dc66f0b62986fcdb3f4ba33c7df2f3792921366"
+  },
+  "rejected_connection": {
+    "reason": "old frontal corner column occludes continuous coping, return begins beneath its foot",
+    "status": "four junctions personally reviewed in actual final game screenshots; passed continuous cap/front/plinth registration"
+  },
+  "original_A24_delivery_unchanged": true,
+  "patch_count": 12,
+  "alignment_native": "corner-native.png: cap/plinth/foot source-aligned",
+  "final_actual_evidence": "p55-visual-evidence.json"
+}

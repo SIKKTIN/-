@@ -1,0 +1,94 @@
+{
+  "task": {
+    "id": "a25-cafeteria-walls-alpha-20261006",
+    "title": "A25 食堂纵墙与透明边缘返修",
+    "description": "用户指出竖墙被做成连续石柱、横墙顶部有黑色杂点；严格对照目标处理墙顶/侧面，验证透明边缘，制作人另加入运行FPS显示。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "竖向墙为平整连续墙顶加窄暗侧面，非连续门柱，接北墙自然；横墙无悬浮黑色散点，透明边缘核心/抗锯齿正确；实际运行近景对照目标、含小地图与编辑器配套资源。",
+    "result": "",
+    "dependencyIds": [
+      "a24-concept-faithful-building-20261006"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v25/**",
+        "art/editor/v05/**",
+        "docs/art/architecture-v25/**"
+      ],
+      "entry": "art/architecture/v25/manifest.json",
+      "interfaceContract": "只交新增资产/边缘修正shader与图标，不改A24原图/旧hash、scripts/data，不git提交。纵墙需要真正俯视的顶面条+窄暗侧面可重复模块（tile24×约128，非立面柱拉长），无首尾厚框；可提供独立南向端面。横墙先查alpha散点与旧opaque_core shader把低alpha提亮的问题，给出保留抗锯齿、实体核心不透底的新版shader/源图。制作人负责注册/物理墙派生渲染及FPS。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a25-cafeteria-walls-alpha-20261006-plan",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T11:26:52.972Z"
+      }
+    ]
+  },
+  "revision": "54bdb993faa68e16189b7596cab757870fc3e9474567a3b87f5994774255fea4",
+  "scheduleRevision": "13a282edba9abfe920137a88692bcbfebe7c7cb14bb4dfdb63ba48aba15f4452",
+  "planChanges": [
+    {
+      "id": "a25-cafeteria-walls-alpha-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:26:52.972Z",
+      "reason": "用户本轮要求返修竖墙、横墙杂点并显示运行FPS。",
+      "createdTaskIds": [
+        "a25-cafeteria-walls-alpha-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a24-concept-faithful-building-20261006",
+      "title": "A24 按概念还原完整建筑体块素材",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "54bdb993faa68e16189b7596cab757870fc3e9474567a3b87f5994774255fea4"
+  },
+  "feedback": []
+}
