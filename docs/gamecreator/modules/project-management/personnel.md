@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T05:13:37.437Z
-> 文档内容基准：4e6b0d8862e29bcf098a6dcba164c98c25f36d0580f6ddf1890b23be2fddca28
+> 文档生成时间：2026-10-06T05:35:07.639Z
+> 文档内容基准：056cdabf9edf1c2af1e7f133ad90ace7b0cd368b7dc44ff820e7e478344246ff
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -63,6 +63,7 @@
 - P44 · 围合食堂与后厨房间结构 [40f6576a-d8d7-422d-897c-8a330019c9d1] · 已完成
 - P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
 - P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
+- P47 · 自定义摇杆与交互按键位置 [p47-custom-mobile-layout-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -83,6 +84,7 @@
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -927,6 +929,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：真实触控摇杆移动/松手/死区/多指右键交互/切人归零，墙门碰撞与推箱/出口、属性与NPC日程继续；工作聊天持续，暂停/捕获/重开/失焦取消输入，手机双尺寸原生输入及旧功能回归；提交程序自测与截图，区别真机结论。
 - 验收负责人：制作人
+### P47 · 自定义摇杆与交互按键位置
+- ID：p47-custom-mobile-layout-20261006
+- 当前状态：已完成
+- 内容：用户要求互动按钮远离屏幕边缘，加入可调整移动与交互按钮的布局设置。复用已验收纸张UI，实现拖动预览、保存、取消、恢复默认以及安全边界。
+- 前置任务：无
+- 允许修改路径：scripts/ui/button_layout.gd、scripts/ui/fullscreen_hud.gd、scripts/core/mobile_controls.gd、qa/p47*、docs/dev/p47*、docs/tests/p47*
+- 接口契约：制作人负责既有HUD的布局参数与输入集成，不改美术素材和游戏规则。暂停编辑，阻止操作穿透，按比例保存位置并适配屏幕安全区。
+- 交付入口：res://scenes/main.tscn → 暂停菜单 → 按键布局
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：1200和960实际输入验证拖动摇杆及互动/技能/背包/目标键、保存跨重开与重启、取消和默认恢复、安全区限制、编辑不移动角色/不触发技能、两尺寸原生截图；P46输入回归通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -992,6 +1005,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 - P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
+- P47 · 自定义摇杆与交互按键位置 [p47-custom-mobile-layout-20261006] · 已完成
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1427,6 +1442,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：res://scenes/main.tscn与docs/art/a15-mobile-joystick-concept.png，按用户更正使用竖排
 - 验收要求：真实HUD：左竖排伙伴、左下pad、右下情景交互/技能/背包及多目标切换；1200×720与960×540触区不重叠、背包与商店/日程模态层级正确，原头像和持续操作保留，制作人统一CLI运行并审图。
 - 验收负责人：制作人
+### A17 监狱门与场景美术扩展包
+- ID：a17-prison-scene-expansion-20261006
+- 当前状态：进行中
+- 内容：按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。
+- 前置任务：无
+- 允许修改路径：art/props/prison_v17/**、docs/art/prison-v17/**
+- 接口契约：schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。
+- 交付入口：art/props/prison_v17/manifest.json
+- 验收要求：透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1445,3 +1470,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中

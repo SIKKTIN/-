@@ -116,6 +116,7 @@ var ability_button: MobileButton
 var bag_button: MobileButton
 var target_button: Button
 var bag_open := false
+var button_layout
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -197,7 +198,7 @@ func configure(owner_game) -> void:
 	game.status_label.add_theme_font_size_override("font_size",14)
 	menu_blocker = game.schedule._blocker("PauseBlocker",Rect2(),230)
 	menu_blocker.process_mode = Node.PROCESS_MODE_ALWAYS
-	menu = game.schedule._paper_panel("PauseMenu",Vector2.ZERO,Vector2(360,408),231)
+	menu = game.schedule._paper_panel("PauseMenu",Vector2.ZERO,Vector2(360,460),231)
 	menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	game.schedule._label(menu,Vector2(24,20),"这次怎么逃 · 已暂停",22)
 	var resume: Button = game.schedule._button(menu,Vector2(24,66),"继续行动",close_menu)
@@ -221,12 +222,18 @@ func configure(owner_game) -> void:
 	game.developer_settings.button.size = Vector2(312,48)
 	game.developer_settings.button.pressed.disconnect(game.developer_settings.toggle)
 	game.developer_settings.button.pressed.connect(func(): close_menu(); game.developer_settings.toggle())
-	game.schedule._label(menu,Vector2(24,357),"左侧摇杆移动 · 切换伙伴 · 右侧互动",14)
+	var layout_button: Button = game.schedule._button(menu,Vector2(24,352),"按键布局",func(): button_layout.open())
+	layout_button.name = "EditButtonLayout"
+	layout_button.size = Vector2(312,48)
+	game.schedule._label(menu,Vector2(24,416),"左侧摇杆移动 · 切换伙伴 · 右侧互动",14)
 	menu.hide()
 	menu_blocker.hide()
 	# GUI hit order follows tree order. Shop can still select the floating bag.
 	hud.move_child(inventory_paper,game.shop_panel.panel.get_index()+1)
 	hud.move_child(menu_button,hud.get_child_count()-1)
+	button_layout = load("res://scripts/ui/button_layout.gd").new()
+	add_child(button_layout)
+	button_layout.configure(self)
 	game.get_viewport().size_changed.connect(layout)
 	layout()
 	refresh()
@@ -300,6 +307,8 @@ func layout() -> void:
 	if not game or not menu:
 		return
 	var safe := safe_area()
+	if button_layout and button_layout.editing and last_size != game.get_viewport_rect().size:
+		button_layout.end_drag()
 	last_size = game.get_viewport_rect().size
 	clock.position = safe.position
 	clock.size = Vector2(300,100)
@@ -328,7 +337,7 @@ func layout() -> void:
 	map_toggle.size = Vector2(94,48)
 	var pad_size := 120.0 if safe.size.x < 1040 else 136.0
 	var pad: Control = game.mobile_controls.pad
-	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size)
+	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size-12)
 	pad.size = Vector2(pad_size,pad_size)
 	var card_height := 82.0
 	var card_top := pad.position.y-12-3*card_height-16
@@ -337,13 +346,16 @@ func layout() -> void:
 		game.cards[index].size = Vector2(164,card_height)
 		faces[index].size = game.cards[index].size
 	action_button.size = Vector2(104,104)
-	action_button.position = safe.end-action_button.size
+	action_button.position = safe.end-action_button.size-Vector2(40,32)
 	ability_button.size = Vector2(72,64)
 	bag_button.size = Vector2(72,64)
-	bag_button.position = Vector2(safe.end.x-72,action_button.position.y-76)
+	bag_button.position = Vector2(action_button.position.x+32,action_button.position.y-76)
 	ability_button.position = bag_button.position-Vector2(84,0)
 	target_button.size = Vector2(56,48)
 	target_button.position = Vector2(action_button.position.x-68,action_button.position.y+28)
+	if button_layout:
+		button_layout.remember_defaults()
+		button_layout.apply_positions()
 	menu.position = safe.get_center()-menu.size/2
 	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker,game.routine_panel.blocker]:
 		blocker.position = Vector2.ZERO
@@ -373,7 +385,7 @@ func refresh_inventory() -> void:
 	var safe := safe_area()
 	inventory_paper.size = Vector2(width,132+(112 if actions else 0))
 	var bottom: float = safe.end.y if shop_open else bag_button.position.y-12
-	inventory_paper.position = Vector2(safe.end.x-width,bottom-inventory_paper.size.y)
+	inventory_paper.position = Vector2(safe.end.x-width,maxf(safe.position.y+112,bottom-inventory_paper.size.y))
 	inv.label.position = Vector2(14,18)
 	inv.label.size = Vector2(width-82,32)
 	inv.label.text = "伙伴 %d · %d/%d" % [game.selected_actor_id+1,game.inventory.items(game.selected_actor_id).size(),capacity]
@@ -406,10 +418,13 @@ func refresh_inventory() -> void:
 func position_toast() -> void:
 	var safe := safe_area()
 	var left: float = game.cards[0].position.x+game.cards[0].size.x+16
-	var right: float = target_button.position.x-12
+	var right: float = maxf(left+120,target_button.position.x-12)
 	var width: float = minf(360,maxf(120,right-left))
 	toast.size = Vector2(width,56)
 	toast.position = Vector2(clampf(safe.get_center().x-width/2,left,right-width),safe.end.y-56)
+	for control in [game.mobile_controls.pad,action_button,ability_button,bag_button,target_button]:
+		if toast.get_global_rect().intersects(control.get_global_rect()):
+			toast.position.y = minf(toast.position.y,control.position.y-toast.size.y-8)
 	game.status_label.size = toast.size-Vector2(24,14)
 
 func refresh() -> void:
@@ -468,6 +483,8 @@ func refresh() -> void:
 	game.status_label.visible = toast.visible
 
 func toggle_menu() -> void:
+	if button_layout and button_layout.editing:
+		return
 	if menu.visible:
 		close_menu()
 	else:

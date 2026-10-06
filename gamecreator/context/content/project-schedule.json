@@ -3231,6 +3231,95 @@
             "at": "2026-10-06T04:50:19.110Z"
           }
         ]
+      },
+      {
+        "id": "p47-custom-mobile-layout-20261006",
+        "title": "P47 · 自定义摇杆与交互按键位置",
+        "description": "用户要求互动按钮远离屏幕边缘，加入可调整移动与交互按钮的布局设置。复用已验收纸张UI，实现拖动预览、保存、取消、恢复默认以及安全边界。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "1200和960实际输入验证拖动摇杆及互动/技能/背包/目标键、保存跨重开与重启、取消和默认恢复、安全区限制、编辑不移动角色/不触发技能、两尺寸原生截图；P46输入回归通过。",
+        "result": "已完成暂停菜单按键布局入口，摇杆/互动/技能/背包/换目标五个控件真实触屏或鼠标拖动，保存比例、跨回合及新场景启动读取，取消/默认预览、边界与HUD遮挡限制。默认互动键右侧40/底部32额外内收。297项检查通过；Windows原生事件模拟，不宣称手机真机手感。\n\n验收通过：制作人独立程序任务自验收：阅读297项实际测试与两个尺寸截图；真实输入支持编辑/保存/取消/默认、配置持久化及原输入回归，无玩法穿透。程序可交付；手机真机手感仍待用户实际试玩。",
+        "dependencyIds": [],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "allowedPaths": [
+            "scripts/ui/button_layout.gd",
+            "scripts/ui/fullscreen_hud.gd",
+            "scripts/core/mobile_controls.gd",
+            "qa/p47*",
+            "docs/dev/p47*",
+            "docs/tests/p47*"
+          ],
+          "interfaceContract": "制作人负责既有HUD的布局参数与输入集成，不改美术素材和游戏规则。暂停编辑，阻止操作穿透，按比例保存位置并适配屏幕安全区。",
+          "entry": "res://scenes/main.tscn → 暂停菜单 → 按键布局"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "cfd5bbd3-898d-443a-82be-e14b0d555099",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T05:19:24.975Z"
+          }
+        ]
+      },
+      {
+        "id": "a17-prison-scene-expansion-20261006",
+        "title": "A17 监狱门与场景美术扩展包",
+        "description": "按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。",
+        "result": "接手用户新需求。计划新增监狱滑动铁门闭合/打开两状态，以及墙通风口、笼罩墙灯、管线阀门、双位洗漱盆、消防器具、旧布告板、洗衣推车。复用现有床/栅栏/便器/车间摆设，独立新prison_v17目录，不改生产代码和旧清单。内置imagegen逐素材生成，建立统一尺寸/地面注册、透明/原生尺度QA和场景拼装预览后提交制作人。",
+        "dependencyIds": [],
+        "references": [],
+        "positionIds": [
+          "art-director"
+        ],
+        "workScope": {
+          "entry": "art/props/prison_v17/manifest.json",
+          "allowedPaths": [
+            "art/props/prison_v17/**",
+            "docs/art/prison-v17/**"
+          ],
+          "interfaceContract": "schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "a17-prison-scene-expansion-plan-20261006",
+            "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T05:24:47.610Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -4030,6 +4119,30 @@
         "reason": "制作人按用户明确授权承担核心输入开发与主干验证",
         "createdTaskIds": [
           "p46-direct-mobile-control-20261006"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "cfd5bbd3-898d-443a-82be-e14b0d555099",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-06T05:19:24.975Z",
+        "reason": "用户确认新增自定义按键位置，由制作人承接程序与HUD参数集成。",
+        "createdTaskIds": [
+          "p47-custom-mobile-layout-20261006"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "a17-prison-scene-expansion-plan-20261006",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "memberName": "主美",
+        "at": "2026-10-06T05:24:47.610Z",
+        "reason": "用户直接要求加入参考图中的监狱门及更多场景素材；主美制作扩展包，制作人独立验收后接入。",
+        "createdTaskIds": [
+          "a17-prison-scene-expansion-20261006"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -13536,6 +13649,201 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-06T05:13:33.737Z",
           "note": "制作人按明确程序任务自验收。已整合独立验收的A16，并核对332项通过报告与两尺寸Windows原生帧缓冲；多指、触控去重、持续技能/工作、碰撞/出口、跨时段手动接管、库存/商店、暂停/重开及旧功能回归均有真实运行证据。位置/时间/钱包及失焦信号fixture已列明，无手机真机或真人手感结论。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p47-started-20261006",
+        "taskId": "p47-custom-mobile-layout-20261006",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "制作人已接手，复用P46 HUD实现暂停编辑与本地布局偏好。",
+        "evidence": [
+          "用户当前截图及明确调整位置要求",
+          "入口：暂停菜单 → 按键布局"
+        ],
+        "at": "2026-10-06T05:19:50.130Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p47-custom-mobile-layout-20261006",
+          "title": "P47 · 自定义摇杆与交互按键位置",
+          "description": "用户要求互动按钮远离屏幕边缘，加入可调整移动与交互按钮的布局设置。复用已验收纸张UI，实现拖动预览、保存、取消、恢复默认以及安全边界。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "1200和960实际输入验证拖动摇杆及互动/技能/背包/目标键、保存跨重开与重启、取消和默认恢复、安全区限制、编辑不移动角色/不触发技能、两尺寸原生截图；P46输入回归通过。",
+          "result": "制作人已接手，复用P46 HUD实现暂停编辑与本地布局偏好。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/ui/button_layout.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/core/mobile_controls.gd",
+              "qa/p47*",
+              "docs/dev/p47*",
+              "docs/tests/p47*"
+            ],
+            "interfaceContract": "制作人负责既有HUD的布局参数与输入集成，不改美术素材和游戏规则。暂停编辑，阻止操作穿透，按比例保存位置并适配屏幕安全区。",
+            "entry": "res://scenes/main.tscn → 暂停菜单 → 按键布局"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "cfd5bbd3-898d-443a-82be-e14b0d555099",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T05:19:24.975Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a17-start-20261006",
+        "taskId": "a17-prison-scene-expansion-20261006",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "接手用户新需求。计划新增监狱滑动铁门闭合/打开两状态，以及墙通风口、笼罩墙灯、管线阀门、双位洗漱盆、消防器具、旧布告板、洗衣推车。复用现有床/栅栏/便器/车间摆设，独立新prison_v17目录，不改生产代码和旧清单。内置imagegen逐素材生成，建立统一尺寸/地面注册、透明/原生尺度QA和场景拼装预览后提交制作人。",
+        "evidence": [
+          "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-8b9c8343-5a37-4ee0-97ec-ab97809e57ce.png",
+          "E:/Project/Godot/这次怎么逃/art/props/prison_v08/manifest.json"
+        ],
+        "at": "2026-10-06T05:26:02.954Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "a17-prison-scene-expansion-20261006",
+          "title": "A17 监狱门与场景美术扩展包",
+          "description": "按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。",
+          "result": "接手用户新需求。计划新增监狱滑动铁门闭合/打开两状态，以及墙通风口、笼罩墙灯、管线阀门、双位洗漱盆、消防器具、旧布告板、洗衣推车。复用现有床/栅栏/便器/车间摆设，独立新prison_v17目录，不改生产代码和旧清单。内置imagegen逐素材生成，建立统一尺寸/地面注册、透明/原生尺度QA和场景拼装预览后提交制作人。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "entry": "art/props/prison_v17/manifest.json",
+            "allowedPaths": [
+              "art/props/prison_v17/**",
+              "docs/art/prison-v17/**"
+            ],
+            "interfaceContract": "schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a17-prison-scene-expansion-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T05:24:47.610Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p47-ready-20261006",
+        "taskId": "p47-custom-mobile-layout-20261006",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "已完成暂停菜单按键布局入口，摇杆/互动/技能/背包/换目标五个控件真实触屏或鼠标拖动，保存比例、跨回合及新场景启动读取，取消/默认预览、边界与HUD遮挡限制。默认互动键右侧40/底部32额外内收。297项检查通过；Windows原生事件模拟，不宣称手机真机手感。",
+        "evidence": [
+          "docs/dev/p47-button-layout.md",
+          "docs/tests/p47-layout-headless-1200.json：38/38",
+          "docs/tests/p47-layout-native-1200.json：38/38",
+          "docs/tests/p47-layout-native-960.json：38/38",
+          "docs/tests/p47-mobile-regression-headless-1200.json：59/59",
+          "docs/tests/p47-mobile-regression-native-1200.json：62/62",
+          "docs/tests/p47-mobile-regression-native-960.json：62/62",
+          "docs/tests/p47-layout-960-editing.png、p47-layout-1200-default.png、两个saved截图：制作人实际查看",
+          "生产文件：scripts/ui/button_layout.gd、scripts/ui/fullscreen_hud.gd；project.godot用户差异未改"
+        ],
+        "at": "2026-10-06T05:34:01.830Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p47-custom-mobile-layout-20261006",
+          "title": "P47 · 自定义摇杆与交互按键位置",
+          "description": "用户要求互动按钮远离屏幕边缘，加入可调整移动与交互按钮的布局设置。复用已验收纸张UI，实现拖动预览、保存、取消、恢复默认以及安全边界。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "1200和960实际输入验证拖动摇杆及互动/技能/背包/目标键、保存跨重开与重启、取消和默认恢复、安全区限制、编辑不移动角色/不触发技能、两尺寸原生截图；P46输入回归通过。",
+          "result": "已完成暂停菜单按键布局入口，摇杆/互动/技能/背包/换目标五个控件真实触屏或鼠标拖动，保存比例、跨回合及新场景启动读取，取消/默认预览、边界与HUD遮挡限制。默认互动键右侧40/底部32额外内收。297项检查通过；Windows原生事件模拟，不宣称手机真机手感。",
+          "dependencyIds": [],
+          "references": [],
+          "producerSelfReview": true,
+          "workScope": {
+            "allowedPaths": [
+              "scripts/ui/button_layout.gd",
+              "scripts/ui/fullscreen_hud.gd",
+              "scripts/core/mobile_controls.gd",
+              "qa/p47*",
+              "docs/dev/p47*",
+              "docs/tests/p47*"
+            ],
+            "interfaceContract": "制作人负责既有HUD的布局参数与输入集成，不改美术素材和游戏规则。暂停编辑，阻止操作穿透，按比例保存位置并适配屏幕安全区。",
+            "entry": "res://scenes/main.tscn → 暂停菜单 → 按键布局"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "cfd5bbd3-898d-443a-82be-e14b0d555099",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T05:19:24.975Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T05:34:27.869Z",
+          "note": "制作人独立程序任务自验收：阅读297项实际测试与两个尺寸截图；真实输入支持编辑/保存/取消/默认、配置持久化及原输入回归，无玩法穿透。程序可交付；手机真机手感仍待用户实际试玩。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }
