@@ -1,0 +1,64 @@
+{
+  "id": "p61-ready-20261007",
+  "digest": "8f1b66a5c80f0aafc6639af91bc5188e68e610d298db781fd6aef41627eb1cfa",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:37:48.283Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p61-ready-20261007",
+    "taskId": "p61-editor-runtime-architecture-preview-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。",
+    "evidence": [
+      "docs/dev/p61/delivery.json",
+      "docs/dev/p61/README.md",
+      "docs/tests/p61-1200-architecture-native.json",
+      "docs/tests/p61-960-architecture-native.json",
+      "docs/tests/p61-1200-native.json",
+      "docs/tests/p61-960-native.json",
+      "docs/tests/p61-1200-stone-walls.png",
+      "docs/tests/p61-960-corners.png"
+    ],
+    "at": "2026-10-06T17:37:48.421Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p61-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p61-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p61-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "d99091b1c239865a9daa1eebd0e712bf6ed0d61c30a17161eb2b34a376567221"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "d99091b1c239865a9daa1eebd0e712bf6ed0d61c30a17161eb2b34a376567221",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "p61-self-review-20261007",
+  "digest": "1ad633eecf0a49bc7e3aa8d5a761859d611d5abe553dec4ee7dac9338ba2524d",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:37:50.051Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p61-ready-20261007",
+    "taskId": "p61-editor-runtime-architecture-preview-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。",
+    "evidence": [
+      "docs/dev/p61/delivery.json",
+      "docs/dev/p61/README.md",
+      "docs/tests/p61-1200-architecture-native.json",
+      "docs/tests/p61-960-architecture-native.json",
+      "docs/tests/p61-1200-native.json",
+      "docs/tests/p61-960-native.json",
+      "docs/tests/p61-1200-stone-walls.png",
+      "docs/tests/p61-960-corners.png"
+    ],
+    "at": "2026-10-06T17:37:48.421Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T17:37:50.214Z",
+      "note": "制作人程序本人自验收，证据与结论分开。已逐文件校验交付SHA并目视检查1200放大墙面和960全图，实际素材替换色块，完整L及屋顶壳体与游戏同一绘制。60项原生检查通过，真实拖动按网格吸附并复用节点，纹理/几何同步及撤销、隐藏恢复、锁定、材质改动有效；地图未改，预览仅初始状态不模拟NPC。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p61-ready-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "14ed55cf3d1ed4d4cfaa5c85abf6fcf995f0cf3ce09a2a7edf2b1fe3d06024eb"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "14ed55cf3d1ed4d4cfaa5c85abf6fcf995f0cf3ce09a2a7edf2b1fe3d06024eb",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "taskId": "p61-editor-runtime-architecture-preview-20261007",
+  "revision": "d67a5f524e48ae0f2d47f78bed7d2c662a90a7b7e5729c291a3ff52b6953d3ca",
+  "feedbackId": "p61-ready-20261007",
+  "status": "待验收",
+  "summary": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。",
+  "evidence": [
+    "docs/dev/p61/delivery.json",
+    "docs/dev/p61/README.md",
+    "docs/tests/p61-1200-architecture-native.json",
+    "docs/tests/p61-960-architecture-native.json",
+    "docs/tests/p61-1200-native.json",
+    "docs/tests/p61-960-native.json",
+    "docs/tests/p61-1200-stone-walls.png",
+    "docs/tests/p61-960-corners.png"
+  ],
+  "requestId": "p61-ready-20261007"
+}

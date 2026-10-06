@@ -1,0 +1,51 @@
+{
+  "id": "p61-start-20261007",
+  "digest": "2c8a3af0851f46f9051c1bc1bd5df1fd2b48c11e7f7b02ce6ffcf2e0235aa39e",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:26:44.548Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p61-start-20261007",
+    "taskId": "p61-editor-runtime-architecture-preview-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "定位色块来自MapCanvas直接draw_rect；准备复用游戏静态volume/roof绘制，纯几何适配不启动导航/NPC，独立foreground保留选拖及图层覆盖。",
+    "evidence": [
+      "docs/dev/p61/plan.json"
+    ],
+    "at": "2026-10-06T17:26:44.705Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p61-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "d67a5f524e48ae0f2d47f78bed7d2c662a90a7b7e5729c291a3ff52b6953d3ca"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "d67a5f524e48ae0f2d47f78bed7d2c662a90a7b7e5729c291a3ff52b6953d3ca",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

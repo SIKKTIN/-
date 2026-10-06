@@ -21,6 +21,9 @@ var last_pointer := Vector2.ZERO
 var textures: Dictionary = {}
 var definitions: Dictionary = {}
 var font: Font
+var architecture_preview
+var foreground
+var render_profile := {}
 var show_collision := false
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 const Components = preload("res://scripts/presentation/wall_components.gd")
@@ -36,6 +39,21 @@ func setup(model, layer_model = null) -> void:
 	definitions = load("res://scripts/presentation/prop_catalog.gd").assets()
 	for asset in definitions.values():
 		textures[str(asset.id)] = WorldTexture.load_asset(asset)
+	var active: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/active.json"))
+	render_profile = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/%s.json" % active.profile))
+	for manifest_path in [render_profile.environment,render_profile.props]:
+		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
+		for asset in manifest.assets:
+			if not definitions.has(asset.id):
+				definitions[asset.id] = asset
+				textures[asset.id] = WorldTexture.load_asset(asset)
+	architecture_preview = preload("res://scripts/editor/architecture_preview.gd").new()
+	add_child(architecture_preview)
+	architecture_preview.setup(self,render_profile)
+	foreground = preload("res://scripts/editor/canvas_overlay.gd").new()
+	foreground.canvas = self
+	foreground.z_index = 4095
+	add_child(foreground)
 	document.changed.connect(queue_redraw)
 	gui_input.connect(handle_input)
 	resized.connect(queue_redraw)
@@ -55,6 +73,7 @@ func world(point: Vector2) -> Vector2:
 	return (point-origin)/zoom
 
 func beneath_roof(point: Vector2) -> bool:
+	if layers != null and not layers.is_visible("architecture"): return false
 	for cell in document.data.get("confinement",{}).get("cells",[]):
 		var building: Dictionary = cell.get("building",{})
 		if building.get("roofed",false) and Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3]-float(building.get("height",110))).has_point(point): return true
@@ -74,6 +93,9 @@ func at(point: Vector2) -> Dictionary:
 			var rect: Rect2 = document.geometry(ref)
 			if ref.group == "fixtures" and not show_collision and beneath_roof(rect.get_center()): continue
 			if document.is_rect(ref):
+				if not show_collision and ref.group in ["walls","fixtures","door","crate"]:
+					if architecture_preview.visual_hit(ref,world(point)): return ref
+					continue
 				if rect.grow(5/zoom).has_point(world(point)):
 					return ref
 			elif screen(rect.position).distance_to(point) <= 11:
@@ -164,7 +186,15 @@ func _draw() -> void:
 	if document == null or document.data.is_empty():
 		return
 	var bounds: Rect2 = document.geometry({"group":"bounds","index":-1})
-	draw_rect(Rect2(screen(bounds.position),bounds.size*zoom),Color("a5af9a"))
+	var floor_rect := Rect2(screen(bounds.position),bounds.size*zoom)
+	draw_rect(floor_rect,Color("a5af9a"))
+	var floor_texture: Texture2D = textures.get(str(render_profile.get("floor_asset","")))
+	if floor_texture != null:
+		var tile := Vector2.ONE*float(render_profile.floor_tile_size)*zoom
+		load("res://scripts/presentation/texture_tiles.gd").paint(self,floor_texture,floor_rect,tile,floor_rect)
+	architecture_preview.position = origin
+	architecture_preview.scale = Vector2.ONE*zoom
+	foreground.queue_redraw()
 	var step: float = maxf(20,document.grid)
 	if step*zoom < 12: step = 100
 	if step*zoom >= 6:
@@ -172,12 +202,6 @@ func _draw() -> void:
 			draw_line(screen(Vector2(x*step,bounds.position.y)),screen(Vector2(x*step,bounds.end.y)),Color(0.18,0.26,0.24,0.10),1)
 		for y in range(floori(bounds.position.y/step),ceili(bounds.end.y/step)+1):
 			draw_line(screen(Vector2(bounds.position.x,y*step)),screen(Vector2(bounds.end.x,y*step)),Color(0.18,0.26,0.24,0.10),1)
-	if layers.is_visible("architecture"):
-		for cell in document.data.get("confinement",{}).get("cells",[]):
-			if not cell.get("building",{}).get("roofed",false): continue
-			var footprint := Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3])
-			draw_rect(Rect2(screen(footprint.position),footprint.size*zoom),Color("555e58"))
-			if zoom > 0.17: draw_string(font,screen(footprint.position)+Vector2(8,20),"禁闭室 · 封顶",HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("e9e0c5"))
 	var entries: Array = document.entries()
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
@@ -185,64 +209,56 @@ func _draw() -> void:
 		if ref.group in ["guard_zone","zones","dormitories","confinement"]:
 			var tint := Color("cf9975") if ref.group == "guard_zone" else Color("75c0b5") if ref.group == "dormitories" else Color("e0d29e")
 			paint_rect(ref,tint,true)
+
+func paint_foreground(painter: CanvasItem) -> void:
+	if document == null or document.data.is_empty(): return
+	var entries: Array = document.entries()
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
 		if ref.group in ["bounds","guard_zone","zones","dormitories","confinement"]:
 			continue
 		var rect: Rect2 = document.geometry(ref)
 		if document.is_rect(ref):
-			var color := Color("435555") if ref.group == "walls" else Color("a17b4b") if ref.group in ["door","dorm_doors","access_doors"] else Color("318c82") if ref.group == "exit" else Color("896b45")
-			if ref.group == "fixtures":
-				if document.value(ref).get("hidden",false) and not show_collision: continue
-				if not show_collision and beneath_roof(rect.get_center()): continue
-				var asset: String = document.value(ref).asset_id
-				var texture: Texture2D = textures.get(asset)
-				if texture:
-					var target := Rect2(screen(rect.position),rect.size*zoom)
-					if definitions.get(asset,{}).has("assembly_patches"):
-						Components.paint(self,texture,definitions[asset],target)
-					else:
-						draw_texture_rect(texture,target,false)
+			if show_collision and ref.group in ["walls","fixtures","door","crate","access_doors","dorm_doors"]:
+				if ref.group == "fixtures" and document.value(ref).get("hidden",false):
+					paint_rect(ref,Color(0.9,0.3,0.2,0.3),false,painter)
 				else:
-					paint_rect(ref,color)
-				if show_collision:
-					var item = document.value(ref)
-					var overlay := Color(0.9,0.3,0.2,0.3) if item.get("blocks_movement",true) else Color(0.2,0.9,0.7,0.2)
-					draw_rect(Rect2(screen(rect.position),rect.size*zoom),overlay)
-			else:
-				paint_rect(ref,color)
+					paint_rect(ref,Color(0.9,0.3,0.2,0.22),false,painter)
+			elif ref.group == "exit": paint_rect(ref,Color("318c82"),false,painter)
+			elif ref.group == "dorm_doors": paint_rect(ref,Color("a17b4b"),false,painter)
 		else:
 			var p := screen(rect.position)
 			var color := Color("328b82") if ref.group in ["starts","work","meal","dine","free"] else Color("d5846a") if ref.group in ["patrol","gate_guards","guard_start"] else Color("efd69f")
-			draw_circle(p,7,color,true,-1,true)
-			draw_circle(p,8,Color("f2ebdd"),false,1,true)
+			painter.draw_circle(p,7,color,true,-1,true)
+			painter.draw_circle(p,8,Color("f2ebdd"),false,1,true)
 			if zoom > 0.17:
 				var short_names := {"starts":"伙伴","work":"工","meal":"餐","dine":"桌","free":"活动","patrol":"巡","gate_guards":"门岗","guard_start":"看守","merchants":"商人","items":"物品"}
 				var label: String = short_names.get(ref.group,ref.group)+(str(int(ref.index)+1) if int(ref.index) >= 0 else "")
 				if zoom >= 0.45 or selection == ref or ref.group in ["starts","merchants","gate_guards"]:
-					draw_string(font,p+Vector2(10,4),label,HORIZONTAL_ALIGNMENT_LEFT,100,12,Color("243739"))
+					painter.draw_string(font,p+Vector2(10,4),label,HORIZONTAL_ALIGNMENT_LEFT,100,12,Color("243739"))
 	var patrol: Array = document.data.get("patrol",[]) if layers.is_visible("patrol") else []
 	for index in range(patrol.size()):
 		var a: Array = patrol[index]
 		var b: Array = patrol[(index+1)%patrol.size()]
-		draw_line(screen(Vector2(a[0],a[1])),screen(Vector2(b[0],b[1])),Color("cf795c"),2,true)
+		painter.draw_line(screen(Vector2(a[0],a[1])),screen(Vector2(b[0],b[1])),Color("cf795c"),2,true)
 	if not selection.is_empty():
 		var rect: Rect2 = document.geometry(selection)
 		if document.is_rect(selection):
-			draw_rect(Rect2(screen(rect.position),rect.size*zoom).grow(3),Color("fff1b2"),false,3)
+			painter.draw_rect(Rect2(screen(rect.position),rect.size*zoom).grow(3),Color("fff1b2"),false,3)
 		else:
-			draw_circle(screen(rect.position),13,Color("fff1b2"),false,3,true)
+			painter.draw_circle(screen(rect.position),13,Color("fff1b2"),false,3,true)
 	if font:
-		draw_string(font,Vector2(12,size.y-12),"%.0f%% · 中键/空格拖动视野 · 滚轮缩放" % (zoom*100),HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("f2ebdd"))
+		painter.draw_string(font,Vector2(12,size.y-12),"%.0f%% · 中键/空格拖动视野 · 滚轮缩放" % (zoom*100),HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("f2ebdd"))
 
-func paint_rect(ref: Dictionary, color: Color, outline := false) -> void:
+func paint_rect(ref: Dictionary, color: Color, outline := false, painter: CanvasItem = null) -> void:
+	if painter == null: painter = self
 	var rect: Rect2 = document.geometry(ref)
 	var on_screen := Rect2(screen(rect.position),rect.size*zoom)
 	if outline:
-		draw_rect(on_screen,Color(color,0.12))
-		draw_rect(on_screen,color,false,1.5)
+		painter.draw_rect(on_screen,Color(color,0.12))
+		painter.draw_rect(on_screen,color,false,1.5)
 		if zoom > 0.17 and (ref.group == "zones" or selection == ref):
 			var text: String = str(document.value(ref).get("name","区域")) if ref.group == "zones" else document.name_for(ref)
-			draw_string(font,on_screen.position+Vector2(4,14),text,HORIZONTAL_ALIGNMENT_LEFT,on_screen.size.x,12,Color("243739"))
+			painter.draw_string(font,on_screen.position+Vector2(4,14),text,HORIZONTAL_ALIGNMENT_LEFT,on_screen.size.x,12,Color("243739"))
 	else:
-		draw_rect(on_screen,color)
+		painter.draw_rect(on_screen,color)

@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T17:03:56.399Z
-> 文档内容基准：6758ab2cb09fc9b5a47306d550032c4e2b3f32181e29a72abbda89fcb44c594a
+> 文档生成时间：2026-10-06T17:37:52.123Z
+> 文档内容基准：a7aa4a298c638d9ab5067e31579a45d11d486486fbcf105ba648079ed05319d3
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -78,6 +78,7 @@
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 - P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
+- P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1121,6 +1122,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。
 - 验收负责人：制作人
+### P61 编辑器画布同步游戏建筑表现
+- ID：p61-editor-runtime-architecture-preview-20261007
+- 当前状态：已完成
+- 内容：用户指出画布墙体仍为旧色块。编辑器复用游戏WorldVolume/RoofBuilding静态绘制，当前石墙/完整L/禁闭屋顶/门框及新绘墙可见；保留几何命中/选拖/分层与碰撞。
+- 前置任务：p60-unified-building-palette-20261007
+- 允许修改路径：scripts/**、qa/p61*、docs/dev/p61/**、docs/tests/p61*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人本人复用游戏静态建筑绘制，仅编辑器适配层和必要共享接口，不重绘art/修改地图数据/启动游戏模拟；world几何视图不计算导航，坐标/材质/门态及roof源同runtime。选择与层/碰撞作为独立foreground，静态预览后台不会截获鼠标。先证据后本人程序自验收。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：R04编辑画布实际纹理墙/完整角/完整禁闭建筑和门替旧色块，绘墙拖动/材质/尺寸及撤销实时更新；图层隐藏/锁定/碰撞覆盖准确。原地图未改，不启动NPC/时间/寻路；两尺寸图和操作证据，游戏共用资源不回退。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1214,6 +1226,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 - P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
+- P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

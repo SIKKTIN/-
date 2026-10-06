@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "15aaab2c8446f9731096b92650ed8c401f8394eab03897e223bcaefd615527bc",
+  "snapshotId": "64e05ed385352c33efefe10c857e377ad5e52898f31d77a51969a3727b982115",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -4544,6 +4544,55 @@
           "at": "2026-10-06T16:58:58.422Z"
         }
       ]
+    },
+    {
+      "id": "p61-editor-runtime-architecture-preview-20261007",
+      "title": "P61 编辑器画布同步游戏建筑表现",
+      "description": "用户指出画布墙体仍为旧色块。编辑器复用游戏WorldVolume/RoofBuilding静态绘制，当前石墙/完整L/禁闭屋顶/门框及新绘墙可见；保留几何命中/选拖/分层与碰撞。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "R04编辑画布实际纹理墙/完整角/完整禁闭建筑和门替旧色块，绘墙拖动/材质/尺寸及撤销实时更新；图层隐藏/锁定/碰撞覆盖准确。原地图未改，不启动NPC/时间/寻路；两尺寸图和操作证据，游戏共用资源不回退。",
+      "result": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。\n\n验收通过：制作人程序本人自验收，证据与结论分开。已逐文件校验交付SHA并目视检查1200放大墙面和960全图，实际素材替换色块，完整L及屋顶壳体与游戏同一绘制。60项原生检查通过，真实拖动按网格吸附并复用节点，纹理/几何同步及撤销、隐藏恢复、锁定、材质改动有效；地图未改，预览仅初始状态不模拟NPC。",
+      "dependencyIds": [
+        "p60-unified-building-palette-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "qa/p61*",
+          "docs/dev/p61/**",
+          "docs/tests/p61*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/editor/map_editor.tscn",
+        "interfaceContract": "制作人本人复用游戏静态建筑绘制，仅编辑器适配层和必要共享接口，不重绘art/修改地图数据/启动游戏模拟；world几何视图不计算导航，坐标/材质/门态及roof源同runtime。选择与层/碰撞作为独立foreground，静态预览后台不会截获鼠标。先证据后本人程序自验收。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p61-runtime-wall-preview-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T17:25:25.596Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -4707,7 +4756,8 @@
             "p57-first-version-visual-local-repair-20261006",
             "p58-complete-corner-integration-20261006",
             "p59-editor-secondary-categories-20261007",
-            "p60-unified-building-palette-20261007"
+            "p60-unified-building-palette-20261007",
+            "p61-editor-runtime-architecture-preview-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -5990,6 +6040,18 @@
       "reason": "用户要求建筑瓦片清理为单一可用套装。",
       "createdTaskIds": [
         "p60-unified-building-palette-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p61-runtime-wall-preview-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:25:25.596Z",
+      "reason": "用户反馈编辑器画布旧墙色块未更新。",
+      "createdTaskIds": [
+        "p61-editor-runtime-architecture-preview-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -19395,6 +19457,146 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-06T17:03:54.814Z",
         "note": "制作人程序本人自验收，证据与结论分开。13hash一致，30原生项通过，亲眼看实际分类仅四专门L角和统一名称，所有新建素材/属性入口同一套。旧地图引用测试原ID选中且纹理可加载，无默默替换。地图和资产历史保留，不宣称物理删除历史文件；当前可用素材已清理为一个组合套装，24/20和左右为规格。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p61-start-20261007",
+      "taskId": "p61-editor-runtime-architecture-preview-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "定位色块来自MapCanvas直接draw_rect；准备复用游戏静态volume/roof绘制，纯几何适配不启动导航/NPC，独立foreground保留选拖及图层覆盖。",
+      "evidence": [
+        "docs/dev/p61/plan.json"
+      ],
+      "at": "2026-10-06T17:26:44.705Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p61-editor-runtime-architecture-preview-20261007",
+        "title": "P61 编辑器画布同步游戏建筑表现",
+        "description": "用户指出画布墙体仍为旧色块。编辑器复用游戏WorldVolume/RoofBuilding静态绘制，当前石墙/完整L/禁闭屋顶/门框及新绘墙可见；保留几何命中/选拖/分层与碰撞。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04编辑画布实际纹理墙/完整角/完整禁闭建筑和门替旧色块，绘墙拖动/材质/尺寸及撤销实时更新；图层隐藏/锁定/碰撞覆盖准确。原地图未改，不启动NPC/时间/寻路；两尺寸图和操作证据，游戏共用资源不回退。",
+        "result": "定位色块来自MapCanvas直接draw_rect；准备复用游戏静态volume/roof绘制，纯几何适配不启动导航/NPC，独立foreground保留选拖及图层覆盖。",
+        "dependencyIds": [
+          "p60-unified-building-palette-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p61*",
+            "docs/dev/p61/**",
+            "docs/tests/p61*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人复用游戏静态建筑绘制，仅编辑器适配层和必要共享接口，不重绘art/修改地图数据/启动游戏模拟；world几何视图不计算导航，坐标/材质/门态及roof源同runtime。选择与层/碰撞作为独立foreground，静态预览后台不会截获鼠标。先证据后本人程序自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p61-runtime-wall-preview-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T17:25:25.596Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p61-ready-20261007",
+      "taskId": "p61-editor-runtime-architecture-preview-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。",
+      "evidence": [
+        "docs/dev/p61/delivery.json",
+        "docs/dev/p61/README.md",
+        "docs/tests/p61-1200-architecture-native.json",
+        "docs/tests/p61-960-architecture-native.json",
+        "docs/tests/p61-1200-native.json",
+        "docs/tests/p61-960-native.json",
+        "docs/tests/p61-1200-stone-walls.png",
+        "docs/tests/p61-960-corners.png"
+      ],
+      "at": "2026-10-06T17:37:48.421Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p61-editor-runtime-architecture-preview-20261007",
+        "title": "P61 编辑器画布同步游戏建筑表现",
+        "description": "用户指出画布墙体仍为旧色块。编辑器复用游戏WorldVolume/RoofBuilding静态绘制，当前石墙/完整L/禁闭屋顶/门框及新绘墙可见；保留几何命中/选拖/分层与碰撞。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04编辑画布实际纹理墙/完整角/完整禁闭建筑和门替旧色块，绘墙拖动/材质/尺寸及撤销实时更新；图层隐藏/锁定/碰撞覆盖准确。原地图未改，不启动NPC/时间/寻路；两尺寸图和操作证据，游戏共用资源不回退。",
+        "result": "编辑画布改用游戏WorldVolume/RoofBuilding及当前纹理、完整L和屋顶壳体；前景单独保持图层和碰撞操作。贴图立面可选拖，节点复用避免每帧重建，无NPC/寻路/时间。两个原生尺寸建筑15+素材15共60项通过，实拍放大墙角与全图证据；R04源SHA未变。",
+        "dependencyIds": [
+          "p60-unified-building-palette-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p61*",
+            "docs/dev/p61/**",
+            "docs/tests/p61*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人复用游戏静态建筑绘制，仅编辑器适配层和必要共享接口，不重绘art/修改地图数据/启动游戏模拟；world几何视图不计算导航，坐标/材质/门态及roof源同runtime。选择与层/碰撞作为独立foreground，静态预览后台不会截获鼠标。先证据后本人程序自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p61-runtime-wall-preview-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T17:25:25.596Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T17:37:50.214Z",
+        "note": "制作人程序本人自验收，证据与结论分开。已逐文件校验交付SHA并目视检查1200放大墙面和960全图，实际素材替换色块，完整L及屋顶壳体与游戏同一绘制。60项原生检查通过，真实拖动按网格吸附并复用节点，纹理/几何同步及撤销、隐藏恢复、锁定、材质改动有效；地图未改，预览仅初始状态不模拟NPC。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }
