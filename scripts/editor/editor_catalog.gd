@@ -5,8 +5,10 @@ const Document = preload("res://scripts/editor/map_document.gd")
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 const CATEGORIES := ["furniture","cafeteria","props","actors","items","rules","areas"]
 const CATEGORY_NAMES := {"furniture":"家具 / 设施","cafeteria":"食堂设施","props":"杂物摆设","actors":"人物 / NPC","items":"可拾取物品","rules":"规则 / 日常点","areas":"区域 / 寝室门"}
-const SUBCATEGORY_NAMES := {"all":"全部类型", "furnishings":"家具摆设", "tiles_h":"建筑瓦片 · 横墙", "tiles_v":"建筑瓦片 · 纵墙", "tiles_corner":"建筑瓦片 · 转角", "tiles_end":"建筑瓦片 · 端面", "tiles_frame":"建筑瓦片 · 门柱 / 门楣", "tiles_coping":"建筑瓦片 · 压顶", "buildings":"完整建筑 / 原图", "doors":"门窗 / 门禁", "attachments":"墙面设施", "serving":"取餐 / 回收", "tableware":"餐盘", "barriers":"排队围栏", "misc":"杂物", "staff":"人物", "loot":"物品", "routes":"巡逻路线", "activities":"日常活动", "regions":"区域", "dorms":"寝室门"}
+const SUBCATEGORY_NAMES := {"all":"全部类型", "furnishings":"家具摆设", "tiles_h":"建筑瓦片 · 横墙", "tiles_v":"建筑瓦片 · 纵墙", "tiles_corner":"建筑瓦片 · 转角", "tiles_end":"建筑瓦片 · 端面", "tiles_frame":"建筑瓦片 · 门柱 / 门楣", "tiles_coping":"建筑瓦片 · 压顶", "buildings":"完整建筑", "doors":"门窗 / 门禁", "attachments":"墙面设施", "serving":"取餐 / 回收", "tableware":"餐盘", "barriers":"排队围栏", "misc":"杂物", "staff":"人物", "loot":"物品", "routes":"巡逻路线", "activities":"日常活动", "regions":"区域", "dorms":"寝室门"}
 const SUBCATEGORY_ORDER := ["furnishings","tiles_h","tiles_v","tiles_corner","tiles_end","tiles_frame","tiles_coping","buildings","doors","attachments","serving","tableware","barriers","misc","staff","loot","routes","activities","regions","dorms"]
+# One authoring set; old definitions remain available to existing map references.
+const BUILDING_NAMES := {"cafeteria_wall_mid_v24": "石墙 · 横墙", "cafeteria_wing_left_v24": "石墙 · 左门翼", "cafeteria_wing_right_v24": "石墙 · 右门翼", "cafeteria_wall_v_l_v27": "石墙 · 左纵墙24", "cafeteria_wall_v_r_v27": "石墙 · 右纵墙24", "cafeteria_wall_v_l_20_v27": "石墙 · 左纵墙20", "cafeteria_wall_v_r_20_v27": "石墙 · 右纵墙20", "cafeteria_turn_l_v28": "石墙 · 左转角24", "cafeteria_turn_r_v28": "石墙 · 右转角24", "cafeteria_turn_l_20_v28": "石墙 · 左转角20", "cafeteria_turn_r_20_v28": "石墙 · 右转角20", "cafeteria_end_v27": "石墙 · 端面24", "cafeteria_end_20_v27": "石墙 · 端面20", "cafeteria_jamb_left_v24": "石墙 · 左门柱", "cafeteria_jamb_right_v24": "石墙 · 右门柱", "cafeteria_lintel_v24": "石墙 · 门楣", "solitary_shell_closed_v24": "禁闭室 · 门关闭", "solitary_shell_open_v24": "禁闭室 · 门打开"}
 var entries: Array[Dictionary] = []
 var assets: Dictionary = {}
 var tool_icons: Dictionary = {}
@@ -23,13 +25,13 @@ func _init() -> void:
 		for item in parsed.get("tools",[]): tool_icons[str(item.id)] = str(item.get("icon",""))
 	assets = load("res://scripts/presentation/prop_catalog.gd").assets()
 	for id in assets:
-		if assets[id].get("render_mode","") == "architecture_material": continue
+		if not is_placeable(str(id)): continue
 		var category := "cafeteria" if str(id).begins_with("cafeteria_") else "furniture"
 		var entry: Dictionary = paired.get(id,{})
 		var subcategory := asset_subcategory(str(id),assets[id])
 		if subcategory in ["tiles_h","tiles_v","tiles_corner","tiles_end","tiles_frame","tiles_coping","buildings","doors","attachments"]: category = "furniture"
 		else: category = str(entry.get("category",category))
-		entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":category,"subcategory":subcategory,"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
+		entries.append({"id":id,"name":str(BUILDING_NAMES.get(id,entry.get("name",Document.ASSET_NAMES.get(id,id)))),"category":category,"subcategory":subcategory,"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
 		if not str(entry.get("editor_icon","")).is_empty(): paired_icons += 1
 	var definitions := [
 		["gate_guards","门岗混混","actors","gate_guards"],
@@ -98,5 +100,25 @@ func filtered_entries(category: String, subcategory: String, query := "") -> Arr
 		if not term.is_empty() and not (str(entry.name)+" "+str(entry.id)).to_lower().contains(term): continue
 		result.append(entry)
 	if subcategory.begins_with("tiles_"):
-		result.sort_custom(func(a,b): return str(a.id).naturalnocasecmp_to(str(b.id)) > 0)
+		result.sort_custom(func(a,b): return BUILDING_NAMES.keys().find(a.id) < BUILDING_NAMES.keys().find(b.id))
+	return result
+
+func is_placeable(id: String) -> bool:
+	var mode := str(assets.get(id,{}).get("render_mode",""))
+	if mode == "architecture_material": return false
+	if mode.begins_with("architecture_"): return BUILDING_NAMES.has(id)
+	return assets.has(id)
+
+func display_name(id: String) -> String:
+	if BUILDING_NAMES.has(id): return BUILDING_NAMES[id]
+	for entry in entries:
+		if entry.id == id: return str(entry.name)
+	return str(assets.get(id,{}).get("name",Document.ASSET_NAMES.get(id,id)))
+
+func appearance_ids(current_id: String) -> Array[String]:
+	var result: Array[String] = []
+	for entry in entries:
+		if entry.group == "fixtures": result.append(str(entry.id))
+	# An old draft must keep its current ID without offering other retired assets.
+	if not result.has(current_id): result.append(current_id)
 	return result

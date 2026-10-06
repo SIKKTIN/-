@@ -1,0 +1,51 @@
+{
+  "id": "p60-start-20261007",
+  "digest": "785051bc8f70e930836430eb6305e29bbc8b381f14f86a7e2ba78219e9b2a6e2",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:00:03.910Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p60-start-20261007",
+    "taskId": "p60-unified-building-palette-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "核对当前R04用原V24石墙+V27直纵/端+V28完整角；整理为唯一命名套装，从素材及属性新增选择退出旧试验瓦片，保存的旧引用保持加载。",
+    "evidence": [
+      "docs/dev/p60/plan.json"
+    ],
+    "at": "2026-10-06T17:00:04.083Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p60-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T16:26:27.313Z
-> 文档内容基准：da309c82b96d0c071d3697e5d6f122da4a1a6c1bf6377dd5cb9f6ccda7c3901c
+> 文档生成时间：2026-10-06T17:03:56.399Z
+> 文档内容基准：6758ab2cb09fc9b5a47306d550032c4e2b3f32181e29a72abbda89fcb44c594a
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -77,6 +77,7 @@
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
+- P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1109,6 +1110,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。
 - 验收负责人：制作人
+### P60 建筑瓦片唯一套装清理
+- ID：p60-unified-building-palette-20261007
+- 当前状态：已完成
+- 内容：用户要求删除多套未用建筑瓦片并统一。以当前R04认可石墙组合为唯一编辑器套装，退出旧试验墙/角/完整原图/辅助覆盖片，统一部件名称，属性外观选择也采用同一集合。
+- 前置任务：p59-editor-secondary-categories-20261007
+- 允许修改路径：scripts/editor/**、qa/p60*、docs/dev/p60/**、docs/tests/p60*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人只整理当前编辑器可用集合，原ID和素材源/旧冻结交付留作地图兼容；不重画素材、不替换地图艺术风格。所有编辑器新增素材入口统一过滤，已存旧引用保持本项而不默默换ID；地图和用户project.godot不改。先证据后程序自验收。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1201,6 +1213,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
+- P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

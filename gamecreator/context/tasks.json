@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "c1b7bc47b8ce91b4436cd1f6aeabe63ae922a663e8db5271fb0b9c24bd1d68fc",
+  "snapshotId": "15aaab2c8446f9731096b92650ed8c401f8394eab03897e223bcaefd615527bc",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -4495,6 +4495,55 @@
           "at": "2026-10-06T16:19:42.567Z"
         }
       ]
+    },
+    {
+      "id": "p60-unified-building-palette-20261007",
+      "title": "P60 建筑瓦片唯一套装清理",
+      "description": "用户要求删除多套未用建筑瓦片并统一。以当前R04认可石墙组合为唯一编辑器套装，退出旧试验墙/角/完整原图/辅助覆盖片，统一部件名称，属性外观选择也采用同一集合。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。",
+      "result": "素材库单一当前石墙套装：原横/柱楣+同源直纵端+专门L角，统一命名18建筑部件。旧V25、V26、V27旧角、参考原图、辅助roof与尾柱从全分类和属性新增选项退出。旧定义仍给存图引用加载，当前旧ID在属性额外标注保留，其他退出项不重新出现。两原生尺寸各15项通过：只4新L/18建筑、旧集退出两入口、旧ID和纹理兼容、二级搜索/真卡片选放undo/锁定/R04源SHA。13文件hash冻结，旧素材/地图/玩法/project.godot未改。\n\n验收通过：制作人程序本人自验收，证据与结论分开。13hash一致，30原生项通过，亲眼看实际分类仅四专门L角和统一名称，所有新建素材/属性入口同一套。旧地图引用测试原ID选中且纹理可加载，无默默替换。地图和资产历史保留，不宣称物理删除历史文件；当前可用素材已清理为一个组合套装，24/20和左右为规格。",
+      "dependencyIds": [
+        "p59-editor-secondary-categories-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/editor/**",
+          "qa/p60*",
+          "docs/dev/p60/**",
+          "docs/tests/p60*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/editor/map_editor.tscn",
+        "interfaceContract": "制作人只整理当前编辑器可用集合，原ID和素材源/旧冻结交付留作地图兼容；不重画素材、不替换地图艺术风格。所有编辑器新增素材入口统一过滤，已存旧引用保持本项而不默默换ID；地图和用户project.godot不改。先证据后程序自验收。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p60-building-palette-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T16:58:58.422Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -4657,7 +4706,8 @@
             "p56-unified-wall-tiles-integration-20261006",
             "p57-first-version-visual-local-repair-20261006",
             "p58-complete-corner-integration-20261006",
-            "p59-editor-secondary-categories-20261007"
+            "p59-editor-secondary-categories-20261007",
+            "p60-unified-building-palette-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -5928,6 +5978,18 @@
       "reason": "用户要求建筑瓦片归二次分类、优化难找长列表。",
       "createdTaskIds": [
         "p59-editor-secondary-categories-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p60-building-palette-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T16:58:58.422Z",
+      "reason": "用户要求建筑瓦片清理为单一可用套装。",
+      "createdTaskIds": [
+        "p60-unified-building-palette-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -19194,6 +19256,145 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-06T16:26:25.194Z",
         "note": "制作人程序本人自验收，先证据后判断。12hash一致，两尺寸20项通过，亲眼核对原生素材栏：主分类/二级/搜索/计数垂直独立，建筑不堆家具；四新L图标易找，真实输入选择与放置正确，图层锁定/撤销兼容。旧地图SHA和素材不变，新窗口标题区分旧运行实例。未替用户作审美批准。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p60-start-20261007",
+      "taskId": "p60-unified-building-palette-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "核对当前R04用原V24石墙+V27直纵/端+V28完整角；整理为唯一命名套装，从素材及属性新增选择退出旧试验瓦片，保存的旧引用保持加载。",
+      "evidence": [
+        "docs/dev/p60/plan.json"
+      ],
+      "at": "2026-10-06T17:00:04.083Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p60-unified-building-palette-20261007",
+        "title": "P60 建筑瓦片唯一套装清理",
+        "description": "用户要求删除多套未用建筑瓦片并统一。以当前R04认可石墙组合为唯一编辑器套装，退出旧试验墙/角/完整原图/辅助覆盖片，统一部件名称，属性外观选择也采用同一集合。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。",
+        "result": "核对当前R04用原V24石墙+V27直纵/端+V28完整角；整理为唯一命名套装，从素材及属性新增选择退出旧试验瓦片，保存的旧引用保持加载。",
+        "dependencyIds": [
+          "p59-editor-secondary-categories-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/**",
+            "qa/p60*",
+            "docs/dev/p60/**",
+            "docs/tests/p60*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人只整理当前编辑器可用集合，原ID和素材源/旧冻结交付留作地图兼容；不重画素材、不替换地图艺术风格。所有编辑器新增素材入口统一过滤，已存旧引用保持本项而不默默换ID；地图和用户project.godot不改。先证据后程序自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p60-building-palette-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T16:58:58.422Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p60-ready-20261007",
+      "taskId": "p60-unified-building-palette-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "素材库单一当前石墙套装：原横/柱楣+同源直纵端+专门L角，统一命名18建筑部件。旧V25、V26、V27旧角、参考原图、辅助roof与尾柱从全分类和属性新增选项退出。旧定义仍给存图引用加载，当前旧ID在属性额外标注保留，其他退出项不重新出现。两原生尺寸各15项通过：只4新L/18建筑、旧集退出两入口、旧ID和纹理兼容、二级搜索/真卡片选放undo/锁定/R04源SHA。13文件hash冻结，旧素材/地图/玩法/project.godot未改。",
+      "evidence": [
+        "docs/dev/p60/delivery.json",
+        "docs/dev/p60/authoring-set.json",
+        "docs/dev/p60/README.md",
+        "docs/tests/p60-1200-native.json",
+        "docs/tests/p60-960-native.json",
+        "docs/tests/p60-1200-corners.png",
+        "docs/tests/p60-960-corners.png"
+      ],
+      "at": "2026-10-06T17:03:53.094Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p60-unified-building-palette-20261007",
+        "title": "P60 建筑瓦片唯一套装清理",
+        "description": "用户要求删除多套未用建筑瓦片并统一。以当前R04认可石墙组合为唯一编辑器套装，退出旧试验墙/角/完整原图/辅助覆盖片，统一部件名称，属性外观选择也采用同一集合。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。",
+        "result": "素材库单一当前石墙套装：原横/柱楣+同源直纵端+专门L角，统一命名18建筑部件。旧V25、V26、V27旧角、参考原图、辅助roof与尾柱从全分类和属性新增选项退出。旧定义仍给存图引用加载，当前旧ID在属性额外标注保留，其他退出项不重新出现。两原生尺寸各15项通过：只4新L/18建筑、旧集退出两入口、旧ID和纹理兼容、二级搜索/真卡片选放undo/锁定/R04源SHA。13文件hash冻结，旧素材/地图/玩法/project.godot未改。",
+        "dependencyIds": [
+          "p59-editor-secondary-categories-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/**",
+            "qa/p60*",
+            "docs/dev/p60/**",
+            "docs/tests/p60*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人只整理当前编辑器可用集合，原ID和素材源/旧冻结交付留作地图兼容；不重画素材、不替换地图艺术风格。所有编辑器新增素材入口统一过滤，已存旧引用保持本项而不默默换ID；地图和用户project.godot不改。先证据后程序自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p60-building-palette-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T16:58:58.422Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T17:03:54.814Z",
+        "note": "制作人程序本人自验收，证据与结论分开。13hash一致，30原生项通过，亲眼看实际分类仅四专门L角和统一名称，所有新建素材/属性入口同一套。旧地图引用测试原ID选中且纹理可加载，无默默替换。地图和资产历史保留，不宣称物理删除历史文件；当前可用素材已清理为一个组合套装，24/20和左右为规格。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

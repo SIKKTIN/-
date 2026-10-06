@@ -1,0 +1,140 @@
+{
+  "task": {
+    "id": "p60-unified-building-palette-20261007",
+    "title": "P60 建筑瓦片唯一套装清理",
+    "description": "用户要求删除多套未用建筑瓦片并统一。以当前R04认可石墙组合为唯一编辑器套装，退出旧试验墙/角/完整原图/辅助覆盖片，统一部件名称，属性外观选择也采用同一集合。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "素材库只有当前石墙的横/纵/完整L角/端面/柱楣以及完整禁闭建筑，旧v25/v26及v27旧角不再供放置。二级/搜索/属性选材一致，旧地图或草稿引用仍能加载和保留，原R04显示/规则无改；两尺寸实际图及真实放置/undo证据。",
+    "result": "核对当前R04用原V24石墙+V27直纵/端+V28完整角；整理为唯一命名套装，从素材及属性新增选择退出旧试验瓦片，保存的旧引用保持加载。",
+    "dependencyIds": [
+      "p59-editor-secondary-categories-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/editor/**",
+        "qa/p60*",
+        "docs/dev/p60/**",
+        "docs/tests/p60*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人只整理当前编辑器可用集合，原ID和素材源/旧冻结交付留作地图兼容；不重画素材、不替换地图艺术风格。所有编辑器新增素材入口统一过滤，已存旧引用保持本项而不默默换ID；地图和用户project.godot不改。先证据后程序自验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p60-building-palette-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T16:58:58.422Z"
+      }
+    ]
+  },
+  "revision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee",
+  "scheduleRevision": "20ca42e9f5a1259b83546f0aa963bde3ebd0100ceb4e3364ae035b10f7c1b11d",
+  "planChanges": [
+    {
+      "id": "p60-building-palette-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T16:58:58.422Z",
+      "reason": "用户要求建筑瓦片清理为单一可用套装。",
+      "createdTaskIds": [
+        "p60-unified-building-palette-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p59-editor-secondary-categories-20261007",
+      "title": "P59 编辑器素材二级分类与查找",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p60-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee"
+  },
+  "feedback": [
+    {
+      "id": "p60-start-20261007",
+      "taskId": "p60-unified-building-palette-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "核对当前R04用原V24石墙+V27直纵/端+V28完整角；整理为唯一命名套装，从素材及属性新增选择退出旧试验瓦片，保存的旧引用保持加载。",
+      "evidence": [
+        "docs/dev/p60/plan.json"
+      ],
+      "at": "2026-10-06T17:00:04.083Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p60-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "6b64173058936bf03f195489a2eee3dec987c808b08b9b27d053cc853e9377ee",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -42,7 +42,6 @@ var preview_path := ""
 var preview_button: Button
 var undo_button: Button
 var redo_button: Button
-var asset_ids: Array[String] = []
 var workspace_root := ""
 
 func has_pending_changes() -> bool:
@@ -73,7 +72,7 @@ func _ready() -> void:
 	request_open("res://data/rooms/r04.json")
 	get_window().focus_exited.connect(func(): canvas.finish_gesture())
 	if not Engine.is_editor_hint():
-		get_window().title = "这次怎么逃 · 关卡编辑器 · 素材二级分类"
+		get_window().title = "这次怎么逃 · 关卡编辑器 · 统一建筑素材"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
 
@@ -227,8 +226,6 @@ func build_ui() -> void:
 	resources.add_child(palette)
 	var palette_help := label(resources,"选素材，再点击地图放置。\nEsc取消；绘墙使用顶部工具。",12)
 	palette_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	for asset in catalog.assets:
-		if catalog.assets[asset].get("render_mode","") != "architecture_material": asset_ids.append(str(asset))
 	var object_tab := VBoxContainer.new()
 	object_tab.name = "对象"
 	library_tabs.add_child(object_tab)
@@ -654,9 +651,13 @@ func refresh_inspector() -> void:
 		if ref.group == "fixtures":
 			label(inspector,"摆设样式")
 			var appearance := OptionButton.new()
-			for asset in asset_ids: appearance.add_item(str(catalog.assets.get(asset,{}).get("name",Document.ASSET_NAMES.get(asset,asset))))
-			appearance.select(maxi(0,asset_ids.find(str(item.asset_id))))
-			appearance.item_selected.connect(func(index): document.set_property(ref,"asset_id",asset_ids[index]); canvas.queue_redraw())
+			appearance.name = "FixtureAppearance"
+			var choices: Array[String] = catalog.appearance_ids(str(item.asset_id))
+			for asset in choices:
+				var legacy := "（旧地图引用）" if not catalog.is_placeable(asset) else ""
+				appearance.add_item(catalog.display_name(asset)+legacy)
+			appearance.select(choices.find(str(item.asset_id)))
+			appearance.item_selected.connect(func(index): document.set_property(ref,"asset_id",choices[index]); canvas.queue_redraw())
 			inspector.add_child(appearance)
 			for property in ["blocks_movement","blocks_sight"]:
 				var toggle := CheckButton.new()
