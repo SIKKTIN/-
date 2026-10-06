@@ -1,0 +1,212 @@
+{
+  "task": {
+    "id": "p58-complete-corner-integration-20261006",
+    "title": "P58 完整L转角局部接入",
+    "description": "消费A28完整L转角，解决用户圈出的横压顶与竖条硬拼；保留P57第一版墙体及所有规则。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04左右24外角/20厨房实际完整L轮廓连续，接口不换材质不露硬缝，原H/柱/楣/竖墙/FPS和规则保持。两尺寸/编辑器与必要回归，主美复核actual并A28先独立验收，P58先证据再程序自验收。",
+    "result": "P58局部接入A28专门完整L角，北顶精确裁旧cap/原墙身保留，四左右24/20接口、直V在南末重新起石缝。原H/柱/楣/V材质/规则/物理/FPS及用户project.godot不变。实际两尺寸/左右厨房/编辑器/运行组件67项通过，28程序交付hash冻结，A28已先独立验收。主美与制作人actual对圈点认为弯内顶/凹角连续，接缝两端；磨损密/大角块性质明确，不宣称真人批准；功能数不代替审美。",
+    "dependencyIds": [
+      "p57-first-version-visual-local-repair-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p58*",
+        "docs/dev/p58/**",
+        "docs/tests/p58*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人仅接局部A28角与共享预览，不重画H/柱/楣/竖墙或物理，不改project.godot用户修改，不改旧冻结交付。候选接入不等于验收，实际图判断完整转弯与同源接口。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a28-p58-complete-corner-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T15:11:46.493Z"
+      }
+    ]
+  },
+  "revision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342",
+  "scheduleRevision": "0c08f285c7256a88264d82282a06baf8492ef3d9844f859418e29943a3aa882c",
+  "planChanges": [
+    {
+      "id": "a28-p58-complete-corner-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T15:11:46.493Z",
+      "reason": "用户在主美聊天给瓦片与圈点参考，已明确同意制作完整L转角部件；A27/P57已验收发布，另建局部造型任务。",
+      "createdTaskIds": [
+        "a28-complete-l-corner-tiles-20261006",
+        "p58-complete-corner-integration-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p57-first-version-visual-local-repair-20261006",
+      "title": "P57 恢复第一版墙体并局部修接点",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p58-ready-20261006",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p58-ready-20261006",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p58-ready-20261006",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342"
+  },
+  "feedback": [
+    {
+      "id": "p58-start-20261006",
+      "taskId": "p58-complete-corner-integration-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "用户新增完整L瓦片参考已授权。以已发布P57第一版为基准，仅消费A28局部角；准备实际左右/厨房/两尺寸/编辑器图，不改原H/柱/楣/纵墙/物理/FPS。",
+      "evidence": [
+        "docs/dev/p58/plan.json",
+        "docs/dev/p57/README.md"
+      ],
+      "at": "2026-10-06T15:13:18.728Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p58-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p58-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p58-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p58-ready-20261006",
+      "taskId": "p58-complete-corner-integration-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P58局部接入A28专门完整L角，北顶精确裁旧cap/原墙身保留，四左右24/20接口、直V在南末重新起石缝。原H/柱/楣/V材质/规则/物理/FPS及用户project.godot不变。实际两尺寸/左右厨房/编辑器/运行组件67项通过，28程序交付hash冻结，A28已先独立验收。主美与制作人actual对圈点认为弯内顶/凹角连续，接缝两端；磨损密/大角块性质明确，不宣称真人批准；功能数不代替审美。",
+      "evidence": [
+        "docs/dev/p58/delivery.json",
+        "docs/dev/p58/README.md",
+        "docs/tests/p58-summary.json",
+        "docs/tests/p58-local-repair-left.png",
+        "docs/tests/p58-local-repair-right.png",
+        "docs/tests/p58-1200-walls-hud.png",
+        "docs/tests/p58-960-walls-unobscured.png",
+        "docs/tests/p58-editor-components-final.png",
+        "docs/tests/p58-runtime-components-final.png",
+        "docs/art/architecture-v28/p58-visual-review.md",
+        "docs/dev/p58/art-review-receipt.json"
+      ],
+      "at": "2026-10-06T15:34:47.370Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p58-ready-20261006",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p58-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p58-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

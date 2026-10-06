@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "1f728a98408a156d38e3d71a5f87a2830d5bd5c37e062ebca59d6dd11d5290ce",
+  "creates": [
+    {
+      "task": {
+        "id": "a28-complete-l-corner-tiles-20261006",
+        "title": "A28 完整L转角瓦片",
+        "description": "按用户新增瓦片参考与左右圈点，专门绘制完整L转角而非横条下接竖条。原横墙、厚门柱、门楣与纵墙保持；局部转弯顶、倒角、外轮廓连续，内角阴影和两端接口匹配原石材。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "a27-original-wall-local-repair-20261006"
+        ],
+        "acceptance": "原生实际左右24及厨房20接点为完整连续L转弯，无横压顶与下方竖条硬拼；原顶面明暗/深边/石缝尺度对接。配套地图编辑器图标。制作人亲眼对照新增参考并独立验收，功能正确不替代美术判断。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v28/**",
+            "art/editor/v08/**",
+            "docs/art/architecture-v28/**"
+          ],
+          "entry": "art/architecture/v28/manifest.json",
+          "interfaceContract": "主美本人设计/生成完整L部件与图标，读原V24/A27材质；保持24/20横截面、90立面、180门洞。原PNG和A24–27冻结不改，只制作4个左右24/20角及必要精确接口。标明渲染锚点/裁切/空区，两端匹配原横纵墙。共享scripts/data/Git由制作人维护。一次候选+接口+原生试拼交接，随后实际图美术复核。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p58-complete-corner-integration-20261006",
+        "title": "P58 完整L转角局部接入",
+        "description": "消费A28完整L转角，解决用户圈出的横压顶与竖条硬拼；保留P57第一版墙体及所有规则。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p57-first-version-visual-local-repair-20261006"
+        ],
+        "acceptance": "R04左右24外角/20厨房实际完整L轮廓连续，接口不换材质不露硬缝，原H/柱/楣/竖墙/FPS和规则保持。两尺寸/编辑器与必要回归，主美复核actual并A28先独立验收，P58先证据再程序自验收。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p58*",
+            "docs/dev/p58/**",
+            "docs/tests/p58*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "制作人仅接局部A28角与共享预览，不重画H/柱/楣/竖墙或物理，不改project.godot用户修改，不改旧冻结交付。候选接入不等于验收，实际图判断完整转弯与同源接口。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户在主美聊天给瓦片与圈点参考，已明确同意制作完整L转角部件；A27/P57已验收发布，另建局部造型任务。",
+  "requestId": "a28-p58-complete-corner-plan-20261006"
+}

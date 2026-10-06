@@ -1,0 +1,52 @@
+{
+  "id": "p58-start-20261006",
+  "digest": "7e48b7276cf1990bb8de4c39a2cac85187b8f6e7cd202689e0f79cad6918c12f",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T15:13:18.567Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p58-start-20261006",
+    "taskId": "p58-complete-corner-integration-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "用户新增完整L瓦片参考已授权。以已发布P57第一版为基准，仅消费A28局部角；准备实际左右/厨房/两尺寸/编辑器图，不改原H/柱/楣/纵墙/物理/FPS。",
+    "evidence": [
+      "docs/dev/p58/plan.json",
+      "docs/dev/p57/README.md"
+    ],
+    "at": "2026-10-06T15:13:18.728Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p58-start-20261006",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "97534f881a92d6929a528d855204f5c7896dc57e43d6b30f3402fc47da25df4c"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "97534f881a92d6929a528d855204f5c7896dc57e43d6b30f3402fc47da25df4c",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

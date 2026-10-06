@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T15:06:06.515Z
-> 文档内容基准：3a028ee31af0954fffa2054f2ca16baffb473a375c1d3ef150e8d776fac3051f
+> 文档生成时间：2026-10-06T15:36:09.858Z
+> 文档内容基准：7f5f69f252fcf9949096c603fa1bb76e0a5d20b148b67b17df30af9237b8c379
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -75,6 +75,7 @@
 - P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
+- P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -107,6 +108,7 @@
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
+- A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1084,6 +1086,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：R04实际原横墙/门柱/门楣恢复第一版完整原图绘制，A27局部转角/竖墙匹配且连续；直接第一版对照和主美独立实图复核，必要回归通过；保留日程/门禁/禁闭/FPS与组件预览。A27先独立验收，P57另提交证据后自验收。
 - 验收负责人：制作人
+### P58 完整L转角局部接入
+- ID：p58-complete-corner-integration-20261006
+- 当前状态：已完成
+- 内容：消费A28完整L转角，解决用户圈出的横压顶与竖条硬拼；保留P57第一版墙体及所有规则。
+- 前置任务：p57-first-version-visual-local-repair-20261006
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p58*、docs/dev/p58/**、docs/tests/p58*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人仅接局部A28角与共享预览，不重画H/柱/楣/竖墙或物理，不改project.godot用户修改，不改旧冻结交付。候选接入不等于验收，实际图判断完整转弯与同源接口。
+- 交付入口：res://scenes/main.tscn R04
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：R04左右24外角/20厨房实际完整L轮廓连续，接口不换材质不露硬缝，原H/柱/楣/竖墙/FPS和规则保持。两尺寸/编辑器与必要回归，主美复核actual并A28先独立验收，P58先证据再程序自验收。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1173,6 +1186,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
+- A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
+- P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1728,6 +1743,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v27/manifest.json + 原图局部试拼
 - 验收要求：与用户第一版参考直接对照：原横墙、厚门柱、门楣、深描边、倒角和分块墙脚保留原图体积；局部转角/竖墙优先从cafeteria_portal_v24原图裁取，匹配原石材/石缝/轮廓，接点不脱节、不再用A26素色母材整墙替换。原生局部试拼及实际左右近景/两尺寸由制作人独立审美验收，配套编辑器图标有效。
 - 验收负责人：制作人
+### A28 完整L转角瓦片
+- ID：a28-complete-l-corner-tiles-20261006
+- 当前状态：已完成
+- 内容：按用户新增瓦片参考与左右圈点，专门绘制完整L转角而非横条下接竖条。原横墙、厚门柱、门楣与纵墙保持；局部转弯顶、倒角、外轮廓连续，内角阴影和两端接口匹配原石材。
+- 前置任务：a27-original-wall-local-repair-20261006
+- 允许修改路径：art/architecture/v28/**、art/editor/v08/**、docs/art/architecture-v28/**
+- 接口契约：主美本人设计/生成完整L部件与图标，读原V24/A27材质；保持24/20横截面、90立面、180门洞。原PNG和A24–27冻结不改，只制作4个左右24/20角及必要精确接口。标明渲染锚点/裁切/空区，两端匹配原横纵墙。共享scripts/data/Git由制作人维护。一次候选+接口+原生试拼交接，随后实际图美术复核。
+- 交付入口：art/architecture/v28/manifest.json
+- 验收要求：原生实际左右24及厨房20接点为完整连续L转弯，无横压顶与下方竖条硬拼；原顶面明暗/深边/石缝尺度对接。配套地图编辑器图标。制作人亲眼对照新增参考并独立验收，功能正确不替代美术判断。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1758,3 +1783,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
+- A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成

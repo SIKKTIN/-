@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v28/cafeteria_turn_master_v28.png" id="1_i3odc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aqor2"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(10.799999, 8, 0, 106.399994, 112, 0),
+"attribute_data": PackedByteArray("/////yPp5z1yeAM+/////5f/uj5yeAM+/////5f/uj6IwcI+/////yPp5z2IwcI+/////5f/uj5yeAM+/////1aaYj9yeAM+/////1aaYj+IwcI+/////5f/uj6IwcI+/////yPp5z2IwcI+/////5f/uj6IwcI+/////5f/uj7jIV8//////yPp5z3jIV8/"),
+"format": 34393296921,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("zMwsQQAAAEEzMxtCAAAAQTMzG0JmZiZCzMwsQWZmJkIzMxtCAAAAQWZm6kIAAABBZmbqQmZmJkIzMxtCZmYmQszMLEFmZiZCMzMbQmZmJkIzMxtCAADwQszMLEEAAPBC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_aqor2")
+base_texture = ExtResource("1_i3odc")
+image_size = Vector2(128, 128)

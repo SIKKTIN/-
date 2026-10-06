@@ -1,0 +1,67 @@
+{
+  "id": "p58-ready-20261006",
+  "digest": "37bf4b83645f0ea365bbe0dcb2ac0aaf01cdbf7e0180b286ce7d1ef7bb885a4c",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T15:34:47.233Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p58-ready-20261006",
+    "taskId": "p58-complete-corner-integration-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "P58局部接入A28专门完整L角，北顶精确裁旧cap/原墙身保留，四左右24/20接口、直V在南末重新起石缝。原H/柱/楣/V材质/规则/物理/FPS及用户project.godot不变。实际两尺寸/左右厨房/编辑器/运行组件67项通过，28程序交付hash冻结，A28已先独立验收。主美与制作人actual对圈点认为弯内顶/凹角连续，接缝两端；磨损密/大角块性质明确，不宣称真人批准；功能数不代替审美。",
+    "evidence": [
+      "docs/dev/p58/delivery.json",
+      "docs/dev/p58/README.md",
+      "docs/tests/p58-summary.json",
+      "docs/tests/p58-local-repair-left.png",
+      "docs/tests/p58-local-repair-right.png",
+      "docs/tests/p58-1200-walls-hud.png",
+      "docs/tests/p58-960-walls-unobscured.png",
+      "docs/tests/p58-editor-components-final.png",
+      "docs/tests/p58-runtime-components-final.png",
+      "docs/art/architecture-v28/p58-visual-review.md",
+      "docs/dev/p58/art-review-receipt.json"
+    ],
+    "at": "2026-10-06T15:34:47.370Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p58-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p58-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p58-ready-20261006",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "1b74639dcf6568780d9d3cddb2d93ce18b3edc653d2dc7bb939d10d832e7c342",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

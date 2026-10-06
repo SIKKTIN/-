@@ -1,0 +1,488 @@
+{
+  "schema": 2,
+  "version": "architecture-v28-20261006",
+  "style": "FIRST-VERSION-COMPLETE-CORNER",
+  "master_texture": "res://art/architecture/v28/cafeteria_turn_master_v28.png",
+  "master_sha256": "1d59b4fe67abc140fe93db603bffe1fdea71b818227ce6542128b1b49a0def78",
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "source_grid": {
+    "x": [
+      142,
+      458,
+      1110
+    ],
+    "y": [
+      161,
+      477,
+      1093
+    ]
+  },
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  },
+  "assets": [
+    {
+      "id": "cafeteria_turn_l_v28",
+      "name": "完整左L转角积木",
+      "texture": "res://art/architecture/v28/cafeteria_turn_master_v28.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "world_size": [
+        80,
+        80
+      ],
+      "render_size": [
+        80,
+        80
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "map_level_mirror_x": false,
+      "cross_width_world": 24,
+      "horizontal_cap_depth_world": 24,
+      "return_start_world": 80,
+      "transparent_notch": [
+        24,
+        24,
+        56,
+        56
+      ],
+      "assembly_patches": [
+        {
+          "source": [
+            142,
+            161,
+            316,
+            316
+          ],
+          "destination": [
+            0,
+            0,
+            24,
+            24
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            458,
+            161,
+            652,
+            316
+          ],
+          "destination": [
+            24,
+            0,
+            56,
+            24
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            142,
+            477,
+            316,
+            616
+          ],
+          "destination": [
+            0,
+            24,
+            24,
+            56
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        }
+      ],
+      "sha256": "1d59b4fe67abc140fe93db603bffe1fdea71b818227ce6542128b1b49a0def78",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v08/icons/cafeteria_turn_l_v28.tres"
+    },
+    {
+      "id": "cafeteria_turn_r_v28",
+      "name": "完整右L转角积木",
+      "texture": "res://art/architecture/v28/cafeteria_turn_master_v28.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "world_size": [
+        80,
+        80
+      ],
+      "render_size": [
+        80,
+        80
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "map_level_mirror_x": false,
+      "cross_width_world": 24,
+      "horizontal_cap_depth_world": 24,
+      "return_start_world": 80,
+      "transparent_notch": [
+        0,
+        24,
+        56,
+        56
+      ],
+      "assembly_patches": [
+        {
+          "source": [
+            142,
+            161,
+            316,
+            316
+          ],
+          "destination": [
+            56,
+            0,
+            24,
+            24
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            458,
+            161,
+            652,
+            316
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            142,
+            477,
+            316,
+            616
+          ],
+          "destination": [
+            56,
+            24,
+            24,
+            56
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        }
+      ],
+      "sha256": "1d59b4fe67abc140fe93db603bffe1fdea71b818227ce6542128b1b49a0def78",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v08/icons/cafeteria_turn_r_v28.tres"
+    },
+    {
+      "id": "cafeteria_turn_l_20_v28",
+      "name": "完整左L转角积木·20厚",
+      "texture": "res://art/architecture/v28/cafeteria_turn_master_v28.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "world_size": [
+        76,
+        80
+      ],
+      "render_size": [
+        76,
+        80
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "map_level_mirror_x": false,
+      "cross_width_world": 20,
+      "horizontal_cap_depth_world": 24,
+      "return_start_world": 80,
+      "transparent_notch": [
+        20,
+        24,
+        56,
+        56
+      ],
+      "assembly_patches": [
+        {
+          "source": [
+            142,
+            161,
+            316,
+            316
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            24
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            458,
+            161,
+            652,
+            316
+          ],
+          "destination": [
+            20,
+            0,
+            56,
+            24
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            142,
+            477,
+            316,
+            616
+          ],
+          "destination": [
+            0,
+            24,
+            20,
+            56
+          ],
+          "mirror_x": false,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        }
+      ],
+      "sha256": "1d59b4fe67abc140fe93db603bffe1fdea71b818227ce6542128b1b49a0def78",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v08/icons/cafeteria_turn_l_20_v28.tres"
+    },
+    {
+      "id": "cafeteria_turn_r_20_v28",
+      "name": "完整右L转角积木·20厚",
+      "texture": "res://art/architecture/v28/cafeteria_turn_master_v28.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "world_size": [
+        76,
+        80
+      ],
+      "render_size": [
+        76,
+        80
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "map_level_mirror_x": false,
+      "cross_width_world": 20,
+      "horizontal_cap_depth_world": 24,
+      "return_start_world": 80,
+      "transparent_notch": [
+        0,
+        24,
+        56,
+        56
+      ],
+      "assembly_patches": [
+        {
+          "source": [
+            142,
+            161,
+            316,
+            316
+          ],
+          "destination": [
+            56,
+            0,
+            20,
+            24
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            458,
+            161,
+            652,
+            316
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        },
+        {
+          "source": [
+            142,
+            477,
+            316,
+            616
+          ],
+          "destination": [
+            56,
+            24,
+            20,
+            56
+          ],
+          "mirror_x": true,
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "complete continuous L coping stone"
+        }
+      ],
+      "sha256": "1d59b4fe67abc140fe93db603bffe1fdea71b818227ce6542128b1b49a0def78",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v08/icons/cafeteria_turn_r_20_v28.tres"
+    }
+  ]
+}

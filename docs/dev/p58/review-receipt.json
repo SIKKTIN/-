@@ -1,0 +1,63 @@
+{
+  "id": "p58-self-review-20261006",
+  "digest": "f2a2c1c8bcd7b6bd956d6ab29de0b36146441b5d13c1989ae8a5df859f111edc",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T15:35:26.293Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p58-ready-20261006",
+    "taskId": "p58-complete-corner-integration-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "P58局部接入A28专门完整L角，北顶精确裁旧cap/原墙身保留，四左右24/20接口、直V在南末重新起石缝。原H/柱/楣/V材质/规则/物理/FPS及用户project.godot不变。实际两尺寸/左右厨房/编辑器/运行组件67项通过，28程序交付hash冻结，A28已先独立验收。主美与制作人actual对圈点认为弯内顶/凹角连续，接缝两端；磨损密/大角块性质明确，不宣称真人批准；功能数不代替审美。",
+    "evidence": [
+      "docs/dev/p58/delivery.json",
+      "docs/dev/p58/README.md",
+      "docs/tests/p58-summary.json",
+      "docs/tests/p58-local-repair-left.png",
+      "docs/tests/p58-local-repair-right.png",
+      "docs/tests/p58-1200-walls-hud.png",
+      "docs/tests/p58-960-walls-unobscured.png",
+      "docs/tests/p58-editor-components-final.png",
+      "docs/tests/p58-runtime-components-final.png",
+      "docs/art/architecture-v28/p58-visual-review.md",
+      "docs/dev/p58/art-review-receipt.json"
+    ],
+    "at": "2026-10-06T15:34:47.370Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T15:35:26.454Z",
+      "note": "制作人P58本人程序自验收，证据先提交再单独判断。28hash一致，67项通过，实际完整L内凹角倒角/顶面连成整体，原H/厚柱/楣/墙脚保留，外24/内20无错误缩纵长，原墙正面/中段未挖空，内角透地无bbox影。A28已制作人独立美术验收；物理/规则/FPS/project.godot保留。技术通过不代替真人批准，磨损较密和角块大及启动FPS性质记录。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p58-ready-20261006",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "6190d2e452dc72bc903ae27ca1196cda31fc37aa75aa327da42b65a7b4aacd22"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "6190d2e452dc72bc903ae27ca1196cda31fc37aa75aa327da42b65a7b4aacd22",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

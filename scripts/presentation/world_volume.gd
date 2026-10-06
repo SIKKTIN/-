@@ -135,6 +135,21 @@ func paint_facade(area: Rect2) -> void:
 				if begin > piece.position.x: next.append(Rect2(piece.position,Vector2(begin-piece.position.x,piece.size.y)))
 				if end < piece.end.x: next.append(Rect2(end,piece.position.y,piece.end.x-end,piece.size.y))
 		pieces = next
+	# Dedicated L coping replaces only the top; keep the old wall body below.
+	# Rectangle subtraction also removes the old square cap under its chamfer.
+	for cutout in facade.get("cap_cutouts",[]):
+		var cut := Rect2(area.position+Vector2(cutout[0],cutout[1]),Vector2(cutout[2],cutout[3]))
+		var remaining: Array[Rect2] = []
+		for piece in pieces:
+			var overlap := piece.intersection(cut)
+			if not overlap.has_area():
+				remaining.append(piece)
+				continue
+			if overlap.position.y > piece.position.y: remaining.append(Rect2(piece.position,Vector2(piece.size.x,overlap.position.y-piece.position.y)))
+			if overlap.end.y < piece.end.y: remaining.append(Rect2(piece.position.x,overlap.end.y,piece.size.x,piece.end.y-overlap.end.y))
+			if overlap.position.x > piece.position.x: remaining.append(Rect2(piece.position.x,overlap.position.y,overlap.position.x-piece.position.x,overlap.size.y))
+			if overlap.end.x < piece.end.x: remaining.append(Rect2(overlap.end.x,overlap.position.y,piece.end.x-overlap.end.x,overlap.size.y))
+		pieces = remaining
 	for piece in pieces:
 		if facade.get("layout","wing") == "tiled":
 			var id := str(facade.asset)

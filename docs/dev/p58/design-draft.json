@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "format": "gamecreator-content-change",
+  "id": "p58-complete-l-corner-design-20261006",
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "85b64cd425fa24036d7f236b964ffa6aea4eaa7ad54b33e3bb0ca90508625798",
+  "author": "制作人",
+  "intent": "project_change",
+  "summary": "按用户瓦片参考与左右圈点接入A28四个完整L转角，保留P57原横墙/厚柱/楣/纵墙。",
+  "compatibility": {
+    "reuse": "P57原H/柱/楣和A27直纵顶；地图物理/门禁/禁闭/日程/FPS。",
+    "modify": "只替四个角及旧顶面绘制裁区，墙身连续保留。",
+    "add": "A28一PNG四个完整L角与四个编辑器图标。",
+    "archive": "A24–27历史冻结，不重写旧验收。"
+  },
+  "target": {
+    "kind": "module",
+    "id": "map-design"
+  },
+  "operations": [
+    {
+      "id": "p58-map-description",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+      "value": "R04为三天逃脱的黑工厂生活区，玩家为被抓干活的无辜人。食堂12–14开放；被抓禁闭2小时，可由伙伴撬门救人。保留P57恢复的第一版原V24横墙、厚门柱、门楣、明暗和分块墙脚；直纵顶继续A27同原图倒角石材。按用户瓦片参考新增A28专门绘制的一块完整L转弯石，四个左右24/20接口和四地图编辑器图标。24角80×80、20角76×80；北臂深24配原H、纵臂截面24或20，出臂56保持，内侧暗边与外轮廓在一PNG内连续转向。原墙身不裁空，只有新北臂覆盖的旧顶面被精确扣掉，避免老方头露出倒角；extended中段连续采样，不贴另一门翼。角顶Y1146.48，南端Y1226.48，直纵顶从此新石缝继续123.1413612565周期。原物理/门禁/禁闭及FPS保持。实际左右/厨房近景、两尺寸和编辑器图验证，技术检查不代替用户审美批准；新石块表面磨损和接点石缝仍可辨。源与证据docs/dev/p58/README.md、docs/tests/p58-summary.json。"
+    },
+    {
+      "id": "p58-wall-7",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    },
+    {
+      "id": "p58-wall-8",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    },
+    {
+      "id": "p58-wall-9",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    },
+    {
+      "id": "p58-wall-10",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    },
+    {
+      "id": "p58-wall-12",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    },
+    {
+      "id": "p58-wall-13",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+      "value": "P58仅A28专门L转角与旧北压顶裁区改变；原H/柱/楣/直纵顶/正面连续保留。完整转弯内侧阴影与倒角，24角80×80/20角76×80，角顶1146.48、直纵接1226.48，无整墙重新上色、无旧squarecap露边。物理及规则/FPS保持；实际图和审美验收见docs/dev/p58/README.md。"
+    }
+  ]
+}

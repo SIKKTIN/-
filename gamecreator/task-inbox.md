@@ -87,6 +87,8 @@
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成 · 未排期
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成 · 未排期
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成 · 未排期
+- A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成 · 未排期
+- P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -180,6 +182,8 @@
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
+- A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
+- P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

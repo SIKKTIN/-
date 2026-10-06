@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p58-complete-corner-integration-20261006",
+    "title": "P58 完整L转角局部接入",
+    "description": "消费A28完整L转角，解决用户圈出的横压顶与竖条硬拼；保留P57第一版墙体及所有规则。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04左右24外角/20厨房实际完整L轮廓连续，接口不换材质不露硬缝，原H/柱/楣/竖墙/FPS和规则保持。两尺寸/编辑器与必要回归，主美复核actual并A28先独立验收，P58先证据再程序自验收。",
+    "result": "",
+    "dependencyIds": [
+      "p57-first-version-visual-local-repair-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p58*",
+        "docs/dev/p58/**",
+        "docs/tests/p58*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人仅接局部A28角与共享预览，不重画H/柱/楣/竖墙或物理，不改project.godot用户修改，不改旧冻结交付。候选接入不等于验收，实际图判断完整转弯与同源接口。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a28-p58-complete-corner-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T15:11:46.493Z"
+      }
+    ]
+  },
+  "revision": "8b89f0dbfcd78a9973e19fc5a7fc98a73abc3f9bd3b7f4a2d7f9b584c53313e2",
+  "scheduleRevision": "add89aea8ea0e30482adf9035d7449d7695a1e07f6480dd2c62a304187680faf",
+  "planChanges": [
+    {
+      "id": "a28-p58-complete-corner-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T15:11:46.493Z",
+      "reason": "用户在主美聊天给瓦片与圈点参考，已明确同意制作完整L转角部件；A27/P57已验收发布，另建局部造型任务。",
+      "createdTaskIds": [
+        "a28-complete-l-corner-tiles-20261006",
+        "p58-complete-corner-integration-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p57-first-version-visual-local-repair-20261006",
+      "title": "P57 恢复第一版墙体并局部修接点",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "8b89f0dbfcd78a9973e19fc5a7fc98a73abc3f9bd3b7f4a2d7f9b584c53313e2"
+  },
+  "feedback": []
+}

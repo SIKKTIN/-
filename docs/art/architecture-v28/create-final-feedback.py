@@ -1,0 +1,11 @@
+from pathlib import Path
+import json,hashlib
+doc=Path(r'E:/Project/Godot/这次怎么逃/docs/art/architecture-v28');root=doc.parents[2]
+t=json.loads((doc/'final-task-read.json').read_text(encoding='utf-8-sig'));d=json.loads((doc/'delivery.json').read_text(encoding='utf-8-sig'))
+assert all(hashlib.sha256((root/f['path']).read_bytes()).hexdigest()==f['sha256'] for f in d['files'])
+summary='交付'+d['version']+'：内置imagegen专门绘制/定向修订一张完整L转角PNG，顶面、外凸切角与内侧暗边连成整体，拒绝首稿分离方头与横断缝。左右24/20四积木同源，4 MeshTexture图标实际GPU可见。24块80×80，20块76×80（纵跨20、北臂深24、出臂56），右20偏4，旧V27直纵顶从Y+80新石缝接出；原H/厚柱/门楣/墙脚保持，extended只裁旧压顶、middle墙身连续，不贴独特门翼面片。已亲眼复核实际左右2倍、1200整场、960HUD、editor/runtime摆放，转弯完整、透明内空未填影。主美判断达到用户本轮瓦片积木意图，可提交独立审。'+str(d['runtime_checks'])+'项原生/组件/保留检查单列，不代替审美；专用石块磨损较密、块面较大，是同现有风格的新角块而非逐像素复刻。新PNG原样copy未涂改，A24–27冻结不变，41文件hash已核对；素材/接口/提示词/实际图随包。待制作人独立验收，不代表用户已批准。'
+paths=['art/architecture/v28/manifest.json','art/architecture/v28/cafeteria_turn_master_v28.png','art/editor/v08/manifest.json','docs/art/architecture-v28/delivery.json','docs/art/architecture-v28/README.md','docs/art/architecture-v28/prompt.json','docs/art/architecture-v28/interface.json','docs/art/architecture-v28/source-review.json','docs/art/architecture-v28/native-preview.png','docs/art/architecture-v28/native-detail.png','docs/art/architecture-v28/native-icons-visible.json','docs/art/architecture-v28/p58-visual-review.md','docs/art/architecture-v28/p58-visual-evidence.json','docs/art/architecture-v28/runtime/p58-local-repair-left.png','docs/art/architecture-v28/runtime/p58-local-repair-right.png','docs/art/architecture-v28/runtime/p58-1200-walls-unobscured.png','docs/art/architecture-v28/runtime/p58-960-walls-hud.png','docs/art/architecture-v28/runtime/p58-editor-components-final.png','docs/art/architecture-v28/runtime/p58-runtime-components-final.png']
+out={'taskId':t['task']['id'],'revision':t['revision'],'feedbackId':'a28-final-v28-20261006','status':'待验收','summary':summary,'evidence':[str(root/p) for p in paths],'requestId':'a28-final-v28-20261006'}
+assert all(Path(p).is_file() for p in out['evidence'])
+(doc/'final-feedback.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'version':d['version'],'hashes_match':True,'files':len(d['files'])}))

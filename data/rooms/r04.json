@@ -1832,19 +1832,27 @@
         "painted_facade": {
           "layout": "wing",
           "asset": "cafeteria_wing_left_v24",
-          "trim_left": 80,
+          "trim_left": 24,
           "junctions": [
             {
-              "asset": "cafeteria_corner_l_v27",
+              "asset": "cafeteria_turn_l_v28",
               "offset": [
                 0,
                 6.48
               ],
               "size": [
                 80,
-                150
+                80
               ]
             }
+          ],
+          "cap_cutouts": [
+            [
+              0,
+              0,
+              80,
+              30.48
+            ]
           ]
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1862,40 +1870,37 @@
           "trim_right": 24,
           "junctions": [
             {
-              "asset": "cafeteria_corner_r_v27",
+              "asset": "cafeteria_turn_r_v28",
               "offset": [
                 844,
                 6.48
               ],
               "size": [
                 80,
-                150
-              ],
-              "top_only": true
+                80
+              ]
             },
             {
-              "asset": "cafeteria_corner_l_20_v27",
+              "asset": "cafeteria_turn_l_20_v28",
               "offset": [
                 170,
                 6.48
               ],
               "size": [
-                80,
-                150
-              ],
-              "top_only": true
+                76,
+                80
+              ]
             },
             {
-              "asset": "cafeteria_corner_r_20_v27",
+              "asset": "cafeteria_turn_r_20_v28",
               "offset": [
-                750,
+                754,
                 6.48
               ],
               "size": [
-                80,
-                150
-              ],
-              "top_only": true
+                76,
+                80
+              ]
             }
           ],
           "replace_ranges": [
@@ -1909,7 +1914,27 @@
             ]
           ],
           "end_post_width": 24,
-          "omit_end_post": true
+          "omit_end_post": true,
+          "cap_cutouts": [
+            [
+              844,
+              0,
+              80,
+              30.48
+            ],
+            [
+              170,
+              0,
+              76,
+              30.48
+            ],
+            [
+              754,
+              0,
+              76,
+              30.48
+            ]
+          ]
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
       },
@@ -1918,7 +1943,7 @@
         "height": 90,
         "front": "cafeteria_wall_front_v23",
         "top": "cafeteria_coping_v23",
-        "render_top_start": 1296.48,
+        "render_top_start": 1226.48,
         "return_wall": {
           "top": "cafeteria_wall_v_l_v27",
           "end": "cafeteria_end_v27",
@@ -1926,7 +1951,7 @@
             24,
             123.1413612565445
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1226.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1936,7 +1961,7 @@
         "height": 90,
         "front": "cafeteria_wall_front_v23",
         "top": "cafeteria_coping_v23",
-        "render_top_start": 1296.48,
+        "render_top_start": 1226.48,
         "return_wall": {
           "top": "cafeteria_wall_v_r_v27",
           "end": "cafeteria_end_v27",
@@ -1944,7 +1969,7 @@
             24,
             123.1413612565445
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1226.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1960,7 +1985,7 @@
         "height": 90,
         "front": "cafeteria_wall_front_v23",
         "top": "cafeteria_coping_v23",
-        "render_top_start": 1296.48,
+        "render_top_start": 1226.48,
         "return_wall": {
           "top": "cafeteria_wall_v_l_20_v27",
           "end": "cafeteria_end_20_v27",
@@ -1968,7 +1993,7 @@
             20,
             123.1413612565445
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1226.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1978,7 +2003,7 @@
         "height": 90,
         "front": "cafeteria_wall_front_v23",
         "top": "cafeteria_coping_v23",
-        "render_top_start": 1296.48,
+        "render_top_start": 1226.48,
         "return_wall": {
           "top": "cafeteria_wall_v_r_20_v27",
           "end": "cafeteria_end_20_v27",
@@ -1986,7 +2011,7 @@
             20,
             123.1413612565445
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1226.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
