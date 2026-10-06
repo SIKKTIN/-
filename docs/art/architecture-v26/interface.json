@@ -1,0 +1,35 @@
+{
+  "schema": 2,
+  "status": "native and actual game/style/14visible icons passed; producer formal review pending",
+  "manifest": "res://art/architecture/v26/manifest.json",
+  "source_coordinate_space": "every patch.source is absolute1536x1024 original; every asset.region is full0,0,1536,1024",
+  "uv_order": "TL,TR,BR,BL; transpose swaps to TL,BL,BR,TR; optionalpatchUVmirror then TR,TL,BL,BR; all currentR assets use directrightgeometry (no mirrorflag). Phase offset adds sourceU.",
+  "repeat_policy": {
+    "unit": 64,
+    "period": 128,
+    "h_origin": "northmost L/H shared wall origin720",
+    "h_after80_corner_phase": 80,
+    "v_origin": "common north cap origin1147.5",
+    "v_after150_corner_phase": 22,
+    "partial_last": "intersect geometry, bilinear UV clip; no whole-end stretch",
+    "phase_offset_pixels": "offset along sourceU by phaseworld/128*1536; split if crossing128period"
+  },
+  "render_registration": {
+    "north_baseline": 1261.5,
+    "north_h_cap_start": 1147.5,
+    "h_face_start": 1171.5,
+    "h_plinth_start": 1227.5,
+    "corner_bottom": 1297.5,
+    "jamb_top": 1140,
+    "jamb_front_start": 1171.5
+  },
+  "width20_contract": "Use dedicated20 variants: corner80x150 horizontal arm unchanged,20cross=16.6667top+3.3333side; cross stone sourceV cropped5/6. Frontx20..80 phase20 forleft,frontx0..60 phase0 forright. Run stone grain still128period; never wholeL scaleX.",
+  "replacement_policy": "replace all oldHwing and v25corner/top painted surfaces; no switching source PNG alongrun; door metal fixture unchanged",
+  "texture_shading": "same coping sampler in all top/side/jamb/lintel, only face.modulate differs; no generated darkside bitmap",
+  "icons": "native MeshTexture geometry+UV derived from same assembly patches",
+  "uv_phase_shift": "phase_shift_world component placement offset relative sharedH/V origin adds phase[patch.phase_axis]/128 to sourceU before/after transpose; full mother X sampler repeat enabled so U>1 wraps correctly; no PNG pixel edits. Geometry positive.",
+  "right_components": "Right L and V have right-facing geometry with west side, preserve sourceU alongworldrun; no extra mapUVmirror when usingright IDs. Avoid replacing them with globally mirroredleft texture/lighting.",
+  "assets_checked": 14,
+  "native_draw": "native-preview.png / stderr0",
+  "icon_draw": "native-icons-visible.json /14actual meshes"
+}

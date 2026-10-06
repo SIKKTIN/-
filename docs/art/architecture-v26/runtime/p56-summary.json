@@ -1,0 +1,49 @@
+{
+  "passed": 215,
+  "total": 215,
+  "reports": [
+    {
+      "report": "p56-wall-fps-native-1200.json",
+      "passed": 25,
+      "total": 25,
+      "failed": []
+    },
+    {
+      "report": "p56-wall-fps-native-960.json",
+      "passed": 25,
+      "total": 25,
+      "failed": []
+    },
+    {
+      "report": "p56-wall-detail-native.json",
+      "passed": 8,
+      "total": 8,
+      "failed": []
+    },
+    {
+      "report": "p56-access-access-headless-1200.json",
+      "passed": 73,
+      "total": 73,
+      "failed": []
+    },
+    {
+      "report": "p56-editor-headless-1280.json",
+      "passed": 78,
+      "total": 78,
+      "failed": []
+    },
+    {
+      "report": "p56-editor-components-native.json",
+      "passed": 6,
+      "total": 6,
+      "failed": []
+    }
+  ],
+  "notes": [
+    "All14 components share one source PNG and one cached GPU texture. Horizontal128 period,64 stone unit, longitudinal phase starts from1147.5.",
+    "Pixel continuity and plinth/side observations supplement independent chief art visual review; they do not automatically prove style quality.",
+    "Cold startup and synchronous screenshot readback affect FPS numbers; not a normal-play benchmark.",
+    "Initial import attempted icon dependencies before master PNG import registration; final editor/renderer logs must be clean after icons final.",
+    "Runtime cutout uses identical projected world point(1350,900) before/after temporary fixtures. Bounding-box contact shadow wrongly filled L empty area; implementation now excludes incomplete assembly bounding boxes, not a loosened threshold. RGBA matched exactly(0.6,0.6275,0.549,1)."
+  ]
+}

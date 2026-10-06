@@ -1,0 +1,9 @@
+from pathlib import Path
+import json
+root=Path('E:/Project/Godot/这次怎么逃');doc=root/'docs/art/architecture-v26'
+t=json.loads((doc/'final-task-read-2.json').read_text(encoding='utf-8-sig'))
+d=json.loads((doc/'delivery.json').read_text(encoding='utf-8'))
+paths=[root/'art/architecture/v26/manifest.json',root/'art/editor/v06/manifest.json']+[doc/n for n in ['delivery.json','README.md','prompt.json','source-review.json','interface.json','native-preview.png','native-preview.json','native-icons-visible.json','p56-visual-review.md','p56-visual-evidence.json']]+[doc/'runtime'/n for n in ['p56-1200-wall-detail-final.png','p56-1200-right-junctions-final.png','p56-editor-components-final.png','p56-runtime-components-final.png','p56-editor-components-native-final.json','p56-final-import.log']]
+f={'taskId':'a26-unified-wall-tiles-20261006','revision':t['revision'],'feedbackId':'a26-final-v26-20261006','status':'待验收','summary':'交付'+d['version']+'：单张1536×1024同源母版生成14拼接组件/14对应2D MeshTexture图标；H/V/左右L/端/柱/楣均采同coping/plaster/plinth，不混旧A24/A25外观。64网格/128材质周期、H80/V150后统一phase、末块源UV裁切；20厚专属角仅裁纵cross，横石粒度不缩小。亲眼实际1200/960及2倍左右/厨房接点、编辑器与运行H/V/L摆放均同材质连续；compound L空位不再被bbox影填入。GPU组件合集及14图标实际可见，stderr0；P56 215/215，final import ERROR0。新PNG内置imagegen原样copy，A24/A25全部已冻结hash不变。纹理轮廓较柔、重复周期可辨，记录其性质不宣称无限随机。已冻结51文件hash与最终图，待制作人独立验收；程序P56另验。','evidence':[str(p) for p in paths],'requestId':'a26-final-v26-20261006'}
+(doc/'final-feedback.json').write_text(json.dumps(f,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'feedbackId':f['feedbackId'],'revision':t['revision'],'evidence_count':len(paths)}))

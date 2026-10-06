@@ -1,6 +1,7 @@
 extends Node2D
 
 const Tiles = preload("res://scripts/presentation/texture_tiles.gd")
+const Components = preload("res://scripts/presentation/wall_components.gd")
 var world
 var kind: String
 var wall_index: int = 0
@@ -51,13 +52,17 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 			material = painted_material(str(definition.get("alpha_core_shader","res://art/architecture/v24/opaque_core.gdshader")))
 	if type == "fixture" and owner_world.fixtures[index].has("lintel_asset"):
 		lintel_visual = Sprite2D.new()
-		lintel_visual.texture = world.art_textures.get(str(owner_world.fixtures[index].lintel_asset))
+		var lintel_id := str(owner_world.fixtures[index].lintel_asset)
+		if not definitions.get(lintel_id,{}).has("assembly_patches"):
+			lintel_visual.texture = world.art_textures.get(lintel_id)
 		lintel_visual.material = painted_material(str(owner_world.fixtures[index].get("alpha_shader","res://art/architecture/v24/opaque_core.gdshader")))
 		add_child(lintel_visual)
 	_wall_geometry_valid = false
 	# Minified bars and furniture need prefiltered texture levels. Fractional
 	# camera motion stays smooth; snapping the camera would introduce stepping.
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	if (profile.has("painted_facade") and str(profile.painted_facade.get("asset","")).ends_with("_v26")) or (profile.has("return_wall") and str(profile.return_wall.top).ends_with("_v26")) or (kind == "fixture" and (str(owner_world.fixtures[index].asset_id).ends_with("_v26") or str(owner_world.fixtures[index].get("lintel_asset","")).ends_with("_v26"))):
+		texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	tick_visual()
 
 func asset_id(slot: String, fallback: String) -> String:
@@ -131,7 +136,12 @@ func paint_facade(area: Rect2) -> void:
 				if end < piece.end.x: next.append(Rect2(end,piece.position.y,piece.end.x-end,piece.size.y))
 		pieces = next
 	for piece in pieces:
-		if facade.get("layout","wing") == "wing":
+		if facade.get("layout","wing") == "tiled":
+			var id := str(facade.asset)
+			var dims: Array = definitions[id].render_size
+			var phase: Array = facade.get("phase_shift",[0,0])
+			paint_component_run(id,area,Vector2(dims[0],area.size.y),piece,false,Vector2(phase[0],phase[1]))
+		elif facade.get("layout","wing") == "wing":
 			paint_registered(world.art_textures[str(facade.asset)],area,piece)
 		else:
 			# Preserve source registration while replacing only a corner's footprint.
@@ -146,29 +156,27 @@ func paint_facade(area: Rect2) -> void:
 		var size: Array = patch.size
 		var origin := Vector2(area.end.x if patch.get("anchor","") == "right" else area.position.x,area.position.y)
 		var rect := Rect2(origin+Vector2(offset[0],offset[1]),Vector2(size[0],size[1]))
-		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false))
+		var phase: Array = patch.get("phase_shift",[0,0])
+		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]))
+	for post in facade.get("posts",[]):
+		var offset: Array = post.offset
+		var size: Array = post.size
+		var phase: Array = post.get("phase_shift",[0,0])
+		paint_junction(str(post.asset),Rect2(area.position+Vector2(offset[0],offset[1]),Vector2(size[0],size[1])),post.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]))
 
-func paint_junction(id: String, rect: Rect2, mirror_x: bool) -> void:
-	var definition: Dictionary = definitions[id]
-	var texture: Texture2D = world.art_textures[id]
-	var source_origin := Vector2.ZERO
-	if texture is AtlasTexture:
-		texture = texture.atlas
-	elif definition.has("region"):
-		# WorldTexture crops before mip generation. Assembly source coordinates
-		# are absolute in the original PNG, so register them to that crop once.
-		var region: Array = definition.region
-		source_origin = Vector2(region[0],region[1])
-	var dims: Array = definition.render_size
-	var scale := rect.size/Vector2(dims[0],dims[1])
-	for patch in definition.assembly_patches:
-		var src: Array = patch.source
-		var dest: Array = patch.destination
-		var region := Rect2(Vector2(src[0],src[1])-source_origin,Vector2(src[2],src[3]))
-		var area := Rect2(rect.position+Vector2(dest[0],dest[1])*scale,Vector2(dest[2],dest[3])*scale)
-		if mirror_x:
-			area.position.x = rect.end.x-(float(dest[0])+float(dest[2]))*scale.x
-		Tiles.paint_region(self,texture,area,region,Color.WHITE,mirror_x)
+func paint_component_run(id: String, area: Rect2, tile: Vector2, clip: Rect2, mirror_x: bool, phase_shift := Vector2.ZERO) -> void:
+	var visible_area := area.intersection(clip)
+	if not visible_area.has_area() or tile.x <= 0 or tile.y <= 0: return
+	var cursor := area.position
+	while cursor.x < area.end.x:
+		cursor.y = area.position.y
+		while cursor.y < area.end.y:
+			paint_junction(id,Rect2(cursor,tile),mirror_x,visible_area,phase_shift)
+			cursor.y += tile.y
+		cursor.x += tile.x
+
+func paint_junction(id: String, rect: Rect2, mirror_x: bool, clip := Rect2(), phase_shift := Vector2.ZERO) -> void:
+	Components.paint(self,world.art_textures[id],definitions[id],rect,mirror_x,clip,phase_shift)
 
 func _draw() -> void:
 	if not world:
@@ -177,19 +185,29 @@ func _draw() -> void:
 	if kind == "wall":
 		var height := elevation
 		if profile.has("painted_facade"):
-			paint_facade(Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height)))
+			var area := Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height))
+			if profile.painted_facade.get("layout","") == "tiled":
+				var dims: Array = definitions[str(profile.painted_facade.asset)].render_size
+				area = Rect2(Vector2(r.position.x,r.end.y-float(dims[1])),Vector2(r.size.x,dims[1]))
+			paint_facade(area)
 			return
 		if profile.has("return_wall"):
 			# A longitudinal wall shows its narrow horizontal top and east side.
 			# Only its south endpoint gets a front-facing 90-high stone face.
 			var wall: Dictionary = profile.return_wall
 			var top_area := Rect2(r.position-Vector2(0,height),r.size)
+			if wall.has("tile_origin_y"):
+				top_area.position.y = float(wall.tile_origin_y)
+				top_area.size.y = maxf(0,r.end.y-height-top_area.position.y)
 			var start := maxf(world.bounds.position.y,float(profile.get("render_top_start",top_area.position.y)))
 			var clip := Rect2(world.bounds.position.x,start,world.bounds.size.x,maxf(0,world.bounds.end.y-start))
 			var dims: Array = wall.get("tile_size",[24,128])
-			Tiles.paint(self,world.art_textures[str(wall.top)],top_area,Vector2(r.size.x,dims[1]),clip,Color.WHITE,wall.get("mirror_x",false))
+			if definitions[str(wall.top)].has("assembly_patches"):
+				paint_component_run(str(wall.top),top_area,Vector2(r.size.x,dims[1]),clip,wall.get("mirror_x",false))
+			else:
+				Tiles.paint(self,world.art_textures[str(wall.top)],top_area,Vector2(r.size.x,dims[1]),clip,Color.WHITE,wall.get("mirror_x",false))
 			var south_face := Rect2(r.position.x,r.end.y-height,r.size.x,height).intersection(world.bounds)
-			draw_texture_rect(world.art_textures[str(wall.end)],south_face,false)
+			paint_junction(str(wall.end),south_face,wall.get("mirror_x",false))
 			return
 		if profile.has("return_material"):
 			var side_body := Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height))
@@ -240,4 +258,14 @@ func _draw() -> void:
 			draw_line(clipped.position,Vector2(r.position.x,r.end.y),color,width,aa)
 	else:
 		if world.art_textures.has(prop_id()):
-			draw_texture_rect(world.art_textures[prop_id()],display_rect,false)
+			if definitions.get(prop_id(),{}).has("assembly_patches"):
+				paint_junction(prop_id(),display_rect,false)
+			else:
+				draw_texture_rect(world.art_textures[prop_id()],display_rect,false)
+		if kind == "fixture" and world.fixtures[wall_index].has("lintel_asset"):
+			var fixture: Dictionary = world.fixtures[wall_index]
+			var id := str(fixture.lintel_asset)
+			if definitions.get(id,{}).has("assembly_patches"):
+				var height := float(fixture.get("lintel_height",31.5))
+				var phase: Array = fixture.get("phase_shift",[0,0])
+				paint_junction(id,Rect2(display_rect.position-Vector2(0,height),Vector2(display_rect.size.x,height)),false,Rect2(),Vector2(phase[0],phase[1]))

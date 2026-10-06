@@ -1,0 +1,19 @@
+{
+  "taskId": "p56-unified-wall-tiles-integration-20261006",
+  "revision": "9c6a7da630d17bc088e59983ebd0d1d2160fb03b8a93438a093afe3bb5b5484b",
+  "feedbackId": "p56-ready-20261006",
+  "status": "待验收",
+  "summary": "P56同源母版14组件接入R04横/纵/左右角/20隔墙/端/门柱/门楣，实际共享一个GPU纹理且纹理周期统一，UV相位与末端裁切连续。游戏和编辑器共用组件绘制，14MeshTexture图标真GPU可见，临时H/V/L正确显示；compound L矩形阴影填空缺陷已修，同世界点before/after像素完全一致。两尺寸及回归215/215，final导入0ERROR，主美独立实际风格复核通过。A26正式交付由制作人另独立验收后发布。物理/门禁/禁闭/FPS与用户改动保留。",
+  "evidence": [
+    "docs/dev/p56/delivery.json",
+    "docs/dev/p56/README.md",
+    "docs/tests/p56-summary.json",
+    "docs/tests/p56-1200-wall-detail-final.png",
+    "docs/tests/p56-1200-right-junctions-final.png",
+    "docs/tests/p56-editor-components-final.png",
+    "docs/tests/p56-runtime-components-final.png",
+    "docs/tests/p56-editor-components-native-final.json",
+    "docs/dev/p56/cutout-sample-observation.json"
+  ],
+  "requestId": "p56-ready-20261006"
+}

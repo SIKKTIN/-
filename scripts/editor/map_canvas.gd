@@ -19,9 +19,11 @@ var draw_start := Vector2.ZERO
 var drawing_wall := false
 var last_pointer := Vector2.ZERO
 var textures: Dictionary = {}
+var definitions: Dictionary = {}
 var font: Font
 var show_collision := false
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
+const Components = preload("res://scripts/presentation/wall_components.gd")
 
 func setup(model, layer_model = null) -> void:
 	document = model
@@ -29,8 +31,10 @@ func setup(model, layer_model = null) -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	clip_contents = true
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	font = load("res://art/fonts/NotoSansCJKsc-Regular.otf")
-	for asset in load("res://scripts/presentation/prop_catalog.gd").assets().values():
+	definitions = load("res://scripts/presentation/prop_catalog.gd").assets()
+	for asset in definitions.values():
 		textures[str(asset.id)] = WorldTexture.load_asset(asset)
 	document.changed.connect(queue_redraw)
 	gui_input.connect(handle_input)
@@ -194,7 +198,11 @@ func _draw() -> void:
 				var asset: String = document.value(ref).asset_id
 				var texture: Texture2D = textures.get(asset)
 				if texture:
-					draw_texture_rect(texture,Rect2(screen(rect.position),rect.size*zoom),false)
+					var target := Rect2(screen(rect.position),rect.size*zoom)
+					if definitions.get(asset,{}).has("assembly_patches"):
+						Components.paint(self,texture,definitions[asset],target)
+					else:
+						draw_texture_rect(texture,target,false)
 				else:
 					paint_rect(ref,color)
 				if show_collision:

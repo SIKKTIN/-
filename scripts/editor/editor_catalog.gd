@@ -13,7 +13,7 @@ var paired_icons := 0
 
 func _init() -> void:
 	var paired: Dictionary = {}
-	for file in ["res://art/editor/v01/manifest.json","res://art/editor/v02/manifest.json","res://art/editor/v03/manifest.json","res://art/editor/v04/manifest.json","res://art/editor/v05/manifest.json"]:
+	for file in ["res://art/editor/v01/manifest.json","res://art/editor/v02/manifest.json","res://art/editor/v03/manifest.json","res://art/editor/v04/manifest.json","res://art/editor/v05/manifest.json","res://art/editor/v06/manifest.json"]:
 		if not FileAccess.file_exists(file): continue
 		var parsed = JSON.parse_string(FileAccess.get_file_as_string(file))
 		if not parsed is Dictionary: continue

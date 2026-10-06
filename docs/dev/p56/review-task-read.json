@@ -1,0 +1,210 @@
+{
+  "task": {
+    "id": "p56-unified-wall-tiles-integration-20261006",
+    "title": "P56 同源瓦片墙体接入与实际视觉验证",
+    "description": "用户明确要求参考瓦片地图：转角、横墙、竖墙是相同材质的可重复拼接组件；A25不能再以小风格残差通过。保持A24/A25历史交付不变。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04食堂墙体由同源可重复组件构建，横纵、左右转角、端头及门柱材质一致；主美独立复核实际两尺寸全景和左右近景，旧几何/食堂门禁/两小时禁闭与FPS保持，必要回归通过。美术新交付先独立验收，程序证据另提交后自验收。",
+    "result": "P56同源母版14组件接入R04横/纵/左右角/20隔墙/端/门柱/门楣，实际共享一个GPU纹理且纹理周期统一，UV相位与末端裁切连续。游戏和编辑器共用组件绘制，14MeshTexture图标真GPU可见，临时H/V/L正确显示；compound L矩形阴影填空缺陷已修，同世界点before/after像素完全一致。两尺寸及回归215/215，final导入0ERROR，主美独立实际风格复核通过。A26正式交付由制作人另独立验收后发布。物理/门禁/禁闭/FPS与用户改动保留。",
+    "dependencyIds": [
+      "a25-cafeteria-walls-alpha-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p56*",
+        "docs/dev/p56/**",
+        "docs/tests/p56*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人独立接入A26母版组件，按主美接口裁区配准和正尺寸镜像，规则/物理来源仍是r04。保持运行FPS和用户project.godot。统一可复用绘制而非为每个接点独立生成纹理，不改旧已冻结素材。与A26并行准备接口/程序，消费候选不等于验收，最终发布必须通过A26独立与P56自验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a26-p56-unified-tiles-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T13:23:33.070Z"
+      }
+    ]
+  },
+  "revision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c",
+  "scheduleRevision": "56d0c9e93a09149ad56f8d40cc901e9a98e5fb47ca6931859342273ee5082207",
+  "planChanges": [
+    {
+      "id": "a26-p56-unified-tiles-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T13:23:33.070Z",
+      "reason": "主美转达用户最新实际图否定风格，要求同源瓦片组件返修，原任务历史保留。",
+      "createdTaskIds": [
+        "a26-unified-wall-tiles-20261006",
+        "p56-unified-wall-tiles-integration-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a25-cafeteria-walls-alpha-20261006",
+      "title": "A25 食堂纵墙与透明边缘返修",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p56-ready-20261006",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p56-ready-20261006",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p56-ready-20261006",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c"
+  },
+  "feedback": [
+    {
+      "id": "p56-start-20261006",
+      "taskId": "p56-unified-wall-tiles-integration-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按用户新反馈启动同源瓦片墙接入，主美A26已派发；制作人准备通用重复组件消费与实际接缝验证，等精确atlas接口。既有物理/门禁/FPS与已冻结A24/A25保留。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-7e6e944f-3e3f-44a0-a37d-a20039de687c.png",
+        "docs/dev/p56/plan.json"
+      ],
+      "at": "2026-10-06T13:24:56.779Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p56-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p56-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p56-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p56-ready-20261006",
+      "taskId": "p56-unified-wall-tiles-integration-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "P56同源母版14组件接入R04横/纵/左右角/20隔墙/端/门柱/门楣，实际共享一个GPU纹理且纹理周期统一，UV相位与末端裁切连续。游戏和编辑器共用组件绘制，14MeshTexture图标真GPU可见，临时H/V/L正确显示；compound L矩形阴影填空缺陷已修，同世界点before/after像素完全一致。两尺寸及回归215/215，final导入0ERROR，主美独立实际风格复核通过。A26正式交付由制作人另独立验收后发布。物理/门禁/禁闭/FPS与用户改动保留。",
+      "evidence": [
+        "docs/dev/p56/delivery.json",
+        "docs/dev/p56/README.md",
+        "docs/tests/p56-summary.json",
+        "docs/tests/p56-1200-wall-detail-final.png",
+        "docs/tests/p56-1200-right-junctions-final.png",
+        "docs/tests/p56-editor-components-final.png",
+        "docs/tests/p56-runtime-components-final.png",
+        "docs/tests/p56-editor-components-native-final.json",
+        "docs/dev/p56/cutout-sample-observation.json"
+      ],
+      "at": "2026-10-06T14:16:04.346Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p56-ready-20261006",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p56-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p56-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

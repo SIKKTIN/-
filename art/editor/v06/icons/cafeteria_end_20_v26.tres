@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v26/wall_tiles_master_v26.png" id="1_0x8kc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jhu84"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(51.555557, 7.999996, 0, 24.888885, 112, 0),
+"attribute_data": PackedByteArray("/////wAAAAAAAFA+/////wAAID4AAFA+/////wAAID4AADA//////wAAAAAAADA//////wAAAAAAADE//////wAAID4AADE//////wAAID4AAH8//////wAAAAAAAH8/"),
+"format": 34393296921,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("5DhOQvj//0CO45hC+P//QI7jmEK2YJtC5DhOQrZgm0LkOE5CtmCbQo7jmEK2YJtCjuOYQgAA8ELkOE5CAADwQg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_jhu84")
+base_texture = ExtResource("1_0x8kc")
+image_size = Vector2(128, 128)

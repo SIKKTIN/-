@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p56-unified-wall-tiles-integration-20261006",
+    "title": "P56 同源瓦片墙体接入与实际视觉验证",
+    "description": "用户明确要求参考瓦片地图：转角、横墙、竖墙是相同材质的可重复拼接组件；A25不能再以小风格残差通过。保持A24/A25历史交付不变。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04食堂墙体由同源可重复组件构建，横纵、左右转角、端头及门柱材质一致；主美独立复核实际两尺寸全景和左右近景，旧几何/食堂门禁/两小时禁闭与FPS保持，必要回归通过。美术新交付先独立验收，程序证据另提交后自验收。",
+    "result": "",
+    "dependencyIds": [
+      "a25-cafeteria-walls-alpha-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p56*",
+        "docs/dev/p56/**",
+        "docs/tests/p56*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人独立接入A26母版组件，按主美接口裁区配准和正尺寸镜像，规则/物理来源仍是r04。保持运行FPS和用户project.godot。统一可复用绘制而非为每个接点独立生成纹理，不改旧已冻结素材。与A26并行准备接口/程序，消费候选不等于验收，最终发布必须通过A26独立与P56自验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a26-p56-unified-tiles-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T13:23:33.070Z"
+      }
+    ]
+  },
+  "revision": "d205114c6a84a4520ce149cf225270fcc09a06b628602bb7f533ebe307dcec27",
+  "scheduleRevision": "da2aa282aaf75978907aa897e01fe6885a4bafa8d50b92637b7f0fab17e3357b",
+  "planChanges": [
+    {
+      "id": "a26-p56-unified-tiles-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T13:23:33.070Z",
+      "reason": "主美转达用户最新实际图否定风格，要求同源瓦片组件返修，原任务历史保留。",
+      "createdTaskIds": [
+        "a26-unified-wall-tiles-20261006",
+        "p56-unified-wall-tiles-integration-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a25-cafeteria-walls-alpha-20261006",
+      "title": "A25 食堂纵墙与透明边缘返修",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "d205114c6a84a4520ce149cf225270fcc09a06b628602bb7f533ebe307dcec27"
+  },
+  "feedback": []
+}

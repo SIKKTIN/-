@@ -1,0 +1,65 @@
+{
+  "id": "p56-ready-20261006",
+  "digest": "8c751bb32f2f7339df78eea170072704db18fd92f907976bf028dfd2f260f7e3",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T14:16:04.187Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p56-ready-20261006",
+    "taskId": "p56-unified-wall-tiles-integration-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "P56同源母版14组件接入R04横/纵/左右角/20隔墙/端/门柱/门楣，实际共享一个GPU纹理且纹理周期统一，UV相位与末端裁切连续。游戏和编辑器共用组件绘制，14MeshTexture图标真GPU可见，临时H/V/L正确显示；compound L矩形阴影填空缺陷已修，同世界点before/after像素完全一致。两尺寸及回归215/215，final导入0ERROR，主美独立实际风格复核通过。A26正式交付由制作人另独立验收后发布。物理/门禁/禁闭/FPS与用户改动保留。",
+    "evidence": [
+      "docs/dev/p56/delivery.json",
+      "docs/dev/p56/README.md",
+      "docs/tests/p56-summary.json",
+      "docs/tests/p56-1200-wall-detail-final.png",
+      "docs/tests/p56-1200-right-junctions-final.png",
+      "docs/tests/p56-editor-components-final.png",
+      "docs/tests/p56-runtime-components-final.png",
+      "docs/tests/p56-editor-components-native-final.json",
+      "docs/dev/p56/cutout-sample-observation.json"
+    ],
+    "at": "2026-10-06T14:16:04.346Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p56-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p56-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p56-ready-20261006",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "fe93c191e48c7b5930db483b546684d276056ab3afba0305dc2b90772f161f5c",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

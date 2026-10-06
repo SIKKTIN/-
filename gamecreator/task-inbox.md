@@ -83,6 +83,8 @@
 - P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成 · 未排期
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成 · 未排期
 - P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成 · 未排期
+- A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成 · 未排期
+- P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -172,6 +174,8 @@
 - P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 - P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
+- A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
+- P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

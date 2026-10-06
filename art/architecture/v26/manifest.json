@@ -1,0 +1,2092 @@
+{
+  "schema": 2,
+  "version": "architecture-v26-20261006",
+  "style": "FINAL-WARM-01",
+  "master_texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+  "master_sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "tile_unit": 64,
+  "tile_period": 128,
+  "materials": {
+    "coping": [
+      0,
+      0,
+      1536,
+      196
+    ],
+    "plaster": [
+      0,
+      208,
+      1536,
+      496
+    ],
+    "plinth": [
+      0,
+      708,
+      1536,
+      312
+    ]
+  },
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  },
+  "assets": [
+    {
+      "id": "cafeteria_wall_h_v26",
+      "name": "同源横墙·两格",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        128,
+        114
+      ],
+      "render_size": [
+        128,
+        114
+      ],
+      "render_mode": "architecture_tiled_wall",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            128.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            20,
+            128.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            208,
+            1536.0,
+            496
+          ],
+          "destination": [
+            0.0,
+            24,
+            128.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            708,
+            1536.0,
+            312
+          ],
+          "destination": [
+            0.0,
+            80,
+            128.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_wall_h_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        1020
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_v26",
+      "name": "同源纵墙顶",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24,
+        128
+      ],
+      "render_size": [
+        24,
+        128
+      ],
+      "render_mode": "architecture_tiled_top",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0,
+            0.0,
+            20,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            20,
+            0.0,
+            4,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_wall_v_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_corner_l_v26",
+      "name": "同源左L转角",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        80,
+        150
+      ],
+      "render_size": [
+        80,
+        150
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            960.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            80.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            288.0,
+            0,
+            672.0,
+            196
+          ],
+          "destination": [
+            24.0,
+            20,
+            56.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 24.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            196.0
+          ],
+          "destination": [
+            0,
+            20.0,
+            20.0,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            196.0
+          ],
+          "destination": [
+            0,
+            128.0,
+            20.0,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            196.0
+          ],
+          "destination": [
+            20.0,
+            20.0,
+            4.0,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            196.0
+          ],
+          "destination": [
+            20.0,
+            128.0,
+            4.0,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            288.0,
+            208,
+            672.0,
+            496
+          ],
+          "destination": [
+            24.0,
+            24,
+            56.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 24.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            288.0,
+            708,
+            672.0,
+            312
+          ],
+          "destination": [
+            24.0,
+            80,
+            56.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 24.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_corner_l_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        1020
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_corner_r_v26",
+      "name": "同源右L转角",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        80,
+        150
+      ],
+      "render_size": [
+        80,
+        150
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            960.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            80.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            672.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            20,
+            56.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            196.0
+          ],
+          "destination": [
+            60.0,
+            20.0,
+            20.0,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            196.0
+          ],
+          "destination": [
+            60.0,
+            128.0,
+            20.0,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            196.0
+          ],
+          "destination": [
+            56.0,
+            20.0,
+            4.0,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            196.0
+          ],
+          "destination": [
+            56.0,
+            128.0,
+            4.0,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            208,
+            672.0,
+            496
+          ],
+          "destination": [
+            0.0,
+            24,
+            56.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            708,
+            672.0,
+            312
+          ],
+          "destination": [
+            0.0,
+            80,
+            56.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_corner_r_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        1020
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_end_v26",
+      "name": "同源南向端面",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24,
+        90
+      ],
+      "render_size": [
+        24,
+        90
+      ],
+      "render_mode": "architecture_end_face",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            208,
+            288.0,
+            496
+          ],
+          "destination": [
+            0.0,
+            0,
+            24.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            708,
+            288.0,
+            312
+          ],
+          "destination": [
+            0.0,
+            56,
+            24.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_end_v26.tres",
+      "icon_region_hint": [
+        0,
+        208,
+        1536,
+        812
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    },
+    {
+      "id": "cafeteria_jamb_v26",
+      "name": "同源门柱",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        32,
+        121.5
+      ],
+      "render_size": [
+        32,
+        121.5
+      ],
+      "render_mode": "architecture_jamb",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            384.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            32.0,
+            31.5
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1080.0,
+            196
+          ],
+          "destination": [
+            0,
+            31.5,
+            32,
+            90.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.84,
+            0.84,
+            0.84,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_jamb_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    },
+    {
+      "id": "cafeteria_coping_v26",
+      "name": "同源压顶·两格",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        128,
+        24
+      ],
+      "render_size": [
+        128,
+        24
+      ],
+      "render_mode": "architecture_coping",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            128.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            20,
+            128.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_coping_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    },
+    {
+      "id": "cafeteria_lintel_v26",
+      "name": "同源门楣",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        180,
+        31.5
+      ],
+      "render_size": [
+        180,
+        31.5
+      ],
+      "render_mode": "architecture_lintel",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            128.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            624.0,
+            196
+          ],
+          "destination": [
+            128.0,
+            0,
+            52.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            20,
+            128.0,
+            11.5
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            624.0,
+            196
+          ],
+          "destination": [
+            128.0,
+            20,
+            52.0,
+            11.5
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_lintel_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_r_v26",
+      "name": "同源纵顶·右侧",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24.0,
+        128
+      ],
+      "render_size": [
+        24.0,
+        128
+      ],
+      "render_mode": "architecture_tiled_top",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196.0
+          ],
+          "destination": [
+            4.0,
+            0.0,
+            20.0,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            196.0
+          ],
+          "destination": [
+            0,
+            0.0,
+            4.0,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_wall_v_r_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "cross_width_world": 24.0,
+      "phase_sensitive_axes": [
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_20_v26",
+      "name": "同源纵顶·20厚",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20.0,
+        128
+      ],
+      "render_size": [
+        20.0,
+        128
+      ],
+      "render_mode": "architecture_tiled_top",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            163.33333333333334
+          ],
+          "destination": [
+            0,
+            0.0,
+            16.666666666666668,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            163.33333333333334
+          ],
+          "destination": [
+            16.666666666666668,
+            0.0,
+            3.3333333333333335,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_wall_v_20_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "cross_width_world": 20.0,
+      "phase_sensitive_axes": [
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_r_20_v26",
+      "name": "同源纵顶·右侧·20厚",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20.0,
+        128
+      ],
+      "render_size": [
+        20.0,
+        128
+      ],
+      "render_mode": "architecture_tiled_top",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            163.33333333333334
+          ],
+          "destination": [
+            3.3333333333333335,
+            0.0,
+            16.666666666666668,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            1536.0,
+            163.33333333333334
+          ],
+          "destination": [
+            0,
+            0.0,
+            3.3333333333333335,
+            128.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "y"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_wall_v_r_20_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        196
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "cross_width_world": 20.0,
+      "phase_sensitive_axes": [
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_corner_l_20_v26",
+      "name": "同源左L·20厚",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        80,
+        150
+      ],
+      "render_size": [
+        80,
+        150
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            960.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            80.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            720.0,
+            196
+          ],
+          "destination": [
+            20.0,
+            20,
+            60.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            163.33333333333334
+          ],
+          "destination": [
+            0,
+            20.0,
+            16.666666666666668,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            163.33333333333334
+          ],
+          "destination": [
+            0,
+            128.0,
+            16.666666666666668,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            163.33333333333334
+          ],
+          "destination": [
+            16.666666666666668,
+            20.0,
+            3.3333333333333335,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            163.33333333333334
+          ],
+          "destination": [
+            16.666666666666668,
+            128.0,
+            3.3333333333333335,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            240.0,
+            208,
+            720.0,
+            496
+          ],
+          "destination": [
+            20.0,
+            24,
+            60.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 20.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            708,
+            720.0,
+            312
+          ],
+          "destination": [
+            20.0,
+            80,
+            60.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 20.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_corner_l_20_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        1020
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "cross_width_world": 20,
+      "phase_sensitive_axes": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_corner_r_20_v26",
+      "name": "同源右L·20厚",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        80,
+        150
+      ],
+      "render_size": [
+        80,
+        150
+      ],
+      "render_mode": "architecture_corner_l",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            0,
+            960.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            0,
+            80.0,
+            20
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            720.0,
+            196
+          ],
+          "destination": [
+            0.0,
+            20,
+            60.0,
+            4
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            163.33333333333334
+          ],
+          "destination": [
+            63.33333333333333,
+            20.0,
+            16.666666666666668,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            163.33333333333334
+          ],
+          "destination": [
+            63.33333333333333,
+            128.0,
+            16.666666666666668,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            240.0,
+            0,
+            1296.0,
+            163.33333333333334
+          ],
+          "destination": [
+            60.0,
+            20.0,
+            3.3333333333333335,
+            108.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 20.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            0,
+            264.0,
+            163.33333333333334
+          ],
+          "destination": [
+            60.0,
+            128.0,
+            3.3333333333333335,
+            22.0
+          ],
+          "transpose": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            0.78,
+            0.78,
+            0.78,
+            1.0
+          ],
+          "material": "coping",
+          "phase_start": 128.0,
+          "phase_axis": "y"
+        },
+        {
+          "source": [
+            0.0,
+            208,
+            720.0,
+            496
+          ],
+          "destination": [
+            0.0,
+            24,
+            60.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            708,
+            720.0,
+            312
+          ],
+          "destination": [
+            0.0,
+            80,
+            60.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_corner_r_20_v26.tres",
+      "icon_region_hint": [
+        0,
+        0,
+        1536,
+        1020
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "cross_width_world": 20,
+      "phase_sensitive_axes": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "id": "cafeteria_end_20_v26",
+      "name": "同源南端面·20厚",
+      "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        90
+      ],
+      "render_size": [
+        20,
+        90
+      ],
+      "render_mode": "architecture_end_face",
+      "blocking": false,
+      "interactive": false,
+      "source_is_opaque": true,
+      "shadow_baked": false,
+      "self_shading_baked": false,
+      "sha256": "6848abbe6268ab75df0d31f97093e3500bf53cdb8f4aeec2c8c7c75e163504aa",
+      "tile_unit": 64,
+      "tile_period": 128,
+      "assembly_patches": [
+        {
+          "source": [
+            0.0,
+            208,
+            240.0,
+            496
+          ],
+          "destination": [
+            0.0,
+            0,
+            20.0,
+            56
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plaster",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        },
+        {
+          "source": [
+            0.0,
+            708,
+            240.0,
+            312
+          ],
+          "destination": [
+            0.0,
+            56,
+            20.0,
+            34
+          ],
+          "transpose": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "material": "plinth",
+          "phase_start": 0.0,
+          "phase_axis": "x"
+        }
+      ],
+      "editor_icon": "res://art/editor/v06/icons/cafeteria_end_20_v26.tres",
+      "icon_region_hint": [
+        0,
+        208,
+        1536,
+        812
+      ],
+      "source_coordinate_space": "absolute original PNG pixels",
+      "normal_lighting_only": "modulate on same coping source; side0.78/frontstone0.84, no separate side material",
+      "phase_sensitive_axes": [
+        "x"
+      ]
+    }
+  ],
+  "repeat_sampler": "full maternal texture repeatX; sourceV stays within its material band"
+}

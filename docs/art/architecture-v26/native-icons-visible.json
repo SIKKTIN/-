@@ -1,0 +1,86 @@
+{
+  "mode": "actual Forward+ 14 persistent MeshTexture GPU draws",
+  "source": "native-preview.png",
+  "icons_checked": 14,
+  "icons_all_visible": true,
+  "measurements": [
+    {
+      "index": 1,
+      "pixels_different_from_cell_background": 11200,
+      "visible": true
+    },
+    {
+      "index": 2,
+      "pixels_different_from_cell_background": 2352,
+      "visible": true
+    },
+    {
+      "index": 3,
+      "pixels_different_from_cell_background": 5586,
+      "visible": true
+    },
+    {
+      "index": 4,
+      "pixels_different_from_cell_background": 5586,
+      "visible": true
+    },
+    {
+      "index": 5,
+      "pixels_different_from_cell_background": 3360,
+      "visible": true
+    },
+    {
+      "index": 6,
+      "pixels_different_from_cell_background": 3360,
+      "visible": true
+    },
+    {
+      "index": 7,
+      "pixels_different_from_cell_background": 2352,
+      "visible": true
+    },
+    {
+      "index": 8,
+      "pixels_different_from_cell_background": 2240,
+      "visible": true
+    },
+    {
+      "index": 9,
+      "pixels_different_from_cell_background": 2352,
+      "visible": true
+    },
+    {
+      "index": 10,
+      "pixels_different_from_cell_background": 2016,
+      "visible": true
+    },
+    {
+      "index": 11,
+      "pixels_different_from_cell_background": 2016,
+      "visible": true
+    },
+    {
+      "index": 12,
+      "pixels_different_from_cell_background": 5505,
+      "visible": true
+    },
+    {
+      "index": 13,
+      "pixels_different_from_cell_background": 5505,
+      "visible": true
+    },
+    {
+      "index": 14,
+      "pixels_different_from_cell_background": 2688,
+      "visible": true
+    }
+  ],
+  "stderr_bytes": 0,
+  "passed": true,
+  "technical_source": "https://docs.godotengine.org/en/stable/classes/class_meshtexture.html#class-meshtexture-property-mesh",
+  "critical_rules": [
+    "Mesh uses2D vertices, not3D",
+    "hold MeshTexture references alive until renderer frame; temporary _draw-only references can release mesh RID"
+  ],
+  "source_unchanged": true
+}

@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "status": "draft until single generated master is inspected",
+  "texture": "res://art/architecture/v26/wall_tiles_master_v26.png",
+  "material_policy": "one same PNG for every top/corner/H/V/end/jamb/lintel; no v24/v25 wing/material runtime mixing",
+  "physical_widths": [
+    24,
+    20
+  ],
+  "front_height": 90,
+  "door_width": 180,
+  "tile_unit": 64,
+  "tile_period": 64,
+  "top_cross_section": {
+    "pale_top": 20,
+    "inner_side": 4,
+    "side_modulate_only": true
+  },
+  "components": {
+    "horizontal": [
+      64,
+      114
+    ],
+    "vertical": [
+      24,
+      64
+    ],
+    "corner_left": [
+      80,
+      150
+    ],
+    "corner_right": [
+      80,
+      150
+    ],
+    "south_end": [
+      24,
+      90
+    ],
+    "jamb": [
+      32,
+      121.5
+    ],
+    "coping": [
+      64,
+      24
+    ],
+    "lintel": [
+      180,
+      31.5
+    ]
+  },
+  "maternal_regions": {
+    "coping": "upper stone band exact source pending",
+    "plaster": "middle stucco band exact source pending",
+    "plinth": "lower slate band exact source pending"
+  },
+  "source_coordinates": "absolute full-original pixels; manifest assets will expose full PNG region0,0,W,H for uniform assembly sampling; icons may sample narrow source region or native MeshTexture",
+  "patch_interface": {
+    "source": "source rect x,y,w,h in original",
+    "destination": "world local rect x,y,w,h positive",
+    "rotation_quarters": "0 horizontal,1 clockwise sourceUV for vertical if needed",
+    "modulate": "lighting only, same RGB texture",
+    "mirror": "positive geometry + reflected UV"
+  },
+  "repeat": "64world common phase from north wall origin. H after80-wide corner continues phase80%64=16; vertical after150-long corner continues phase150%64=22. Partial last component clips source proportionally; never stretch whole end tile.",
+  "corner": "cap and front sourced from identical modules, no independently illustrated L sprite. Narrow dark side continuous inside; front only x24..80 after y24. At20width scale width only; texture run grain length stays64.",
+  "acceptance": [
+    "true native long horizontal strip meets corners/door jamb",
+    "true native long vertical strip passes corner endpoint without switching texture",
+    "left/right outer &20 kitchen L use same material, scale, seam, outline, lighting",
+    "raw PNG and previous A24/A25 hashes unchanged"
+  ]
+}

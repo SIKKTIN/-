@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "format": "gamecreator-content-change",
+  "id": "p56-unified-wall-tiles-design-20261006",
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "55417994977ee21b32f94acb7b681ec1ff55aea982c7fd73090454c418f1f769",
+  "author": "制作人",
+  "intent": "project_change",
+  "summary": "按用户统一材质要求，以A26同母版可重复组件替换R04食堂墙体表现，保持原对象和规则。",
+  "compatibility": {
+    "reuse": "地图对象ID、物理几何、门禁/禁闭与FPS。",
+    "modify": "食堂墙体整套母材和组件绘制，编辑器预览同接口。",
+    "add": "A26单母版14组件、14图标、原生实际摆放证据。",
+    "archive": "A24/A25交付保持冻结。"
+  },
+  "target": {
+    "kind": "module",
+    "id": "map-design"
+  },
+  "operations": [
+    {
+      "id": "p56-map-description",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+      "value": "R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门并在14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。禁闭室保持A24统一完整屋顶建筑，食堂墙体以A26同一张RGB母版的14个可重复组件构建横墙、纵顶、左右转角、端头、门柱和门楣。石块单元64、纹理周期128，外墙24/厨房20保持物理宽度，厨房转角只裁截面不缩横臂石块；横墙114高（顶24/面56/脚34），北脚1261.5/顶1147.5，转角150长接纵顶相位22。顶面及侧面使用同材质采样和统一光照，左右/厨房源纹理相位连续。门金属主体保持。游戏与编辑器共用组件绘制，配套14图标和临时摆放实际GPU显示验证。原墙/门/碰撞及日程、背包、买入、禁闭规则保持；FPS为Engine实时值，暂停也更新。本轮215项技术检查和主美独立实际图复核通过，证据docs/dev/p56/README.md、docs/tests/p56-summary.json。"
+    },
+    {
+      "id": "p56-wall-7",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-8",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-9",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-10",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-11",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-12",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    },
+    {
+      "id": "p56-wall-13",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+      "value": "P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。"
+    }
+  ]
+}

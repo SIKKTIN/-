@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v26/wall_tiles_master_v26.png" id="1_8kbrw"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v7518"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 14.125, 0, 112, 99.75, 0),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAA/////wAAgD8AAAAA/////wAAgD8AAEQ+/////wAAAAAAAEQ+xsbG/wAAAAAAAAAAxsbG/wAAgD8AAAAAxsbG/wAAgD8AAEQ+xsbG/wAAAAAAAEQ+/////wAAAAAAAFA+/////wAAgD8AAFA+/////wAAgD8AADA//////wAAAAAAADA//////wAAAAAAADE//////wAAgD8AADE//////wAAgD8AAH8//////wAAAAAAAH8/"),
+"format": 34393296921,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAQQAAYkEAAPBCAABiQQAA8EIAAP1BAAAAQQAA/UEAAABBAAD9QQAA8EIAAP1BAADwQgCADEIAAABBAIAMQgAAAEEAgAxCAADwQgCADEIAAPBCAECoQgAAAEEAQKhCAAAAQQBAqEIAAPBCAECoQgAA8EIAwONCAAAAQQDA40I=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_v7518")
+base_texture = ExtResource("1_8kbrw")
+image_size = Vector2(128, 128)

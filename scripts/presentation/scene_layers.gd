@@ -27,6 +27,13 @@ func _draw() -> void:
 			if fixture.get("hidden",false):
 				continue
 			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
+			if definition.has("assembly_patches"):
+				# A compound corner's bounding rectangle includes empty floor.
+				# Do not fill that cutout with a rectangular contact shadow.
+				var filled := 0.0
+				for patch in definition.assembly_patches: filled += float(patch.destination[2])*float(patch.destination[3])
+				var dims: Array = definition.render_size
+				if filled < float(dims[0])*float(dims[1])*0.99: continue
 			if not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall"):
 				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
 		return
