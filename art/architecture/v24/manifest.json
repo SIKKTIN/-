@@ -1,0 +1,661 @@
+{
+  "schema": 1,
+  "version": "architecture-v24-20261006",
+  "style": "FINAL-WARM-01",
+  "reference": "approved A22 user target",
+  "assets": [
+    {
+      "id": "solitary_shell_closed_v24",
+      "name": "完整禁闭建筑·关闭",
+      "texture": "res://art/architecture/v24/solitary_shell_closed_v24.png",
+      "texture_size": [
+        1550,
+        1015
+      ],
+      "region": [
+        60,
+        95,
+        1430,
+        778
+      ],
+      "world_size": [
+        456,
+        298
+      ],
+      "render_size": [
+        456,
+        298
+      ],
+      "footprint_world_size": [
+        440,
+        284
+      ],
+      "ground_rect": [
+        4.210525,
+        -6.000001,
+        1379.824561,
+        741.449664
+      ],
+      "anchor": [
+        715.0,
+        772
+      ],
+      "door_anchor": [
+        945,
+        772
+      ],
+      "door_anchor_render": [
+        301.34265734265733,
+        296.0932944606414
+      ],
+      "render_offset_from_room": [
+        -1.3426573426573327,
+        1.9067055393585974
+      ],
+      "door_region": [
+        256.6993006993007,
+        200.12244897959184,
+        89.2867132867133,
+        95.97084548104957
+      ],
+      "door_region_source": [
+        865,
+        565,
+        280,
+        302
+      ],
+      "door_state_patch_region": [
+        868,
+        562,
+        277,
+        305
+      ],
+      "door_state_patch_render_rect": [
+        257.6559440559441,
+        199.16909620991254,
+        88.33006993006993,
+        96.92419825072886
+      ],
+      "pair": "solitary_shell_v24",
+      "state": "closed",
+      "state_driven": true,
+      "render_mode": "architecture_shell",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "a82c100465c85e6364617e3f3c6e833ee63188560ae099930cf613539e67d49f",
+      "registration_note": "Final runtime uses source-section projection from assembly.json, not uniform full-image draw. Stable CLOSED facade + static axis roof + OPEN mouth only; logical90x28 doorway remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/solitary_shell_closed_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader",
+      "shell_projection": {
+        "facade_source_region": [
+          60,
+          530,
+          1430,
+          343
+        ],
+        "facade_render_rect": [
+          0,
+          189,
+          456,
+          109
+        ],
+        "roof_overlay": {
+          "id": "solitary_roof_axis_v24",
+          "render_rect": [
+            -1.913287,
+            0,
+            459.188811,
+            189
+          ],
+          "draw_order": "CLOSED base -> axis roof overlay -> OPEN metal-mouth patch"
+        },
+        "render_offset_from_room": [
+          -1.3426573426573327,
+          1.9067055393585974
+        ],
+        "door_state_patch_render_rect": [
+          257.6559440559441,
+          199.16909620991254,
+          88.33006993006993,
+          96.92419825072886
+        ]
+      },
+      "ground_rect_note": "Original source affine bounding registration; architecture_shell renderer must use shell_projection for final189/109 projection."
+    },
+    {
+      "id": "solitary_shell_open_v24",
+      "name": "完整禁闭建筑·打开",
+      "texture": "res://art/architecture/v24/solitary_shell_open_v24.png",
+      "texture_size": [
+        1550,
+        1015
+      ],
+      "region": [
+        60,
+        95,
+        1430,
+        778
+      ],
+      "world_size": [
+        456,
+        298
+      ],
+      "render_size": [
+        456,
+        298
+      ],
+      "footprint_world_size": [
+        440,
+        284
+      ],
+      "ground_rect": [
+        4.210525,
+        -6.000001,
+        1379.824561,
+        741.449664
+      ],
+      "anchor": [
+        715.0,
+        772
+      ],
+      "door_anchor": [
+        945,
+        772
+      ],
+      "door_anchor_render": [
+        301.34265734265733,
+        296.0932944606414
+      ],
+      "render_offset_from_room": [
+        -1.3426573426573327,
+        1.9067055393585974
+      ],
+      "door_region": [
+        256.6993006993007,
+        200.12244897959184,
+        89.2867132867133,
+        95.97084548104957
+      ],
+      "door_region_source": [
+        865,
+        565,
+        280,
+        302
+      ],
+      "door_state_patch_region": [
+        868,
+        562,
+        277,
+        305
+      ],
+      "door_state_patch_render_rect": [
+        257.6559440559441,
+        199.16909620991254,
+        88.33006993006993,
+        96.92419825072886
+      ],
+      "pair": "solitary_shell_v24",
+      "state": "open",
+      "state_driven": true,
+      "render_mode": "architecture_shell",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "a5ca8975ef1c655673a6bd2f3da3b2952f7ca6b430e69de558ae5840a2e2b763",
+      "registration_note": "Final runtime uses source-section projection from assembly.json, not uniform full-image draw. Stable CLOSED facade + static axis roof + OPEN mouth only; logical90x28 doorway remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/solitary_shell_open_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader",
+      "shell_projection": {
+        "facade_source_region": [
+          60,
+          530,
+          1430,
+          343
+        ],
+        "facade_render_rect": [
+          0,
+          189,
+          456,
+          109
+        ],
+        "roof_overlay": {
+          "id": "solitary_roof_axis_v24",
+          "render_rect": [
+            -1.913287,
+            0,
+            459.188811,
+            189
+          ],
+          "draw_order": "CLOSED base -> axis roof overlay -> OPEN metal-mouth patch"
+        },
+        "render_offset_from_room": [
+          -1.3426573426573327,
+          1.9067055393585974
+        ],
+        "door_state_patch_render_rect": [
+          257.6559440559441,
+          199.16909620991254,
+          88.33006993006993,
+          96.92419825072886
+        ]
+      },
+      "ground_rect_note": "Original source affine bounding registration; architecture_shell renderer must use shell_projection for final189/109 projection."
+    },
+    {
+      "id": "cafeteria_portal_v24",
+      "name": "完整食堂门墙原图",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        46,
+        172,
+        2082,
+        375
+      ],
+      "world_size": [
+        674.568,
+        121.5
+      ],
+      "render_size": [
+        674.568,
+        121.5
+      ],
+      "render_mode": "architecture_portal_reference",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "runtime_use": "Use module layout in assembly.json; original portal aperture naturally narrower than gameplay180. Do not stretch whole portal to600 and assume opening180.",
+      "door_region_source": [
+        837,
+        259,
+        407,
+        288
+      ],
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_portal_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_wing_left_v24",
+      "name": "食堂完整左门翼",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        46,
+        172,
+        791,
+        375
+      ],
+      "world_size": [
+        200,
+        121.5
+      ],
+      "render_size": [
+        200,
+        121.5
+      ],
+      "footprint_world_size": [
+        200,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        791,
+        97.222222
+      ],
+      "anchor": [
+        395.5,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_wing_left_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_wing_right_v24",
+      "name": "食堂完整右门翼",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        1244,
+        172,
+        884,
+        375
+      ],
+      "world_size": [
+        220,
+        121.5
+      ],
+      "render_size": [
+        220,
+        121.5
+      ],
+      "footprint_world_size": [
+        220,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        884,
+        97.222222
+      ],
+      "anchor": [
+        442.0,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_wing_right_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_wall_mid_v24",
+      "name": "食堂连续墙中段",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        140,
+        172,
+        573,
+        375
+      ],
+      "world_size": [
+        144,
+        121.5
+      ],
+      "render_size": [
+        144,
+        121.5
+      ],
+      "footprint_world_size": [
+        144,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        573,
+        97.222222
+      ],
+      "anchor": [
+        286.5,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_wall_mid_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_jamb_left_v24",
+      "name": "食堂左石门柱含内侧收口",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        713,
+        172,
+        124,
+        375
+      ],
+      "world_size": [
+        32,
+        121.5
+      ],
+      "render_size": [
+        32,
+        121.5
+      ],
+      "footprint_world_size": [
+        32,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        124,
+        97.222222
+      ],
+      "anchor": [
+        62.0,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_jamb_left_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_jamb_right_v24",
+      "name": "食堂右石门柱含内侧收口",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        1244,
+        172,
+        118,
+        375
+      ],
+      "world_size": [
+        32,
+        121.5
+      ],
+      "render_size": [
+        32,
+        121.5
+      ],
+      "footprint_world_size": [
+        32,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        118,
+        97.222222
+      ],
+      "anchor": [
+        59.0,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_jamb_right_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_lintel_v24",
+      "name": "食堂厚石门楣",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        837,
+        172,
+        407,
+        87
+      ],
+      "world_size": [
+        180,
+        31.5
+      ],
+      "render_size": [
+        180,
+        31.5
+      ],
+      "footprint_world_size": [
+        180,
+        1
+      ],
+      "ground_rect": [
+        0,
+        84.238095,
+        407,
+        2.761905
+      ],
+      "anchor": [
+        203.5,
+        87
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_lintel_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "cafeteria_corner_post_v24",
+      "name": "食堂厚石转角柱",
+      "texture": "res://art/architecture/v24/cafeteria_portal_v24.png",
+      "texture_size": [
+        2170,
+        725
+      ],
+      "region": [
+        46,
+        172,
+        94,
+        375
+      ],
+      "world_size": [
+        28,
+        121.5
+      ],
+      "render_size": [
+        28,
+        121.5
+      ],
+      "footprint_world_size": [
+        28,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        277.777778,
+        94,
+        97.222222
+      ],
+      "anchor": [
+        47.0,
+        375
+      ],
+      "render_mode": "architecture_wall_module",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "registration_note": "Whole painted structural slice, not top/front textures. Align module bottom at one baseline; no extra rectangular coping. Root collision remains map-owned.",
+      "editor_icon": "res://art/editor/v04/icons/cafeteria_corner_post_v24.tres",
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader"
+    },
+    {
+      "id": "solitary_roof_axis_v24",
+      "name": "禁闭建筑轴向屋顶精修补片",
+      "texture": "res://art/architecture/v24/solitary_axis_roof_v24.png",
+      "texture_size": [
+        1549,
+        1015
+      ],
+      "region": [
+        54,
+        93,
+        1440,
+        438
+      ],
+      "world_size": [
+        459.188811,
+        189
+      ],
+      "render_size": [
+        459.188811,
+        189
+      ],
+      "render_rect_on_shell": [
+        -1.913287,
+        0,
+        459.188811,
+        189
+      ],
+      "anchor": [
+        720.0,
+        438
+      ],
+      "render_mode": "architecture_shell_overlay",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "runtime_alpha_mode": "opaque_core",
+      "alpha_core_shader": "res://art/architecture/v24/opaque_core.gdshader",
+      "editor_icon": "res://art/editor/v04/icons/solitary_roof_axis_v24.tres",
+      "sha256": "5f32cbb9cd4ba6551b396ae8ac857d5ddf6dc69d01bcbf24e5b6971663883142",
+      "registration_note": "Sample ONLY roof from new full-image generation. Complete CLOSED facade and doorway stay from original stable base; draw roof overlay before OPEN metal-mouth patch."
+    }
+  ]
+}

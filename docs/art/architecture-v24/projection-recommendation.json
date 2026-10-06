@@ -1,0 +1,71 @@
+{
+  "status": "adopted in P54 native runtime; source PNGs unchanged",
+  "reason": "At the same room width, target has approximately deeper roof and shorter facade than the first runtime uniform source mapping.",
+  "reference_measurement_approx": {
+    "roof_height": 184,
+    "facade_height": 100
+  },
+  "first_runtime_approx": {
+    "roof_height": 164,
+    "facade_height": 130
+  },
+  "proposed_layers": [
+    {
+      "texture": "res://art/architecture/v24/solitary_shell_closed_v24.png",
+      "region": [
+        60,
+        530,
+        1430,
+        343
+      ],
+      "render_rect": [
+        0,
+        189,
+        456,
+        109
+      ],
+      "part": "stable painted facade"
+    },
+    {
+      "texture": "res://art/architecture/v24/solitary_axis_roof_v24.png",
+      "region": [
+        54,
+        93,
+        1440,
+        438
+      ],
+      "render_rect": [
+        -1.913287,
+        0,
+        459.188811,
+        189
+      ],
+      "part": "stable painted roof"
+    }
+  ],
+  "open_patch": {
+    "texture": "res://art/architecture/v24/solitary_shell_open_v24.png",
+    "region": [
+      868,
+      562,
+      277,
+      305
+    ],
+    "render_rect_formula": "x=(868-60)*456/1430; y=189+(562-530)*109/343; width=277*456/1430; height=305*109/343",
+    "render_rect": [
+      257.6559440559441,
+      199.16909620991254,
+      88.33006993006993,
+      96.92419825072886
+    ]
+  },
+  "ground_alignment": {
+    "x_offset_formula": "300-(1005-60)*456/1430",
+    "y_offset_formula": "298-(189+(867-530)*109/343)",
+    "offset": [
+      -1.3426573426573327,
+      1.9067055393585974
+    ]
+  },
+  "note": "Producer may take 190/108 with the same ground formula. Keep the projected stone base at door threshold end and preserve the actual90x28 logical doorway. No new image generation required."
+}

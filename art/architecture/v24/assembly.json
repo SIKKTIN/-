@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "version": "architecture-v24-20261006",
+  "solitary": {
+    "stable_base": "solitary_shell_closed_v24",
+    "open_state": "solitary_shell_open_v24",
+    "render_size": [
+      456,
+      298
+    ],
+    "door_anchor_source_in_region": [
+      945,
+      772
+    ],
+    "render_offset_from_room": [
+      -1.3426573426573327,
+      1.9067055393585974
+    ],
+    "door_state_patch_region": [
+      868,
+      562,
+      277,
+      305
+    ],
+    "door_state_patch_render_rect": [
+      257.6559440559441,
+      199.16909620991254,
+      88.33006993006993,
+      96.92419825072886
+    ],
+    "logical_door_rect": [
+      255,
+      270,
+      90,
+      28
+    ],
+    "mouth_world_width": 89.286713,
+    "mouth_world_height": 115.676093,
+    "draw_order": "stable CLOSED facade source section -> static rectangular roof source section -> OPEN inner metal-mouth patch",
+    "roof_overlay": {
+      "id": "solitary_roof_axis_v24",
+      "render_rect": [
+        -1.913287,
+        0,
+        459.188811,
+        189
+      ],
+      "draw_order": "CLOSED base -> axis roof overlay -> OPEN metal-mouth patch"
+    },
+    "facade_source_region": [
+      60,
+      530,
+      1430,
+      343
+    ],
+    "facade_render_rect": [
+      0,
+      189,
+      456,
+      109
+    ],
+    "projection_note": "Final189/109 vertical source partition, door visible about89x97. Whole CLOSED PNG region is source storage/preview; do not uniformly map entire image for runtime."
+  },
+  "cafeteria": {
+    "layout_size": [
+      600,
+      121.5
+    ],
+    "ground_threshold": [
+      200,
+      90,
+      180,
+      31.5
+    ],
+    "parts": [
+      {
+        "id": "cafeteria_wing_left_v24",
+        "rect": [
+          0,
+          0,
+          200,
+          121.5
+        ]
+      },
+      {
+        "id": "cafeteria_wing_right_v24",
+        "rect": [
+          380,
+          0,
+          220,
+          121.5
+        ]
+      },
+      {
+        "id": "cafeteria_lintel_v24",
+        "rect": [
+          200,
+          0,
+          180,
+          31.5
+        ]
+      }
+    ],
+    "gate": {
+      "closed": "cafeteria_gate_closed_v23",
+      "open": "cafeteria_gate_open_v23",
+      "rect": [
+        200,
+        31.5,
+        180,
+        90
+      ],
+      "source_manifest": "res://art/architecture/v23/manifest.json"
+    },
+    "extensions": "Use wall_mid between corner_post and jamb slices for longer runs. Crop last mid segment, do not stretch one middle over a long wall. Keep top/bottom baseline; use original complete modules for corners rather than long pale strips.",
+    "label": "No baked cafeteria text; root paints 食堂 and reader once on right wall.",
+    "vertical_returns": "No separate v24 long north-south wall sprite; preserve corridor width and join the return under corner_post. Judge final P54 view for visible join artifacts."
+  },
+  "runtime_material": {
+    "shader": "res://art/architecture/v24/opaque_core.gdshader",
+    "scope": "Only v24 architecture layers including OPEN local patch",
+    "reason": "Generated dense source alpha is251..253, not255. Runtime smoothstep preserves antialiased silhouette and normal modulate while painted alpha>0.25 becomes fully opaque; source PNG is unchanged."
+  }
+}

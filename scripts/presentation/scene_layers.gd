@@ -75,6 +75,7 @@ func _draw() -> void:
 		var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else world.bounds
 		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
 		for zone in game.room_config.get("zones",[]):
+			if zone.get("hide_label",false): continue
 			var values: Array = zone.rect
 			var visible_area := Rect2(values[0],values[1],values[2],values[3]).intersection(view)
 			if visible_area.size.x >= 150 and visible_area.size.y >= 60:
@@ -133,7 +134,8 @@ func _draw() -> void:
 				var entrance: Array = cafeteria.entrance
 				var door_center := Vector2(entrance[0]+entrance[2]/2.0,entrance[1]+entrance[3]/2.0)
 				draw_rect(Rect2(door_center-Vector2(20,entrance[3]/2.0),Vector2(40,entrance[3])),Color(0.20,0.55,0.51,0.08))
-				draw_string(presentation.font,door_center+Vector2(35,-60),"食堂入口",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
+				if not cafeteria.get("painted_frontage",false):
+					draw_string(presentation.font,door_center+Vector2(35,-60),"食堂入口",HORIZONTAL_ALIGNMENT_LEFT,-1,16,label_color)
 				var sign: Array = cafeteria.wall_sign
 				var sign_rect := Rect2(sign[0],sign[1],sign[2],sign[3])
 				draw_rect(sign_rect,Color("ded2ad"))

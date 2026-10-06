@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "version": "architecture-v24-20261006",
+  "status": "proposed; exact source regions pending generation",
+  "concept_reference": "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-b23e7114-b431-45ba-a14f-c9f00f4c8440.png",
+  "failed_reference": "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-bc4e35cd-277d-427a-9f58-a5154b262632.png",
+  "solitary": {
+    "ids": [
+      "solitary_shell_closed_v24",
+      "solitary_shell_open_v24"
+    ],
+    "render_size": [
+      456,
+      298
+    ],
+    "footprint_world_size": [
+      440,
+      284
+    ],
+    "render_offset_from_room": [
+      -8,
+      0
+    ],
+    "bottom_anchor_world": [
+      228,
+      298
+    ],
+    "door_region_render_proposal": [
+      263,
+      188,
+      90,
+      110
+    ],
+    "logical_door_region_from_room": [
+      255,
+      270,
+      90,
+      28
+    ],
+    "strategy": "Complete painted building state sprites, door leaf and stone jambs integrated. No runtime rectangle repaint, no separate A23 frame overlay. 8world roof overhang each side; front ground baseline stays at logical door foot end y298. Final region/door mouth measured on generated art; precise mapping follows the final manifest.",
+    "occlusion": "Whole logical room remains hidden; OPEN mouth is deep opaque dark entry without visible furniture, not a cut-through roof.",
+    "front_facade_height_proposal": 128,
+    "roof_height_proposal": 170,
+    "stone_jamb_width_proposal": 28
+  },
+  "cafeteria": {
+    "ids": [
+      "cafeteria_portal_v24",
+      "cafeteria_wing_left_v24",
+      "cafeteria_wing_right_v24",
+      "cafeteria_wall_mid_v24",
+      "cafeteria_jamb_left_v24",
+      "cafeteria_jamb_right_v24",
+      "cafeteria_lintel_v24"
+    ],
+    "portal_render_size": [
+      600,
+      121.5
+    ],
+    "left_wing_world_width": 200,
+    "opening_world_width": 180,
+    "right_wing_world_width": 220,
+    "ground_threshold": [
+      200,
+      90,
+      180,
+      31.5
+    ],
+    "door_region_render_proposal": [
+      200,
+      31.5,
+      180,
+      90
+    ],
+    "strategy": "One painted complete north portal with equal-height wings, wide stone piers and lintel; genuine alpha opening for A23 gate states. Module slices preserve coping+face+plinth; no enlarged individual bright cap strips. Exact slice extents measured after generation. Root may assemble wings and extend continuous midsection using atlas crops.",
+    "gate_states": "Reuse accepted A23 gate pair unchanged, installed inside measured opening behind integrated stone jambs/arch."
+  },
+  "manifest_shape": "schema/version/style/assets; entries include texture,texture_size,region,render_size/world_size,ground_rect,anchor,footprint_world_size,render_mode,state/pair,door_region/editor_icon as applicable",
+  "editor": "v04 incremental manifest and original-PNG AtlasTexture icons for all new placeable ids; no old manifests changed"
+}

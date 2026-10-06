@@ -237,7 +237,7 @@ func _refresh_volumes() -> void:
 	for building in roof_buildings: building.free()
 	roof_buildings.clear()
 	for definition in asset_definitions.values():
-		if definition.get("render_mode","") == "architecture_material":
+		if str(definition.get("render_mode","")).begins_with("architecture_"):
 			game.world.art_textures[str(definition.id)] = _load_texture(definition)
 	for index in range(game.world.roofed_cells.size()):
 		var building = RoofBuilding.new()

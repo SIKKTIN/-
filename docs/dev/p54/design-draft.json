@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "format": "gamecreator-content-change",
+  "id": "p54-concept-faithful-design-final-20261006",
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "a1a5692f46d06d625e6b03a801efd3fc7da103d2b98fa9bcbc84edf708af65ce",
+  "author": "制作人",
+  "intent": "project_change",
+  "summary": "按用户概念对照返修R04完整建筑体块与食堂石墙收口，保留原地图及对象ID。",
+  "compatibility": {
+    "reuse": "R04全部对象ID、access_doors、2小时关押/救援与日程规则，原素材保留。",
+    "modify": "禁闭门90、完整A24原图外壳；食堂南移30及同源手绘模块墙高90，实际围墙驱动表现。",
+    "add": "A24原始PNG、配套图标与opaque core shader；稳定闭态底图和局部门部patch。",
+    "archive": "无"
+  },
+  "target": {
+    "kind": "module",
+    "id": "map-design"
+  },
+  "operations": [
+    {
+      "id": "p54-map-0",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+      "value": "R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门，14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。按用户认可的A22/A24概念原位返修建筑：完整深灰屋顶、厚檐与檐下阴影、石墙脚、宽门柱和窄门在统一原图内；闭态稳定底图，开态仅注册门口patch，内部全遮挡。禁闭物理门90×28，外观约90×97；食堂门洞180×90，北墙总显示高度121.5（墙90+顶31.5），厚石柱、同源连续墙与基座，纵向墙使用同色石柱侧面收口。食堂整体向南30以对齐概念建筑比例，其余日程/追捕/背包/买入规则不变。唯一几何来源data/rooms/r04.json，程序与实际图证据docs/dev/p54/README.md。"
+    },
+    {
+      "id": "p54-map-1",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/unit",
+      "value": "世界单位（设计网格80）"
+    },
+    {
+      "id": "p54-map-2",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-3",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-4",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-5",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-6",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-7",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-8",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-9",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-10",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-11",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/y",
+      "value": 27.625
+    },
+    {
+      "id": "p54-map-12",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-13",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/y",
+      "value": 15.675
+    },
+    {
+      "id": "p54-map-14",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-15",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/y",
+      "value": 15.675
+    },
+    {
+      "id": "p54-map-16",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+      "value": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
+    },
+    {
+      "id": "p54-map-17",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-26/width",
+      "value": 3.1875
+    },
+    {
+      "id": "p54-map-18",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-27/x",
+      "value": 5.5625
+    },
+    {
+      "id": "p54-map-19",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-27/width",
+      "value": 1.1875
+    },
+    {
+      "id": "p54-map-20",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-31/width",
+      "value": 3.1875
+    },
+    {
+      "id": "p54-map-21",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-32/x",
+      "value": 5.5625
+    },
+    {
+      "id": "p54-map-22",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-32/width",
+      "value": 1.1875
+    },
+    {
+      "id": "p54-map-23",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-36/width",
+      "value": 3.1875
+    },
+    {
+      "id": "p54-map-24",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-37/x",
+      "value": 5.5625
+    },
+    {
+      "id": "p54-map-25",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-37/width",
+      "value": 1.1875
+    },
+    {
+      "id": "p54-map-26",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-counter/y",
+      "value": 18.25
+    },
+    {
+      "id": "p54-map-27",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-kitchen-collision/y",
+      "value": 15.75
+    },
+    {
+      "id": "p54-map-28",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-queue/y",
+      "value": 19.125
+    },
+    {
+      "id": "p54-map-29",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-return/y",
+      "value": 24.625
+    },
+    {
+      "id": "p54-map-30",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-0/y",
+      "value": 22.0375
+    },
+    {
+      "id": "p54-map-31",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-1/y",
+      "value": 22.0375
+    },
+    {
+      "id": "p54-map-32",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-2/y",
+      "value": 25.9125
+    },
+    {
+      "id": "p54-map-33",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-3/y",
+      "value": 25.9125
+    },
+    {
+      "id": "p54-map-34",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/notes",
+      "value": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
+    },
+    {
+      "id": "p54-map-35",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-36",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-37",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/notes",
+      "value": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
+    },
+    {
+      "id": "p54-map-38",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/notes",
+      "value": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
+    },
+    {
+      "id": "p54-map-39",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-40",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-41",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/notes",
+      "value": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
+    },
+    {
+      "id": "p54-map-42",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/notes",
+      "value": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
+    },
+    {
+      "id": "p54-map-43",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-44",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-45",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/notes",
+      "value": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
+    },
+    {
+      "id": "p54-map-46",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-door-visual/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-47",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-reader/x",
+      "value": 14.125
+    },
+    {
+      "id": "p54-map-48",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-reader/y",
+      "value": 15.1875
+    },
+    {
+      "id": "p54-map-49",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-expansion-7/y",
+      "value": 16.0625
+    },
+    {
+      "id": "p54-map-50",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal0/y",
+      "value": 19.875
+    },
+    {
+      "id": "p54-map-53",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal1/y",
+      "value": 19.875
+    },
+    {
+      "id": "p54-map-56",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal2/y",
+      "value": 19.875
+    },
+    {
+      "id": "p54-map-59",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine0/y",
+      "value": 23.5625
+    },
+    {
+      "id": "p54-map-62",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine1/y",
+      "value": 23.5625
+    },
+    {
+      "id": "p54-map-65",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine2/y",
+      "value": 23.5625
+    },
+    {
+      "id": "p54-map-68",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-cafeteria-entry/y",
+      "value": 15.375
+    },
+    {
+      "id": "p54-map-69",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-cafeteria-entry/notes",
+      "value": "食堂每天12–14开放，门洞180×90，墙翼31.5厚门楣；关闭疏散、开关碰撞保持原规则。"
+    },
+    {
+      "id": "p54-map-70",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-71",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-72",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/notes",
+      "value": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
+    },
+    {
+      "id": "p54-map-73",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-74",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-75",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/notes",
+      "value": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
+    },
+    {
+      "id": "p54-map-76",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/x",
+      "value": 4.4375
+    },
+    {
+      "id": "p54-map-77",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/width",
+      "value": 1.125
+    },
+    {
+      "id": "p54-map-78",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/notes",
+      "value": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
+    },
+    {
+      "id": "p54-map-79",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-0/notes",
+      "value": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
+    },
+    {
+      "id": "p54-map-80",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-1/notes",
+      "value": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
+    },
+    {
+      "id": "p54-map-81",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-2/notes",
+      "value": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
+    }
+  ]
+}

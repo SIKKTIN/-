@@ -1286,7 +1286,7 @@
         "id": "6f1e26c3-ddf5-439c-b7c3-2633d623b9ac",
         "name": "R04 黑工厂管制生活区",
         "region": "寝室、加工车间、活动走廊、食堂、禁闭区、门岗",
-        "description": "当前执行规则：三天逃脱，R04真实地图2800×2200。食堂每天12–14定时开放，实际门禁关闭，14点先疏散。被捕进入对应禁闭室，关2游戏小时，到期释放，伙伴可撬门救人；保留物品与局内成果。白天非戒备不抓人，门岗阻止主门操作；午夜查寝缺员则全厂警报增援。场景复用A17/A19场景资产，按已确认A22最终概念接入A23建筑素材及图标。禁闭室深灰实体屋顶完整遮住内部，外立面嵌入铁门/通风口/标识，门外显示伙伴与剩余禁闭时间；食堂门左右使用110高墙、同压顶及基座，门的开闭高度均110，碰撞与日程独立驱动。真实几何和关押/门配置唯一来源data/rooms/r04.json；策划说明docs/dev/p52-map-design.md。 建筑表现接口：architecture.wall_surfaces及confinement.cells[].building；编辑器可调整墙高、墙材质、封顶和建筑高度，保持物理围墙为通路唯一来源。程序说明docs/dev/p53/README.md。",
+        "description": "R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门，14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。按用户认可的A22/A24概念原位返修建筑：完整深灰屋顶、厚檐与檐下阴影、石墙脚、宽门柱和窄门在统一原图内；闭态稳定底图，开态仅注册门口patch，内部全遮挡。禁闭物理门90×28，外观约90×97；食堂门洞180×90，北墙总显示高度121.5（墙90+顶31.5），厚石柱、同源连续墙与基座，纵向墙使用同色石柱侧面收口。食堂整体向南30以对齐概念建筑比例，其余日程/追捕/背包/买入规则不变。唯一几何来源data/rooms/r04.json，程序与实际图证据docs/dev/p54/README.md。",
         "perspective": "top",
         "view": "grid",
         "x": 108,
@@ -1294,7 +1294,7 @@
         "rows": 29,
         "columns": 36,
         "cellSize": 80,
-        "unit": "世界单位（设计网格60）",
+        "unit": "世界单位（设计网格80）",
         "sourceDesignId": "a4539d92-4c10-4137-8796-ce73a71e21e5",
         "roomId": "",
         "sourceVisible": true,
@@ -1405,7 +1405,7 @@
             "kind": "terrain",
             "layerId": "p23-regions",
             "x": 9,
-            "y": 15,
+            "y": 15.375,
             "width": 16.3,
             "height": 12.5,
             "color": "green",
@@ -1587,11 +1587,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 9,
-            "y": 15,
+            "y": 15.375,
             "width": 2.5,
             "height": 0.39375,
             "color": "blue",
-            "notes": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1605,11 +1605,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 13.75,
-            "y": 15,
+            "y": 15.375,
             "width": 11.55,
             "height": 0.39375,
             "color": "blue",
-            "notes": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1623,11 +1623,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 9,
-            "y": 15,
+            "y": 15.375,
             "width": 0.30000000000000004,
             "height": 12.5,
             "color": "blue",
-            "notes": "",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1641,11 +1641,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 25,
-            "y": 15,
+            "y": 15.375,
             "width": 0.30000000000000004,
             "height": 12.5,
             "color": "blue",
-            "notes": "",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1659,11 +1659,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 9,
-            "y": 27.25,
+            "y": 27.625,
             "width": 16.3,
             "height": 0.25,
             "color": "blue",
-            "notes": "",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1677,11 +1677,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 15.875,
-            "y": 15.299999999999999,
+            "y": 15.675,
             "width": 0.25,
             "height": 2.5749999999999997,
             "color": "blue",
-            "notes": "",
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1696,11 +1696,11 @@
             "kind": "obstacle",
             "layerId": "p23-obstacles",
             "x": 23.875,
-            "y": 15.299999999999999,
+            "y": 15.675,
             "width": 0.25,
             "height": 2.5749999999999997,
             "color": "blue",
-            "notes": ""
+            "notes": "P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。"
           },
           {
             "id": "p52-wall-14",
@@ -1866,7 +1866,7 @@
             "layerId": "p23-obstacles",
             "x": 1.25,
             "y": 17.125,
-            "width": 2.75,
+            "width": 3.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -1877,9 +1877,9 @@
             "name": "围墙 28",
             "kind": "obstacle",
             "layerId": "p23-obstacles",
-            "x": 6,
+            "x": 5.5625,
             "y": 17.125,
-            "width": 0.75,
+            "width": 1.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -1931,7 +1931,7 @@
             "layerId": "p23-obstacles",
             "x": 1.25,
             "y": 21.625,
-            "width": 2.75,
+            "width": 3.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -1942,9 +1942,9 @@
             "name": "围墙 33",
             "kind": "obstacle",
             "layerId": "p23-obstacles",
-            "x": 6,
+            "x": 5.5625,
             "y": 21.625,
-            "width": 0.75,
+            "width": 1.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -1996,7 +1996,7 @@
             "layerId": "p23-obstacles",
             "x": 1.25,
             "y": 26.125,
-            "width": 2.75,
+            "width": 3.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -2007,9 +2007,9 @@
             "name": "围墙 38",
             "kind": "obstacle",
             "layerId": "p23-obstacles",
-            "x": 6,
+            "x": 5.5625,
             "y": 26.125,
-            "width": 0.75,
+            "width": 1.1875,
             "height": 0.175,
             "color": "blue",
             "notes": ""
@@ -2381,7 +2381,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 16.125,
-            "y": 17.875,
+            "y": 18.25,
             "width": 7.75,
             "height": 1,
             "color": "amber",
@@ -2394,7 +2394,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 16.125,
-            "y": 15.375,
+            "y": 15.75,
             "width": 7.75,
             "height": 2.5,
             "color": "amber",
@@ -2407,7 +2407,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 9.75,
-            "y": 18.75,
+            "y": 19.125,
             "width": 2.875,
             "height": 0.175,
             "color": "amber",
@@ -2420,7 +2420,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 23,
-            "y": 24.25,
+            "y": 24.625,
             "width": 1.375,
             "height": 0.875,
             "color": "amber",
@@ -2451,7 +2451,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 11.625,
-            "y": 21.6625,
+            "y": 22.0375,
             "width": 0.44999999999999996,
             "height": 0.25,
             "color": "amber",
@@ -2482,7 +2482,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 18.375,
-            "y": 21.6625,
+            "y": 22.0375,
             "width": 0.44999999999999996,
             "height": 0.25,
             "color": "amber",
@@ -2513,7 +2513,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 11.625,
-            "y": 25.537499999999998,
+            "y": 25.9125,
             "width": 0.44999999999999996,
             "height": 0.25,
             "color": "amber",
@@ -2544,7 +2544,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 18.375,
-            "y": 25.537499999999998,
+            "y": 25.9125,
             "width": 0.44999999999999996,
             "height": 0.25,
             "color": "amber",
@@ -2613,7 +2613,7 @@
             "width": 0.8,
             "height": 0.025,
             "color": "amber",
-            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+            "notes": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
           },
           {
             "id": "p52-solitary-door-visual-0",
@@ -2621,12 +2621,12 @@
             "name": "禁闭铁门",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 4,
+            "x": 4.4375,
             "y": 17.125,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+            "notes": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
           },
           {
             "id": "p52-solitary-bed-1",
@@ -2665,7 +2665,7 @@
             "width": 0.8,
             "height": 0.025,
             "color": "amber",
-            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+            "notes": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
           },
           {
             "id": "p52-solitary-door-visual-1",
@@ -2673,12 +2673,12 @@
             "name": "禁闭铁门",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 4,
+            "x": 4.4375,
             "y": 21.625,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+            "notes": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
           },
           {
             "id": "p52-solitary-bed-2",
@@ -2717,7 +2717,7 @@
             "width": 0.8,
             "height": 0.025,
             "color": "amber",
-            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+            "notes": "P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。"
           },
           {
             "id": "p52-solitary-door-visual-2",
@@ -2725,12 +2725,12 @@
             "name": "禁闭铁门",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 4,
+            "x": 4.4375,
             "y": 26.125,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+            "notes": "P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。"
           },
           {
             "id": "p52-cafeteria-door-visual",
@@ -2739,7 +2739,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 11.5,
-            "y": 15,
+            "y": 15.375,
             "width": 2.25,
             "height": 0.39375000000000004,
             "color": "amber",
@@ -2751,8 +2751,8 @@
             "name": "门禁控制盒",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 14.0625,
-            "y": 14.875,
+            "x": 14.125,
+            "y": 15.1875,
             "width": 0.30000000000000004,
             "height": 0.016666662500000002,
             "color": "amber",
@@ -2861,7 +2861,7 @@
             "kind": "building",
             "layerId": "p23-obstacles",
             "x": 20.875,
-            "y": 15.6875,
+            "y": 16.0625,
             "width": 0.44999999999999996,
             "height": 0.018750000000000003,
             "color": "amber",
@@ -3308,7 +3308,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 17.375,
-            "y": 19.5,
+            "y": 19.875,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3321,7 +3321,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 19.875,
-            "y": 19.5,
+            "y": 19.875,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3334,7 +3334,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 22.375,
-            "y": 19.5,
+            "y": 19.875,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3347,7 +3347,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 11.5,
-            "y": 23.1875,
+            "y": 23.5625,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3360,7 +3360,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 18.25,
-            "y": 23.1875,
+            "y": 23.5625,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3373,7 +3373,7 @@
             "kind": "note",
             "layerId": "p52-routine",
             "x": 13,
-            "y": 23.1875,
+            "y": 23.5625,
             "width": 0.15000000000000002,
             "height": 0.15000000000000002,
             "color": "green",
@@ -3386,11 +3386,11 @@
             "kind": "building",
             "layerId": "p52-access",
             "x": 11.5,
-            "y": 15,
+            "y": 15.375,
             "width": 2.25,
             "height": 0.39375000000000004,
             "color": "violet",
-            "notes": "食堂12:00–14:00开放，14:00疏散后关闭。"
+            "notes": "食堂每天12–14开放，门洞180×90，墙翼31.5厚门楣；关闭疏散、开关碰撞保持原规则。"
           },
           {
             "id": "p52-gate-solitary-0",
@@ -3398,12 +3398,12 @@
             "name": "禁闭室1",
             "kind": "building",
             "layerId": "p52-access",
-            "x": 4,
+            "x": 4.4375,
             "y": 17.125,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "violet",
-            "notes": "捕获后关2游戏小时；伙伴可从外侧撬门救人。"
+            "notes": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
           },
           {
             "id": "p52-gate-solitary-1",
@@ -3411,12 +3411,12 @@
             "name": "禁闭室2",
             "kind": "building",
             "layerId": "p52-access",
-            "x": 4,
+            "x": 4.4375,
             "y": 21.625,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "violet",
-            "notes": "捕获后关2游戏小时；伙伴可从外侧撬门救人。"
+            "notes": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
           },
           {
             "id": "p52-gate-solitary-2",
@@ -3424,12 +3424,12 @@
             "name": "禁闭室3",
             "kind": "building",
             "layerId": "p52-access",
-            "x": 4,
+            "x": 4.4375,
             "y": 26.125,
-            "width": 2,
+            "width": 1.125,
             "height": 0.35,
             "color": "violet",
-            "notes": "捕获后关2游戏小时；伙伴可从外侧撬门救人。"
+            "notes": "对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。"
           },
           {
             "id": "p52-cell-cell-0",
@@ -3442,7 +3442,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+            "notes": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
           },
           {
             "id": "p52-cell-cell-1",
@@ -3455,7 +3455,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+            "notes": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
           },
           {
             "id": "p52-cell-cell-2",
@@ -3468,7 +3468,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+            "notes": "完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。"
           }
         ]
       }

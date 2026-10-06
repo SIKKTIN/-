@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T10:07:10.997Z
-> 文档内容基准：d297613f7013c4128414cf7fe0ce6c6bb24ac3d443a72c48360892f715fe757e
+> 文档生成时间：2026-10-06T11:03:33.392Z
+> 文档内容基准：0f74a12ad7b03022e6b6252ed2fc71e611acc7e4655219f1898f6eee18f29a95
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -71,6 +71,7 @@
 - P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
 - P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
+- P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -99,6 +100,7 @@
 - A21 封顶禁闭室与差异墙体概念 [a21-roof-solitary-concept-20261006] · 已完成
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
+- A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1032,6 +1034,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：实际运行禁闭内部人物/地面/家具不可见，门外看守/伙伴不被顶遮盖；食堂门左右高墙同材质高度，嵌门无浮框且开闭碰撞/视线一致；保持12-14和120分钟救援、地图编辑可保存建筑参数，R01-03兼容，关键运行截图和测试通过。
 - 验收负责人：制作人
+### P54 按概念还原建筑体积与门墙层次
+- ID：p54-concept-faithful-render-20261006
+- 当前状态：已完成
+- 内容：对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。
+- 前置任务：a22-cafeteria-equal-wall-concept-20261006
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p54*、docs/dev/p54/**、docs/tests/p54*、docs/gamecreator/**、gamecreator/**
+- 接口契约：消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。
+- 交付入口：res://scenes/main.tscn R04
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1113,6 +1126,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
+- A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
+- P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1628,6 +1643,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v23/manifest.json
 - 验收要求：不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。
 - 验收负责人：制作人
+### A24 按概念还原完整建筑体块素材
+- ID：a24-concept-faithful-building-20261006
+- 当前状态：已完成
+- 内容：用户指出P53禁闭室缺少立体感、食堂墙柱衔接奇怪，明确要求尽可能还原已确认A22概念。基于用户提供对照图制作完整手绘禁闭室外壳/嵌门及食堂门墙装配素材，避免依靠单纯平面材质拼贴。
+- 前置任务：a22-cafeteria-equal-wall-concept-20261006
+- 允许修改路径：art/architecture/v24/**、art/editor/v04/**、docs/art/architecture-v24/**
+- 接口契约：主美负责完整手绘建筑shell与模块，不改scripts/data/旧资产/清单、不git提交。完整禁闭shell无室内透视，门leaf可分离状态：需要front门洞精确区域、屋檐覆盖次序、ground_rect/render_size等，避免root靠平面矩形重画质感；root负责共享渲染集成。
+- 交付入口：art/architecture/v24/manifest.json
+- 验收要求：按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1654,3 +1679,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A21 封顶禁闭室与差异墙体概念 [a21-roof-solitary-concept-20261006] · 已完成
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
+- A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成

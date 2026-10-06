@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "mode": "built-in imagegen",
+  "prompt_file": "docs/art/architecture-v24/prompts.json",
+  "reference": "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-b23e7114-b431-45ba-a14f-c9f00f4c8440.png",
+  "pixel_policy": "All selected generated PNGs copied byte-identically. Only atlas metadata/crops; no production pixel editing. OPEN runtime replacement limited to metal-mouth patch to preserve stone/roof.",
+  "outputs": [
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-c903f9f0-5249-4f89-8f3e-c0fa17efc022.png",
+      "project_png": "art/architecture/v24/solitary_shell_closed_v24.png",
+      "sha256": "a82c100465c85e6364617e3f3c6e833ee63188560ae099930cf613539e67d49f",
+      "source_copy_matches": true,
+      "size": [
+        1550,
+        1015
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-560ee8e0-9e13-4a21-9e16-0022e5a9683f.png",
+      "project_png": "art/architecture/v24/solitary_shell_open_v24.png",
+      "sha256": "a5ca8975ef1c655673a6bd2f3da3b2952f7ca6b430e69de558ae5840a2e2b763",
+      "source_copy_matches": true,
+      "size": [
+        1550,
+        1015
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-6e15c3a1-5a15-419e-8a2c-3e8ca2ca7e5a.png",
+      "project_png": "art/architecture/v24/cafeteria_portal_v24.png",
+      "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+      "source_copy_matches": true,
+      "size": [
+        2170,
+        725
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "source": "C:/Users/gst20/.codex/generated_images/01a10697-9228-7c00-906b-43051bade1e0/exec-ad2b271f-4e33-4531-958a-16b59c646630.png",
+      "project_png": "art/architecture/v24/solitary_axis_roof_v24.png",
+      "sha256": "5f32cbb9cd4ba6551b396ae8ac857d5ddf6dc69d01bcbf24e5b6971663883142",
+      "source_copy_matches": true,
+      "size": [
+        1549,
+        1015
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "cafeteria_gap_alpha": {
+    "rect": [
+      850,
+      265,
+      380,
+      273
+    ],
+    "opaque_ratio_gt64": 0.0,
+    "max": 1
+  },
+  "v23_delivery_unchanged": true,
+  "open_door_core_alpha": {
+    "rect": [
+      930,
+      590,
+      175,
+      245
+    ],
+    "min": 251,
+    "max": 253,
+    "raw_fully_opaque": false,
+    "runtime_shader": "res://art/architecture/v24/opaque_core.gdshader",
+    "runtime_opaque_core": true
+  },
+  "axis_refinement": "New image has corrected rectangular roof but small unintended facade shift; use roof-only atlas crop and retain prior stable CLOSED facade/door registration.",
+  "shader_native": "shader-native.json + stdout/stderr, actual Forward+ RTX4050 render after reserved identifier fix",
+  "qa": {
+    "asset_resource_load": true,
+    "assets_checked": 11,
+    "preview": true,
+    "forward_plus_draw": true,
+    "shader_native_stderr_empty": true
+  },
+  "final_projection": "Producer adopted189roof/109facade from same source rectangles, door around89x97; projection-recommendation.json records formulas."
+}

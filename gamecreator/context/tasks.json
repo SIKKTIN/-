@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "26efb4df5b4e7a371187df42f5b875070a57d436799653c11c9fe174143046de",
+  "snapshotId": "bead23a34142af882e0837e7647b01096802a681379bf9ec442c3d493d59dd04",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -3971,6 +3971,101 @@
           "at": "2026-10-06T09:38:11.646Z"
         }
       ]
+    },
+    {
+      "id": "a24-concept-faithful-building-20261006",
+      "title": "A24 按概念还原完整建筑体块素材",
+      "description": "用户指出P53禁闭室缺少立体感、食堂墙柱衔接奇怪，明确要求尽可能还原已确认A22概念。基于用户提供对照图制作完整手绘禁闭室外壳/嵌门及食堂门墙装配素材，避免依靠单纯平面材质拼贴。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。",
+      "result": "按用户确认目标重制完整手绘禁闭建筑两态、轴向矩形厚屋顶及食堂门墙结构模块；4张原PNG、11素材/图标、锚点/源region/OPEN局部配准齐全。真实运行采用同源189顶面/109立面，修正早期浅顶高墙比例，门口约89x97；食堂两翼等高、粗石柱/厚门楣/基座接合，纵墙旧黄条已由制作人接入同源暗边。已逐项看5张最终无遮/HUD图并固定哈希；roof/facade/coping/jamb残差写入对照表，不以功能通过代替美术还原。11资源加载通过；shader保留名错误已修复并真实Forward+绘制无stderr错误。PNG字节原样、A23旧交付未变，P54程序验收另行负责。\n\n验收通过：已对照用户目标和固定无遮挡/HUD/OPEN原生图，4原图及11素材/图标注册正确，厚檐阴影、189/109体块比例、窄门石柱、食堂同源等高和转角已恢复。实际shader错误已修并重跑无错误日志；接受主美交付，保留对照表列明的纹理/基座强度及位置差异，不宣称逐像素一致。",
+      "dependencyIds": [
+        "a22-cafeteria-equal-wall-concept-20261006"
+      ],
+      "references": [],
+      "workScope": {
+        "allowedPaths": [
+          "art/architecture/v24/**",
+          "art/editor/v04/**",
+          "docs/art/architecture-v24/**"
+        ],
+        "entry": "art/architecture/v24/manifest.json",
+        "interfaceContract": "主美负责完整手绘建筑shell与模块，不改scripts/data/旧资产/清单、不git提交。完整禁闭shell无室内透视，门leaf可分离状态：需要front门洞精确区域、屋檐覆盖次序、ground_rect/render_size等，避免root靠平面矩形重画质感；root负责共享渲染集成。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "a24-concept-faithful-building-20261006-plan",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-06T10:19:34.651Z"
+        }
+      ]
+    },
+    {
+      "id": "p54-concept-faithful-render-20261006",
+      "title": "P54 按概念还原建筑体积与门墙层次",
+      "description": "对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。",
+      "result": "已按用户概念完成原图体块、矩形厚屋顶、189/109顶面与立面比例、宽石柱/窄门、同源食堂墙翼/纵墙收口。实图经主美两次指出残差并修正，CLOSED立面/屋顶稳定，OPEN只局部门patch。345/345功能检查通过，6日志无脚本或shader错误。保留原地图对象ID，门禁/2小时关押救人/旧地图/编辑器通过，具体见README和实际截图。\n\n验收通过：制作人自验收：真实GPU输出及主美最终对照确认用户指出的扁平体块/粗门框/墙角断层已修正。345/345检查、6最终日志无ERROR，包含开门屋顶像素不变、关押/救援/营业门禁/编辑器/旧关卡。A24单独验收通过后确认本人主干集成，接受，仍以用户后续体验为准。",
+      "dependencyIds": [
+        "a22-cafeteria-equal-wall-concept-20261006"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/rooms/r04.json",
+          "qa/p54*",
+          "docs/dev/p54/**",
+          "docs/tests/p54*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn R04",
+        "interfaceContract": "消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p54-concept-faithful-render-20261006-plan",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T10:19:36.283Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -4127,7 +4222,8 @@
             "p50b-editor-field-focus-20261006",
             "p51-editor-layout-layers-20261006",
             "p52-r04-access-confinement-20261006",
-            "p53-architecture-render-20261006"
+            "p53-architecture-render-20261006",
+            "p54-concept-faithful-render-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4200,7 +4296,8 @@
             "a20-door-wall-concept-20261006",
             "a21-roof-solitary-concept-20261006",
             "a22-cafeteria-equal-wall-concept-20261006",
-            "a23-architecture-production-20261006"
+            "a23-architecture-production-20261006",
+            "a24-concept-faithful-building-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4604,6 +4701,16 @@
       "summary": "按用户确认A22终稿原位完善R04门墙一体与完整封顶禁闭室，保持地图/对象ID及门禁/关押规则。",
       "memberName": "制作人",
       "at": "2026-10-06T10:01:02.150Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p54-concept-faithful-design-final-20261006",
+      "digest": "bd949e9945248ba4ee744b3b788b2fe8ca1f9ebbc2daeb8f911b8e6856022806",
+      "summary": "按用户概念对照返修R04完整建筑体块与食堂石墙收口，保留原地图及对象ID。",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:56:20.666Z",
       "modules": [
         "map-design"
       ]
@@ -5234,6 +5341,30 @@
       "reason": "本人承接明确程序与主干接入，已获用户跨聊天直接制作授权。",
       "createdTaskIds": [
         "p53-architecture-render-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "a24-concept-faithful-building-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:19:34.651Z",
+      "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
+      "createdTaskIds": [
+        "a24-concept-faithful-building-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p54-concept-faithful-render-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:19:36.283Z",
+      "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
+      "createdTaskIds": [
+        "p54-concept-faithful-render-20261006"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -16917,6 +17048,291 @@
         "at": "2026-10-06T10:07:09.698Z",
         "note": "制作人本人明确程序任务自验收，已单独读取实际运行/409检查报告、主美r2视觉核对及正式地图应用回执。门墙同基座高度，完整屋顶内部不可透视且外部角色可见；开闭通路、视线、120分钟救援及查房增援、旧关和编辑器读写兼容通过。验收范围Windows原生与较小窗口；不宣称手机真机或真人难度验证。P53开发与接入通过，A23素材与A21/A22概念分别验收。",
         "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p54-start-20261006",
+      "taskId": "p54-concept-faithful-render-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已逐项对照用户反馈，旧P53功能通过不等于建筑造型达标。本轮改为完整手绘外壳和结构模块接入，重点实体屋檐、石门柱/门楣、墙脚与食堂墙角，由主美生产、本人维护渲染与地图。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-bc4e35cd-277d-427a-9f58-a5154b262632.png",
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-b23e7114-b431-45ba-a14f-c9f00f4c8440.png"
+      ],
+      "at": "2026-10-06T10:19:37.851Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p54-concept-faithful-render-20261006",
+        "title": "P54 按概念还原建筑体积与门墙层次",
+        "description": "对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。",
+        "result": "已逐项对照用户反馈，旧P53功能通过不等于建筑造型达标。本轮改为完整手绘外壳和结构模块接入，重点实体屋檐、石门柱/门楣、墙脚与食堂墙角，由主美生产、本人维护渲染与地图。",
+        "dependencyIds": [
+          "a22-cafeteria-equal-wall-concept-20261006"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p54*",
+            "docs/dev/p54/**",
+            "docs/tests/p54*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p54-concept-faithful-render-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T10:19:36.283Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a24-start-20261006",
+      "taskId": "a24-concept-faithful-building-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已重读任务与用户失败/目标两图。上轮视觉检查缺少概念形体对照；本轮完整手绘禁闭建筑开闭两态，统一厚檐口/阴影/石门柱，食堂统一门墙原图再定义模块。精确区域与门脚锚点随产物测量回报；不改旧资产/共享脚本。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\interface-draft.json"
+      ],
+      "at": "2026-10-06T10:22:56.166Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a24-concept-faithful-building-20261006",
+        "title": "A24 按概念还原完整建筑体块素材",
+        "description": "用户指出P53禁闭室缺少立体感、食堂墙柱衔接奇怪，明确要求尽可能还原已确认A22概念。基于用户提供对照图制作完整手绘禁闭室外壳/嵌门及食堂门墙装配素材，避免依靠单纯平面材质拼贴。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。",
+        "result": "已重读任务与用户失败/目标两图。上轮视觉检查缺少概念形体对照；本轮完整手绘禁闭建筑开闭两态，统一厚檐口/阴影/石门柱，食堂统一门墙原图再定义模块。精确区域与门脚锚点随产物测量回报；不改旧资产/共享脚本。",
+        "dependencyIds": [
+          "a22-cafeteria-equal-wall-concept-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v24/**",
+            "art/editor/v04/**",
+            "docs/art/architecture-v24/**"
+          ],
+          "entry": "art/architecture/v24/manifest.json",
+          "interfaceContract": "主美负责完整手绘建筑shell与模块，不改scripts/data/旧资产/清单、不git提交。完整禁闭shell无室内透视，门leaf可分离状态：需要front门洞精确区域、屋檐覆盖次序、ground_rect/render_size等，避免root靠平面矩形重画质感；root负责共享渲染集成。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a24-concept-faithful-building-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T10:19:34.651Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p54-ready-20261006",
+      "taskId": "p54-concept-faithful-render-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "已按用户概念完成原图体块、矩形厚屋顶、189/109顶面与立面比例、宽石柱/窄门、同源食堂墙翼/纵墙收口。实图经主美两次指出残差并修正，CLOSED立面/屋顶稳定，OPEN只局部门patch。345/345功能检查通过，6日志无脚本或shader错误。保留原地图对象ID，门禁/2小时关押救人/旧地图/编辑器通过，具体见README和实际截图。",
+      "evidence": [
+        "docs/dev/p54/README.md",
+        "docs/dev/p54/comparison.html",
+        "docs/tests/p54-summary.json",
+        "docs/tests/p54-1200-concept-unobscured.png",
+        "docs/tests/p54-1200-concept-hud.png",
+        "docs/tests/p54-1200-open-unobscured.png",
+        "docs/tests/p54-1600-concept-unobscured.png",
+        "docs/tests/p54-960-concept-hud.png",
+        "docs/art/architecture-v24/projection-recommendation.json",
+        "docs/dev/p54/design-apply.json"
+      ],
+      "at": "2026-10-06T10:59:29.911Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p54-concept-faithful-render-20261006",
+        "title": "P54 按概念还原建筑体积与门墙层次",
+        "description": "对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。",
+        "result": "已按用户概念完成原图体块、矩形厚屋顶、189/109顶面与立面比例、宽石柱/窄门、同源食堂墙翼/纵墙收口。实图经主美两次指出残差并修正，CLOSED立面/屋顶稳定，OPEN只局部门patch。345/345功能检查通过，6日志无脚本或shader错误。保留原地图对象ID，门禁/2小时关押救人/旧地图/编辑器通过，具体见README和实际截图。",
+        "dependencyIds": [
+          "a22-cafeteria-equal-wall-concept-20261006"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p54*",
+            "docs/dev/p54/**",
+            "docs/tests/p54*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p54-concept-faithful-render-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T10:19:36.283Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T11:02:52.041Z",
+        "note": "制作人自验收：真实GPU输出及主美最终对照确认用户指出的扁平体块/粗门框/墙角断层已修正。345/345检查、6最终日志无ERROR，包含开门屋顶像素不变、关押/救援/营业门禁/编辑器/旧关卡。A24单独验收通过后确认本人主干集成，接受，仍以用户后续体验为准。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "a24-final-v24-20261006",
+      "taskId": "a24-concept-faithful-building-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "按用户确认目标重制完整手绘禁闭建筑两态、轴向矩形厚屋顶及食堂门墙结构模块；4张原PNG、11素材/图标、锚点/源region/OPEN局部配准齐全。真实运行采用同源189顶面/109立面，修正早期浅顶高墙比例，门口约89x97；食堂两翼等高、粗石柱/厚门楣/基座接合，纵墙旧黄条已由制作人接入同源暗边。已逐项看5张最终无遮/HUD图并固定哈希；roof/facade/coping/jamb残差写入对照表，不以功能通过代替美术还原。11资源加载通过；shader保留名错误已修复并真实Forward+绘制无stderr错误。PNG字节原样、A23旧交付未变，P54程序验收另行负责。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v24\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v24\\assembly.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v24\\opaque_core.gdshader",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v04\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\README.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\prompts.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\godot-qa.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\shader-native.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\shader-native.stdout.log",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\shader-native.stderr.log",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\shader-native.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\scale-preview.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\p54-concept-comparison.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\p54-visual-evidence.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\delivery.json"
+      ],
+      "at": "2026-10-06T11:00:24.847Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a24-concept-faithful-building-20261006",
+        "title": "A24 按概念还原完整建筑体块素材",
+        "description": "用户指出P53禁闭室缺少立体感、食堂墙柱衔接奇怪，明确要求尽可能还原已确认A22概念。基于用户提供对照图制作完整手绘禁闭室外壳/嵌门及食堂门墙装配素材，避免依靠单纯平面材质拼贴。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。",
+        "result": "按用户确认目标重制完整手绘禁闭建筑两态、轴向矩形厚屋顶及食堂门墙结构模块；4张原PNG、11素材/图标、锚点/源region/OPEN局部配准齐全。真实运行采用同源189顶面/109立面，修正早期浅顶高墙比例，门口约89x97；食堂两翼等高、粗石柱/厚门楣/基座接合，纵墙旧黄条已由制作人接入同源暗边。已逐项看5张最终无遮/HUD图并固定哈希；roof/facade/coping/jamb残差写入对照表，不以功能通过代替美术还原。11资源加载通过；shader保留名错误已修复并真实Forward+绘制无stderr错误。PNG字节原样、A23旧交付未变，P54程序验收另行负责。",
+        "dependencyIds": [
+          "a22-cafeteria-equal-wall-concept-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v24/**",
+            "art/editor/v04/**",
+            "docs/art/architecture-v24/**"
+          ],
+          "entry": "art/architecture/v24/manifest.json",
+          "interfaceContract": "主美负责完整手绘建筑shell与模块，不改scripts/data/旧资产/清单、不git提交。完整禁闭shell无室内透视，门leaf可分离状态：需要front门洞精确区域、屋檐覆盖次序、ground_rect/render_size等，避免root靠平面矩形重画质感；root负责共享渲染集成。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "a24-concept-faithful-building-20261006-plan",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T10:19:34.651Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T11:02:50.615Z",
+        "note": "已对照用户目标和固定无遮挡/HUD/OPEN原生图，4原图及11素材/图标注册正确，厚檐阴影、189/109体块比例、窄门石柱、食堂同源等高和转角已恢复。实际shader错误已修并重跑无错误日志；接受主美交付，保留对照表列明的纹理/基座强度及位置差异，不宣称逐像素一致。",
+        "mode": "independent",
         "evidenceVersion": 1
       }
     }

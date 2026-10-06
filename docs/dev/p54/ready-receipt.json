@@ -1,0 +1,66 @@
+{
+  "id": "p54-ready-20261006",
+  "digest": "2c5ae70b6424ef8e9bfe5f3f10c8426cad94c4b162b213198118b897702d29c4",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T10:59:29.821Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p54-ready-20261006",
+    "taskId": "p54-concept-faithful-render-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "已按用户概念完成原图体块、矩形厚屋顶、189/109顶面与立面比例、宽石柱/窄门、同源食堂墙翼/纵墙收口。实图经主美两次指出残差并修正，CLOSED立面/屋顶稳定，OPEN只局部门patch。345/345功能检查通过，6日志无脚本或shader错误。保留原地图对象ID，门禁/2小时关押救人/旧地图/编辑器通过，具体见README和实际截图。",
+    "evidence": [
+      "docs/dev/p54/README.md",
+      "docs/dev/p54/comparison.html",
+      "docs/tests/p54-summary.json",
+      "docs/tests/p54-1200-concept-unobscured.png",
+      "docs/tests/p54-1200-concept-hud.png",
+      "docs/tests/p54-1200-open-unobscured.png",
+      "docs/tests/p54-1600-concept-unobscured.png",
+      "docs/tests/p54-960-concept-hud.png",
+      "docs/art/architecture-v24/projection-recommendation.json",
+      "docs/dev/p54/design-apply.json"
+    ],
+    "at": "2026-10-06T10:59:29.911Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p54-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p54-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p54-ready-20261006",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "aa9637414ef575b63ee7a73421889d51d7b05136d4290eaa15231c7a537bb0a8"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "aa9637414ef575b63ee7a73421889d51d7b05136d4290eaa15231c7a537bb0a8",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

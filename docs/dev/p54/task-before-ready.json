@@ -1,0 +1,142 @@
+{
+  "task": {
+    "id": "p54-concept-faithful-render-20261006",
+    "title": "P54 按概念还原建筑体积与门墙层次",
+    "description": "对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。",
+    "result": "已逐项对照用户反馈，旧P53功能通过不等于建筑造型达标。本轮改为完整手绘外壳和结构模块接入，重点实体屋檐、石门柱/门楣、墙脚与食堂墙角，由主美生产、本人维护渲染与地图。",
+    "dependencyIds": [
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p54*",
+        "docs/dev/p54/**",
+        "docs/tests/p54*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p54-concept-faithful-render-20261006-plan",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T10:19:36.283Z"
+      }
+    ]
+  },
+  "revision": "4f43b377a748bb1f945f2e79ba6eeb584652b00d48c5230e5055dcacfc72ae92",
+  "scheduleRevision": "96dc412336665d33bb2f221dc4f2b1b8389863a4224a18535a8aedeb306a8c2c",
+  "planChanges": [
+    {
+      "id": "p54-concept-faithful-render-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:19:36.283Z",
+      "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
+      "createdTaskIds": [
+        "p54-concept-faithful-render-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a22-cafeteria-equal-wall-concept-20261006",
+      "title": "A22 食堂两侧墙等高概念修正",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p54-start-20261006",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "4f43b377a748bb1f945f2e79ba6eeb584652b00d48c5230e5055dcacfc72ae92"
+  },
+  "feedback": [
+    {
+      "id": "p54-start-20261006",
+      "taskId": "p54-concept-faithful-render-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已逐项对照用户反馈，旧P53功能通过不等于建筑造型达标。本轮改为完整手绘外壳和结构模块接入，重点实体屋檐、石门柱/门楣、墙脚与食堂墙角，由主美生产、本人维护渲染与地图。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-bc4e35cd-277d-427a-9f58-a5154b262632.png",
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-b23e7114-b431-45ba-a14f-c9f00f4c8440.png"
+      ],
+      "at": "2026-10-06T10:19:37.851Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p54-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "4f43b377a748bb1f945f2e79ba6eeb584652b00d48c5230e5055dcacfc72ae92"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "4f43b377a748bb1f945f2e79ba6eeb584652b00d48c5230e5055dcacfc72ae92",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

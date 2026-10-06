@@ -1,0 +1,32 @@
+{
+  "scheduleRevision": "44c78b71fbed87256f935243a248d6afe451446cf8af3935f5ada1d57ffe8cfe",
+  "task": {
+    "id": "p54-concept-faithful-render-20261006",
+    "title": "P54 按概念还原建筑体积与门墙层次",
+    "description": "对用户本轮反馈返修P53建筑：完整shell/结构模块接入，屋顶厚檐、门柱和墙脚按A22概念对照，食堂转角真实相接。制作人负责程序及主干集成，A24生产独立验收。",
+    "kind": "程序",
+    "priority": "高",
+    "selfReviewRole": "producer",
+    "dependencyIds": [
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "acceptance": "禁闭室实际运行有实体屋顶与厚檐/立面/石门柱层次，食堂同高墙和转角自然、门开关及通路一致；原逻辑不退化；完整无遮挡建筑视图与带HUD运行图、概念并排对照，经主美指出差异并修正。不能以程序测试通过代替视觉目标。",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p54*",
+        "docs/dev/p54/**",
+        "docs/tests/p54*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "消费A24新完整shell/模块和已有A23门态，明确front/roof覆盖次序。沿用access_doors/room_access/世界碰撞，旧关卡兼容。用户project.godot和旧编辑器窗口保留；先实际视觉对照再验收。"
+    }
+  },
+  "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
+  "requestId": "p54-concept-faithful-render-20261006-plan"
+}

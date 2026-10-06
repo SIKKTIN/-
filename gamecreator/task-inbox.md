@@ -79,6 +79,8 @@
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成 · 未排期
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成 · 未排期
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成 · 未排期
+- A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成 · 未排期
+- P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -164,6 +166,8 @@
 - A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
 - A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
 - P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
+- A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
+- P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

@@ -11,6 +11,12 @@ var definitions: Dictionary = {}
 var elevation: float = 20.0
 var _wall_geometry_valid := false
 var _wall_bounds := Rect2()
+var lintel_visual: Sprite2D
+
+func painted_material() -> ShaderMaterial:
+	var result := ShaderMaterial.new()
+	result.shader = load("res://art/architecture/v24/opaque_core.gdshader")
+	return result
 
 func configure(owner_world, type: String, index: int = 0, render_profile: Dictionary = {}, assets: Dictionary = {}) -> void:
 	world = owner_world
@@ -25,7 +31,22 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 		profile.material_slots = profile.get("material_slots",{}).duplicate(true)
 		profile.material_slots.wall_top = surface.get("top","cafeteria_coping_v23")
 		profile.material_slots.wall_front = surface.get("front","cafeteria_wall_front_v23")
+		profile.render_enabled = surface.get("render_enabled",true)
+		if surface.has("render_top_start"): profile.render_top_start = surface.render_top_start
+		if surface.has("painted_facade"):
+			profile.painted_facade = surface.painted_facade
+			material = painted_material()
+		if surface.has("return_material"):
+			profile.return_material = surface.return_material
+			material = painted_material()
 	definitions = assets
+	if type == "fixture" and str(owner_world.fixtures[index].asset_id).ends_with("_v24"):
+		material = painted_material()
+	if type == "fixture" and owner_world.fixtures[index].has("lintel_asset"):
+		lintel_visual = Sprite2D.new()
+		lintel_visual.texture = world.art_textures.get(str(owner_world.fixtures[index].lintel_asset))
+		lintel_visual.material = painted_material()
+		add_child(lintel_visual)
 	_wall_geometry_valid = false
 	# Minified bars and furniture need prefiltered texture levels. Fractional
 	# camera motion stays smooth; snapping the camera would introduce stepping.
@@ -56,6 +77,7 @@ func tick_visual() -> void:
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
 	visible = not world.wall_is_roofed(wall_index) if kind == "wall" else not world.fixtures[wall_index].get("hidden",false) if kind == "fixture" else true
+	if kind == "wall": visible = visible and profile.get("render_enabled",true)
 	if kind != "wall" and world.art_textures.has(prop_id()) and definitions.get(prop_id(),{}).has("ground_rect"):
 		var definition: Dictionary = definitions[prop_id()]
 		var ground: Array = definition.ground_rect
@@ -73,7 +95,25 @@ func tick_visual() -> void:
 			var dims: Array = fixture.render_size
 			display_rect = Rect2(Vector2(footprint.get_center().x-dims[0]/2.0,footprint.end.y-dims[1]),Vector2(dims[0],dims[1]))
 	z_index = int(world.fixtures[wall_index].get("draw_depth",footprint.end.y)) if kind == "fixture" else int(footprint.end.y)
+	if lintel_visual != null and lintel_visual.texture != null:
+		var height := float(world.fixtures[wall_index].get("lintel_height",31.5))
+		lintel_visual.position = Vector2(display_rect.get_center().x,display_rect.position.y-height/2)
+		lintel_visual.scale = Vector2(display_rect.size.x,height)/lintel_visual.texture.get_size()
 	queue_redraw()
+
+func paint_facade(area: Rect2) -> void:
+	var facade: Dictionary = profile.painted_facade
+	if facade.get("layout","wing") == "wing":
+		draw_texture_rect(world.art_textures[str(facade.asset)],area,false)
+		return
+	# Extend the original painted middle at its natural width, crop the last
+	# panel and finish with a stone corner. All geometry follows the map wall.
+	var jamb := Rect2(area.position,Vector2(32,area.size.y))
+	var corner := Rect2(area.end.x-28,area.position.y,28,area.size.y)
+	var middle := Rect2(jamb.end.x,area.position.y,maxf(0,corner.position.x-jamb.end.x),area.size.y)
+	draw_texture_rect(world.art_textures[str(facade.jamb)],jamb,false)
+	Tiles.paint(self,world.art_textures[str(facade.middle)],middle,Vector2(144,area.size.y),middle)
+	draw_texture_rect(world.art_textures[str(facade.corner)],corner,false)
 
 func _draw() -> void:
 	if not world:
@@ -81,10 +121,23 @@ func _draw() -> void:
 	var r := footprint
 	if kind == "wall":
 		var height := elevation
+		if profile.has("painted_facade"):
+			paint_facade(Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height)))
+			return
+		if profile.has("return_material"):
+			var side_body := Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height))
+			var start := maxf(world.bounds.position.y,float(profile.get("render_top_start",side_body.position.y)))
+			var side_clip := Rect2(world.bounds.position.x,start,world.bounds.size.x,maxf(0,world.bounds.end.y-start))
+			Tiles.paint(self,world.art_textures[str(profile.return_material)],side_body,Vector2(r.size.x,121.5),side_clip)
+			return
 		var top_tint: Array = profile.get("top_modulate",[1,1,1,1])
 		var top_color := Color(top_tint[0],top_tint[1],top_tint[2],top_tint[3])
 		var top := Rect2(r.position-Vector2(0,height),r.size)
-		var clipped := top.intersection(world.bounds)
+		var clip_bounds: Rect2 = world.bounds
+		if profile.has("render_top_start"):
+			var start := maxf(clip_bounds.position.y,float(profile.render_top_start))
+			clip_bounds = Rect2(clip_bounds.position.x,start,clip_bounds.size.x,maxf(0,clip_bounds.end.y-start))
+		var clipped := top.intersection(clip_bounds)
 		if r.size.x > 60 and not profile.get("block_top_tiled",false):
 			var texture: Texture2D = world.art_textures[asset_id("block_top","block_top_v02")]
 			var scale := texture.get_size()/top.size
@@ -92,10 +145,10 @@ func _draw() -> void:
 		else:
 			var id := asset_id("wall_top","low_wall_top_v02")
 			var size: Array = definitions.get(id,{}).get("world_size",[64,64])
-			Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),world.bounds,top_color)
+			Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),clip_bounds,top_color)
 			var side_width: float = profile.get("wall_side_width",0.0)
 			if side_width > 0:
-				var side := Rect2(Vector2(top.end.x-side_width,top.position.y),Vector2(side_width,top.size.y)).intersection(world.bounds)
+				var side := Rect2(Vector2(top.end.x-side_width,top.position.y),Vector2(side_width,top.size.y)).intersection(clip_bounds)
 				var shade: float = profile.get("wall_side_shade",0.68)
 				if profile.get("wall_side_gradient",false):
 					Tiles.paint_side_gradient(self,world.art_textures[id],top,Vector2(size[0],size[1]),side,top_color,Color(shade,shade,shade,1))
@@ -104,7 +157,7 @@ func _draw() -> void:
 					for step in range(2):
 						var transition := Rect2(side.position+Vector2(step*0.55,0),Vector2(0.55,side.size.y))
 						var value := lerpf(1.0,shade,float(step+1)/3)
-						Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),transition,Color(value,value,value,1))
+						Tiles.paint(self,world.art_textures[id],top,Vector2(size[0],size[1]),transition.intersection(clip_bounds),Color(value,value,value,1))
 		var front := Rect2(r.position+Vector2(0,r.size.y-height),Vector2(r.size.x,height))
 		var front_id := asset_id("wall_front","low_wall_front_v02")
 		var front_size: Array = definitions.get(front_id,{}).get("world_size",[64,18])
@@ -117,7 +170,7 @@ func _draw() -> void:
 			draw_rect(clipped,color,false,width,aa)
 			draw_line(front.position+Vector2(0,height),front.end,color,width,aa)
 			draw_line(clipped.position+Vector2(clipped.size.x,0),r.end,color,width,aa)
-			draw_line(clipped.position,r.position+Vector2(0,r.size.y),color,width,aa)
+			draw_line(clipped.position,Vector2(r.position.x,r.end.y),color,width,aa)
 	else:
 		if world.art_textures.has(prop_id()):
 			draw_texture_rect(world.art_textures[prop_id()],display_rect,false)

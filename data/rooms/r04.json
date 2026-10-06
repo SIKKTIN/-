@@ -108,43 +108,43 @@
     ],
     [
       720,
-      1200,
+      1230,
       200,
       31.5
     ],
     [
       1100,
-      1200,
+      1230,
       924,
       31.5
     ],
     [
       720,
-      1200,
+      1230,
       24,
       1000
     ],
     [
       2000,
-      1200,
+      1230,
       24,
       1000
     ],
     [
       720,
-      2180,
+      2210,
       1304,
       20
     ],
     [
       1270,
-      1224,
+      1254,
       20,
       206
     ],
     [
       1910,
-      1224,
+      1254,
       20,
       206
     ],
@@ -223,13 +223,13 @@
     [
       100,
       1370,
-      220,
+      255,
       14
     ],
     [
-      480,
+      445,
       1370,
-      60,
+      95,
       14
     ],
     [
@@ -253,13 +253,13 @@
     [
       100,
       1730,
-      220,
+      255,
       14
     ],
     [
-      480,
+      445,
       1730,
-      60,
+      95,
       14
     ],
     [
@@ -283,13 +283,13 @@
     [
       100,
       2090,
-      220,
+      255,
       14
     ],
     [
-      480,
+      445,
       2090,
-      60,
+      95,
       14
     ]
   ],
@@ -451,12 +451,13 @@
       "name": "食堂",
       "rect": [
         720,
-        1200,
+        1230,
         1304,
         1000
       ],
       "color": "#b6af8c",
-      "id": "canteen"
+      "id": "canteen",
+      "hide_label": true
     },
     {
       "name": "禁闭区",
@@ -467,7 +468,8 @@
         1004
       ],
       "color": "#8a9694",
-      "id": "confinement"
+      "id": "confinement",
+      "hide_label": true
     },
     {
       "name": "门岗 / 逃生通道",
@@ -727,7 +729,7 @@
       "asset_id": "cafeteria_counter",
       "rect": [
         1290,
-        1430,
+        1460,
         620,
         80
       ],
@@ -739,7 +741,7 @@
       "asset_id": "cafeteria_kitchen_collision",
       "rect": [
         1290,
-        1230,
+        1260,
         620,
         200
       ],
@@ -752,7 +754,7 @@
       "asset_id": "cafeteria_queue",
       "rect": [
         780,
-        1500,
+        1530,
         230,
         14
       ],
@@ -764,7 +766,7 @@
       "asset_id": "cafeteria_return",
       "rect": [
         1840,
-        1940,
+        1970,
         110,
         70
       ],
@@ -776,7 +778,7 @@
       "asset_id": "communal_table",
       "rect": [
         830,
-        1710,
+        1740,
         210,
         105
       ],
@@ -788,20 +790,20 @@
       "asset_id": "cafeteria_tray",
       "rect": [
         930,
-        1733,
+        1763,
         36,
         20
       ],
       "blocks_movement": false,
       "blocks_sight": false,
-      "draw_depth": 1816
+      "draw_depth": 1846
     },
     {
       "id": "dine-table-1",
       "asset_id": "communal_table",
       "rect": [
         1370,
-        1710,
+        1740,
         210,
         105
       ],
@@ -813,20 +815,20 @@
       "asset_id": "cafeteria_tray",
       "rect": [
         1470,
-        1733,
+        1763,
         36,
         20
       ],
       "blocks_movement": false,
       "blocks_sight": false,
-      "draw_depth": 1816
+      "draw_depth": 1846
     },
     {
       "id": "dine-table-2",
       "asset_id": "communal_table",
       "rect": [
         830,
-        2020,
+        2050,
         210,
         105
       ],
@@ -838,20 +840,20 @@
       "asset_id": "cafeteria_tray",
       "rect": [
         930,
-        2043,
+        2073,
         36,
         20
       ],
       "blocks_movement": false,
       "blocks_sight": false,
-      "draw_depth": 2126
+      "draw_depth": 2156
     },
     {
       "id": "dine-table-3",
       "asset_id": "communal_table",
       "rect": [
         1370,
-        2020,
+        2050,
         210,
         105
       ],
@@ -863,13 +865,13 @@
       "asset_id": "cafeteria_tray",
       "rect": [
         1470,
-        2043,
+        2073,
         36,
         20
       ],
       "blocks_movement": false,
       "blocks_sight": false,
-      "draw_depth": 2126
+      "draw_depth": 2156
     },
     {
       "id": "activity-table-0",
@@ -934,15 +936,16 @@
         64,
         33
       ],
-      "draw_depth": 1399
+      "draw_depth": 1399,
+      "hidden": true
     },
     {
       "id": "solitary-door-visual-0",
       "asset_id": "solitary_door_closed_v23",
       "rect": [
-        320,
+        355,
         1370,
-        160,
+        90,
         28
       ],
       "blocks_movement": false,
@@ -951,9 +954,10 @@
       "closed_asset": "solitary_door_closed_v23",
       "open_asset": "solitary_door_open_v23",
       "render_size": [
-        160,
+        90,
         110
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "solitary-bed-1",
@@ -994,15 +998,16 @@
         64,
         33
       ],
-      "draw_depth": 1759
+      "draw_depth": 1759,
+      "hidden": true
     },
     {
       "id": "solitary-door-visual-1",
       "asset_id": "solitary_door_closed_v23",
       "rect": [
-        320,
+        355,
         1730,
-        160,
+        90,
         28
       ],
       "blocks_movement": false,
@@ -1011,9 +1016,10 @@
       "closed_asset": "solitary_door_closed_v23",
       "open_asset": "solitary_door_open_v23",
       "render_size": [
-        160,
+        90,
         110
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "solitary-bed-2",
@@ -1054,15 +1060,16 @@
         64,
         33
       ],
-      "draw_depth": 2119
+      "draw_depth": 2119,
+      "hidden": true
     },
     {
       "id": "solitary-door-visual-2",
       "asset_id": "solitary_door_closed_v23",
       "rect": [
-        320,
+        355,
         2090,
-        160,
+        90,
         28
       ],
       "blocks_movement": false,
@@ -1071,16 +1078,17 @@
       "closed_asset": "solitary_door_closed_v23",
       "open_asset": "solitary_door_open_v23",
       "render_size": [
-        160,
+        90,
         110
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "cafeteria-door-visual",
       "asset_id": "cafeteria_gate_closed_v23",
       "rect": [
         920,
-        1200,
+        1230,
         180,
         31.5
       ],
@@ -1091,15 +1099,17 @@
       "open_asset": "cafeteria_gate_open_v23",
       "render_size": [
         180,
-        110
-      ]
+        90
+      ],
+      "lintel_asset": "cafeteria_lintel_v24",
+      "lintel_height": 31.5
     },
     {
       "id": "cafeteria-reader",
       "asset_id": "access_reader",
       "rect": [
         1130,
-        1185,
+        1215,
         24,
         1.333333
       ],
@@ -1200,7 +1210,7 @@
       "asset_id": "caged_wall_lamp",
       "rect": [
         1670,
-        1255,
+        1285,
         36,
         1.5
       ],
@@ -1268,28 +1278,28 @@
     {
       "position": [
         950,
-        1350
+        1380
       ],
       "radius": 340
     },
     {
       "position": [
         1670,
-        1300
+        1330
       ],
       "radius": 390
     },
     {
       "position": [
         900,
-        1900
+        1930
       ],
       "radius": 380
     },
     {
       "position": [
         1650,
-        1950
+        1980
       ],
       "radius": 400
     },
@@ -1438,29 +1448,29 @@
     "meal": [
       [
         1390,
-        1560
+        1590
       ],
       [
         1590,
-        1560
+        1590
       ],
       [
         1790,
-        1560
+        1590
       ]
     ],
     "dine": [
       [
         920,
-        1855
+        1885
       ],
       [
         1460,
-        1855
+        1885
       ],
       [
         1040,
-        1855
+        1885
       ]
     ]
   },
@@ -1468,13 +1478,13 @@
     "enclosed": true,
     "room_rect": [
       720,
-      1200,
+      1230,
       1304,
       1000
     ],
     "entrance": [
       920,
-      1200,
+      1230,
       180,
       31.5
     ],
@@ -1485,24 +1495,25 @@
     ],
     "pickup_label": [
       790,
-      1570
+      1600
     ],
     "return_label": [
       1800,
-      1890
+      1920
     ],
     "wall_sign": [
       1170,
-      1150,
+      1184,
       90,
       42
     ],
     "discipline_sign": [
       755,
-      1910,
+      1940,
       104,
       64
-    ]
+    ],
+    "painted_frontage": true
   },
   "dormitories": [
     [
@@ -1531,7 +1542,7 @@
       "kind": "timed",
       "rect": [
         920,
-        1200,
+        1230,
         180,
         31.5
       ],
@@ -1541,7 +1552,7 @@
       ],
       "room_rect": [
         720,
-        1200,
+        1230,
         1304,
         1000
       ],
@@ -1557,9 +1568,9 @@
       "name": "禁闭室1",
       "kind": "confinement",
       "rect": [
-        320,
+        355,
         1370,
-        160,
+        90,
         28
       ],
       "initial_closed": true,
@@ -1570,9 +1581,9 @@
       "name": "禁闭室2",
       "kind": "confinement",
       "rect": [
-        320,
+        355,
         1730,
-        160,
+        90,
         28
       ],
       "initial_closed": true,
@@ -1583,9 +1594,9 @@
       "name": "禁闭室3",
       "kind": "confinement",
       "rect": [
-        320,
+        355,
         2090,
-        160,
+        90,
         28
       ],
       "initial_closed": true,
@@ -1622,6 +1633,47 @@
           "roof_tile_size": [
             320,
             240
+          ],
+          "shell_closed": "solitary_shell_closed_v24",
+          "shell_open": "solitary_shell_open_v24",
+          "render_size": [
+            456,
+            298
+          ],
+          "roof_overlay": "solitary_roof_axis_v24",
+          "facade_source_region": [
+            60,
+            530,
+            1430,
+            343
+          ],
+          "facade_render_rect": [
+            0,
+            189,
+            456,
+            109
+          ],
+          "render_offset": [
+            -1.342657,
+            1.9067055393585974
+          ],
+          "roof_overlay_rect": [
+            -1.913287,
+            0,
+            459.188811,
+            189
+          ],
+          "door_patch": [
+            257.655944,
+            199.169096,
+            88.33007,
+            96.924198
+          ],
+          "door_patch_source": [
+            808,
+            467,
+            277,
+            305
           ]
         }
       },
@@ -1652,6 +1704,47 @@
           "roof_tile_size": [
             320,
             240
+          ],
+          "shell_closed": "solitary_shell_closed_v24",
+          "shell_open": "solitary_shell_open_v24",
+          "render_size": [
+            456,
+            298
+          ],
+          "roof_overlay": "solitary_roof_axis_v24",
+          "facade_source_region": [
+            60,
+            530,
+            1430,
+            343
+          ],
+          "facade_render_rect": [
+            0,
+            189,
+            456,
+            109
+          ],
+          "render_offset": [
+            -1.342657,
+            1.9067055393585974
+          ],
+          "roof_overlay_rect": [
+            -1.913287,
+            0,
+            459.188811,
+            189
+          ],
+          "door_patch": [
+            257.655944,
+            199.169096,
+            88.33007,
+            96.924198
+          ],
+          "door_patch_source": [
+            808,
+            467,
+            277,
+            305
           ]
         }
       },
@@ -1682,6 +1775,47 @@
           "roof_tile_size": [
             320,
             240
+          ],
+          "shell_closed": "solitary_shell_closed_v24",
+          "shell_open": "solitary_shell_open_v24",
+          "render_size": [
+            456,
+            298
+          ],
+          "roof_overlay": "solitary_roof_axis_v24",
+          "facade_source_region": [
+            60,
+            530,
+            1430,
+            343
+          ],
+          "facade_render_rect": [
+            0,
+            189,
+            456,
+            109
+          ],
+          "render_offset": [
+            -1.342657,
+            1.9067055393585974
+          ],
+          "roof_overlay_rect": [
+            -1.913287,
+            0,
+            459.188811,
+            189
+          ],
+          "door_patch": [
+            257.655944,
+            199.169096,
+            88.33007,
+            96.924198
+          ],
+          "door_patch_source": [
+            808,
+            467,
+            277,
+            305
           ]
         }
       }
@@ -1691,45 +1825,63 @@
     "wall_surfaces": [
       {
         "wall_index": 7,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "painted_facade": {
+          "layout": "wing",
+          "asset": "cafeteria_wing_left_v24"
+        }
       },
       {
         "wall_index": 8,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "painted_facade": {
+          "layout": "extended",
+          "jamb": "cafeteria_jamb_right_v24",
+          "middle": "cafeteria_wall_mid_v24",
+          "corner": "cafeteria_corner_post_v24"
+        }
       },
       {
         "wall_index": 9,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "render_top_start": 1261.5,
+        "return_material": "cafeteria_corner_post_v24"
       },
       {
         "wall_index": 10,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "render_top_start": 1261.5,
+        "return_material": "cafeteria_corner_post_v24"
       },
       {
         "wall_index": 11,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
         "top": "cafeteria_coping_v23"
       },
       {
         "wall_index": 12,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "render_top_start": 1261.5,
+        "return_material": "cafeteria_corner_post_v24"
       },
       {
         "wall_index": 13,
-        "height": 110,
+        "height": 90,
         "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "top": "cafeteria_coping_v23",
+        "render_top_start": 1261.5,
+        "return_material": "cafeteria_corner_post_v24"
       }
     ]
   }

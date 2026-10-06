@@ -1,0 +1,136 @@
+{
+  "task": {
+    "id": "a24-concept-faithful-building-20261006",
+    "title": "A24 按概念还原完整建筑体块素材",
+    "description": "用户指出P53禁闭室缺少立体感、食堂墙柱衔接奇怪，明确要求尽可能还原已确认A22概念。基于用户提供对照图制作完整手绘禁闭室外壳/嵌门及食堂门墙装配素材，避免依靠单纯平面材质拼贴。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "按A22目标对照还原厚屋檐、完整深灰实体屋顶、前墙大块砌石/墙脚、门柱/门楣/门牌/外通风口，屋顶与立面光影统一；食堂门左右同高同基座，转角和嵌门真实接合。透明完整建筑sprite或结构模块的锚点、门洞注册和开关态齐全，原PNG/配套编辑器图标/原图来源记录；实际运行与概念并排视觉检查，不仅功能通过。",
+    "result": "已重读任务与用户失败/目标两图。上轮视觉检查缺少概念形体对照；本轮完整手绘禁闭建筑开闭两态，统一厚檐口/阴影/石门柱，食堂统一门墙原图再定义模块。精确区域与门脚锚点随产物测量回报；不改旧资产/共享脚本。",
+    "dependencyIds": [
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v24/**",
+        "art/editor/v04/**",
+        "docs/art/architecture-v24/**"
+      ],
+      "entry": "art/architecture/v24/manifest.json",
+      "interfaceContract": "主美负责完整手绘建筑shell与模块，不改scripts/data/旧资产/清单、不git提交。完整禁闭shell无室内透视，门leaf可分离状态：需要front门洞精确区域、屋檐覆盖次序、ground_rect/render_size等，避免root靠平面矩形重画质感；root负责共享渲染集成。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a24-concept-faithful-building-20261006-plan",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T10:19:34.651Z"
+      }
+    ]
+  },
+  "revision": "ef5f584a0e3b03387bd496c73b4e8e24c307a4e3faad28d088f52bc5e3d17353",
+  "scheduleRevision": "96dc412336665d33bb2f221dc4f2b1b8389863a4224a18535a8aedeb306a8c2c",
+  "planChanges": [
+    {
+      "id": "a24-concept-faithful-building-20261006-plan",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:19:34.651Z",
+      "reason": "用户本轮明确要求返修并尽可能还原概念图，原功能记录保留，新视觉目标独立交付。",
+      "createdTaskIds": [
+        "a24-concept-faithful-building-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a22-cafeteria-equal-wall-concept-20261006",
+      "title": "A22 食堂两侧墙等高概念修正",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a24-start-20261006",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "ef5f584a0e3b03387bd496c73b4e8e24c307a4e3faad28d088f52bc5e3d17353"
+  },
+  "feedback": [
+    {
+      "id": "a24-start-20261006",
+      "taskId": "a24-concept-faithful-building-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已重读任务与用户失败/目标两图。上轮视觉检查缺少概念形体对照；本轮完整手绘禁闭建筑开闭两态，统一厚檐口/阴影/石门柱，食堂统一门墙原图再定义模块。精确区域与门脚锚点随产物测量回报；不改旧资产/共享脚本。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v24\\interface-draft.json"
+      ],
+      "at": "2026-10-06T10:22:56.166Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a24-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "ef5f584a0e3b03387bd496c73b4e8e24c307a4e3faad28d088f52bc5e3d17353"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "ef5f584a0e3b03387bd496c73b4e8e24c307a4e3faad28d088f52bc5e3d17353",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}
