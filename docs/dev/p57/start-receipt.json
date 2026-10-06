@@ -1,0 +1,52 @@
+{
+  "id": "p57-start-20261006",
+  "digest": "e49767cde56330094e5998d446c2c60a15a8936ae95f5d07e4162f23c12093d9",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T14:40:31.811Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p57-start-20261006",
+    "taskId": "p57-first-version-visual-local-repair-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "恢复用户偏好的第一版原横墙/门柱/门楣，A26审美否定已正式记录；只等待A27局部转角/竖墙试拼，保留原几何和规则，功能通过不作审美通过。",
+    "evidence": [
+      "docs/art/architecture-v26/user-style-correction-20261006.md",
+      "docs/dev/p57/plan-current.json"
+    ],
+    "at": "2026-10-06T14:40:31.949Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p57-start-20261006",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "fc437f54b52f0ea476c093d8123376b0fac4eb1b6456d6988a006d0ac70224ad"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "fc437f54b52f0ea476c093d8123376b0fac4eb1b6456d6988a006d0ac70224ad",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

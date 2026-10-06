@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p57-first-version-visual-local-repair-20261006",
+    "title": "P57 恢复第一版墙体并局部修接点",
+    "description": "按用户偏好停止将A26作为当前定稿，恢复第一版原横墙/门柱/门楣，只消费A27局部转角与竖墙修正。215项功能通过不能替代审美通过。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04实际原横墙/门柱/门楣恢复第一版完整原图绘制，A27局部转角/竖墙匹配且连续；直接第一版对照和主美独立实图复核，必要回归通过；保留日程/门禁/禁闭/FPS与组件预览。A27先独立验收，P57另提交证据后自验收。",
+    "result": "",
+    "dependencyIds": [
+      "a26-unified-wall-tiles-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p57*",
+        "docs/dev/p57/**",
+        "docs/tests/p57*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人恢复第一版原位视觉并接A27局部候选组件，可复用P56组件/编辑器代码，不继续新母材覆盖全墙，不修改旧交付文件，不改物理/既有规则或用户project.godot；并行准备和接入候选不等于正式验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a27-p57-original-wall-plan-v2-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T14:38:55.845Z"
+      }
+    ]
+  },
+  "revision": "bfb00156190c2f34e2f347b634e1ea8b60d2483fb7fd93122d7c79ba2d110c11",
+  "scheduleRevision": "412b8f43e22b447f5ca9a99a595fcd830ff1715e2dd5e11beb6211a4ce376f70",
+  "planChanges": [
+    {
+      "id": "a27-p57-original-wall-plan-v2-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T14:38:55.845Z",
+      "reason": "用户通过主美明确否定A26审美并偏好第一版，上一轮已验收因此新建返修任务而非修改历史。",
+      "createdTaskIds": [
+        "a27-original-wall-local-repair-20261006",
+        "p57-first-version-visual-local-repair-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a26-unified-wall-tiles-20261006",
+      "title": "A26 同源墙体瓦片母版与拼接组件",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "bfb00156190c2f34e2f347b634e1ea8b60d2483fb7fd93122d7c79ba2d110c11"
+  },
+  "feedback": []
+}

@@ -1,0 +1,67 @@
+{
+  "id": "p57-ready-20261006",
+  "digest": "72491ee1ac4d79765c8bdae479165422dfd04557418ed6c008064cd0f96cd6e5",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T15:03:26.967Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p57-ready-20261006",
+    "taskId": "p57-first-version-visual-local-repair-20261006",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "按用户第一版基准恢复原V24横墙/厚柱/门楣与墙脚，仅A27局部角/纵顶/端面同源采样。explicit source-window拆分无整portal绕回，24/20同节距；右extended实际黑缝经发现并拒绝后以top_only+连续middle修复。十组件图标实际GPU可见，原生两尺寸/近景/规则/编辑器134项通过，47美术hash及程序交付hash冻结。原物理/门禁/禁闭/FPS保留，A27已先独立验收。功能检查不代替审美，用户尚未批准本轮；原middle循环烘焙阴影可辨，FPS截图不作性能基准。",
+    "evidence": [
+      "docs/dev/p57/delivery.json",
+      "docs/dev/p57/README.md",
+      "docs/tests/p57-summary.json",
+      "docs/tests/p57-local-repair-left.png",
+      "docs/tests/p57-local-repair-right.png",
+      "docs/tests/p57-1200-walls-hud.png",
+      "docs/tests/p57-960-walls-hud.png",
+      "docs/tests/p57-editor-components-final.png",
+      "docs/tests/p57-runtime-components-final.png",
+      "docs/art/architecture-v27/p57-visual-review.md",
+      "docs/dev/p57/art-review-receipt.json"
+    ],
+    "at": "2026-10-06T15:03:27.088Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p57-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p57-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p57-ready-20261006",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "p57-original-wall-local-repair-20261006",
+  "reports": [
+    {
+      "path": "docs/tests/p57-wall-fps-native-1200.json",
+      "passed": 24,
+      "total": 24,
+      "sha256": "38396b9fdae2d55d0b9eb4d3b0b55e591786ca787c8d78af9e41da9742977da5"
+    },
+    {
+      "path": "docs/tests/p57-wall-fps-native-960.json",
+      "passed": 24,
+      "total": 24,
+      "sha256": "e11c78276b72e7510fe8e00f4a6c33bcf104bc31c196b46b143fb10ab6885a7f"
+    },
+    {
+      "path": "docs/tests/p57-wall-local-native.json",
+      "passed": 7,
+      "total": 7,
+      "sha256": "06b940c298a38b084a2929a00a9af5031edf22298ac4e2e7270e43b4ca746dcd"
+    },
+    {
+      "path": "docs/tests/p57-access-access-headless-1200.json",
+      "passed": 73,
+      "total": 73,
+      "sha256": "9f307187fc51a2ed43a72872022ad5413e10419ad9ba2bbedc15bd0cabbab567"
+    },
+    {
+      "path": "docs/tests/p57-editor-components-native.json",
+      "passed": 6,
+      "total": 6,
+      "sha256": "441fc8ebb61a5caba03531fdb53b27980ce124f8f3f69ba702c79a2d98cd8a36"
+    }
+  ],
+  "passed": 134,
+  "total": 134,
+  "limitations": [
+    "Native screenshots are actual Godot images. FPS cold-start/readback values are not normal gameplay benchmark.",
+    "Technical checks do not imply aesthetic approval by the human. Original middle texture repeats and baked shading remain visible."
+  ],
+  "art_delivery": "architecture-v27-20261006-2f12b412d71d"
+}

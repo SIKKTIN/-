@@ -146,18 +146,20 @@ func paint_facade(area: Rect2) -> void:
 		else:
 			# Preserve source registration while replacing only a corner's footprint.
 			var jamb := Rect2(area.position,Vector2(32,area.size.y))
-			var corner := Rect2(area.end.x-28,area.position.y,28,area.size.y)
+			var corner_width := float(facade.get("end_post_width",28))
+			var corner := Rect2(area.end.x-corner_width,area.position.y,corner_width,area.size.y)
 			var middle := Rect2(jamb.end.x,area.position.y,maxf(0,corner.position.x-jamb.end.x),area.size.y)
 			paint_registered(world.art_textures[str(facade.jamb)],jamb,piece)
 			Tiles.paint(self,world.art_textures[str(facade.middle)],middle,Vector2(144,area.size.y),piece)
-			paint_registered(world.art_textures[str(facade.corner)],corner,piece)
+			if not facade.get("omit_end_post",false):
+				paint_registered(world.art_textures[str(facade.corner)],corner,piece)
 	for patch in facade.get("junctions",[]):
 		var offset: Array = patch.get("offset",[0,0])
 		var size: Array = patch.size
 		var origin := Vector2(area.end.x if patch.get("anchor","") == "right" else area.position.x,area.position.y)
 		var rect := Rect2(origin+Vector2(offset[0],offset[1]),Vector2(size[0],size[1]))
 		var phase: Array = patch.get("phase_shift",[0,0])
-		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]))
+		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]),patch.get("top_only",false))
 	for post in facade.get("posts",[]):
 		var offset: Array = post.offset
 		var size: Array = post.size
@@ -175,8 +177,14 @@ func paint_component_run(id: String, area: Rect2, tile: Vector2, clip: Rect2, mi
 			cursor.y += tile.y
 		cursor.x += tile.x
 
-func paint_junction(id: String, rect: Rect2, mirror_x: bool, clip := Rect2(), phase_shift := Vector2.ZERO) -> void:
-	Components.paint(self,world.art_textures[id],definitions[id],rect,mirror_x,clip,phase_shift)
+func paint_junction(id: String, rect: Rect2, mirror_x: bool, clip := Rect2(), phase_shift := Vector2.ZERO, top_only := false) -> void:
+	var definition: Dictionary = definitions[id]
+	if top_only:
+		# The extended facade already owns its original repeating front.
+		# A portal wing fragment here would create an unrelated stone seam.
+		definition = definition.duplicate()
+		definition.assembly_patches = definition.assembly_patches.filter(func(p): return not str(p.get("role", "")).begins_with("unaltered original wing fragment"))
+	Components.paint(self,world.art_textures[id],definition,rect,mirror_x,clip,phase_shift)
 
 func _draw() -> void:
 	if not world:

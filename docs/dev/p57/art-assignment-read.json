@@ -1,0 +1,84 @@
+{
+  "task": {
+    "id": "a27-original-wall-local-repair-20261006",
+    "title": "A27 保留第一版体积的转角与竖墙局部返修",
+    "description": "用户明确偏好第一版，否定A26素色扁平墙。保留V24横墙/门柱/门楣原始完整美术，只修转角和竖墙的材质及连接。承认上一轮独立美术判断错误，功能检查不作审美依据。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "与用户第一版参考直接对照：原横墙、厚门柱、门楣、深描边、倒角和分块墙脚保留原图体积；局部转角/竖墙优先从cafeteria_portal_v24原图裁取，匹配原石材/石缝/轮廓，接点不脱节、不再用A26素色母材整墙替换。原生局部试拼及实际左右近景/两尺寸由制作人独立审美验收，配套编辑器图标有效。",
+    "result": "",
+    "dependencyIds": [
+      "a26-unified-wall-tiles-20261006"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v27/**",
+        "art/editor/v07/**",
+        "docs/art/architecture-v27/**"
+      ],
+      "entry": "art/architecture/v27/manifest.json + 原图局部试拼",
+      "interfaceContract": "主美本人负责方案/精确源区/组件与图标，优先复用V24完整原PNG裁区，不绘制或涂改旧PNG，不替换原横墙/门柱/门楣。只制作和注册必要转角/纵顶/端头；可复用程序组件绘制。给出原图源区/几何/相位/接点锚点，保留24/20物理、90立面和180门洞；旧A24/A25/A26保持历史冻结。共享scripts/data/Git由制作人维护。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a27-p57-original-wall-plan-v2-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T14:38:55.845Z"
+      }
+    ]
+  },
+  "revision": "18ac975689d77ccf840dbd7af0706fad1d4fa96d24dbfa7f3d37da0563b7e0ce",
+  "scheduleRevision": "b931e56325bcdde6bb82027b50603eb01162a322255d24982b7e1a3aa57db881",
+  "planChanges": [
+    {
+      "id": "a27-p57-original-wall-plan-v2-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T14:38:55.845Z",
+      "reason": "用户通过主美明确否定A26审美并偏好第一版，上一轮已验收因此新建返修任务而非修改历史。",
+      "createdTaskIds": [
+        "a27-original-wall-local-repair-20261006",
+        "p57-first-version-visual-local-repair-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a26-unified-wall-tiles-20261006",
+      "title": "A26 同源墙体瓦片母版与拼接组件",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "18ac975689d77ccf840dbd7af0706fad1d4fa96d24dbfa7f3d37da0563b7e0ce"
+  },
+  "feedback": []
+}

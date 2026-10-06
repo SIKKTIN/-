@@ -1,0 +1,1191 @@
+{
+  "items": [
+    {
+      "id": "p54-concept-faithful-design-20261006",
+      "digest": "bad1ed872b99409f3366530a36f2153a5b83d8fee8d286e271e3fe0251849722",
+      "reviewId": "c4b29ab62fc799759cb4cfeda6d02c61740f71033829c99e1d4cde9b45c1164c",
+      "summary": "按用户概念对照返修R04完整建筑体块与食堂石墙收口，保留原地图及对象ID。",
+      "memberName": "制作人",
+      "compatibility": {
+        "reuse": "R04全部对象ID、access_doors、2小时关押/救援与日程规则，原素材保留。",
+        "modify": "禁闭门90、完整A24原图外壳；食堂南移30及同源手绘模块墙高90，实际围墙驱动表现。",
+        "add": "A24原始PNG、配套图标与opaque core shader；稳定闭态底图和局部门部patch。",
+        "archive": "无"
+      },
+      "rows": [
+        {
+          "id": "p54-map-0",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"当前执行规则：三天逃脱，R04真实地图2800×2200。食堂每天12–14定时开放，实际门禁关闭，14点先疏散。被捕进入对应禁闭室，关2游戏小时，到期释放，伙伴可撬门救人；保留物品与局内成果。白天非戒备不抓人，门岗阻止主门操作；午夜查寝缺员则全厂警报增援。场景复用A17/A19场景资产，按已确认A22最终概念接入A23建筑素材及图标。禁闭室深灰实体屋顶完整遮住内部，外立面嵌入铁门/通风口/标识，门外显示伙伴与剩余禁闭时间；食堂门左右使用110高墙、同压顶及基座，门的开闭高度均110，碰撞与日程独立驱动。真实几何和关押/门配置唯一来源data/rooms/r04.json；策划说明docs/dev/p52-map-design.md。 建筑表现接口：architecture.wall_surfaces及confinement.cells[].building；编辑器可调整墙高、墙材质、封顶和建筑高度，保持物理围墙为通路唯一来源。程序说明docs/dev/p53/README.md。\"",
+          "current": "\"R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门并在14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。禁闭室保持A24统一完整屋顶建筑，食堂墙体以A26同一张RGB母版的14个可重复组件构建横墙、纵顶、左右转角、端头、门柱和门楣。石块单元64、纹理周期128，外墙24/厨房20保持物理宽度，厨房转角只裁截面不缩横臂石块；横墙114高（顶24/面56/脚34），北脚1261.5/顶1147.5，转角150长接纵顶相位22。顶面及侧面使用同材质采样和统一光照，左右/厨房源纹理相位连续。门金属主体保持。游戏与编辑器共用组件绘制，配套14图标和临时摆放实际GPU显示验证。原墙/门/碰撞及日程、背包、买入、禁闭规则保持；FPS为Engine实时值，暂停也更新。本轮215项技术检查和主美独立实际图复核通过，证据docs/dev/p56/README.md、docs/tests/p56-summary.json。\"",
+          "incoming": "\"R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门，14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。按用户认可的A22/A24概念原位返修建筑：完整深灰屋顶、厚檐与檐下阴影、石墙脚、宽门柱和窄门在统一原图内；闭态稳定底图，开态仅注册门口patch，内部全遮挡。禁闭物理门90×28，外观约90×116；食堂门洞180×90，北墙总显示高度121.5（墙90+顶31.5），厚石柱、同源连续墙与基座，纵向墙使用同色石柱侧面收口。食堂整体向南30以对齐概念建筑比例，其余日程/追捕/背包/买入规则不变。唯一几何来源data/rooms/r04.json，程序与实际图证据docs/dev/p54/README.md。\""
+        },
+        {
+          "id": "p54-map-1",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/unit",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"世界单位（设计网格60）\"",
+          "current": "\"世界单位（设计网格80）\"",
+          "incoming": "\"世界单位（设计网格80）\""
+        },
+        {
+          "id": "p54-map-2",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-3",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-4",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-5",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-6",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-7",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-8",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-9",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-10",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-11",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "27.25",
+          "current": "27.625",
+          "incoming": "27.625"
+        },
+        {
+          "id": "p54-map-12",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-13",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15.299999999999999",
+          "current": "15.675",
+          "incoming": "15.675"
+        },
+        {
+          "id": "p54-map-14",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-15",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15.299999999999999",
+          "current": "15.675",
+          "incoming": "15.675"
+        },
+        {
+          "id": "p54-map-16",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P54食堂完整手绘压顶/前墙/墙脚和同源石柱，显示90高、顶厚31.5；墙位为真实碰撞，装饰不另增加障碍。\""
+        },
+        {
+          "id": "p54-map-17",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-26/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2.75",
+          "current": "3.1875",
+          "incoming": "3.1875"
+        },
+        {
+          "id": "p54-map-18",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-27/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "6",
+          "current": "5.5625",
+          "incoming": "5.5625"
+        },
+        {
+          "id": "p54-map-19",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-27/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "0.75",
+          "current": "1.1875",
+          "incoming": "1.1875"
+        },
+        {
+          "id": "p54-map-20",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-31/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2.75",
+          "current": "3.1875",
+          "incoming": "3.1875"
+        },
+        {
+          "id": "p54-map-21",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-32/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "6",
+          "current": "5.5625",
+          "incoming": "5.5625"
+        },
+        {
+          "id": "p54-map-22",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-32/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "0.75",
+          "current": "1.1875",
+          "incoming": "1.1875"
+        },
+        {
+          "id": "p54-map-23",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-36/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2.75",
+          "current": "3.1875",
+          "incoming": "3.1875"
+        },
+        {
+          "id": "p54-map-24",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-37/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "6",
+          "current": "5.5625",
+          "incoming": "5.5625"
+        },
+        {
+          "id": "p54-map-25",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-37/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "0.75",
+          "current": "1.1875",
+          "incoming": "1.1875"
+        },
+        {
+          "id": "p54-map-26",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-counter/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "17.875",
+          "current": "18.25",
+          "incoming": "18.25"
+        },
+        {
+          "id": "p54-map-27",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-kitchen-collision/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15.375",
+          "current": "15.75",
+          "incoming": "15.75"
+        },
+        {
+          "id": "p54-map-28",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-queue/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "18.75",
+          "current": "19.125",
+          "incoming": "19.125"
+        },
+        {
+          "id": "p54-map-29",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-canteen-return/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "24.25",
+          "current": "24.625",
+          "incoming": "24.625"
+        },
+        {
+          "id": "p54-map-30",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-0/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "21.6625",
+          "current": "22.0375",
+          "incoming": "22.0375"
+        },
+        {
+          "id": "p54-map-31",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-1/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "21.6625",
+          "current": "22.0375",
+          "incoming": "22.0375"
+        },
+        {
+          "id": "p54-map-32",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-2/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "25.537499999999998",
+          "current": "25.9125",
+          "incoming": "25.9125"
+        },
+        {
+          "id": "p54-map-33",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-dine-tray-3/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "25.537499999999998",
+          "current": "25.9125",
+          "incoming": "25.9125"
+        },
+        {
+          "id": "p54-map-34",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"改为屋前立面外侧通风口，64×33显示，禁止透视室内。\"",
+          "current": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\"",
+          "incoming": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\""
+        },
+        {
+          "id": "p54-map-35",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-36",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-37",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。\"",
+          "current": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\"",
+          "incoming": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\""
+        },
+        {
+          "id": "p54-map-38",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"改为屋前立面外侧通风口，64×33显示，禁止透视室内。\"",
+          "current": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\"",
+          "incoming": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\""
+        },
+        {
+          "id": "p54-map-39",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-40",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-41",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。\"",
+          "current": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\"",
+          "incoming": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\""
+        },
+        {
+          "id": "p54-map-42",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"改为屋前立面外侧通风口，64×33显示，禁止透视室内。\"",
+          "current": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\"",
+          "incoming": "\"P54通风口已烘在完整建筑前墙中，原独立图隐藏，保留对象ID。\""
+        },
+        {
+          "id": "p54-map-43",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-44",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-45",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。\"",
+          "current": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\"",
+          "incoming": "\"P54旧独立门框隐藏，仅作逻辑关联；完整A24建筑含门柱/门牌/通风口，物理门缩为90×28。开门局部采样OPEN patch，不切换整张屋顶。\""
+        },
+        {
+          "id": "p54-map-46",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-door-visual/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-47",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-reader/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "14.0625",
+          "current": "14.125",
+          "incoming": "14.125"
+        },
+        {
+          "id": "p54-map-48",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-reader/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "14.875",
+          "current": "15.1875",
+          "incoming": "15.1875"
+        },
+        {
+          "id": "p54-map-49",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-expansion-7/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15.6875",
+          "current": "16.0625",
+          "incoming": "16.0625"
+        },
+        {
+          "id": "p54-map-50",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal0/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "19.5",
+          "current": "19.875",
+          "incoming": "19.875"
+        },
+        {
+          "id": "p54-map-53",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal1/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "19.5",
+          "current": "19.875",
+          "incoming": "19.875"
+        },
+        {
+          "id": "p54-map-56",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-meal2/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "19.5",
+          "current": "19.875",
+          "incoming": "19.875"
+        },
+        {
+          "id": "p54-map-59",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine0/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "23.1875",
+          "current": "23.5625",
+          "incoming": "23.5625"
+        },
+        {
+          "id": "p54-map-62",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine1/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "23.1875",
+          "current": "23.5625",
+          "incoming": "23.5625"
+        },
+        {
+          "id": "p54-map-65",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-routine-dine2/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "23.1875",
+          "current": "23.5625",
+          "incoming": "23.5625"
+        },
+        {
+          "id": "p54-map-68",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-cafeteria-entry/y",
+          "op": "set",
+          "state": "unchanged",
+          "base": "15",
+          "current": "15.375",
+          "incoming": "15.375"
+        },
+        {
+          "id": "p54-map-69",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-cafeteria-entry/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"食堂12:00–14:00开放，14:00疏散后关闭。\"",
+          "current": "\"食堂每天12–14开放，门洞180×90，墙翼31.5厚门楣；关闭疏散、开关碰撞保持原规则。\"",
+          "incoming": "\"食堂每天12–14开放，门洞180×90，墙翼31.5厚门楣；关闭疏散、开关碰撞保持原规则。\""
+        },
+        {
+          "id": "p54-map-70",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-71",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-72",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-0/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"捕获后关2游戏小时；伙伴可从外侧撬门救人。\"",
+          "current": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\"",
+          "incoming": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\""
+        },
+        {
+          "id": "p54-map-73",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-74",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-75",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-1/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"捕获后关2游戏小时；伙伴可从外侧撬门救人。\"",
+          "current": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\"",
+          "incoming": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\""
+        },
+        {
+          "id": "p54-map-76",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/x",
+          "op": "set",
+          "state": "unchanged",
+          "base": "4",
+          "current": "4.4375",
+          "incoming": "4.4375"
+        },
+        {
+          "id": "p54-map-77",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/width",
+          "op": "set",
+          "state": "unchanged",
+          "base": "2",
+          "current": "1.125",
+          "incoming": "1.125"
+        },
+        {
+          "id": "p54-map-78",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-gate-solitary-2/notes",
+          "op": "set",
+          "state": "unchanged",
+          "base": "\"捕获后关2游戏小时；伙伴可从外侧撬门救人。\"",
+          "current": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\"",
+          "incoming": "\"对应禁闭室物理门90×28，2游戏小时释放或伙伴撬门/钥匙救人；A24稳定屋顶+门口patch。\""
+        },
+        {
+          "id": "p54-map-79",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-0/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。\"",
+          "current": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。\"",
+          "incoming": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298依据测量锚点对齐90×28物理门。\""
+        },
+        {
+          "id": "p54-map-80",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-1/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。\"",
+          "current": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。\"",
+          "incoming": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298依据测量锚点对齐90×28物理门。\""
+        },
+        {
+          "id": "p54-map-81",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-2/notes",
+          "op": "set",
+          "state": "conflict",
+          "base": "\"完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。\"",
+          "current": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298（顶面189、立面109）依据测量锚点对齐90×28物理门。\"",
+          "incoming": "\"完整A24建筑外壳，统一屋顶、厚檐、前石墙、窄铁门、宽石门柱和基座；外观456×298依据测量锚点对齐90×28物理门。\""
+        }
+      ],
+      "unresolved": 11
+    },
+    {
+      "id": "p57-original-wall-local-repair-design-20261006",
+      "digest": "26dc65594dea59e2bf6f15b3949573fb2be7f1e7b15ba520b8eb6597e37449e7",
+      "reviewId": "c4b29ab62fc799759cb4cfeda6d02c61740f71033829c99e1d4cde9b45c1164c",
+      "summary": "按用户纠正恢复第一版原横墙、厚柱、门楣体积，A27只修转角与竖墙；撤销A26淡色母材主地图应用。",
+      "memberName": "制作人",
+      "compatibility": {
+        "reuse": "原V24横翼/中段/门柱/门楣、对象ID、几何、规则、实时FPS。",
+        "modify": "R04仅转角和纵墙取原V24干净源区采样，extended保持横墙连续纹理。",
+        "add": "A27十组件和十地图编辑器图标、原生实际局部证据。",
+        "archive": "A24–26历史资源及验收冻结；A26用户否定已追加更正。"
+      },
+      "rows": [
+        {
+          "id": "p57-description",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+          "op": "set",
+          "state": "updated",
+          "base": "\"R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门并在14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。禁闭室保持A24统一完整屋顶建筑，食堂墙体以A26同一张RGB母版的14个可重复组件构建横墙、纵顶、左右转角、端头、门柱和门楣。石块单元64、纹理周期128，外墙24/厨房20保持物理宽度，厨房转角只裁截面不缩横臂石块；横墙114高（顶24/面56/脚34），北脚1261.5/顶1147.5，转角150长接纵顶相位22。顶面及侧面使用同材质采样和统一光照，左右/厨房源纹理相位连续。门金属主体保持。游戏与编辑器共用组件绘制，配套14图标和临时摆放实际GPU显示验证。原墙/门/碰撞及日程、背包、买入、禁闭规则保持；FPS为Engine实时值，暂停也更新。本轮215项技术检查和主美独立实际图复核通过，证据docs/dev/p56/README.md、docs/tests/p56-summary.json。\"",
+          "current": "\"R04为三天逃脱的黑工厂管制生活区。食堂12:00–14:00定时开门并在14点疏散；被抓进入禁闭室，关2游戏小时或由伙伴撬门救人。禁闭室保持A24统一完整屋顶建筑，食堂墙体以A26同一张RGB母版的14个可重复组件构建横墙、纵顶、左右转角、端头、门柱和门楣。石块单元64、纹理周期128，外墙24/厨房20保持物理宽度，厨房转角只裁截面不缩横臂石块；横墙114高（顶24/面56/脚34），北脚1261.5/顶1147.5，转角150长接纵顶相位22。顶面及侧面使用同材质采样和统一光照，左右/厨房源纹理相位连续。门金属主体保持。游戏与编辑器共用组件绘制，配套14图标和临时摆放实际GPU显示验证。原墙/门/碰撞及日程、背包、买入、禁闭规则保持；FPS为Engine实时值，暂停也更新。本轮215项技术检查和主美独立实际图复核通过，证据docs/dev/p56/README.md、docs/tests/p56-summary.json。\"",
+          "incoming": "\"R04为三天逃脱的黑工厂管制生活区，玩家是被抓来干活的无辜人。食堂12:00–14:00定时开门，14点疏散；被抓关禁闭2游戏小时，伙伴可撬门救人。按用户偏好恢复第一版原V24横翼/横墙中段、厚门柱与门楣，保留原深描边、倒角与分块墙脚。A27只用同一原V24 portal的局部采样构建左右角、24/20纵墙顶和端面，不生成淡色新母材；纵石块周期61.5706806283，显式源区拆分，不整PNG循环。extended正面持续按原中段采样，角仅补墙顶与纵臂，避免门翼裁区黑拼缝；20仅缩截面，长度节距不缩。北脚1261.5，角顶1146.48，纵顶起源1170.48，续画1296.48。禁闭室完整屋顶保持。编辑器配套十图标及真实摆件绘制。A26已被用户否定外观，冻结历史并追加更正，不沿用其审美通过结论；本轮实际图独立对照第一版，功能检查不能代替用户审美验收。FPS继续显示Engine实时值，暂停也采样。证据docs/dev/p57/README.md与docs/tests/p57-summary.json。\""
+        },
+        {
+          "id": "p57-wall-7",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-8",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-9",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-10",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-11",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-12",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        },
+        {
+          "id": "p57-wall-13",
+          "module": "map-design",
+          "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+          "op": "set",
+          "state": "updated",
+          "base": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "current": "\"P56同源瓦片组件替换旧混合材质，采样A26单一母版，石块64/周期128，保留物理几何。横、纵、转角、端头及门框纹理尺度/光照一致，正尺寸UV相位与末端裁切；20厚仅改变截面。程序与编辑器共用assembly绘制，实际图及215项验证见docs/dev/p56/README.md。\"",
+          "incoming": "\"P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。\""
+        }
+      ],
+      "unresolved": 0
+    }
+  ],
+  "history": [
+    {
+      "id": "a9e7d5af-8db4-444f-a673-f35c1c7ec4f8",
+      "digest": "9718945dd469e245942164055b707551b2159891c353c51620e906b079e80b55",
+      "summary": "建立随机技能房间解谜设计基线：独立人物操作、三技能、环境规则、核心循环、既有房间与门边掩护方案。",
+      "memberName": "制作人",
+      "at": "2026-10-04T11:37:55.001Z",
+      "modules": [
+        "gameplay-core",
+        "design-documents",
+        "gameplay",
+        "map-design",
+        "project"
+      ]
+    },
+    {
+      "id": "cf73b847-d836-41af-8465-4898dcaeb18f",
+      "digest": "552ab098d3f84d1fb8b79a537a87f52cfac973ad2319483d3a33309db18005d8",
+      "summary": "主美制定二维手绘纸片风的喜剧越狱视觉方向、色板、分类规则及制作规格；复用独立移动与现有三技能。",
+      "memberName": "主美",
+      "at": "2026-10-04T11:48:43.897Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "4c085a0b-4fba-479a-adb1-9eff82adc9eb",
+      "digest": "a733d7a658c575fadf5127f04536d52a0a7777f5fb42df90326dcbb1937ba0b3",
+      "summary": "制定Godot两房间原型执行计划：四阶段验收、12项任务分工与依赖、共享主干和接口；衔接已确认美术方向。",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:09:32.654Z",
+      "modules": [
+        "design-documents",
+        "project-standards",
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "0441abd9-97e4-44ef-b8e6-e96f48d3664d",
+      "digest": "6cfc4d6a018c2cc66574684a0d55a8420bf608c0c33d7a610042c5462f409295",
+      "summary": "开工接口对齐：A01采用最小两帧步态；P08明确共享主干接入路径。P02按原范围先交付独立环境模块。",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:24:41.802Z",
+      "modules": [
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "b15705ef-85ae-49a4-916d-6034081153f0",
+      "digest": "8f0cb40b4330d2ec46e4bb56d8d8694186dfefed331cdf418fa27d281b3f5aea",
+      "summary": "记录双关Godot实际验证布局，并为未开始P08登记狱警/环境表现接入路径",
+      "memberName": "制作人",
+      "at": "2026-10-04T12:53:18.628Z",
+      "modules": [
+        "map-design",
+        "project-schedule"
+      ]
+    },
+    {
+      "id": "6a20cc32-61d4-42f0-bb73-b01cddad4efa",
+      "digest": "1620728694ba4183caed1aa643d2ad491a4b124a24bb2b66e848415a714318bc",
+      "summary": "按用户真实反馈同步v0.2 RTS独立指令、技能中断、巡逻恢复与水平翻转，保留三技能和随机规则。",
+      "memberName": "制作人",
+      "at": "2026-10-04T13:28:41.064Z",
+      "modules": [
+        "design-documents",
+        "gameplay"
+      ]
+    },
+    {
+      "id": "art-style-perspective-v02-20261004",
+      "digest": "f0ce48c57cdcc4c64aee2df0c6d0bfc234a6b2ef495b83b8a6bf5810449f0717",
+      "summary": "根据用户确认的R02概念及明确替换授权更新轻度斜俯视美术草稿；保留首轮基准历史。",
+      "memberName": "主美",
+      "at": "2026-10-04T13:48:00.248Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "escape-art-v03-spec-20261004",
+      "digest": "349d7fc87606b8c87e8633281f8bea1dc06b2f9716143b7a745e78e580a306ec",
+      "summary": "同步已交付A04的v03手绘制作规格及实际P13渲染参数；保留已确认历史风格revision1/2与原资源。",
+      "memberName": "主美",
+      "at": "2026-10-04T14:56:53.702Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "escape-art-v03-warm-lighting-20261004",
+      "digest": "5f6496ea7f2bb14464ed05028cbb7f8d8960e114dc78e14b030183b46cb75682",
+      "summary": "记录原生两尺寸比较后最终选定的暖浅墙顶调制参数。",
+      "memberName": "主美",
+      "at": "2026-10-04T15:01:08.881Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "p15-guard-light-interaction-20261004",
+      "digest": "b505e2c6b2396dfec13661ade732a3b7a15394b71eee7751443443d835fd3be8",
+      "summary": "v0.6同步用户确认的安全房间、昼夜手电视野与近距离图标，保留历史验证与本轮范围。",
+      "memberName": "制作人",
+      "at": "2026-10-04T15:59:00.224Z",
+      "modules": [
+        "gameplay",
+        "map-design"
+      ]
+    },
+    {
+      "id": "bag-merchant-r03-plan-20261005",
+      "digest": "78a6585c0e958d348950adf97fbc6e8f4b46b981915bcd64bd2c089c2b6d079a",
+      "summary": "制定背包/扩容、双向商人与较大R03的执行计划；本轮只设计，不改变当前运行玩法。",
+      "memberName": "制作人",
+      "at": "2026-10-04T16:14:28.122Z",
+      "modules": [
+        "design-documents",
+        "map-design"
+      ]
+    },
+    {
+      "id": "bag-r03-plan-geometry-20261005",
+      "digest": "34624d91c64b1efa62c8c72ea6cd5fdff2879ac5885b0ca007e4c7d887f37683",
+      "summary": "校对R03初稿：狱警起点移到货架外，下路箱上下净空设为32以匹配人物直径34；仍为待灰盒验证设计。",
+      "memberName": "制作人",
+      "at": "2026-10-04T16:20:54.754Z",
+      "modules": [
+        "design-documents",
+        "map-design"
+      ]
+    },
+    {
+      "id": "bag-r03-plan-exit-20261005",
+      "digest": "3494815cd81bdc2a8bcd55bc2b5cfafaa10037e6ad8d3171ad83efd7eece9dbd",
+      "summary": "校对R03初稿：撤离口完全放入1800×1100活动区域，避免边界钳制后无法到达。",
+      "memberName": "制作人",
+      "at": "2026-10-04T16:25:54.040Z",
+      "modules": [
+        "design-documents",
+        "map-design"
+      ]
+    },
+    {
+      "id": "p20-v07-completed-design-20261005",
+      "digest": "8ce53264ba2dd3a652b2b2a7314c6a2df0120ce828799d6e89d8ae49c9cdd0ec",
+      "summary": "v0.7实测规则回写：独立背包、双向商人、大地图相机与R03，234项技术检查、三关原生完整路线及明确未覆盖项。",
+      "memberName": "制作人",
+      "at": "2026-10-04T17:11:42.232Z",
+      "modules": [
+        "design-documents",
+        "gameplay",
+        "map-design"
+      ]
+    },
+    {
+      "id": "p20-empty-slot-evidence-20261005",
+      "digest": "dcf3a81344098035a7b6f75c67e6ecd716636601add4cab1952d28efcbb42f6f",
+      "summary": "首屏空背包尺寸问题修复，两尺寸原生GUI各22项通过；最终技术检查合计236，记录实际窗口验证。",
+      "memberName": "制作人",
+      "at": "2026-10-04T17:25:16.610Z",
+      "modules": [
+        "design-documents",
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p21-camera-controls-20261005",
+      "digest": "e7eb795da0e18b70f2dc6ef75e9aec86d86aeddf59e2dcfc82845ed5ed5b3280",
+      "summary": "v0.7.1补齐RTS边缘及方向键相机操作，保留独立命令和拖动定位；记录两尺寸原生相机检查。",
+      "memberName": "制作人",
+      "at": "2026-10-04T17:47:03.684Z",
+      "modules": [
+        "gameplay",
+        "design-documents"
+      ]
+    },
+    {
+      "id": "p22-mobile-minimap-design-20261005",
+      "digest": "d93ab65aa5d39b5fa1bffcae6c6175b33e96718ca8fbdb96d2e1f75e452fdffd",
+      "summary": "按用户手机主要平台纠正P21：移除边缘滚屏，采用小地图和单指操作，记录触屏技术验证。",
+      "memberName": "制作人",
+      "at": "2026-10-04T18:07:52.789Z",
+      "modules": [
+        "gameplay",
+        "design-documents"
+      ]
+    },
+    {
+      "id": "p23-prison-dressing-design-20261005",
+      "digest": "9bfa317511cd7b1d61ad8c59966e4e631942845901764db77b0b88169606d71a",
+      "summary": "新增监狱摆设配置规则与R04三分区设计，保留旧关/手机操作；美术与实际画面仍制作中。",
+      "memberName": "制作人",
+      "at": "2026-10-05T01:19:44.944Z",
+      "modules": [
+        "map-design",
+        "design-documents"
+      ]
+    },
+    {
+      "id": "p23-prison-dressing-final-20261005",
+      "digest": "8dbbc9a9fd4cf469a6081c39645e5e80668c1079c1df121d8a7a4f7b688a5cbb",
+      "summary": "新增监狱摆设配置规则与R04三分区设计，保留旧关/手机操作；美术与实际画面仍制作中。",
+      "memberName": "制作人",
+      "at": "2026-10-05T01:51:51.925Z",
+      "modules": [
+        "map-design",
+        "design-documents",
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p24-navigation-follow-design-20261005",
+      "digest": "3fd2a2f2665c738fe07201502c32453db3b9aee2db3f79af385645d69ac3fc05",
+      "summary": "v0.8.1优化连点寻路并增加选中人物平滑镜头跟随，保留手动小地图查看和暂停/恢复；106技术检查通过。",
+      "memberName": "制作人",
+      "at": "2026-10-05T02:14:30.062Z",
+      "modules": [
+        "gameplay",
+        "design-documents"
+      ]
+    },
+    {
+      "id": "p25-camera-stability-design-20261005",
+      "digest": "70c112b1c385e06ad404a28d2ce30b9ed2d85679234f29d5985086e505c5be8f",
+      "summary": "v0.8.2相机解析跟随、单帧投影同步与按住轻点不断镜头；排除采样误判，50原生检查通过。",
+      "memberName": "制作人",
+      "at": "2026-10-05T02:30:12.594Z",
+      "modules": [
+        "gameplay",
+        "design-documents"
+      ]
+    },
+    {
+      "id": "p26-sampling-design-20261005",
+      "digest": "52a164c7b0399163de3a213612a4c0a4821f2c3429b84c49c8cf61a655518d94",
+      "summary": "依据用户澄清将P26改为栏杆缩小纹理稳定采样；保留输入、相机、灯光及真实复核边界。",
+      "memberName": "制作人",
+      "at": "2026-10-05T02:47:42.140Z",
+      "modules": [
+        "project-schedule",
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p28-schedule-dog-design-20261005",
+      "digest": "f75c371268eafdc284c31b8429fd924d385f4c83d37b7e6c7b48bc48126e380d",
+      "summary": "将真实已实现的限时日程、警犬、弹窗层级和终局条件写回核心设计。",
+      "memberName": "制作人",
+      "at": "2026-10-05T04:38:18.077Z",
+      "modules": [
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p31-daily-curfew-20261005",
+      "digest": "c0a464c9409da268900800683a0c249b0ceaedd7be1c8a7fd6d94148b5fcc2e1",
+      "summary": "按用户指定08至22日程，增加开发者时钟流速、20点归寝与外部宵禁警戒，回写实际范围与验证。",
+      "memberName": "制作人",
+      "at": "2026-10-05T05:37:32.815Z",
+      "modules": [
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p32-wall-stability-20261005",
+      "digest": "f322e08eb5e7bee1be6a705a5c84cc63e4402d0280b0453f2317fbe7008781c5",
+      "summary": "P32：修复R04细竖墙移动时硬描边/侧面窄条闪烁，记录实际对照与缓存成本。",
+      "memberName": "制作人",
+      "at": "2026-10-05T06:07:27.300Z",
+      "modules": [
+        "gameplay"
+      ]
+    },
+    {
+      "id": "fullscreen-multiday-rules-20261005",
+      "digest": "c970a08fd5af32edb2bd9b8d1d9782d03df5710c9019882b53b171334e5a5396",
+      "summary": "落实用户确认全屏UI与三天循环、午夜锁寝/可操作/跳过，替代单日22点封监。",
+      "memberName": "制作人",
+      "at": "2026-10-05T07:40:36.148Z",
+      "modules": [
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p36-daily-routine-rules-20261005",
+      "digest": "11adbb8a0bf9209c1fb45b71c82cd47a1dcb6c232b3a20a52c2845562ab68b40",
+      "summary": "落实紧凑HUD及每日可编辑人员活动安排、实际赴岗与手动接管规则。",
+      "memberName": "制作人",
+      "at": "2026-10-05T08:18:07.763Z",
+      "modules": [
+        "gameplay"
+      ]
+    },
+    {
+      "id": "p48-story-premise-20261006",
+      "digest": "c21eda81106fc8623f107676d296c2f786c683d96d330d0d2e99766a215fbac1",
+      "summary": "用户明确新背景：三个无辜的人被混混抓到黑工厂强迫劳动，合作逃出；主要平台手机。",
+      "memberName": "制作人",
+      "at": "2026-10-06T06:14:27.842Z",
+      "modules": [
+        "project"
+      ]
+    },
+    {
+      "id": "p51-editor-icon-standard-20261006",
+      "digest": "eef0dac2123b68ff1c92b72c6d287bf5c424cd0e425de3ab9db135a0a41e6888",
+      "summary": "按用户要求永久记录美术素材必须配套编辑器图标，新增制作规范，不改历史风格与世界资源。",
+      "memberName": "制作人",
+      "at": "2026-10-06T07:50:12.856Z",
+      "modules": [
+        "art-assets"
+      ]
+    },
+    {
+      "id": "p52-r04-design-20261006",
+      "digest": "d0d4c5b5cb78caa2d8aa47caf0b9dc6ad84fac91f4b8110035510750fc9c40e9",
+      "summary": "原位重排R04并记录食堂门禁与两小时禁闭救援，保留地图及旧对象ID。",
+      "memberName": "制作人",
+      "at": "2026-10-06T08:45:59.941Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p53-architecture-design-20261006",
+      "digest": "7c0b0f4d6c8ab1c2bc10cd0c620c72421ce1db8389670f6e6566767535f889c0",
+      "summary": "按用户确认A22终稿原位完善R04门墙一体与完整封顶禁闭室，保持地图/对象ID及门禁/关押规则。",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:01:02.150Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p54-concept-faithful-design-final-20261006",
+      "digest": "bd949e9945248ba4ee744b3b788b2fe8ca1f9ebbc2daeb8f911b8e6856022806",
+      "summary": "按用户概念对照返修R04完整建筑体块与食堂石墙收口，保留原地图及对象ID。",
+      "memberName": "制作人",
+      "at": "2026-10-06T10:56:20.666Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p55-cafeteria-walls-fps-design-20261006",
+      "digest": "45a42db2fb46da06981030d614c8fa63de1a2d2c84797409e3a2df1180980a28",
+      "summary": "原位修正食堂纵墙/透明边缘并加入运行FPS，保留R04对象ID及规则。",
+      "memberName": "制作人",
+      "at": "2026-10-06T11:57:35.533Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p55-corner-design-20261006",
+      "digest": "d7281da4ff549f9c246ab0756503149263395345f562c07eadb743521348a3cc",
+      "summary": "P55补充实际验证的连续L转角、左右镜像与原图裁区配准，保留地图几何。",
+      "memberName": "制作人",
+      "at": "2026-10-06T12:30:54.954Z",
+      "modules": [
+        "map-design"
+      ]
+    },
+    {
+      "id": "p56-unified-wall-tiles-design-20261006",
+      "digest": "d3e1cf683172df53b3fe11d955d4ce49ef72239d18f430de183746b3e2a35f66",
+      "summary": "按用户统一材质要求，以A26同母版可重复组件替换R04食堂墙体表现，保持原对象和规则。",
+      "memberName": "制作人",
+      "at": "2026-10-06T14:10:30.609Z",
+      "modules": [
+        "map-design"
+      ]
+    }
+  ]
+}

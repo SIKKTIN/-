@@ -1,0 +1,182 @@
+{
+  "task": {
+    "id": "a27-original-wall-local-repair-20261006",
+    "title": "A27 保留第一版体积的转角与竖墙局部返修",
+    "description": "用户明确偏好第一版，否定A26素色扁平墙。保留V24横墙/门柱/门楣原始完整美术，只修转角和竖墙的材质及连接。承认上一轮独立美术判断错误，功能检查不作审美依据。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "已完成",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "2026-10-06",
+    "milestoneId": "",
+    "acceptance": "与用户第一版参考直接对照：原横墙、厚门柱、门楣、深描边、倒角和分块墙脚保留原图体积；局部转角/竖墙优先从cafeteria_portal_v24原图裁取，匹配原石材/石缝/轮廓，接点不脱节、不再用A26素色母材整墙替换。原生局部试拼及实际左右近景/两尺寸由制作人独立审美验收，配套编辑器图标有效。",
+    "result": "交付architecture-v27-20261006-2f12b412d71d：保留用户第一版原V24横翼/厚门柱/门楣，0新增生产PNG；10个局部角/纵顶/端面和10对应同源MeshTexture图标。原压顶真实倒角/深边源窗232,192,245,74.074，石块节距61.57068，24/20只变截面；原翼角正面严格沿原翼原比例采样，整PNG不作U漂移。已实际复核1200/960、左右2倍、厨房、编辑器及游戏摆放。右extended最初黑缝已拒绝并修正：原middle连续，top_only跳过独特原翼face，只遮纵臂截面，移除旧尾柱；最新图该缝消除，原体积和风格恢复。主美判断符合第一版基准；134项实际功能/资源/规则检查另列，不能代替审美。10图标GPU可见，native stderr0。47文件hash冻结，旧A24/A25/A26不变；长墙原中段重复和烘焙阴影可辨，未承诺无限随机。待制作人独立审美验收，不代表用户已批准。\n\n验收通过：制作人独立看过1200/960游戏整场、左右2倍及厨房、编辑器/运行组件图，并与用户第一版对照：原V24厚柱/楣/横墙明暗与墙脚恢复，纵顶同原石材有深侧/倒角。右extended门翼裁区黑拼缝在实际图中发现并退回修正，最终middle连续/top_only仅补顶和纵臂，缝已消除。47文件hash匹配，10实际GPU图标可见，原材质冻结。认可这轮保留第一版的局部修复，不以134功能项代替审美，不宣称用户已批准；原循环阴影仍可辨，FPS截屏不是性能基准。程序P57另验收。",
+    "dependencyIds": [
+      "a26-unified-wall-tiles-20261006"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v27/**",
+        "art/editor/v07/**",
+        "docs/art/architecture-v27/**"
+      ],
+      "entry": "art/architecture/v27/manifest.json + 原图局部试拼",
+      "interfaceContract": "主美本人负责方案/精确源区/组件与图标，优先复用V24完整原PNG裁区，不绘制或涂改旧PNG，不替换原横墙/门柱/门楣。只制作和注册必要转角/纵顶/端头；可复用程序组件绘制。给出原图源区/几何/相位/接点锚点，保留24/20物理、90立面和180门洞；旧A24/A25/A26保持历史冻结。共享scripts/data/Git由制作人维护。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a27-p57-original-wall-plan-v2-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T14:38:55.845Z"
+      }
+    ]
+  },
+  "revision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a",
+  "scheduleRevision": "1f728a98408a156d38e3d71a5f87a2830d5bd5c37e062ebca59d6dd11d5290ce",
+  "planChanges": [
+    {
+      "id": "a27-p57-original-wall-plan-v2-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T14:38:55.845Z",
+      "reason": "用户通过主美明确否定A26审美并偏好第一版，上一轮已验收因此新建返修任务而非修改历史。",
+      "createdTaskIds": [
+        "a27-original-wall-local-repair-20261006",
+        "p57-first-version-visual-local-repair-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a26-unified-wall-tiles-20261006",
+      "title": "A26 同源墙体瓦片母版与拼接组件",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "已完成",
+    "feedbackId": "a27-final-v27-20261006",
+    "feedbackState": "accepted",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_correct",
+        "cli": "feedback correct",
+        "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a"
+  },
+  "feedback": [
+    {
+      "id": "a27-start-20261006",
+      "taskId": "a27-original-wall-local-repair-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按用户第一版偏好，仅做转角、纵顶和端面，完整V24横翼、门柱、门楣保留。原PNG压顶缝232/476、源区232,192,245,74.074已测；纵向节距61.5707，与原横墙石块尺度对应。角的立面直接按原左右翼坐标采样，不换材不调色；24/20仅跨宽不同，纵向节距不缩。所有循环显式限制在选定源区，禁用全PNG相位漂移。已输出10组件接口，正在原生局部试拼及同源图标验证。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/docs/art/architecture-v27/interface.json",
+        "E:/Project/Godot/这次怎么逃/docs/art/architecture-v27/source-review.json"
+      ],
+      "at": "2026-10-06T14:42:03.586Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "已完成",
+        "feedbackId": "a27-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a",
+      "delivery": "recorded",
+      "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务"
+    },
+    {
+      "id": "a27-final-v27-20261006",
+      "taskId": "a27-original-wall-local-repair-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "交付architecture-v27-20261006-2f12b412d71d：保留用户第一版原V24横翼/厚门柱/门楣，0新增生产PNG；10个局部角/纵顶/端面和10对应同源MeshTexture图标。原压顶真实倒角/深边源窗232,192,245,74.074，石块节距61.57068，24/20只变截面；原翼角正面严格沿原翼原比例采样，整PNG不作U漂移。已实际复核1200/960、左右2倍、厨房、编辑器及游戏摆放。右extended最初黑缝已拒绝并修正：原middle连续，top_only跳过独特原翼face，只遮纵臂截面，移除旧尾柱；最新图该缝消除，原体积和风格恢复。主美判断符合第一版基准；134项实际功能/资源/规则检查另列，不能代替审美。10图标GPU可见，native stderr0。47文件hash冻结，旧A24/A25/A26不变；长墙原中段重复和烘焙阴影可辨，未承诺无限随机。待制作人独立审美验收，不代表用户已批准。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v27\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v07\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\delivery.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\README.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\interface.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\contract-check.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\native-preview.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\native-detail.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\native-icons-visible.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\p57-visual-review.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\p57-visual-evidence.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-local-repair-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-local-repair-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-1200-walls-hud.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-960-walls-unobscured.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-editor-components-final.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v27\\runtime\\p57-runtime-components-final.png"
+      ],
+      "at": "2026-10-06T14:59:16.373Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T15:01:48.644Z",
+        "note": "制作人独立看过1200/960游戏整场、左右2倍及厨房、编辑器/运行组件图，并与用户第一版对照：原V24厚柱/楣/横墙明暗与墙脚恢复，纵顶同原石材有深侧/倒角。右extended门翼裁区黑拼缝在实际图中发现并退回修正，最终middle连续/top_only仅补顶和纵臂，缝已消除。47文件hash匹配，10实际GPU图标可见，原材质冻结。认可这轮保留第一版的局部修复，不以134功能项代替审美，不宣称用户已批准；原循环阴影仍可辨，FPS截屏不是性能基准。程序P57另验收。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      },
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "已完成",
+        "feedbackId": "a27-final-v27-20261006",
+        "feedbackState": "accepted",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_correct",
+            "cli": "feedback correct",
+            "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "67c96b8a4a6f3a148d38610856a583ee25ff5e3acbc90fc9bd2077c3f9c9ad6a",
+      "delivery": "recorded",
+      "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务"
+    }
+  ]
+}

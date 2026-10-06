@@ -1,0 +1,40 @@
+{
+  "reference": "user-first-version-reference.png",
+  "source_sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+  "images": [
+    "p57-local-repair-left.png",
+    "p57-local-repair-right.png",
+    "p57-1200-walls-hud.png",
+    "p57-960-walls-hud.png",
+    "p57-1200-walls-unobscured.png",
+    "p57-960-walls-unobscured.png",
+    "p57-editor-components-final.png",
+    "p57-runtime-components-final.png",
+    "p57-1200-planner-fps-layer.png",
+    "p57-960-planner-fps-layer.png"
+  ],
+  "reports": {
+    "p57-wall-fps-native-1200.json": {
+      "checks": 24,
+      "passed": true
+    },
+    "p57-wall-fps-native-960.json": {
+      "checks": 24,
+      "passed": true
+    },
+    "p57-wall-local-native.json": {
+      "checks": 7,
+      "passed": true
+    },
+    "p57-editor-components-native.json": {
+      "checks": 6,
+      "passed": true
+    },
+    "p57-access-access-headless-1200.json": {
+      "checks": 73,
+      "passed": true
+    }
+  },
+  "art_judgment": "p57-visual-review.md",
+  "delivery_state": "candidate for independent producer review; not human approval"
+}

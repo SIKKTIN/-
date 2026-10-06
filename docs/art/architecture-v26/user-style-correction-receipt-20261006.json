@@ -1,0 +1,86 @@
+{
+  "id": "a26-user-style-correction-20261006",
+  "digest": "eb40c85fbbe772365fe982a58bcb6cd7e64502c400ec4f1700318d8ea4835ccc",
+  "operation": "feedback_correct",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T14:37:06.943Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a26-final-v26-20261006",
+    "taskId": "a26-unified-wall-tiles-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "交付architecture-v26-20261006-565793422215：单张1536×1024同源母版生成14拼接组件/14对应2D MeshTexture图标；H/V/左右L/端/柱/楣均采同coping/plaster/plinth，不混旧A24/A25外观。64网格/128材质周期、H80/V150后统一phase、末块源UV裁切；20厚专属角仅裁纵cross，横石粒度不缩小。亲眼实际1200/960及2倍左右/厨房接点、编辑器与运行H/V/L摆放均同材质连续；compound L空位不再被bbox影填入。GPU组件合集及14图标实际可见，stderr0；P56 215/215，final import ERROR0。新PNG内置imagegen原样copy，A24/A25全部已冻结hash不变。纹理轮廓较柔、重复周期可辨，记录其性质不宣称无限随机。已冻结51文件hash与最终图，待制作人独立验收；程序P56另验。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v26\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v06\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\delivery.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\README.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\prompt.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\source-review.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\interface.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\native-preview.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\native-preview.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\native-icons-visible.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\p56-visual-review.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\p56-visual-evidence.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-1200-wall-detail-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-1200-right-junctions-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-editor-components-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-runtime-components-final.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-editor-components-native-final.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v26\\runtime\\p56-final-import.log"
+    ],
+    "at": "2026-10-06T14:23:59.386Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T14:27:27.928Z",
+      "note": "制作人独立核对最终整场、左右/20厚近景与编辑器/游戏HVL摆放：单母版14组件材质、石块尺度、连续相位及轮廓统一，纠正A25将三种材质差异当小残差的判断。14MeshTexture实际可见；源图单一且不涂改，51交付hash一致，A24/A25原资产保留。图标和冻结脚本早期错误已在正式ev1前修正，不改测试结果。最终215/215，导入0ERROR；柔和轮廓及128重复纹理是当前风格，不宣称逐像素复制或无限随机。程序P56另验收。",
+      "mode": "independent",
+      "evidenceVersion": 1
+    },
+    "corrections": [
+      {
+        "id": "a26-user-style-correction-20261006",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T14:37:07.079Z",
+        "note": "用户验收后明确拒绝 A26 第二版的视觉效果，偏好第一版。主美纠正原美术判断：同源与215项功能检查不能证明审美达标；A26削弱了深色轮廓、石块倒角、门柱厚度与墙脚分块，显得淡平。后续应保留第一版原横墙/门柱/门楣，仅修同材质转角和竖墙，通过同尺度局部实际对照后再推广。此次仅追加用户反馈和后续规格，原冻结交付不变，实现变更需后续任务。用户同时要求合并反馈、减少沟通频率。",
+        "deliveryVersion": "architecture-v26-20261006-565793422215",
+        "evidence": [
+          "E:/Project/Godot/这次怎么逃/docs/art/architecture-v26/user-style-correction-20261006.md",
+          "E:/Project/Godot/这次怎么逃/docs/art/architecture-v26/user-preferred-first-20261006.png",
+          "E:/Project/Godot/这次怎么逃/docs/art/architecture-v26/user-rejected-second-20261006.png"
+        ]
+      }
+    ],
+    "correctionVersion": 1,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "a26-final-v26-20261006",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 1,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "b8a405ebf7f2eb10efa2de97d5ee355a2b2631e1deef972c22c9880db2f41122"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "b8a405ebf7f2eb10efa2de97d5ee355a2b2631e1deef972c22c9880db2f41122",
+    "delivery": "recorded",
+    "next": "更正仅登记，不代表重新验收；原交付、验收结论和证据版本保持原记录，交付内容变化需后续任务",
+    "received": true,
+    "outcome": "correction_recorded",
+    "acceptanceUnchanged": true
+  }
+}

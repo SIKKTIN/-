@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T14:28:26.504Z
-> 文档内容基准：33a24368900016af4b4763631f89b9f83d6eae22139278c1267486238bf98460
+> 文档生成时间：2026-10-06T15:06:06.515Z
+> 文档内容基准：3a028ee31af0954fffa2054f2ca16baffb473a375c1d3ef150e8d776fac3051f
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -74,6 +74,7 @@
 - P54 按概念还原建筑体积与门墙层次 [p54-concept-faithful-render-20261006] · 已完成
 - P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
+- P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -105,6 +106,7 @@
 - A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
+- A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1071,6 +1073,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：R04食堂墙体由同源可重复组件构建，横纵、左右转角、端头及门柱材质一致；主美独立复核实际两尺寸全景和左右近景，旧几何/食堂门禁/两小时禁闭与FPS保持，必要回归通过。美术新交付先独立验收，程序证据另提交后自验收。
 - 验收负责人：制作人
+### P57 恢复第一版墙体并局部修接点
+- ID：p57-first-version-visual-local-repair-20261006
+- 当前状态：已完成
+- 内容：按用户偏好停止将A26作为当前定稿，恢复第一版原横墙/门柱/门楣，只消费A27局部转角与竖墙修正。215项功能通过不能替代审美通过。
+- 前置任务：a26-unified-wall-tiles-20261006
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p57*、docs/dev/p57/**、docs/tests/p57*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人恢复第一版原位视觉并接A27局部候选组件，可复用P56组件/编辑器代码，不继续新母材覆盖全墙，不修改旧交付文件，不改物理/既有规则或用户project.godot；并行准备和接入候选不等于正式验收。
+- 交付入口：res://scenes/main.tscn R04
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：R04实际原横墙/门柱/门楣恢复第一版完整原图绘制，A27局部转角/竖墙匹配且连续；直接第一版对照和主美独立实图复核，必要回归通过；保留日程/门禁/禁闭/FPS与组件预览。A27先独立验收，P57另提交证据后自验收。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1158,6 +1171,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P55 食堂墙体返修与运行FPS [p55-cafeteria-walls-fps-20261006] · 已完成
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
+- A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
+- P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1703,6 +1718,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v26/manifest.json + 原生拼接验证图
 - 验收要求：同一母版或atlas覆盖横墙、竖顶、转角、端头、门柱及压顶；相同石材/石缝尺度/描边/光照。长横墙、长竖墙、左右L与厨房接点原生实际拼接近景不存在明显换材质接缝，全部模块与对应编辑器图标加载。制作人独立视觉验收，不以资源加载代替风格判断。
 - 验收负责人：制作人
+### A27 保留第一版体积的转角与竖墙局部返修
+- ID：a27-original-wall-local-repair-20261006
+- 当前状态：已完成
+- 内容：用户明确偏好第一版，否定A26素色扁平墙。保留V24横墙/门柱/门楣原始完整美术，只修转角和竖墙的材质及连接。承认上一轮独立美术判断错误，功能检查不作审美依据。
+- 前置任务：a26-unified-wall-tiles-20261006
+- 允许修改路径：art/architecture/v27/**、art/editor/v07/**、docs/art/architecture-v27/**
+- 接口契约：主美本人负责方案/精确源区/组件与图标，优先复用V24完整原PNG裁区，不绘制或涂改旧PNG，不替换原横墙/门柱/门楣。只制作和注册必要转角/纵顶/端头；可复用程序组件绘制。给出原图源区/几何/相位/接点锚点，保留24/20物理、90立面和180门洞；旧A24/A25/A26保持历史冻结。共享scripts/data/Git由制作人维护。
+- 交付入口：art/architecture/v27/manifest.json + 原图局部试拼
+- 验收要求：与用户第一版参考直接对照：原横墙、厚门柱、门楣、深描边、倒角和分块墙脚保留原图体积；局部转角/竖墙优先从cafeteria_portal_v24原图裁取，匹配原石材/石缝/轮廓，接点不脱节、不再用A26素色母材整墙替换。原生局部试拼及实际左右近景/两尺寸由制作人独立审美验收，配套编辑器图标有效。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1732,3 +1757,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A24 按概念还原完整建筑体块素材 [a24-concept-faithful-building-20261006] · 已完成
 - A25 食堂纵墙与透明边缘返修 [a25-cafeteria-walls-alpha-20261006] · 已完成
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
+- A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成

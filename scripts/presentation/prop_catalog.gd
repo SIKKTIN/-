@@ -1,7 +1,7 @@
 @tool
 extends RefCounted
 
-const FILES := ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json","res://art/props/prison_v17/manifest.json","res://art/props/security_v19/manifest.json","res://art/architecture/v23/manifest.json","res://art/architecture/v24/manifest.json","res://art/architecture/v25/manifest.json","res://art/architecture/v26/manifest.json"]
+const FILES := ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json","res://art/props/prison_v17/manifest.json","res://art/props/security_v19/manifest.json","res://art/architecture/v23/manifest.json","res://art/architecture/v24/manifest.json","res://art/architecture/v25/manifest.json","res://art/architecture/v26/manifest.json","res://art/architecture/v27/manifest.json"]
 
 static func assets() -> Dictionary:
 	var result := {}

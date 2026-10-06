@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v24/cafeteria_portal_v24.png" id="1_52a7h"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5lmrg"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(53.085716, 8, 0, 21.828575, 112, 0),
+"attribute_data": PackedByteArray("/////+n02j1B57s+/////+n02j17l4c+/////1wXYT57l4c+/////1wXYT5B57s+/////+n02j1B57s+/////+n02j17l4c+/////1wXYT57l4c+/////1wXYT5B57s+"),
+"format": 34393296921,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("xldUQgAAAEEe1JVCAAAAQR7UlUIAAIBCxldUQgAAgELGV1RCAACAQh7UlUIAAIBCHtSVQgAA8ELGV1RCAADwQg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_5lmrg")
+base_texture = ExtResource("1_52a7h")
+image_size = Vector2(128, 128)

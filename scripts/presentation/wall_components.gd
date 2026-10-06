@@ -34,4 +34,3 @@ static func paint(canvas: CanvasItem, texture: Texture2D, definition: Dictionary
 		var tint = patch.get("modulate",[1,1,1,1])
 		var color := Color(tint[0],tint[1],tint[2],tint[3]) if tint is Array else Color(float(tint),float(tint),float(tint),1)
 		Tiles.paint_region(canvas,texture,area,region,color,mirror_x != bool(patch.get("mirror_x",false)),int(patch.get("rotation_quarters",0)),clip,patch.get("transpose",false))
-

@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "format": "gamecreator-content-change",
+  "id": "p57-original-wall-local-repair-design-20261006",
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "6fb7a742bdcc657c6a78e6c78a56ec0fd8132284ec6459799775845804775b1b",
+  "author": "制作人",
+  "intent": "project_change",
+  "summary": "按用户纠正恢复第一版原横墙、厚柱、门楣体积，A27只修转角与竖墙；撤销A26淡色母材主地图应用。",
+  "compatibility": {
+    "reuse": "原V24横翼/中段/门柱/门楣、对象ID、几何、规则、实时FPS。",
+    "modify": "R04仅转角和纵墙取原V24干净源区采样，extended保持横墙连续纹理。",
+    "add": "A27十组件和十地图编辑器图标、原生实际局部证据。",
+    "archive": "A24–26历史资源及验收冻结；A26用户否定已追加更正。"
+  },
+  "target": {
+    "kind": "module",
+    "id": "map-design"
+  },
+  "operations": [
+    {
+      "id": "p57-description",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+      "value": "R04为三天逃脱的黑工厂管制生活区，玩家是被抓来干活的无辜人。食堂12:00–14:00定时开门，14点疏散；被抓关禁闭2游戏小时，伙伴可撬门救人。按用户偏好恢复第一版原V24横翼/横墙中段、厚门柱与门楣，保留原深描边、倒角与分块墙脚。A27只用同一原V24 portal的局部采样构建左右角、24/20纵墙顶和端面，不生成淡色新母材；纵石块周期61.5706806283，显式源区拆分，不整PNG循环。extended正面持续按原中段采样，角仅补墙顶与纵臂，避免门翼裁区黑拼缝；20仅缩截面，长度节距不缩。北脚1261.5，角顶1146.48，纵顶起源1170.48，续画1296.48。禁闭室完整屋顶保持。编辑器配套十图标及真实摆件绘制。A26已被用户否定外观，冻结历史并追加更正，不沿用其审美通过结论；本轮实际图独立对照第一版，功能检查不能代替用户审美验收。FPS继续显示Engine实时值，暂停也采样。证据docs/dev/p57/README.md与docs/tests/p57-summary.json。"
+    },
+    {
+      "id": "p57-wall-7",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-8",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-9",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-9/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-10",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-10/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-11",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-11/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-12",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-12/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    },
+    {
+      "id": "p57-wall-13",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-wall-13/notes",
+      "value": "P57恢复第一版V24原横墙/厚柱/门楣，A27仅修同原图转角与纵墙。extended保留原中段连续材质，角top_only只补顶与纵臂，20截面不缩节距，禁止整portal UV绕回。原物理和门禁/禁闭/FPS保持；A26外观被用户否定，不再应用。实际证据docs/dev/p57/README.md。"
+    }
+  ]
+}

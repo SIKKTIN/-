@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "72d72c29f9845e59f2f7255d3e0246c668be7cd28ef463103c720ebe261be746",
+  "creates": [
+    {
+      "task": {
+        "id": "a27-original-wall-local-repair-20261006",
+        "title": "A27 保留第一版体积的转角与竖墙局部返修",
+        "description": "用户明确偏好第一版，否定A26素色扁平墙。保留V24横墙/门柱/门楣原始完整美术，只修转角和竖墙的材质及连接。承认上一轮独立美术判断错误，功能检查不作审美依据。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "a26-unified-wall-tiles-20261006"
+        ],
+        "acceptance": "与用户第一版参考直接对照：原横墙、厚门柱、门楣、深描边、倒角和分块墙脚保留原图体积；局部转角/竖墙优先从cafeteria_portal_v24原图裁取，匹配原石材/石缝/轮廓，接点不脱节、不再用A26素色母材整墙替换。原生局部试拼及实际左右近景/两尺寸由制作人独立审美验收，配套编辑器图标有效。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v27/**",
+            "art/editor/v07/**",
+            "docs/art/architecture-v27/**"
+          ],
+          "entry": "art/architecture/v27/manifest.json + 原图局部试拼",
+          "interfaceContract": "主美本人负责方案/精确源区/组件与图标，优先复用V24完整原PNG裁区，不绘制或涂改旧PNG，不替换原横墙/门柱/门楣。只制作和注册必要转角/纵顶/端头；可复用程序组件绘制。给出原图源区/几何/相位/接点锚点，保留24/20物理、90立面和180门洞；旧A24/A25/A26保持历史冻结。共享scripts/data/Git由制作人维护。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p57-first-version-visual-local-repair-20261006",
+        "title": "P57 恢复第一版墙体并局部修接点",
+        "description": "按用户偏好停止将A26作为当前定稿，恢复第一版原横墙/门柱/门楣，只消费A27局部转角与竖墙修正。215项功能通过不能替代审美通过。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "a26-unified-wall-tiles-20261006"
+        ],
+        "acceptance": "R04实际原横墙/门柱/门楣恢复第一版完整原图绘制，A27局部转角/竖墙匹配且连续；直接第一版对照和主美独立实图复核，必要回归通过；保留日程/门禁/禁闭/FPS与组件预览。A27先独立验收，P57另提交证据后自验收。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p57*",
+            "docs/dev/p57/**",
+            "docs/tests/p57*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn R04",
+          "interfaceContract": "制作人恢复第一版原位视觉并接A27局部候选组件，可复用P56组件/编辑器代码，不继续新母材覆盖全墙，不修改旧交付文件，不改物理/既有规则或用户project.godot；并行准备和接入候选不等于正式验收。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户通过主美明确否定A26审美并偏好第一版，上一轮已验收因此新建返修任务而非修改历史。",
+  "requestId": "a27-p57-original-wall-plan-20261006"
+}

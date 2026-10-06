@@ -1,0 +1,29 @@
+{
+  "schema": 2,
+  "manifest": "res://art/architecture/v27/manifest.json",
+  "source_png": "res://art/architecture/v24/cafeteria_portal_v24.png",
+  "source_sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+  "source_repeat_window": [
+    232,
+    192,
+    245,
+    74.07407407407408
+  ],
+  "tile_period_world": 61.57068062827225,
+  "tile_size_y": 123.1413612565445,
+  "top_origin_from_north_baseline": -115.02,
+  "corner_size": [
+    80,
+    150
+  ],
+  "corner_to_original_wing_y_offset": 6.48,
+  "return_tile_origin_from_corner": 24,
+  "return_render_start_from_corner": 150,
+  "return_continuation_phase": 2.8586387434555007,
+  "patch_phase_policy": "No phase_axis fields. All periods are explicitly split within source window; do not shift full-texture U. Align V tile_origin_y at corner origin+24. Clip first run below corner+150.",
+  "width20_policy": "Only cross section becomes20; vertical run scale and period unchanged. Original adjacent wing fragment sampled at its original scale.",
+  "right_policy": "separate right fragment from original right wing; V flips cross-section only after transpose, not run direction",
+  "preserve_original": "Restore original complete V24 H/columns/lintel; trim80 only where these local corner components are installed. No A26 mother on those surfaces.",
+  "editor": "10 2D MeshTexture icons from identical source PNG and patch geometry",
+  "native_preview": "docs/art/architecture-v27/native-preview.png"
+}

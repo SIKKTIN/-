@@ -1,0 +1,212 @@
+{
+  "task": {
+    "id": "p57-first-version-visual-local-repair-20261006",
+    "title": "P57 恢复第一版墙体并局部修接点",
+    "description": "按用户偏好停止将A26作为当前定稿，恢复第一版原横墙/门柱/门楣，只消费A27局部转角与竖墙修正。215项功能通过不能替代审美通过。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04实际原横墙/门柱/门楣恢复第一版完整原图绘制，A27局部转角/竖墙匹配且连续；直接第一版对照和主美独立实图复核，必要回归通过；保留日程/门禁/禁闭/FPS与组件预览。A27先独立验收，P57另提交证据后自验收。",
+    "result": "按用户第一版基准恢复原V24横墙/厚柱/门楣与墙脚，仅A27局部角/纵顶/端面同源采样。explicit source-window拆分无整portal绕回，24/20同节距；右extended实际黑缝经发现并拒绝后以top_only+连续middle修复。十组件图标实际GPU可见，原生两尺寸/近景/规则/编辑器134项通过，47美术hash及程序交付hash冻结。原物理/门禁/禁闭/FPS保留，A27已先独立验收。功能检查不代替审美，用户尚未批准本轮；原middle循环烘焙阴影可辨，FPS截图不作性能基准。",
+    "dependencyIds": [
+      "a26-unified-wall-tiles-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p57*",
+        "docs/dev/p57/**",
+        "docs/tests/p57*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "制作人恢复第一版原位视觉并接A27局部候选组件，可复用P56组件/编辑器代码，不继续新母材覆盖全墙，不修改旧交付文件，不改物理/既有规则或用户project.godot；并行准备和接入候选不等于正式验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a27-p57-original-wall-plan-v2-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T14:38:55.845Z"
+      }
+    ]
+  },
+  "revision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa",
+  "scheduleRevision": "71ab6ff9f6b463439cbd97e89c4ead67dd06caea3e2ea014347e093cb83bca3a",
+  "planChanges": [
+    {
+      "id": "a27-p57-original-wall-plan-v2-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T14:38:55.845Z",
+      "reason": "用户通过主美明确否定A26审美并偏好第一版，上一轮已验收因此新建返修任务而非修改历史。",
+      "createdTaskIds": [
+        "a27-original-wall-local-repair-20261006",
+        "p57-first-version-visual-local-repair-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a26-unified-wall-tiles-20261006",
+      "title": "A26 同源墙体瓦片母版与拼接组件",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p57-ready-20261006",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p57-ready-20261006",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p57-ready-20261006",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa"
+  },
+  "feedback": [
+    {
+      "id": "p57-start-20261006",
+      "taskId": "p57-first-version-visual-local-repair-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "恢复用户偏好的第一版原横墙/门柱/门楣，A26审美否定已正式记录；只等待A27局部转角/竖墙试拼，保留原几何和规则，功能通过不作审美通过。",
+      "evidence": [
+        "docs/art/architecture-v26/user-style-correction-20261006.md",
+        "docs/dev/p57/plan-current.json"
+      ],
+      "at": "2026-10-06T14:40:31.949Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p57-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p57-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p57-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p57-ready-20261006",
+      "taskId": "p57-first-version-visual-local-repair-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "按用户第一版基准恢复原V24横墙/厚柱/门楣与墙脚，仅A27局部角/纵顶/端面同源采样。explicit source-window拆分无整portal绕回，24/20同节距；右extended实际黑缝经发现并拒绝后以top_only+连续middle修复。十组件图标实际GPU可见，原生两尺寸/近景/规则/编辑器134项通过，47美术hash及程序交付hash冻结。原物理/门禁/禁闭/FPS保留，A27已先独立验收。功能检查不代替审美，用户尚未批准本轮；原middle循环烘焙阴影可辨，FPS截图不作性能基准。",
+      "evidence": [
+        "docs/dev/p57/delivery.json",
+        "docs/dev/p57/README.md",
+        "docs/tests/p57-summary.json",
+        "docs/tests/p57-local-repair-left.png",
+        "docs/tests/p57-local-repair-right.png",
+        "docs/tests/p57-1200-walls-hud.png",
+        "docs/tests/p57-960-walls-hud.png",
+        "docs/tests/p57-editor-components-final.png",
+        "docs/tests/p57-runtime-components-final.png",
+        "docs/art/architecture-v27/p57-visual-review.md",
+        "docs/dev/p57/art-review-receipt.json"
+      ],
+      "at": "2026-10-06T15:03:27.088Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p57-ready-20261006",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p57-ready-20261006",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p57-ready-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "35eb7df8615c06590ba43bda2dc478a898e98c0b8dfb1d093a8017e79f2710aa",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

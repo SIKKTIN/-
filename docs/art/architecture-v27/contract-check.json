@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "no_new_png": true,
+    "same_original_source": true,
+    "source_sha": true,
+    "positive_bounded_geometry": true,
+    "no_full_png_phase_shift": true,
+    "vertical_sampling_in_clean_window": true,
+    "original_wings_not_registered_as_new": true,
+    "all_icons_exist": true,
+    "actual_gpu_icons_visible": true,
+    "frozen_v24_unchanged": true,
+    "frozen_v25_unchanged": true,
+    "frozen_v26_unchanged": true
+  },
+  "scope": "local source/geometry/resource verification; aesthetic approval requires actual P57 comparison"
+}
