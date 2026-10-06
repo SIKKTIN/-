@@ -4,8 +4,8 @@ extends RefCounted
 signal changed
 const World = preload("res://scripts/world/prison_world.gd")
 const RECT_KEYS := ["bounds","door","crate","exit","guard_zone"]
-const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界"}
-const ASSET_NAMES := {"bunk_bed":"双层床","cell_bars":"铁栏杆","toilet_sink":"洗手台与马桶","workbench":"工作台","tool_locker":"工具柜","communal_table":"长桌长凳","notice_board":"公告栏","cafeteria_counter":"食堂取餐台","cafeteria_return":"餐盘回收架","cafeteria_tray":"简陋餐盘","cafeteria_queue":"排队围栏","heavy_crate_handpaint_v03":"木箱摆设","locked_door_closed_v02":"锁门外观（摆设）","locked_door_open_v02":"开门外观（摆设）"}
+const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界","access_doors":"管制门","confinement":"禁闭室范围"}
+const ASSET_NAMES := {"access_reader":"门禁控制盒","prison_gate_closed":"铁门关闭外观","prison_gate_open":"铁门打开外观","solitary_bed":"薄单人床","solitary_door_closed":"禁闭门关闭外观","solitary_door_open":"禁闭门打开外观","prison_notice_board":"旧布告板","wall_vent":"通风口","caged_wall_lamp":"笼罩墙灯","pipe_valve":"管线阀门","wash_basin":"双位洗漱盆","fire_extinguisher":"灭火器","laundry_cart":"洗衣推车","bunk_bed":"双层床","cell_bars":"铁栏杆","toilet_sink":"洗手台与马桶","workbench":"工作台","tool_locker":"工具柜","communal_table":"长桌长凳","notice_board":"公告栏","cafeteria_counter":"食堂取餐台","cafeteria_return":"餐盘回收架","cafeteria_tray":"简陋餐盘","cafeteria_queue":"排队围栏","heavy_crate_handpaint_v03":"木箱摆设","locked_door_closed_v02":"锁门外观（摆设）","locked_door_open_v02":"开门外观（摆设）"}
 var data: Dictionary = {}
 var path := ""
 var disk_hash := ""
@@ -52,16 +52,17 @@ func open_file(file_path: String) -> bool:
 	return true
 
 static func check_shape(candidate: Dictionary) -> String:
+	if not candidate.get("confinement",{}) is Dictionary: return "confinement必须是对象。"
 	for key in RECT_KEYS+["guard_start"]:
 		if candidate.has(key) and not valid_coords(candidate[key],2 if key == "guard_start" else 4):
 			return key+"坐标格式错误。"
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones"]:
-		var items = candidate.get(group,[])
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement"]:
+		var items = candidate.get("confinement",{}).get("cells",[]) if group == "confinement" else candidate.get(group,[])
 		if not items is Array:
 			return group+"必须是数组。"
 		for item in items:
-			var rectangle: bool = group in ["walls","fixtures","dormitories","dorm_doors","zones"]
-			var object: bool = group in ["fixtures","gate_guards","merchants","items","dorm_doors","zones"]
+			var rectangle: bool = group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement"]
+			var object: bool = group in ["fixtures","gate_guards","merchants","items","dorm_doors","zones","access_doors","confinement"]
 			if object and not item is Dictionary:
 				return group+"对象格式错误。"
 			var coords = item.get("rect" if rectangle else "position",[]) if object else item
@@ -69,6 +70,13 @@ static func check_shape(candidate: Dictionary) -> String:
 				return group+"坐标格式错误。"
 			if group == "fixtures" and not item.has("asset_id"):
 				return "摆设缺少asset_id。"
+			if group == "access_doors":
+				if str(item.get("id","")) == "" or item.get("kind","") not in ["timed","confinement"]: return "管制门缺少ID或有效kind。"
+				if item.kind == "timed":
+					if not valid_coords(item.get("hours",[]),2) or item.hours[0] < 0 or item.hours[1] > 1440 or item.hours[0] >= item.hours[1]: return "管制门开放分钟需在0–1440内，先开后关。"
+					if not valid_coords(item.get("room_rect",[]),4) or not valid_coords(item.get("evacuation",[]),2): return "定时门缺少区域或疏散点。"
+			if group == "confinement":
+				if not valid_coords(item.get("spawn",[]),2) or not valid_coords(item.get("release",[]),2) or str(item.get("door_id","")) == "": return "禁闭室缺少关押点、释放点或关联门。"
 	var points = candidate.get("routine_points",{})
 	if not points is Dictionary:
 		return "routine_points必须是对象。"
@@ -116,6 +124,7 @@ func redo() -> void:
 		changed.emit()
 
 func collection(group: String) -> Array:
+	if group == "confinement": return data.get("confinement",{}).get("cells",[])
 	if group in ["work","meal","dine","free"]:
 		return data.get("routine_points",{}).get(group,[])
 	return data.get(group,[])
@@ -127,7 +136,7 @@ func entries() -> Array:
 			result.append({"group":group,"index":-1})
 	if data.has("guard_start"):
 		result.append({"group":"guard_start","index":-1})
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","work","meal","dine","free"]:
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement","work","meal","dine","free"]:
 		for index in range(collection(group).size()):
 			result.append({"group":group,"index":index})
 	return result
@@ -136,7 +145,7 @@ func value(ref: Dictionary):
 	return data.get(ref.group) if int(ref.index) < 0 else collection(ref.group)[ref.index]
 
 func is_rect(ref: Dictionary) -> bool:
-	return ref.group in RECT_KEYS or ref.group in ["walls","fixtures","dormitories","dorm_doors","zones"]
+	return ref.group in RECT_KEYS or ref.group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement"]
 
 func geometry(ref: Dictionary) -> Rect2:
 	var item = value(ref)
@@ -160,6 +169,10 @@ func set_geometry(ref: Dictionary, rect: Rect2) -> void:
 			for entry in item.get("routine",[]):
 				if entry.get("position",[]) == previous:
 					entry.position = [rect.position.x,rect.position.y]
+		if ref.group == "access_doors":
+			for fixture in data.get("fixtures",[]):
+				if str(fixture.get("access_id","")) == str(item.id): fixture.rect = coords.duplicate()
+			if str(data.get("cafeteria",{}).get("access_id","")) == str(item.id): data.cafeteria.entrance = coords.duplicate()
 		item["rect" if is_rect(ref) else "position"] = coords
 	elif int(ref.index) < 0:
 		data[ref.group] = coords
@@ -191,13 +204,11 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 		"walls": item = [p.x,p.y,160,20]
 		"fixtures":
 			item = {"id":unique_id("prop"),"asset_id":asset,"rect":[p.x,p.y,120,100],"blocks_movement":true,"blocks_sight":false}
-			for file in ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json"]:
-				var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
-				for definition in manifest.get("assets",[]):
-					if definition.id == asset:
-						var dims: Array = definition.get("footprint_world_size",definition.get("world_size",[120,100]))
-						item.rect = [p.x,p.y,dims[0],dims[1]]
-						item.blocks_movement = definition.get("blocking",true)
+			var definition: Dictionary = load("res://scripts/presentation/prop_catalog.gd").assets().get(asset,{})
+			if not definition.is_empty():
+				var dims: Array = definition.get("footprint_world_size",definition.get("world_size",[120,100]))
+				item.rect = [p.x,p.y,dims[0],dims[1]]
+				item.blocks_movement = definition.get("blocking",true)
 			for existing in data.get("fixtures",[]):
 				if existing.asset_id == asset:
 					item = existing.duplicate(true)
@@ -237,7 +248,7 @@ func unique_id(prefix: String) -> String:
 	return prefix+"_"+str(index)
 
 func can_remove(ref: Dictionary) -> bool:
-	return not ref.is_empty() and int(ref.index) >= 0 and not ref.group in ["starts","dormitories"]
+	return not ref.is_empty() and int(ref.index) >= 0 and not ref.group in ["starts","dormitories","confinement","access_doors"]
 
 func remove(ref: Dictionary) -> void:
 	if not can_remove(ref):
@@ -315,6 +326,19 @@ func validate() -> Dictionary:
 		warnings.append("巡逻路线少于2点，看守将主要原地停留。")
 	if data.get("routine_points",{}).get("meal",[]).size() != data.get("routine_points",{}).get("dine",[]).size():
 		warnings.append("取餐点与用餐点数量不同，请检查三位伙伴的就餐安排。")
+	if not collection("confinement").is_empty():
+		if collection("confinement").size() != 3: errors.append("禁闭室需为三位伙伴各提供一间。")
+		var duration = data.confinement.get("duration_minutes",120)
+		if not typeof(duration) in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(duration)) or duration <= 0: errors.append("禁闭分钟需大于0。")
+		var probe = World.new()
+		probe.configure(data,[])
+		for cell in collection("confinement"):
+			var inside := Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3]).grow(-17)
+			var spawn := Vector2(cell.spawn[0],cell.spawn[1])
+			if not inside.has_point(spawn) or not probe.can_place_circle(spawn,17,null,false): errors.append("禁闭关押点需在室内可站立处。")
+			if not probe.can_place_circle(Vector2(cell.release[0],cell.release[1]),17,null,false): errors.append("禁闭释放点被障碍挡住。")
+			if probe.access_by_id(str(cell.door_id)).get("kind","") != "confinement": errors.append("禁闭室关联门缺失。")
+		probe.free()
 	return {"errors":errors,"warnings":warnings}
 
 func save_file(target: String, rename := false) -> bool:

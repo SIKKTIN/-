@@ -66,7 +66,7 @@ func search_zone() -> Rect2:
 	return world.bounds if inspection_allowed() else world.guard_zone
 
 func _valid_actor(id: int) -> bool:
-	return game.schedule != null and (inspection_allowed() or game.schedule.is_curfew()) and id >= 0 and id < game.actors.size() and not game.actors[id].escaped and not game.schedule.is_sleeping(id) and not (game.routines != null and game.routines.is_lawful(id)) and game.elapsed >= game.actors[id].immune_until and search_zone().has_point(game.actors[id].position)
+	return game.schedule != null and (inspection_allowed() or game.schedule.is_curfew()) and id >= 0 and id < game.actors.size() and not game.actors[id].escaped and not game.actors[id].confined and not game.schedule.is_sleeping(id) and not (game.routines != null and game.routines.is_lawful(id)) and game.elapsed >= game.actors[id].immune_until and search_zone().has_point(game.actors[id].position)
 
 func _sample_trails(delta: float) -> void:
 	trails = trails.filter(func(t): return game.elapsed-float(t.time) <= TRAIL_SECONDS and _valid_actor(int(t.actor_id)))

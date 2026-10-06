@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "mode": "built-in imagegen",
+  "reference": "art/props/prison_v17/prison_gate_pair_v17.png",
+  "assets": [
+    {
+      "id": "access_reader",
+      "filename": "access_reader_v19.png",
+      "kind": "wall",
+      "width": 18,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent 2D prison prop for the same hand-painted game as the reference.\nReference image is material, outline and camera STYLE guidance only; do not copy the barred gate as the subject. Match warm grey-green worn painted iron, pale scuffed edges, restrained brush texture, dark hand-inked outlines, simple readable planes, quiet vintage prison environment. Fixed gentle elevated parallel projection: upright posts screen-vertical, frontal horizontal edges screen-horizontal, no diamond isometric floor and no converging perspective. Upper-left diffuse highlight. Entire isolated object, genuinely transparent background, holes truly alpha-transparent, at least 10% padding. No room, surrounding wall, floor, colored haze, drop/contact shadow, characters, UI, labels, numbers, writing, watermarks or checkered backdrop. All details readable at small game size, no photoreal metal reflections or excessive grime.\nPrimary request: ONE small utilitarian wall-mounted gate access/card-reader control box. Narrow rectangular grey-green steel casing with 4 simple corner screws, a dark short horizontal card slot and TWO small separate red and green indicator lenses above it. Indicators unlit/flat colored glass, no glow or light cast in the PNG; state overlay belongs to the game. No screen, digits, keypad or logo. A short conduit nub at the top, flat mounting backplate without wall behind. Lightly chipped old steel, dark slot readable. The red/green lenses occupy enough area to remain distinguishable at about18px wide. Only this compact box."
+    },
+    {
+      "id": "solitary_door_pair",
+      "filename": "solitary_door_pair_v19.png",
+      "kind": "gate",
+      "footprint": [
+        80,
+        14
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: production transparent 2D prison prop for the same hand-painted game as the reference.\nReference image is material, outline and camera STYLE guidance only; do not copy the barred gate as the subject. Match warm grey-green worn painted iron, pale scuffed edges, restrained brush texture, dark hand-inked outlines, simple readable planes, quiet vintage prison environment. Fixed gentle elevated parallel projection: upright posts screen-vertical, frontal horizontal edges screen-horizontal, no diamond isometric floor and no converging perspective. Upper-left diffuse highlight. Entire isolated object, genuinely transparent background, holes truly alpha-transparent, at least 10% padding. No room, surrounding wall, floor, colored haze, drop/contact shadow, characters, UI, labels, numbers, writing, watermarks or checkered backdrop. All details readable at small game size, no photoreal metal reflections or excessive grime.\nPrimary request: Exactly TWO states of ONE solid heavy prison solitary-cell sliding steel door in two equal invisible cells SIDE BY SIDE on a wide atlas. LEFT CLOSED; RIGHT OPEN. Use precisely the same fixed outer door frame, size, position relative to cell, lower threshold and camera angle in both. Upright rectangular frame with stout riveted posts, muted grey-green old iron.\nLEFT: solid opaque steel slab, flat worn plates with 2 structural horizontal seams and rivets, small shut rectangular inspection hatch at eye level, plain dull brass lock and short handle on right. NO grille, bars, window, visible room, text or warning signs.\nRIGHT: exactly same frame with solid slab fully slid into a narrow LEFT pocket and packed away, leaving the large central passage entirely alpha-transparent; small part of parked slab visible beside left post, nothing crosses the walk-through passage. Thin identical base threshold, no platform. All fixed posts/lock casing/threshold identical at the exact same scale; don't swing door leaf toward camera. Door pair should resemble the reference metalwork but be unambiguously a SOLID solitary confinement door, not a barred cell gate. Keep each complete sprite inside its cell with clear transparent space between states."
+    },
+    {
+      "id": "solitary_bed",
+      "filename": "solitary_bed_v19.png",
+      "kind": "floor",
+      "width": 72,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent 2D prison prop for the same hand-painted game as the reference.\nReference image is material, outline and camera STYLE guidance only; do not copy the barred gate as the subject. Match warm grey-green worn painted iron, pale scuffed edges, restrained brush texture, dark hand-inked outlines, simple readable planes, quiet vintage prison environment. Fixed gentle elevated parallel projection: upright posts screen-vertical, frontal horizontal edges screen-horizontal, no diamond isometric floor and no converging perspective. Upper-left diffuse highlight. Entire isolated object, genuinely transparent background, holes truly alpha-transparent, at least 10% padding. No room, surrounding wall, floor, colored haze, drop/contact shadow, characters, UI, labels, numbers, writing, watermarks or checkered backdrop. All details readable at small game size, no photoreal metal reflections or excessive grime.\nPrimary request: ONE austere thin single iron cot for a solitary prison cell. A long NARROW rectangular bed aligned north-south on screen, head end at top, foot end at bottom, viewed gently from above so its long top is clearly visible. The sleeping surface is roughly twice as long as wide. Grey-green old steel angle frame, four short metal legs, very low plain head/foot rails, flat dark olive-grey thin pad/hard board barely thicker than frame. NO pillow, no fluffy mattress, no blanket, no comfort props, no storage or bunk above. Expose the front two short legs and a little under-bed space. A small edge chip, sparse rivets, flat utilitarian hard surface. Do not rotate the bed diagonally; front edge horizontal and length mostly screen-vertical. Whole cot isolated, no ground shadow."
+    }
+  ]
+}

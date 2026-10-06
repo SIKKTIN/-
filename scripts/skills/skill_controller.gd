@@ -24,6 +24,7 @@ func chat_guard(actor):
 	return null
 
 func target_reason(actor) -> String:
+	if actor.confined: return "禁闭中，可切换伙伴撬门救人，或等待关押结束。"
 	if actor.escaped or game.phase != "playing":
 		return "这个伙伴已经逃脱。"
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0.000001:
@@ -50,19 +51,51 @@ func target_reason(actor) -> String:
 		return ""
 	return door_reason(actor, float(definition.range))
 
+func door_id(actor) -> String:
+	if actions.has(actor.actor_id): return str(actions[actor.actor_id].get("door_id",""))
+	if game.room_access and not actor.confined:
+		var nearest := ""
+		var best := 100.0
+		for cell in game.room_access.cells():
+			var gate: Dictionary = game.world.access_by_id(str(cell.door_id))
+			if gate.is_empty() or not gate.closed: continue
+			var occupied: bool = game.room_access.held.values().any(func(r): return str(game.room_access.cells()[int(r.cell)].door_id) == str(gate.id))
+			var distance: float = actor.position.distance_to(gate.rect.get_center()+Vector2(0,45))
+			if occupied and distance < best:
+				best = distance
+				nearest = str(gate.id)
+		return nearest
+	return ""
+
+func door_rect(actor) -> Rect2:
+	var gate: Dictionary = game.world.access_by_id(door_id(actor))
+	return game.world.door if gate.is_empty() else gate.rect
+
+func door_point(actor) -> Vector2:
+	var gate: Dictionary = game.world.access_by_id(door_id(actor))
+	return game.world.door.position+Vector2(-27,game.world.door.size.y*0.5) if gate.is_empty() else gate.rect.get_center()+Vector2(0,45)
+
+func open_target(id: String) -> void:
+	if id.is_empty(): game.world.open_door()
+	else:
+		game.world.set_access_closed(id,false)
+		game.room_access.tick()
+
 func door_reason(actor, distance: float = 55) -> String:
+	if actor.confined: return "禁闭中，可切换伙伴撬门救人，或等待关押结束。"
 	if actor.escaped or game.phase != "playing":
 		return "这个伙伴已经逃脱。"
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0.000001:
 		return "体力耗尽；回寝室休息后再操作。"
-	if game.world.door_open:
+	var id := door_id(actor)
+	if (id.is_empty() and game.world.door_open) or (not id.is_empty() and not game.world.access_by_id(id).get("closed",true)):
 		return "锁门已经打开。"
-	var point: Vector2 = game.world.door.position + Vector2(-27,game.world.door.size.y*0.5)
+	var point: Vector2 = door_point(actor)
 	if actor.position.distance_to(point) > distance:
 		return "靠近锁门左侧，会出现撬锁图标。"
 	if not game.world.line_clear(actor.position,point):
 		return "你和门边操作点之间有遮挡。"
-	if game.gate_watch and game.gate_watch.blocking():
+	if id.is_empty() and game.gate_watch and game.gate_watch.blocking():
 		return "铁门有人值守；让会聊天的伙伴分别牵制两名守卫。"
 	return ""
 
@@ -78,7 +111,7 @@ func toggle(actor_id: int) -> bool:
 	if game.routines:
 		game.routines.take_control(actor_id)
 	var guard = chat_guard(actor) if actor.skill_id == "chat" else null
-	actions[actor_id] = {"kind":actor.skill_id,"anchor":actor.position,"guard_id":guard.guard_id if guard != null and guard.has_method("is_gate_guard") else "patrol"}
+	actions[actor_id] = {"kind":actor.skill_id,"anchor":actor.position,"door_id":door_id(actor),"guard_id":guard.guard_id if guard != null and guard.has_method("is_gate_guard") else "patrol"}
 	actor.action_state = "chatting" if actor.skill_id == "chat" else "lockpicking"
 	actor.queue_redraw()
 	if actor.skill_id == "chat":
@@ -116,11 +149,11 @@ func clear_all() -> void:
 		cancel(actor_id)
 
 func tick(delta: float) -> void:
-	var contribution: float = 0
+	var contributions := {}
 	for actor_id in actions.keys():
 		var actor = game.actors[actor_id]
 		var action: Dictionary = actions[actor_id]
-		if actor.escaped:
+		if actor.escaped or actor.confined:
 			cancel(actor_id)
 			continue
 		if actor.position.distance_to(action.anchor) > 12:
@@ -134,17 +167,19 @@ func tick(delta: float) -> void:
 			var guard = chat_guard(actor)
 			guard.facing = guard.position.direction_to(actor.position)
 		else:
+			var id: String = str(action.get("door_id",""))
 			var efficiency: float = game.attributes.work_efficiency(actor_id) if game.attributes else 1.0
-			contribution += delta*efficiency / (float(game.inventory.definitions.lock_tool.duration) if action.kind == "lock_tool" else float(library.lockpick.duration))
-	if contribution > 0:
-		game.world.lock_progress = minf(1.0,game.world.lock_progress + contribution)
-		game.world.queue_redraw()
-		if game.world.lock_progress >= 1.0:
-			game.world.open_door()
+			contributions[id] = float(contributions.get(id,0))+delta*efficiency/(float(game.inventory.definitions.lock_tool.duration) if action.kind == "lock_tool" else float(library.lockpick.duration))
+	for id in contributions:
+		var gate: Dictionary = game.world.access_by_id(str(id))
+		var progress: float = minf(1.0,(game.world.lock_progress if str(id).is_empty() else float(gate.get("progress",0)))+float(contributions[id]))
+		if str(id).is_empty(): game.world.lock_progress = progress
+		else: gate.progress = progress
+		if progress >= 1.0:
+			open_target(str(id))
 			for actor_id in actions.keys():
-				if actions[actor_id].kind in ["lockpick", "lock_tool"]:
-					cancel(actor_id)
-			game.show_status("锁撬开了！伙伴和看守都能走这条通路。")
+				if actions[actor_id].kind in ["lockpick","lock_tool"] and str(actions[actor_id].get("door_id","")) == str(id): cancel(actor_id)
+			game.show_status("禁闭门已撬开，伙伴获救！" if not str(id).is_empty() else "锁撬开了！伙伴和看守都能走这条通路。")
 
 func snapshot() -> Array:
 	var result: Array = []

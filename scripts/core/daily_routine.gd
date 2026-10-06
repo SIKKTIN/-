@@ -98,7 +98,7 @@ func _target(actor_id: int, kind: String) -> Vector2:
 
 func _start(actor_id: int, override_kind: String = "") -> void:
 	var actor = game.actors[actor_id]
-	if actor.escaped or slot < 0 or manual.has(actor_id):
+	if actor.escaped or actor.confined or slot < 0 or manual.has(actor_id):
 		return
 	var kind: String = str(plans[actor_id][slot]) if override_kind.is_empty() else override_kind
 	if kind == "idle":
@@ -287,6 +287,7 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_cred
 		game.show_status("伙伴%s完成工作，工资 +%d。" % ["、".join(paid_names), paid], 3)
 
 func status_for(actor_id: int) -> String:
+	if game.room_access and game.room_access.is_held(actor_id): return game.room_access.label_for(actor_id)
 	if manual.has(actor_id) and slot >= 0 and plans[actor_id][slot] != "idle":
 		return "手动接管"
 	if not records.has(actor_id):

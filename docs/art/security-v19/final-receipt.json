@@ -1,0 +1,58 @@
+{
+  "id": "a19-final-v19-20261006",
+  "digest": "96bb50e3e71119ce05007f288e983a55f3771a579745e582e27b68e7c7596127",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T08:26:10.731Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a19-final-v19-20261006",
+    "taskId": "a19-access-solitary-art-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "security-art-v19-20261006-fa51cdce1d86交付：3张内置imagegen原样透明PNG/4世界状态（门禁控制盒、实心禁闭门closed/open、薄硬单人床），入口res://art/props/security_v19/manifest.json。门槛80x14水平朝前，开闭同region/ground/anchor/等比scale/world_size，固定框体脚底一致；1源像素门把手边界差保留不改图，开门孔3取样alpha0。墙盒宽18带mount_anchor离地38且无地面碰撞，床72x112无枕头厚被。4项均含editor_icon。editor/v02/manifest.json为13项增量AtlasTexture（A17九+A19四），48/64原生QA各13共26图通过；新布告板prison_notice_board引用A17原图，world A17 notice_board由制作人加载时映射，旧ID/图标保留。v02工具数组空，请合并v01工具和类别props/furniture。184旧资产/图标/清单SHA无变化，源复制透明完整裁框、Godot4.7.2隔离导入/Texture2D/Atlas/margin/世界注册、浏览器1280x720与960x540均通过，预览已查看。完整提示词/来源/哈希/接入说明/61文件清单齐全。仅允许目录，无生产脚本/数据/场景/旧manifest/根project/Git改动，未开启生产窗口。CLI以主美本人凭证提交，请制作人独立验收并P52接入食堂门禁、禁闭2小时和伙伴撬门逻辑。",
+    "evidence": [
+      "E:/Project/Godot/这次怎么逃/art/props/security_v19/manifest.json",
+      "E:/Project/Godot/这次怎么逃/art/editor/v02/manifest.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/README.md",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/delivery-filelist-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/source-license-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/imagegen-prompts-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-resources-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-godot-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-browser-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/editor-icon-regions-v19.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/contact-1280x720-v19.png",
+      "E:/Project/Godot/这次怎么逃/docs/art/security-v19/contact-960x540-v19.png"
+    ],
+    "at": "2026-10-06T08:26:10.839Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a19-final-v19-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a19-final-v19-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "60ba5a4104fab4c0e249107a2f7e9afb1d9bb3f60b5753faca2ce0465f12ee7c"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "60ba5a4104fab4c0e249107a2f7e9afb1d9bb3f60b5753faca2ce0465f12ee7c",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

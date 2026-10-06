@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "00aa308d37e9a57e52110fcdaec2f6bc708f98d33f58d05e265f1da7a5eb21a7",
+  "snapshotId": "fbe47add1fc43201153268f6ce6c39c4e306c580bedb201346145c46a7ce70d3",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2849,52 +2849,56 @@
               "at": "2026-10-06T07:27:28.447Z"
             }
           ]
-        }
-      ],
-      "reviews": [
+        },
         {
-          "id": "a17-prison-scene-expansion-20261006",
-          "title": "A17 监狱门与场景美术扩展包",
-          "description": "按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。",
-          "kind": "美术",
-          "owner": "主美",
-          "status": "待验收",
+          "id": "p52-r04-access-confinement-20261006",
+          "title": "P52 地图4重排、定时门禁与被捕禁闭",
+          "description": "复用现有围墙、床、食堂以及A17铁门场景包，重排宿舍/加工/活动/食堂/禁闭/出口通路。食堂12–14开放，闭门不可穿越；被捕移入禁闭室；接入A19缺少素材和编辑器图标。兼容无新配置的R01–R03。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
           "priority": "高",
           "start": "",
           "end": "",
           "actualStart": "2026-10-06",
-          "actualEnd": "",
+          "actualEnd": "2026-10-06",
           "milestoneId": "",
-          "acceptance": "透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。",
-          "result": "用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。",
+          "acceptance": "真实Godot验证食堂12开14关、关门疏散无嵌入、禁闭捕获多角色不重叠与解救/到期释放、移动/日程/门岗回归；两尺寸截图和编辑器新对象可修改保存；GameCreator证据、自验收及主干同步。",
+          "result": "实际完成R04 2800×2200空间重排、12–14食堂真实门禁、14点疏散、2小时禁闭与伙伴/钥匙/工具救援、跨午夜/重开/旧关兼容。复用已独立验收A17和用户指定主美A19，13新图标纳入编辑器；17灯位重排。Godot程序492次检查结果通过，含两个尺寸原生图和真实编辑器工具栏草稿试玩。R04正式地图设计已应用，56历史对象ID保留。制作人自验收，受控通路演练不冒充完整敌人AI真人通关或手机真机。\n\n验收通过：制作人自验收通过。492次程序检查均通过，已查看两尺寸原生食堂/禁闭/夜景与编辑器总览，门禁碰撞及疏散、两小时与跨午夜关押、切人撬门/钥匙工具救援、查房既有警报增援、旧关捕获回原点及安全草稿保存试玩均有证据。A17/A19另行独立验收，原美术不改像素，新图标配齐。正式R04设计原位应用保留56旧对象ID；Godot大地图不缩小。保留用户窗口和project.godot改动，不宣称手机真机或完整敌人AI下真人通关。",
           "dependencyIds": [],
           "references": [],
-          "positionIds": [
-            "art-director"
-          ],
           "workScope": {
-            "entry": "art/props/prison_v17/manifest.json",
+            "interfaceContract": "新增可选access_doors和confinement字段；旧地图无字段时原行为保持；不修改用户project.godot，原美术PNG原样；复用A17/A19来源并独立验收。",
+            "entry": "scripts/core/room_access.gd",
             "allowedPaths": [
-              "art/props/prison_v17/**",
-              "docs/art/prison-v17/**"
-            ],
-            "interfaceContract": "schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。"
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p52*",
+              "docs/dev/p52*",
+              "docs/tests/p52*",
+              "art/editor/v02/**"
+            ]
           },
+          "producerSelfReview": true,
           "assignment": {
-            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
             "collaboratorIds": [],
             "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
           },
+          "positionIds": [
+            "producer"
+          ],
           "dispatchHistory": [
             {
-              "id": "a17-prison-scene-expansion-plan-20261006",
-              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
-              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
-              "at": "2026-10-06T05:24:47.610Z"
+              "id": "p52-a19-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T08:12:16.576Z"
             }
           ]
         }
       ],
+      "reviews": [],
       "dispatched": [
         {
           "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -6510,6 +6514,96 @@
               "at": "2026-10-06T07:27:28.447Z"
             }
           ]
+        },
+        {
+          "id": "p52-r04-access-confinement-20261006",
+          "title": "P52 地图4重排、定时门禁与被捕禁闭",
+          "description": "复用现有围墙、床、食堂以及A17铁门场景包，重排宿舍/加工/活动/食堂/禁闭/出口通路。食堂12–14开放，闭门不可穿越；被捕移入禁闭室；接入A19缺少素材和编辑器图标。兼容无新配置的R01–R03。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "真实Godot验证食堂12开14关、关门疏散无嵌入、禁闭捕获多角色不重叠与解救/到期释放、移动/日程/门岗回归；两尺寸截图和编辑器新对象可修改保存；GameCreator证据、自验收及主干同步。",
+          "result": "实际完成R04 2800×2200空间重排、12–14食堂真实门禁、14点疏散、2小时禁闭与伙伴/钥匙/工具救援、跨午夜/重开/旧关兼容。复用已独立验收A17和用户指定主美A19，13新图标纳入编辑器；17灯位重排。Godot程序492次检查结果通过，含两个尺寸原生图和真实编辑器工具栏草稿试玩。R04正式地图设计已应用，56历史对象ID保留。制作人自验收，受控通路演练不冒充完整敌人AI真人通关或手机真机。\n\n验收通过：制作人自验收通过。492次程序检查均通过，已查看两尺寸原生食堂/禁闭/夜景与编辑器总览，门禁碰撞及疏散、两小时与跨午夜关押、切人撬门/钥匙工具救援、查房既有警报增援、旧关捕获回原点及安全草稿保存试玩均有证据。A17/A19另行独立验收，原美术不改像素，新图标配齐。正式R04设计原位应用保留56旧对象ID；Godot大地图不缩小。保留用户窗口和project.godot改动，不宣称手机真机或完整敌人AI下真人通关。",
+          "dependencyIds": [],
+          "references": [],
+          "workScope": {
+            "interfaceContract": "新增可选access_doors和confinement字段；旧地图无字段时原行为保持；不修改用户project.godot，原美术PNG原样；复用A17/A19来源并独立验收。",
+            "entry": "scripts/core/room_access.gd",
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p52*",
+              "docs/dev/p52*",
+              "docs/tests/p52*",
+              "art/editor/v02/**"
+            ]
+          },
+          "producerSelfReview": true,
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p52-a19-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T08:12:16.576Z"
+            }
+          ]
+        },
+        {
+          "id": "a19-access-solitary-art-20261006",
+          "title": "A19 门禁、禁闭室素材与编辑器图标",
+          "description": "用户指定主美线程制作缺少美术；复用A17prison_gate开闭，补A17九状态对应编辑器图标；制作门禁读卡器、禁闭室封闭铁门开闭状态、薄单人床，附编辑器图标。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "新PNG保持现有FINAL-WARM-01手绘风格、原样透明、门状态等比共享注册；manifest含region/ground_rect/footprint/world_size；每项editor_icon及48/64原生QA；A17既有素材不改字节；独立制作人验收。",
+          "result": "security-art-v19-20261006-fa51cdce1d86交付：3张内置imagegen原样透明PNG/4世界状态（门禁控制盒、实心禁闭门closed/open、薄硬单人床），入口res://art/props/security_v19/manifest.json。门槛80x14水平朝前，开闭同region/ground/anchor/等比scale/world_size，固定框体脚底一致；1源像素门把手边界差保留不改图，开门孔3取样alpha0。墙盒宽18带mount_anchor离地38且无地面碰撞，床72x112无枕头厚被。4项均含editor_icon。editor/v02/manifest.json为13项增量AtlasTexture（A17九+A19四），48/64原生QA各13共26图通过；新布告板prison_notice_board引用A17原图，world A17 notice_board由制作人加载时映射，旧ID/图标保留。v02工具数组空，请合并v01工具和类别props/furniture。184旧资产/图标/清单SHA无变化，源复制透明完整裁框、Godot4.7.2隔离导入/Texture2D/Atlas/margin/世界注册、浏览器1280x720与960x540均通过，预览已查看。完整提示词/来源/哈希/接入说明/61文件清单齐全。仅允许目录，无生产脚本/数据/场景/旧manifest/根project/Git改动，未开启生产窗口。CLI以主美本人凭证提交，请制作人独立验收并P52接入食堂门禁、禁闭2小时和伙伴撬门逻辑。\n\n验收通过：制作人查看主美联系表及P52原生接入截图。61项交付SHA一致，4个世界状态与13个Atlas编辑器图标通过原生QA；闭开门共享水平门槛注册，硬床符合简陋禁闭室，门禁墙挂无地面阻挡。P52复用A17，独立地图门禁/捕获逻辑验证已通过；保留原PNG。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "interfaceContract": "不修改scripts/data/scenes/旧manifest、不Git提交。新world manifest schema1 assets数组；新editor/v02/manifest schema1 assets{id,name,category,editor_icon}，tools数组。A17九状态也在v02 editor清单注册，notice_board避免旧ID冲突由制作人按独立ID接入。图片编辑用imagegen；Atlas/SVG可代码制作。反馈CLI本人身份。",
+            "entry": "art/props/security_v19/manifest.json",
+            "allowedPaths": [
+              "art/props/security_v19/**",
+              "art/editor/v02/**",
+              "docs/art/security-v19/**"
+            ]
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p52-a19-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T08:12:16.576Z"
+            }
+          ]
         }
       ],
       "proposals": [],
@@ -7210,15 +7304,15 @@
           "description": "按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。",
           "kind": "美术",
           "owner": "主美",
-          "status": "待验收",
+          "status": "已完成",
           "priority": "高",
           "start": "",
           "end": "",
           "actualStart": "2026-10-06",
-          "actualEnd": "",
+          "actualEnd": "2026-10-06",
           "milestoneId": "",
           "acceptance": "透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。",
-          "result": "用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。",
+          "result": "用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。\n\n验收通过：制作人检查素材拼装预览与原生透明/Atlas等比缩放报告，27文件SHA无不一致。铁门开闭注册一致；9状态可复用。接入时notice_board别名prison_notice_board避免旧ID冲突；A19补齐编辑器图标；实际关卡碰撞与遮挡由P52另行验证。",
           "dependencyIds": [],
           "references": [],
           "positionIds": [
@@ -7330,6 +7424,49 @@
               "at": "2026-10-06T07:27:28.447Z"
             }
           ]
+        },
+        {
+          "id": "a19-access-solitary-art-20261006",
+          "title": "A19 门禁、禁闭室素材与编辑器图标",
+          "description": "用户指定主美线程制作缺少美术；复用A17prison_gate开闭，补A17九状态对应编辑器图标；制作门禁读卡器、禁闭室封闭铁门开闭状态、薄单人床，附编辑器图标。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "新PNG保持现有FINAL-WARM-01手绘风格、原样透明、门状态等比共享注册；manifest含region/ground_rect/footprint/world_size；每项editor_icon及48/64原生QA；A17既有素材不改字节；独立制作人验收。",
+          "result": "security-art-v19-20261006-fa51cdce1d86交付：3张内置imagegen原样透明PNG/4世界状态（门禁控制盒、实心禁闭门closed/open、薄硬单人床），入口res://art/props/security_v19/manifest.json。门槛80x14水平朝前，开闭同region/ground/anchor/等比scale/world_size，固定框体脚底一致；1源像素门把手边界差保留不改图，开门孔3取样alpha0。墙盒宽18带mount_anchor离地38且无地面碰撞，床72x112无枕头厚被。4项均含editor_icon。editor/v02/manifest.json为13项增量AtlasTexture（A17九+A19四），48/64原生QA各13共26图通过；新布告板prison_notice_board引用A17原图，world A17 notice_board由制作人加载时映射，旧ID/图标保留。v02工具数组空，请合并v01工具和类别props/furniture。184旧资产/图标/清单SHA无变化，源复制透明完整裁框、Godot4.7.2隔离导入/Texture2D/Atlas/margin/世界注册、浏览器1280x720与960x540均通过，预览已查看。完整提示词/来源/哈希/接入说明/61文件清单齐全。仅允许目录，无生产脚本/数据/场景/旧manifest/根project/Git改动，未开启生产窗口。CLI以主美本人凭证提交，请制作人独立验收并P52接入食堂门禁、禁闭2小时和伙伴撬门逻辑。\n\n验收通过：制作人查看主美联系表及P52原生接入截图。61项交付SHA一致，4个世界状态与13个Atlas编辑器图标通过原生QA；闭开门共享水平门槛注册，硬床符合简陋禁闭室，门禁墙挂无地面阻挡。P52复用A17，独立地图门禁/捕获逻辑验证已通过；保留原PNG。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "interfaceContract": "不修改scripts/data/scenes/旧manifest、不Git提交。新world manifest schema1 assets数组；新editor/v02/manifest schema1 assets{id,name,category,editor_icon}，tools数组。A17九状态也在v02 editor清单注册，notice_board避免旧ID冲突由制作人按独立ID接入。图片编辑用imagegen；Atlas/SVG可代码制作。反馈CLI本人身份。",
+            "entry": "art/props/security_v19/manifest.json",
+            "allowedPaths": [
+              "art/props/security_v19/**",
+              "art/editor/v02/**",
+              "docs/art/security-v19/**"
+            ]
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "p52-a19-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T08:12:16.576Z"
+            }
+          ]
         }
       ],
       "reviews": [],
@@ -7340,15 +7477,15 @@
           "description": "按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。",
           "kind": "美术",
           "owner": "主美",
-          "status": "待验收",
+          "status": "已完成",
           "priority": "高",
           "start": "",
           "end": "",
           "actualStart": "2026-10-06",
-          "actualEnd": "",
+          "actualEnd": "2026-10-06",
           "milestoneId": "",
           "acceptance": "透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。",
-          "result": "用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。",
+          "result": "用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。\n\n验收通过：制作人检查素材拼装预览与原生透明/Atlas等比缩放报告，27文件SHA无不一致。铁门开闭注册一致；9状态可复用。接入时notice_board别名prison_notice_board避免旧ID冲突；A19补齐编辑器图标；实际关卡碰撞与遮挡由P52另行验证。",
           "dependencyIds": [],
           "references": [],
           "positionIds": [

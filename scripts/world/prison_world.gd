@@ -7,6 +7,7 @@ var bounds := Rect2(74,114,922,560)
 var walls: Array[Rect2] = []
 var fixtures: Array = []
 var dorm_doors: Array = []
+var access_doors: Array = []
 var inspection_grid := AStarGrid2D.new()
 var inspection_solids: Array[Rect2] = []
 var planning_guard_doors := false
@@ -46,6 +47,13 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 		fixture.rect = _rect(entry.rect)
 		fixtures.append(fixture)
 	dorm_doors.clear()
+	access_doors.clear()
+	for entry in config.get("access_doors",[]):
+		var gate: Dictionary = entry.duplicate(true)
+		gate.rect = _rect(entry.rect)
+		gate.closed = bool(entry.get("initial_closed",true))
+		gate.progress = 0.0
+		access_doors.append(gate)
 	for entry in config.get("dorm_doors",[]):
 		dorm_doors.append({"actor_id":int(entry.actor_id),"rect":_rect(entry.rect),"closed":false})
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
@@ -76,6 +84,22 @@ func reset_world() -> void:
 	push_distance = 0.0
 	for gate in dorm_doors:
 		gate.closed = false
+	for gate in access_doors:
+		gate.closed = bool(gate.get("initial_closed",true))
+		gate.progress = 0.0
+	_changed(true)
+
+func access_by_id(id: String) -> Dictionary:
+	for gate in access_doors:
+		if str(gate.id) == id: return gate
+	return {}
+
+func set_access_closed(id: String, closed: bool, reset_progress := false) -> void:
+	var gate := access_by_id(id)
+	if gate.is_empty(): return
+	if reset_progress: gate.progress = 0.0
+	if bool(gate.closed) == closed: return
+	gate.closed = closed
 	_changed(true)
 
 func update_dorm_doors(locked: bool, keyholders: Variant) -> void:
@@ -331,7 +355,7 @@ func _find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: b
 		return PackedVector2Array([to])
 	if static_nav_dirty:
 		_rebuild_navigation()
-	var navigation: AStarGrid2D = inspection_grid if planning_guard_doors else guard_grid if ignore_actor != null and ignore_actor.has_method("movement_allowed") else grid
+	var navigation: AStarGrid2D = inspection_grid if planning_guard_doors else guard_grid if ignore_actor != null and ignore_actor.has_method("inspection_allowed") else grid
 	# Overlay just the small footprints of moving bodies and the box. The
 	# cached grids contain static walls/furniture (and the guard's boundary).
 	var changed: Array[Vector2i] = []
@@ -395,6 +419,10 @@ func _changed(static_changed: bool = false) -> void:
 			static_solids.append(fixture.rect)
 		if fixture.get("blocks_sight",false):
 			cached_sight.append(fixture.rect)
+	for gate in access_doors:
+		if gate.closed:
+			static_solids.append(gate.rect)
+			if gate.get("blocks_sight",false): cached_sight.append(gate.rect)
 	inspection_solids = static_solids.duplicate()
 	for gate in dorm_doors:
 		if gate.closed:

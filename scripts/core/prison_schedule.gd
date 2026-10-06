@@ -190,6 +190,8 @@ func skip_night() -> void:
 		game.show_status("第%d天 08:00，寝室门已打开，继续逃脱。" % day_number(),5)
 
 func actor_status(actor_id: int) -> String:
+	if game.room_access and game.room_access.is_held(actor_id):
+		return game.room_access.label_for(actor_id)
 	if is_sleeping(actor_id):
 		return "睡觉中"
 	if is_sleep_time():
@@ -220,7 +222,7 @@ func enter_curfew() -> void:
 	if game.shop_panel:
 		game.shop_panel.close()
 	for actor in game.actors:
-		if actor.escaped:
+		if actor.escaped or actor.confined:
 			continue
 		var at_home: bool = in_dormitory(actor.actor_id) and actor.position.distance_to(actor.home) <= 28 if is_sleep_time() else in_dorm_zone(actor.actor_id)
 		if at_home:
@@ -262,6 +264,8 @@ func tick(announce: bool = true) -> void:
 			if not is_curfew():
 				game.show_status("缺员警报仍未解除，全厂区继续搜查。" if game.prison_alert != null and game.prison_alert.active else "%s开始：%s" % [stage.name,stage.detail],4)
 	game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
+	if game.room_access:
+		game.room_access.tick()
 	skip_button.visible = is_sleep_time()
 	if game.gate_watch:
 		game.gate_watch.tick(0)

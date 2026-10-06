@@ -116,10 +116,10 @@ func try_use(actor_id: int, id: String) -> Dictionary:
 	game.orders.stop(actor_id)
 	if kind == "door_key":
 		consume(actor_id, id)
-		game.world.open_door()
+		game.skills.open_target(game.skills.door_id(game.actors[actor_id]))
 		return _result(true, "钥匙已消耗，门立即打开。")
 	consume(actor_id, id)
-	game.skills.actions[actor_id] = {"kind": "lock_tool", "anchor": game.actors[actor_id].position}
+	game.skills.actions[actor_id] = {"kind": "lock_tool", "anchor": game.actors[actor_id].position,"door_id":game.skills.door_id(game.actors[actor_id])}
 	game.actors[actor_id].action_state = "lockpicking"
 	return _result(true, "工具已消耗，开始6秒撬锁；可切换伙伴。")
 

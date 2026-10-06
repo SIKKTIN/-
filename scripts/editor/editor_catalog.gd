@@ -12,23 +12,19 @@ var texture_cache: Dictionary = {}
 var paired_icons := 0
 
 func _init() -> void:
-	var editor_manifest: Dictionary = {}
-	if FileAccess.file_exists("res://art/editor/v01/manifest.json"):
-		var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://art/editor/v01/manifest.json"))
-		if parsed is Dictionary: editor_manifest = parsed
 	var paired: Dictionary = {}
-	for item in editor_manifest.get("assets",[]): paired[str(item.id)] = item
-	for item in editor_manifest.get("tools",[]): tool_icons[str(item.id)] = str(item.get("icon",""))
-	for file in ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json"]:
-		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
-		for asset in manifest.get("assets",[]):
-			var id: String = str(asset.id)
-			if assets.has(id): continue
-			assets[id] = asset
-			var category := "cafeteria" if id.begins_with("cafeteria_") else "props" if file.ends_with("manifest-v03.json") else "furniture"
-			var entry: Dictionary = paired.get(id,{})
-			entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":str(entry.get("category",category)),"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
-			if not str(entry.get("editor_icon","")).is_empty(): paired_icons += 1
+	for file in ["res://art/editor/v01/manifest.json","res://art/editor/v02/manifest.json"]:
+		if not FileAccess.file_exists(file): continue
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string(file))
+		if not parsed is Dictionary: continue
+		for item in parsed.get("assets",[]): paired[str(item.id)] = item
+		for item in parsed.get("tools",[]): tool_icons[str(item.id)] = str(item.get("icon",""))
+	assets = load("res://scripts/presentation/prop_catalog.gd").assets()
+	for id in assets:
+		var category := "cafeteria" if str(id).begins_with("cafeteria_") else "furniture"
+		var entry: Dictionary = paired.get(id,{})
+		entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":str(entry.get("category",category)),"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
+		if not str(entry.get("editor_icon","")).is_empty(): paired_icons += 1
 	var definitions := [
 		["gate_guards","门岗混混","actors","gate_guards"],
 		["merchants","商人","actors","merchants"],

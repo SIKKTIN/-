@@ -1,0 +1,417 @@
+{
+  "schema": 1,
+  "version": "prison-expansion-art-v17-20261006",
+  "style": "FINAL-WARM-01",
+  "assets": [
+    {
+      "id": "prison_gate_closed",
+      "label": "铁门开闭·关闭",
+      "texture": "res://art/props/prison_v17/prison_gate_pair_v17.png",
+      "texture_size": [
+        1774,
+        887
+      ],
+      "region": [
+        73,
+        81,
+        742,
+        733
+      ],
+      "ground_rect": [
+        6,
+        599.25,
+        730,
+        127.75
+      ],
+      "footprint_world_size": [
+        80,
+        14
+      ],
+      "world_size": [
+        81.315068,
+        80.328767
+      ],
+      "scale": 0.1095890410958904,
+      "anchor": [
+        371.0,
+        727
+      ],
+      "elevation_world": 65.671233,
+      "shadow_baked": false,
+      "render_mode": "ground_prop",
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "bae7bf10d2c8ae0d059e55bd9286f1d2efe85d985544efd870f288c3211325ba",
+      "pair": "prison_gate",
+      "state": "closed",
+      "plane": "east-west threshold",
+      "state_driven": true,
+      "registration_note": "Same frame, region size, ground_rect, anchor and scale in both states. Bind blocking/lock indication to existing door logic; outer posts remain fixed."
+    },
+    {
+      "id": "prison_gate_open",
+      "label": "铁门开闭·打开",
+      "texture": "res://art/props/prison_v17/prison_gate_pair_v17.png",
+      "texture_size": [
+        1774,
+        887
+      ],
+      "region": [
+        960,
+        81,
+        742,
+        733
+      ],
+      "ground_rect": [
+        6,
+        599.25,
+        730,
+        127.75
+      ],
+      "footprint_world_size": [
+        80,
+        14
+      ],
+      "world_size": [
+        81.315068,
+        80.328767
+      ],
+      "scale": 0.1095890410958904,
+      "anchor": [
+        371.0,
+        727
+      ],
+      "elevation_world": 65.671233,
+      "shadow_baked": false,
+      "render_mode": "ground_prop",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "bae7bf10d2c8ae0d059e55bd9286f1d2efe85d985544efd870f288c3211325ba",
+      "pair": "prison_gate",
+      "state": "open",
+      "plane": "east-west threshold",
+      "state_driven": true,
+      "registration_note": "Same frame, region size, ground_rect, anchor and scale in both states. Bind blocking/lock indication to existing door logic; outer posts remain fixed."
+    },
+    {
+      "id": "wall_vent",
+      "label": "墙面通风口",
+      "texture": "res://art/props/prison_v17/wall_vent_v17.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        188,
+        234,
+        1162,
+        550
+      ],
+      "ground_rect": [
+        6,
+        520.041667,
+        1150,
+        23.958333
+      ],
+      "footprint_world_size": [
+        48,
+        1.0
+      ],
+      "world_size": [
+        48.50087,
+        22.956522
+      ],
+      "scale": 0.04173913043478261,
+      "anchor": [
+        581.0,
+        544
+      ],
+      "elevation_world": 21.706087,
+      "shadow_baked": false,
+      "render_mode": "wall_attachment",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "54d0471ac97d0d3b83c63d1d3c39aa25a05db313e0593dade816200b92bd3a4d",
+      "mount_anchor": [
+        581.0,
+        544
+      ],
+      "recommended_mount_height_world": 54,
+      "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
+    },
+    {
+      "id": "caged_wall_lamp",
+      "label": "笼罩墙灯",
+      "texture": "res://art/props/prison_v17/caged_wall_lamp_v17.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        298,
+        258,
+        911,
+        500
+      ],
+      "ground_rect": [
+        6,
+        456.541667,
+        899,
+        37.458333
+      ],
+      "footprint_world_size": [
+        24,
+        1.0
+      ],
+      "world_size": [
+        24.320356,
+        13.348165
+      ],
+      "scale": 0.026696329254727477,
+      "anchor": [
+        455.5,
+        494
+      ],
+      "elevation_world": 12.187987,
+      "shadow_baked": false,
+      "render_mode": "wall_attachment",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "501f2d1780a18005f0f4e33cc64f12d92b2a9e8e43d01e5033a20352e99a6228",
+      "mount_anchor": [
+        455.5,
+        494
+      ],
+      "recommended_mount_height_world": 65,
+      "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
+    },
+    {
+      "id": "pipe_valve",
+      "label": "管线阀门",
+      "texture": "res://art/props/prison_v17/pipe_valve_v17.png",
+      "texture_size": [
+        1374,
+        1145
+      ],
+      "region": [
+        379,
+        193,
+        650,
+        769
+      ],
+      "ground_rect": [
+        6,
+        755.219512,
+        638,
+        7.780488
+      ],
+      "footprint_world_size": [
+        82,
+        1.0
+      ],
+      "world_size": [
+        83.54232,
+        98.836991
+      ],
+      "scale": 0.12852664576802508,
+      "anchor": [
+        325.0,
+        763
+      ],
+      "elevation_world": 97.065831,
+      "shadow_baked": false,
+      "render_mode": "wall_attachment",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0d9fb6b443cf42149ced96a5917c6aea6eac46e8efd4675a95088883eb871490",
+      "mount_anchor": [
+        325.0,
+        763
+      ],
+      "recommended_mount_height_world": 10,
+      "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
+    },
+    {
+      "id": "wash_basin",
+      "label": "双位洗漱盆",
+      "texture": "res://art/props/prison_v17/wash_basin_v17.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        262,
+        257,
+        1012,
+        532
+      ],
+      "ground_rect": [
+        6,
+        106.0,
+        1000,
+        420.0
+      ],
+      "footprint_world_size": [
+        100,
+        42
+      ],
+      "world_size": [
+        101.2,
+        53.2
+      ],
+      "scale": 0.1,
+      "anchor": [
+        506.0,
+        526
+      ],
+      "elevation_world": 10.6,
+      "shadow_baked": false,
+      "render_mode": "ground_prop",
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "3f429da987edc16259b9b613637b40011592c41f9a2f50527f964ad280159ef7"
+    },
+    {
+      "id": "fire_extinguisher",
+      "label": "消防器具",
+      "texture": "res://art/props/prison_v17/fire_extinguisher_v17.png",
+      "texture_size": [
+        1374,
+        1145
+      ],
+      "region": [
+        463,
+        113,
+        482,
+        906
+      ],
+      "ground_rect": [
+        6,
+        878.636364,
+        470,
+        21.363636
+      ],
+      "footprint_world_size": [
+        22,
+        1.0
+      ],
+      "world_size": [
+        22.561702,
+        42.408511
+      ],
+      "scale": 0.04680851063829787,
+      "anchor": [
+        241.0,
+        900
+      ],
+      "elevation_world": 41.12766,
+      "shadow_baked": false,
+      "render_mode": "wall_attachment",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "3053b02422cefad838f4a9d1caff225db4a04576e7eb1b3679db38a17152c254",
+      "mount_anchor": [
+        241.0,
+        900
+      ],
+      "recommended_mount_height_world": 16,
+      "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
+    },
+    {
+      "id": "notice_board",
+      "label": "旧布告板",
+      "texture": "res://art/props/prison_v17/notice_board_v17.png",
+      "texture_size": [
+        1672,
+        941
+      ],
+      "region": [
+        286,
+        253,
+        1102,
+        432
+      ],
+      "ground_rect": [
+        6,
+        413.888889,
+        1090,
+        12.111111
+      ],
+      "footprint_world_size": [
+        90,
+        1.0
+      ],
+      "world_size": [
+        90.990826,
+        35.669725
+      ],
+      "scale": 0.08256880733944955,
+      "anchor": [
+        551.0,
+        426
+      ],
+      "elevation_world": 34.174312,
+      "shadow_baked": false,
+      "render_mode": "wall_attachment",
+      "blocking": false,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "2c8a34096f2f19ba068f8e712d20300c85a5e3d40284db5a75eb09672aebd81f",
+      "mount_anchor": [
+        551.0,
+        426
+      ],
+      "recommended_mount_height_world": 50,
+      "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
+    },
+    {
+      "id": "laundry_cart",
+      "label": "洗衣推车",
+      "texture": "res://art/props/prison_v17/laundry_cart_v17.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        413,
+        215,
+        711,
+        596
+      ],
+      "ground_rect": [
+        6,
+        96.588235,
+        699,
+        493.411765
+      ],
+      "footprint_world_size": [
+        68,
+        48
+      ],
+      "world_size": [
+        69.167382,
+        57.979971
+      ],
+      "scale": 0.09728183118741059,
+      "anchor": [
+        355.5,
+        590
+      ],
+      "elevation_world": 9.39628,
+      "shadow_baked": false,
+      "render_mode": "ground_prop",
+      "blocking": true,
+      "interactive": false,
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "3ea21afeb5444a347977503b29eb80d3d4833af5a89cc23c6243f4d9d2c21f58"
+    }
+  ],
+  "wall_attachment_contract": "draw at wall ground registration minus (0,mount_height), using mount_anchor and uniform scale; no floor collision; prefer rear/cutaway wall; no gameplay added"
+}

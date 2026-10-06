@@ -30,10 +30,8 @@ func setup(model, layer_model = null) -> void:
 	clip_contents = true
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	font = load("res://art/fonts/NotoSansCJKsc-Regular.otf")
-	for file in ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json"]:
-		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
-		for asset in manifest.get("assets",[]):
-			textures[str(asset.id)] = WorldTexture.load_asset(asset)
+	for asset in load("res://scripts/presentation/prop_catalog.gd").assets().values():
+		textures[str(asset.id)] = WorldTexture.load_asset(asset)
 	document.changed.connect(queue_redraw)
 	gui_input.connect(handle_input)
 	resized.connect(queue_redraw)
@@ -60,7 +58,7 @@ func at(point: Vector2) -> Dictionary:
 		for ref in entries:
 			if ref.group == "bounds" or not layers.is_editable(ref.group): continue
 			if ref.group == "fixtures" and document.value(ref).get("hidden",false) and not show_collision: continue
-			var background: bool = ref.group in ["bounds","guard_zone","dormitories","zones"]
+			var background: bool = ref.group in ["bounds","guard_zone","dormitories","zones","confinement"]
 			if background != (pass_index == 1):
 				continue
 			var rect: Rect2 = document.geometry(ref)
@@ -167,16 +165,16 @@ func _draw() -> void:
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
-		if ref.group in ["guard_zone","zones","dormitories"]:
+		if ref.group in ["guard_zone","zones","dormitories","confinement"]:
 			var tint := Color("cf9975") if ref.group == "guard_zone" else Color("75c0b5") if ref.group == "dormitories" else Color("e0d29e")
 			paint_rect(ref,tint,true)
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
-		if ref.group in ["bounds","guard_zone","zones","dormitories"]:
+		if ref.group in ["bounds","guard_zone","zones","dormitories","confinement"]:
 			continue
 		var rect: Rect2 = document.geometry(ref)
 		if document.is_rect(ref):
-			var color := Color("435555") if ref.group == "walls" else Color("a17b4b") if ref.group in ["door","dorm_doors"] else Color("318c82") if ref.group == "exit" else Color("896b45")
+			var color := Color("435555") if ref.group == "walls" else Color("a17b4b") if ref.group in ["door","dorm_doors","access_doors"] else Color("318c82") if ref.group == "exit" else Color("896b45")
 			if ref.group == "fixtures":
 				if document.value(ref).get("hidden",false) and not show_collision: continue
 				var asset: String = document.value(ref).asset_id

@@ -1,0 +1,37 @@
+{
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "scheduleRevision": "41f656024ae611b7ffd8819c368e8836fc5b382e41cdbc9d6edc764eb05c41e0",
+  "scope": "accessible_tasks",
+  "total": 1,
+  "offset": 0,
+  "limit": 20,
+  "nextOffset": null,
+  "summary": {
+    "completed": 0,
+    "pendingReview": 1,
+    "unfinished": 1
+  },
+  "items": [
+    {
+      "id": "a19-access-solitary-art-20261006",
+      "title": "A19 门禁、禁闭室素材与编辑器图标",
+      "status": "待验收",
+      "revision": "60ba5a4104fab4c0e249107a2f7e9afb1d9bb3f60b5753faca2ce0465f12ee7c",
+      "feedback": {
+        "id": "a19-final-v19-20261006",
+        "state": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0
+      },
+      "blockers": [],
+      "pendingReview": {
+        "feedbackId": "a19-final-v19-20261006",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "related": []
+    }
+  ],
+  "milestones": [],
+  "note": "仅检查当前身份可见的登记记录，不运行引擎、不验证证据文件、不自动验收或更新模块状态。里程碑汇总独立于分页；partial 时不能判断整体交付。"
+}

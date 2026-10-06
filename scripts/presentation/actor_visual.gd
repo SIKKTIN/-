@@ -154,6 +154,8 @@ func paint_information(canvas: CanvasItem) -> void:
 		canvas.draw_string(font,Vector2(-4,17),str(actor.actor_id+1),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 		if game.schedule and game.schedule.is_sleeping(actor.actor_id):
 			canvas.draw_string(font,Vector2(14,top),"Zz",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("d8e8dc"))
+		if actor.confined and game.room_access:
+			canvas.draw_string(font,Vector2(-40,top),game.room_access.label_for(actor.actor_id),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("bc5348"))
 		if game.routines and game.routines.is_working(actor.actor_id):
 			var progress: float = game.routines.work_progress(actor.actor_id)
 			var text := "工作中 %d%%" % floori(progress*100+0.000001)

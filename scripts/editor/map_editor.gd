@@ -524,6 +524,50 @@ func refresh_inspector() -> void:
 				input.focus_exited.connect(func():
 					if not refreshing: document.set_property(ref,property,input.text))
 				inspector.add_child(input)
+		if ref.group == "access_doors":
+			label(inspector,"定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
+			if item.get("kind","") == "timed":
+				for index in range(2):
+					label(inspector,"开放 / 关闭分钟（12:00 = 720）" if index == 0 else "关闭分钟（14:00 = 840）",13)
+					var spin := SpinBox.new()
+					spin.name = "DoorMinute%d" % index
+					spin.min_value = 0
+					spin.max_value = 1440
+					spin.value = item.get("hours",[720,840])[index]
+					spin.value_changed.connect(func(value):
+						if refreshing: return
+						var hours: Array = item.get("hours",[720,840]).duplicate()
+						hours[index] = value
+						document.set_property(ref,"hours",hours))
+					inspector.add_child(spin)
+		if ref.group == "confinement":
+			label(inspector,"关联禁闭门："+str(item.get("door_id","")),13)
+			label(inspector,"关押分钟（所有禁闭室）",13)
+			var duration := SpinBox.new()
+			duration.name = "ConfinementMinutes"
+			duration.min_value = 1
+			duration.max_value = 1440
+			duration.value = document.data.confinement.get("duration_minutes",120)
+			duration.value_changed.connect(func(value):
+				if refreshing: return
+				document.begin()
+				document.data.confinement.duration_minutes = value
+				document.commit())
+			inspector.add_child(duration)
+			for property in ["spawn","release"]:
+				for axis in range(2):
+					label(inspector,("关押点" if property == "spawn" else "释放点")+(" X" if axis == 0 else " Y"),13)
+					var spin := SpinBox.new()
+					spin.name = "Cell_"+property+str(axis)
+					spin.min_value = -10000
+					spin.max_value = 10000
+					spin.value = item[property][axis]
+					spin.value_changed.connect(func(value):
+						if refreshing: return
+						var point: Array = item[property].duplicate()
+						point[axis] = value
+						document.set_property(ref,property,point))
+					inspector.add_child(spin)
 		if ref.group == "fixtures":
 			label(inspector,"摆设样式")
 			var appearance := OptionButton.new()

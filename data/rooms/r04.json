@@ -1,11 +1,11 @@
 {
   "id": "r04",
-  "title": "黑工厂生活区",
+  "title": "黑工厂 · 管制生活区",
   "bounds": [
     80,
     100,
-    2200,
-    1740
+    2800,
+    2200
   ],
   "starts": [
     [
@@ -29,30 +29,38 @@
   ],
   "guard_start": [
     680,
-    760
+    960
   ],
   "guard_zone": [
     624,
     100,
-    1220,
-    1740
+    1516,
+    2200
   ],
   "patrol": [
     [
       680,
-      760
+      960
     ],
     [
-      1680,
-      760
+      1900,
+      960
     ],
     [
-      1680,
-      1350
+      2070,
+      1100
+    ],
+    [
+      2070,
+      2100
     ],
     [
       680,
-      1350
+      2150
+    ],
+    [
+      680,
+      1450
     ]
   ],
   "walls": [
@@ -66,148 +74,256 @@
       600,
       1040,
       24,
-      800
+      1260
     ],
     [
-      1844,
+      2140,
       100,
       24,
-      580
+      660
     ],
     [
-      1844,
-      860,
-      24,
-      492
-    ],
-    [
-      100,
-      130,
-      400,
-      16
-    ],
-    [
-      100,
-      130,
-      16,
-      230
-    ],
-    [
-      484,
-      130,
-      16,
-      230
-    ],
-    [
-      100,
-      420,
-      400,
-      16
-    ],
-    [
-      100,
-      420,
-      16,
-      230
-    ],
-    [
-      484,
-      420,
-      16,
-      230
-    ],
-    [
-      100,
-      710,
-      400,
-      16
-    ],
-    [
-      100,
-      710,
-      16,
-      230
-    ],
-    [
-      484,
-      710,
-      16,
-      230
-    ],
-    [
-      700,
-      910,
-      1064,
-      24
-    ],
-    [
-      700,
-      910,
-      24,
-      280
-    ],
-    [
-      700,
-      1390,
-      24,
-      374
-    ],
-    [
-      1740,
-      910,
-      24,
-      854
-    ],
-    [
-      700,
-      1740,
-      1064,
-      24
-    ],
-    [
+      2140,
       940,
-      934,
-      20,
-      256
+      24,
+      1360
     ],
     [
-      1560,
-      934,
+      720,
+      140,
+      1304,
+      24
+    ],
+    [
+      720,
+      140,
+      24,
+      440
+    ],
+    [
+      2000,
+      140,
+      24,
+      660
+    ],
+    [
+      720,
+      1200,
+      200,
+      24
+    ],
+    [
+      1100,
+      1200,
+      924,
+      24
+    ],
+    [
+      720,
+      1200,
+      24,
+      1000
+    ],
+    [
+      2000,
+      1200,
+      24,
+      1000
+    ],
+    [
+      720,
+      2180,
+      1304,
+      20
+    ],
+    [
+      1270,
+      1224,
       20,
-      256
+      206
+    ],
+    [
+      1910,
+      1224,
+      20,
+      206
+    ],
+    [
+      100,
+      130,
+      400,
+      16
+    ],
+    [
+      100,
+      130,
+      16,
+      230
+    ],
+    [
+      484,
+      130,
+      16,
+      230
+    ],
+    [
+      100,
+      420,
+      400,
+      16
+    ],
+    [
+      100,
+      420,
+      16,
+      230
+    ],
+    [
+      484,
+      420,
+      16,
+      230
+    ],
+    [
+      100,
+      710,
+      400,
+      16
+    ],
+    [
+      100,
+      710,
+      16,
+      230
+    ],
+    [
+      484,
+      710,
+      16,
+      230
+    ],
+    [
+      100,
+      1100,
+      440,
+      18
+    ],
+    [
+      100,
+      1100,
+      18,
+      284
+    ],
+    [
+      522,
+      1100,
+      18,
+      284
+    ],
+    [
+      100,
+      1370,
+      220,
+      14
+    ],
+    [
+      480,
+      1370,
+      60,
+      14
+    ],
+    [
+      100,
+      1460,
+      440,
+      18
+    ],
+    [
+      100,
+      1460,
+      18,
+      284
+    ],
+    [
+      522,
+      1460,
+      18,
+      284
+    ],
+    [
+      100,
+      1730,
+      220,
+      14
+    ],
+    [
+      480,
+      1730,
+      60,
+      14
+    ],
+    [
+      100,
+      1820,
+      440,
+      18
+    ],
+    [
+      100,
+      1820,
+      18,
+      284
+    ],
+    [
+      522,
+      1820,
+      18,
+      284
+    ],
+    [
+      100,
+      2090,
+      220,
+      14
+    ],
+    [
+      480,
+      2090,
+      60,
+      14
     ]
   ],
   "door": [
-    1844,
-    680,
+    2140,
+    760,
     24,
     180
   ],
   "crate": [
-    1818,
-    1384,
-    94,
-    92
+    2164,
+    1980,
+    100,
+    100
   ],
   "exit": [
-    2190,
-    670,
-    90,
-    240
+    2800,
+    760,
+    80,
+    180
   ],
   "gate_guards": [
     {
-      "id": "gate_upper",
+      "id": "gate-watch-1",
       "position": [
-        1750,
-        720
+        2070,
+        750
       ]
     },
     {
-      "id": "gate_lower",
+      "id": "gate-watch-2",
       "position": [
-        1750,
-        820
+        2070,
+        915
       ]
     }
   ],
@@ -216,72 +332,72 @@
       "id": "prison_dealer",
       "name": "生活区商人",
       "position": [
-        540,
-        650
+        550,
+        990
       ],
       "routine": [
         {
           "minute": 0,
           "kind": "rest",
           "position": [
-            540,
-            970
+            550,
+            1050
           ]
         },
         {
           "minute": 480,
           "kind": "work",
           "position": [
-            1530,
-            570
+            1560,
+            670
           ]
         },
         {
-          "minute": 600,
+          "minute": 660,
           "kind": "commute",
           "position": [
-            540,
-            650
+            550,
+            990
           ]
         },
         {
           "minute": 720,
           "kind": "shop",
           "position": [
-            540,
-            650
+            550,
+            990
           ]
         },
         {
           "minute": 840,
           "kind": "work",
           "position": [
-            1530,
-            570
+            1560,
+            670
           ]
         },
         {
           "minute": 960,
           "kind": "commute",
           "position": [
-            540,
-            650
+            550,
+            990
           ]
         },
         {
           "minute": 1080,
           "kind": "shop",
           "position": [
-            540,
-            650
+            550,
+            990
           ]
         },
         {
           "minute": 1200,
           "kind": "rest",
           "position": [
-            540,
-            970
+            550,
+            1050
           ]
         }
       ],
@@ -299,37 +415,70 @@
   ],
   "zones": [
     {
-      "id": "cells",
-      "name": "牢房区",
+      "name": "寝室区",
       "rect": [
         100,
         130,
-        460,
-        830
+        400,
+        840
       ],
-      "color": "#bdc4ba"
+      "color": "#a5b19a",
+      "id": "cells"
     },
     {
-      "id": "workshop",
       "name": "加工车间",
       "rect": [
-        680,
-        130,
-        1080,
-        520
+        720,
+        140,
+        1304,
+        660
       ],
-      "color": "#b9aa88"
+      "color": "#b4a27e",
+      "id": "workshop"
+    },
+    {
+      "name": "活动走廊",
+      "rect": [
+        720,
+        850,
+        1304,
+        290
+      ],
+      "color": "#a5b19a",
+      "id": "hall"
     },
     {
       "name": "食堂",
       "rect": [
-        724,
-        934,
-        1016,
-        806
+        720,
+        1200,
+        1304,
+        1000
       ],
-      "id": "cafeteria",
-      "color": "#b3b69b"
+      "color": "#b6af8c",
+      "id": "canteen"
+    },
+    {
+      "name": "禁闭区",
+      "rect": [
+        100,
+        1100,
+        440,
+        1004
+      ],
+      "color": "#8a9694",
+      "id": "confinement"
+    },
+    {
+      "name": "门岗 / 逃生通道",
+      "rect": [
+        2164,
+        100,
+        716,
+        2200
+      ],
+      "color": "#92a5a0",
+      "id": "escape"
     }
   ],
   "fixtures": [
@@ -574,153 +723,453 @@
       "blocks_sight": false
     },
     {
+      "id": "canteen-counter",
       "asset_id": "cafeteria_counter",
       "rect": [
-        960,
-        1110,
-        600,
+        1290,
+        1430,
+        620,
         80
       ],
-      "id": "meal_counter",
-      "blocks_sight": true,
-      "blocks_movement": true
+      "blocks_movement": true,
+      "blocks_sight": true
     },
     {
+      "id": "canteen-kitchen-collision",
+      "asset_id": "cafeteria_kitchen_collision",
+      "rect": [
+        1290,
+        1230,
+        620,
+        200
+      ],
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "hidden": true
+    },
+    {
+      "id": "canteen-queue",
       "asset_id": "cafeteria_queue",
       "rect": [
-        730,
-        1140,
-        180,
-        12
+        780,
+        1500,
+        230,
+        14
       ],
-      "id": "meal_queue",
-      "blocks_sight": false,
-      "blocks_movement": true
+      "blocks_movement": true,
+      "blocks_sight": false
     },
     {
+      "id": "canteen-return",
       "asset_id": "cafeteria_return",
       "rect": [
-        1610,
-        1470,
+        1840,
+        1940,
         110,
         70
       ],
-      "id": "meal_return",
-      "blocks_sight": false,
-      "blocks_movement": true
-    },
-    {
-      "asset_id": "communal_table",
-      "rect": [
-        780,
-        1290,
-        200,
-        105
-      ],
-      "id": "table_0",
-      "blocks_sight": false,
-      "blocks_movement": true
-    },
-    {
-      "asset_id": "communal_table",
-      "rect": [
-        1210,
-        1290,
-        200,
-        105
-      ],
-      "id": "table_1",
-      "blocks_sight": false,
-      "blocks_movement": true
-    },
-    {
-      "asset_id": "communal_table",
-      "rect": [
-        780,
-        1590,
-        200,
-        105
-      ],
-      "id": "table_2",
-      "blocks_sight": false,
-      "blocks_movement": true
-    },
-    {
-      "asset_id": "communal_table",
-      "rect": [
-        1210,
-        1590,
-        200,
-        105
-      ],
-      "id": "table_3",
-      "blocks_sight": false,
-      "blocks_movement": true
-    },
-    {
-      "asset_id": "cafeteria_tray",
-      "rect": [
-        885,
-        1313,
-        36,
-        20
-      ],
-      "id": "meal_tray_0",
-      "blocks_sight": false,
-      "blocks_movement": false,
-      "draw_depth": 1396
-    },
-    {
-      "asset_id": "cafeteria_tray",
-      "rect": [
-        1315,
-        1313,
-        36,
-        20
-      ],
-      "id": "meal_tray_1",
-      "blocks_sight": false,
-      "blocks_movement": false,
-      "draw_depth": 1396
-    },
-    {
-      "asset_id": "cafeteria_tray",
-      "rect": [
-        885,
-        1613,
-        36,
-        20
-      ],
-      "id": "meal_tray_2",
-      "blocks_sight": false,
-      "blocks_movement": false,
-      "draw_depth": 1696
-    },
-    {
-      "asset_id": "cafeteria_tray",
-      "rect": [
-        1315,
-        1613,
-        36,
-        20
-      ],
-      "id": "meal_tray_3",
-      "blocks_sight": false,
-      "blocks_movement": false,
-      "draw_depth": 1696
-    },
-    {
-      "asset_id": "cafeteria_kitchen_collision",
-      "hidden": true,
-      "blocks_sight": true,
       "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "dine-table-0",
+      "asset_id": "communal_table",
       "rect": [
-        960,
-        967,
-        600,
-        143
+        830,
+        1710,
+        210,
+        105
       ],
-      "id": "kitchen_collision"
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "dine-tray-0",
+      "asset_id": "cafeteria_tray",
+      "rect": [
+        930,
+        1733,
+        36,
+        20
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 1816
+    },
+    {
+      "id": "dine-table-1",
+      "asset_id": "communal_table",
+      "rect": [
+        1370,
+        1710,
+        210,
+        105
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "dine-tray-1",
+      "asset_id": "cafeteria_tray",
+      "rect": [
+        1470,
+        1733,
+        36,
+        20
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 1816
+    },
+    {
+      "id": "dine-table-2",
+      "asset_id": "communal_table",
+      "rect": [
+        830,
+        2020,
+        210,
+        105
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "dine-tray-2",
+      "asset_id": "cafeteria_tray",
+      "rect": [
+        930,
+        2043,
+        36,
+        20
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2126
+    },
+    {
+      "id": "dine-table-3",
+      "asset_id": "communal_table",
+      "rect": [
+        1370,
+        2020,
+        210,
+        105
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "dine-tray-3",
+      "asset_id": "cafeteria_tray",
+      "rect": [
+        1470,
+        2043,
+        36,
+        20
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2126
+    },
+    {
+      "id": "activity-table-0",
+      "asset_id": "communal_table",
+      "rect": [
+        900,
+        910,
+        190,
+        100
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "activity-table-1",
+      "asset_id": "communal_table",
+      "rect": [
+        1530,
+        910,
+        190,
+        100
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-bed-0",
+      "asset_id": "solitary_bed",
+      "rect": [
+        135,
+        1190,
+        72,
+        112
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-toilet-0",
+      "asset_id": "toilet_sink",
+      "rect": [
+        465,
+        1160,
+        45,
+        50
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-vent-0",
+      "asset_id": "wall_vent",
+      "rect": [
+        270,
+        1136,
+        72,
+        1.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-door-visual-0",
+      "asset_id": "solitary_door_closed",
+      "rect": [
+        320,
+        1370,
+        160,
+        28
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "access_id": "solitary-0",
+      "closed_asset": "solitary_door_closed",
+      "open_asset": "solitary_door_open"
+    },
+    {
+      "id": "solitary-bed-1",
+      "asset_id": "solitary_bed",
+      "rect": [
+        135,
+        1550,
+        72,
+        112
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-toilet-1",
+      "asset_id": "toilet_sink",
+      "rect": [
+        465,
+        1520,
+        45,
+        50
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-vent-1",
+      "asset_id": "wall_vent",
+      "rect": [
+        270,
+        1496,
+        72,
+        1.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-door-visual-1",
+      "asset_id": "solitary_door_closed",
+      "rect": [
+        320,
+        1730,
+        160,
+        28
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "access_id": "solitary-1",
+      "closed_asset": "solitary_door_closed",
+      "open_asset": "solitary_door_open"
+    },
+    {
+      "id": "solitary-bed-2",
+      "asset_id": "solitary_bed",
+      "rect": [
+        135,
+        1910,
+        72,
+        112
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-toilet-2",
+      "asset_id": "toilet_sink",
+      "rect": [
+        465,
+        1880,
+        45,
+        50
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-vent-2",
+      "asset_id": "wall_vent",
+      "rect": [
+        270,
+        1856,
+        72,
+        1.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-door-visual-2",
+      "asset_id": "solitary_door_closed",
+      "rect": [
+        320,
+        2090,
+        160,
+        28
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "access_id": "solitary-2",
+      "closed_asset": "solitary_door_closed",
+      "open_asset": "solitary_door_open"
+    },
+    {
+      "id": "cafeteria-door-visual",
+      "asset_id": "prison_gate_closed",
+      "rect": [
+        920,
+        1200,
+        180,
+        31.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "access_id": "cafeteria-entry",
+      "closed_asset": "prison_gate_closed",
+      "open_asset": "prison_gate_open"
+    },
+    {
+      "id": "cafeteria-reader",
+      "asset_id": "access_reader",
+      "rect": [
+        1125,
+        1190,
+        24,
+        1.333333
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-0",
+      "asset_id": "prison_notice_board",
+      "rect": [
+        1540,
+        168,
+        140,
+        1.6
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-1",
+      "asset_id": "caged_wall_lamp",
+      "rect": [
+        880,
+        172,
+        36,
+        1.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-2",
+      "asset_id": "wall_vent",
+      "rect": [
+        1740,
+        172,
+        100,
+        2.1
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-3",
+      "asset_id": "pipe_valve",
+      "rect": [
+        1900,
+        210,
+        82,
+        1
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-4",
+      "asset_id": "wash_basin",
+      "rect": [
+        1570,
+        670,
+        160,
+        67.2
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-5",
+      "asset_id": "fire_extinguisher",
+      "rect": [
+        1950,
+        780,
+        25,
+        1.14
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-6",
+      "asset_id": "laundry_cart",
+      "rect": [
+        455,
+        1000,
+        68,
+        48
+      ],
+      "blocks_movement": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "expansion-7",
+      "asset_id": "caged_wall_lamp",
+      "rect": [
+        1670,
+        1255,
+        36,
+        1.5
+      ],
+      "blocks_movement": false,
+      "blocks_sight": false
     }
   ],
   "lamps": [
@@ -747,66 +1196,101 @@
     },
     {
       "position": [
-        800,
-        160
+        880,
+        180
       ],
-      "radius": 290
+      "radius": 340
     },
     {
       "position": [
-        1450,
-        160
+        1630,
+        180
       ],
-      "radius": 290
+      "radius": 370
     },
     {
       "position": [
-        700,
-        790
-      ],
-      "radius": 300
-    },
-    {
-      "position": [
-        1700,
-        790
-      ],
-      "radius": 300
-    },
-    {
-      "position": [
-        760,
-        1040
-      ],
-      "radius": 290
-    },
-    {
-      "position": [
-        1610,
-        1280
-      ],
-      "radius": 310
-    },
-    {
-      "position": [
-        2120,
-        1060
-      ],
-      "radius": 310
-    },
-    {
-      "position": [
-        810,
-        1510
-      ],
-      "radius": 300
-    },
-    {
-      "position": [
-        1510,
-        1540
+        1170,
+        580
       ],
       "radius": 330
+    },
+    {
+      "position": [
+        800,
+        1050
+      ],
+      "radius": 350
+    },
+    {
+      "position": [
+        1900,
+        1050
+      ],
+      "radius": 350
+    },
+    {
+      "position": [
+        950,
+        1350
+      ],
+      "radius": 340
+    },
+    {
+      "position": [
+        1670,
+        1300
+      ],
+      "radius": 390
+    },
+    {
+      "position": [
+        900,
+        1900
+      ],
+      "radius": 380
+    },
+    {
+      "position": [
+        1650,
+        1950
+      ],
+      "radius": 400
+    },
+    {
+      "position": [
+        300,
+        1140
+      ],
+      "radius": 220
+    },
+    {
+      "position": [
+        300,
+        1500
+      ],
+      "radius": 220
+    },
+    {
+      "position": [
+        300,
+        1860
+      ],
+      "radius": 220
+    },
+    {
+      "position": [
+        2500,
+        680
+      ],
+      "radius": 360
+    },
+    {
+      "position": [
+        2750,
+        1300
+      ],
+      "radius": 360
     }
   ],
   "items": [
@@ -841,15 +1325,15 @@
     {
       "definition_id": "scrap",
       "position": [
-        750,
-        1460
+        790,
+        1080
       ]
     },
     {
       "definition_id": "scrap",
       "position": [
-        1510,
-        1690
+        1800,
+        1080
       ]
     }
   ],
@@ -903,84 +1387,235 @@
     ],
     "free": [
       [
-        850,
-        1450
+        860,
+        1080
       ],
       [
-        1280,
-        1450
+        1400,
+        1080
       ],
       [
-        1530,
-        1650
+        1800,
+        1080
       ]
     ],
     "meal": [
       [
-        1080,
-        1240
+        1390,
+        1560
       ],
       [
-        1460,
-        1240
+        1590,
+        1560
       ],
       [
-        1040,
-        1240
+        1790,
+        1560
       ]
     ],
     "dine": [
       [
-        820,
-        1430
+        920,
+        1855
       ],
       [
-        1290,
-        1430
+        1460,
+        1855
       ],
       [
-        940,
-        1430
+        1040,
+        1855
       ]
     ]
   },
   "cafeteria": {
-    "return_label": [
-      1560,
-      1410
+    "enclosed": true,
+    "room_rect": [
+      720,
+      1200,
+      1304,
+      1000
     ],
-    "pickup_label": [
-      730,
-      1210
+    "entrance": [
+      920,
+      1200,
+      180,
+      31.5
     ],
+    "access_id": "cafeteria-entry",
     "service_hours": [
       720,
       840
     ],
-    "enclosed": true,
-    "room_rect": [
-      700,
-      910,
-      1064,
-      854
+    "pickup_label": [
+      790,
+      1570
     ],
-    "entrance": [
-      700,
-      1190,
-      24,
-      200
+    "return_label": [
+      1800,
+      1890
     ],
     "wall_sign": [
-      868,
-      1020,
+      1120,
+      1300,
       72,
       40
     ],
     "discipline_sign": [
-      708,
-      1480,
+      755,
+      1910,
       104,
       64
+    ]
+  },
+  "dormitories": [
+    [
+      100,
+      130,
+      400,
+      232
+    ],
+    [
+      100,
+      420,
+      400,
+      232
+    ],
+    [
+      100,
+      710,
+      400,
+      232
+    ]
+  ],
+  "access_doors": [
+    {
+      "id": "cafeteria-entry",
+      "name": "食堂定时门",
+      "kind": "timed",
+      "rect": [
+        920,
+        1200,
+        180,
+        31.5
+      ],
+      "hours": [
+        720,
+        840
+      ],
+      "room_rect": [
+        720,
+        1200,
+        1304,
+        1000
+      ],
+      "evacuation": [
+        1010,
+        1100
+      ],
+      "initial_closed": true,
+      "blocks_sight": false
+    },
+    {
+      "id": "solitary-0",
+      "name": "禁闭室1",
+      "kind": "confinement",
+      "rect": [
+        320,
+        1370,
+        160,
+        28
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "solitary-1",
+      "name": "禁闭室2",
+      "kind": "confinement",
+      "rect": [
+        320,
+        1730,
+        160,
+        28
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "solitary-2",
+      "name": "禁闭室3",
+      "kind": "confinement",
+      "rect": [
+        320,
+        2090,
+        160,
+        28
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    }
+  ],
+  "confinement": {
+    "duration_minutes": 120,
+    "cells": [
+      {
+        "id": "cell-0",
+        "name": "禁闭室1",
+        "rect": [
+          100,
+          1100,
+          440,
+          284
+        ],
+        "spawn": [
+          285,
+          1280
+        ],
+        "door_id": "solitary-0",
+        "release": [
+          400,
+          1430
+        ]
+      },
+      {
+        "id": "cell-1",
+        "name": "禁闭室2",
+        "rect": [
+          100,
+          1460,
+          440,
+          284
+        ],
+        "spawn": [
+          285,
+          1640
+        ],
+        "door_id": "solitary-1",
+        "release": [
+          400,
+          1790
+        ]
+      },
+      {
+        "id": "cell-2",
+        "name": "禁闭室3",
+        "rect": [
+          100,
+          1820,
+          440,
+          284
+        ],
+        "spawn": [
+          285,
+          2000
+        ],
+        "door_id": "solitary-2",
+        "release": [
+          400,
+          2150
+        ]
+      }
     ]
   }
 }

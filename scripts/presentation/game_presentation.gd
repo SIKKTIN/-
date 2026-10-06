@@ -86,16 +86,8 @@ func configure(escape_game) -> void:
 		for asset in data.assets:
 			asset_definitions[asset.id] = asset
 			game.world.art_textures[asset.id] = _load_texture(asset)
-	var prison_manifest := "res://art/props/prison_v08/manifest.json"
-	if FileAccess.file_exists(prison_manifest):
-		var prison_assets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(prison_manifest))
-		for asset in prison_assets.assets:
-			asset_definitions[asset.id] = asset
-	var cafeteria_manifest := "res://art/props/cafeteria_v14/manifest.json"
-	if FileAccess.file_exists(cafeteria_manifest):
-		var cafeteria_assets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(cafeteria_manifest))
-		for asset in cafeteria_assets.assets:
-			asset_definitions[asset.id] = asset
+	for asset in load("res://scripts/presentation/prop_catalog.gd").assets().values():
+		asset_definitions[str(asset.id)] = asset
 	game.world.queue_redraw()
 	game.floor_texture = game.world.art_textures[profile.floor_asset] if profile.has("floor_asset") else load(profile.floor)
 	game.floor_tile_size = profile.floor_tile_size
@@ -240,6 +232,8 @@ func _refresh_volumes() -> void:
 	volumes.clear()
 	for fixture in game.world.fixtures:
 		var id: String = fixture.asset_id
+		for state_id in [fixture.get("closed_asset",""),fixture.get("open_asset","")]:
+			if not str(state_id).is_empty() and asset_definitions.has(state_id): game.world.art_textures[state_id] = _load_texture(asset_definitions[state_id])
 		if not game.world.art_textures.has(id) and asset_definitions.has(id):
 			var texture: Texture2D = _load_texture(asset_definitions[id])
 			if texture != null:

@@ -27,7 +27,7 @@ func _draw() -> void:
 			if fixture.get("hidden",false):
 				continue
 			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
-			if not definition.get("shadow_baked",false):
+			if not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall"):
 				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
 		return
 	if kind == "ground":
@@ -102,6 +102,14 @@ func _draw() -> void:
 				draw_polyline(outline,edge_color,1.2,true)
 		draw_set_transform(Vector2.ZERO)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
+		for gate in world.access_doors:
+			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
+			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
+			draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+			if float(gate.progress) > 0 and gate.closed:
+				var bar := Rect2(gate.rect.get_center()+Vector2(-35,50),Vector2(70,5))
+				draw_rect(bar,Color("536052"))
+				draw_rect(Rect2(bar.position,Vector2(bar.size.x*float(gate.progress),bar.size.y)),Color("9a8fb9"))
 		if world.lock_progress > 0 and not world.door_open:
 			var progress_offset := Vector2(-28,-float(presentation.visuals[0].definition.world_height)-48)
 			draw_rect(Rect2(point+progress_offset,Vector2(56,6)),Color("536052"))

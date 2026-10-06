@@ -108,7 +108,7 @@ func _refresh_targets() -> void:
 	var chat_target = game.skills.chat_guard(actor) if actor.skill_id == "chat" else null
 	if active:
 		kind = str(game.skills.actions[actor_id].kind)
-		anchor = chat_target.position+Vector2(40,-80) if kind == "chat" and chat_target != null else game.world.door.get_center()+Vector2(36,-55)
+		anchor = chat_target.position+Vector2(40,-80) if kind == "chat" and chat_target != null else game.skills.door_rect(actor).get_center()+Vector2(36,-55)
 		button.tooltip_text = "停止操作（E）；撬锁进度保留。"
 	elif actor.skill_id == "strong":
 		var box: Rect2 = game.world.crate
@@ -119,7 +119,7 @@ func _refresh_targets() -> void:
 		button.tooltip_text = "推箱：点击或E，向远离当前伙伴的方向推；S停止。"
 	elif game.skills.target_reason(actor) == "":
 		kind = actor.skill_id
-		anchor = chat_target.position+Vector2(40,-80) if kind == "chat" and chat_target != null else game.world.door.get_center()+Vector2(36,-55)
+		anchor = chat_target.position+Vector2(40,-80) if kind == "chat" and chat_target != null else game.skills.door_rect(actor).get_center()+Vector2(36,-55)
 		button.tooltip_text = "停止操作（E）；撬锁进度保留。" if active else "交谈（E）" if kind == "chat" else "撬锁（E）"
 	else:
 		return
@@ -127,7 +127,7 @@ func _refresh_targets() -> void:
 	button.text = "停" if active else "E"
 	var screen: Vector2 = game.get_global_transform_with_canvas()*anchor
 	_place(button, screen)
-	targets.append({"button": button, "kind": "skill", "id": "", "distance": -1.0 if active else actor.position.distance_to(chat_target.position if kind == "chat" and chat_target != null else game.world.door.get_center())})
+	targets.append({"button": button, "kind": "skill", "id": "", "distance": -1.0 if active else actor.position.distance_to(chat_target.position if kind == "chat" and chat_target != null else game.skills.door_rect(actor).get_center())})
 
 func _extra(key: String, text: String, anchor: Vector2, tooltip: String) -> Button:
 	if not extras.has(key):

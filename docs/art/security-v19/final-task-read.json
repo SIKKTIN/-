@@ -1,0 +1,130 @@
+{
+  "task": {
+    "id": "a19-access-solitary-art-20261006",
+    "title": "A19 门禁、禁闭室素材与编辑器图标",
+    "description": "用户指定主美线程制作缺少美术；复用A17prison_gate开闭，补A17九状态对应编辑器图标；制作门禁读卡器、禁闭室封闭铁门开闭状态、薄单人床，附编辑器图标。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "新PNG保持现有FINAL-WARM-01手绘风格、原样透明、门状态等比共享注册；manifest含region/ground_rect/footprint/world_size；每项editor_icon及48/64原生QA；A17既有素材不改字节；独立制作人验收。",
+    "result": "主美已以本人凭证CLI核对任务/身份并接手A19。复用A17监狱栅栏门，新增灰绿门禁控制盒、禁闭实心铁门开闭共享注册图集、简陋薄单人床；新增editor/v02清单及13项编辑器图标（A17九状态+A19四状态），notice_board图标使用prison_notice_board别名。不改脚本/数据/场景/旧资产或旧manifest，不Git提交。使用内置imagegen生成原PNG、Atlas/SVG建立编辑图标，完成原生48/64图标与世界尺寸QA后提交制作人。",
+    "dependencyIds": [],
+    "references": [],
+    "positionIds": [
+      "art-director"
+    ],
+    "workScope": {
+      "interfaceContract": "不修改scripts/data/scenes/旧manifest、不Git提交。新world manifest schema1 assets数组；新editor/v02/manifest schema1 assets{id,name,category,editor_icon}，tools数组。A17九状态也在v02 editor清单注册，notice_board避免旧ID冲突由制作人按独立ID接入。图片编辑用imagegen；Atlas/SVG可代码制作。反馈CLI本人身份。",
+      "entry": "art/props/security_v19/manifest.json",
+      "allowedPaths": [
+        "art/props/security_v19/**",
+        "art/editor/v02/**",
+        "docs/art/security-v19/**"
+      ]
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "dispatchHistory": [
+      {
+        "id": "p52-a19-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T08:12:16.576Z"
+      }
+    ]
+  },
+  "revision": "d2007a37a5c9a02928df3743546a4844c79d01edeaaac1b2d88728cca31bcb49",
+  "scheduleRevision": "1a9f9e550ecb03b2a6bb9aea7ece2660706e236d82d0de8b19b4c68b859343fe",
+  "planChanges": [
+    {
+      "id": "p52-a19-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T08:12:16.576Z",
+      "reason": "用户授权盘点门禁素材、食堂限时开门、被捕禁闭、重排地图4，并指定主美线程制作缺少素材。",
+      "createdTaskIds": [
+        "p52-r04-access-confinement-20261006",
+        "a19-access-solitary-art-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a19-start-20261006",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "d2007a37a5c9a02928df3743546a4844c79d01edeaaac1b2d88728cca31bcb49"
+  },
+  "feedback": [
+    {
+      "id": "a19-start-20261006",
+      "taskId": "a19-access-solitary-art-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "主美已以本人凭证CLI核对任务/身份并接手A19。复用A17监狱栅栏门，新增灰绿门禁控制盒、禁闭实心铁门开闭共享注册图集、简陋薄单人床；新增editor/v02清单及13项编辑器图标（A17九状态+A19四状态），notice_board图标使用prison_notice_board别名。不改脚本/数据/场景/旧资产或旧manifest，不Git提交。使用内置imagegen生成原PNG、Atlas/SVG建立编辑图标，完成原生48/64图标与世界尺寸QA后提交制作人。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/props/prison_v17/manifest.json",
+        "E:/Project/Godot/这次怎么逃/art/editor/v01/manifest.json"
+      ],
+      "at": "2026-10-06T08:15:27.606Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a19-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "d2007a37a5c9a02928df3743546a4844c79d01edeaaac1b2d88728cca31bcb49"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "d2007a37a5c9a02928df3743546a4844c79d01edeaaac1b2d88728cca31bcb49",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

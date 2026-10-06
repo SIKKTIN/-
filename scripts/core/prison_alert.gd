@@ -40,6 +40,7 @@ func check_rollcall() -> void:
 		inspection_day = game.schedule.day_number()
 		checked_rooms.clear()
 	for actor in game.actors:
+		if actor.confined: continue # Registered custody is not a missing prisoner.
 		var checkpoint: Vector2 = game.schedule.inspection_point(actor.actor_id)
 		# Only an actual room visit counts. Walls/gates cannot be inspected through.
 		if not game.schedule.dormitory(actor.actor_id).grow(-17).has_point(game.guard.position) or game.guard.position.distance_to(checkpoint) > 35 or not game.world.line_clear(game.guard.position,actor.home):

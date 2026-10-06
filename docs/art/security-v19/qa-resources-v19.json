@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "assets": [
+    {
+      "id": "access_reader",
+      "region": [
+        293,
+        117,
+        637,
+        1045
+      ],
+      "source_bounds": [
+        299,
+        123,
+        625,
+        1033
+      ],
+      "complete_own_core_pixels": true,
+      "transparent_fraction": 0.6361698853875117,
+      "source_copy_matches": true,
+      "uniform_scale": 0.0288,
+      "ground_valid": true,
+      "open_passage_samples": [],
+      "passed": true
+    },
+    {
+      "id": "solitary_door_closed",
+      "region": [
+        74,
+        78,
+        747,
+        738
+      ],
+      "source_bounds": [
+        80,
+        84,
+        735,
+        726
+      ],
+      "complete_own_core_pixels": true,
+      "transparent_fraction": 0.5081663105689218,
+      "source_copy_matches": true,
+      "uniform_scale": 0.10884353741496598,
+      "ground_valid": true,
+      "open_passage_samples": [],
+      "passed": true
+    },
+    {
+      "id": "solitary_door_open",
+      "region": [
+        961,
+        78,
+        747,
+        738
+      ],
+      "source_bounds": [
+        967,
+        84,
+        734,
+        726
+      ],
+      "complete_own_core_pixels": true,
+      "transparent_fraction": 0.5081663105689218,
+      "source_copy_matches": true,
+      "uniform_scale": 0.10884353741496598,
+      "ground_valid": true,
+      "open_passage_samples": [
+        {
+          "xy": [
+            1260,
+            374
+          ],
+          "alpha": 0
+        },
+        {
+          "xy": [
+            1407,
+            519
+          ],
+          "alpha": 0
+        },
+        {
+          "xy": [
+            1480,
+            664
+          ],
+          "alpha": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "solitary_bed",
+      "region": [
+        195,
+        135,
+        633,
+        1221
+      ],
+      "source_bounds": [
+        201,
+        141,
+        621,
+        1209
+      ],
+      "complete_own_core_pixels": true,
+      "transparent_fraction": 0.6298300425211588,
+      "source_copy_matches": true,
+      "uniform_scale": 0.11594202898550725,
+      "ground_valid": true,
+      "open_passage_samples": [],
+      "passed": true
+    }
+  ],
+  "shared_door_registration": true,
+  "door_source_extent_delta_px": 1,
+  "editor_icon_count": 13,
+  "old_files_checked": 184,
+  "changed_old_files": [],
+  "scope": "PNG alpha, complete region, uniform scale, ground anchors, door registration and old assets; native Atlas/icon rendering checked separately"
+}

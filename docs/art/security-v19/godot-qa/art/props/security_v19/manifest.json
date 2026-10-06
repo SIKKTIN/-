@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "version": "security-art-v19-20261006",
+  "style": "FINAL-WARM-01",
+  "assets": [
+    {
+      "id": "access_reader",
+      "name": "门禁控制盒",
+      "texture": "res://art/props/security_v19/access_reader_v19.png",
+      "texture_size": [
+        1223,
+        1286
+      ],
+      "region": [
+        293,
+        117,
+        637,
+        1045
+      ],
+      "ground_rect": [
+        6,
+        1004.277778,
+        625,
+        34.722222
+      ],
+      "footprint_world_size": [
+        18,
+        1
+      ],
+      "world_size": [
+        18.3456,
+        30.096
+      ],
+      "scale": 0.0288,
+      "anchor": [
+        318.5,
+        1039
+      ],
+      "elevation_world": 28.9232,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "render_mode": "wall_attachment",
+      "editor_icon": "res://art/editor/v02/icons/access_reader.tres",
+      "sha256": "b0d959f3c43521ae6818bffe01ff74b076650b7c0e06f4d9f186cd58375024dc",
+      "mount_anchor": [
+        318.5,
+        1039
+      ],
+      "recommended_mount_height_world": 38,
+      "registration_note": "1-unit virtual registration strip; wall-mounted reader has no floor collision. Red/green lenses are neutral and state overlays are separate."
+    },
+    {
+      "id": "solitary_door_closed",
+      "name": "禁闭室铁门·关闭",
+      "texture": "res://art/props/security_v19/solitary_door_pair_v19.png",
+      "texture_size": [
+        1774,
+        887
+      ],
+      "region": [
+        74,
+        78,
+        747,
+        738
+      ],
+      "ground_rect": [
+        6,
+        603.375,
+        735,
+        128.625
+      ],
+      "footprint_world_size": [
+        80,
+        14
+      ],
+      "world_size": [
+        81.306122,
+        80.326531
+      ],
+      "scale": 0.10884353741496598,
+      "anchor": [
+        373.5,
+        732
+      ],
+      "elevation_world": 65.673469,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "render_mode": "ground_prop",
+      "editor_icon": "res://art/editor/v02/icons/solitary_door_closed.tres",
+      "sha256": "2c8fc815c70dd1580e4e6d53b206be009c751966c2904374ed80f241b5e9979f",
+      "pair": "solitary_door",
+      "state": "closed",
+      "plane": "east-west horizontal threshold",
+      "state_driven": true,
+      "registration_note": "Shared frame, scale, ground_rect and anchor; fixed source frame alignment identical, 1px handle extent difference retained without image edits."
+    },
+    {
+      "id": "solitary_door_open",
+      "name": "禁闭室铁门·打开",
+      "texture": "res://art/props/security_v19/solitary_door_pair_v19.png",
+      "texture_size": [
+        1774,
+        887
+      ],
+      "region": [
+        961,
+        78,
+        747,
+        738
+      ],
+      "ground_rect": [
+        6,
+        603.375,
+        735,
+        128.625
+      ],
+      "footprint_world_size": [
+        80,
+        14
+      ],
+      "world_size": [
+        81.306122,
+        80.326531
+      ],
+      "scale": 0.10884353741496598,
+      "anchor": [
+        373.5,
+        732
+      ],
+      "elevation_world": 65.673469,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "render_mode": "ground_prop",
+      "editor_icon": "res://art/editor/v02/icons/solitary_door_open.tres",
+      "sha256": "2c8fc815c70dd1580e4e6d53b206be009c751966c2904374ed80f241b5e9979f",
+      "pair": "solitary_door",
+      "state": "open",
+      "plane": "east-west horizontal threshold",
+      "state_driven": true,
+      "registration_note": "Shared frame, scale, ground_rect and anchor; fixed source frame alignment identical, 1px handle extent difference retained without image edits."
+    },
+    {
+      "id": "solitary_bed",
+      "name": "禁闭室薄单人床",
+      "texture": "res://art/props/security_v19/solitary_bed_v19.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        195,
+        135,
+        633,
+        1221
+      ],
+      "ground_rect": [
+        6,
+        249.0,
+        621,
+        966.0
+      ],
+      "footprint_world_size": [
+        72,
+        112
+      ],
+      "world_size": [
+        73.391304,
+        141.565217
+      ],
+      "scale": 0.11594202898550725,
+      "anchor": [
+        316.5,
+        1215
+      ],
+      "elevation_world": 28.869565,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "render_mode": "ground_prop",
+      "editor_icon": "res://art/editor/v02/icons/solitary_bed.tres",
+      "sha256": "e9c41af0cddcfcc9c53f4553ab0a8f34c0aa805795072fdd107640e8aa0da075"
+    }
+  ]
+}

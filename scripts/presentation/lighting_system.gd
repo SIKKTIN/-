@@ -9,6 +9,7 @@ var lamps: Array[PointLight2D] = []
 var occluders: Array[LightOccluder2D] = []
 var lamp_specs: Array = []
 var room_id: String = ""
+var lamp_layout_key := ""
 var obstacle_revision: int = -1
 var toggle_button: Button
 var guard_light: PointLight2D
@@ -168,7 +169,7 @@ func _rebuild_lamps() -> void:
 	for lamp in lamps:
 		lamp.free()
 	lamps.clear()
-	lamp_specs = settings.rooms.get(game.world.room_id,game.room_config.get("lamps",[]))
+	lamp_specs = game.room_config.get("lamps",settings.rooms.get(game.world.room_id,[]))
 	for index in range(lamp_specs.size()):
 		var spec: Dictionary = lamp_specs[index]
 		var lamp := PointLight2D.new()
@@ -204,7 +205,9 @@ func _sync_occluders() -> void:
 	obstacle_revision = game.world.obstacle_revision
 
 func tick() -> void:
-	if room_id != game.world.room_id:
+	var layout_key: String = game.world.room_id+JSON.stringify(game.room_config.get("lamps",[]))
+	if lamp_layout_key != layout_key:
+		lamp_layout_key = layout_key
 		room_id = game.world.room_id
 		_rebuild_lamps()
 		_sync_guard_boundaries()

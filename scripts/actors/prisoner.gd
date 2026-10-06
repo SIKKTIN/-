@@ -6,6 +6,11 @@ var home := Vector2.ZERO
 var facing := Vector2.UP
 var action_state: String = "idle"
 var escaped: bool = false
+var confined := false
+var confinement_rect := Rect2()
+
+func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
+	return not confined or confinement_rect.grow(-radius).has_point(point)
 var selected: bool = false
 var immune_until: float = 0.0
 var moved_this_frame: bool = false
@@ -59,8 +64,9 @@ func reset_actor() -> void:
 	facing = Vector2.UP
 	action_state = "idle"
 	escaped = false
+	confined = false
 	immune_until = 0.0
 	queue_redraw()
 
 func snapshot() -> Dictionary:
-	return {"actor_id": actor_id, "skill_id": skill_id, "position": [position.x, position.y], "facing": [facing.x, facing.y], "action": action_state, "escaped": escaped, "selected": selected}
+	return {"actor_id": actor_id, "skill_id": skill_id, "position": [position.x, position.y], "facing": [facing.x, facing.y], "action": action_state, "escaped": escaped, "selected": selected,"confined":confined}

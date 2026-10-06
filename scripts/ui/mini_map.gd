@@ -119,6 +119,8 @@ func _draw() -> void:
 	draw_world_rect(game.world.crate,Color("926d3a"))
 	if not game.world.door_open:
 		draw_world_rect(game.world.door,Color("775b8b"))
+	for gate in game.world.access_doors:
+		draw_world_rect(gate.rect,Color("b36e59") if gate.closed else Color("36ab92"))
 	draw_world_rect(game.world.exit_area.intersection(game.world.bounds),Color("36ab92"))
 	for merchant in game.trade.merchants.values():
 		var coords: Array = merchant.position

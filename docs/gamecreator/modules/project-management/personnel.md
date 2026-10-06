@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T08:00:56.807Z
-> 文档内容基准：e4804b9c8de0f5106067976927ffc81d99bf2f0f998cf4f1966e31bc1209cb91
+> 文档生成时间：2026-10-06T08:54:51.346Z
+> 文档内容基准：65aac67ce37b400d612b8084f4a83046753e458d1b1745b653443f64e948dc4a
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -69,6 +69,7 @@
 - P50 · Godot关卡编辑页与编辑试玩闭环 [p50-level-editor-20261006] · 已完成
 - P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
 - P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
+- P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -89,9 +90,10 @@
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 已完成
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
+- A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1003,6 +1005,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：操作工具与可放置素材彻底分区；图标卡片按类别筛选，选择立即激活对应放置，不依赖旧下拉框。分类墙门/摆设/人物/巡逻/物品/日常/区域，显示与锁定作用于绘制、点选、对象列表和编辑，隐藏巡逻连线与标签一并隐藏。筛选状态不改地图JSON，保存/撤销/试玩保持，小窗口/实际Godot主屏可用，未知图标有兼容回退；A18资源验收后接入。
 - 验收负责人：制作人
+### P52 地图4重排、定时门禁与被捕禁闭
+- ID：p52-r04-access-confinement-20261006
+- 当前状态：已完成
+- 内容：复用现有围墙、床、食堂以及A17铁门场景包，重排宿舍/加工/活动/食堂/禁闭/出口通路。食堂12–14开放，闭门不可穿越；被捕移入禁闭室；接入A19缺少素材和编辑器图标。兼容无新配置的R01–R03。
+- 前置任务：无
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p52*、docs/dev/p52*、docs/tests/p52*、art/editor/v02/**
+- 接口契约：新增可选access_doors和confinement字段；旧地图无字段时原行为保持；不修改用户project.godot，原美术PNG原样；复用A17/A19来源并独立验收。
+- 交付入口：scripts/core/room_access.gd
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：真实Godot验证食堂12开14关、关门疏散无嵌入、禁闭捕获多角色不重叠与解救/到期释放、移动/日程/门岗回归；两尺寸截图和编辑器新对象可修改保存；GameCreator证据、自验收及主干同步。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1069,7 +1082,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 - P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
 - P47 · 自定义摇杆与交互按键位置 [p47-custom-mobile-layout-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 已完成
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - P48 · 人物栏置于时钟下方与无辜被困者故事文案 [p48-hud-story-premise-20261006] · 已完成
 - P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
@@ -1077,6 +1090,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
 - A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
 - P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
+- P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
+- A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1514,7 +1529,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### A17 监狱门与场景美术扩展包
 - ID：a17-prison-scene-expansion-20261006
-- 当前状态：待验收
+- 当前状态：已完成
 - 内容：按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。
 - 前置任务：无
 - 允许修改路径：art/props/prison_v17/**、docs/art/prison-v17/**
@@ -1542,6 +1557,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/editor/v01/manifest.json
 - 验收要求：图标与场景素材一一对应，透明/清晰/固定显示框，48–64px可辨认；对应图标清单含id、name、category、editor_icon，工具清单含id、name、icon。已有资源可用独立AtlasTexture裁框资源引用已验收PNG，不改原PNG像素；逻辑点可沿用现有SVG风格制作。实际Godot资源加载和联系表查看，未来美术必须提交编辑器图标/字段/小尺寸QA；主美待验收，制作人接入复核。
 - 验收负责人：制作人
+### A19 门禁、禁闭室素材与编辑器图标
+- ID：a19-access-solitary-art-20261006
+- 当前状态：已完成
+- 内容：用户指定主美线程制作缺少美术；复用A17prison_gate开闭，补A17九状态对应编辑器图标；制作门禁读卡器、禁闭室封闭铁门开闭状态、薄单人床，附编辑器图标。
+- 前置任务：无
+- 允许修改路径：art/props/security_v19/**、art/editor/v02/**、docs/art/security-v19/**
+- 接口契约：不修改scripts/data/scenes/旧manifest、不Git提交。新world manifest schema1 assets数组；新editor/v02/manifest schema1 assets{id,name,category,editor_icon}，tools数组。A17九状态也在v02 editor清单注册，notice_board避免旧ID冲突由制作人按独立ID接入。图片编辑用imagegen；Atlas/SVG可代码制作。反馈CLI本人身份。
+- 交付入口：art/props/security_v19/manifest.json
+- 验收要求：新PNG保持现有FINAL-WARM-01手绘风格、原样透明、门状态等比共享注册；manifest含region/ground_rect/footprint/world_size；每项editor_icon及48/64原生QA；A17既有素材不改字节；独立制作人验收。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1560,6 +1585,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 已完成
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
+- A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成

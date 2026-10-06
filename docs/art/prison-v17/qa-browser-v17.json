@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "width": 1280,
+      "height": 720,
+      "mode": "contact",
+      "ready": true,
+      "qa": {
+        "assets": 9,
+        "textures": 22,
+        "mode": "contact"
+      },
+      "font": true,
+      "overflow": false,
+      "screenshot": "contact-1280x720-v17.png"
+    },
+    {
+      "width": 960,
+      "height": 540,
+      "mode": "contact",
+      "ready": true,
+      "qa": {
+        "assets": 9,
+        "textures": 22,
+        "mode": "contact"
+      },
+      "font": true,
+      "overflow": false,
+      "screenshot": "contact-960x540-v17.png"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "mode": "scene",
+      "ready": true,
+      "qa": {
+        "assets": 9,
+        "textures": 22,
+        "mode": "scene"
+      },
+      "font": true,
+      "overflow": false,
+      "screenshot": "scene-1280x720-v17.png"
+    },
+    {
+      "width": 960,
+      "height": 540,
+      "mode": "scene",
+      "ready": true,
+      "qa": {
+        "assets": 9,
+        "textures": 22,
+        "mode": "scene"
+      },
+      "font": true,
+      "overflow": false,
+      "screenshot": "scene-960x540-v17.png"
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "resource plate and assembled art preview; main-map placement, collision and game state not covered"
+}

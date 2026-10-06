@@ -1,0 +1,22 @@
+{
+  "taskId": "a19-access-solitary-art-20261006",
+  "revision": "d2007a37a5c9a02928df3743546a4844c79d01edeaaac1b2d88728cca31bcb49",
+  "feedbackId": "a19-final-v19-20261006",
+  "status": "待验收",
+  "requestId": "a19-final-v19-20261006",
+  "summary": "security-art-v19-20261006-fa51cdce1d86交付：3张内置imagegen原样透明PNG/4世界状态（门禁控制盒、实心禁闭门closed/open、薄硬单人床），入口res://art/props/security_v19/manifest.json。门槛80x14水平朝前，开闭同region/ground/anchor/等比scale/world_size，固定框体脚底一致；1源像素门把手边界差保留不改图，开门孔3取样alpha0。墙盒宽18带mount_anchor离地38且无地面碰撞，床72x112无枕头厚被。4项均含editor_icon。editor/v02/manifest.json为13项增量AtlasTexture（A17九+A19四），48/64原生QA各13共26图通过；新布告板prison_notice_board引用A17原图，world A17 notice_board由制作人加载时映射，旧ID/图标保留。v02工具数组空，请合并v01工具和类别props/furniture。184旧资产/图标/清单SHA无变化，源复制透明完整裁框、Godot4.7.2隔离导入/Texture2D/Atlas/margin/世界注册、浏览器1280x720与960x540均通过，预览已查看。完整提示词/来源/哈希/接入说明/61文件清单齐全。仅允许目录，无生产脚本/数据/场景/旧manifest/根project/Git改动，未开启生产窗口。CLI以主美本人凭证提交，请制作人独立验收并P52接入食堂门禁、禁闭2小时和伙伴撬门逻辑。",
+  "evidence": [
+    "E:/Project/Godot/这次怎么逃/art/props/security_v19/manifest.json",
+    "E:/Project/Godot/这次怎么逃/art/editor/v02/manifest.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/README.md",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/delivery-filelist-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/source-license-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/imagegen-prompts-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-resources-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-godot-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/qa-browser-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/editor-icon-regions-v19.json",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/contact-1280x720-v19.png",
+    "E:/Project/Godot/这次怎么逃/docs/art/security-v19/contact-960x540-v19.png"
+  ]
+}

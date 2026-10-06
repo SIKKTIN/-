@@ -4,7 +4,7 @@ extends RefCounted
 signal changed
 const ORDER := ["architecture","fixtures","actors","patrol","items","routine","areas"]
 const NAMES := {"architecture":"墙门 / 机关","fixtures":"场景摆设","actors":"人物 / NPC","patrol":"巡逻 / 搜查","items":"可拾取物品","routine":"日常活动点","areas":"区域 / 寝室"}
-const GROUPS := {"architecture":["bounds","walls","door","dorm_doors","crate","exit"],"fixtures":["fixtures"],"actors":["starts","guard_start","gate_guards","merchants"],"patrol":["patrol","guard_zone"],"items":["items"],"routine":["work","meal","dine","free"],"areas":["zones","dormitories"]}
+const GROUPS := {"architecture":["bounds","walls","door","dorm_doors","access_doors","crate","exit"],"fixtures":["fixtures"],"actors":["starts","guard_start","gate_guards","merchants"],"patrol":["patrol","guard_zone"],"items":["items"],"routine":["work","meal","dine","free"],"areas":["zones","dormitories","confinement"]}
 var visible: Dictionary = {}
 var locked: Dictionary = {}
 

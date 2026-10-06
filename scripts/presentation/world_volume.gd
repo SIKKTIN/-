@@ -29,6 +29,10 @@ func asset_id(slot: String, fallback: String) -> String:
 
 func prop_id() -> String:
 	if kind == "fixture":
+		var fixture: Dictionary = world.fixtures[wall_index]
+		if fixture.has("access_id"):
+			var gate: Dictionary = world.access_by_id(str(fixture.access_id))
+			return str(fixture.get("closed_asset",fixture.asset_id) if gate.get("closed",true) else fixture.get("open_asset",fixture.asset_id))
 		return str(world.fixtures[wall_index].asset_id)
 	return asset_id("crate","heavy_crate_v02") if kind == "crate" else asset_id("door_open","locked_door_open_v02") if world.door_open else asset_id("door_closed","locked_door_closed_v02")
 
