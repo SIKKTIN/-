@@ -1,0 +1,33 @@
+{
+  "scheduleRevision": "b97f02e719f03b54bf75b8d9ebb0d515667b0c181d76a4d8fa842eacfbce8ac9",
+  "task": {
+    "id": "p53-architecture-render-20261006",
+    "title": "P53 门墙一体与不透明禁闭屋顶接入",
+    "description": "按A22用户确认的最终概念，制作人实现独立建筑表现、食堂一致高墙/嵌门、禁闭全屋顶遮挡，保持原门禁和两小时救援规则，集成主美A23资产并运行验证。",
+    "kind": "程序",
+    "priority": "高",
+    "selfReviewRole": "producer",
+    "dependencyIds": [
+      "a21-roof-solitary-concept-20261006",
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "acceptance": "实际运行禁闭内部人物/地面/家具不可见，门外看守/伙伴不被顶遮盖；食堂门左右高墙同材质高度，嵌门无浮框且开闭碰撞/视线一致；保持12-14和120分钟救援、地图编辑可保存建筑参数，R01-03兼容，关键运行截图和测试通过。",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p53*",
+        "docs/dev/p53/**",
+        "docs/tests/p53*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn R04",
+      "interfaceContract": "复用world.walls真实几何、access_doors门状态、room_access禁闭规则。建筑表现为地图新增可选配置，空配置旧关保持原样。root不改主美资产，只消费A23manifest；project.godot用户改动保留。"
+    }
+  },
+  "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reason": "本人承接明确程序与主干接入，已获用户跨聊天直接制作授权。",
+  "requestId": "p53-architecture-render-plan-20261006"
+}

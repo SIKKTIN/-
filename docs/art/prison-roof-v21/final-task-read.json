@@ -1,0 +1,128 @@
+{
+  "task": {
+    "id": "a21-roof-solitary-concept-20261006",
+    "title": "A21 封顶禁闭室与差异墙体概念",
+    "description": "用户认可A20食堂抬高墙面，要求禁闭室改成屋顶封死、看不到内部的暗色小屋，并探索几种不同墙体。制作新的完整场景概念与墙体差异小稿；不替换生产素材或地图。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "完整横屏概念保留食堂高墙与HUD/人物/局部布局，禁闭室完整不透明屋顶、无可见室内床/便器；提供同风格下禁闭厚墙、食堂高墙、寝室低墙、走廊矮边墙的差异探索。保存原图/提示词/来源；仅供用户评审，不确认新风格或实施。",
+    "result": "已接手用户概念修订：保留认可的食堂高墙，禁闭室改为厚重暗色实墙与不透明封闭平屋顶，完全遮住室内；新增禁闭/食堂/寝室/走廊4种墙体差异探索。只出新概念供用户评审，不改游戏或风格基准。",
+    "dependencyIds": [],
+    "references": [],
+    "positionIds": [
+      "art-director"
+    ],
+    "workScope": {
+      "allowedPaths": [
+        "art/concepts/prison-roof-v21/**",
+        "docs/art/prison-roof-v21/**"
+      ],
+      "entry": "art/concepts/prison-roof-v21/scene-concept-v21.png",
+      "interfaceContract": "新概念PNG及文档；内置imagegen，原图不程序修改。A20食堂高墙仅局部获认可，整张新概念待评审。不改scripts/data/scenes/旧PNG/旧manifest/根project，不Git提交。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "dispatchHistory": [
+      {
+        "id": "a21-roof-solitary-concept-plan-20261006",
+        "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T09:19:54.710Z"
+      }
+    ]
+  },
+  "revision": "9aebaf761b555a1bac0acccd73f2b8de43aa09b65eaa6792fac834283780db4b",
+  "scheduleRevision": "596aaedfc8ccffa506faac341f31379d761368a8324e6712c11cb32410d00080",
+  "planChanges": [
+    {
+      "id": "a21-roof-solitary-concept-plan-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "memberName": "主美",
+      "at": "2026-10-06T09:19:54.710Z",
+      "reason": "用户直接提出A20概念修订：封顶黑屋与差异墙体，需要新的评审概念。",
+      "createdTaskIds": [
+        "a21-roof-solitary-concept-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a21-start-20261006",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "9aebaf761b555a1bac0acccd73f2b8de43aa09b65eaa6792fac834283780db4b"
+  },
+  "feedback": [
+    {
+      "id": "a21-start-20261006",
+      "taskId": "a21-roof-solitary-concept-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手用户概念修订：保留认可的食堂高墙，禁闭室改为厚重暗色实墙与不透明封闭平屋顶，完全遮住室内；新增禁闭/食堂/寝室/走廊4种墙体差异探索。只出新概念供用户评审，不改游戏或风格基准。",
+      "evidence": [
+        "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-edafa25c-e950-425a-88b5-3014f0d26715.png",
+        "E:/Project/Godot/这次怎么逃/art/concepts/door-wall-v20/concept-v20.png"
+      ],
+      "at": "2026-10-06T09:19:56.247Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a21-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "9aebaf761b555a1bac0acccd73f2b8de43aa09b65eaa6792fac834283780db4b"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "9aebaf761b555a1bac0acccd73f2b8de43aa09b65eaa6792fac834283780db4b",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

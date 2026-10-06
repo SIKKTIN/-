@@ -1,0 +1,27 @@
+{
+  "scheduleRevision": "81838e0a5cb53c6b25031b096d8c171630d3f339c00d123b827bf1771570ed35",
+  "task": {
+    "id": "a23-architecture-production-20261006",
+    "title": "A23 封顶禁闭室与食堂高墙生产素材",
+    "description": "按用户确认A22最终概念scene-concept-v21r2.png制作可复用屋顶、墙面、压顶纹理和嵌入式门开闭素材及编辑器图标。主美制作，制作人负责共享脚本/地图集成。",
+    "kind": "美术",
+    "priority": "高",
+    "dependencyIds": [
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "acceptance": "不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。",
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v23/**",
+        "art/editor/v03/**",
+        "docs/art/architecture-v23/**"
+      ],
+      "entry": "art/architecture/v23/manifest.json",
+      "interfaceContract": "root共享渲染与地图维护。资产提供Texture/AtlasTexture裁切数据，墙/顶材质不含烘焙投影，门以world_size和ground_rect精确注册，开/关门锚点相同。只改允许新目录，不改scripts/data/project/旧manifest，不git提交。"
+    }
+  },
+  "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reason": "用户已确认按A22最终概念制作，由既有主美承担生产资产。",
+  "requestId": "a23-architecture-production-plan-20261006"
+}

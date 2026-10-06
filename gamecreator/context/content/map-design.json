@@ -1286,7 +1286,7 @@
         "id": "6f1e26c3-ddf5-439c-b7c3-2633d623b9ac",
         "name": "R04 黑工厂管制生活区",
         "region": "寝室、加工车间、活动走廊、食堂、禁闭区、门岗",
-        "description": "当前执行规则：三天逃脱，R04真实地图2800×2200。食堂每天12–14定时开放，实际门禁关闭，14点先疏散。被捕进入对应禁闭室，关2游戏小时，到期释放，伙伴可撬门救人；保留物品与局内成果。白天非戒备不抓人，门岗阻止主门操作；午夜查寝缺员则全厂警报增援。复用A17未接入场景包与A19新门禁/实心门/硬床，均有编辑器图标。真实几何和关押/门配置唯一来源data/rooms/r04.json；策划说明docs/dev/p52-map-design.md。",
+        "description": "当前执行规则：三天逃脱，R04真实地图2800×2200。食堂每天12–14定时开放，实际门禁关闭，14点先疏散。被捕进入对应禁闭室，关2游戏小时，到期释放，伙伴可撬门救人；保留物品与局内成果。白天非戒备不抓人，门岗阻止主门操作；午夜查寝缺员则全厂警报增援。场景复用A17/A19场景资产，按已确认A22最终概念接入A23建筑素材及图标。禁闭室深灰实体屋顶完整遮住内部，外立面嵌入铁门/通风口/标识，门外显示伙伴与剩余禁闭时间；食堂门左右使用110高墙、同压顶及基座，门的开闭高度均110，碰撞与日程独立驱动。真实几何和关押/门配置唯一来源data/rooms/r04.json；策划说明docs/dev/p52-map-design.md。 建筑表现接口：architecture.wall_surfaces及confinement.cells[].building；编辑器可调整墙高、墙材质、封顶和建筑高度，保持物理围墙为通路唯一来源。程序说明docs/dev/p53/README.md。",
         "perspective": "top",
         "view": "grid",
         "x": 108,
@@ -1589,9 +1589,9 @@
             "x": 9,
             "y": 15,
             "width": 2.5,
-            "height": 0.30000000000000004,
+            "height": 0.39375,
             "color": "blue",
-            "notes": "",
+            "notes": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。",
             "references": [
               {
                 "kind": "gameplay",
@@ -1607,9 +1607,9 @@
             "x": 13.75,
             "y": 15,
             "width": 11.55,
-            "height": 0.30000000000000004,
+            "height": 0.39375,
             "color": "blue",
-            "notes": "",
+            "notes": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。",
             "references": [
               {
                 "kind": "gameplay",
@@ -2608,12 +2608,12 @@
             "name": "通风口",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 3.375,
-            "y": 14.2,
-            "width": 0.8999999999999999,
-            "height": 0.018750000000000003,
+            "x": 2.1875,
+            "y": 16.6875,
+            "width": 0.8,
+            "height": 0.025,
             "color": "amber",
-            "notes": "wall_vent；复用已验收素材。"
+            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
           },
           {
             "id": "p52-solitary-door-visual-0",
@@ -2626,7 +2626,7 @@
             "width": 2,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed；配对门由access_id驱动。"
+            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
           },
           {
             "id": "p52-solitary-bed-1",
@@ -2660,12 +2660,12 @@
             "name": "通风口",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 3.375,
-            "y": 18.7,
-            "width": 0.8999999999999999,
-            "height": 0.018750000000000003,
+            "x": 2.1875,
+            "y": 21.1875,
+            "width": 0.8,
+            "height": 0.025,
             "color": "amber",
-            "notes": "wall_vent；复用已验收素材。"
+            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
           },
           {
             "id": "p52-solitary-door-visual-1",
@@ -2678,7 +2678,7 @@
             "width": 2,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed；配对门由access_id驱动。"
+            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
           },
           {
             "id": "p52-solitary-bed-2",
@@ -2712,12 +2712,12 @@
             "name": "通风口",
             "kind": "building",
             "layerId": "p23-obstacles",
-            "x": 3.375,
-            "y": 23.2,
-            "width": 0.8999999999999999,
-            "height": 0.018750000000000003,
+            "x": 2.1875,
+            "y": 25.6875,
+            "width": 0.8,
+            "height": 0.025,
             "color": "amber",
-            "notes": "wall_vent；复用已验收素材。"
+            "notes": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
           },
           {
             "id": "p52-solitary-door-visual-2",
@@ -2730,7 +2730,7 @@
             "width": 2,
             "height": 0.35,
             "color": "amber",
-            "notes": "solitary_door_closed；配对门由access_id驱动。"
+            "notes": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
           },
           {
             "id": "p52-cafeteria-door-visual",
@@ -2743,7 +2743,7 @@
             "width": 2.25,
             "height": 0.39375000000000004,
             "color": "amber",
-            "notes": "prison_gate_closed；配对门由access_id驱动。"
+            "notes": "cafeteria_gate_closed_v23/open_v23，180×110嵌墙侧滑栅栏，两态完整Atlas注册；12–14开放，开放通道透明，门槛rect拥有移动碰撞。"
           },
           {
             "id": "p52-cafeteria-reader",
@@ -3442,7 +3442,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "独立关押室，关押点/释放点与门引用见JSON。"
+            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
           },
           {
             "id": "p52-cell-cell-1",
@@ -3455,7 +3455,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "独立关押室，关押点/释放点与门引用见JSON。"
+            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
           },
           {
             "id": "p52-cell-cell-2",
@@ -3468,7 +3468,7 @@
             "width": 5.5,
             "height": 3.55,
             "color": "blue",
-            "notes": "独立关押室，关押点/释放点与门引用见JSON。"
+            "notes": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
           }
         ]
       }

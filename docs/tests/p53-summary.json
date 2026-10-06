@@ -1,0 +1,273 @@
+{
+  "version": "p53-architecture-307c86a79885",
+  "reports": [
+    {
+      "path": "docs/tests/p53-access-access-headless-1200.json",
+      "checks": 73,
+      "passed": 73,
+      "failed": [],
+      "sha256": "9f307187fc51a2ed43a72872022ad5413e10419ad9ba2bbedc15bd0cabbab567"
+    },
+    {
+      "path": "docs/tests/p53-architecture-headless-1200.json",
+      "checks": 41,
+      "passed": 41,
+      "failed": [],
+      "sha256": "01a757e69fa1b8e7f63344ef6584d271eac3e7274320d6d95353e884354a9f75"
+    },
+    {
+      "path": "docs/tests/p53-architecture-native-1200.json",
+      "checks": 42,
+      "passed": 42,
+      "failed": [],
+      "sha256": "92e28fb965943a0a288a05c996321c8d1e281d2efa89b19a7367e60df457ee8d"
+    },
+    {
+      "path": "docs/tests/p53-architecture-native-960.json",
+      "checks": 42,
+      "passed": 42,
+      "failed": [],
+      "sha256": "70b942fd141181d5665c33c76edfa61434a49db92472423711e203d5b22d9b13"
+    },
+    {
+      "path": "docs/tests/p53-editor-headless-1280.json",
+      "checks": 78,
+      "passed": 78,
+      "failed": [],
+      "sha256": "f8debc4e517c0b5607caab257c3129ebe84d1aa5398f0bf93797de720e77dd57"
+    },
+    {
+      "path": "docs/tests/p53-editor-native-1280.json",
+      "checks": 83,
+      "passed": 83,
+      "failed": [],
+      "sha256": "8749984198ea2ed6207b949a48facb622ff74c1dfcafa0eaa4668f3ddff487ac"
+    },
+    {
+      "path": "docs/tests/p53-rollcall-headless.json",
+      "checks": 50,
+      "passed": 50,
+      "failed": [],
+      "sha256": "85a8aa47c93e7ba320b465b46f97fa96b0a268e3d62c6e47b1366b41f762817c"
+    }
+  ],
+  "total_checks": 409,
+  "failed": [],
+  "visual_review": "docs/art/architecture-v23/p53-final-visual-review-r2.md; confirmed final screenshots and immutable original art delivery",
+  "source_digest": "307c86a79885408cd4aa4b6f461661f797fa1e46dc5586ddb4ce6cbc373f53af",
+  "sources": [
+    {
+      "path": "art/architecture/v23/architecture_materials_v23.png",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1"
+    },
+    {
+      "path": "art/architecture/v23/cafeteria_gate_pair_v23.png",
+      "sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409"
+    },
+    {
+      "path": "art/architecture/v23/manifest.json",
+      "sha256": "a844d2c6f6a302b5ea684ed2055d06134f8ee9982888a13b19ea98a8a6c6be68"
+    },
+    {
+      "path": "art/architecture/v23/solitary_door_pair_v23.png",
+      "sha256": "10d4a24102c7132171eb7bbc2daaec6e6fe297b6dfbb3fc1427f8a9125c53841"
+    },
+    {
+      "path": "data/rooms/r04.json",
+      "sha256": "22db0371089967a39f5f0bc068852a41bc4bdce6d1fb55b63beec0f5df8a14fa"
+    },
+    {
+      "path": "scripts/actors/gate_guard.gd",
+      "sha256": "f5dc5d2555b2e7cc09d900c155250362e506e0d2ea73052bb206077d0694f71e"
+    },
+    {
+      "path": "scripts/actors/guard.gd",
+      "sha256": "f53af7bfe25fa8f0410e75d5c70e345f913e48f5ebd7450265a3174af864556c"
+    },
+    {
+      "path": "scripts/actors/merchant.gd",
+      "sha256": "5bc97c8a4756118fd11ec904af93fb4cbe4e26b1806179161b3c78ade9da1276"
+    },
+    {
+      "path": "scripts/actors/police_dog.gd",
+      "sha256": "e3ea37fc584956802c53b186ebce7919c57b680f92270fcb28449bbd1899bef1"
+    },
+    {
+      "path": "scripts/actors/prisoner.gd",
+      "sha256": "2982658f2a1821b0c737a62c4cd08b6c3643d7bd52954191eff2249765b31a63"
+    },
+    {
+      "path": "scripts/core/actor_attributes.gd",
+      "sha256": "53a75dbc61d07a4f9aea89d4f34017819a0520b8e5b77377e35349a6579301da"
+    },
+    {
+      "path": "scripts/core/daily_routine.gd",
+      "sha256": "c7ffb5e0f99246e78a3e71433e616870fae60551191fb75e995e95033790a866"
+    },
+    {
+      "path": "scripts/core/escape_game.gd",
+      "sha256": "03e9e59f5a3896e9e09393770c93e225c396ce3cf05dfa6b7770fd03a1bc48a3"
+    },
+    {
+      "path": "scripts/core/gate_watch.gd",
+      "sha256": "3e27e56bcbdccb9824a32044cf427d84e6f8d9ece0188166bc21e953c659ea2b"
+    },
+    {
+      "path": "scripts/core/map_camera.gd",
+      "sha256": "e191b872dea54e3d402b12d1fde4fda08beb67039243e8a57799cc6fb3011172"
+    },
+    {
+      "path": "scripts/core/mobile_controls.gd",
+      "sha256": "104cb96b42134bcb5aa90d8b0de9ab967be4bf264512548c15fd58105ca79ef1"
+    },
+    {
+      "path": "scripts/core/move_orders.gd",
+      "sha256": "e5dea6f415800d71a7cb922adfa6b9b0102d68647f5d373e55ccafeca0127079"
+    },
+    {
+      "path": "scripts/core/prison_alert.gd",
+      "sha256": "88049a307745f5d3e9ce47532a48e969c4784ae978f2baa1e5502792af35483d"
+    },
+    {
+      "path": "scripts/core/prison_schedule.gd",
+      "sha256": "16808aa61602ceb96fb14ed94db62df0ec53c2db86badfb12d4418650badcb39"
+    },
+    {
+      "path": "scripts/core/room_access.gd",
+      "sha256": "914dfb465b6f6c0b04111460e83dc1e37118cfd9dcd455e5eee4fc56d8acd386"
+    },
+    {
+      "path": "scripts/editor/editor_catalog.gd",
+      "sha256": "d1ac16cf25f832461735d05ea628fc3aae08880a36b0ac8c48e23bffa0016a69"
+    },
+    {
+      "path": "scripts/editor/map_canvas.gd",
+      "sha256": "3e95cc670f81070a353154c9165bc25d6e670e3ab3d098f287d91012de903c91"
+    },
+    {
+      "path": "scripts/editor/map_document.gd",
+      "sha256": "a98433dab3a480e0cdbe2524a00b7041ce495ebd19a00815faac932ddbbee324"
+    },
+    {
+      "path": "scripts/editor/map_editor.gd",
+      "sha256": "8e08302f64239801f0165464e5f6c4598fe630cbb3bcb8cab2ce49b9bc9bb9f3"
+    },
+    {
+      "path": "scripts/editor/map_layers.gd",
+      "sha256": "47dcbc63aaf4af17455d49f95bbce54b68231091a37eee5f7bae0690b7b4faad"
+    },
+    {
+      "path": "scripts/editor/preview_return.gd",
+      "sha256": "55026d6c1b756df36c7022bcb33056a5285e1e0c80a1decb1ab1ec8c9c9b7969"
+    },
+    {
+      "path": "scripts/items/inventory.gd",
+      "sha256": "504f1a576fd751d30ecf0b7e85deeae618f32612694aab050dd82c3ac988bc01"
+    },
+    {
+      "path": "scripts/items/trade.gd",
+      "sha256": "d78efd096b20b179d5930360502e7f85d3f660f108fbecaf5b51228cc88dfffb"
+    },
+    {
+      "path": "scripts/presentation/actor_visual.gd",
+      "sha256": "5dbbf80fa830aa04de2522bdb69dcd690beb23661bf1924f4a2e6a475063ba98"
+    },
+    {
+      "path": "scripts/presentation/dog_visual.gd",
+      "sha256": "178299270486b4d1893c6e3af189e07e97e3fdeed1c5d5a98aac2845697b75fb"
+    },
+    {
+      "path": "scripts/presentation/game_presentation.gd",
+      "sha256": "bd740eb749dc7e4f468935fecf0bbc18474e91506c029bec1f087d9b7cf1e3e2"
+    },
+    {
+      "path": "scripts/presentation/interaction_prompt.gd",
+      "sha256": "bef27df6c2beab553b6b8a7d892eaf975df34aced6710c92a89984b8b93d0ef8"
+    },
+    {
+      "path": "scripts/presentation/items_view.gd",
+      "sha256": "2107e2c0c69a49d567b5d81b40095a944a7a010f4654ea38bf5c21feae2ea48a"
+    },
+    {
+      "path": "scripts/presentation/lighting_system.gd",
+      "sha256": "83e6145254ceb6cba1bbb7780c9cbc7ded152b38c484825d0c54c3a63565455c"
+    },
+    {
+      "path": "scripts/presentation/paper_backdrop.gd",
+      "sha256": "2b4087ba0576fe8d6c7aa418d3eb70191bea5c11295633576e56e3097cb6b882"
+    },
+    {
+      "path": "scripts/presentation/prop_catalog.gd",
+      "sha256": "8688a6cd21053fa76b8645c4973d1bdea467cff059b5f4a08f743f6b0ce94658"
+    },
+    {
+      "path": "scripts/presentation/roof_building.gd",
+      "sha256": "549bb80b45c1bcf14798b2b5dfa0777839cbfd5e2144655dc9feaae7bd8f6867"
+    },
+    {
+      "path": "scripts/presentation/scene_layers.gd",
+      "sha256": "84a00639beb95ba1b1d7eef38574ca39980b82733d8a14d792943d79235481d3"
+    },
+    {
+      "path": "scripts/presentation/soft_shadow.gd",
+      "sha256": "364ead074a7d1791124092bd39cccd1dbc94abe0679cbaf12e7167ff6db416bc"
+    },
+    {
+      "path": "scripts/presentation/texture_tiles.gd",
+      "sha256": "987b5cc055125631e1480653ac0e198a20274deda92d54390ebf28e093a41f1e"
+    },
+    {
+      "path": "scripts/presentation/world_texture.gd",
+      "sha256": "c5e7a601f4a43bc6c69175b847490bb631f2ebcba500e44541732ad386618117"
+    },
+    {
+      "path": "scripts/presentation/world_volume.gd",
+      "sha256": "f4f1c7185927d2263ff24431204d4b36c0cfea12b7ba41b096fe6c301c303c1c"
+    },
+    {
+      "path": "scripts/skills/skill_controller.gd",
+      "sha256": "a34c8399757ec7487be5cd7fd096bfa03de1d031c9f73773b5888b783746ef2b"
+    },
+    {
+      "path": "scripts/ui/button_layout.gd",
+      "sha256": "18e259486fd77a4f58c13b475344511ca150d764aecedaf97dc15ec39de101c9"
+    },
+    {
+      "path": "scripts/ui/developer_settings.gd",
+      "sha256": "0e2f603708a2b6285aaeef9b784d066dd0bb7fcd2e3298c233700657ebacd49c"
+    },
+    {
+      "path": "scripts/ui/fullscreen_hud.gd",
+      "sha256": "bd29337121df931f8a9cb18e51c0b2ef94048cba783fbd50b631c4e56150dae1"
+    },
+    {
+      "path": "scripts/ui/inventory_panel.gd",
+      "sha256": "8e0ac0e6694414f479065ee3ab786be980d6604c5d557eedac1e57629d58a633"
+    },
+    {
+      "path": "scripts/ui/mini_map.gd",
+      "sha256": "4fe333e9cf522be6076c2312b214f2dcbc59c58124d630abd5444ea310489876"
+    },
+    {
+      "path": "scripts/ui/routine_board.gd",
+      "sha256": "23b33e6f55823c6d23f42ad7d226e3bbbe5837bfd7d7c4a29f012ff31d9bd133"
+    },
+    {
+      "path": "scripts/ui/routine_panel.gd",
+      "sha256": "157f75de5f93cf9f0b1e7d304d52ec47c567907ae8e99e70ceae4318271e1e72"
+    },
+    {
+      "path": "scripts/ui/shop_panel.gd",
+      "sha256": "b146dd03caef364a198367f6fafb513ad0f1fb1535356edfbe88492c5d6c513e"
+    },
+    {
+      "path": "scripts/world/environment_fixture.gd",
+      "sha256": "8f464522810d8671515fba81982c2c27791f71af5fd0b398cf2be7d27a7b1d15"
+    },
+    {
+      "path": "scripts/world/prison_world.gd",
+      "sha256": "5ec99296846cba50883698fc02c75d7a3a9af5ead7fbfa9bc027e420d2c60ef7"
+    }
+  ],
+  "scope": "Native Windows D3D12 at1200x720/960x540. Real map editor pointer routing, draft save/undo/preview and managed child launch. Headless timed gate,120min rescue, midnight rollcall and old maps. Roof alpha/body/item-overlay pixel leak comparison. No Android/iOS device or subjective playthrough claim."
+}

@@ -13,7 +13,7 @@ var paired_icons := 0
 
 func _init() -> void:
 	var paired: Dictionary = {}
-	for file in ["res://art/editor/v01/manifest.json","res://art/editor/v02/manifest.json"]:
+	for file in ["res://art/editor/v01/manifest.json","res://art/editor/v02/manifest.json","res://art/editor/v03/manifest.json"]:
 		if not FileAccess.file_exists(file): continue
 		var parsed = JSON.parse_string(FileAccess.get_file_as_string(file))
 		if not parsed is Dictionary: continue
@@ -21,6 +21,7 @@ func _init() -> void:
 		for item in parsed.get("tools",[]): tool_icons[str(item.id)] = str(item.get("icon",""))
 	assets = load("res://scripts/presentation/prop_catalog.gd").assets()
 	for id in assets:
+		if assets[id].get("render_mode","") == "architecture_material": continue
 		var category := "cafeteria" if str(id).begins_with("cafeteria_") else "furniture"
 		var entry: Dictionary = paired.get(id,{})
 		entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":str(entry.get("category",category)),"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})

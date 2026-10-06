@@ -51,7 +51,7 @@ func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, t
 	tick_visual(0)
 
 func tick_visual(delta: float) -> void:
-	visible = not actor.escaped
+	visible = not actor.escaped and not game.world.is_under_roof(actor.position)
 	if game.get_tree().paused:
 		return
 	flash_time = maxf(0,flash_time-delta)

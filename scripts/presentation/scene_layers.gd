@@ -68,7 +68,7 @@ func _draw() -> void:
 			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
-		if presentation.dog_visual:
+		if presentation.dog_visual and not world.is_under_roof(game.dog.position):
 			draw_set_transform(game.dog.position)
 			presentation.dog_visual.paint_information(self,presentation.font)
 			draw_set_transform(Vector2.ZERO)
@@ -92,6 +92,7 @@ func _draw() -> void:
 				draw_rect(dorm,Color("328b82"),false,1.5,true)
 		var officers: Array = game.prison_alert.officers() if game.prison_alert != null and game.prison_alert.active else [game.guard]
 		for officer in officers:
+			if world.is_under_roof(officer.position): continue
 			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.curfew_alert() else Color("e1c787")
 			edge_color.a = 0.48
 			draw_set_transform(officer.position)
@@ -105,7 +106,8 @@ func _draw() -> void:
 		for gate in world.access_doors:
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
 			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
-			draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
+				draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:
 				var bar := Rect2(gate.rect.get_center()+Vector2(-35,50),Vector2(70,5))
 				draw_rect(bar,Color("536052"))
@@ -115,7 +117,7 @@ func _draw() -> void:
 			draw_rect(Rect2(point+progress_offset,Vector2(56,6)),Color("536052"))
 			draw_rect(Rect2(point+progress_offset,Vector2(56*world.lock_progress,6)),Color("9a8fb9"))
 		for visual in presentation.visuals:
-			if not visual.actor.escaped:
+			if not visual.actor.escaped and not world.is_under_roof(visual.actor.position):
 				draw_set_transform(visual.actor.position)
 				visual.paint_information(self)
 				draw_set_transform(Vector2.ZERO)

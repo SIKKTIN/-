@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T08:54:51.346Z
-> 文档内容基准：65aac67ce37b400d612b8084f4a83046753e458d1b1745b653443f64e948dc4a
+> 文档生成时间：2026-10-06T10:07:10.997Z
+> 文档内容基准：d297613f7013c4128414cf7fe0ce6c6bb24ac3d443a72c48360892f715fe757e
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -70,6 +70,7 @@
 - P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
 - P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
 - P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
+- P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -94,6 +95,10 @@
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
 - A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成
+- A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006] · 待验收
+- A21 封顶禁闭室与差异墙体概念 [a21-roof-solitary-concept-20261006] · 已完成
+- A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
+- A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1016,6 +1021,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：真实Godot验证食堂12开14关、关门疏散无嵌入、禁闭捕获多角色不重叠与解救/到期释放、移动/日程/门岗回归；两尺寸截图和编辑器新对象可修改保存；GameCreator证据、自验收及主干同步。
 - 验收负责人：制作人
+### P53 门墙一体与不透明禁闭屋顶接入
+- ID：p53-architecture-render-20261006
+- 当前状态：已完成
+- 内容：按A22用户确认的最终概念，制作人实现独立建筑表现、食堂一致高墙/嵌门、禁闭全屋顶遮挡，保持原门禁和两小时救援规则，集成主美A23资产并运行验证。
+- 前置任务：a21-roof-solitary-concept-20261006、a22-cafeteria-equal-wall-concept-20261006
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p53*、docs/dev/p53/**、docs/tests/p53*、docs/gamecreator/**、gamecreator/**
+- 接口契约：复用world.walls真实几何、access_doors门状态、room_access禁闭规则。建筑表现为地图新增可选配置，空配置旧关保持原样。root不改主美资产，只消费A23manifest；project.godot用户改动保留。
+- 交付入口：res://scenes/main.tscn R04
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：实际运行禁闭内部人物/地面/家具不可见，门外看守/伙伴不被顶遮盖；食堂门左右高墙同材质高度，嵌门无浮框且开闭碰撞/视线一致；保持12-14和120分钟救援、地图编辑可保存建筑参数，R01-03兼容，关键运行截图和测试通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1092,6 +1108,11 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
 - P52 地图4重排、定时门禁与被捕禁闭 [p52-r04-access-confinement-20261006] · 已完成
 - A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成
+- A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006] · 待验收
+- A21 封顶禁闭室与差异墙体概念 [a21-roof-solitary-concept-20261006] · 已完成
+- A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
+- A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成
+- P53 门墙一体与不透明禁闭屋顶接入 [p53-architecture-render-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1567,6 +1588,46 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/props/security_v19/manifest.json
 - 验收要求：新PNG保持现有FINAL-WARM-01手绘风格、原样透明、门状态等比共享注册；manifest含region/ground_rect/footprint/world_size；每项editor_icon及48/64原生QA；A17既有素材不改字节；独立制作人验收。
 - 验收负责人：制作人
+### A20 门墙一体场景概念评审
+- ID：a20-door-wall-concept-20261006
+- 当前状态：待验收
+- 内容：用户明确要求主美先重新生成地图4门与墙的一体场景概念。参考最新截图，修正巨大独立铁框、门柱悬立、门洞收口与门墙俯视角/厚度不统一；保留暖灰绿手绘漫画风、人物与现有HUD总体布局，同场展示右侧食堂开放栅栏门与左侧禁闭关闭实心门。仅概念供用户评审。
+- 前置任务：无
+- 允许修改路径：art/concepts/door-wall-v20/**、docs/art/door-wall-v20/**
+- 接口契约：概念非生产素材；只用imagegen创建新图，保留原PNG，不程序改图，不确认新风格，不改scripts/data/scenes/已有素材/清单/根project，不Git提交。
+- 交付入口：art/concepts/door-wall-v20/concept-v20.png
+- 验收要求：新横屏完整游戏视角概念PNG，门墙一体、入口可读、尺度以角色60为参照；保存生成来源提示词/参考/原PNG与审阅说明；标明待用户评审，不修改游戏/地图/生产资产/风格基准。
+- 验收负责人：制作人
+### A21 封顶禁闭室与差异墙体概念
+- ID：a21-roof-solitary-concept-20261006
+- 当前状态：已完成
+- 内容：用户认可A20食堂抬高墙面，要求禁闭室改成屋顶封死、看不到内部的暗色小屋，并探索几种不同墙体。制作新的完整场景概念与墙体差异小稿；不替换生产素材或地图。
+- 前置任务：无
+- 允许修改路径：art/concepts/prison-roof-v21/**、docs/art/prison-roof-v21/**
+- 接口契约：新概念PNG及文档；内置imagegen，原图不程序修改。A20食堂高墙仅局部获认可，整张新概念待评审。不改scripts/data/scenes/旧PNG/旧manifest/根project，不Git提交。
+- 交付入口：art/concepts/prison-roof-v21/scene-concept-v21.png
+- 验收要求：完整横屏概念保留食堂高墙与HUD/人物/局部布局，禁闭室完整不透明屋顶、无可见室内床/便器；提供同风格下禁闭厚墙、食堂高墙、寝室低墙、走廊矮边墙的差异探索。保存原图/提示词/来源；仅供用户评审，不确认新风格或实施。
+- 验收负责人：制作人
+### A22 食堂两侧墙等高概念修正
+- ID：a22-cafeteria-equal-wall-concept-20261006
+- 当前状态：已完成
+- 内容：用户认可A21封顶禁闭室，指出食堂门洞左低右高。仅修正食堂门左右连续墙高/压顶/转角厚度，保持禁闭室和其余画面，生成A21r2概念。
+- 前置任务：无
+- 允许修改路径：art/concepts/prison-roof-v21/**、docs/art/prison-roof-v21/revision-r2/**
+- 接口契约：新修订概念供评审；不覆盖A21原图/原反馈/旧文档，不改游戏/地图/生产资产或基准，不Git提交。
+- 交付入口：art/concepts/prison-roof-v21/scene-concept-v21r2.png
+- 验收要求：新概念保留认可的禁闭室，食堂左右横墙同高同材质、门洞仍开放；原PNG/提示词/来源完整，未修改生产。
+- 验收负责人：制作人
+### A23 封顶禁闭室与食堂高墙生产素材
+- ID：a23-architecture-production-20261006
+- 当前状态：已完成
+- 内容：按用户确认A22最终概念scene-concept-v21r2.png制作可复用屋顶、墙面、压顶纹理和嵌入式门开闭素材及编辑器图标。主美制作，制作人负责共享脚本/地图集成。
+- 前置任务：a22-cafeteria-equal-wall-concept-20261006
+- 允许修改路径：art/architecture/v23/**、art/editor/v03/**、docs/art/architecture-v23/**
+- 接口契约：root共享渲染与地图维护。资产提供Texture/AtlasTexture裁切数据，墙/顶材质不含烘焙投影，门以world_size和ground_rect精确注册，开/关门锚点相同。只改允许新目录，不改scripts/data/project/旧manifest，不git提交。
+- 交付入口：art/architecture/v23/manifest.json
+- 验收要求：不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1589,3 +1650,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
 - A19 门禁、禁闭室素材与编辑器图标 [a19-access-solitary-art-20261006] · 已完成
+- A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006] · 待验收
+- A21 封顶禁闭室与差异墙体概念 [a21-roof-solitary-concept-20261006] · 已完成
+- A22 食堂两侧墙等高概念修正 [a22-cafeteria-equal-wall-concept-20261006] · 已完成
+- A23 封顶禁闭室与食堂高墙生产素材 [a23-architecture-production-20261006] · 已完成

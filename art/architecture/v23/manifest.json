@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "version": "architecture-v23-20261006",
+  "style": "FINAL-WARM-01",
+  "concept": "res://art/concepts/prison-roof-v21/scene-concept-v21r2.png",
+  "assets": [
+    {
+      "id": "solitary_roof_v23",
+      "name": "禁闭室不透明屋顶",
+      "texture": "res://art/architecture/v23/architecture_materials_v23.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "render_mode": "architecture_material",
+      "opaque": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "repeat_axes": "x/y",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1",
+      "editor_icon": "res://art/editor/v03/icons/solitary_roof_v23.tres"
+    },
+    {
+      "id": "solitary_wall_front_v23",
+      "name": "禁闭室深灰墙面",
+      "texture": "res://art/architecture/v23/architecture_materials_v23.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "world_size": [
+        128,
+        110
+      ],
+      "render_mode": "architecture_material",
+      "opaque": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "repeat_axes": "x",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1",
+      "editor_icon": "res://art/editor/v03/icons/solitary_wall_front_v23.tres"
+    },
+    {
+      "id": "solitary_coping_v23",
+      "name": "禁闭室深灰压顶",
+      "texture": "res://art/architecture/v23/architecture_materials_v23.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "world_size": [
+        64,
+        64
+      ],
+      "render_mode": "architecture_material",
+      "opaque": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "repeat_axes": "x/y",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1",
+      "editor_icon": "res://art/editor/v03/icons/solitary_coping_v23.tres"
+    },
+    {
+      "id": "cafeteria_wall_front_v23",
+      "name": "食堂浅灰高墙",
+      "texture": "res://art/architecture/v23/architecture_materials_v23.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "world_size": [
+        128,
+        100
+      ],
+      "render_mode": "architecture_material",
+      "opaque": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "repeat_axes": "x",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1",
+      "editor_icon": "res://art/editor/v03/icons/cafeteria_wall_front_v23.tres"
+    },
+    {
+      "id": "cafeteria_coping_v23",
+      "name": "食堂浅石压顶",
+      "texture": "res://art/environment/low_wall_top_v02.png",
+      "texture_size": [
+        128,
+        128
+      ],
+      "region": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "world_size": [
+        64,
+        64
+      ],
+      "render_mode": "architecture_material",
+      "opaque": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "reuse_existing": true,
+      "source_note": "existing accepted low_wall_top_v02.png, unchanged",
+      "sha256": "f4549cc4c444488a4c977d7dbe4c7f482f4585a82c6dd3813eb15445576eacba",
+      "editor_icon": "res://art/editor/v03/icons/cafeteria_coping_v23.tres"
+    },
+    {
+      "id": "solitary_door_closed_v23",
+      "name": "禁闭室铁门·关闭",
+      "texture": "res://art/architecture/v23/solitary_door_pair_v23.png",
+      "texture_size": [
+        2139,
+        735
+      ],
+      "region": [
+        50,
+        42,
+        984,
+        640
+      ],
+      "world_size": [
+        160,
+        110
+      ],
+      "render_size": [
+        160,
+        110
+      ],
+      "footprint_world_size": [
+        160,
+        20
+      ],
+      "ground_rect": [
+        0,
+        523.636364,
+        984,
+        116.363636
+      ],
+      "anchor": [
+        492.0,
+        640
+      ],
+      "scale_xy": [
+        0.16260162601626016,
+        0.171875
+      ],
+      "elevation_world": 90,
+      "door_height": 110,
+      "render_mode": "embedded_door",
+      "pair": "solitary_door_v23",
+      "state": "closed",
+      "state_driven": true,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "plane": "east-west horizontal threshold",
+      "sha256": "10d4a24102c7132171eb7bbc2daaec6e6fe297b6dfbb3fc1427f8a9125c53841",
+      "registration_note": "Equal region size and shared bottom-center anchor/ground_rect. OPEN retains whole aperture, never crop to leaf. Render height independent of logical threshold width. Very slight aspect fit via explicit render_size.",
+      "editor_icon": "res://art/editor/v03/icons/solitary_door_closed_v23.tres"
+    },
+    {
+      "id": "solitary_door_open_v23",
+      "name": "禁闭室铁门·打开",
+      "texture": "res://art/architecture/v23/solitary_door_pair_v23.png",
+      "texture_size": [
+        2139,
+        735
+      ],
+      "region": [
+        1107,
+        42,
+        984,
+        640
+      ],
+      "world_size": [
+        160,
+        110
+      ],
+      "render_size": [
+        160,
+        110
+      ],
+      "footprint_world_size": [
+        160,
+        20
+      ],
+      "ground_rect": [
+        0,
+        523.636364,
+        984,
+        116.363636
+      ],
+      "anchor": [
+        492.0,
+        640
+      ],
+      "scale_xy": [
+        0.16260162601626016,
+        0.171875
+      ],
+      "elevation_world": 90,
+      "door_height": 110,
+      "render_mode": "embedded_door",
+      "pair": "solitary_door_v23",
+      "state": "open",
+      "state_driven": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "plane": "east-west horizontal threshold",
+      "sha256": "10d4a24102c7132171eb7bbc2daaec6e6fe297b6dfbb3fc1427f8a9125c53841",
+      "registration_note": "Equal region size and shared bottom-center anchor/ground_rect. OPEN retains whole aperture, never crop to leaf. Render height independent of logical threshold width. Very slight aspect fit via explicit render_size.",
+      "editor_icon": "res://art/editor/v03/icons/solitary_door_open_v23.tres"
+    },
+    {
+      "id": "cafeteria_gate_closed_v23",
+      "name": "食堂侧滑栅栏·关闭",
+      "texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png",
+      "texture_size": [
+        2095,
+        751
+      ],
+      "region": [
+        49,
+        82,
+        965,
+        561
+      ],
+      "world_size": [
+        180,
+        110
+      ],
+      "render_size": [
+        180,
+        110
+      ],
+      "footprint_world_size": [
+        180,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        400.35,
+        965,
+        160.65
+      ],
+      "anchor": [
+        482.5,
+        561
+      ],
+      "scale_xy": [
+        0.18652849740932642,
+        0.19607843137254902
+      ],
+      "elevation_world": 78.5,
+      "door_height": 110,
+      "render_mode": "embedded_door",
+      "pair": "cafeteria_gate_v23",
+      "state": "closed",
+      "state_driven": true,
+      "shadow_baked": false,
+      "blocking": true,
+      "interactive": false,
+      "plane": "east-west horizontal threshold",
+      "sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409",
+      "registration_note": "Equal region size and shared bottom-center anchor/ground_rect. OPEN retains whole aperture, never crop to leaf. Render height independent of logical threshold width. Very slight aspect fit via explicit render_size.",
+      "editor_icon": "res://art/editor/v03/icons/cafeteria_gate_closed_v23.tres"
+    },
+    {
+      "id": "cafeteria_gate_open_v23",
+      "name": "食堂侧滑栅栏·打开",
+      "texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png",
+      "texture_size": [
+        2095,
+        751
+      ],
+      "region": [
+        1078,
+        82,
+        965,
+        561
+      ],
+      "world_size": [
+        180,
+        110
+      ],
+      "render_size": [
+        180,
+        110
+      ],
+      "footprint_world_size": [
+        180,
+        31.5
+      ],
+      "ground_rect": [
+        0,
+        400.35,
+        965,
+        160.65
+      ],
+      "anchor": [
+        482.5,
+        561
+      ],
+      "scale_xy": [
+        0.18652849740932642,
+        0.19607843137254902
+      ],
+      "elevation_world": 78.5,
+      "door_height": 110,
+      "render_mode": "embedded_door",
+      "pair": "cafeteria_gate_v23",
+      "state": "open",
+      "state_driven": true,
+      "shadow_baked": false,
+      "blocking": false,
+      "interactive": false,
+      "plane": "east-west horizontal threshold",
+      "sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409",
+      "registration_note": "Equal region size and shared bottom-center anchor/ground_rect. OPEN retains whole aperture, never crop to leaf. Render height independent of logical threshold width. Very slight aspect fit via explicit render_size.",
+      "editor_icon": "res://art/editor/v03/icons/cafeteria_gate_open_v23.tres"
+    }
+  ]
+}

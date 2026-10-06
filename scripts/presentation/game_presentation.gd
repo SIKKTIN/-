@@ -2,6 +2,7 @@ extends Node
 
 const ActorVisual = preload("res://scripts/presentation/actor_visual.gd")
 const WorldVolume = preload("res://scripts/presentation/world_volume.gd")
+const RoofBuilding = preload("res://scripts/presentation/roof_building.gd")
 const SceneLayers = preload("res://scripts/presentation/scene_layers.gd")
 const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
 const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
@@ -27,6 +28,8 @@ var profile: Dictionary = {}
 var profile_id: String = "v01"
 var volumes: Array = []
 var scene_layers: Array = []
+var roof_buildings: Array = []
+var visual_world_revision := -1
 var asset_definitions: Dictionary = {}
 var lighting
 var interaction
@@ -227,9 +230,20 @@ func reset() -> void:
 		interaction.refresh()
 
 func _refresh_volumes() -> void:
+	visual_world_revision = game.world.fixtures_revision
 	for volume in volumes:
 		volume.free()
 	volumes.clear()
+	for building in roof_buildings: building.free()
+	roof_buildings.clear()
+	for definition in asset_definitions.values():
+		if definition.get("render_mode","") == "architecture_material":
+			game.world.art_textures[str(definition.id)] = _load_texture(definition)
+	for index in range(game.world.roofed_cells.size()):
+		var building = RoofBuilding.new()
+		game.add_child(building)
+		building.configure(game,self,index)
+		roof_buildings.append(building)
 	for fixture in game.world.fixtures:
 		var id: String = fixture.asset_id
 		for state_id in [fixture.get("closed_asset",""),fixture.get("open_asset","")]:
@@ -257,12 +271,14 @@ func _add_volume(kind: String, index: int = 0) -> void:
 func _tick_scene() -> void:
 	if not profile.get("perspective",false):
 		return
-	if volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
+	if visual_world_revision != game.world.fixtures_revision or volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
 		_refresh_volumes()
 	for visual in visuals:
 		visual.actor.z_index = int(visual.actor.position.y)
 	for volume in volumes:
 		volume.tick_visual()
+	for building in roof_buildings:
+		building.tick_information()
 	for layer in scene_layers:
 		if layer.kind == "fixture_shadows":
 			if layer.fixtures_revision != game.world.fixtures_revision:

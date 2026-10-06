@@ -1,0 +1,62 @@
+{
+  "id": "a22-user-approval-20261006",
+  "digest": "a5eed94a88f80fda8c1af511f00caeeaeaceda6f4697d0a5ea06f756de89e69a",
+  "operation": "feedback_append",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T09:35:06.403Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a22-final-concept-r2-20261006",
+    "taskId": "a22-cafeteria-equal-wall-concept-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "已原样保存食堂墙等高修订概念：抬高入口左侧矮横墙，与右侧墙顶、基座同高同材质并接齐转角；保留认可的封顶禁闭室和食堂通道。未覆盖A21原图、墙体对照图或生产资产。202项旧资产及两张A21图哈希未变；新图与imagegen原PNG字节一致。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\art\\concepts\\prison-roof-v21\\scene-concept-v21r2.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\prison-roof-v21\\revision-r2\\README.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\prison-roof-v21\\revision-r2\\prompt.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\prison-roof-v21\\revision-r2\\source-review.json"
+    ],
+    "at": "2026-10-06T09:32:57.753Z",
+    "evidenceVersion": 2,
+    "state": "pending",
+    "supplements": [
+      {
+        "id": "a22-user-approval-20261006",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T09:35:06.509Z",
+        "note": "用户已明确确认本版概念并要求反馈给制作人按此设计制作，原话及制作交接要求见新增证据。请求制作人审核最新证据，安排资产制作和主干集成。",
+        "deliveryVersion": "scene-concept-v21r2-sha256-07ed5f74baaa6e9a4b70d8646ce672f7eb13bf246d1ce41c92ee098f0254b70b",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\prison-roof-v21\\revision-r2\\user-approval-handoff.md"
+        ]
+      }
+    ],
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a22-final-concept-r2-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 2,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a22-final-concept-r2-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "35c2e3c76b7de4257a8d430324a5704c57ab5f0bd2848f5b9d7769f5cf0f16da"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "35c2e3c76b7de4257a8d430324a5704c57ab5f0bd2848f5b9d7769f5cf0f16da",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

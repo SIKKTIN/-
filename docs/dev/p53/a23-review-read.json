@@ -1,0 +1,185 @@
+{
+  "task": {
+    "id": "a23-architecture-production-20261006",
+    "title": "A23 封顶禁闭室与食堂高墙生产素材",
+    "description": "按用户确认A22最终概念scene-concept-v21r2.png制作可复用屋顶、墙面、压顶纹理和嵌入式门开闭素材及编辑器图标。主美制作，制作人负责共享脚本/地图集成。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。",
+    "result": "已完成用户确认设计的正式建筑资产：4种新增屋顶/墙面/压顶材质、1项旧浅色压顶引用、禁闭室铁门与食堂侧滑栅栏各开闭两态；9条manifest、9个v03原图Atlas图标、3张生成原PNG。门render_size160×110/180×110，开闭同region尺寸/锚点/ground_rect，开通道无不透明底图。Godot隔离导入与9纹理/图标加载通过，110px门、64/48图标和材质连续铺设已人工查看。原PNG字节一致，202旧资产及A22概念未变；共享脚本/地图实际接入由制作人P53负责。",
+    "dependencyIds": [
+      "a22-cafeteria-equal-wall-concept-20261006"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v23/**",
+        "art/editor/v03/**",
+        "docs/art/architecture-v23/**"
+      ],
+      "entry": "art/architecture/v23/manifest.json",
+      "interfaceContract": "root共享渲染与地图维护。资产提供Texture/AtlasTexture裁切数据，墙/顶材质不含烘焙投影，门以world_size和ground_rect精确注册，开/关门锚点相同。只改允许新目录，不改scripts/data/project/旧manifest，不git提交。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "a23-architecture-production-plan-20261006",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T09:38:10.148Z"
+      }
+    ]
+  },
+  "revision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac",
+  "scheduleRevision": "996dd3d1ba45f2ef2e37abed3870c742e870258b1b6cbb6c81c2f86d0720b483",
+  "planChanges": [
+    {
+      "id": "a23-architecture-production-plan-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T09:38:10.148Z",
+      "reason": "用户已确认按A22最终概念制作，由既有主美承担生产资产。",
+      "createdTaskIds": [
+        "a23-architecture-production-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a22-cafeteria-equal-wall-concept-20261006",
+      "title": "A22 食堂两侧墙等高概念修正",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "a23-final-v23-20261006",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "a23-final-v23-20261006",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac"
+  },
+  "feedback": [
+    {
+      "id": "a23-start-20261006",
+      "taskId": "a23-architecture-production-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已读取A23；按已确认概念制作4种新增建筑材质、复用已验收浅色压顶、两套门开闭Atlas及v03编辑器图标。生产门使用独立可视高度110，保留逻辑门宽160/180。素材与装配接口已写入interface-draft.json，制作人负责共享集成。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\interface-draft.json"
+      ],
+      "at": "2026-10-06T09:39:57.654Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "a23-start-20261006",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "a23-final-v23-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "a23-final-v23-20261006",
+      "taskId": "a23-architecture-production-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "已完成用户确认设计的正式建筑资产：4种新增屋顶/墙面/压顶材质、1项旧浅色压顶引用、禁闭室铁门与食堂侧滑栅栏各开闭两态；9条manifest、9个v03原图Atlas图标、3张生成原PNG。门render_size160×110/180×110，开闭同region尺寸/锚点/ground_rect，开通道无不透明底图。Godot隔离导入与9纹理/图标加载通过，110px门、64/48图标和材质连续铺设已人工查看。原PNG字节一致，202旧资产及A22概念未变；共享脚本/地图实际接入由制作人P53负责。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v23\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v03\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\README.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\prompts.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\godot-qa.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\scale-preview.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\preview-qa.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\delivery.json"
+      ],
+      "at": "2026-10-06T09:49:18.522Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "a23-final-v23-20261006",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "a23-final-v23-20261006",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "f70fa5b6a65cf7ff812ae53622f2f24c4e113ea5531b13ddf44fbc4d320b2eac",
+      "delivery": "review_inbox",
+      "next": "等待验收；可继续其他已分配任务"
+    }
+  ]
+}

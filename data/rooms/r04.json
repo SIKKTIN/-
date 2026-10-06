@@ -110,13 +110,13 @@
       720,
       1200,
       200,
-      24
+      31.5
     ],
     [
       1100,
       1200,
       924,
-      24
+      31.5
     ],
     [
       720,
@@ -923,17 +923,22 @@
       "id": "solitary-vent-0",
       "asset_id": "wall_vent",
       "rect": [
-        270,
-        1136,
-        72,
-        1.5
+        175,
+        1335,
+        64,
+        2
       ],
       "blocks_movement": false,
-      "blocks_sight": false
+      "blocks_sight": false,
+      "render_size": [
+        64,
+        33
+      ],
+      "draw_depth": 1399
     },
     {
       "id": "solitary-door-visual-0",
-      "asset_id": "solitary_door_closed",
+      "asset_id": "solitary_door_closed_v23",
       "rect": [
         320,
         1370,
@@ -943,8 +948,12 @@
       "blocks_movement": false,
       "blocks_sight": false,
       "access_id": "solitary-0",
-      "closed_asset": "solitary_door_closed",
-      "open_asset": "solitary_door_open"
+      "closed_asset": "solitary_door_closed_v23",
+      "open_asset": "solitary_door_open_v23",
+      "render_size": [
+        160,
+        110
+      ]
     },
     {
       "id": "solitary-bed-1",
@@ -974,17 +983,22 @@
       "id": "solitary-vent-1",
       "asset_id": "wall_vent",
       "rect": [
-        270,
-        1496,
-        72,
-        1.5
+        175,
+        1695,
+        64,
+        2
       ],
       "blocks_movement": false,
-      "blocks_sight": false
+      "blocks_sight": false,
+      "render_size": [
+        64,
+        33
+      ],
+      "draw_depth": 1759
     },
     {
       "id": "solitary-door-visual-1",
-      "asset_id": "solitary_door_closed",
+      "asset_id": "solitary_door_closed_v23",
       "rect": [
         320,
         1730,
@@ -994,8 +1008,12 @@
       "blocks_movement": false,
       "blocks_sight": false,
       "access_id": "solitary-1",
-      "closed_asset": "solitary_door_closed",
-      "open_asset": "solitary_door_open"
+      "closed_asset": "solitary_door_closed_v23",
+      "open_asset": "solitary_door_open_v23",
+      "render_size": [
+        160,
+        110
+      ]
     },
     {
       "id": "solitary-bed-2",
@@ -1025,17 +1043,22 @@
       "id": "solitary-vent-2",
       "asset_id": "wall_vent",
       "rect": [
-        270,
-        1856,
-        72,
-        1.5
+        175,
+        2055,
+        64,
+        2
       ],
       "blocks_movement": false,
-      "blocks_sight": false
+      "blocks_sight": false,
+      "render_size": [
+        64,
+        33
+      ],
+      "draw_depth": 2119
     },
     {
       "id": "solitary-door-visual-2",
-      "asset_id": "solitary_door_closed",
+      "asset_id": "solitary_door_closed_v23",
       "rect": [
         320,
         2090,
@@ -1045,12 +1068,16 @@
       "blocks_movement": false,
       "blocks_sight": false,
       "access_id": "solitary-2",
-      "closed_asset": "solitary_door_closed",
-      "open_asset": "solitary_door_open"
+      "closed_asset": "solitary_door_closed_v23",
+      "open_asset": "solitary_door_open_v23",
+      "render_size": [
+        160,
+        110
+      ]
     },
     {
       "id": "cafeteria-door-visual",
-      "asset_id": "prison_gate_closed",
+      "asset_id": "cafeteria_gate_closed_v23",
       "rect": [
         920,
         1200,
@@ -1060,20 +1087,29 @@
       "blocks_movement": false,
       "blocks_sight": false,
       "access_id": "cafeteria-entry",
-      "closed_asset": "prison_gate_closed",
-      "open_asset": "prison_gate_open"
+      "closed_asset": "cafeteria_gate_closed_v23",
+      "open_asset": "cafeteria_gate_open_v23",
+      "render_size": [
+        180,
+        110
+      ]
     },
     {
       "id": "cafeteria-reader",
       "asset_id": "access_reader",
       "rect": [
-        1125,
-        1190,
+        1130,
+        1185,
         24,
         1.333333
       ],
       "blocks_movement": false,
-      "blocks_sight": false
+      "blocks_sight": false,
+      "render_size": [
+        24,
+        34
+      ],
+      "draw_depth": 1232
     },
     {
       "id": "expansion-0",
@@ -1259,22 +1295,22 @@
     },
     {
       "position": [
-        300,
-        1140
+        148,
+        1334
       ],
       "radius": 220
     },
     {
       "position": [
-        300,
-        1500
+        148,
+        1694
       ],
       "radius": 220
     },
     {
       "position": [
-        300,
-        1860
+        148,
+        2054
       ],
       "radius": 220
     },
@@ -1456,10 +1492,10 @@
       1890
     ],
     "wall_sign": [
-      1120,
-      1300,
-      72,
-      40
+      1170,
+      1150,
+      90,
+      42
     ],
     "discipline_sign": [
       755,
@@ -1576,7 +1612,18 @@
         "release": [
           400,
           1430
-        ]
+        ],
+        "building": {
+          "roofed": true,
+          "height": 110,
+          "roof": "solitary_roof_v23",
+          "front": "solitary_wall_front_v23",
+          "top": "solitary_coping_v23",
+          "roof_tile_size": [
+            320,
+            240
+          ]
+        }
       },
       {
         "id": "cell-1",
@@ -1595,7 +1642,18 @@
         "release": [
           400,
           1790
-        ]
+        ],
+        "building": {
+          "roofed": true,
+          "height": 110,
+          "roof": "solitary_roof_v23",
+          "front": "solitary_wall_front_v23",
+          "top": "solitary_coping_v23",
+          "roof_tile_size": [
+            320,
+            240
+          ]
+        }
       },
       {
         "id": "cell-2",
@@ -1614,7 +1672,64 @@
         "release": [
           400,
           2150
-        ]
+        ],
+        "building": {
+          "roofed": true,
+          "height": 110,
+          "roof": "solitary_roof_v23",
+          "front": "solitary_wall_front_v23",
+          "top": "solitary_coping_v23",
+          "roof_tile_size": [
+            320,
+            240
+          ]
+        }
+      }
+    ]
+  },
+  "architecture": {
+    "wall_surfaces": [
+      {
+        "wall_index": 7,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 8,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 9,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 10,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 11,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 12,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
+      },
+      {
+        "wall_index": 13,
+        "height": 110,
+        "front": "cafeteria_wall_front_v23",
+        "top": "cafeteria_coping_v23"
       }
     ]
   }

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "fbe47add1fc43201153268f6ce6c39c4e306c580bedb201346145c46a7ce70d3",
+  "snapshotId": "26efb4df5b4e7a371187df42f5b875070a57d436799653c11c9fe174143046de",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -2896,9 +2896,103 @@
               "at": "2026-10-06T08:12:16.576Z"
             }
           ]
+        },
+        {
+          "id": "p53-architecture-render-20261006",
+          "title": "P53 门墙一体与不透明禁闭屋顶接入",
+          "description": "按A22用户确认的最终概念，制作人实现独立建筑表现、食堂一致高墙/嵌门、禁闭全屋顶遮挡，保持原门禁和两小时救援规则，集成主美A23资产并运行验证。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "实际运行禁闭内部人物/地面/家具不可见，门外看守/伙伴不被顶遮盖；食堂门左右高墙同材质高度，嵌门无浮框且开闭碰撞/视线一致；保持12-14和120分钟救援、地图编辑可保存建筑参数，R01-03兼容，关键运行截图和测试通过。",
+          "result": "p53-architecture-307c86a79885：已按用户确认A22终稿接入A23建筑素材，三禁闭室深灰实体屋顶覆盖内部地面/家具/人物及物品提示，12压顶+8檐口、320x240宽板与外立面灯/门/通风口/标识，释放恢复人物显示。食堂门两侧110高/31.5厚、压顶和基座一致，180x110侧滑门两态同锚点且通道透明；门禁/120分钟救援规则复用。编辑器新增墙材质/显示高和建筑封顶参数，材质索引删除/复制/撤销与保存兼容，材质图标用于属性、门图标用于摆设。41headless+42原生1200+42原生960建筑，73门禁救援规则、78headless编辑器+83原生编辑器、50查房警报共409检查全过，屋顶内人物移动/丢物品像素不变；主美最终r2视觉核对通过。正式地图设计27字段已应用，保持R04及原对象ID。仅Windows原生及缩小窗口验证，未Android/iOS真机；轻微夜间门牌对比改善建议后续。本人明确程序任务独立提交待验收，生产素材另行已验收。\n\n验收通过：制作人本人明确程序任务自验收，已单独读取实际运行/409检查报告、主美r2视觉核对及正式地图应用回执。门墙同基座高度，完整屋顶内部不可透视且外部角色可见；开闭通路、视线、120分钟救援及查房增援、旧关和编辑器读写兼容通过。验收范围Windows原生与较小窗口；不宣称手机真机或真人难度验证。P53开发与接入通过，A23素材与A21/A22概念分别验收。",
+          "dependencyIds": [
+            "a21-roof-solitary-concept-20261006",
+            "a22-cafeteria-equal-wall-concept-20261006"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p53*",
+              "docs/dev/p53/**",
+              "docs/tests/p53*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn R04",
+            "interfaceContract": "复用world.walls真实几何、access_doors门状态、room_access禁闭规则。建筑表现为地图新增可选配置，空配置旧关保持原样。root不改主美资产，只消费A23manifest；project.godot用户改动保留。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p53-architecture-render-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T09:38:11.646Z"
+            }
+          ]
         }
       ],
-      "reviews": [],
+      "reviews": [
+        {
+          "id": "a20-door-wall-concept-20261006",
+          "title": "A20 门墙一体场景概念评审",
+          "description": "用户明确要求主美先重新生成地图4门与墙的一体场景概念。参考最新截图，修正巨大独立铁框、门柱悬立、门洞收口与门墙俯视角/厚度不统一；保留暖灰绿手绘漫画风、人物与现有HUD总体布局，同场展示右侧食堂开放栅栏门与左侧禁闭关闭实心门。仅概念供用户评审。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "新横屏完整游戏视角概念PNG，门墙一体、入口可读、尺度以角色60为参照；保存生成来源提示词/参考/原PNG与审阅说明；标明待用户评审，不修改游戏/地图/生产资产/风格基准。",
+          "result": "door-wall-concept-v20-20261006-9a7d7f54d3a9：完成1586x992横屏完整门墙一体概念，最终展示art/concepts/door-wall-v20/concept-v20.png。参考用户当前R04截图；保留暖灰绿手绘漫画、人物/商人/警犬和整体HUD。左关闭禁闭实心门、右开放食堂栅栏门同场，石墙收口/嵌入铁边/连贯柱头顶面/薄贴地门槛；门不再是巨大独立铁架。初稿后做一次局部修订收低门洞并加强墙顶连接，目标视觉比例为人物1.4-1.7倍（概念估计，非生产标定）。源PNG原样复制，提示词/参考/源路径/SHA及初稿齐全，202旧资产SHA无变化。仅新允许concept/docs子目录，无游戏/地图/脚本/生产素材/旧清单/根project/Git变更，也未确认新风格。此反馈仅提交概念成果，明确待用户评审、尚未批准或实施；制作人不得据此直接替换游戏。用户认可后再建立生产接入任务。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/door-wall-v20/**",
+              "docs/art/door-wall-v20/**"
+            ],
+            "entry": "art/concepts/door-wall-v20/concept-v20.png",
+            "interfaceContract": "概念非生产素材；只用imagegen创建新图，保留原PNG，不程序改图，不确认新风格，不改scripts/data/scenes/已有素材/清单/根project，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a20-door-wall-concept-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:04:59.125Z"
+            }
+          ]
+        }
+      ],
       "dispatched": [
         {
           "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -6604,6 +6698,102 @@
               "at": "2026-10-06T08:12:16.576Z"
             }
           ]
+        },
+        {
+          "id": "a23-architecture-production-20261006",
+          "title": "A23 封顶禁闭室与食堂高墙生产素材",
+          "description": "按用户确认A22最终概念scene-concept-v21r2.png制作可复用屋顶、墙面、压顶纹理和嵌入式门开闭素材及编辑器图标。主美制作，制作人负责共享脚本/地图集成。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。",
+          "result": "已完成用户确认设计的正式建筑资产：4种新增屋顶/墙面/压顶材质、1项旧浅色压顶引用、禁闭室铁门与食堂侧滑栅栏各开闭两态；9条manifest、9个v03原图Atlas图标、3张生成原PNG。门render_size160×110/180×110，开闭同region尺寸/锚点/ground_rect，开通道无不透明底图。Godot隔离导入与9纹理/图标加载通过，110px门、64/48图标和材质连续铺设已人工查看。原PNG字节一致，202旧资产及A22概念未变；共享脚本/地图实际接入由制作人P53负责。\n\n验收通过：已核对源PNG、manifest和9个配套图标，主美导入/alpha/缩放报告与本人原生接入42项吻合。禁闭顶不透明，食堂墙/门同基座同标高，开关锚点一致且通道透明。屋顶纹理缩放与8px檐口属制作人装配；A23素材交付验收通过，P53运行/主干结果另行验收。",
+          "dependencyIds": [
+            "a22-cafeteria-equal-wall-concept-20261006"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v23/**",
+              "art/editor/v03/**",
+              "docs/art/architecture-v23/**"
+            ],
+            "entry": "art/architecture/v23/manifest.json",
+            "interfaceContract": "root共享渲染与地图维护。资产提供Texture/AtlasTexture裁切数据，墙/顶材质不含烘焙投影，门以world_size和ground_rect精确注册，开/关门锚点相同。只改允许新目录，不改scripts/data/project/旧manifest，不git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "a23-architecture-production-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:38:10.148Z"
+            }
+          ]
+        },
+        {
+          "id": "p53-architecture-render-20261006",
+          "title": "P53 门墙一体与不透明禁闭屋顶接入",
+          "description": "按A22用户确认的最终概念，制作人实现独立建筑表现、食堂一致高墙/嵌门、禁闭全屋顶遮挡，保持原门禁和两小时救援规则，集成主美A23资产并运行验证。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "实际运行禁闭内部人物/地面/家具不可见，门外看守/伙伴不被顶遮盖；食堂门左右高墙同材质高度，嵌门无浮框且开闭碰撞/视线一致；保持12-14和120分钟救援、地图编辑可保存建筑参数，R01-03兼容，关键运行截图和测试通过。",
+          "result": "p53-architecture-307c86a79885：已按用户确认A22终稿接入A23建筑素材，三禁闭室深灰实体屋顶覆盖内部地面/家具/人物及物品提示，12压顶+8檐口、320x240宽板与外立面灯/门/通风口/标识，释放恢复人物显示。食堂门两侧110高/31.5厚、压顶和基座一致，180x110侧滑门两态同锚点且通道透明；门禁/120分钟救援规则复用。编辑器新增墙材质/显示高和建筑封顶参数，材质索引删除/复制/撤销与保存兼容，材质图标用于属性、门图标用于摆设。41headless+42原生1200+42原生960建筑，73门禁救援规则、78headless编辑器+83原生编辑器、50查房警报共409检查全过，屋顶内人物移动/丢物品像素不变；主美最终r2视觉核对通过。正式地图设计27字段已应用，保持R04及原对象ID。仅Windows原生及缩小窗口验证，未Android/iOS真机；轻微夜间门牌对比改善建议后续。本人明确程序任务独立提交待验收，生产素材另行已验收。\n\n验收通过：制作人本人明确程序任务自验收，已单独读取实际运行/409检查报告、主美r2视觉核对及正式地图应用回执。门墙同基座高度，完整屋顶内部不可透视且外部角色可见；开闭通路、视线、120分钟救援及查房增援、旧关和编辑器读写兼容通过。验收范围Windows原生与较小窗口；不宣称手机真机或真人难度验证。P53开发与接入通过，A23素材与A21/A22概念分别验收。",
+          "dependencyIds": [
+            "a21-roof-solitary-concept-20261006",
+            "a22-cafeteria-equal-wall-concept-20261006"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p53*",
+              "docs/dev/p53/**",
+              "docs/tests/p53*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn R04",
+            "interfaceContract": "复用world.walls真实几何、access_doors门状态、room_access禁闭规则。建筑表现为地图新增可选配置，空配置旧关保持原样。root不改主美资产，只消费A23manifest；project.godot用户改动保留。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p53-architecture-render-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T09:38:11.646Z"
+            }
+          ]
         }
       ],
       "proposals": [],
@@ -7467,6 +7657,177 @@
               "at": "2026-10-06T08:12:16.576Z"
             }
           ]
+        },
+        {
+          "id": "a20-door-wall-concept-20261006",
+          "title": "A20 门墙一体场景概念评审",
+          "description": "用户明确要求主美先重新生成地图4门与墙的一体场景概念。参考最新截图，修正巨大独立铁框、门柱悬立、门洞收口与门墙俯视角/厚度不统一；保留暖灰绿手绘漫画风、人物与现有HUD总体布局，同场展示右侧食堂开放栅栏门与左侧禁闭关闭实心门。仅概念供用户评审。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "新横屏完整游戏视角概念PNG，门墙一体、入口可读、尺度以角色60为参照；保存生成来源提示词/参考/原PNG与审阅说明；标明待用户评审，不修改游戏/地图/生产资产/风格基准。",
+          "result": "door-wall-concept-v20-20261006-9a7d7f54d3a9：完成1586x992横屏完整门墙一体概念，最终展示art/concepts/door-wall-v20/concept-v20.png。参考用户当前R04截图；保留暖灰绿手绘漫画、人物/商人/警犬和整体HUD。左关闭禁闭实心门、右开放食堂栅栏门同场，石墙收口/嵌入铁边/连贯柱头顶面/薄贴地门槛；门不再是巨大独立铁架。初稿后做一次局部修订收低门洞并加强墙顶连接，目标视觉比例为人物1.4-1.7倍（概念估计，非生产标定）。源PNG原样复制，提示词/参考/源路径/SHA及初稿齐全，202旧资产SHA无变化。仅新允许concept/docs子目录，无游戏/地图/脚本/生产素材/旧清单/根project/Git变更，也未确认新风格。此反馈仅提交概念成果，明确待用户评审、尚未批准或实施；制作人不得据此直接替换游戏。用户认可后再建立生产接入任务。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/door-wall-v20/**",
+              "docs/art/door-wall-v20/**"
+            ],
+            "entry": "art/concepts/door-wall-v20/concept-v20.png",
+            "interfaceContract": "概念非生产素材；只用imagegen创建新图，保留原PNG，不程序改图，不确认新风格，不改scripts/data/scenes/已有素材/清单/根project，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a20-door-wall-concept-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:04:59.125Z"
+            }
+          ]
+        },
+        {
+          "id": "a21-roof-solitary-concept-20261006",
+          "title": "A21 封顶禁闭室与差异墙体概念",
+          "description": "用户认可A20食堂抬高墙面，要求禁闭室改成屋顶封死、看不到内部的暗色小屋，并探索几种不同墙体。制作新的完整场景概念与墙体差异小稿；不替换生产素材或地图。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "完整横屏概念保留食堂高墙与HUD/人物/局部布局，禁闭室完整不透明屋顶、无可见室内床/便器；提供同风格下禁闭厚墙、食堂高墙、寝室低墙、走廊矮边墙的差异探索。保存原图/提示词/来源；仅供用户评审，不确认新风格或实施。",
+          "result": "prison-roof-concept-v21-20261006-e663e6ce6a3d：按用户反馈保留A20食堂高墙方向，重做1586x992完整场景，禁闭室为厚暗色实墙+完整不透明屋顶，床/便器/室内地面完全不可见，门/外部通风口嵌入前立面，主角仍在走廊。下方普通寝室维持剖切形成差异，食堂高墙和开放入口/HUD/人物布局延续。另给1536x1024四格墙体探索：禁闭封闭厚墙、食堂浅高墙、寝室低石墙、走廊矮边墙，同一FINAL-WARM-01语言。两图已查看，用户红色标注去除；内置imagegen原PNG原样复制，完整提示词/参考/来源/SHA齐全，202旧资产及A20两概念未改字节。仅新概念目录，无生产地图/脚本/素材/风格确认/Git变更。用户只认可上轮食堂高墙局部；这两张新概念待用户评审，不能直接实施。请制作人验收概念交付，等待用户确认后再安排封屋顶遮挡/交互提示与生产接入。\n\n验收通过：已核对概念与原图来源：封顶禁闭室及四种墙体探索交付通过。食堂墙一高一低已由A22后续修正，制作仅引用用户确认的scene-concept-v21r2.png，不使用A21初稿作为最终制作基准。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/prison-roof-v21/**",
+              "docs/art/prison-roof-v21/**"
+            ],
+            "entry": "art/concepts/prison-roof-v21/scene-concept-v21.png",
+            "interfaceContract": "新概念PNG及文档；内置imagegen，原图不程序修改。A20食堂高墙仅局部获认可，整张新概念待评审。不改scripts/data/scenes/旧PNG/旧manifest/根project，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a21-roof-solitary-concept-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:19:54.710Z"
+            }
+          ]
+        },
+        {
+          "id": "a22-cafeteria-equal-wall-concept-20261006",
+          "title": "A22 食堂两侧墙等高概念修正",
+          "description": "用户认可A21封顶禁闭室，指出食堂门洞左低右高。仅修正食堂门左右连续墙高/压顶/转角厚度，保持禁闭室和其余画面，生成A21r2概念。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "新概念保留认可的禁闭室，食堂左右横墙同高同材质、门洞仍开放；原PNG/提示词/来源完整，未修改生产。",
+          "result": "已原样保存食堂墙等高修订概念：抬高入口左侧矮横墙，与右侧墙顶、基座同高同材质并接齐转角；保留认可的封顶禁闭室和食堂通道。未覆盖A21原图、墙体对照图或生产资产。202项旧资产及两张A21图哈希未变；新图与imagegen原PNG字节一致。\n\n验收通过：已核对最新证据版本2及主美聊天用户原话，可以，反馈给制作人，就按这个设计制作。最终图禁闭室不透明封顶、食堂左右高墙与基座齐平、门洞开放，概念交付通过并按此图安排生产。此验收不代表游戏实现完成。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/prison-roof-v21/**",
+              "docs/art/prison-roof-v21/revision-r2/**"
+            ],
+            "entry": "art/concepts/prison-roof-v21/scene-concept-v21r2.png",
+            "interfaceContract": "新修订概念供评审；不覆盖A21原图/原反馈/旧文档，不改游戏/地图/生产资产或基准，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a22-cafeteria-equal-wall-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:29:21.631Z"
+            }
+          ]
+        },
+        {
+          "id": "a23-architecture-production-20261006",
+          "title": "A23 封顶禁闭室与食堂高墙生产素材",
+          "description": "按用户确认A22最终概念scene-concept-v21r2.png制作可复用屋顶、墙面、压顶纹理和嵌入式门开闭素材及编辑器图标。主美制作，制作人负责共享脚本/地图集成。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "不透明暗色封顶材质、食堂浅色高墙、墙端收口同风格，门开闭状态无浮框、开放真实透明通道。manifest规格、原图来源、图标、导入和缩放自测齐全。生产结果对照用户确认概念，不覆盖旧资产。",
+          "result": "已完成用户确认设计的正式建筑资产：4种新增屋顶/墙面/压顶材质、1项旧浅色压顶引用、禁闭室铁门与食堂侧滑栅栏各开闭两态；9条manifest、9个v03原图Atlas图标、3张生成原PNG。门render_size160×110/180×110，开闭同region尺寸/锚点/ground_rect，开通道无不透明底图。Godot隔离导入与9纹理/图标加载通过，110px门、64/48图标和材质连续铺设已人工查看。原PNG字节一致，202旧资产及A22概念未变；共享脚本/地图实际接入由制作人P53负责。\n\n验收通过：已核对源PNG、manifest和9个配套图标，主美导入/alpha/缩放报告与本人原生接入42项吻合。禁闭顶不透明，食堂墙/门同基座同标高，开关锚点一致且通道透明。屋顶纹理缩放与8px檐口属制作人装配；A23素材交付验收通过，P53运行/主干结果另行验收。",
+          "dependencyIds": [
+            "a22-cafeteria-equal-wall-concept-20261006"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v23/**",
+              "art/editor/v03/**",
+              "docs/art/architecture-v23/**"
+            ],
+            "entry": "art/architecture/v23/manifest.json",
+            "interfaceContract": "root共享渲染与地图维护。资产提供Texture/AtlasTexture裁切数据，墙/顶材质不含烘焙投影，门以world_size和ground_rect精确注册，开/关门锚点相同。只改允许新目录，不改scripts/data/project/旧manifest，不git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "a23-architecture-production-plan-20261006",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:38:10.148Z"
+            }
+          ]
         }
       ],
       "reviews": [],
@@ -7510,6 +7871,132 @@
               "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
               "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
               "at": "2026-10-06T05:24:47.610Z"
+            }
+          ]
+        },
+        {
+          "id": "a20-door-wall-concept-20261006",
+          "title": "A20 门墙一体场景概念评审",
+          "description": "用户明确要求主美先重新生成地图4门与墙的一体场景概念。参考最新截图，修正巨大独立铁框、门柱悬立、门洞收口与门墙俯视角/厚度不统一；保留暖灰绿手绘漫画风、人物与现有HUD总体布局，同场展示右侧食堂开放栅栏门与左侧禁闭关闭实心门。仅概念供用户评审。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "新横屏完整游戏视角概念PNG，门墙一体、入口可读、尺度以角色60为参照；保存生成来源提示词/参考/原PNG与审阅说明；标明待用户评审，不修改游戏/地图/生产资产/风格基准。",
+          "result": "door-wall-concept-v20-20261006-9a7d7f54d3a9：完成1586x992横屏完整门墙一体概念，最终展示art/concepts/door-wall-v20/concept-v20.png。参考用户当前R04截图；保留暖灰绿手绘漫画、人物/商人/警犬和整体HUD。左关闭禁闭实心门、右开放食堂栅栏门同场，石墙收口/嵌入铁边/连贯柱头顶面/薄贴地门槛；门不再是巨大独立铁架。初稿后做一次局部修订收低门洞并加强墙顶连接，目标视觉比例为人物1.4-1.7倍（概念估计，非生产标定）。源PNG原样复制，提示词/参考/源路径/SHA及初稿齐全，202旧资产SHA无变化。仅新允许concept/docs子目录，无游戏/地图/脚本/生产素材/旧清单/根project/Git变更，也未确认新风格。此反馈仅提交概念成果，明确待用户评审、尚未批准或实施；制作人不得据此直接替换游戏。用户认可后再建立生产接入任务。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/door-wall-v20/**",
+              "docs/art/door-wall-v20/**"
+            ],
+            "entry": "art/concepts/door-wall-v20/concept-v20.png",
+            "interfaceContract": "概念非生产素材；只用imagegen创建新图，保留原PNG，不程序改图，不确认新风格，不改scripts/data/scenes/已有素材/清单/根project，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a20-door-wall-concept-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:04:59.125Z"
+            }
+          ]
+        },
+        {
+          "id": "a21-roof-solitary-concept-20261006",
+          "title": "A21 封顶禁闭室与差异墙体概念",
+          "description": "用户认可A20食堂抬高墙面，要求禁闭室改成屋顶封死、看不到内部的暗色小屋，并探索几种不同墙体。制作新的完整场景概念与墙体差异小稿；不替换生产素材或地图。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "完整横屏概念保留食堂高墙与HUD/人物/局部布局，禁闭室完整不透明屋顶、无可见室内床/便器；提供同风格下禁闭厚墙、食堂高墙、寝室低墙、走廊矮边墙的差异探索。保存原图/提示词/来源；仅供用户评审，不确认新风格或实施。",
+          "result": "prison-roof-concept-v21-20261006-e663e6ce6a3d：按用户反馈保留A20食堂高墙方向，重做1586x992完整场景，禁闭室为厚暗色实墙+完整不透明屋顶，床/便器/室内地面完全不可见，门/外部通风口嵌入前立面，主角仍在走廊。下方普通寝室维持剖切形成差异，食堂高墙和开放入口/HUD/人物布局延续。另给1536x1024四格墙体探索：禁闭封闭厚墙、食堂浅高墙、寝室低石墙、走廊矮边墙，同一FINAL-WARM-01语言。两图已查看，用户红色标注去除；内置imagegen原PNG原样复制，完整提示词/参考/来源/SHA齐全，202旧资产及A20两概念未改字节。仅新概念目录，无生产地图/脚本/素材/风格确认/Git变更。用户只认可上轮食堂高墙局部；这两张新概念待用户评审，不能直接实施。请制作人验收概念交付，等待用户确认后再安排封屋顶遮挡/交互提示与生产接入。\n\n验收通过：已核对概念与原图来源：封顶禁闭室及四种墙体探索交付通过。食堂墙一高一低已由A22后续修正，制作仅引用用户确认的scene-concept-v21r2.png，不使用A21初稿作为最终制作基准。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/prison-roof-v21/**",
+              "docs/art/prison-roof-v21/**"
+            ],
+            "entry": "art/concepts/prison-roof-v21/scene-concept-v21.png",
+            "interfaceContract": "新概念PNG及文档；内置imagegen，原图不程序修改。A20食堂高墙仅局部获认可，整张新概念待评审。不改scripts/data/scenes/旧PNG/旧manifest/根project，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a21-roof-solitary-concept-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:19:54.710Z"
+            }
+          ]
+        },
+        {
+          "id": "a22-cafeteria-equal-wall-concept-20261006",
+          "title": "A22 食堂两侧墙等高概念修正",
+          "description": "用户认可A21封顶禁闭室，指出食堂门洞左低右高。仅修正食堂门左右连续墙高/压顶/转角厚度，保持禁闭室和其余画面，生成A21r2概念。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "2026-10-06",
+          "milestoneId": "",
+          "acceptance": "新概念保留认可的禁闭室，食堂左右横墙同高同材质、门洞仍开放；原PNG/提示词/来源完整，未修改生产。",
+          "result": "已原样保存食堂墙等高修订概念：抬高入口左侧矮横墙，与右侧墙顶、基座同高同材质并接齐转角；保留认可的封顶禁闭室和食堂通道。未覆盖A21原图、墙体对照图或生产资产。202项旧资产及两张A21图哈希未变；新图与imagegen原PNG字节一致。\n\n验收通过：已核对最新证据版本2及主美聊天用户原话，可以，反馈给制作人，就按这个设计制作。最终图禁闭室不透明封顶、食堂左右高墙与基座齐平、门洞开放，概念交付通过并按此图安排生产。此验收不代表游戏实现完成。",
+          "dependencyIds": [],
+          "references": [],
+          "positionIds": [
+            "art-director"
+          ],
+          "workScope": {
+            "allowedPaths": [
+              "art/concepts/prison-roof-v21/**",
+              "docs/art/prison-roof-v21/revision-r2/**"
+            ],
+            "entry": "art/concepts/prison-roof-v21/scene-concept-v21r2.png",
+            "interfaceContract": "新修订概念供评审；不覆盖A21原图/原反馈/旧文档，不改游戏/地图/生产资产或基准，不Git提交。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "dispatchHistory": [
+            {
+              "id": "a22-cafeteria-equal-wall-plan-20261006",
+              "fromId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T09:29:21.631Z"
             }
           ]
         }

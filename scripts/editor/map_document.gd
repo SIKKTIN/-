@@ -52,6 +52,19 @@ func open_file(file_path: String) -> bool:
 	return true
 
 static func check_shape(candidate: Dictionary) -> String:
+	if not candidate.get("walls",[]) is Array: return "walls必须是数组。"
+	if not candidate.get("architecture",{}) is Dictionary: return "architecture必须是对象。"
+	var surfaces = candidate.get("architecture",{}).get("wall_surfaces",[])
+	if not surfaces is Array: return "墙材质配置必须是数组。"
+	var surface_ids := {}
+	for surface in surfaces:
+		if not surface is Dictionary: return "墙材质配置必须是对象。"
+		var index = surface.get("wall_index",-1)
+		if not typeof(index) in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(index)) or index != int(index) or index < 0 or index >= candidate.get("walls",[]).size(): return "墙材质引用不存在。"
+		if surface_ids.has(int(index)): return "墙材质引用重复。"
+		surface_ids[int(index)] = true
+		var height = surface.get("height",100)
+		if not typeof(height) in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(height)) or height < 18 or height > 200: return "墙显示高度需在18–200之间。"
 	if not candidate.get("confinement",{}) is Dictionary: return "confinement必须是对象。"
 	for key in RECT_KEYS+["guard_start"]:
 		if candidate.has(key) and not valid_coords(candidate[key],2 if key == "guard_start" else 4):
@@ -76,6 +89,10 @@ static func check_shape(candidate: Dictionary) -> String:
 					if not valid_coords(item.get("hours",[]),2) or item.hours[0] < 0 or item.hours[1] > 1440 or item.hours[0] >= item.hours[1]: return "管制门开放分钟需在0–1440内，先开后关。"
 					if not valid_coords(item.get("room_rect",[]),4) or not valid_coords(item.get("evacuation",[]),2): return "定时门缺少区域或疏散点。"
 			if group == "confinement":
+				var building = item.get("building",{})
+				if not building is Dictionary: return "禁闭建筑配置必须是对象。"
+				var height = building.get("height",110)
+				if not typeof(height) in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(height)) or height < 18 or height > minf(200,coords[3]-24): return "禁闭建筑高度需在18–200内且小于房间深度。"
 				if not valid_coords(item.get("spawn",[]),2) or not valid_coords(item.get("release",[]),2) or str(item.get("door_id","")) == "": return "禁闭室缺少关押点、释放点或关联门。"
 	var points = candidate.get("routine_points",{})
 	if not points is Dictionary:
@@ -180,6 +197,24 @@ func set_geometry(ref: Dictionary, rect: Rect2) -> void:
 		collection(ref.group)[ref.index] = coords
 	changed.emit()
 
+func wall_surface(index: int) -> Dictionary:
+	for surface in data.get("architecture",{}).get("wall_surfaces",[]):
+		if int(surface.wall_index) == index: return surface
+	return {}
+
+func set_wall_surface(index: int, height: float, front := "cafeteria_wall_front_v23", top := "cafeteria_coping_v23") -> void:
+	begin()
+	if not data.has("architecture"): data.architecture = {}
+	if not data.architecture.has("wall_surfaces"): data.architecture.wall_surfaces = []
+	var surface := wall_surface(index)
+	if surface.is_empty():
+		surface = {"wall_index":index}
+		data.architecture.wall_surfaces.append(surface)
+	surface.height = clampf(height,18,200)
+	surface.front = front
+	surface.top = top
+	commit()
+
 func snap_point(point: Vector2) -> Vector2:
 	return point.snapped(Vector2(grid,grid)) if grid > 0 else point
 
@@ -254,6 +289,11 @@ func remove(ref: Dictionary) -> void:
 	if not can_remove(ref):
 		return
 	begin()
+	if ref.group == "walls":
+		var surfaces: Array = data.get("architecture",{}).get("wall_surfaces",[])
+		for surface in surfaces.duplicate():
+			if int(surface.wall_index) == int(ref.index): surfaces.erase(surface)
+			elif int(surface.wall_index) > int(ref.index): surface.wall_index = int(surface.wall_index)-1
 	collection(ref.group).remove_at(ref.index)
 	commit()
 
@@ -267,6 +307,10 @@ func duplicate_entry(ref: Dictionary) -> Dictionary:
 		item.id = unique_id(str(item.id))
 	collection(ref.group).append(item)
 	var next := {"group":ref.group,"index":collection(ref.group).size()-1}
+	if ref.group == "walls" and not wall_surface(int(ref.index)).is_empty():
+		var surface := wall_surface(int(ref.index)).duplicate(true)
+		surface.wall_index = int(next.index)
+		data.architecture.wall_surfaces.append(surface)
 	var rect := geometry(next)
 	rect.position += Vector2(40,40)
 	set_geometry(next,rect)

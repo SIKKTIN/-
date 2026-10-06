@@ -69,6 +69,7 @@ func _draw() -> void:
 		if item.location != "ground":
 			continue
 		var point := Vector2(item.position[0], item.position[1])
+		if game.world.is_under_roof(point): continue
 		var id := str(item.definition_id)
 		if textures.get(id) != null:
 			draw_texture_rect(textures[id], Rect2(point - Vector2(13, 24), Vector2(26, 26)), false)
@@ -78,6 +79,7 @@ func _draw() -> void:
 	for merchant in game.trade.merchants.values():
 		var actor = game.trade.actors[merchant.id]
 		var point := Vector2(merchant.position[0], merchant.position[1])
+		if game.world.is_under_roof(point): continue
 		if not merchant_asset.get("shadow_baked",false):
 			draw_ellipse(point+Vector2(0,2),15,4,Color(0,0,0,0.14))
 		if textures.get("merchant") != null:
@@ -105,11 +107,13 @@ func paint_information(canvas: CanvasItem) -> void:
 	for item in game.inventory.instances.values():
 		if item.location == "ground":
 			var point := Vector2(item.position[0],item.position[1])
+			if game.world.is_under_roof(point): continue
 			var label := str(game.inventory.definitions.get(item.definition_id,{}).get("short",item.definition_id))
 			canvas.draw_string(game.presentation.font,point+Vector2(-14,16),label,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("e1e9df") if game.presentation.lighting.period == "night" else Color("536052"))
 	for merchant in game.trade.merchants.values():
 		var actor = game.trade.actors[merchant.id]
 		var point := Vector2(merchant.position[0],merchant.position[1])
+		if game.world.is_under_roof(point): continue
 		var text: String = "商人 · "+("路线受阻" if actor.route_status != "" and not actor.at_destination() else actor.activity_text())
 		var width: float = game.presentation.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x+12
 		var badge := Rect2(point+Vector2(-width/2,12),Vector2(width,23))

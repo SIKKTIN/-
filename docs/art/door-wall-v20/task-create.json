@@ -1,0 +1,21 @@
+{
+  "scheduleRevision": "548bdbe8348bafc6984afb12f826f71e1013965f4c418f520f774a6bfaba0fac",
+  "task": {
+    "id": "a20-door-wall-concept-20261006",
+    "title": "A20 门墙一体场景概念评审",
+    "description": "用户明确要求主美先重新生成地图4门与墙的一体场景概念。参考最新截图，修正巨大独立铁框、门柱悬立、门洞收口与门墙俯视角/厚度不统一；保留暖灰绿手绘漫画风、人物与现有HUD总体布局，同场展示右侧食堂开放栅栏门与左侧禁闭关闭实心门。仅概念供用户评审。",
+    "kind": "美术",
+    "priority": "高",
+    "positionIds": ["art-director"],
+    "acceptance": "新横屏完整游戏视角概念PNG，门墙一体、入口可读、尺度以角色60为参照；保存生成来源提示词/参考/原PNG与审阅说明；标明待用户评审，不修改游戏/地图/生产资产/风格基准。",
+    "workScope": {
+      "allowedPaths": ["art/concepts/door-wall-v20/**", "docs/art/door-wall-v20/**"],
+      "entry": "art/concepts/door-wall-v20/concept-v20.png",
+      "interfaceContract": "概念非生产素材；只用imagegen创建新图，保留原PNG，不程序改图，不确认新风格，不改scripts/data/scenes/已有素材/清单/根project，不Git提交。"
+    }
+  },
+  "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reason": "用户要求先看门墙一体概念图再决定，主美制作独立评审稿。",
+  "requestId": "a20-door-wall-concept-plan-20261006"
+}

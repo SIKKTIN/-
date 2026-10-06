@@ -1,0 +1,52 @@
+{
+  "id": "a21-final-concept-v21-20261006",
+  "digest": "a64c1c100ebb9bc5dc988822f4d5eca8be283b1322e2b997f738cb09ef434983",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T09:25:46.494Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a21-final-concept-v21-20261006",
+    "taskId": "a21-roof-solitary-concept-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "prison-roof-concept-v21-20261006-e663e6ce6a3d：按用户反馈保留A20食堂高墙方向，重做1586x992完整场景，禁闭室为厚暗色实墙+完整不透明屋顶，床/便器/室内地面完全不可见，门/外部通风口嵌入前立面，主角仍在走廊。下方普通寝室维持剖切形成差异，食堂高墙和开放入口/HUD/人物布局延续。另给1536x1024四格墙体探索：禁闭封闭厚墙、食堂浅高墙、寝室低石墙、走廊矮边墙，同一FINAL-WARM-01语言。两图已查看，用户红色标注去除；内置imagegen原PNG原样复制，完整提示词/参考/来源/SHA齐全，202旧资产及A20两概念未改字节。仅新概念目录，无生产地图/脚本/素材/风格确认/Git变更。用户只认可上轮食堂高墙局部；这两张新概念待用户评审，不能直接实施。请制作人验收概念交付，等待用户确认后再安排封屋顶遮挡/交互提示与生产接入。",
+    "evidence": [
+      "E:/Project/Godot/这次怎么逃/art/concepts/prison-roof-v21/scene-concept-v21.png",
+      "E:/Project/Godot/这次怎么逃/art/concepts/prison-roof-v21/wall-studies-v21.png",
+      "E:/Project/Godot/这次怎么逃/docs/art/prison-roof-v21/README.md",
+      "E:/Project/Godot/这次怎么逃/docs/art/prison-roof-v21/prompts-v21.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/prison-roof-v21/source-review-v21.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/prison-roof-v21/delivery-v21.json"
+    ],
+    "at": "2026-10-06T09:25:46.583Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a21-final-concept-v21-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a21-final-concept-v21-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "799a2b763c0dad5c23848c2b67258963b69d6bdbade52929b1383d9eb6440657"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "799a2b763c0dad5c23848c2b67258963b69d6bdbade52929b1383d9eb6440657",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

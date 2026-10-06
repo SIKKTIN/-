@@ -16,7 +16,15 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 	world = owner_world
 	kind = type
 	wall_index = index
-	profile = render_profile
+	profile = render_profile.duplicate(true)
+	if type == "wall" and owner_world.wall_surfaces.has(index):
+		var surface: Dictionary = owner_world.wall_surfaces[index]
+		profile.wall_elevation = float(surface.get("height",100))
+		profile.block_elevation = profile.wall_elevation
+		profile.block_top_tiled = true
+		profile.material_slots = profile.get("material_slots",{}).duplicate(true)
+		profile.material_slots.wall_top = surface.get("top","cafeteria_coping_v23")
+		profile.material_slots.wall_front = surface.get("front","cafeteria_wall_front_v23")
 	definitions = assets
 	_wall_geometry_valid = false
 	# Minified bars and furniture need prefiltered texture levels. Fractional
@@ -47,12 +55,23 @@ func tick_visual() -> void:
 	_wall_bounds = world.bounds
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
+	visible = not world.wall_is_roofed(wall_index) if kind == "wall" else not world.fixtures[wall_index].get("hidden",false) if kind == "fixture" else true
 	if kind != "wall" and world.art_textures.has(prop_id()) and definitions.get(prop_id(),{}).has("ground_rect"):
 		var definition: Dictionary = definitions[prop_id()]
 		var ground: Array = definition.ground_rect
 		var scale := footprint.size/Vector2(ground[2],ground[3])
 		display_rect = Rect2(footprint.position-Vector2(ground[0],ground[1])*scale,world.art_textures[prop_id()].get_size()*scale)
 		elevation = float(definition.get("elevation_world",20))
+	if kind == "fixture":
+		var fixture: Dictionary = world.fixtures[wall_index]
+		var definition: Dictionary = definitions.get(prop_id(),{})
+		if definition.get("render_mode","") == "embedded_door":
+			var dims: Array = fixture.get("render_size",definition.get("render_size",[footprint.size.x,110]))
+			elevation = float(dims[1])
+			display_rect = Rect2(Vector2(footprint.position.x,footprint.end.y-elevation),Vector2(footprint.size.x,elevation))
+		elif fixture.has("render_size"):
+			var dims: Array = fixture.render_size
+			display_rect = Rect2(Vector2(footprint.get_center().x-dims[0]/2.0,footprint.end.y-dims[1]),Vector2(dims[0],dims[1]))
 	z_index = int(world.fixtures[wall_index].get("draw_depth",footprint.end.y)) if kind == "fixture" else int(footprint.end.y)
 	queue_redraw()
 

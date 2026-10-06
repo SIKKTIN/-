@@ -50,6 +50,12 @@ func screen(point: Vector2) -> Vector2:
 func world(point: Vector2) -> Vector2:
 	return (point-origin)/zoom
 
+func beneath_roof(point: Vector2) -> bool:
+	for cell in document.data.get("confinement",{}).get("cells",[]):
+		var building: Dictionary = cell.get("building",{})
+		if building.get("roofed",false) and Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3]-float(building.get("height",110))).has_point(point): return true
+	return false
+
 func at(point: Vector2) -> Dictionary:
 	var entries: Array = document.entries()
 	entries.reverse()
@@ -62,6 +68,7 @@ func at(point: Vector2) -> Dictionary:
 			if background != (pass_index == 1):
 				continue
 			var rect: Rect2 = document.geometry(ref)
+			if ref.group == "fixtures" and not show_collision and beneath_roof(rect.get_center()): continue
 			if document.is_rect(ref):
 				if rect.grow(5/zoom).has_point(world(point)):
 					return ref
@@ -161,6 +168,12 @@ func _draw() -> void:
 			draw_line(screen(Vector2(x*step,bounds.position.y)),screen(Vector2(x*step,bounds.end.y)),Color(0.18,0.26,0.24,0.10),1)
 		for y in range(floori(bounds.position.y/step),ceili(bounds.end.y/step)+1):
 			draw_line(screen(Vector2(bounds.position.x,y*step)),screen(Vector2(bounds.end.x,y*step)),Color(0.18,0.26,0.24,0.10),1)
+	if layers.is_visible("architecture"):
+		for cell in document.data.get("confinement",{}).get("cells",[]):
+			if not cell.get("building",{}).get("roofed",false): continue
+			var footprint := Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3])
+			draw_rect(Rect2(screen(footprint.position),footprint.size*zoom),Color("555e58"))
+			if zoom > 0.17: draw_string(font,screen(footprint.position)+Vector2(8,20),"禁闭室 · 封顶",HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("e9e0c5"))
 	var entries: Array = document.entries()
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
@@ -177,6 +190,7 @@ func _draw() -> void:
 			var color := Color("435555") if ref.group == "walls" else Color("a17b4b") if ref.group in ["door","dorm_doors","access_doors"] else Color("318c82") if ref.group == "exit" else Color("896b45")
 			if ref.group == "fixtures":
 				if document.value(ref).get("hidden",false) and not show_collision: continue
+				if not show_collision and beneath_roof(rect.get_center()): continue
 				var asset: String = document.value(ref).asset_id
 				var texture: Texture2D = textures.get(asset)
 				if texture:

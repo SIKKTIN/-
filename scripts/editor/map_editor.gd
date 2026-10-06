@@ -202,7 +202,8 @@ func build_ui() -> void:
 	resources.add_child(palette)
 	var palette_help := label(resources,"选素材，再点击地图放置。\nEsc取消；绘墙使用顶部工具。",12)
 	palette_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	for asset in catalog.assets: asset_ids.append(str(asset))
+	for asset in catalog.assets:
+		if catalog.assets[asset].get("render_mode","") != "architecture_material": asset_ids.append(str(asset))
 	var object_tab := VBoxContainer.new()
 	object_tab.name = "对象"
 	library_tabs.add_child(object_tab)
@@ -513,6 +514,26 @@ func refresh_inspector() -> void:
 			document.commit())
 		row.add_child(spin)
 	var item = document.value(ref)
+	if ref.group == "walls":
+		label(inspector,"建筑显示高度",13)
+		var height := SpinBox.new()
+		height.name = "WallElevation"
+		height.min_value = 18
+		height.max_value = 200
+		height.value = document.wall_surface(int(ref.index)).get("height",24 if rect.size.x > 60 else 18)
+		height.value_changed.connect(func(value):
+			if refreshing: return
+			document.set_wall_surface(int(ref.index),value))
+		inspector.add_child(height)
+		var wall_material := OptionButton.new()
+		wall_material.name = "WallMaterial"
+		wall_material.add_theme_constant_override("icon_max_width",24)
+		wall_material.add_icon_item(catalog.icon({"id":"cafeteria_wall_front_v23","icon":catalog.assets.get("cafeteria_wall_front_v23",{}).get("editor_icon","")}),"食堂 · 浅色高墙")
+		wall_material.add_icon_item(catalog.icon({"id":"solitary_wall_front_v23","icon":catalog.assets.get("solitary_wall_front_v23",{}).get("editor_icon","")}),"禁闭 · 深灰厚墙")
+		wall_material.select(1 if document.wall_surface(int(ref.index)).get("front","") == "solitary_wall_front_v23" else 0)
+		wall_material.item_selected.connect(func(index):
+			document.set_wall_surface(int(ref.index),height.value,"cafeteria_wall_front_v23" if index == 0 else "solitary_wall_front_v23","cafeteria_coping_v23" if index == 0 else "solitary_coping_v23"))
+		inspector.add_child(wall_material)
 	if item is Dictionary:
 		for property in ["name","id"]:
 			if item.has(property):
@@ -541,6 +562,29 @@ func refresh_inspector() -> void:
 						document.set_property(ref,"hours",hours))
 					inspector.add_child(spin)
 		if ref.group == "confinement":
+			var roofed := CheckButton.new()
+			roofed.name = "RoofedCell"
+			roofed.add_theme_constant_override("icon_max_width",24)
+			roofed.text = "完整封顶 · 遮住内部"
+			roofed.icon = catalog.icon({"id":"solitary_roof_v23","icon":catalog.assets.get("solitary_roof_v23",{}).get("editor_icon","")})
+			roofed.button_pressed = item.get("building",{}).get("roofed",false)
+			roofed.toggled.connect(func(on):
+				var building: Dictionary = item.get("building",{}).duplicate(true)
+				building.roofed = on
+				document.set_property(ref,"building",building))
+			inspector.add_child(roofed)
+			label(inspector,"建筑立面高度",13)
+			var building_height := SpinBox.new()
+			building_height.name = "BuildingHeight"
+			building_height.min_value = 18
+			building_height.max_value = minf(200,rect.size.y-24)
+			building_height.value = item.get("building",{}).get("height",110)
+			building_height.value_changed.connect(func(value):
+				if refreshing: return
+				var building: Dictionary = item.get("building",{}).duplicate(true)
+				building.height = value
+				document.set_property(ref,"building",building))
+			inspector.add_child(building_height)
 			label(inspector,"关联禁闭门："+str(item.get("door_id","")),13)
 			label(inspector,"关押分钟（所有禁闭室）",13)
 			var duration := SpinBox.new()
@@ -571,7 +615,7 @@ func refresh_inspector() -> void:
 		if ref.group == "fixtures":
 			label(inspector,"摆设样式")
 			var appearance := OptionButton.new()
-			for asset in asset_ids: appearance.add_item(Document.ASSET_NAMES.get(asset,asset))
+			for asset in asset_ids: appearance.add_item(str(catalog.assets.get(asset,{}).get("name",Document.ASSET_NAMES.get(asset,asset))))
 			appearance.select(maxi(0,asset_ids.find(str(item.asset_id))))
 			appearance.item_selected.connect(func(index): document.set_property(ref,"asset_id",asset_ids[index]); canvas.queue_redraw())
 			inspector.add_child(appearance)

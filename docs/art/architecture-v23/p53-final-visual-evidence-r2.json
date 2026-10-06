@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-06",
+  "mode": "visual inspection of four final producer screenshots; no new engine test",
+  "result": "building appearance passes; no visible interior drop-label/icon leakage through exposed roof areas",
+  "reviewed_screenshots": [
+    {
+      "path": "docs/tests/p53-1200-solitary-closed.png",
+      "sha256": "422a6dd8c063133038883661669059c78beaf463f1783e2e37c42d7e61882707",
+      "previous_sha256": "7dc5ec5669e203c7ea3eb90cc1001b751fea8ac924fa51d9e142fca0ff9fe603",
+      "changed_since_r1": true
+    },
+    {
+      "path": "docs/tests/p53-1200-entrance-open.png",
+      "sha256": "95f928a2613e517b0fcd0b3d0ae9f4846108c5cf9b269889f071bbc1d731bf9d",
+      "previous_sha256": "24a9d824b5ac8237e20726e8098fe71000c5bc565411249874cb4529595a00f0",
+      "changed_since_r1": true
+    },
+    {
+      "path": "docs/tests/p53-1200-architecture-night.png",
+      "sha256": "d1cfc0841c0775d934cdf984138bfc1c022ab02b24d6295a8abee4f5cf462c6b",
+      "previous_sha256": "059d0af961e799b241ea255a6b76a6fc089d692ba45def92118b9dfa32fcea5e",
+      "changed_since_r1": true
+    },
+    {
+      "path": "docs/tests/p53-960-architecture-night.png",
+      "sha256": "36b1df0dd58ff8c659378ba8dcd83b06755380716240d1db29fbe1d132ab5ac0",
+      "previous_sha256": "8179ce8ec04384bfb5f857d2b8712518b403caf954c0b381018fdac193829e6e",
+      "changed_since_r1": true
+    }
+  ],
+  "previous_records": [
+    {
+      "path": "docs/art/architecture-v23/p53-final-visual-review.md",
+      "sha256": "e69ed56c396e3e29fcf24beab68bce29dc06e183ebbec6d871f3ff89e91e265a"
+    },
+    {
+      "path": "docs/art/architecture-v23/p53-final-visual-evidence.json",
+      "sha256": "76e91811f242a66d6ce1839a61e31b5fe43add1cc176722cd110343f9fa0f200"
+    }
+  ],
+  "existing_delivery_unchanged": true,
+  "review": "docs/art/architecture-v23/p53-final-visual-review-r2.md"
+}

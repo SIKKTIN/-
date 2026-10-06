@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "version": "architecture-v23-20261006",
+  "status": "interface proposal; texture regions pending generation",
+  "manifest": "res://art/architecture/v23/manifest.json",
+  "assets": [
+    {"id":"solitary_roof_v23","world_size":[96,96],"render_mode":"architecture_material","opaque":true},
+    {"id":"solitary_wall_front_v23","world_size":[128,110],"render_mode":"architecture_material","opaque":true},
+    {"id":"solitary_coping_v23","world_size":[64,64],"render_mode":"architecture_material","opaque":true},
+    {"id":"cafeteria_wall_front_v23","world_size":[128,100],"render_mode":"architecture_material","opaque":true},
+    {"id":"cafeteria_coping_v23","world_size":[64,64],"render_mode":"architecture_material","texture":"res://art/environment/low_wall_top_v02.png","reuse_existing":true},
+    {"id":"solitary_door_closed_v23","pair":"solitary_door_v23","state":"closed","render_mode":"embedded_door","render_size":[160,110],"footprint_world_size":[160,20],"state_driven":true},
+    {"id":"solitary_door_open_v23","pair":"solitary_door_v23","state":"open","render_mode":"embedded_door","render_size":[160,110],"footprint_world_size":[160,20],"state_driven":true},
+    {"id":"cafeteria_gate_closed_v23","pair":"cafeteria_gate_v23","state":"closed","render_mode":"embedded_door","render_size":[180,110],"footprint_world_size":[180,31.5],"state_driven":true},
+    {"id":"cafeteria_gate_open_v23","pair":"cafeteria_gate_v23","state":"open","render_mode":"embedded_door","render_size":[180,110],"footprint_world_size":[180,31.5],"state_driven":true}
+  ],
+  "registration":"Doors use equal-sized transparent atlas cells for open/closed states, shared ground_rect and bottom-center anchor. Preserve the whole cell including the empty doorway in OPEN, never trim each state independently. Final manifest has texture, region, texture_size, world_size, render_size, footprint_world_size, ground_rect, anchor and editor_icon. Ground rect is registration of logical threshold, not alpha/obstacle inference.",
+  "assembly":"Wall frontage height and door height independent of logic door width. Wall renderer constructs thickness/corners/coping and roof polygon using material tiles. Materials do not contain cast shadows, frames or pre-built isometric corners. Two cafeteria frontage wings must share wall_height=100 and same base elevation. Solitary wall_height=110 and thickness=28..32; roof must fully cover building footprint.",
+  "editor":"Incremental v03 manifest for new ids only, categories furniture for material swatches and props for doors; tools empty. AtlasTexture icons reference original PNGs with margin and filter_clip."
+}

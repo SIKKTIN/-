@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "new concept awaiting user review; not approved or implemented",
+  "mode": "built-in imagegen",
+  "prompts": "docs/art/prison-roof-v21/prompts-v21.json",
+  "references": [
+    "art/concepts/door-wall-v20/concept-v20.png",
+    "docs/art/prison-roof-v21/user-annotation.png"
+  ],
+  "pixel_policy": "original generated PNGs copied byte-identically; no code image modification",
+  "outputs": [
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-63f57b58-c987-41ef-8cc0-35867809d624.png",
+      "project_png": "art/concepts/prison-roof-v21/scene-concept-v21.png",
+      "sha256": "f874a924ffe2c2eb402e92af096194f8f4463dfb5ab770d4c33068c209286a52",
+      "source_copy_matches": true,
+      "size": [
+        1586,
+        992
+      ],
+      "mode": "RGB"
+    },
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-32cdfdac-7a55-4c35-b3f0-01e4b0330ead.png",
+      "project_png": "art/concepts/prison-roof-v21/wall-studies-v21.png",
+      "sha256": "853a670b6e416c7fa3f31e1db6cbc95bcf37b135d8e9ff31bfb312763844d8ba",
+      "source_copy_matches": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "old_assets_checked": 202,
+  "changed_old_assets": [],
+  "previous_A20_concepts_unchanged": true,
+  "visual_review": {
+    "solitary_roof": "opaque complete roof covers all interior furniture and floor; exterior door/vent only",
+    "cafeteria": "retains raised pale wall and embedded open entrance",
+    "walls": "four coherent treatments in wall study: sealed dark thick building, pale high public wall, open low dorm wall, low corridor edging",
+    "annotations": "red user markup removed",
+    "scope": "concepts only; no game/maps/material/manifest/style baseline changes"
+  }
+}

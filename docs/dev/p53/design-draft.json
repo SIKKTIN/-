@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "format": "gamecreator-content-change",
+  "id": "p53-architecture-design-20261006",
+  "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
+  "snapshotId": "475b132dad512f1f1a76109463cb748676a362e129061e2f6b1fb138914bdc2d",
+  "author": "制作人",
+  "intent": "project_change",
+  "summary": "按用户确认A22终稿原位完善R04门墙一体与完整封顶禁闭室，保持地图/对象ID及门禁/关押规则。",
+  "compatibility": {
+    "reuse": "现有R04、围墙/对象ID、access_doors、room_access和2小时救援，A17/A19可复用物件。",
+    "modify": "R04两侧食堂墙厚度统一31.5、墙高110、门图110；禁闭立面、外侧灯和通风口，完整屋顶遮挡，按A23消费纹理。",
+    "add": "可选建筑墙表面和禁闭building字段，屋顶节点与编辑器参数、A23配套素材/图标。",
+    "archive": "无；旧资产保留，R01-R03无新增字段时维持旧表现。"
+  },
+  "target": {
+    "kind": "module",
+    "id": "map-design"
+  },
+  "operations": [
+    {
+      "id": "p53-map-0",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/description",
+      "value": "当前执行规则：三天逃脱，R04真实地图2800×2200。食堂每天12–14定时开放，实际门禁关闭，14点先疏散。被捕进入对应禁闭室，关2游戏小时，到期释放，伙伴可撬门救人；保留物品与局内成果。白天非戒备不抓人，门岗阻止主门操作；午夜查寝缺员则全厂警报增援。场景复用A17/A19场景资产，按已确认A22最终概念接入A23建筑素材及图标。禁闭室深灰实体屋顶完整遮住内部，外立面嵌入铁门/通风口/标识，门外显示伙伴与剩余禁闭时间；食堂门左右使用110高墙、同压顶及基座，门的开闭高度均110，碰撞与日程独立驱动。真实几何和关押/门配置唯一来源data/rooms/r04.json；策划说明docs/dev/p52-map-design.md。 建筑表现接口：architecture.wall_surfaces及confinement.cells[].building；编辑器可调整墙高、墙材质、封顶和建筑高度，保持物理围墙为通路唯一来源。程序说明docs/dev/p53/README.md。"
+    },
+    {
+      "id": "p53-map-1",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/height",
+      "value": 0.39375
+    },
+    {
+      "id": "p53-map-2",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-7/notes",
+      "value": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。"
+    },
+    {
+      "id": "p53-map-3",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/height",
+      "value": 0.39375
+    },
+    {
+      "id": "p53-map-4",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p23-wall-8/notes",
+      "value": "食堂入口两侧统一高墙：显示高度110、物理厚31.5，同基座/压顶，cafeteria_wall_front_v23/cafeteria_coping_v23；真实围墙仍属于world.walls。"
+    },
+    {
+      "id": "p53-map-5",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/x",
+      "value": 2.1875
+    },
+    {
+      "id": "p53-map-6",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/y",
+      "value": 16.6875
+    },
+    {
+      "id": "p53-map-7",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/width",
+      "value": 0.8
+    },
+    {
+      "id": "p53-map-8",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/height",
+      "value": 0.025
+    },
+    {
+      "id": "p53-map-9",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-0/notes",
+      "value": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+    },
+    {
+      "id": "p53-map-10",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-0/notes",
+      "value": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+    },
+    {
+      "id": "p53-map-11",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/x",
+      "value": 2.1875
+    },
+    {
+      "id": "p53-map-12",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/y",
+      "value": 21.1875
+    },
+    {
+      "id": "p53-map-13",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/width",
+      "value": 0.8
+    },
+    {
+      "id": "p53-map-14",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/height",
+      "value": 0.025
+    },
+    {
+      "id": "p53-map-15",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-1/notes",
+      "value": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+    },
+    {
+      "id": "p53-map-16",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-1/notes",
+      "value": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+    },
+    {
+      "id": "p53-map-17",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/x",
+      "value": 2.1875
+    },
+    {
+      "id": "p53-map-18",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/y",
+      "value": 25.6875
+    },
+    {
+      "id": "p53-map-19",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/width",
+      "value": 0.8
+    },
+    {
+      "id": "p53-map-20",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/height",
+      "value": 0.025
+    },
+    {
+      "id": "p53-map-21",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-vent-2/notes",
+      "value": "改为屋前立面外侧通风口，64×33显示，禁止透视室内。"
+    },
+    {
+      "id": "p53-map-22",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-solitary-door-visual-2/notes",
+      "value": "solitary_door_closed_v23/open_v23；access_id驱动同锚点160×110嵌墙门，实际门禁拥有碰撞与视线阻挡，显示开关态不推断碰撞。"
+    },
+    {
+      "id": "p53-map-23",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cafeteria-door-visual/notes",
+      "value": "cafeteria_gate_closed_v23/open_v23，180×110嵌墙侧滑栅栏，两态完整Atlas注册；12–14开放，开放通道透明，门槛rect拥有移动碰撞。"
+    },
+    {
+      "id": "p53-map-24",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-0/notes",
+      "value": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+    },
+    {
+      "id": "p53-map-25",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-1/notes",
+      "value": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+    },
+    {
+      "id": "p53-map-26",
+      "op": "set",
+      "module": "map-design",
+      "path": "/maps/@6f1e26c3-ddf5-439c-b7c3-2633d623b9ac/objects/@p52-cell-cell-2/notes",
+      "value": "完整封顶禁闭室：不透明深灰屋顶，110立面/12压顶/8檐口，屋顶宽板320×240；室内人物、地面、家具和物品提示不可见，外侧门/通风口/禁闭标识可读。保持120游戏分钟和伙伴撬门救援。"
+    }
+  ]
+}

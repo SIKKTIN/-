@@ -6,6 +6,8 @@ var room_id: String = "r01"
 var bounds := Rect2(74,114,922,560)
 var walls: Array[Rect2] = []
 var fixtures: Array = []
+var wall_surfaces: Dictionary = {}
+var roofed_cells: Array = []
 var dorm_doors: Array = []
 var access_doors: Array = []
 var inspection_grid := AStarGrid2D.new()
@@ -60,6 +62,17 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 	walls.clear()
 	for value in config.get("walls", []):
 		walls.append(_rect(value))
+	wall_surfaces.clear()
+	for surface in config.get("architecture",{}).get("wall_surfaces",[]):
+		wall_surfaces[int(surface.wall_index)] = surface.duplicate(true)
+	roofed_cells.clear()
+	for cell in config.get("confinement",{}).get("cells",[]):
+		if cell.get("building",{}).get("roofed",false):
+			var building: Dictionary = cell.building.duplicate(true)
+			building.rect = _rect(cell.rect)
+			building.cell_id = str(cell.id)
+			building.door_id = str(cell.door_id)
+			roofed_cells.append(building)
 	door = _rect(config.get("door", [486,335,22,120]))
 	crate = _rect(config.get("crate", [467,572,94,92]))
 	original_crate = crate
@@ -72,6 +85,12 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 	guard_start = Vector2(start[0], start[1])
 	guard_zone = _rect(config.get("guard_zone",config.get("bounds",[74,114,922,560])))
 	reset_world()
+
+func is_under_roof(point: Vector2) -> bool:
+	return roofed_cells.any(func(cell): return cell.rect.has_point(point))
+
+func wall_is_roofed(index: int) -> bool:
+	return roofed_cells.any(func(cell): return cell.rect.grow(1).encloses(walls[index]))
 
 func _rect(value: Array) -> Rect2:
 	return Rect2(value[0],value[1],value[2],value[3])

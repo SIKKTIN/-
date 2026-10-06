@@ -1,0 +1,53 @@
+{
+  "id": "a20-final-concept-v20-20261006",
+  "digest": "d625086d032b2a1ccd9107b11c3e4d16630ebb934b07a7d7448e4c6421bb1f0f",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T09:12:42.559Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a20-final-concept-v20-20261006",
+    "taskId": "a20-door-wall-concept-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "door-wall-concept-v20-20261006-9a7d7f54d3a9：完成1586x992横屏完整门墙一体概念，最终展示art/concepts/door-wall-v20/concept-v20.png。参考用户当前R04截图；保留暖灰绿手绘漫画、人物/商人/警犬和整体HUD。左关闭禁闭实心门、右开放食堂栅栏门同场，石墙收口/嵌入铁边/连贯柱头顶面/薄贴地门槛；门不再是巨大独立铁架。初稿后做一次局部修订收低门洞并加强墙顶连接，目标视觉比例为人物1.4-1.7倍（概念估计，非生产标定）。源PNG原样复制，提示词/参考/源路径/SHA及初稿齐全，202旧资产SHA无变化。仅新允许concept/docs子目录，无游戏/地图/脚本/生产素材/旧清单/根project/Git变更，也未确认新风格。此反馈仅提交概念成果，明确待用户评审、尚未批准或实施；制作人不得据此直接替换游戏。用户认可后再建立生产接入任务。",
+    "evidence": [
+      "E:/Project/Godot/这次怎么逃/art/concepts/door-wall-v20/concept-v20.png",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/README.md",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/prompt-v20.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/correction-v20.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/current-r04-reference.png",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/source-review-v20.json",
+      "E:/Project/Godot/这次怎么逃/docs/art/door-wall-v20/delivery-v20.json"
+    ],
+    "at": "2026-10-06T09:12:42.684Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a20-final-concept-v20-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a20-final-concept-v20-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "2f20717da2c2c7e226f72e467124675ca489fbc2fa397a2e520e6a3b484213aa"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "2f20717da2c2c7e226f72e467124675ca489fbc2fa397a2e520e6a3b484213aa",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

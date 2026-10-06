@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "mode": "built-in imagegen",
+  "reference": "art/concepts/prison-roof-v21/scene-concept-v21r2.png",
+  "prompts": "docs/art/architecture-v23/prompts.json",
+  "outputs": [
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-a75dcc1b-fc8f-42d9-b314-9b7f8ab9bc35.png",
+      "project_png": "art/architecture/v23/architecture_materials_v23.png",
+      "sha256": "4f53072bd505e9273b1977403284ad001aa1941e35e76f51eecc15307a6f5ac1",
+      "source_copy_matches": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-411f3543-cca0-437c-8491-c8b7443478d8.png",
+      "project_png": "art/architecture/v23/solitary_door_pair_v23.png",
+      "sha256": "10d4a24102c7132171eb7bbc2daaec6e6fe297b6dfbb3fc1427f8a9125c53841",
+      "source_copy_matches": true,
+      "size": [
+        2139,
+        735
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-459769e1-1d3a-4e1a-b3b4-cba616575a6d.png",
+      "project_png": "art/architecture/v23/cafeteria_gate_pair_v23.png",
+      "sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409",
+      "source_copy_matches": true,
+      "size": [
+        2095,
+        751
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "registration": {
+    "solitary_door": {
+      "regions": [
+        [
+          50,
+          42,
+          984,
+          640
+        ],
+        [
+          1107,
+          42,
+          984,
+          640
+        ]
+      ],
+      "shared_cell_size": [
+        984,
+        640
+      ],
+      "render_size": [
+        160,
+        110
+      ],
+      "ground_rect": [
+        0,
+        523.636364,
+        984,
+        116.363636
+      ],
+      "anchor": [
+        492.0,
+        640
+      ],
+      "state_alpha": [
+        {
+          "state": "closed",
+          "bbox_alpha_gt64": [
+            8,
+            7,
+            975,
+            640
+          ],
+          "alpha_zero_ratio": 0.02611153455284553
+        },
+        {
+          "state": "open",
+          "bbox_alpha_gt64": [
+            8,
+            7,
+            974,
+            640
+          ],
+          "alpha_zero_ratio": 0.6443978658536585
+        }
+      ]
+    },
+    "cafeteria_gate": {
+      "regions": [
+        [
+          49,
+          82,
+          965,
+          561
+        ],
+        [
+          1078,
+          82,
+          965,
+          561
+        ]
+      ],
+      "shared_cell_size": [
+        965,
+        561
+      ],
+      "render_size": [
+        180,
+        110
+      ],
+      "ground_rect": [
+        0,
+        400.35,
+        965,
+        160.65
+      ],
+      "anchor": [
+        482.5,
+        561
+      ],
+      "state_alpha": [
+        {
+          "state": "closed",
+          "bbox_alpha_gt64": [
+            8,
+            8,
+            957,
+            560
+          ],
+          "alpha_zero_ratio": 0.3182991142759506
+        },
+        {
+          "state": "open",
+          "bbox_alpha_gt64": [
+            8,
+            8,
+            956,
+            561
+          ],
+          "alpha_zero_ratio": 0.5403193778689055
+        }
+      ]
+    }
+  },
+  "pixel_policy": "Selected generated PNGs copied byte-identically. Crops represented only by atlas metadata, no production pixels modified.",
+  "old_assets_checked": 202,
+  "changed_old_assets": [],
+  "open_passage_alpha": {
+    "solitary": {
+      "rect": [
+        1350,
+        150,
+        620,
+        470
+      ],
+      "opaque_pixel_ratio_gt64": 0.0,
+      "max": 1
+    },
+    "cafeteria": {
+      "rect": [
+        1450,
+        160,
+        520,
+        420
+      ],
+      "opaque_pixel_ratio_gt64": 0.0,
+      "max": 1
+    }
+  },
+  "visual_review": {
+    "110px_doors": "Both state pairs retain matching exterior register; openings reveal dotted QA background; narrow fixed edge hardware intended to sit under stone jambs.",
+    "64_48px_icons": "All nine material/door states visible and distinguishable.",
+    "horizontal_repetition": "Broad slabs and courses repeat without obvious brightness jump; front plinth only mapped once vertically.",
+    "material_note": "Cafeteria coping deliberately reuses accepted older pale tile; renderer can tint but must keep geometry height consistent.",
+    "scope": "Asset import and browser scale preview only; producer P53 actual game integration remains separate."
+  },
+  "qa": {
+    "native": true,
+    "preview": true
+  }
+}

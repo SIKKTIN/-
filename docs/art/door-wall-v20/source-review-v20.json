@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "status": "concept awaiting user review; unapproved, unimplemented",
+  "mode": "built-in imagegen + one targeted edit",
+  "reference": "docs/art/door-wall-v20/current-r04-reference.png",
+  "reference_engine_commit": "d9971cb (producer supplied)",
+  "initial_source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-8318b725-c550-4644-87e2-96c32029a189.png",
+  "initial_project_png": "art/concepts/door-wall-v20/concept-draft-v20.png",
+  "initial_sha256": "fc136d5da9db7233c25e4973c50d1f3a6b87534e22d4c90d32866675e6c8590e",
+  "final_source": "C:\\Users\\gst20\\.codex\\generated_images\\01a10697-9228-7c00-906b-43051bade1e0\\exec-bec4082c-c8df-4754-a189-fc8c36f41665.png",
+  "final_project_png": "art/concepts/door-wall-v20/concept-v20.png",
+  "final_sha256": "693bb5332adfec646f9d82030570454ce24433b7e820bfc91477a369d58ec16f",
+  "source_copy_matches": true,
+  "size": [
+    1586,
+    992
+  ],
+  "image_mode": "RGB",
+  "prompts": [
+    "docs/art/door-wall-v20/prompt-v20.json",
+    "docs/art/door-wall-v20/correction-v20.json"
+  ],
+  "pixel_policy": "original PNGs copied byte-identically; no code editing/cropping/resampling",
+  "old_asset_files_checked": 202,
+  "changed_old_assets": [],
+  "scope": "new art/concepts/door-wall-v20 and docs/art/door-wall-v20 only; no game/map/material/style-baseline change",
+  "review": "Full scene viewed after generation and after targeted edit. Left closed solid doorway and right open barred entrance both use masonry returns/coping, recessed steel edges and flush threshold; door/character target1.4-1.7 is a concept visual estimate, not implementation measurements."
+}

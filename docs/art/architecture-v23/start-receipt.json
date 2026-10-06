@@ -1,0 +1,51 @@
+{
+  "id": "a23-start-20261006",
+  "digest": "c7b8cbfbcffda8cb71c9b9a89d249da781fd8812c9c14052008dc8ec994210c7",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T09:39:57.562Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a23-start-20261006",
+    "taskId": "a23-architecture-production-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "已读取A23；按已确认概念制作4种新增建筑材质、复用已验收浅色压顶、两套门开闭Atlas及v03编辑器图标。生产门使用独立可视高度110，保留逻辑门宽160/180。素材与装配接口已写入interface-draft.json，制作人负责共享集成。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v23\\interface-draft.json"
+    ],
+    "at": "2026-10-06T09:39:57.654Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "a23-start-20261006",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "1c42f04ffd1207fb9662a9934ba3381bfb0186523a98f31f0d014ea7698ce138"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "1c42f04ffd1207fb9662a9934ba3381bfb0186523a98f31f0d014ea7698ce138",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}
