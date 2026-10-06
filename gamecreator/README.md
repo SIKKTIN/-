@@ -355,7 +355,7 @@ node ai/submit-change.cjs submit ai/draft.json <本开发者凭证的绝对路�
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
   "engine": "godot-gdscript",
   "id": "00000000-0000-4000-8000-000000000001",
-  "snapshotId": "ea491d865d495a747ab9e85b52047a02e6a16510a23682658608aa9342896aa0",
+  "snapshotId": "0be4a0cc79d676f98222988f9f09b625964e257cede396b010885631e73617d7",
   "target": {
     "kind": "task",
     "id": "复制真实任务ID"

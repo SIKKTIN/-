@@ -1,0 +1,19 @@
+{
+	"checks": {
+		"changed_start_loaded": true,
+		"changed_wall_loaded": true,
+		"cli_preview_mode": true,
+		"custom_room_id": true,
+		"initial_planner_still_pauses": true,
+		"local_dormitory_overrides_global": true,
+		"normal_gameplay_can_move": true,
+		"real_keyboard_moves_preview_actor": true,
+		"return_hidden_under_planner": true,
+		"return_visible_after_planning": true,
+		"room_switch_disabled_in_preview": true,
+		"unsaved_title_loaded": true
+	},
+	"native": false,
+	"passed": true,
+	"scope": "Actual main.tscn startup with --editor-room isolated JSON; modified geometry/home/dorm association, planner/controls and F10 return input."
+}

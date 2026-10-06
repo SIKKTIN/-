@@ -48,6 +48,7 @@ var gate_watch
 var attributes
 var prison_alert
 var mobile_controls
+var editor_preview_mode := false
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -75,6 +76,29 @@ var perspective_floor: bool = false
 @export var room_id: String = "r01"
 
 func _ready() -> void:
+	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % room_id))
+	var args := OS.get_cmdline_user_args()
+	var preview_index := args.find("--editor-room")
+	if preview_index >= 0:
+		if preview_index+1 >= args.size():
+			push_error("Editor preview needs a map JSON path.")
+			get_tree().quit(1)
+			return
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string(args[preview_index+1]))
+		if not parsed is Dictionary:
+			push_error("Editor preview map JSON is invalid.")
+			get_tree().quit(1)
+			return
+		var document = load("res://scripts/editor/map_document.gd").new()
+		if not document.open_file(args[preview_index+1]) or not document.validate().errors.is_empty():
+			push_error("Editor preview map failed validation.")
+			get_tree().quit(1)
+			return
+		config = document.data
+		room_id = str(config.id)
+		editor_preview_mode = true
+		OS.set_environment("ESCAPE_DEV_SETTINGS_PATH","user://map-editor-playtest-developer.cfg")
+		OS.set_environment("ESCAPE_BUTTON_LAYOUT_PATH","user://map-editor-playtest-buttons.cfg")
 	# The floor shares the prefiltered static-world textures; character sheets
 	# retain their existing linear sampling (they have no mipmap chain).
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
@@ -89,7 +113,6 @@ func _ready() -> void:
 	world = World.new()
 	world.name = "World"
 	add_child(world)
-	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % room_id))
 	room_config = config
 	world.configure(config,actors)
 	for index in range(actors.size()):
@@ -158,6 +181,11 @@ func _ready() -> void:
 	attributes = ActorAttributes.new(self)
 	fullscreen_ui.layout()
 	routines.offer_morning()
+	if editor_preview_mode:
+		room_selector.disabled = true
+		var return_bar = load("res://scripts/editor/preview_return.gd").new()
+		get_node("HUD").add_child(return_bar)
+		return_bar.configure(self)
 
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
@@ -586,6 +614,8 @@ func load_room(identifier: String, fixed_skills: Array = [], seed_value: int = -
 		actors[index].home = Vector2(start[0],start[1])
 	guard.configure(world,self)
 	if room_selector:
-		room_selector.select(ROOM_IDS.find(identifier))
+		var selector_index := ROOM_IDS.find(identifier)
+		if selector_index >= 0:
+			room_selector.select(selector_index)
 	reset_round(fixed_skills,seed_value)
 	return true

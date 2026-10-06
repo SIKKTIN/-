@@ -68,6 +68,8 @@
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成 · 未排期
 - P48 · 人物栏置于时钟下方与无辜被困者故事文案 [p48-hud-story-premise-20261006] · 已完成 · 未排期
 - P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成 · 未排期
+- P50 · Godot关卡编辑页与编辑试玩闭环 [p50-level-editor-20261006] · 已完成 · 未排期
+- P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成 · 未排期
 
 ## 待验收
 - A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006]
@@ -142,6 +144,8 @@
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 - P48 · 人物栏置于时钟下方与无辜被困者故事文案 [p48-hud-story-premise-20261006] · 已完成
 - P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
+- P50 · Godot关卡编辑页与编辑试玩闭环 [p50-level-editor-20261006] · 已完成
+- P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

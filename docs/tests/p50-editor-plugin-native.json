@@ -1,0 +1,26 @@
+{
+	"checks": {
+		"actual_editor_hint": true,
+		"actual_main_screen": true,
+		"apply_commits_focused_field": true,
+		"close_clean_no_prompt": true,
+		"editor_isolated_preview": true,
+		"editor_keyboard_redo": true,
+		"editor_keyboard_undo": true,
+		"editor_launches_actual_game": true,
+		"editor_removes_temp_preview": true,
+		"editor_return_preserves_clean_map": true,
+		"editor_save_backup": true,
+		"editor_save_external_map": true,
+		"finished_clean": true,
+		"isolated_save_as": true,
+		"main_page_visible": true,
+		"open_r04_clean": true,
+		"pending_field_prompts_on_close": true,
+		"source_map_untouched": true,
+		"unrelated_scene_close_no_prompt": true
+	},
+	"native": true,
+	"passed": true,
+	"scope": "Actual Godot editor loads enabled plugin; EditorInterface main-screen page plus global unsaved/apply/save callbacks on isolated QA map; source R04 preserved."
+}

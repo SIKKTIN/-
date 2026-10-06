@@ -200,7 +200,7 @@ func is_curfew() -> bool:
 	return stage_index >= 0 and bool(config.stages[stage_index].get("curfew",false))
 
 func dormitory(actor_id: int) -> Rect2:
-	var rooms: Array = config.get("room_dormitories",{}).get(game.room_id,[])
+	var rooms: Array = game.room_config.get("dormitories",config.get("room_dormitories",{}).get(game.room_id,[]))
 	if actor_id < rooms.size():
 		var values: Array = rooms[actor_id]
 		return Rect2(values[0],values[1],values[2],values[3])

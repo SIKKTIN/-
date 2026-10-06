@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "ea491d865d495a747ab9e85b52047a02e6a16510a23682658608aa9342896aa0",
+  "snapshotId": "0be4a0cc79d676f98222988f9f09b625964e257cede396b010885631e73617d7",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -3470,6 +3470,104 @@
           "at": "2026-10-06T06:11:35.592Z"
         }
       ]
+    },
+    {
+      "id": "p50-level-editor-20261006",
+      "title": "P50 · Godot关卡编辑页与编辑试玩闭环",
+      "description": "用户确认下一步制作轻量地图编辑器。支持打开R01–R04、墙门/摆设/人物/巡逻/日常点/寝室归属可视化编辑，网格吸附/复制删除/撤销重做、校验保存备份和原生试玩返回。电脑上制作，手机游戏规则不变。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "R04完整打开、拖墙/摆设/人物/活动点/巡逻/寝室范围与门、规则属性、复制删除/撤销重做、缩放平移吸附；实际输入验证并新文件保存重读无字段丢失，外部改动与非法坐标保护，草稿未保存切图提示；同一草稿通过真实main场景进入试玩并退出回编辑，路径碰撞/技能/日程保持；两个窗口尺寸原生UI复核与旧游戏关键回归，无脚本错误；未覆盖原R04和用户未保存编辑。",
+      "result": "关卡编辑器完成：Godot主屏页/独立窗口打开R01–R04，布局与规则点编辑、吸附/撤销/属性/另存、安全备份与草稿真实试玩返回；365项最终检查通过。原R04和用户原project.godot差异保留。\n\n验收通过：制作人单独核对10份最终报告与原生画面，365项全部通过。Godot实际主屏、未提交字段/关闭保存、键盘撤销、真实main草稿试玩/F10及原移动查房回归均有效；地图4未改写。第一版限制为已有主门规则、正式关卡列表R01–R04，电脑制图，未声明手机硬件或真人通关验证。验收通过。",
+      "dependencyIds": [],
+      "references": [],
+      "producerSelfReview": true,
+      "workScope": {
+        "entry": "Godot顶部关卡编辑页；res://scenes/editor/map_editor.tscn；CLI --editor-room <隔离试玩JSON路径>",
+        "allowedPaths": [
+          "addons/escape_map_editor/*",
+          "scenes/editor/*",
+          "scripts/editor/*",
+          "scripts/core/escape_game.gd",
+          "scripts/core/prison_schedule.gd",
+          "project.godot",
+          "qa/p50*",
+          "docs/dev/p50*",
+          "docs/tests/p50*"
+        ],
+        "interfaceContract": "Godot EditorPlugin主屏页和独立场景复用同一个编辑Control；输出兼容原rooms JSON，未知字段保留。新地图可将dormitories放进自身配置，runtime优先读取该字段并保留旧全局日程回退。试玩用隔离临时JSON，不覆盖地图；保存到项目前校验/备份/检测外部改动。project.godot仅新增本插件enabled，不改用户已有差异并仅提交本插件配置片段。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "d3ae1a9f-8f5a-4f8f-9f37-02a5e13cb4e6",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T06:32:02.124Z"
+        }
+      ]
+    },
+    {
+      "id": "p50b-editor-field-focus-20261006",
+      "title": "P50B · 关卡属性未提交文字与撤销删除修复",
+      "description": "P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：未提交ID文字直接撤销/删除出现失效引用并丢字段。独立后续修复任务，保留P50原验收。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "真实工具栏点击且属性LineEdit保持焦点时，撤销先提交待编辑字段再撤销该字段；删除先提交并删，撤销删除还原该文字；无索引错误。新回归headless和native通过，P50原完整编辑用例保持通过。",
+      "result": "未提交字段的撤销/重做/复制/删除先结束编辑，刷新旧控件回调与失效引用保护完成。新增焦点headless/native各5项通过；完整编辑43/48/48及实际Godot插件19项重跑通过，累计375项最终检查。\n\n验收通过：独立核对新增两份5项焦点报告及修复后43/48/48编辑回归、19项实际Godot插件回归。未提交属性字段再撤销或删除不再访问失效索引；撤销删除还原待输入文字；无脚本错误，原地图保留。验收通过，P50原验收与本后续验收均保留。",
+      "dependencyIds": [
+        "p50-level-editor-20261006"
+      ],
+      "references": [],
+      "workScope": {
+        "entry": "关卡编辑属性框与工具栏",
+        "interfaceContract": "先结束字段输入再进行文档结构变更；控件刷新时禁止旧焦点回调重写已撤销数据，失效引用安全忽略。",
+        "allowedPaths": [
+          "scripts/editor/*",
+          "qa/p50b*",
+          "qa/p50_map_editor.gd",
+          "docs/dev/p50*",
+          "docs/tests/p50*"
+        ]
+      },
+      "producerSelfReview": true,
+      "positionIds": [
+        "producer"
+      ],
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "cf60cf21-39fd-4ddc-8a23-a29434eef962",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T07:14:19.849Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -3621,7 +3719,9 @@
             "p46-direct-mobile-control-20261006",
             "p47-custom-mobile-layout-20261006",
             "p48-hud-story-premise-20261006",
-            "p49-thug-mainline-integration-20261006"
+            "p49-thug-mainline-integration-20261006",
+            "p50-level-editor-20261006",
+            "p50b-editor-field-focus-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4582,6 +4682,30 @@
       "reason": "A17资源已由制作人审核；用户已保存GC编辑，补登记实际主干接入与剩余整体QA。",
       "createdTaskIds": [
         "p49-thug-mainline-integration-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "d3ae1a9f-8f5a-4f8f-9f37-02a5e13cb4e6",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T06:32:02.124Z",
+      "reason": "用户已确认关卡编辑器方案，制作人独立承接程序工具和主干集成。",
+      "createdTaskIds": [
+        "p50-level-editor-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "cf60cf21-39fd-4ddc-8a23-a29434eef962",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T07:14:19.849Z",
+      "reason": "P50验收后的额外边界复现，独立登记修复且不更改原验收",
+      "createdTaskIds": [
+        "p50b-editor-field-focus-20261006"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -14772,6 +14896,289 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-06T06:19:00.745Z",
         "note": "制作人主干集成自验收：A17资源已独立验收，真实生产四地图巡逻、两门岗与两缺员增援使用混混形象；实测8帧/12fps/翻转/暂停/重开，81项集成与365项输入规则回归共446通过。主游戏原生三种场景已查看，捕获/技能/日程规则保留，无资源加载错误；Windows事件模拟，不宣称手机真机手感。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p50-started-20261006",
+      "taskId": "p50-level-editor-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手，先实现兼容rooms JSON的数据编辑、撤销/校验/安全保存，再接入Godot主屏页与真实试玩入口。",
+      "evidence": [
+        "现有r04.json已读取；寝室范围现分散schedule配置，计划保存到地图自身并保留兼容回退",
+        "允许复用全部已验收素材，不引入新美术"
+      ],
+      "at": "2026-10-06T06:32:51.672Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p50-level-editor-20261006",
+        "title": "P50 · Godot关卡编辑页与编辑试玩闭环",
+        "description": "用户确认下一步制作轻量地图编辑器。支持打开R01–R04、墙门/摆设/人物/巡逻/日常点/寝室归属可视化编辑，网格吸附/复制删除/撤销重做、校验保存备份和原生试玩返回。电脑上制作，手机游戏规则不变。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04完整打开、拖墙/摆设/人物/活动点/巡逻/寝室范围与门、规则属性、复制删除/撤销重做、缩放平移吸附；实际输入验证并新文件保存重读无字段丢失，外部改动与非法坐标保护，草稿未保存切图提示；同一草稿通过真实main场景进入试玩并退出回编辑，路径碰撞/技能/日程保持；两个窗口尺寸原生UI复核与旧游戏关键回归，无脚本错误；未覆盖原R04和用户未保存编辑。",
+        "result": "制作人已接手，先实现兼容rooms JSON的数据编辑、撤销/校验/安全保存，再接入Godot主屏页与真实试玩入口。",
+        "dependencyIds": [],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "entry": "Godot顶部关卡编辑页；res://scenes/editor/map_editor.tscn；CLI --editor-room <隔离试玩JSON路径>",
+          "allowedPaths": [
+            "addons/escape_map_editor/*",
+            "scenes/editor/*",
+            "scripts/editor/*",
+            "scripts/core/escape_game.gd",
+            "scripts/core/prison_schedule.gd",
+            "project.godot",
+            "qa/p50*",
+            "docs/dev/p50*",
+            "docs/tests/p50*"
+          ],
+          "interfaceContract": "Godot EditorPlugin主屏页和独立场景复用同一个编辑Control；输出兼容原rooms JSON，未知字段保留。新地图可将dormitories放进自身配置，runtime优先读取该字段并保留旧全局日程回退。试玩用隔离临时JSON，不覆盖地图；保存到项目前校验/备份/检测外部改动。project.godot仅新增本插件enabled，不改用户已有差异并仅提交本插件配置片段。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "d3ae1a9f-8f5a-4f8f-9f37-02a5e13cb4e6",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T06:32:02.124Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p50-ready-20261006",
+      "taskId": "p50-level-editor-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "关卡编辑器完成：Godot主屏页/独立窗口打开R01–R04，布局与规则点编辑、吸附/撤销/属性/另存、安全备份与草稿真实试玩返回；365项最终检查通过。原R04和用户原project.godot差异保留。",
+      "evidence": [
+        "docs/dev/p50-map-editor.md",
+        "docs/tests/p50-map-editor.md",
+        "docs/tests/p50-editor-headless-1280.json：43通过",
+        "docs/tests/p50-editor-native-1280.json：48通过",
+        "docs/tests/p50-editor-native-960.json：48通过",
+        "docs/tests/p50-editor-plugin-native.json：19通过，实际Godot主屏与快捷键/保存及试玩",
+        "docs/tests/p50-preview-headless-1200.json、p50-preview-native-1200.json、p50-preview-native-960.json：各12通过，真实main启动与F10退出0",
+        "docs/tests/p50-mobile-regression-headless-1200.json：59；native-1200.json：62；p50-rollcall-headless.json：50",
+        "已查看p50-editor-1280-layout.png、p50-editor-960-layout.png、p50-editor-plugin.png和p50-preview-960.png；布局可用，未声明手机硬件/真人通关验证",
+        "原地图文件均未改写；项目配置仅拟提交插件enabled行；新地图通过编辑器试玩，正式关卡列表保持R01–R04"
+      ],
+      "at": "2026-10-06T07:07:45.780Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p50-level-editor-20261006",
+        "title": "P50 · Godot关卡编辑页与编辑试玩闭环",
+        "description": "用户确认下一步制作轻量地图编辑器。支持打开R01–R04、墙门/摆设/人物/巡逻/日常点/寝室归属可视化编辑，网格吸附/复制删除/撤销重做、校验保存备份和原生试玩返回。电脑上制作，手机游戏规则不变。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04完整打开、拖墙/摆设/人物/活动点/巡逻/寝室范围与门、规则属性、复制删除/撤销重做、缩放平移吸附；实际输入验证并新文件保存重读无字段丢失，外部改动与非法坐标保护，草稿未保存切图提示；同一草稿通过真实main场景进入试玩并退出回编辑，路径碰撞/技能/日程保持；两个窗口尺寸原生UI复核与旧游戏关键回归，无脚本错误；未覆盖原R04和用户未保存编辑。",
+        "result": "关卡编辑器完成：Godot主屏页/独立窗口打开R01–R04，布局与规则点编辑、吸附/撤销/属性/另存、安全备份与草稿真实试玩返回；365项最终检查通过。原R04和用户原project.godot差异保留。",
+        "dependencyIds": [],
+        "references": [],
+        "producerSelfReview": true,
+        "workScope": {
+          "entry": "Godot顶部关卡编辑页；res://scenes/editor/map_editor.tscn；CLI --editor-room <隔离试玩JSON路径>",
+          "allowedPaths": [
+            "addons/escape_map_editor/*",
+            "scenes/editor/*",
+            "scripts/editor/*",
+            "scripts/core/escape_game.gd",
+            "scripts/core/prison_schedule.gd",
+            "project.godot",
+            "qa/p50*",
+            "docs/dev/p50*",
+            "docs/tests/p50*"
+          ],
+          "interfaceContract": "Godot EditorPlugin主屏页和独立场景复用同一个编辑Control；输出兼容原rooms JSON，未知字段保留。新地图可将dormitories放进自身配置，runtime优先读取该字段并保留旧全局日程回退。试玩用隔离临时JSON，不覆盖地图；保存到项目前校验/备份/检测外部改动。project.godot仅新增本插件enabled，不改用户已有差异并仅提交本插件配置片段。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "d3ae1a9f-8f5a-4f8f-9f37-02a5e13cb4e6",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T06:32:02.124Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T07:09:03.336Z",
+        "note": "制作人单独核对10份最终报告与原生画面，365项全部通过。Godot实际主屏、未提交字段/关闭保存、键盘撤销、真实main草稿试玩/F10及原移动查房回归均有效；地图4未改写。第一版限制为已有主门规则、正式关卡列表R01–R04，电脑制图，未声明手机硬件或真人通关验证。验收通过。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p50b-started-20261006",
+      "taskId": "p50b-editor-field-focus-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已复现未提交属性文字在撤销/删除时引发失效索引，并完成初步字段结束与刷新回调保护；新增5项焦点回归headless/native已通过，正在重跑完整编辑界面回归。",
+      "evidence": [
+        "qa/p50b_field_edit.gd：修复前实际复现两处索引32错误与3项失败",
+        "docs/tests/p50b-fields-headless.json、p50b-fields-native.json：初步各5项通过"
+      ],
+      "at": "2026-10-06T07:15:21.522Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p50b-editor-field-focus-20261006",
+        "title": "P50B · 关卡属性未提交文字与撤销删除修复",
+        "description": "P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：未提交ID文字直接撤销/删除出现失效引用并丢字段。独立后续修复任务，保留P50原验收。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "真实工具栏点击且属性LineEdit保持焦点时，撤销先提交待编辑字段再撤销该字段；删除先提交并删，撤销删除还原该文字；无索引错误。新回归headless和native通过，P50原完整编辑用例保持通过。",
+        "result": "制作人已复现未提交属性文字在撤销/删除时引发失效索引，并完成初步字段结束与刷新回调保护；新增5项焦点回归headless/native已通过，正在重跑完整编辑界面回归。",
+        "dependencyIds": [
+          "p50-level-editor-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "entry": "关卡编辑属性框与工具栏",
+          "interfaceContract": "先结束字段输入再进行文档结构变更；控件刷新时禁止旧焦点回调重写已撤销数据，失效引用安全忽略。",
+          "allowedPaths": [
+            "scripts/editor/*",
+            "qa/p50b*",
+            "qa/p50_map_editor.gd",
+            "docs/dev/p50*",
+            "docs/tests/p50*"
+          ]
+        },
+        "producerSelfReview": true,
+        "positionIds": [
+          "producer"
+        ],
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "cf60cf21-39fd-4ddc-8a23-a29434eef962",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T07:14:19.849Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p50b-ready-20261006",
+      "taskId": "p50b-editor-field-focus-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "未提交字段的撤销/重做/复制/删除先结束编辑，刷新旧控件回调与失效引用保护完成。新增焦点headless/native各5项通过；完整编辑43/48/48及实际Godot插件19项重跑通过，累计375项最终检查。",
+      "evidence": [
+        "qa/p50b_field_edit.gd",
+        "docs/tests/p50b-fields-headless.json：5项通过",
+        "docs/tests/p50b-fields-native.json：5项通过",
+        "docs/tests/p50b-field-focus.md",
+        "docs/tests/p50-editor-headless-1280.json、p50-editor-native-1280.json、p50-editor-native-960.json：修复后43/48/48",
+        "docs/tests/p50-editor-plugin-native.json：修复后19项，CLI退出0，无失效索引/脚本错误",
+        "原地图未改写；P50原验收保持，P50B独立后续交付"
+      ],
+      "at": "2026-10-06T07:16:30.846Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p50b-editor-field-focus-20261006",
+        "title": "P50B · 关卡属性未提交文字与撤销删除修复",
+        "description": "P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：未提交ID文字直接撤销/删除出现失效引用并丢字段。独立后续修复任务，保留P50原验收。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "真实工具栏点击且属性LineEdit保持焦点时，撤销先提交待编辑字段再撤销该字段；删除先提交并删，撤销删除还原该文字；无索引错误。新回归headless和native通过，P50原完整编辑用例保持通过。",
+        "result": "未提交字段的撤销/重做/复制/删除先结束编辑，刷新旧控件回调与失效引用保护完成。新增焦点headless/native各5项通过；完整编辑43/48/48及实际Godot插件19项重跑通过，累计375项最终检查。",
+        "dependencyIds": [
+          "p50-level-editor-20261006"
+        ],
+        "references": [],
+        "workScope": {
+          "entry": "关卡编辑属性框与工具栏",
+          "interfaceContract": "先结束字段输入再进行文档结构变更；控件刷新时禁止旧焦点回调重写已撤销数据，失效引用安全忽略。",
+          "allowedPaths": [
+            "scripts/editor/*",
+            "qa/p50b*",
+            "qa/p50_map_editor.gd",
+            "docs/dev/p50*",
+            "docs/tests/p50*"
+          ]
+        },
+        "producerSelfReview": true,
+        "positionIds": [
+          "producer"
+        ],
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "cf60cf21-39fd-4ddc-8a23-a29434eef962",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T07:14:19.849Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T07:16:57.386Z",
+        "note": "独立核对新增两份5项焦点报告及修复后43/48/48编辑回归、19项实际Godot插件回归。未提交属性字段再撤销或删除不再访问失效索引；撤销删除还原待输入文字；无脚本错误，原地图保留。验收通过，P50原验收与本后续验收均保留。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

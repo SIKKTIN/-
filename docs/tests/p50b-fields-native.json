@@ -1,0 +1,11 @@
+{
+	"checks": {
+		"delete_focused_object_removes_it": true,
+		"source_unchanged_clean_end": true,
+		"undo_delete_restores_pending_field": true,
+		"undo_pending_field_keeps_selected_object": true,
+		"undo_restores_field_without_reapplying_focus": true
+	},
+	"passed": true,
+	"scope": "Real toolbar mouse clicks with focused, unsubmitted property text: undo, delete and undo deletion on isolated in-memory clone."
+}
