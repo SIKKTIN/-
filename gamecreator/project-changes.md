@@ -14,7 +14,7 @@ progress 报告做到了什么；review 提交验收结论；propose 仅提交�
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
   "engine": "godot-gdscript",
   "id": "00000000-0000-4000-8000-000000000002",
-  "snapshotId": "979636d8c34ce2a9c0c7ba98a5ca4e676156db5179a2b5c439ef2bf9ec9c824e",
+  "snapshotId": "0f31a6701349b28b9a4e177418d48e0a6af6e5ce7304489a7bfbf53a0b391451",
   "author": "开发者名称",
   "summary": "说明修改事项",
   "evidence": [
@@ -56,7 +56,7 @@ changes 的键是字段路径，值是 JSON.stringify(新值) 得到的文本。
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
   "engine": "godot-gdscript",
   "id": "00000000-0000-4000-8000-000000000003",
-  "snapshotId": "979636d8c34ce2a9c0c7ba98a5ca4e676156db5179a2b5c439ef2bf9ec9c824e",
+  "snapshotId": "0f31a6701349b28b9a4e177418d48e0a6af6e5ce7304489a7bfbf53a0b391451",
   "author": "开发者名称",
   "summary": "说明修改事项",
   "evidence": [

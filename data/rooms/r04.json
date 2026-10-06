@@ -1881,7 +1881,7 @@
               ]
             },
             {
-              "asset": "cafeteria_t_20_v30",
+              "asset": "cafeteria_t_20_v32",
               "offset": [
                 114,
                 6.48
@@ -1892,7 +1892,7 @@
               ]
             },
             {
-              "asset": "cafeteria_t_20_v30",
+              "asset": "cafeteria_t_20_v32",
               "offset": [
                 754,
                 6.48
@@ -1907,22 +1907,18 @@
           "replace_ranges": [
             [
               170,
-              20
+              20,
+              27.48
             ],
             [
               810,
-              20
+              20,
+              27.48
             ]
           ],
           "end_post_width": 24,
           "omit_end_post": true,
           "cap_cutouts": [
-            [
-              844,
-              0,
-              80,
-              30.48
-            ],
             [
               114,
               0,
@@ -1934,6 +1930,12 @@
               0,
               132,
               27.48
+            ],
+            [
+              844,
+              0,
+              80,
+              30.48
             ]
           ]
         },
@@ -1988,13 +1990,13 @@
         "top": "cafeteria_coping_v23",
         "render_top_start": 1226.48,
         "return_wall": {
-          "top": "cafeteria_wall_v_l_20_v27",
+          "top": "cafeteria_wall_v_l_20_v32",
           "end": "cafeteria_end_20_v27",
           "tile_size": [
             20,
-            123.1413612565445
+            151.63636363636363
           ],
-          "tile_origin_y": 1226.48,
+          "tile_origin_y": 1170.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -2006,13 +2008,13 @@
         "top": "cafeteria_coping_v23",
         "render_top_start": 1226.48,
         "return_wall": {
-          "top": "cafeteria_wall_v_r_20_v27",
+          "top": "cafeteria_wall_v_r_20_v32",
           "end": "cafeteria_end_20_v27",
           "tile_size": [
             20,
-            123.1413612565445
+            151.63636363636363
           ],
-          "tile_origin_y": 1226.48,
+          "tile_origin_y": 1170.48,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"

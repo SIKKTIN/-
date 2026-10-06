@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T18:56:20.194Z
-> 文档内容基准：c706c0d48733f66e6f0b96f5905d6162a9568e91fbe2868374b80c10e00ef0ca
+> 文档生成时间：2026-10-06T20:16:30.220Z
+> 文档内容基准：12f7cc7ef3b07aacf587c49f43d396debbc2987aa0c770de2f72c7311aa3fe61
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1860,6 +1860,80 @@ P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：�
 - 工作岗位：producer
 - 允许修改路径：scripts/**、data/rooms/r04.json、qa/p63*、docs/dev/p63/**、docs/tests/p63*、docs/gamecreator/**、gamecreator/**
 - 接口契约：制作人接A30候选供actual复核，先已验收P62作技术依赖，正式完成等待A30验收。注册v30/v10，T新建白名单改v30，R04两T资产ID/必要局部接口换新，物理数据不变。旧v29定义保持兼容。本人先证据后单独自验收。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A31 同源同透视石墙T接口
+- ID：a31-same-source-wall-junction-20261007
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。
+- 验收条件：实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。
+- 验收结果：交付architecture-v31-20261007-753fe3b3a695，53文件hash冻结。用户指出A30/P63上段正面柱石接下段窄顶面是透视错误，我前轮当细微石材变化已正式correct记录，保留历史。A31生产PNG新增0/涂改0，完全同冻结V24原PNG SHA030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff。20/24 T本体132/136×80，stemx56/主stem24..80、北横24，精确horizontal_cap/longitudinal_stem角色；主stem取V27窗口同transpose、74.074横截面/侧影、61.570680628周期，56源长度222.8333333333、local80 sourceX454.8333333。下段origin local24/1170.48、clip80/1226.48相位56不重置，右wholeT mirror匹配V27_r。厨房保留原H完整UV，不叠新bar，仅画纵stem。首轮同源actual顶部还存在local21..24暗断带未通过，协商加3world同源contact源[465.0625,192,11.9375,74.074074074]，前周期尾接24phase0，不改主相位/物理/旧H横臂。修正后亲眼复核1200完整左右game/editor右、960完整game右/editor左、独立20/24与分类：顶接触已连，整条墙上段/下段窄顶面、侧影和石缝比例一致，无前轮正面柱石跳变；末端保留原端面朝向。14源UV/尺度/相位/contact检查和两图标GPU可见、P64两窗口actual/分类/独立组件/规则检查通过，与画面判断分别记录。旧V24–30冻结hash全未改，actual复制字节证据、interface/源审/主美审美记录齐备。主美没有shared代码/data/Git写入，待制作人独立审，不代表用户已重新批准实际结果。
+
+验收通过：制作人独立验收A31：已核对冻结交付SHA，并检查1200/960完整左右runtime/editor、独立组件图；同窄墙顶与侧影/石缝连续，contact桥接原H无暗带，横顶未叠新横臂。14源UV检查、图标GPU可见及111原生和73规则证据符合。旧22art文件SHA不变。保留A30错误判断纠正记录；未称用户重新批准。
+- 前置任务：A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007]
+- 工作岗位：art-director
+- 允许修改路径：art/architecture/v31/**、art/editor/v11/**、docs/art/architecture-v31/**
+- 接口契约：主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。
+- 交付入口：art/architecture/v31/manifest.json
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P64 T与整条纵墙同源连续绘制
+- ID：p64-same-source-wall-integration-20261007
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。
+- 验收条件：完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。
+- 验收结果：使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。
+
+验收通过：制作人程序本人自验收，执行证据与结论分别登记。A31已独立接受，44程序交付SHA冻结。111原生+73规则全通过，完整1200/960左右wall及编辑器亲眼检查一致窄顶面/侧影；bridge与stub参考真实V27连续取样差0，原H顶未覆盖。新T31图标严格MeshTexture、新放置精确尺寸、旧T30属性和加载兼容；editor选取/拖动/撤销和层次回归通过。R04仅architecture变、旧22art SHA未改；project.godot既有用户修改保留。未称用户已经审美验收。
+- 前置任务：P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007]
+- 工作岗位：producer
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p64*、docs/dev/p64/**、docs/tests/p64*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A32 批准C圆弧同高墙接口与同源纵墙
+- ID：a32-approved-rounded-wall-20261007
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。
+- 验收条件：20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。
+- 验收结果：交付architecture-v32-20261007-13887e245052，65文件hash冻结。依据人类明确批准C小圆弧同高图，用内置imagegen提取/重构新1024x1536RGBA T+长V母图，原字节copy未调色/涂改；T2及V左/右20/24共6本体、v12六独立MeshTexture图标GPU可见。T132/136x80 stemx56，北逻辑24/有效21，内角两小凹圆弧在bar内起并经8x3同源contact接stem，完整9patch覆交界H砖；ALL绘制、reuse_cap=false、局部capcut27.48、物理20不改、外围L30.48保留，H底线止于内角不压V根。T及整条V同一源[470,298,88,278]，Y比例24/88、石缝period75.818181818、tile151.63636；T主stemlocal24..80，下段origin1170.48/clip1226.48 phase56源Y503.333，右Twholemirror接V_r截面镜像，不重置石缝。首轮actual母图外端黑帽与密砖缝造成贴板未接受，最小UV去外端26..116/910..998，内部横砖与两个弧头单列接contact，PNG/root/V/phase保持。修正后亲眼审1200完整左右runtime/editor右、960完整左右runtime、2T+4V独立及V分类，对批准C圆弧一体同高构造符合，无前轮正面柱石接窄顶面或跨root横暗线；端面保留原方向变化。细部磨损/砖缝并非批准图逐像素复制，主美认为可独立审，不称用户已再审actual。10源UV/尺度/phase与native/规则证据单列不代替审美；旧V24–31冻结hash全未改，actual最终png/json原样复制。只新版本素材/图标/docs，主美无shared/data/Git写入，制作人独立审后另验P65发布。
+
+验收通过：制作人独立验收A32：65文件hash全核对，亲眼对照批准C与完整1200/960两厨房runtime/editor及2T+4V原生。小凹圆弧同高连根，H暗线止于内角，去外端帽后不再小T牌；整条V同源侧影/相位，133技术+73规则证据符合。新PNG磨损和部分石缝非逐像素复刻批准图，构造符合，未称人类重新批准actual。六图标GPU可见，旧22art冻结保持。
+- 前置任务：A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007]
+- 工作岗位：art-director
+- 允许修改路径：art/architecture/v32/**、art/editor/v12/**、docs/art/architecture-v32/**
+- 接口契约：主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。
+- 交付入口：art/architecture/v32/manifest.json
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P65 批准C圆弧同高墙集成
+- ID：p65-approved-rounded-wall-integration-20261007
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。
+- 验收条件：批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。
+- 验收结果：批准C完整同高圆弧T及同源长V集成；R04只architecture改变，新建单套20建筑件配V12六MeshTexture图标，旧资源保留。133原生和73规则过、最终日志无ERROR，左右主stem与实际V上延对照采样差0。共享裁剪极小尾片修正无可见变化；旧22art保持。完整actual亲眼看圆弧/同高、修正横臂端帽，不把通过数当审美结论。51程序交付hash冻结。
+
+验收通过：制作人程序本人自验收，执行证据和结论分别登记。A32已独立接受，51程序文件hash一致；133原生/73规则通过，完整左右actual对批准C同高小凹圆弧，无旧跨根底线、端帽修正成立。左右UV主stem对真实V上延差0，最终所有日志无ERROR；可见绘制/两尺寸图标分类选放/旧ID/editor拖动撤销通过。R04只有architecture改，旧22art hash保持，用户project.godot修改不纳入。继承未发布P64裁剪支持历史保留，未称用户重新审过actual。
+- 前置任务：P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007]
+- 工作岗位：producer
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p65*、docs/dev/p65/**、docs/tests/p65*、docs/gamecreator/**、gamecreator/**
+- 接口契约：与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。
 - 交付入口：res://scenes/editor/map_editor.tscn
 - 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4

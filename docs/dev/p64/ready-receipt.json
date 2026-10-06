@@ -1,0 +1,76 @@
+{
+  "id": "p64-ready-20261007",
+  "digest": "6fc9dad1d3f6fbcfb1b8ae938a94be0efc68696a63848dc4eb9ad69196ece3c8",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T19:41:06.719Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p64-ready-20261007",
+    "taskId": "p64-same-source-wall-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。",
+    "evidence": [
+      "docs/dev/p64/delivery.json",
+      "docs/dev/p64/README.md",
+      "docs/art/architecture-v31/p64-visual-review.md",
+      "docs/tests/p64-1200-architecture-native.json",
+      "docs/tests/p64-1200-editor-t-left.png",
+      "docs/tests/p64-1200-editor-t-right.png",
+      "docs/tests/p64-1200-native.json",
+      "docs/tests/p64-1200-runtime-t-left.png",
+      "docs/tests/p64-1200-runtime-t-right.png",
+      "docs/tests/p64-1200-t-native.json",
+      "docs/tests/p64-960-editor-t-left.png",
+      "docs/tests/p64-960-editor-t-right.png",
+      "docs/tests/p64-960-native.json",
+      "docs/tests/p64-960-runtime-t-left.png",
+      "docs/tests/p64-960-runtime-t-right.png",
+      "docs/tests/p64-960-t-native.json",
+      "docs/tests/p64-access-access-headless-1200.json",
+      "docs/tests/p64-preservation.json",
+      "docs/tests/p64-runtime-t-components.json",
+      "docs/tests/p64-runtime-t-components.png"
+    ],
+    "at": "2026-10-06T19:41:06.859Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p64-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p64-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p64-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "4d0f69463516d742bd7f6e719e725c429f77cfd1d42f6d3c4d8df31e9560772b"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "4d0f69463516d742bd7f6e719e725c429f77cfd1d42f6d3c4d8df31e9560772b",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

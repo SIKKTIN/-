@@ -24,6 +24,9 @@ static func paint_region(canvas: CanvasItem, texture: Texture2D, area: Rect2, so
 		var ratio := source.size/area.size
 		canvas.draw_texture_rect_region(texture,visible_area,Rect2(source.position+(visible_area.position-area.position)*ratio,visible_area.size*ratio),modulate)
 		return
+	# Rounding can leave a near-zero clipped tail below quad triangulation tolerance.
+	# At supported camera zooms this is invisible; omit the degenerate quad.
+	if visible_area.size.x < 0.001 or visible_area.size.y < 0.001: return
 	# Explicit UV reflection avoids negative destination rectangles: region
 	# clipping and custom alpha shaders do not consistently mirror those.
 	var corners := PackedVector2Array([visible_area.position,Vector2(visible_area.end.x,visible_area.position.y),visible_area.end,Vector2(visible_area.position.x,visible_area.end.y)])

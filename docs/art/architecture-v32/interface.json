@@ -1,0 +1,120 @@
+{
+  "schema": 2,
+  "manifest": "res://art/architecture/v32/manifest.json",
+  "source_png": "res://art/architecture/v32/rounded_wall_master_v32.png",
+  "source_sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+  "new_production_png_count": 1,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "approved_reference": "docs/art/architecture-v32/approved-concept-c.png",
+  "sizes": {
+    "20": [
+      132,
+      80
+    ],
+    "24": [
+      136,
+      80
+    ]
+  },
+  "stem_x": 56,
+  "north_bar_depth_logical": 24,
+  "north_bar_visible_depth": 21,
+  "inside_arc_bounds": {
+    "left": [
+      48,
+      21,
+      8,
+      3
+    ],
+    "right20": [
+      76,
+      21,
+      8,
+      3
+    ],
+    "right24": [
+      80,
+      21,
+      8,
+      3
+    ]
+  },
+  "inside_arc_note": "small concave arcs already start within shaded lower bar; short3world contact band finishes them, not separate square shoulders",
+  "stem_main": [
+    56,
+    24,
+    "cross",
+    56
+  ],
+  "source_repeat_window": [
+    470,
+    298,
+    88,
+    278
+  ],
+  "run_scale_world_per_source_pixel": 0.2727272727272727,
+  "world_stone_pitch": 75.81818181818181,
+  "tile_size_y": 151.63636363636363,
+  "phase_origin_local_y": 24,
+  "phase_at_local80": 56,
+  "boundary_source_y": 503.33333333333337,
+  "next_seam_local_y": 99.81818181818181,
+  "kitchen": {
+    "reuse_cap": false,
+    "draw_roles": "ALL nine patches; never stem-only filtering",
+    "T_origins": {
+      "left": [
+        1214,
+        1146.48
+      ],
+      "right": [
+        1854,
+        1146.48
+      ]
+    },
+    "T_offsets": {
+      "left": [
+        114,
+        6.48
+      ],
+      "right": [
+        754,
+        6.48
+      ]
+    },
+    "cap_cutouts": [
+      [
+        114,
+        0,
+        132,
+        27.48
+      ],
+      [
+        754,
+        0,
+        132,
+        27.48
+      ]
+    ],
+    "cutout_note": "same effective H depth21: replace top cap locally, retain original H bottom-edge/wall facade beneath local21. New rounded_contact covers central old shadow; no line crosses its opaque root. Actual review required at two outside bar ends and both curved corners. OuterL30.48 unchanged.",
+    "front_stem_remove_start_local_y": 21,
+    "front_stem_width": 20,
+    "tile_origin_y": 1170.48,
+    "render_top_start": 1226.48,
+    "left_V": "cafeteria_wall_v_l_20_v32",
+    "right_V": "cafeteria_wall_v_r_20_v32",
+    "right_T_mirror_x": true
+  },
+  "mirror_policy": "DefaultT allpatchmirrorfalse; right wholeT mirror true, matching separately mirroredV32_r; longitudinal Y run direction unchanged",
+  "phase_policy": "V32 tile origin local24; first visible V atlocal80 phase56/sourceY503.33333333333337. No reset, no phase_axis/fullPNG shifting. Cross20 compresses only X, run period same as24.",
+  "roles": [
+    "horizontal_cap",
+    "rounded_contact",
+    "longitudinal_stem"
+  ],
+  "old_preserved": "all frozenV24–31; original horizontal facade/columns/lintel/exteriorL/endface kept, no V27 below newT",
+  "state": "candidate native and actual review pending"
+}

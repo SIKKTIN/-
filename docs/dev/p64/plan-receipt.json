@@ -1,0 +1,38 @@
+{
+  "id": "p64-same-source-plan-20261007",
+  "digest": "d49d29c10abe3082f8423dc6bd81570da57156d0dbd95003a88f51b16ac67ba3",
+  "operation": "task_plan_apply",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T19:26:03.685Z",
+  "status": "succeeded",
+  "result": {
+    "receiptId": "p64-same-source-plan-20261007",
+    "scheduleRevision": "0918ca6dcdc0ac34852130fc0f10b38926bd9a52432722c138a3f320a1a1d023",
+    "created": [
+      {
+        "taskId": "a31-same-source-wall-junction-20261007",
+        "revision": "0796b8b8104ff99df0da55c887569790d38fa0449aabf25eb333816bd7655d08",
+        "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p64-same-source-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      },
+      {
+        "taskId": "p64-same-source-wall-integration-20261007",
+        "revision": "9bfc43c871ef707dd92697620e49b5a4d773df80fdbeaff23da90c701795ab14",
+        "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p64-same-source-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      }
+    ],
+    "updated": [],
+    "warnings": [],
+    "next": "正式排期已保存并更新收件箱；已派发不代表外部 AI 已接手，执行人实际开始后再反馈进行中",
+    "milestoneUpdates": [],
+    "affectedMilestones": []
+  }
+}

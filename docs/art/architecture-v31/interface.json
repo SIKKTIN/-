@@ -1,0 +1,76 @@
+{
+  "schema": 2,
+  "manifest": "res://art/architecture/v31/manifest.json",
+  "source_png": "res://art/architecture/v24/cafeteria_portal_v24.png",
+  "source_sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+  "new_production_png_count": 0,
+  "sizes": {
+    "20": [
+      132,
+      80
+    ],
+    "24": [
+      136,
+      80
+    ]
+  },
+  "stem_x": 56,
+  "bar_depth": 24,
+  "stem_bottom_y": 80,
+  "source_repeat_window": [
+    232,
+    192,
+    245,
+    74.07407407407408
+  ],
+  "world_stone_pitch": 61.57068062827225,
+  "stem_source": [
+    232,
+    192,
+    222.83333333333334,
+    74.07407407407408
+  ],
+  "stem_transpose": true,
+  "run_scale_world_per_source_pixel": 0.2513089005235602,
+  "source_cross": 74.07407407407408,
+  "contact_rect": [
+    56,
+    21,
+    "cross",
+    3
+  ],
+  "contact_source": [
+    465.0625,
+    192,
+    11.9375,
+    74.07407407407408
+  ],
+  "contact_phase": -3,
+  "contact_policy": "Producer agreed same-source3world contact bridge at local21..24 as explicit exception; main stem remains24..80. UV tail of previous V27 cycle joins phase0 at24, no PNG edit or horizontal cap replacement.",
+  "phase_origin_local_y": 24,
+  "phase_at_local80": 56,
+  "next_seam_local_y": 85.57068062827224,
+  "roles": {
+    "horizontal_cap": "complete north bar, for standalone placement and complete MeshTexture icon",
+    "longitudinal_stem": "y24..80 same V27 top/side UV, default side dark at right"
+  },
+  "kitchen": {
+    "reuse_cap": true,
+    "draw_roles": [
+      "longitudinal_stem"
+    ],
+    "cap_cutouts": "remove both T30 cutouts completely; original H cap remains",
+    "face_stem_replacement_local_y_start": 24,
+    "tile_origin_y": 1170.48,
+    "render_top_start": 1226.48,
+    "tile_origin_from_T_origin": 24,
+    "render_start_from_T_origin": 80,
+    "right_T_mirror_x": true,
+    "right_V27": "cafeteria_wall_v_r_20_v27",
+    "left_V27": "cafeteria_wall_v_l_20_v27"
+  },
+  "phase_policy": "V27 tile origin at T local24; clip first V run below local80, never restart window232 at local80. At boundary sourceX=454.8333333333333 on both sides. Repeat period61.57068062827225, no phase_axis fields/full-PNG shifts.",
+  "horizontal_policy": "Same original H cap source [140,192] at scale144/573, cross24. Kitchen keeps actual old H UV unchanged, does not overlay horizontal_cap.",
+  "mirror_policy": "Default T stem transpose, mirror false. Right kitchen wholeT mirror true matches V27_r; no second patch mirror. Run direction unchanged.",
+  "review": "compare complete two kitchen vertical walls from T to bottom end against user mismatch screenshot, not only closeup of T"
+}

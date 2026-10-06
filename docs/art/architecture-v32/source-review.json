@@ -1,0 +1,35 @@
+{
+  "new_production_png_count": 1,
+  "source": "res://art/architecture/v32/rounded_wall_master_v32.png",
+  "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+  "raw_imagegen_copy_matches": true,
+  "size": [
+    1024,
+    1536
+  ],
+  "checks": {
+    "20_same_source": true,
+    "20_same_cross_uv": true,
+    "20_same_longitudinal_scale": true,
+    "20_phase_continuity": true,
+    "20_round_contact": true,
+    "24_same_source": true,
+    "24_same_cross_uv": true,
+    "24_same_longitudinal_scale": true,
+    "24_phase_continuity": true,
+    "24_round_contact": true
+  },
+  "old_deliveries_unchanged": {
+    "v24": true,
+    "v25": true,
+    "v26": true,
+    "v27": true,
+    "v28": true,
+    "v29": true,
+    "v30": true,
+    "v31": true
+  },
+  "lower_notches_alpha0": true,
+  "background_alpha_note": "source low-alpha fringe exists outside; inheritedsafe_edges removesbelow0.03 and attenuateslowalpha, actual native review checks no apron. PNG never painted/thresholded.",
+  "review": "same-source rounded T and entire V, outer cap UV trimmed to internal brick strips; actual P65 complete1200/960 left/right walls, editor, 2T+4V standalone and categories visually reviewed, ready independent review"
+}

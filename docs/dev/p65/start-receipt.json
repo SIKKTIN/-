@@ -1,0 +1,52 @@
+{
+  "id": "p65-start-20261007",
+  "digest": "0213e86df7f1e15b3883d02c4caddb7b23980dfb10aabb85216ccbb5d5e66094",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T19:52:19.238Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p65-start-20261007",
+    "taskId": "p65-approved-rounded-wall-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "已接手批准C圆弧同高墙集成，开始准备完整实际墙、分类图标与规则回归，等待A32候选接口协商。",
+    "evidence": [
+      "docs/dev/p65/plan.json",
+      "docs/dev/p65/approved-concept-c.png"
+    ],
+    "at": "2026-10-06T19:52:19.379Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p65-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "63858fb1e6ea33b39a7c32d40f0d1e5a474fa0daac13aac46a31b28f95080ce8"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "63858fb1e6ea33b39a7c32d40f0d1e5a474fa0daac13aac46a31b28f95080ce8",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

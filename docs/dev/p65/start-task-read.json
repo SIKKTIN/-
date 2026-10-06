@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p65-approved-rounded-wall-integration-20261007",
+    "title": "P65 批准C圆弧同高墙集成",
+    "description": "集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。",
+    "result": "",
+    "dependencyIds": [
+      "p64-same-source-wall-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p65*",
+        "docs/dev/p65/**",
+        "docs/tests/p65*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p65-approved-c-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T19:51:40.836Z"
+      }
+    ]
+  },
+  "revision": "241562723b534921385b246e9f931c5ab0b87acb2f75a53f827ace58c0f3a18f",
+  "scheduleRevision": "a166d0f38b08843f34d865df9ac7180e44bfbda03c0fe8f2be2a7cdd25a78ad3",
+  "planChanges": [
+    {
+      "id": "p65-approved-c-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T19:51:40.836Z",
+      "reason": "人类批准方案C小圆弧同高转接并授权制作，保留此前冻结与高度纠正历史另建新任务。",
+      "createdTaskIds": [
+        "a32-approved-rounded-wall-20261007",
+        "p65-approved-rounded-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p64-same-source-wall-integration-20261007",
+      "title": "P64 T与整条纵墙同源连续绘制",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "241562723b534921385b246e9f931c5ab0b87acb2f75a53f827ace58c0f3a18f"
+  },
+  "feedback": []
+}

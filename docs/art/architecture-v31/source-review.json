@@ -1,0 +1,48 @@
+{
+  "new_production_png_count": 0,
+  "source": "res://art/architecture/v24/cafeteria_portal_v24.png",
+  "sha256": "030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff",
+  "checks": {
+    "cafeteria_t_20_v31_same_source": true,
+    "cafeteria_t_20_v31_same_perspective": true,
+    "cafeteria_t_20_v31_same_cross": true,
+    "cafeteria_t_20_v31_same_run_scale": true,
+    "cafeteria_t_20_v31_seam_continuous": true,
+    "cafeteria_t_20_v31_contact_previous_cycle_tail": true,
+    "cafeteria_t_20_v31_contact_same_cross_perspective": true,
+    "cafeteria_t_v31_same_source": true,
+    "cafeteria_t_v31_same_perspective": true,
+    "cafeteria_t_v31_same_cross": true,
+    "cafeteria_t_v31_same_run_scale": true,
+    "cafeteria_t_v31_seam_continuous": true,
+    "cafeteria_t_v31_contact_previous_cycle_tail": true,
+    "cafeteria_t_v31_contact_same_cross_perspective": true
+  },
+  "metrics": {
+    "20": {
+      "stub_source_width": 222.83333333333334,
+      "boundary_source_x": 454.83333333333337,
+      "next_old_patch_source_x": 454.83333333333337,
+      "boundary_phase": 56,
+      "next_seam_local_y": 85.57068062827224
+    },
+    "24": {
+      "stub_source_width": 222.83333333333334,
+      "boundary_source_x": 454.83333333333337,
+      "next_old_patch_source_x": 454.83333333333337,
+      "boundary_phase": 56,
+      "next_seam_local_y": 85.57068062827224
+    }
+  },
+  "old_deliveries_unchanged": {
+    "v24": true,
+    "v25": true,
+    "v26": true,
+    "v27": true,
+    "v28": true,
+    "v29": true,
+    "v30": true
+  },
+  "no_shader_regrade": true,
+  "review": "strict same UV mapping and3world contact bridge; actual P64 full left/right walls, smaller viewport, editor, standalone2sizes and native icons visually reviewed, ready independent review"
+}

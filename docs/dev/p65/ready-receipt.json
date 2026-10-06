@@ -1,0 +1,76 @@
+{
+  "id": "p65-ready-20261007",
+  "digest": "2dca6f94b6174f378b1edb36b25a45ac6a373dcf4806861548599d8b4d7d9357",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T20:13:31.031Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p65-ready-20261007",
+    "taskId": "p65-approved-rounded-wall-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "批准C完整同高圆弧T及同源长V集成；R04只architecture改变，新建单套20建筑件配V12六MeshTexture图标，旧资源保留。133原生和73规则过、最终日志无ERROR，左右主stem与实际V上延对照采样差0。共享裁剪极小尾片修正无可见变化；旧22art保持。完整actual亲眼看圆弧/同高、修正横臂端帽，不把通过数当审美结论。51程序交付hash冻结。",
+    "evidence": [
+      "docs/dev/p65/delivery.json",
+      "docs/dev/p65/README.md",
+      "docs/dev/p65/approved-concept-c.png",
+      "docs/tests/p65-1200-architecture-native.json",
+      "docs/tests/p65-1200-editor-t-left.png",
+      "docs/tests/p65-1200-editor-t-right.png",
+      "docs/tests/p65-1200-native.json",
+      "docs/tests/p65-1200-runtime-t-left.png",
+      "docs/tests/p65-1200-runtime-t-right.png",
+      "docs/tests/p65-1200-t-native.json",
+      "docs/tests/p65-960-editor-t-left.png",
+      "docs/tests/p65-960-editor-t-right.png",
+      "docs/tests/p65-960-native.json",
+      "docs/tests/p65-960-runtime-t-left.png",
+      "docs/tests/p65-960-runtime-t-right.png",
+      "docs/tests/p65-960-t-native.json",
+      "docs/tests/p65-access-access-headless-1200.json",
+      "docs/tests/p65-preservation.json",
+      "docs/tests/p65-runtime-t-components.json",
+      "docs/tests/p65-runtime-t-components.png"
+    ],
+    "at": "2026-10-06T20:13:31.177Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p65-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p65-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p65-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "259b5b1b725eb27f76baffceeabfe96bb656d09215823e8270229fb1780c7abd"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "259b5b1b725eb27f76baffceeabfe96bb656d09215823e8270229fb1780c7abd",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

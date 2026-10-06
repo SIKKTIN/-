@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T18:56:20.202Z
-> 文档内容基准：c14ddcfb6ec6aedc3c1999150388235d45de99e3475159acc3b3ae6808bb1b14
+> 文档生成时间：2026-10-06T20:16:30.224Z
+> 文档内容基准：c981995a4579229a91dc4fab7e0e1c61046d43086897f8cdf0e57a61d3c44c2e
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -81,6 +81,8 @@
 - P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
 - P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成
 - P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007] · 已完成
+- P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
+- P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -116,6 +118,8 @@
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
 - A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成
 - A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
+- A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007] · 已完成
+- A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1159,6 +1163,28 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：game/editor两厨房接口与批准概念一致；T20/24图标与选放正确尺寸；v29从新建入口退出，旧存图仍加载。物理布局/规则不改，关键native和门禁检查通过，A30正式审后P63自验收。
 - 验收负责人：制作人
+### P64 T与整条纵墙同源连续绘制
+- ID：p64-same-source-wall-integration-20261007
+- 当前状态：已完成
+- 内容：解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。
+- 前置任务：p63-natural-junction-integration-20261007
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p64*、docs/dev/p64/**、docs/tests/p64*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。
+- 验收负责人：制作人
+### P65 批准C圆弧同高墙集成
+- ID：p65-approved-rounded-wall-integration-20261007
+- 当前状态：已完成
+- 内容：集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。
+- 前置任务：p64-same-source-wall-integration-20261007
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p65*、docs/dev/p65/**、docs/tests/p65*、docs/gamecreator/**、gamecreator/**
+- 接口契约：与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1257,6 +1283,10 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成
 - A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
 - P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007] · 已完成
+- A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007] · 已完成
+- P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
+- A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
+- P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1842,6 +1872,26 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v30/manifest.json
 - 验收要求：20/24向下T素材与独立图标按approved-wall-junction-concept；横纵同色/同厚/石缝一致，消除大片T标牌及独立黑外框双阴影；实际game/editor对照批准图。新版本冻结，旧纹理不改。
 - 验收负责人：制作人
+### A31 同源同透视石墙T接口
+- ID：a31-same-source-wall-junction-20261007
+- 当前状态：已完成
+- 内容：用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。
+- 前置任务：a30-integrated-stone-junction-20261007
+- 允许修改路径：art/architecture/v31/**、art/editor/v11/**、docs/art/architecture-v31/**
+- 接口契约：主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。
+- 交付入口：art/architecture/v31/manifest.json
+- 验收要求：实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。
+- 验收负责人：制作人
+### A32 批准C圆弧同高墙接口与同源纵墙
+- ID：a32-approved-rounded-wall-20261007
+- 当前状态：已完成
+- 内容：用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。
+- 前置任务：a31-same-source-wall-junction-20261007
+- 允许修改路径：art/architecture/v32/**、art/editor/v12/**、docs/art/architecture-v32/**
+- 接口契约：主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。
+- 交付入口：art/architecture/v32/manifest.json
+- 验收要求：20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1875,3 +1925,5 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
 - A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成
 - A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
+- A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007] · 已完成
+- A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成

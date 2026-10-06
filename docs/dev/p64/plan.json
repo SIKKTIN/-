@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "c9ef97dc0212e420d0d03a7bdda443b1760b022ef59d9aba915c91cc7ed48735",
+  "creates": [
+    {
+      "task": {
+        "id": "a31-same-source-wall-junction-20261007",
+        "title": "A31 同源同透视石墙T接口",
+        "description": "用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "a30-integrated-stone-junction-20261007"
+        ],
+        "acceptance": "实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v31/**",
+            "art/editor/v11/**",
+            "docs/art/architecture-v31/**"
+          ],
+          "entry": "art/architecture/v31/manifest.json",
+          "interfaceContract": "主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p64-same-source-wall-integration-20261007",
+        "title": "P64 T与整条纵墙同源连续绘制",
+        "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p63-natural-junction-integration-20261007"
+        ],
+        "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p64*",
+            "docs/dev/p64/**",
+            "docs/tests/p64*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户指出P63接口和下方纵墙明显不同风格，重做为严格同源/同透视/同相位，修正上一轮误判。",
+  "requestId": "p64-same-source-plan-20261007"
+}

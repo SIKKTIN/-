@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "07503b5767a8e519f06735cb3fd0bc1efe237154c934d08883b9a038367a5592",
+  "creates": [
+    {
+      "task": {
+        "id": "a32-approved-rounded-wall-20261007",
+        "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+        "description": "用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "a31-same-source-wall-junction-20261007"
+        ],
+        "acceptance": "20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v32/**",
+            "art/editor/v12/**",
+            "docs/art/architecture-v32/**"
+          ],
+          "entry": "art/architecture/v32/manifest.json",
+          "interfaceContract": "主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p65-approved-rounded-wall-integration-20261007",
+        "title": "P65 批准C圆弧同高墙集成",
+        "description": "集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p64-same-source-wall-integration-20261007"
+        ],
+        "acceptance": "批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p65*",
+            "docs/dev/p65/**",
+            "docs/tests/p65*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "人类批准方案C小圆弧同高转接并授权制作，保留此前冻结与高度纠正历史另建新任务。",
+  "requestId": "p65-approved-c-plan-20261007"
+}

@@ -1,0 +1,116 @@
+{
+  "task": {
+    "id": "a32-approved-rounded-wall-20261007",
+    "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+    "description": "用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。",
+    "result": "按人类批准C小圆弧一体同高方向开始制作。完整cap覆盖中央H砖、消除跨root的H下边线，两内角小圆弧；T和整个长V同一新母图/UV材质与周期，不再新上段接旧V27。拟132/136x80 stemx56 bar24，下口80，小圆弧6–8world，源测后明确接口。只新版本素材/图标/docs，不改冻结PNG/shared/data/Git；candidate后实际完整墙审再冻结独立审。",
+    "dependencyIds": [
+      "a31-same-source-wall-junction-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v32/**",
+        "art/editor/v12/**",
+        "docs/art/architecture-v32/**"
+      ],
+      "entry": "art/architecture/v32/manifest.json",
+      "interfaceContract": "主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p65-approved-c-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T19:51:40.836Z"
+      }
+    ]
+  },
+  "revision": "2234521187db617d6bce608a0c531ca41eb4a2754e604bf791fc4b040a849f87",
+  "scheduleRevision": "1b01a86003201cfd921dfe03f04355f64b39f9ec9ed7a657ef4bf70b246094aa",
+  "planChanges": [
+    {
+      "id": "p65-approved-c-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T19:51:40.836Z",
+      "reason": "人类批准方案C小圆弧同高转接并授权制作，保留此前冻结与高度纠正历史另建新任务。",
+      "createdTaskIds": [
+        "a32-approved-rounded-wall-20261007",
+        "p65-approved-rounded-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a31-same-source-wall-junction-20261007",
+      "title": "A31 同源同透视石墙T接口",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a32-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "2234521187db617d6bce608a0c531ca41eb4a2754e604bf791fc4b040a849f87"
+  },
+  "feedback": [
+    {
+      "id": "a32-start-20261007",
+      "taskId": "a32-approved-rounded-wall-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按人类批准C小圆弧一体同高方向开始制作。完整cap覆盖中央H砖、消除跨root的H下边线，两内角小圆弧；T和整个长V同一新母图/UV材质与周期，不再新上段接旧V27。拟132/136x80 stemx56 bar24，下口80，小圆弧6–8world，源测后明确接口。只新版本素材/图标/docs，不改冻结PNG/shared/data/Git；candidate后实际完整墙审再冻结独立审。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\interface-draft.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\dev\\p65\\approved-concept-c.png"
+      ],
+      "at": "2026-10-06T19:52:49.063Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a32-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "2234521187db617d6bce608a0c531ca41eb4a2754e604bf791fc4b040a849f87"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "2234521187db617d6bce608a0c531ca41eb4a2754e604bf791fc4b040a849f87",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -4783,6 +4783,196 @@
             "at": "2026-10-06T18:35:04.128Z"
           }
         ]
+      },
+      {
+        "id": "a31-same-source-wall-junction-20261007",
+        "title": "A31 同源同透视石墙T接口",
+        "description": "用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。",
+        "result": "交付architecture-v31-20261007-753fe3b3a695，53文件hash冻结。用户指出A30/P63上段正面柱石接下段窄顶面是透视错误，我前轮当细微石材变化已正式correct记录，保留历史。A31生产PNG新增0/涂改0，完全同冻结V24原PNG SHA030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff。20/24 T本体132/136×80，stemx56/主stem24..80、北横24，精确horizontal_cap/longitudinal_stem角色；主stem取V27窗口同transpose、74.074横截面/侧影、61.570680628周期，56源长度222.8333333333、local80 sourceX454.8333333。下段origin local24/1170.48、clip80/1226.48相位56不重置，右wholeT mirror匹配V27_r。厨房保留原H完整UV，不叠新bar，仅画纵stem。首轮同源actual顶部还存在local21..24暗断带未通过，协商加3world同源contact源[465.0625,192,11.9375,74.074074074]，前周期尾接24phase0，不改主相位/物理/旧H横臂。修正后亲眼复核1200完整左右game/editor右、960完整game右/editor左、独立20/24与分类：顶接触已连，整条墙上段/下段窄顶面、侧影和石缝比例一致，无前轮正面柱石跳变；末端保留原端面朝向。14源UV/尺度/相位/contact检查和两图标GPU可见、P64两窗口actual/分类/独立组件/规则检查通过，与画面判断分别记录。旧V24–30冻结hash全未改，actual复制字节证据、interface/源审/主美审美记录齐备。主美没有shared代码/data/Git写入，待制作人独立审，不代表用户已重新批准实际结果。\n\n验收通过：制作人独立验收A31：已核对冻结交付SHA，并检查1200/960完整左右runtime/editor、独立组件图；同窄墙顶与侧影/石缝连续，contact桥接原H无暗带，横顶未叠新横臂。14源UV检查、图标GPU可见及111原生和73规则证据符合。旧22art文件SHA不变。保留A30错误判断纠正记录；未称用户重新批准。",
+        "dependencyIds": [
+          "a30-integrated-stone-junction-20261007"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v31/**",
+            "art/editor/v11/**",
+            "docs/art/architecture-v31/**"
+          ],
+          "entry": "art/architecture/v31/manifest.json",
+          "interfaceContract": "主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p64-same-source-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T19:26:03.819Z"
+          }
+        ]
+      },
+      {
+        "id": "p64-same-source-wall-integration-20261007",
+        "title": "P64 T与整条纵墙同源连续绘制",
+        "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+        "result": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。\n\n验收通过：制作人程序本人自验收，执行证据与结论分别登记。A31已独立接受，44程序交付SHA冻结。111原生+73规则全通过，完整1200/960左右wall及编辑器亲眼检查一致窄顶面/侧影；bridge与stub参考真实V27连续取样差0，原H顶未覆盖。新T31图标严格MeshTexture、新放置精确尺寸、旧T30属性和加载兼容；editor选取/拖动/撤销和层次回归通过。R04仅architecture变、旧22art SHA未改；project.godot既有用户修改保留。未称用户已经审美验收。",
+        "dependencyIds": [
+          "p63-natural-junction-integration-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p64*",
+            "docs/dev/p64/**",
+            "docs/tests/p64*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p64-same-source-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T19:26:03.819Z"
+          }
+        ]
+      },
+      {
+        "id": "a32-approved-rounded-wall-20261007",
+        "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+        "description": "用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。",
+        "result": "交付architecture-v32-20261007-13887e245052，65文件hash冻结。依据人类明确批准C小圆弧同高图，用内置imagegen提取/重构新1024x1536RGBA T+长V母图，原字节copy未调色/涂改；T2及V左/右20/24共6本体、v12六独立MeshTexture图标GPU可见。T132/136x80 stemx56，北逻辑24/有效21，内角两小凹圆弧在bar内起并经8x3同源contact接stem，完整9patch覆交界H砖；ALL绘制、reuse_cap=false、局部capcut27.48、物理20不改、外围L30.48保留，H底线止于内角不压V根。T及整条V同一源[470,298,88,278]，Y比例24/88、石缝period75.818181818、tile151.63636；T主stemlocal24..80，下段origin1170.48/clip1226.48 phase56源Y503.333，右Twholemirror接V_r截面镜像，不重置石缝。首轮actual母图外端黑帽与密砖缝造成贴板未接受，最小UV去外端26..116/910..998，内部横砖与两个弧头单列接contact，PNG/root/V/phase保持。修正后亲眼审1200完整左右runtime/editor右、960完整左右runtime、2T+4V独立及V分类，对批准C圆弧一体同高构造符合，无前轮正面柱石接窄顶面或跨root横暗线；端面保留原方向变化。细部磨损/砖缝并非批准图逐像素复制，主美认为可独立审，不称用户已再审actual。10源UV/尺度/phase与native/规则证据单列不代替审美；旧V24–31冻结hash全未改，actual最终png/json原样复制。只新版本素材/图标/docs，主美无shared/data/Git写入，制作人独立审后另验P65发布。\n\n验收通过：制作人独立验收A32：65文件hash全核对，亲眼对照批准C与完整1200/960两厨房runtime/editor及2T+4V原生。小凹圆弧同高连根，H暗线止于内角，去外端帽后不再小T牌；整条V同源侧影/相位，133技术+73规则证据符合。新PNG磨损和部分石缝非逐像素复刻批准图，构造符合，未称人类重新批准actual。六图标GPU可见，旧22art冻结保持。",
+        "dependencyIds": [
+          "a31-same-source-wall-junction-20261007"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v32/**",
+            "art/editor/v12/**",
+            "docs/art/architecture-v32/**"
+          ],
+          "entry": "art/architecture/v32/manifest.json",
+          "interfaceContract": "主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p65-approved-c-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T19:51:40.836Z"
+          }
+        ]
+      },
+      {
+        "id": "p65-approved-rounded-wall-integration-20261007",
+        "title": "P65 批准C圆弧同高墙集成",
+        "description": "集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。",
+        "result": "批准C完整同高圆弧T及同源长V集成；R04只architecture改变，新建单套20建筑件配V12六MeshTexture图标，旧资源保留。133原生和73规则过、最终日志无ERROR，左右主stem与实际V上延对照采样差0。共享裁剪极小尾片修正无可见变化；旧22art保持。完整actual亲眼看圆弧/同高、修正横臂端帽，不把通过数当审美结论。51程序交付hash冻结。\n\n验收通过：制作人程序本人自验收，执行证据和结论分别登记。A32已独立接受，51程序文件hash一致；133原生/73规则通过，完整左右actual对批准C同高小凹圆弧，无旧跨根底线、端帽修正成立。左右UV主stem对真实V上延差0，最终所有日志无ERROR；可见绘制/两尺寸图标分类选放/旧ID/editor拖动撤销通过。R04只有architecture改，旧22art hash保持，用户project.godot修改不纳入。继承未发布P64裁剪支持历史保留，未称用户重新审过actual。",
+        "dependencyIds": [
+          "p64-same-source-wall-integration-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p65*",
+            "docs/dev/p65/**",
+            "docs/tests/p65*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p65-approved-c-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T19:51:40.836Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -6022,6 +6212,32 @@
         "createdTaskIds": [
           "a30-integrated-stone-junction-20261007",
           "p63-natural-junction-integration-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p64-same-source-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-06T19:26:03.819Z",
+        "reason": "用户指出P63接口和下方纵墙明显不同风格，重做为严格同源/同透视/同相位，修正上一轮误判。",
+        "createdTaskIds": [
+          "a31-same-source-wall-junction-20261007",
+          "p64-same-source-wall-integration-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p65-approved-c-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-06T19:51:40.836Z",
+        "reason": "人类批准方案C小圆弧同高转接并授权制作，保留此前冻结与高度纠正历史另建新任务。",
+        "createdTaskIds": [
+          "a32-approved-rounded-wall-20261007",
+          "p65-approved-rounded-wall-integration-20261007"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -20086,7 +20302,20 @@
           "note": "制作人独立验收A30：48交付hash一致。亲眼把修正版1200左右game、960editor与两规格独立T对批准概念：普通头石/纵石续接、正常石缝和同套浅米灰，去除V29大片T轮廓及肩部；3world下沿多出已用原PNG注册及cap27.48修正，原H底线连续，内空无独立底板阴影。轻微块间色/磨损差异属于石材变化，不声称逐像素复刻。主美审美说明与78native/73规则技术结果分别评估，批准方向已落实，旧V24–29冻结hash未变。",
           "mode": "independent",
           "evidenceVersion": 1
-        }
+        },
+        "corrections": [
+          {
+            "id": "a30-user-perspective-correction-20261007",
+            "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T19:27:49.435Z",
+            "note": "用户明确拒绝P63：新T上部为正面柱石，下部V27为窄顶面加侧影，透视/块型/石缝不同。我上一轮判断可交审与仅细微石材差异是误判。保留A30原交付和验收历史，不把技术78+73通过当风格认可；已另派A31/P64采用冻结V24 PNG同源UV与V27相位续接，实际整条纵墙重新审。",
+            "deliveryVersion": "architecture-v30-20261007-b9e0e175d3cb",
+            "evidence": [
+              "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\user-style-mismatch.png",
+              "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\interface.json"
+            ]
+          }
+        ]
       },
       {
         "id": "p63-ready-20261007",
@@ -20169,6 +20398,640 @@
           "at": "2026-10-06T18:56:18.931Z",
           "note": "制作人程序本人自验收，证据与结论分别登记；A30已独立通过。35程序交付hash一致，78原生T/选放/图标/历史ID兼容+73门禁禁闭救援全逃通过。R04只两T资产ID与两cap高度，architecture之外逐值不变。新建仅T30，旧T29仍能加载和保持属性ID，新图标严格MeshTexture检查通过；编辑/runtime同绘制。用户既有project.godot改动未纳入。实际自然接口底线对齐，与批准图构造一致。",
           "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p64-start-20261007",
+        "taskId": "p64-same-source-wall-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "用户圈点证明是透视/材质/相位差而非细微色差；派A31同源UV方案，程序准备原H顶保留及纵stem连续相位。",
+        "evidence": [
+          "docs/dev/p64/user-style-mismatch.png",
+          "docs/dev/p64/plan.json"
+        ],
+        "at": "2026-10-06T19:26:05.223Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p64-same-source-wall-integration-20261007",
+          "title": "P64 T与整条纵墙同源连续绘制",
+          "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+          "result": "用户圈点证明是透视/材质/相位差而非细微色差；派A31同源UV方案，程序准备原H顶保留及纵stem连续相位。",
+          "dependencyIds": [
+            "p63-natural-junction-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p64*",
+              "docs/dev/p64/**",
+              "docs/tests/p64*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p64-same-source-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T19:26:03.819Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a31-start-20261007",
+        "taskId": "a31-same-source-wall-junction-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已亲眼核用户圈点，承认A30/P63把正面柱石接窄顶面误当小色差。A31改为原V24 PNG同源UV，stem严格同V27 transpose/74.074横截/61.57068周期，从local24取56长源X223.1667；下段tile_origin local24、clip从80，保证相位56不重置。两角色horizontal_cap/longitudinal_stem供厨房保留原H只绘stem；无新PNG，无shared代码/data/Git改动。候选native图标后交actual完整纵墙审。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\interface.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\user-style-mismatch.png"
+        ],
+        "at": "2026-10-06T19:27:50.604Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "a31-same-source-wall-junction-20261007",
+          "title": "A31 同源同透视石墙T接口",
+          "description": "用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。",
+          "result": "已亲眼核用户圈点，承认A30/P63把正面柱石接窄顶面误当小色差。A31改为原V24 PNG同源UV，stem严格同V27 transpose/74.074横截/61.57068周期，从local24取56长源X223.1667；下段tile_origin local24、clip从80，保证相位56不重置。两角色horizontal_cap/longitudinal_stem供厨房保留原H只绘stem；无新PNG，无shared代码/data/Git改动。候选native图标后交actual完整纵墙审。",
+          "dependencyIds": [
+            "a30-integrated-stone-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v31/**",
+              "art/editor/v11/**",
+              "docs/art/architecture-v31/**"
+            ],
+            "entry": "art/architecture/v31/manifest.json",
+            "interfaceContract": "主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p64-same-source-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T19:26:03.819Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a31-final-v31-20261007",
+        "taskId": "a31-same-source-wall-junction-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "交付architecture-v31-20261007-753fe3b3a695，53文件hash冻结。用户指出A30/P63上段正面柱石接下段窄顶面是透视错误，我前轮当细微石材变化已正式correct记录，保留历史。A31生产PNG新增0/涂改0，完全同冻结V24原PNG SHA030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff。20/24 T本体132/136×80，stemx56/主stem24..80、北横24，精确horizontal_cap/longitudinal_stem角色；主stem取V27窗口同transpose、74.074横截面/侧影、61.570680628周期，56源长度222.8333333333、local80 sourceX454.8333333。下段origin local24/1170.48、clip80/1226.48相位56不重置，右wholeT mirror匹配V27_r。厨房保留原H完整UV，不叠新bar，仅画纵stem。首轮同源actual顶部还存在local21..24暗断带未通过，协商加3world同源contact源[465.0625,192,11.9375,74.074074074]，前周期尾接24phase0，不改主相位/物理/旧H横臂。修正后亲眼复核1200完整左右game/editor右、960完整game右/editor左、独立20/24与分类：顶接触已连，整条墙上段/下段窄顶面、侧影和石缝比例一致，无前轮正面柱石跳变；末端保留原端面朝向。14源UV/尺度/相位/contact检查和两图标GPU可见、P64两窗口actual/分类/独立组件/规则检查通过，与画面判断分别记录。旧V24–30冻结hash全未改，actual复制字节证据、interface/源审/主美审美记录齐备。主美没有shared代码/data/Git写入，待制作人独立审，不代表用户已重新批准实际结果。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v31\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v11\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\delivery.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\README.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\interface.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\source-review.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\native-preview.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\native-detail.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\native-icons-visible.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\p64-visual-review.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\p64-visual-evidence.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\user-style-mismatch.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-runtime-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-editor-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-960-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-960-editor-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-reference-continuous-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-reference-continuous-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-1200-t-palette.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-runtime-t-components.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\runtime\\p64-access-access-headless-1200.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\a30-correction-receipt.json"
+        ],
+        "at": "2026-10-06T19:38:57.323Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "a31-same-source-wall-junction-20261007",
+          "title": "A31 同源同透视石墙T接口",
+          "description": "用户明确拒绝P63风格不一致，上端新T正面柱石与下端V27窄顶面/侧影不同。弃用新生成正面柱石，技术美术从V24原PNG同源取材；T stem严格复用V27 source/mapping/尺度/侧影，横臂同原H顶面。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "实际完整厨房纵墙自T至末端同UV源/同顶面和侧影/石缝相位，不能柱石接窄顶。20/24 T和图标，源PNG零改动；完整纵墙actual对照用户圈点。",
+          "result": "交付architecture-v31-20261007-753fe3b3a695，53文件hash冻结。用户指出A30/P63上段正面柱石接下段窄顶面是透视错误，我前轮当细微石材变化已正式correct记录，保留历史。A31生产PNG新增0/涂改0，完全同冻结V24原PNG SHA030e32dafb5064c21d4838867ce280ca8b71a264acfcb5e01f6348eab13ef2ff。20/24 T本体132/136×80，stemx56/主stem24..80、北横24，精确horizontal_cap/longitudinal_stem角色；主stem取V27窗口同transpose、74.074横截面/侧影、61.570680628周期，56源长度222.8333333333、local80 sourceX454.8333333。下段origin local24/1170.48、clip80/1226.48相位56不重置，右wholeT mirror匹配V27_r。厨房保留原H完整UV，不叠新bar，仅画纵stem。首轮同源actual顶部还存在local21..24暗断带未通过，协商加3world同源contact源[465.0625,192,11.9375,74.074074074]，前周期尾接24phase0，不改主相位/物理/旧H横臂。修正后亲眼复核1200完整左右game/editor右、960完整game右/editor左、独立20/24与分类：顶接触已连，整条墙上段/下段窄顶面、侧影和石缝比例一致，无前轮正面柱石跳变；末端保留原端面朝向。14源UV/尺度/相位/contact检查和两图标GPU可见、P64两窗口actual/分类/独立组件/规则检查通过，与画面判断分别记录。旧V24–30冻结hash全未改，actual复制字节证据、interface/源审/主美审美记录齐备。主美没有shared代码/data/Git写入，待制作人独立审，不代表用户已重新批准实际结果。",
+          "dependencyIds": [
+            "a30-integrated-stone-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v31/**",
+              "art/editor/v11/**",
+              "docs/art/architecture-v31/**"
+            ],
+            "entry": "art/architecture/v31/manifest.json",
+            "interfaceContract": "主美技术美术采用现有原PNG UV/assembly元数据方案，不再新绘PNG或贴正面石柱，V31texture必须V24原PNG、T20/24 stem严格同V27.transpose/source[232,192,245,74.074074074]及61.5706806周期，同单位缩放/深边。132/136×80 stemx56、北深24；stem从y24至80，源X仅按56/period裁采。横臂原H来源，role horizontal_cap / longitudinal_stem分明供runtime复用原H顶。图标是完整T同源MeshTexture；注册接口、源期/相位和左右mirror写清。不改旧art或shared代码/data/Git；候选实际整条墙验证后冻结。IDs cafeteria_t_20_v31/cafeteria_t_v31。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p64-same-source-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T19:26:03.819Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T19:41:05.586Z",
+          "note": "制作人独立验收A31：已核对冻结交付SHA，并检查1200/960完整左右runtime/editor、独立组件图；同窄墙顶与侧影/石缝连续，contact桥接原H无暗带，横顶未叠新横臂。14源UV检查、图标GPU可见及111原生和73规则证据符合。旧22art文件SHA不变。保留A30错误判断纠正记录；未称用户重新批准。",
+          "mode": "independent",
+          "evidenceVersion": 1
+        },
+        "corrections": [
+          {
+            "id": "a31-user-height-observation-20261007",
+            "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T19:44:18.322Z",
+            "note": "人类最新实际观察：目前仍没有表达期望的连接感觉，纵墙像低于横墙；明确要求试覆盖交接处横砖，横纵一样高，并先设计概念图。A31同源UV/相位事实保留，但先前完整连接可交审的判断没有解决这个同高阅读问题，不能称人类批准。主美用imagegen只做同高覆盖概念：纵墙顶伸至H顶线，覆盖交界横砖并去跨过纵墙的H底线；这是预览，不是新生产资产。冻结53文件完全不改，制作人已暂缓A31/P64 sync/push/重启，等待概念方向反馈。历史验收保留，实际替换需要后续明确授权和新任务契约。",
+            "deliveryVersion": "architecture-v31-20261007-753fe3b3a695",
+            "evidence": [
+              "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\concept-next\\user-height-feedback.png",
+              "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\concept-next\\same-height-overlap-concept.png",
+              "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v31\\concept-next\\prompt.json"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p64-ready-20261007",
+        "taskId": "p64-same-source-wall-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。",
+        "evidence": [
+          "docs/dev/p64/delivery.json",
+          "docs/dev/p64/README.md",
+          "docs/art/architecture-v31/p64-visual-review.md",
+          "docs/tests/p64-1200-architecture-native.json",
+          "docs/tests/p64-1200-editor-t-left.png",
+          "docs/tests/p64-1200-editor-t-right.png",
+          "docs/tests/p64-1200-native.json",
+          "docs/tests/p64-1200-runtime-t-left.png",
+          "docs/tests/p64-1200-runtime-t-right.png",
+          "docs/tests/p64-1200-t-native.json",
+          "docs/tests/p64-960-editor-t-left.png",
+          "docs/tests/p64-960-editor-t-right.png",
+          "docs/tests/p64-960-native.json",
+          "docs/tests/p64-960-runtime-t-left.png",
+          "docs/tests/p64-960-runtime-t-right.png",
+          "docs/tests/p64-960-t-native.json",
+          "docs/tests/p64-access-access-headless-1200.json",
+          "docs/tests/p64-preservation.json",
+          "docs/tests/p64-runtime-t-components.json",
+          "docs/tests/p64-runtime-t-components.png"
+        ],
+        "at": "2026-10-06T19:41:06.859Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p64-same-source-wall-integration-20261007",
+          "title": "P64 T与整条纵墙同源连续绘制",
+          "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+          "result": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。",
+          "dependencyIds": [
+            "p63-natural-junction-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p64*",
+              "docs/dev/p64/**",
+              "docs/tests/p64*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p64-same-source-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T19:26:03.819Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T19:41:39.345Z",
+          "note": "制作人程序本人自验收，执行证据与结论分别登记。A31已独立接受，44程序交付SHA冻结。111原生+73规则全通过，完整1200/960左右wall及编辑器亲眼检查一致窄顶面/侧影；bridge与stub参考真实V27连续取样差0，原H顶未覆盖。新T31图标严格MeshTexture、新放置精确尺寸、旧T30属性和加载兼容；editor选取/拖动/撤销和层次回归通过。R04仅architecture变、旧22art SHA未改；project.godot既有用户修改保留。未称用户已经审美验收。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        },
+        "corrections": [
+          {
+            "id": "p64-user-height-correction-20261007",
+            "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T19:43:58.595Z",
+            "note": "用户最新在主美线程指出竖墙仍读成低于横墙，希望覆盖交接横砖以表达同高，先看概念图。当前P64同源/连续技术验收保留但不是用户审美批准；尚未发布，暂缓sync apply/commit/push和重启。冻结文件不改，主美另制概念等待人类决定再做后续任务。",
+            "deliveryVersion": "p64-same-source-wall-integration-20261007",
+            "evidence": [
+              "docs/dev/p64/user-same-height-feedback.md",
+              "docs/dev/p64/user-same-height-feedback.png",
+              "docs/tests/p64-1200-runtime-t-left.png"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p65-start-20261007",
+        "taskId": "p65-approved-rounded-wall-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "已接手批准C圆弧同高墙集成，开始准备完整实际墙、分类图标与规则回归，等待A32候选接口协商。",
+        "evidence": [
+          "docs/dev/p65/plan.json",
+          "docs/dev/p65/approved-concept-c.png"
+        ],
+        "at": "2026-10-06T19:52:19.379Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p65-approved-rounded-wall-integration-20261007",
+          "title": "P65 批准C圆弧同高墙集成",
+          "description": "集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。",
+          "result": "已接手批准C圆弧同高墙集成，开始准备完整实际墙、分类图标与规则回归，等待A32候选接口协商。",
+          "dependencyIds": [
+            "p64-same-source-wall-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p65*",
+              "docs/dev/p65/**",
+              "docs/tests/p65*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p65-approved-c-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T19:51:40.836Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a32-start-20261007",
+        "taskId": "a32-approved-rounded-wall-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "按人类批准C小圆弧一体同高方向开始制作。完整cap覆盖中央H砖、消除跨root的H下边线，两内角小圆弧；T和整个长V同一新母图/UV材质与周期，不再新上段接旧V27。拟132/136x80 stemx56 bar24，下口80，小圆弧6–8world，源测后明确接口。只新版本素材/图标/docs，不改冻结PNG/shared/data/Git；candidate后实际完整墙审再冻结独立审。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\interface-draft.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\dev\\p65\\approved-concept-c.png"
+        ],
+        "at": "2026-10-06T19:52:49.063Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "a32-approved-rounded-wall-20261007",
+          "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+          "description": "用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。",
+          "result": "按人类批准C小圆弧一体同高方向开始制作。完整cap覆盖中央H砖、消除跨root的H下边线，两内角小圆弧；T和整个长V同一新母图/UV材质与周期，不再新上段接旧V27。拟132/136x80 stemx56 bar24，下口80，小圆弧6–8world，源测后明确接口。只新版本素材/图标/docs，不改冻结PNG/shared/data/Git；candidate后实际完整墙审再冻结独立审。",
+          "dependencyIds": [
+            "a31-same-source-wall-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v32/**",
+              "art/editor/v12/**",
+              "docs/art/architecture-v32/**"
+            ],
+            "entry": "art/architecture/v32/manifest.json",
+            "interfaceContract": "主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p65-approved-c-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T19:51:40.836Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p65-ready-20261007",
+        "taskId": "p65-approved-rounded-wall-integration-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "批准C完整同高圆弧T及同源长V集成；R04只architecture改变，新建单套20建筑件配V12六MeshTexture图标，旧资源保留。133原生和73规则过、最终日志无ERROR，左右主stem与实际V上延对照采样差0。共享裁剪极小尾片修正无可见变化；旧22art保持。完整actual亲眼看圆弧/同高、修正横臂端帽，不把通过数当审美结论。51程序交付hash冻结。",
+        "evidence": [
+          "docs/dev/p65/delivery.json",
+          "docs/dev/p65/README.md",
+          "docs/dev/p65/approved-concept-c.png",
+          "docs/tests/p65-1200-architecture-native.json",
+          "docs/tests/p65-1200-editor-t-left.png",
+          "docs/tests/p65-1200-editor-t-right.png",
+          "docs/tests/p65-1200-native.json",
+          "docs/tests/p65-1200-runtime-t-left.png",
+          "docs/tests/p65-1200-runtime-t-right.png",
+          "docs/tests/p65-1200-t-native.json",
+          "docs/tests/p65-960-editor-t-left.png",
+          "docs/tests/p65-960-editor-t-right.png",
+          "docs/tests/p65-960-native.json",
+          "docs/tests/p65-960-runtime-t-left.png",
+          "docs/tests/p65-960-runtime-t-right.png",
+          "docs/tests/p65-960-t-native.json",
+          "docs/tests/p65-access-access-headless-1200.json",
+          "docs/tests/p65-preservation.json",
+          "docs/tests/p65-runtime-t-components.json",
+          "docs/tests/p65-runtime-t-components.png"
+        ],
+        "at": "2026-10-06T20:13:31.177Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p65-approved-rounded-wall-integration-20261007",
+          "title": "P65 批准C圆弧同高墙集成",
+          "description": "集成用户批准的C方案，小凹圆弧同高接H顶线，原H暗线不跨V根部；整段V同步材质。维护新建分类和旧ID兼容。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。",
+          "result": "批准C完整同高圆弧T及同源长V集成；R04只architecture改变，新建单套20建筑件配V12六MeshTexture图标，旧资源保留。133原生和73规则过、最终日志无ERROR，左右主stem与实际V上延对照采样差0。共享裁剪极小尾片修正无可见变化；旧22art保持。完整actual亲眼看圆弧/同高、修正横臂端帽，不把通过数当审美结论。51程序交付hash冻结。",
+          "dependencyIds": [
+            "p64-same-source-wall-integration-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "data/rooms/r04.json",
+              "qa/p65*",
+              "docs/dev/p65/**",
+              "docs/tests/p65*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p65-approved-c-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T19:51:40.836Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T20:16:28.968Z",
+          "note": "制作人程序本人自验收，执行证据和结论分别登记。A32已独立接受，51程序文件hash一致；133原生/73规则通过，完整左右actual对批准C同高小凹圆弧，无旧跨根底线、端帽修正成立。左右UV主stem对真实V上延差0，最终所有日志无ERROR；可见绘制/两尺寸图标分类选放/旧ID/editor拖动撤销通过。R04只有architecture改，旧22art hash保持，用户project.godot修改不纳入。继承未发布P64裁剪支持历史保留，未称用户重新审过actual。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "a32-final-v32-20261007",
+        "taskId": "a32-approved-rounded-wall-20261007",
+        "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "交付architecture-v32-20261007-13887e245052，65文件hash冻结。依据人类明确批准C小圆弧同高图，用内置imagegen提取/重构新1024x1536RGBA T+长V母图，原字节copy未调色/涂改；T2及V左/右20/24共6本体、v12六独立MeshTexture图标GPU可见。T132/136x80 stemx56，北逻辑24/有效21，内角两小凹圆弧在bar内起并经8x3同源contact接stem，完整9patch覆交界H砖；ALL绘制、reuse_cap=false、局部capcut27.48、物理20不改、外围L30.48保留，H底线止于内角不压V根。T及整条V同一源[470,298,88,278]，Y比例24/88、石缝period75.818181818、tile151.63636；T主stemlocal24..80，下段origin1170.48/clip1226.48 phase56源Y503.333，右Twholemirror接V_r截面镜像，不重置石缝。首轮actual母图外端黑帽与密砖缝造成贴板未接受，最小UV去外端26..116/910..998，内部横砖与两个弧头单列接contact，PNG/root/V/phase保持。修正后亲眼审1200完整左右runtime/editor右、960完整左右runtime、2T+4V独立及V分类，对批准C圆弧一体同高构造符合，无前轮正面柱石接窄顶面或跨root横暗线；端面保留原方向变化。细部磨损/砖缝并非批准图逐像素复制，主美认为可独立审，不称用户已再审actual。10源UV/尺度/phase与native/规则证据单列不代替审美；旧V24–31冻结hash全未改，actual最终png/json原样复制。只新版本素材/图标/docs，主美无shared/data/Git写入，制作人独立审后另验P65发布。",
+        "evidence": [
+          "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v32\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v32\\rounded_wall_master_v32.png",
+          "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v12\\manifest.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\delivery.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\README.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\prompt.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\interface.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\source-review.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\native-preview.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\native-detail.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\native-icons-visible.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\p65-visual-review.md",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\p65-visual-evidence.json",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\approved-concept-c.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-1200-runtime-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-1200-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-1200-editor-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-960-runtime-t-left.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-960-runtime-t-right.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-1200-t-palette.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-1200-long-walls.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-runtime-t-components.png",
+          "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v32\\runtime\\p65-access-access-headless-1200.json"
+        ],
+        "at": "2026-10-06T20:15:05.059Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "a32-approved-rounded-wall-20261007",
+          "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+          "description": "用户在主美线程批准C小圆弧一体同高转接，明确按照此图制作。两内角小凹圆弧，纵墙接到H顶线、覆盖交界横砖；整段同源材质与窄顶面/侧影。",
+          "kind": "美术",
+          "owner": "主美",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。",
+          "result": "交付architecture-v32-20261007-13887e245052，65文件hash冻结。依据人类明确批准C小圆弧同高图，用内置imagegen提取/重构新1024x1536RGBA T+长V母图，原字节copy未调色/涂改；T2及V左/右20/24共6本体、v12六独立MeshTexture图标GPU可见。T132/136x80 stemx56，北逻辑24/有效21，内角两小凹圆弧在bar内起并经8x3同源contact接stem，完整9patch覆交界H砖；ALL绘制、reuse_cap=false、局部capcut27.48、物理20不改、外围L30.48保留，H底线止于内角不压V根。T及整条V同一源[470,298,88,278]，Y比例24/88、石缝period75.818181818、tile151.63636；T主stemlocal24..80，下段origin1170.48/clip1226.48 phase56源Y503.333，右Twholemirror接V_r截面镜像，不重置石缝。首轮actual母图外端黑帽与密砖缝造成贴板未接受，最小UV去外端26..116/910..998，内部横砖与两个弧头单列接contact，PNG/root/V/phase保持。修正后亲眼审1200完整左右runtime/editor右、960完整左右runtime、2T+4V独立及V分类，对批准C圆弧一体同高构造符合，无前轮正面柱石接窄顶面或跨root横暗线；端面保留原方向变化。细部磨损/砖缝并非批准图逐像素复制，主美认为可独立审，不称用户已再审actual。10源UV/尺度/phase与native/规则证据单列不代替审美；旧V24–31冻结hash全未改，actual最终png/json原样复制。只新版本素材/图标/docs，主美无shared/data/Git写入，制作人独立审后另验P65发布。",
+          "dependencyIds": [
+            "a31-same-source-wall-junction-20261007"
+          ],
+          "references": [],
+          "workScope": {
+            "allowedPaths": [
+              "art/architecture/v32/**",
+              "art/editor/v12/**",
+              "docs/art/architecture-v32/**"
+            ],
+            "entry": "art/architecture/v32/manifest.json",
+            "interfaceContract": "主美制作批准C方案（参考docs/dev/p65/approved-concept-c.png）。可新PNG或批准图同源UV方式，两厚度圆弧T及配套同源V/必要过渡，旧art全部冻结不改。默认132/136×80 stemx56 北深24 下口80可兼容，圆弧6–8world；纵墙顶接H顶线，在局部覆盖H砖，H底暗线止于凹内角。完整长V须同源同尺度无接缝。提供原H保留/切口范围、patch角色和phase/mirror契约，producer集成前双方协商。editor/v12配完整同源图标。shared/data/Git由producer负责；candidate一次实际整条墙game/editor审后冻结。"
+          },
+          "assignment": {
+            "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "art-director"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p65-approved-c-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+              "at": "2026-10-06T19:51:40.836Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T20:15:42.398Z",
+          "note": "制作人独立验收A32：65文件hash全核对，亲眼对照批准C与完整1200/960两厨房runtime/editor及2T+4V原生。小凹圆弧同高连根，H暗线止于内角，去外端帽后不再小T牌；整条V同源侧影/相位，133技术+73规则证据符合。新PNG磨损和部分石缝非逐像素复刻批准图，构造符合，未称人类重新批准actual。六图标GPU可见，旧22art冻结保持。",
+          "mode": "independent",
           "evidenceVersion": 1
         }
       }

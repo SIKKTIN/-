@@ -1,0 +1,14 @@
+{
+  "taskId": "p64-same-source-wall-integration-20261007",
+  "revision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d",
+  "feedbackId": "p64-ready-20261007",
+  "correctionVersion": 0,
+  "note": "用户最新在主美线程指出竖墙仍读成低于横墙，希望覆盖交接横砖以表达同高，先看概念图。当前P64同源/连续技术验收保留但不是用户审美批准；尚未发布，暂缓sync apply/commit/push和重启。冻结文件不改，主美另制概念等待人类决定再做后续任务。",
+  "deliveryVersion": "p64-same-source-wall-integration-20261007",
+  "evidence": [
+    "docs/dev/p64/user-same-height-feedback.md",
+    "docs/dev/p64/user-same-height-feedback.png",
+    "docs/tests/p64-1200-runtime-t-left.png"
+  ],
+  "requestId": "p64-user-height-correction-20261007"
+}

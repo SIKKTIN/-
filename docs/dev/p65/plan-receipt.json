@@ -1,0 +1,38 @@
+{
+  "id": "p65-approved-c-plan-20261007",
+  "digest": "177fc66010ee910900343caef1e3640006516e48218b06ff84fe0fe6f9e2b6bb",
+  "operation": "task_plan_apply",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T19:51:40.674Z",
+  "status": "succeeded",
+  "result": {
+    "receiptId": "p65-approved-c-plan-20261007",
+    "scheduleRevision": "a166d0f38b08843f34d865df9ac7180e44bfbda03c0fe8f2be2a7cdd25a78ad3",
+    "created": [
+      {
+        "taskId": "a32-approved-rounded-wall-20261007",
+        "revision": "caf1b7b8194c081a89a7e2fe9d2e1d6143d8d4da4af26cbc6920d75b7131c240",
+        "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p65-approved-c-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      },
+      {
+        "taskId": "p65-approved-rounded-wall-integration-20261007",
+        "revision": "241562723b534921385b246e9f931c5ab0b87acb2f75a53f827ace58c0f3a18f",
+        "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p65-approved-c-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      }
+    ],
+    "updated": [],
+    "warnings": [],
+    "next": "正式排期已保存并更新收件箱；已派发不代表外部 AI 已接手，执行人实际开始后再反馈进行中",
+    "milestoneUpdates": [],
+    "affectedMilestones": []
+  }
+}

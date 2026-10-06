@@ -1,0 +1,189 @@
+{
+  "task": {
+    "id": "p64-same-source-wall-integration-20261007",
+    "title": "P64 T与整条纵墙同源连续绘制",
+    "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "已完成",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "2026-10-06",
+    "milestoneId": "",
+    "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+    "result": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。\n\n验收通过：制作人程序本人自验收，执行证据与结论分别登记。A31已独立接受，44程序交付SHA冻结。111原生+73规则全通过，完整1200/960左右wall及编辑器亲眼检查一致窄顶面/侧影；bridge与stub参考真实V27连续取样差0，原H顶未覆盖。新T31图标严格MeshTexture、新放置精确尺寸、旧T30属性和加载兼容；editor选取/拖动/撤销和层次回归通过。R04仅architecture变、旧22art SHA未改；project.godot既有用户修改保留。未称用户已经审美验收。",
+    "dependencyIds": [
+      "p63-natural-junction-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p64*",
+        "docs/dev/p64/**",
+        "docs/tests/p64*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p64-same-source-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T19:26:03.819Z"
+      }
+    ]
+  },
+  "revision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d",
+  "scheduleRevision": "2504095937fe52a6de4e481e4a7a0b2de8972292dda78db3023c7d52f46e3834",
+  "planChanges": [
+    {
+      "id": "p64-same-source-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T19:26:03.819Z",
+      "reason": "用户指出P63接口和下方纵墙明显不同风格，重做为严格同源/同透视/同相位，修正上一轮误判。",
+      "createdTaskIds": [
+        "a31-same-source-wall-junction-20261007",
+        "p64-same-source-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p63-natural-junction-integration-20261007",
+      "title": "P63 自然砌接墙体替换与素材统一",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "已完成",
+    "feedbackId": "p64-ready-20261007",
+    "feedbackState": "accepted",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_correct",
+        "cli": "feedback correct",
+        "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d"
+  },
+  "feedback": [
+    {
+      "id": "p64-start-20261007",
+      "taskId": "p64-same-source-wall-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "用户圈点证明是透视/材质/相位差而非细微色差；派A31同源UV方案，程序准备原H顶保留及纵stem连续相位。",
+      "evidence": [
+        "docs/dev/p64/user-style-mismatch.png",
+        "docs/dev/p64/plan.json"
+      ],
+      "at": "2026-10-06T19:26:05.223Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "已完成",
+        "feedbackId": "p64-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d",
+      "delivery": "recorded",
+      "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务"
+    },
+    {
+      "id": "p64-ready-20261007",
+      "taskId": "p64-same-source-wall-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "使用A31同源T stem、同投影与UV周期；R04保留原H cap，前面局部开口，下段继续相位。完整actual 1200/960左右审查，111 native+73规则通过；stub/contact对真实纵墙参考取样差0，旧22art SHA不变。新T31选放与Mesh icons、旧T30属性/加载保留，共享editor实际拖动撤销通过。只architecture改，无物理/规则改。",
+      "evidence": [
+        "docs/dev/p64/delivery.json",
+        "docs/dev/p64/README.md",
+        "docs/art/architecture-v31/p64-visual-review.md",
+        "docs/tests/p64-1200-architecture-native.json",
+        "docs/tests/p64-1200-editor-t-left.png",
+        "docs/tests/p64-1200-editor-t-right.png",
+        "docs/tests/p64-1200-native.json",
+        "docs/tests/p64-1200-runtime-t-left.png",
+        "docs/tests/p64-1200-runtime-t-right.png",
+        "docs/tests/p64-1200-t-native.json",
+        "docs/tests/p64-960-editor-t-left.png",
+        "docs/tests/p64-960-editor-t-right.png",
+        "docs/tests/p64-960-native.json",
+        "docs/tests/p64-960-runtime-t-left.png",
+        "docs/tests/p64-960-runtime-t-right.png",
+        "docs/tests/p64-960-t-native.json",
+        "docs/tests/p64-access-access-headless-1200.json",
+        "docs/tests/p64-preservation.json",
+        "docs/tests/p64-runtime-t-components.json",
+        "docs/tests/p64-runtime-t-components.png"
+      ],
+      "at": "2026-10-06T19:41:06.859Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T19:41:39.345Z",
+        "note": "制作人程序本人自验收，执行证据与结论分别登记。A31已独立接受，44程序交付SHA冻结。111原生+73规则全通过，完整1200/960左右wall及编辑器亲眼检查一致窄顶面/侧影；bridge与stub参考真实V27连续取样差0，原H顶未覆盖。新T31图标严格MeshTexture、新放置精确尺寸、旧T30属性和加载兼容；editor选取/拖动/撤销和层次回归通过。R04仅architecture变、旧22art SHA未改；project.godot既有用户修改保留。未称用户已经审美验收。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      },
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "已完成",
+        "feedbackId": "p64-ready-20261007",
+        "feedbackState": "accepted",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_correct",
+            "cli": "feedback correct",
+            "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "0bf0c0b5c60afe0d25a37cfc6fd88b3494f966460080c5807a751aec382bea7d",
+      "delivery": "recorded",
+      "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务"
+    }
+  ]
+}

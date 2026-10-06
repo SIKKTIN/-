@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p64-same-source-wall-integration-20261007",
+    "title": "P64 T与整条纵墙同源连续绘制",
+    "description": "解决用户确认的透视/材质/石缝不一致；使用A31同UV源T stem与V27纵墙统一，相位延续。R04保持原H cap，不在上面叠完整横臂；更新新建白名单。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "完整两个厨房纵墙上段T和下段为同窄顶面与侧影，无正面柱石跳变；原H不贴新横臂，有真实材质/尺度/相位连续证据。editor/runtime两尺寸和20/24图标/放置/旧T30兼容通过，物理/门禁不变；A31先独立审再P64。",
+    "result": "",
+    "dependencyIds": [
+      "p63-natural-junction-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p64*",
+        "docs/dev/p64/**",
+        "docs/tests/p64*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人准备局部复用原H cap的绘制：front replace_ranges仅从cap之后开始、T junction标志reuse_cap只画纵stem；V27下段tile_origin从T北cap后开始，render_top_start仍y80，使同源UV相位从T续至下段。只architecture变，原H/V27 PNG冻结。读取A31candidate供actual完整墙复核，用户否定已记录不能再视为小色差。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p64-same-source-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T19:26:03.819Z"
+      }
+    ]
+  },
+  "revision": "9bfc43c871ef707dd92697620e49b5a4d773df80fdbeaff23da90c701795ab14",
+  "scheduleRevision": "0918ca6dcdc0ac34852130fc0f10b38926bd9a52432722c138a3f320a1a1d023",
+  "planChanges": [
+    {
+      "id": "p64-same-source-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T19:26:03.819Z",
+      "reason": "用户指出P63接口和下方纵墙明显不同风格，重做为严格同源/同透视/同相位，修正上一轮误判。",
+      "createdTaskIds": [
+        "a31-same-source-wall-junction-20261007",
+        "p64-same-source-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p63-natural-junction-integration-20261007",
+      "title": "P63 自然砌接墙体替换与素材统一",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "9bfc43c871ef707dd92697620e49b5a4d773df80fdbeaff23da90c701795ab14"
+  },
+  "feedback": []
+}

@@ -119,6 +119,19 @@ func paint_registered(texture: Texture2D, area: Rect2, clip: Rect2) -> void:
 	var ratio := texture.get_size()/area.size
 	draw_texture_rect_region(texture,visible_area,Rect2((visible_area.position-area.position)*ratio,visible_area.size*ratio))
 
+func subtract_piece(pieces: Array[Rect2], cut: Rect2) -> Array[Rect2]:
+	var result: Array[Rect2] = []
+	for piece in pieces:
+		var overlap := piece.intersection(cut)
+		if not overlap.has_area():
+			result.append(piece)
+			continue
+		if overlap.position.y > piece.position.y: result.append(Rect2(piece.position,Vector2(piece.size.x,overlap.position.y-piece.position.y)))
+		if overlap.end.y < piece.end.y: result.append(Rect2(piece.position.x,overlap.end.y,piece.size.x,piece.end.y-overlap.end.y))
+		if overlap.position.x > piece.position.x: result.append(Rect2(piece.position.x,overlap.position.y,overlap.position.x-piece.position.x,overlap.size.y))
+		if overlap.end.x < piece.end.x: result.append(Rect2(overlap.end.x,overlap.position.y,piece.end.x-overlap.end.x,overlap.size.y))
+	return result
+
 func paint_facade(area: Rect2) -> void:
 	var facade: Dictionary = profile.painted_facade
 	var left_trim := float(facade.get("trim_left",0))
@@ -126,30 +139,11 @@ func paint_facade(area: Rect2) -> void:
 	var clip := Rect2(area.position+Vector2(left_trim,0),Vector2(maxf(0,area.size.x-left_trim-right_trim),area.size.y))
 	var pieces: Array[Rect2] = [clip]
 	for replacement in facade.get("replace_ranges",[]):
-		var begin := area.position.x+float(replacement[0])
-		var end := begin+float(replacement[1])
-		var next: Array[Rect2] = []
-		for piece in pieces:
-			if end <= piece.position.x or begin >= piece.end.x: next.append(piece)
-			else:
-				if begin > piece.position.x: next.append(Rect2(piece.position,Vector2(begin-piece.position.x,piece.size.y)))
-				if end < piece.end.x: next.append(Rect2(end,piece.position.y,piece.end.x-end,piece.size.y))
-		pieces = next
-	# Dedicated L coping replaces only the top; keep the old wall body below.
-	# Rectangle subtraction also removes the old square cap under its chamfer.
+		# Optional vertical offset removes the front only, retaining the cap.
+		var top := clampf(float(replacement[2]) if replacement.size() > 2 else 0.0,0,area.size.y)
+		pieces = subtract_piece(pieces,Rect2(area.position+Vector2(replacement[0],top),Vector2(replacement[1],area.size.y-top)))
 	for cutout in facade.get("cap_cutouts",[]):
-		var cut := Rect2(area.position+Vector2(cutout[0],cutout[1]),Vector2(cutout[2],cutout[3]))
-		var remaining: Array[Rect2] = []
-		for piece in pieces:
-			var overlap := piece.intersection(cut)
-			if not overlap.has_area():
-				remaining.append(piece)
-				continue
-			if overlap.position.y > piece.position.y: remaining.append(Rect2(piece.position,Vector2(piece.size.x,overlap.position.y-piece.position.y)))
-			if overlap.end.y < piece.end.y: remaining.append(Rect2(piece.position.x,overlap.end.y,piece.size.x,piece.end.y-overlap.end.y))
-			if overlap.position.x > piece.position.x: remaining.append(Rect2(piece.position.x,overlap.position.y,overlap.position.x-piece.position.x,overlap.size.y))
-			if overlap.end.x < piece.end.x: remaining.append(Rect2(overlap.end.x,overlap.position.y,piece.end.x-overlap.end.x,overlap.size.y))
-		pieces = remaining
+		pieces = subtract_piece(pieces,Rect2(area.position+Vector2(cutout[0],cutout[1]),Vector2(cutout[2],cutout[3])))
 	for piece in pieces:
 		if facade.get("layout","wing") == "tiled":
 			var id := str(facade.asset)
@@ -174,7 +168,7 @@ func paint_facade(area: Rect2) -> void:
 		var origin := Vector2(area.end.x if patch.get("anchor","") == "right" else area.position.x,area.position.y)
 		var rect := Rect2(origin+Vector2(offset[0],offset[1]),Vector2(size[0],size[1]))
 		var phase: Array = patch.get("phase_shift",[0,0])
-		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]),patch.get("top_only",false))
+		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]),patch.get("top_only",false),patch.get("reuse_cap",false))
 	for post in facade.get("posts",[]):
 		var offset: Array = post.offset
 		var size: Array = post.size
@@ -192,8 +186,11 @@ func paint_component_run(id: String, area: Rect2, tile: Vector2, clip: Rect2, mi
 			cursor.y += tile.y
 		cursor.x += tile.x
 
-func paint_junction(id: String, rect: Rect2, mirror_x: bool, clip := Rect2(), phase_shift := Vector2.ZERO, top_only := false) -> void:
+func paint_junction(id: String, rect: Rect2, mirror_x: bool, clip := Rect2(), phase_shift := Vector2.ZERO, top_only := false, reuse_cap := false) -> void:
 	var definition: Dictionary = definitions[id]
+	if reuse_cap:
+		definition = definition.duplicate()
+		definition.assembly_patches = definition.assembly_patches.filter(func(p): return str(p.get("role","")) == "longitudinal_stem")
 	if top_only:
 		# The extended facade already owns its original repeating front.
 		# A portal wing fragment here would create an unrelated stone seam.
