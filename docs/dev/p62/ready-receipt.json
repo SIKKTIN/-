@@ -1,0 +1,68 @@
+{
+  "id": "p62-ready-20261007",
+  "digest": "31b997fad44c915d2dbdfada4f09b1d9b85ca031c38fc11b84704eb805bfd4a1",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T18:07:17.098Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p62-ready-20261007",
+    "taskId": "p62-t-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "T20/24注册独立二级分类及图标，真实选放保持原尺寸；R04厨房两处改T20并右镜像，外L/横墙立面保留，地图除architecture逐值不变。两尺寸96项、独立规格GPU12项、门禁禁闭救援逃脱73项全过；旧18建筑资源hash相同。主美已复核实际图，A29正式验收完成后才通过P62。",
+    "evidence": [
+      "docs/dev/p62/delivery.json",
+      "docs/dev/p62/README.md",
+      "docs/tests/p62-1200-t-native.json",
+      "docs/tests/p62-960-t-native.json",
+      "docs/tests/p62-1200-native.json",
+      "docs/tests/p62-960-native.json",
+      "docs/tests/p62-runtime-t-components.json",
+      "docs/tests/p62-access-access-headless-1200.json",
+      "docs/tests/p62-preservation.json",
+      "docs/tests/p62-1200-editor-t-left.png",
+      "docs/tests/p62-1200-runtime-t-right.png",
+      "docs/tests/p62-1200-t-palette.png"
+    ],
+    "at": "2026-10-06T18:07:17.246Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p62-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p62-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p62-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "ca7e02faf52220f4da1cf2f2fef37cedfd53df70cab0ac6e931758eb074cf175"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "ca7e02faf52220f4da1cf2f2fef37cedfd53df70cab0ac6e931758eb074cf175",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

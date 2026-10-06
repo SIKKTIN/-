@@ -1,0 +1,11 @@
+from pathlib import Path
+import json,hashlib
+doc=Path(r'E:/Project/Godot/这次怎么逃/docs/art/architecture-v29');root=doc.parents[2]
+t=json.loads((doc/'final-task-read.json').read_text(encoding='utf-8-sig'));d=json.loads((doc/'delivery.json').read_text(encoding='utf-8-sig'))
+assert all(hashlib.sha256((root/f['path']).read_bytes()).hexdigest()==f['sha256'] for f in d['files'])
+summary='交付'+d['version']+'：一张内置imagegen新绘完整向下T PNG，左右横臂贯通、中央纵臂和两凹角连续，不用两个旧L拼合。20/24两个本体132×80/136×80，stemx56，北深24，左右臂56，两个独立MeshTexture图标已GPU可见；右T整图镜像接V27_r。七源区注册同一新图，保留y24..28的4×4小肩部，两下内空alpha0。原PNG字节copy未涂改，旧A24–28全冻结hash不变。已亲眼复核实际1200左右game/editor、960game右/editor左及两尺寸T分类图；厨房两点横墙两侧连续、stem对原墙、内空不填影，原H墙身柱楣和外围L保留。主美判断符合本轮T积木意图，可交独立审；新分支石磨损较密但保留现套色/亮缘/深边，不承诺逐像素旧纹理。96项native/分类/选放/建筑预览单列不代替审美，门禁回归由P62另列。40文件hash已核对，素材/图标/interface/prompt/actual证据冻结，主美无shared代码/地图/Git修改；待制作人独立验收，不代表用户已批准。'
+paths=['art/architecture/v29/manifest.json','art/architecture/v29/cafeteria_t_master_v29.png','art/editor/v09/manifest.json','docs/art/architecture-v29/delivery.json','docs/art/architecture-v29/README.md','docs/art/architecture-v29/prompt.json','docs/art/architecture-v29/interface.json','docs/art/architecture-v29/source-review.json','docs/art/architecture-v29/native-preview.png','docs/art/architecture-v29/native-detail.png','docs/art/architecture-v29/native-icons-visible.json','docs/art/architecture-v29/p62-visual-review.md','docs/art/architecture-v29/p62-visual-evidence.json','docs/art/architecture-v29/runtime/p62-1200-runtime-t-left.png','docs/art/architecture-v29/runtime/p62-1200-runtime-t-right.png','docs/art/architecture-v29/runtime/p62-1200-editor-t-left.png','docs/art/architecture-v29/runtime/p62-960-runtime-t-right.png','docs/art/architecture-v29/runtime/p62-960-editor-t-left.png','docs/art/architecture-v29/runtime/p62-1200-t-palette.png','docs/art/architecture-v29/runtime/p62-960-t-palette.png']
+out={'taskId':t['task']['id'],'revision':t['revision'],'feedbackId':'a29-final-v29-20261007','status':'待验收','summary':summary,'evidence':[str(root/p) for p in paths],'requestId':'a29-final-v29-20261007'}
+assert all(Path(p).is_file() for p in out['evidence'])
+(doc/'final-feedback.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'version':d['version'],'hashes_match':True,'files':len(d['files'])}))

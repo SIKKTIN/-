@@ -1,0 +1,51 @@
+{
+  "id": "p62-start-v2-20261007",
+  "digest": "469b37f4b1d80a57216c20c8c7fec1e86d3f2015a4708b63807ca281c27fab36",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:46:55.741Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p62-start-v2-20261007",
+    "taskId": "p62-t-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "按允许候选试接契约，准备T分类/两厨房junction与native对照；主美已接A29，最终验收等待正式美术交付。",
+    "evidence": [
+      "docs/dev/p62/plan.json"
+    ],
+    "at": "2026-10-06T17:46:55.881Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p62-start-v2-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

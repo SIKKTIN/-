@@ -1,0 +1,98 @@
+{
+  "task": {
+    "id": "p62-t-junction-integration-20261007",
+    "title": "P62 T形墙体接入游戏及编辑器",
+    "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+    "result": "",
+    "dependencyIds": [
+      "a29-stone-t-junction-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p62*",
+        "docs/dev/p62/**",
+        "docs/tests/p62*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p62-t-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T17:45:05.159Z"
+      }
+    ]
+  },
+  "revision": "f1ad65884264f8c07baa30ae5019bff2f6b60534344c23f3a4f5cbf7c1d1a5b5",
+  "scheduleRevision": "9b9be374aa3beaeafae2056f845c4d73a9dc89533170ed711856dbc266e488d4",
+  "planChanges": [
+    {
+      "id": "p62-t-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:45:05.159Z",
+      "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+      "createdTaskIds": [
+        "a29-stone-t-junction-20261007",
+        "p62-t-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a29-stone-t-junction-20261007",
+      "title": "A29 同套石墙T形连接瓦片与编辑图标",
+      "status": "待开始"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "受阻"
+        ],
+        "meaning": "前置任务未完成，先报告阻塞"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f1ad65884264f8c07baa30ae5019bff2f6b60534344c23f3a4f5cbf7c1d1a5b5"
+  },
+  "feedback": []
+}

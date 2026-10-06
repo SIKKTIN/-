@@ -1,0 +1,51 @@
+{
+  "id": "a29-start-20261007",
+  "digest": "ba55542b30dfa3933a15ee1649d1479b43ac8c2a77c442d22f75a1add90c274f",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T17:47:08.342Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a29-start-20261007",
+    "taskId": "a29-stone-t-junction-20261007",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "已读取用户厨房截图，接点属于横墙继续贯通、中央向下纵臂的T形。本人用内置imagegen专门绘制完整T压顶，不用两个旧L拼合；保留原V24/V27/V28风格和旧资产。拟20为132×80、24为136×80，左右臂各56，北臂深24，纵臂x56，80后接原V27。先精确源区/原生试拼/GPU图标交一套候选，实际厨房两个T点由制作人P62接入后审美复核。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\interface-draft.json"
+    ],
+    "at": "2026-10-06T17:47:08.499Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "a29-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema": 2,
+  "manifest": "res://art/architecture/v29/manifest.json",
+  "source_png": "res://art/architecture/v29/cafeteria_t_master_v29.png",
+  "source_sha256": "c61e00b01c3d0a0b22a04cb14198b88e898a21593729161ffd5f1999b1ab08a3",
+  "source_size": [
+    1635,
+    962
+  ],
+  "source_grid": {
+    "x": [
+      88,
+      658,
+      700,
+      936,
+      978,
+      1548
+    ],
+    "y": [
+      117,
+      338,
+      382,
+      847
+    ]
+  },
+  "source_space": "absolute PNG; asset region is full1635x962; no phase_axis fields, no whole-texture wrap",
+  "sizes": {
+    "20": [
+      132,
+      80
+    ],
+    "24": [
+      136,
+      80
+    ]
+  },
+  "stem_x": 56,
+  "bar_depth": 24,
+  "stem_bottom_y": 80,
+  "decorative_inner_chamfers": {
+    "left": [
+      52,
+      24,
+      4,
+      4
+    ],
+    "right_20": [
+      76,
+      24,
+      4,
+      4
+    ],
+    "right_24": [
+      80,
+      24,
+      4,
+      4
+    ],
+    "note": "small triangular carved bevel beyond nominal physical stem, transparent elsewhere; collision cross stays20/24"
+  },
+  "anchor": {
+    "origin_from_baseline": [
+      0,
+      -115.02
+    ],
+    "from_original_wing_top_y": 6.48
+  },
+  "kitchen20": {
+    "left_offset": [
+      114,
+      6.48
+    ],
+    "right_offset": [
+      754,
+      6.48
+    ],
+    "size": [
+      132,
+      80
+    ],
+    "cap_cutouts": [
+      [
+        114,
+        0,
+        132,
+        30.48
+      ],
+      [
+        754,
+        0,
+        132,
+        30.48
+      ]
+    ],
+    "stem_world_x": [
+      1270,
+      1910
+    ],
+    "map_mirror_x_left": false,
+    "map_mirror_x_right": true
+  },
+  "mirror_policy": "T symmetric layout: whole-component mirror_x=true swaps light/side direction for right V27_r; stem remains x56 because both arms56. Default icons unmirrored. Do not mirror again inside patches.",
+  "integration": {
+    "replace": "the two kitchen L tops only; remove old north cap underneath full T bar width132, retain horizontal facade outside physical stem20",
+    "preserve": "V24 original H/columns/lintel, V28 outer L corners, V27 straight stem source/period",
+    "stem_continuation": "T south interface y80 -> V27 tile_origin_y/render_start=corner_origin_y+80; period123.1413612565; left defaultV_l,right mirroredV_r",
+    "notch": "both lower lateral voids actually alpha0; no bbox shadow rectangle under T; allow tiny carved shoulders at y24..28"
+  },
+  "editor": {
+    "manifest": "res://art/editor/v09/manifest.json",
+    "icons": 2,
+    "mode": "architecture_junction_t",
+    "appearance": "T in independent native GPU icons, same source"
+  },
+  "review": "actual left and right kitchen connections, full bar continues both directions; no two-L collage"
+}

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "64e05ed385352c33efefe10c857e377ad5e52898f31d77a51969a3727b982115",
+  "snapshotId": "d6c030b15c7a35fee2798a987dbc03b89fb1a614fc9230a21aebcb4211caf9a2",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -4593,6 +4593,101 @@
           "at": "2026-10-06T17:25:25.596Z"
         }
       ]
+    },
+    {
+      "id": "a29-stone-t-junction-20261007",
+      "title": "A29 同套石墙T形连接瓦片与编辑图标",
+      "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+      "result": "交付architecture-v29-20261007-8a82e921c7fb：一张内置imagegen新绘完整向下T PNG，左右横臂贯通、中央纵臂和两凹角连续，不用两个旧L拼合。20/24两个本体132×80/136×80，stemx56，北深24，左右臂56，两个独立MeshTexture图标已GPU可见；右T整图镜像接V27_r。七源区注册同一新图，保留y24..28的4×4小肩部，两下内空alpha0。原PNG字节copy未涂改，旧A24–28全冻结hash不变。已亲眼复核实际1200左右game/editor、960game右/editor左及两尺寸T分类图；厨房两点横墙两侧连续、stem对原墙、内空不填影，原H墙身柱楣和外围L保留。主美判断符合本轮T积木意图，可交独立审；新分支石磨损较密但保留现套色/亮缘/深边，不承诺逐像素旧纹理。96项native/分类/选放/建筑预览单列不代替审美，门禁回归由P62另列。40文件hash已核对，素材/图标/interface/prompt/actual证据冻结，主美无shared代码/地图/Git修改；待制作人独立验收，不代表用户已批准。\n\n验收通过：制作人独立验收ev2：40原交付与3追加SHA全一致，亲眼看1200/960 game/editor两个厨房T、二级T图标和游戏独立20/24组件。双横臂、居中stem、两内凹倒角清晰，透明空区无矩形黑影，原横立面/门柱/外L与纵墙深边保留。材质为同套浅石色，新T磨损比直段密，模块接口可辨，不声称逐像素旧纹理。108原生操作/GPU项及73门禁规则项通过，技术报告辅助审美结论；符合本轮完整T意图。",
+      "dependencyIds": [
+        "p61-editor-runtime-architecture-preview-20261007"
+      ],
+      "references": [],
+      "workScope": {
+        "allowedPaths": [
+          "art/architecture/v29/**",
+          "art/editor/v09/**",
+          "docs/art/architecture-v29/**"
+        ],
+        "entry": "art/architecture/v29/manifest.json",
+        "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+      },
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p62-t-junction-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-06T17:45:05.159Z"
+        }
+      ]
+    },
+    {
+      "id": "p62-t-junction-integration-20261007",
+      "title": "P62 T形墙体接入游戏及编辑器",
+      "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+      "result": "T20/24注册独立二级分类及图标，真实选放保持原尺寸；R04厨房两处改T20并右镜像，外L/横墙立面保留，地图除architecture逐值不变。两尺寸96项、独立规格GPU12项、门禁禁闭救援逃脱73项全过；旧18建筑资源hash相同。主美已复核实际图，A29正式验收完成后才通过P62。\n\n验收通过：制作人程序自验收，证据与结论分开；A29 ev2已独立通过。42hash一致，两尺寸96操作/图层/选放/T像素项+两规格独立组件12项通过，门禁禁闭救援全逃73项通过。地图除architecture逐值不变；T新增二级分类、搜索与实际图标，放置不拉伸；物理接口仍20/24、外L/柱楣保留。旧18建筑文件hash不变，用户project.godot未改未纳入。",
+      "dependencyIds": [
+        "p61-editor-runtime-architecture-preview-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "data/rooms/r04.json",
+          "qa/p62*",
+          "docs/dev/p62/**",
+          "docs/tests/p62*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/editor/map_editor.tscn",
+        "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p62-t-junction-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T17:45:05.159Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -4757,7 +4852,8 @@
             "p58-complete-corner-integration-20261006",
             "p59-editor-secondary-categories-20261007",
             "p60-unified-building-palette-20261007",
-            "p61-editor-runtime-architecture-preview-20261007"
+            "p61-editor-runtime-architecture-preview-20261007",
+            "p62-t-junction-integration-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4835,7 +4931,8 @@
             "a25-cafeteria-walls-alpha-20261006",
             "a26-unified-wall-tiles-20261006",
             "a27-original-wall-local-repair-20261006",
-            "a28-complete-l-corner-tiles-20261006"
+            "a28-complete-l-corner-tiles-20261006",
+            "a29-stone-t-junction-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -6054,6 +6151,40 @@
         "p61-editor-runtime-architecture-preview-20261007"
       ],
       "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p62-t-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:45:05.159Z",
+      "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+      "createdTaskIds": [
+        "a29-stone-t-junction-20261007",
+        "p62-t-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p62-candidate-dependency-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:46:54.083Z",
+      "reason": "A29仍是正式交付前验收条件；程序需先按候选试接接口把实际图提供给主美复核，避免美术等待实际图、程序等待最终美术验收的循环。技术前置使用已验收P61，正式P62验收仍在A29验收之后。",
+      "createdTaskIds": [],
+      "dependencyChanges": [
+        {
+          "taskId": "p62-t-junction-integration-20261007",
+          "before": [
+            "a29-stone-t-junction-20261007"
+          ],
+          "after": [
+            "p61-editor-runtime-architecture-preview-20261007"
+          ],
+          "blocksProgress": false
+        }
+      ],
       "milestoneChanges": []
     }
   ],
@@ -19599,6 +19730,311 @@
         "note": "制作人程序本人自验收，证据与结论分开。已逐文件校验交付SHA并目视检查1200放大墙面和960全图，实际素材替换色块，完整L及屋顶壳体与游戏同一绘制。60项原生检查通过，真实拖动按网格吸附并复用节点，纹理/几何同步及撤销、隐藏恢复、锁定、材质改动有效；地图未改，预览仅初始状态不模拟NPC。",
         "mode": "producer-self",
         "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p62-start-v2-20261007",
+      "taskId": "p62-t-junction-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按允许候选试接契约，准备T分类/两厨房junction与native对照；主美已接A29，最终验收等待正式美术交付。",
+      "evidence": [
+        "docs/dev/p62/plan.json"
+      ],
+      "at": "2026-10-06T17:46:55.881Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p62-t-junction-integration-20261007",
+        "title": "P62 T形墙体接入游戏及编辑器",
+        "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+        "result": "按允许候选试接契约，准备T分类/两厨房junction与native对照；主美已接A29，最终验收等待正式美术交付。",
+        "dependencyIds": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p62*",
+            "docs/dev/p62/**",
+            "docs/tests/p62*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p62-t-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T17:45:05.159Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a29-start-20261007",
+      "taskId": "a29-stone-t-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已读取用户厨房截图，接点属于横墙继续贯通、中央向下纵臂的T形。本人用内置imagegen专门绘制完整T压顶，不用两个旧L拼合；保留原V24/V27/V28风格和旧资产。拟20为132×80、24为136×80，左右臂各56，北臂深24，纵臂x56，80后接原V27。先精确源区/原生试拼/GPU图标交一套候选，实际厨房两个T点由制作人P62接入后审美复核。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\interface-draft.json"
+      ],
+      "at": "2026-10-06T17:47:08.499Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a29-stone-t-junction-20261007",
+        "title": "A29 同套石墙T形连接瓦片与编辑图标",
+        "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+        "result": "已读取用户厨房截图，接点属于横墙继续贯通、中央向下纵臂的T形。本人用内置imagegen专门绘制完整T压顶，不用两个旧L拼合；保留原V24/V27/V28风格和旧资产。拟20为132×80、24为136×80，左右臂各56，北臂深24，纵臂x56，80后接原V27。先精确源区/原生试拼/GPU图标交一套候选，实际厨房两个T点由制作人P62接入后审美复核。",
+        "dependencyIds": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v29/**",
+            "art/editor/v09/**",
+            "docs/art/architecture-v29/**"
+          ],
+          "entry": "art/architecture/v29/manifest.json",
+          "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p62-t-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T17:45:05.159Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p62-ready-20261007",
+      "taskId": "p62-t-junction-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "T20/24注册独立二级分类及图标，真实选放保持原尺寸；R04厨房两处改T20并右镜像，外L/横墙立面保留，地图除architecture逐值不变。两尺寸96项、独立规格GPU12项、门禁禁闭救援逃脱73项全过；旧18建筑资源hash相同。主美已复核实际图，A29正式验收完成后才通过P62。",
+      "evidence": [
+        "docs/dev/p62/delivery.json",
+        "docs/dev/p62/README.md",
+        "docs/tests/p62-1200-t-native.json",
+        "docs/tests/p62-960-t-native.json",
+        "docs/tests/p62-1200-native.json",
+        "docs/tests/p62-960-native.json",
+        "docs/tests/p62-runtime-t-components.json",
+        "docs/tests/p62-access-access-headless-1200.json",
+        "docs/tests/p62-preservation.json",
+        "docs/tests/p62-1200-editor-t-left.png",
+        "docs/tests/p62-1200-runtime-t-right.png",
+        "docs/tests/p62-1200-t-palette.png"
+      ],
+      "at": "2026-10-06T18:07:17.246Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p62-t-junction-integration-20261007",
+        "title": "P62 T形墙体接入游戏及编辑器",
+        "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+        "result": "T20/24注册独立二级分类及图标，真实选放保持原尺寸；R04厨房两处改T20并右镜像，外L/横墙立面保留，地图除architecture逐值不变。两尺寸96项、独立规格GPU12项、门禁禁闭救援逃脱73项全过；旧18建筑资源hash相同。主美已复核实际图，A29正式验收完成后才通过P62。",
+        "dependencyIds": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p62*",
+            "docs/dev/p62/**",
+            "docs/tests/p62*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p62-t-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T17:45:05.159Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T18:11:57.577Z",
+        "note": "制作人程序自验收，证据与结论分开；A29 ev2已独立通过。42hash一致，两尺寸96操作/图层/选放/T像素项+两规格独立组件12项通过，门禁禁闭救援全逃73项通过。地图除architecture逐值不变；T新增二级分类、搜索与实际图标，放置不拉伸；物理接口仍20/24、外L/柱楣保留。旧18建筑文件hash不变，用户project.godot未改未纳入。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "a29-final-v29-20261007",
+      "taskId": "a29-stone-t-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "交付architecture-v29-20261007-8a82e921c7fb：一张内置imagegen新绘完整向下T PNG，左右横臂贯通、中央纵臂和两凹角连续，不用两个旧L拼合。20/24两个本体132×80/136×80，stemx56，北深24，左右臂56，两个独立MeshTexture图标已GPU可见；右T整图镜像接V27_r。七源区注册同一新图，保留y24..28的4×4小肩部，两下内空alpha0。原PNG字节copy未涂改，旧A24–28全冻结hash不变。已亲眼复核实际1200左右game/editor、960game右/editor左及两尺寸T分类图；厨房两点横墙两侧连续、stem对原墙、内空不填影，原H墙身柱楣和外围L保留。主美判断符合本轮T积木意图，可交独立审；新分支石磨损较密但保留现套色/亮缘/深边，不承诺逐像素旧纹理。96项native/分类/选放/建筑预览单列不代替审美，门禁回归由P62另列。40文件hash已核对，素材/图标/interface/prompt/actual证据冻结，主美无shared代码/地图/Git修改；待制作人独立验收，不代表用户已批准。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v29\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v29\\cafeteria_t_master_v29.png",
+        "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v09\\manifest.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\delivery.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\README.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\prompt.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\interface.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\source-review.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-preview.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-detail.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-icons-visible.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\p62-visual-review.md",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\p62-visual-evidence.json",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-runtime-t-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-runtime-t-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-editor-t-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-runtime-t-right.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-editor-t-left.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-t-palette.png",
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-t-palette.png"
+      ],
+      "at": "2026-10-06T18:07:34.799Z",
+      "evidenceVersion": 2,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a29-stone-t-junction-20261007",
+        "title": "A29 同套石墙T形连接瓦片与编辑图标",
+        "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+        "result": "交付architecture-v29-20261007-8a82e921c7fb：一张内置imagegen新绘完整向下T PNG，左右横臂贯通、中央纵臂和两凹角连续，不用两个旧L拼合。20/24两个本体132×80/136×80，stemx56，北深24，左右臂56，两个独立MeshTexture图标已GPU可见；右T整图镜像接V27_r。七源区注册同一新图，保留y24..28的4×4小肩部，两下内空alpha0。原PNG字节copy未涂改，旧A24–28全冻结hash不变。已亲眼复核实际1200左右game/editor、960game右/editor左及两尺寸T分类图；厨房两点横墙两侧连续、stem对原墙、内空不填影，原H墙身柱楣和外围L保留。主美判断符合本轮T积木意图，可交独立审；新分支石磨损较密但保留现套色/亮缘/深边，不承诺逐像素旧纹理。96项native/分类/选放/建筑预览单列不代替审美，门禁回归由P62另列。40文件hash已核对，素材/图标/interface/prompt/actual证据冻结，主美无shared代码/地图/Git修改；待制作人独立验收，不代表用户已批准。",
+        "dependencyIds": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "references": [],
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v29/**",
+            "art/editor/v09/**",
+            "docs/art/architecture-v29/**"
+          ],
+          "entry": "art/architecture/v29/manifest.json",
+          "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+        },
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p62-t-junction-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T17:45:05.159Z"
+          }
+        ]
+      },
+      "supplements": [
+        {
+          "id": "a29-extra-runtime-ev2-20261007",
+          "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-06T18:09:24.749Z",
+          "note": "原40文件交付SHA及素材/接口/验收依据不变，仅补充制作人随后提供的同构建actual运行独立T20/24图。主美已亲眼查看：两规格是完整T，左右臂、stem实绘，两个内空透原地面，不被bbox影填满；12/12组件实际检查。P62门禁/禁闭/救人/全逃回归73/73另列，不代替审美。原ev1的两尺寸96项和美术结论保留。",
+          "deliveryVersion": "architecture-v29-20261007-8a82e921c7fb",
+          "evidence": [
+            "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\additional-ev2\\p62-runtime-t-components.png",
+            "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\additional-ev2\\p62-runtime-t-components.json",
+            "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\additional-ev2\\p62-access-access-headless-1200.json",
+            "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\additional-ev2\\evidence.json"
+          ]
+        }
+      ],
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T18:11:55.666Z",
+        "note": "制作人独立验收ev2：40原交付与3追加SHA全一致，亲眼看1200/960 game/editor两个厨房T、二级T图标和游戏独立20/24组件。双横臂、居中stem、两内凹倒角清晰，透明空区无矩形黑影，原横立面/门柱/外L与纵墙深边保留。材质为同套浅石色，新T磨损比直段密，模块接口可辨，不声称逐像素旧纹理。108原生操作/GPU项及73门禁规则项通过，技术报告辅助审美结论；符合本轮完整T意图。",
+        "mode": "independent",
+        "evidenceVersion": 2
       }
     }
   ]

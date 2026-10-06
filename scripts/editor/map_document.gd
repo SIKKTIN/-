@@ -244,6 +244,8 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 				var dims: Array = definition.get("footprint_world_size",definition.get("world_size",[120,100]))
 				item.rect = [p.x,p.y,dims[0],dims[1]]
 				item.blocks_movement = definition.get("blocking",true)
+				if definition.get("render_mode","") == "architecture_junction_t":
+					item.render_size = definition.render_size.duplicate()
 			for existing in data.get("fixtures",[]):
 				if existing.asset_id == asset:
 					item = existing.duplicate(true)

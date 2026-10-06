@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T17:37:52.123Z
-> 文档内容基准：a7aa4a298c638d9ab5067e31579a45d11d486486fbcf105ba648079ed05319d3
+> 文档生成时间：2026-10-06T18:11:59.163Z
+> 文档内容基准：de0f777e808213c5c709d40135866f2ffc73edb0e60aa25a0451cac5ca6dd3cd
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -79,6 +79,7 @@
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 - P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
 - P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
+- P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -112,6 +113,7 @@
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
+- A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1133,6 +1135,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：R04编辑画布实际纹理墙/完整角/完整禁闭建筑和门替旧色块，绘墙拖动/材质/尺寸及撤销实时更新；图层隐藏/锁定/碰撞覆盖准确。原地图未改，不启动NPC/时间/寻路；两尺寸图和操作证据，游戏共用资源不回退。
 - 验收负责人：制作人
+### P62 T形墙体接入游戏及编辑器
+- ID：p62-t-junction-integration-20261007
+- 当前状态：已完成
+- 内容：接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。
+- 前置任务：p61-editor-runtime-architecture-preview-20261007
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p62*、docs/dev/p62/**、docs/tests/p62*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1227,6 +1240,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 - P60 建筑瓦片唯一套装清理 [p60-unified-building-palette-20261007] · 已完成
 - P61 编辑器画布同步游戏建筑表现 [p61-editor-runtime-architecture-preview-20261007] · 已完成
+- A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成
+- P62 T形墙体接入游戏及编辑器 [p62-t-junction-integration-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1792,6 +1807,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v28/manifest.json
 - 验收要求：原生实际左右24及厨房20接点为完整连续L转弯，无横压顶与下方竖条硬拼；原顶面明暗/深边/石缝尺度对接。配套地图编辑器图标。制作人亲眼对照新增参考并独立验收，功能正确不替代美术判断。
 - 验收负责人：制作人
+### A29 同套石墙T形连接瓦片与编辑图标
+- ID：a29-stone-t-junction-20261007
+- 当前状态：已完成
+- 内容：厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。
+- 前置任务：p61-editor-runtime-architecture-preview-20261007
+- 允许修改路径：art/architecture/v29/**、art/editor/v09/**、docs/art/architecture-v29/**
+- 接口契约：主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。
+- 交付入口：art/architecture/v29/manifest.json
+- 验收要求：连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1823,3 +1848,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A26 同源墙体瓦片母版与拼接组件 [a26-unified-wall-tiles-20261006] · 已完成
 - A27 保留第一版体积的转角与竖墙局部返修 [a27-original-wall-local-repair-20261006] · 已完成
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
+- A29 同套石墙T形连接瓦片与编辑图标 [a29-stone-t-junction-20261007] · 已完成

@@ -1,0 +1,66 @@
+{
+  "id": "a29-final-v29-20261007",
+  "digest": "3ed5053f25cdc264945301c972ca32e7b2e211ee2f7644ce88268fe9c82e3570",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T18:07:34.641Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a29-final-v29-20261007",
+    "taskId": "a29-stone-t-junction-20261007",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "交付architecture-v29-20261007-8a82e921c7fb：一张内置imagegen新绘完整向下T PNG，左右横臂贯通、中央纵臂和两凹角连续，不用两个旧L拼合。20/24两个本体132×80/136×80，stemx56，北深24，左右臂56，两个独立MeshTexture图标已GPU可见；右T整图镜像接V27_r。七源区注册同一新图，保留y24..28的4×4小肩部，两下内空alpha0。原PNG字节copy未涂改，旧A24–28全冻结hash不变。已亲眼复核实际1200左右game/editor、960game右/editor左及两尺寸T分类图；厨房两点横墙两侧连续、stem对原墙、内空不填影，原H墙身柱楣和外围L保留。主美判断符合本轮T积木意图，可交独立审；新分支石磨损较密但保留现套色/亮缘/深边，不承诺逐像素旧纹理。96项native/分类/选放/建筑预览单列不代替审美，门禁回归由P62另列。40文件hash已核对，素材/图标/interface/prompt/actual证据冻结，主美无shared代码/地图/Git修改；待制作人独立验收，不代表用户已批准。",
+    "evidence": [
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v29\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\v29\\cafeteria_t_master_v29.png",
+      "E:\\Project\\Godot\\这次怎么逃\\art\\editor\\v09\\manifest.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\delivery.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\README.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\prompt.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\interface.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\source-review.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-preview.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-detail.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\native-icons-visible.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\p62-visual-review.md",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\p62-visual-evidence.json",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-runtime-t-left.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-runtime-t-right.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-editor-t-left.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-runtime-t-right.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-editor-t-left.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-1200-t-palette.png",
+      "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\runtime\\p62-960-t-palette.png"
+    ],
+    "at": "2026-10-06T18:07:34.799Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a29-final-v29-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a29-final-v29-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "8eb14822aec95ab5f7046c526d66a4086d65b0111aa00c482c94ded99b218ed0"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "8eb14822aec95ab5f7046c526d66a4086d65b0111aa00c482c94ded99b218ed0",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

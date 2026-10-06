@@ -1,0 +1,163 @@
+{
+  "task": {
+    "id": "p62-t-junction-integration-20261007",
+    "title": "P62 T形墙体接入游戏及编辑器",
+    "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+    "result": "按允许候选试接契约，准备T分类/两厨房junction与native对照；主美已接A29，最终验收等待正式美术交付。",
+    "dependencyIds": [
+      "p61-editor-runtime-architecture-preview-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p62*",
+        "docs/dev/p62/**",
+        "docs/tests/p62*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p62-t-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T17:45:05.159Z"
+      }
+    ]
+  },
+  "revision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf",
+  "scheduleRevision": "322a44ffaf72f497d5c79081d9d40b30bf5b2cb196481c9566fc3e02c22bec72",
+  "planChanges": [
+    {
+      "id": "p62-t-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:45:05.159Z",
+      "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+      "createdTaskIds": [
+        "a29-stone-t-junction-20261007",
+        "p62-t-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p62-candidate-dependency-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:46:54.083Z",
+      "reason": "A29仍是正式交付前验收条件；程序需先按候选试接接口把实际图提供给主美复核，避免美术等待实际图、程序等待最终美术验收的循环。技术前置使用已验收P61，正式P62验收仍在A29验收之后。",
+      "createdTaskIds": [],
+      "dependencyChanges": [
+        {
+          "taskId": "p62-t-junction-integration-20261007",
+          "before": [
+            "a29-stone-t-junction-20261007"
+          ],
+          "after": [
+            "p61-editor-runtime-architecture-preview-20261007"
+          ],
+          "blocksProgress": false
+        }
+      ],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p61-editor-runtime-architecture-preview-20261007",
+      "title": "P61 编辑器画布同步游戏建筑表现",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p62-start-v2-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf"
+  },
+  "feedback": [
+    {
+      "id": "p62-start-v2-20261007",
+      "taskId": "p62-t-junction-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按允许候选试接契约，准备T分类/两厨房junction与native对照；主美已接A29，最终验收等待正式美术交付。",
+      "evidence": [
+        "docs/dev/p62/plan.json"
+      ],
+      "at": "2026-10-06T17:46:55.881Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p62-start-v2-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "38dacc98d893fd797193710f87a96d18f36d3081894520e364474d98a580eadf",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

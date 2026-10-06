@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v29/cafeteria_t_master_v29.png" id="1_hus8n"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o25ne"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 31.058823, 0, 112, 65.882355, 0),
+"attribute_data": PackedByteArray("/////x51XD3CFPk9/////3Q02z7CFPk9/////3Q02z5T5LM+/////x51XD1T5LM+/////3Q02z7CFPk9/////9uNEj/CFPk9/////9uNEj9T5LM+/////3Q02z5T5LM+/////9uNEj/CFPk9/////8Ngcj/CFPk9/////8Ngcj9T5LM+/////9uNEj9T5LM+/////3cNzj5T5LM+/////3Q02z5T5LM+/////3Q02z5NT8s+/////3cNzj5NT8s+/////3Q02z5T5LM+/////9uNEj9T5LM+/////9uNEj9NT8s+/////3Q02z5NT8s+/////9uNEj9T5LM+/////1ohGT9T5LM+/////1ohGT9NT8s+/////9uNEj9NT8s+/////3Q02z5NT8s+/////9uNEj9NT8s+/////9uNEj+oZWE//////3Q02z6oZWE/"),
+"format": 34393296921,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAQXh4+EF5eFhCeHj4QXl4WEJLS0tCAAAAQUtLS0J5eFhCeHj4QcTDk0J4ePhBxMOTQktLS0J5eFhCS0tLQsTDk0J4ePhBAADwQnh4+EEAAPBCS0tLQsTDk0JLS0tCS0tLQktLS0J4eFhCS0tLQnh4WEJ4eFhCS0tLQnh4WEJ5eFhCS0tLQsTDk0JLS0tCxMOTQnh4WEJ5eFhCeHhYQsTDk0JLS0tCW1qaQktLS0JbWppCeHhYQsTDk0J4eFhCeXhYQnh4WELEw5NCeHhYQsTDk0Li4cFCeXhYQuLhwUI=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_o25ne")
+base_texture = ExtResource("1_hus8n")
+image_size = Vector2(128, 128)

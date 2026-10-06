@@ -1,0 +1,38 @@
+{
+  "id": "p62-t-junction-plan-20261007",
+  "digest": "74227f2b3022d450861a788110df2e94cd897389dc33163e1ff46c6563ae72c7",
+  "operation": "task_plan_apply",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:45:04.960Z",
+  "status": "succeeded",
+  "result": {
+    "receiptId": "p62-t-junction-plan-20261007",
+    "scheduleRevision": "9b9be374aa3beaeafae2056f845c4d73a9dc89533170ed711856dbc266e488d4",
+    "created": [
+      {
+        "taskId": "a29-stone-t-junction-20261007",
+        "revision": "42d0d066288c7da5512549793d7db3cf98f7d5d7cfdd5571f451cdfa2e490d1b",
+        "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p62-t-junction-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      },
+      {
+        "taskId": "p62-t-junction-integration-20261007",
+        "revision": "f1ad65884264f8c07baa30ae5019bff2f6b60534344c23f3a4f5cbf7c1d1a5b5",
+        "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "dispatchId": "p62-t-junction-plan-20261007",
+        "status": "待开始",
+        "delivery": "task_inbox"
+      }
+    ],
+    "updated": [],
+    "warnings": [],
+    "next": "正式排期已保存并更新收件箱；已派发不代表外部 AI 已接手，执行人实际开始后再反馈进行中",
+    "milestoneUpdates": [],
+    "affectedMilestones": []
+  }
+}

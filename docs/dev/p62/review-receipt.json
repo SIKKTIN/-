@@ -1,0 +1,64 @@
+{
+  "id": "p62-self-review-20261007",
+  "digest": "a007f3a79a8772fe0e38f05ecc087eb9b724578be48b7314cd008c86714b03ec",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T18:11:57.427Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p62-ready-20261007",
+    "taskId": "p62-t-junction-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "T20/24注册独立二级分类及图标，真实选放保持原尺寸；R04厨房两处改T20并右镜像，外L/横墙立面保留，地图除architecture逐值不变。两尺寸96项、独立规格GPU12项、门禁禁闭救援逃脱73项全过；旧18建筑资源hash相同。主美已复核实际图，A29正式验收完成后才通过P62。",
+    "evidence": [
+      "docs/dev/p62/delivery.json",
+      "docs/dev/p62/README.md",
+      "docs/tests/p62-1200-t-native.json",
+      "docs/tests/p62-960-t-native.json",
+      "docs/tests/p62-1200-native.json",
+      "docs/tests/p62-960-native.json",
+      "docs/tests/p62-runtime-t-components.json",
+      "docs/tests/p62-access-access-headless-1200.json",
+      "docs/tests/p62-preservation.json",
+      "docs/tests/p62-1200-editor-t-left.png",
+      "docs/tests/p62-1200-runtime-t-right.png",
+      "docs/tests/p62-1200-t-palette.png"
+    ],
+    "at": "2026-10-06T18:07:17.246Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T18:11:57.577Z",
+      "note": "制作人程序自验收，证据与结论分开；A29 ev2已独立通过。42hash一致，两尺寸96操作/图层/选放/T像素项+两规格独立组件12项通过，门禁禁闭救援全逃73项通过。地图除architecture逐值不变；T新增二级分类、搜索与实际图标，放置不拉伸；物理接口仍20/24、外L/柱楣保留。旧18建筑文件hash不变，用户project.godot未改未纳入。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p62-ready-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "45738ebaf45a4b948165fe19dc6773a20f74da7eec61c99a444aa4df481cd1af"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "45738ebaf45a4b948165fe19dc6773a20f74da7eec61c99a444aa4df481cd1af",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

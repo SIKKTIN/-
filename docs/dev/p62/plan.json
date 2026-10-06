@@ -1,0 +1,60 @@
+{
+  "scheduleRevision": "e51efc4e964659497eb070ce0d78d5c2b2d673a59d5d27b34ab4248263f951de",
+  "creates": [
+    {
+      "task": {
+        "id": "a29-stone-t-junction-20261007",
+        "title": "A29 同套石墙T形连接瓦片与编辑图标",
+        "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+        "kind": "美术",
+        "priority": "高",
+        "dependencyIds": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+        "workScope": {
+          "allowedPaths": [
+            "art/architecture/v29/**",
+            "art/editor/v09/**",
+            "docs/art/architecture-v29/**"
+          ],
+          "entry": "art/architecture/v29/manifest.json",
+          "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+        }
+      },
+      "assigneeId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    {
+      "task": {
+        "id": "p62-t-junction-integration-20261007",
+        "title": "P62 T形墙体接入游戏及编辑器",
+        "description": "接入A29石墙T瓦片，修复R04两个厨房隔墙北端，把T分类/图标/摆放加入统一建筑套装。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "a29-stone-t-junction-20261007"
+        ],
+        "acceptance": "R04厨房两接点为T，两侧横压顶连续，纵墙无L硬折；现门柱和外L保留。编辑器二级连接分类、名称/图标/摆放/命中正常；runtime/editor两尺寸证据及玩法门禁回归。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "data/rooms/r04.json",
+            "qa/p62*",
+            "docs/dev/p62/**",
+            "docs/tests/p62*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人注册新manifest和编辑图标、T二级分类与两个junction/cap_cutouts；不改冻结美术，碰撞和门禁物理布局不变。A29候选允许试接测试，正式验收后完成本人任务。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+  "requestId": "p62-t-junction-plan-20261007"
+}

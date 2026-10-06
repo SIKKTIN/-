@@ -1,0 +1,31 @@
+{
+  "id": "p62-candidate-dependency-20261007",
+  "digest": "ac9eb0f18b7cf4a7d1c897d14fe3fa4b005d3bcfd3f46d36bcec699e76bee97a",
+  "operation": "task_dependencies_update",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T17:46:53.910Z",
+  "status": "succeeded",
+  "result": {
+    "receiptId": "p62-candidate-dependency-20261007",
+    "scheduleRevision": "d0abaf87090b71a3acaded2726ec08b6b3410454ac827c0b359310b6007dd99c",
+    "created": [],
+    "updated": [
+      {
+        "taskId": "p62-t-junction-integration-20261007",
+        "before": [
+          "a29-stone-t-junction-20261007"
+        ],
+        "after": [
+          "p61-editor-runtime-architecture-preview-20261007"
+        ],
+        "blocksProgress": false,
+        "revision": "b4257367060887991391ef80ecdb050a2460fc7077c519d79f57225fb1550137"
+      }
+    ],
+    "warnings": [],
+    "next": "排期归属与依赖已保存，任务状态和交付记录保持原样；请核对受影响里程碑进度",
+    "milestoneUpdates": [],
+    "affectedMilestones": []
+  }
+}

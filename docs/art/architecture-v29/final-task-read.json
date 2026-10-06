@@ -1,0 +1,137 @@
+{
+  "task": {
+    "id": "a29-stone-t-junction-20261007",
+    "title": "A29 同套石墙T形连接瓦片与编辑图标",
+    "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+    "result": "已读取用户厨房截图，接点属于横墙继续贯通、中央向下纵臂的T形。本人用内置imagegen专门绘制完整T压顶，不用两个旧L拼合；保留原V24/V27/V28风格和旧资产。拟20为132×80、24为136×80，左右臂各56，北臂深24，纵臂x56，80后接原V27。先精确源区/原生试拼/GPU图标交一套候选，实际厨房两个T点由制作人P62接入后审美复核。",
+    "dependencyIds": [
+      "p61-editor-runtime-architecture-preview-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v29/**",
+        "art/editor/v09/**",
+        "docs/art/architecture-v29/**"
+      ],
+      "entry": "art/architecture/v29/manifest.json",
+      "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p62-t-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T17:45:05.159Z"
+      }
+    ]
+  },
+  "revision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7",
+  "scheduleRevision": "322a44ffaf72f497d5c79081d9d40b30bf5b2cb196481c9566fc3e02c22bec72",
+  "planChanges": [
+    {
+      "id": "p62-t-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:45:05.159Z",
+      "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+      "createdTaskIds": [
+        "a29-stone-t-junction-20261007",
+        "p62-t-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p61-editor-runtime-architecture-preview-20261007",
+      "title": "P61 编辑器画布同步游戏建筑表现",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a29-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7"
+  },
+  "feedback": [
+    {
+      "id": "a29-start-20261007",
+      "taskId": "a29-stone-t-junction-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已读取用户厨房截图，接点属于横墙继续贯通、中央向下纵臂的T形。本人用内置imagegen专门绘制完整T压顶，不用两个旧L拼合；保留原V24/V27/V28风格和旧资产。拟20为132×80、24为136×80，左右臂各56，北臂深24，纵臂x56，80后接原V27。先精确源区/原生试拼/GPU图标交一套候选，实际厨房两个T点由制作人P62接入后审美复核。",
+      "evidence": [
+        "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\architecture-v29\\interface-draft.json"
+      ],
+      "at": "2026-10-06T17:47:08.499Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a29-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "b76a213d58cbab9e58de3e2888b0260187d28c82005b73e72a900d67a0f6bcc7",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}
