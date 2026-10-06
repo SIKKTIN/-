@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "0be4a0cc79d676f98222988f9f09b625964e257cede396b010885631e73617d7",
+  "snapshotId": "00aa308d37e9a57e52110fcdaec2f6bc708f98d33f58d05e265f1da7a5eb21a7",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -3568,6 +3568,97 @@
           "at": "2026-10-06T07:14:19.849Z"
         }
       ]
+    },
+    {
+      "id": "a18-editor-icons-20261006",
+      "title": "A18 · 地图编辑器图标与素材配套交付规范",
+      "description": "用户要求美术制作场景素材时同时交付对应地图编辑器图标。本轮补齐已有14项摆设图标与规则点/物品/角色放置图标，制定长期交付标准。",
+      "kind": "美术",
+      "owner": "主美",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "图标与场景素材一一对应，透明/清晰/固定显示框，48–64px可辨认；对应图标清单含id、name、category、editor_icon，工具清单含id、name、icon。已有资源可用独立AtlasTexture裁框资源引用已验收PNG，不改原PNG像素；逻辑点可沿用现有SVG风格制作。实际Godot资源加载和联系表查看，未来美术必须提交编辑器图标/字段/小尺寸QA；主美待验收，制作人接入复核。",
+      "result": "主美已补齐14世界摆设对应editor_icon AtlasTexture及26工具/角色/物品/日常/区域符号，复用原PNG和原生SVG风格，独立manifest字段/分类/ID准确。实际Godot加载、64透明SubViewport及48/64联系表178项通过并审图，14原PNG事后哈希未改变。editor-icon-standard.md规定后续新摆设/角色/交互物必须配图标/映射/缩小QA，逻辑标记专用符号、开锁门外观仅摆设。制作人P51接入/真实编辑器复核另行验收；未自验收、改程序/原manifest/project.godot或提交Git。\n\n验收通过：制作人核对14项世界ID映射、178项实际资源/透明SubViewport检查及联系表，全部通过；查看48/64联系表和1280/960编辑器真实卡片，图标可辨认、源PNG未改。26专用符号接入操作条/分类素材/图层；长期editor_icon交付规范已明确并将写入正式制作方案。资源验收通过；程序完整分层与试玩由P51另外验收。",
+      "dependencyIds": [],
+      "references": [],
+      "workScope": {
+        "entry": "art/editor/v01/manifest.json",
+        "interfaceContract": "schema:1，assets:[{id,name,category,editor_icon}]；tools:[{id,name,icon}]。category用furniture/cafeteria/props，资产id保持世界素材id。tools需要gate_guards,merchants,items,work,meal,dine,free,zones,dorm_doors；可另提供select/pan/walls等操作图标。制作人独占scripts/editor与QA集成，主美不改原素材manifest和程序。",
+        "allowedPaths": [
+          "art/editor/v01/*",
+          "docs/art/a18*",
+          "docs/art/editor-icon-standard.md"
+        ]
+      },
+      "positionIds": [
+        "art-director"
+      ],
+      "assignment": {
+        "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "at": "2026-10-06T07:27:28.447Z"
+        }
+      ]
+    },
+    {
+      "id": "p51-editor-layout-layers-20261006",
+      "title": "P51 · 编辑器操作素材分区与分类图层",
+      "description": "修复操作与可摆放物混在一起、无可视化素材面板及地图点杂乱。拆出独立操作工具栏、带图标分类素材库、对象页与显示/锁定图层，并接入A18图标。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-06",
+      "actualEnd": "2026-10-06",
+      "milestoneId": "",
+      "acceptance": "操作工具与可放置素材彻底分区；图标卡片按类别筛选，选择立即激活对应放置，不依赖旧下拉框。分类墙门/摆设/人物/巡逻/物品/日常/区域，显示与锁定作用于绘制、点选、对象列表和编辑，隐藏巡逻连线与标签一并隐藏。筛选状态不改地图JSON，保存/撤销/试玩保持，小窗口/实际Godot主屏可用，未知图标有兼容回退；A18资源验收后接入。",
+      "result": "编辑器改为独立操作条、分类两列图标素材页、对象页和7类显示/锁定图层。A18资源已独立验收并接入；美术必须配套editor_icon规范已正式应用GameCreator，原风格基准保留。程序227项、资源178项，累计405检查通过，原R04/用户配置差异保留。\n\n验收通过：验收通过：227 项编辑器检查和 178 项图标检查通过。已查看 1280 与 960 原生截图，操作区、26 张素材卡、七类显隐锁定和对象筛选符合要求；真实鼠标、输入提交、撤销、保存和草稿试玩验证通过。原生 Godot 可执行进程退出码 0。原始地图、用户 project.godot 改动及既有编辑窗口保留；不宣称手机实机验证。A18 图标交付规范已写入正式美术文档。",
+      "dependencyIds": [
+        "p50b-editor-field-focus-20261006"
+      ],
+      "references": [],
+      "producerSelfReview": true,
+      "positionIds": [
+        "producer"
+      ],
+      "workScope": {
+        "entry": "Godot关卡编辑页 / 独立场景",
+        "interfaceContract": "地图JSON字段和运行时不变；图层是编辑器视图状态，隐藏不删除对象，锁定只禁止本层编辑。图标资源来自A18独立manifest，加载Texture2D；原美术manifest保持不改。现有项目配置的用户差异原样保留。",
+        "allowedPaths": [
+          "scripts/editor/*",
+          "addons/escape_map_editor/*",
+          "qa/p51*",
+          "docs/dev/p51*",
+          "docs/tests/p51*"
+        ]
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "dispatchHistory": [
+        {
+          "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T07:27:28.447Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -3721,7 +3812,8 @@
             "p48-hud-story-premise-20261006",
             "p49-thug-mainline-integration-20261006",
             "p50-level-editor-20261006",
-            "p50b-editor-field-focus-20261006"
+            "p50b-editor-field-focus-20261006",
+            "p51-editor-layout-layers-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -3788,7 +3880,8 @@
             "c2c6c499-e6e9-4568-b807-7a71c92c1eab",
             "a16-vertical-mobile-hud-20261006",
             "a17-prison-scene-expansion-20261006",
-            "a17-thug-lookout-20261006"
+            "a17-thug-lookout-20261006",
+            "a18-editor-icons-20261006"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -4164,6 +4257,16 @@
       "at": "2026-10-06T06:14:27.842Z",
       "modules": [
         "project"
+      ]
+    },
+    {
+      "id": "p51-editor-icon-standard-20261006",
+      "digest": "eef0dac2123b68ff1c92b72c6d287bf5c424cd0e425de3ab9db135a0a41e6888",
+      "summary": "按用户要求永久记录美术素材必须配套编辑器图标，新增制作规范，不改历史风格与世界资源。",
+      "memberName": "制作人",
+      "at": "2026-10-06T07:50:12.856Z",
+      "modules": [
+        "art-assets"
       ]
     }
   ],
@@ -4706,6 +4809,19 @@
       "reason": "P50验收后的额外边界复现，独立登记修复且不更改原验收",
       "createdTaskIds": [
         "p50b-editor-field-focus-20261006"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T07:27:28.447Z",
+      "reason": "用户明确要求编辑器布局优化、分类图层及美术配套图标，分别派主美制作资源规范和制作人主干实现",
+      "createdTaskIds": [
+        "a18-editor-icons-20261006",
+        "p51-editor-layout-layers-20261006"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -15179,6 +15295,273 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-06T07:16:57.386Z",
         "note": "独立核对新增两份5项焦点报告及修复后43/48/48编辑回归、19项实际Godot插件回归。未提交属性字段再撤销或删除不再访问失效索引；撤销删除还原待输入文字；无脚本错误，原地图保留。验收通过，P50原验收与本后续验收均保留。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p51-started-20261006",
+      "taskId": "p51-editor-layout-layers-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手：拆分顶部操作条与左侧分类图标素材库，增加对象页与7类显示/锁定图层；主美A18已实际调度，图标清单接口已约定。",
+      "evidence": [
+        "已读取P50实现及用户截图，原地图JSON与用户项目配置差异保留",
+        "图标约定art/editor/v01/manifest.json；制作人与主美修改范围分离"
+      ],
+      "at": "2026-10-06T07:30:08.782Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p51-editor-layout-layers-20261006",
+        "title": "P51 · 编辑器操作素材分区与分类图层",
+        "description": "修复操作与可摆放物混在一起、无可视化素材面板及地图点杂乱。拆出独立操作工具栏、带图标分类素材库、对象页与显示/锁定图层，并接入A18图标。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "操作工具与可放置素材彻底分区；图标卡片按类别筛选，选择立即激活对应放置，不依赖旧下拉框。分类墙门/摆设/人物/巡逻/物品/日常/区域，显示与锁定作用于绘制、点选、对象列表和编辑，隐藏巡逻连线与标签一并隐藏。筛选状态不改地图JSON，保存/撤销/试玩保持，小窗口/实际Godot主屏可用，未知图标有兼容回退；A18资源验收后接入。",
+        "result": "制作人已接手：拆分顶部操作条与左侧分类图标素材库，增加对象页与7类显示/锁定图层；主美A18已实际调度，图标清单接口已约定。",
+        "dependencyIds": [
+          "p50b-editor-field-focus-20261006"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "positionIds": [
+          "producer"
+        ],
+        "workScope": {
+          "entry": "Godot关卡编辑页 / 独立场景",
+          "interfaceContract": "地图JSON字段和运行时不变；图层是编辑器视图状态，隐藏不删除对象，锁定只禁止本层编辑。图标资源来自A18独立manifest，加载Texture2D；原美术manifest保持不改。现有项目配置的用户差异原样保留。",
+          "allowedPaths": [
+            "scripts/editor/*",
+            "addons/escape_map_editor/*",
+            "qa/p51*",
+            "docs/dev/p51*",
+            "docs/tests/p51*"
+          ]
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T07:27:28.447Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a18-editor-icons-start-20261006",
+      "taskId": "a18-editor-icons-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "主美本人已接手A18。确认现有14世界素材ID，制作独立AtlasTexture引用原PNG，逻辑标记/选择平移绘墙及可见锁定用专用SVG符号；同步制定后续每项新摆设/角色/交互物必须配编辑器图标的交付规范。仅编辑art/editor/v01与a18文档/规范，不改原素材manifest/程序/配置。",
+      "evidence": [
+        "已读map_document.ASSET_NAMES与prison_v08/cafeteria_v14/props manifest-v03，14项一一匹配；程序分类与图层接入由制作人P51负责。",
+        "清单schema1/assets[{id,name,category,editor_icon}]/tools[{id,name,icon}]；类别furniture/cafeteria/props，Texture2D固定48/64显示框、透明缩小QA与实际Godot资源加载联系表。"
+      ],
+      "at": "2026-10-06T07:31:35.115Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "a18-editor-icons-20261006",
+        "title": "A18 · 地图编辑器图标与素材配套交付规范",
+        "description": "用户要求美术制作场景素材时同时交付对应地图编辑器图标。本轮补齐已有14项摆设图标与规则点/物品/角色放置图标，制定长期交付标准。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "图标与场景素材一一对应，透明/清晰/固定显示框，48–64px可辨认；对应图标清单含id、name、category、editor_icon，工具清单含id、name、icon。已有资源可用独立AtlasTexture裁框资源引用已验收PNG，不改原PNG像素；逻辑点可沿用现有SVG风格制作。实际Godot资源加载和联系表查看，未来美术必须提交编辑器图标/字段/小尺寸QA；主美待验收，制作人接入复核。",
+        "result": "主美本人已接手A18。确认现有14世界素材ID，制作独立AtlasTexture引用原PNG，逻辑标记/选择平移绘墙及可见锁定用专用SVG符号；同步制定后续每项新摆设/角色/交互物必须配编辑器图标的交付规范。仅编辑art/editor/v01与a18文档/规范，不改原素材manifest/程序/配置。",
+        "dependencyIds": [],
+        "references": [],
+        "workScope": {
+          "entry": "art/editor/v01/manifest.json",
+          "interfaceContract": "schema:1，assets:[{id,name,category,editor_icon}]；tools:[{id,name,icon}]。category用furniture/cafeteria/props，资产id保持世界素材id。tools需要gate_guards,merchants,items,work,meal,dine,free,zones,dorm_doors；可另提供select/pan/walls等操作图标。制作人独占scripts/editor与QA集成，主美不改原素材manifest和程序。",
+          "allowedPaths": [
+            "art/editor/v01/*",
+            "docs/art/a18*",
+            "docs/art/editor-icon-standard.md"
+          ]
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T07:27:28.447Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a18-editor-icons-ready-20261006",
+      "taskId": "a18-editor-icons-20261006",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "主美已补齐14世界摆设对应editor_icon AtlasTexture及26工具/角色/物品/日常/区域符号，复用原PNG和原生SVG风格，独立manifest字段/分类/ID准确。实际Godot加载、64透明SubViewport及48/64联系表178项通过并审图，14原PNG事后哈希未改变。editor-icon-standard.md规定后续新摆设/角色/交互物必须配图标/映射/缩小QA，逻辑标记专用符号、开锁门外观仅摆设。制作人P51接入/真实编辑器复核另行验收；未自验收、改程序/原manifest/project.godot或提交Git。",
+      "evidence": [
+        "E:/Project/Godot/这次怎么逃/art/editor/v01/manifest.json：schema1，assets14项{id,name,category,editor_icon}与tools26项{id,name,icon}，覆盖必需九项、选择/平移/绘墙、eye/lock及door_key/lock_tool/scrap等。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a18-icon-sources.json：14原始PNG来源manifest/crop/正方形margin/source SHA及原生后哈希全部一致；AtlasTexture.filter_clip=true，未更改原PNG。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a18-resource-qa.json：178项passed=true，无failed；真实ResourceLoader Texture2D加载、ID/类别/必需项、虚拟方框与64透明SubViewport四角，原生联系表成功保存。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a18-icon-contact.png：1120×820原生Godot4.7.2 D3D12，主美view_image实际查看，全部40引用在固定48/64框可辨认；25个SVG供26工具引用，逻辑图标不读内部ID。",
+        "E:/Project/Godot/这次怎么逃/docs/art/editor-icon-standard.md：今后每项新摆设/角色/交互物必须editor_icon与世界稳定ID对应、分类/name/来源/尺寸/透明/48与64真实加载和审图证据齐全，缺项不算交付；主规则门与开/锁门外观摆设独立。",
+        "E:/Project/Godot/这次怎么逃/docs/art/a18-editor-icons.md：资源接口、修正Atlas get_image不含margin透明误报、全部QA与制作人P51集成边界；a18-build-editor-icons.py与a18-native-icon-qa.gd可追溯重建/复查。制作人另报告P51 headless61项通过，不冒充主美本人运行程序集成。"
+      ],
+      "at": "2026-10-06T07:46:51.981Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "a18-editor-icons-20261006",
+        "title": "A18 · 地图编辑器图标与素材配套交付规范",
+        "description": "用户要求美术制作场景素材时同时交付对应地图编辑器图标。本轮补齐已有14项摆设图标与规则点/物品/角色放置图标，制定长期交付标准。",
+        "kind": "美术",
+        "owner": "主美",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "图标与场景素材一一对应，透明/清晰/固定显示框，48–64px可辨认；对应图标清单含id、name、category、editor_icon，工具清单含id、name、icon。已有资源可用独立AtlasTexture裁框资源引用已验收PNG，不改原PNG像素；逻辑点可沿用现有SVG风格制作。实际Godot资源加载和联系表查看，未来美术必须提交编辑器图标/字段/小尺寸QA；主美待验收，制作人接入复核。",
+        "result": "主美已补齐14世界摆设对应editor_icon AtlasTexture及26工具/角色/物品/日常/区域符号，复用原PNG和原生SVG风格，独立manifest字段/分类/ID准确。实际Godot加载、64透明SubViewport及48/64联系表178项通过并审图，14原PNG事后哈希未改变。editor-icon-standard.md规定后续新摆设/角色/交互物必须配图标/映射/缩小QA，逻辑标记专用符号、开锁门外观仅摆设。制作人P51接入/真实编辑器复核另行验收；未自验收、改程序/原manifest/project.godot或提交Git。",
+        "dependencyIds": [],
+        "references": [],
+        "workScope": {
+          "entry": "art/editor/v01/manifest.json",
+          "interfaceContract": "schema:1，assets:[{id,name,category,editor_icon}]；tools:[{id,name,icon}]。category用furniture/cafeteria/props，资产id保持世界素材id。tools需要gate_guards,merchants,items,work,meal,dine,free,zones,dorm_doors；可另提供select/pan/walls等操作图标。制作人独占scripts/editor与QA集成，主美不改原素材manifest和程序。",
+          "allowedPaths": [
+            "art/editor/v01/*",
+            "docs/art/a18*",
+            "docs/art/editor-icon-standard.md"
+          ]
+        },
+        "positionIds": [
+          "art-director"
+        ],
+        "assignment": {
+          "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+            "at": "2026-10-06T07:27:28.447Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T07:48:35.477Z",
+        "note": "制作人核对14项世界ID映射、178项实际资源/透明SubViewport检查及联系表，全部通过；查看48/64联系表和1280/960编辑器真实卡片，图标可辨认、源PNG未改。26专用符号接入操作条/分类素材/图层；长期editor_icon交付规范已明确并将写入正式制作方案。资源验收通过；程序完整分层与试玩由P51另外验收。",
+        "mode": "independent",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p51-ready-20261006",
+      "taskId": "p51-editor-layout-layers-20261006",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "编辑器改为独立操作条、分类两列图标素材页、对象页和7类显示/锁定图层。A18资源已独立验收并接入；美术必须配套editor_icon规范已正式应用GameCreator，原风格基准保留。程序227项、资源178项，累计405检查通过，原R04/用户配置差异保留。",
+      "evidence": [
+        "docs/dev/p51-editor-layout-layers.md",
+        "docs/tests/p51-editor-layout-layers.md",
+        "docs/tests/p51-editor-headless-1280.json：62项通过",
+        "docs/tests/p51-editor-native-1280.json、p51-editor-native-960.json：各67项，通过真实图标卡片/物品定义/隐藏/锁定/完整P50保存试玩回归",
+        "docs/tests/p51-fields-headless.json、p51-fields-native.json：各5项通过",
+        "docs/tests/p51-editor-plugin-native.json：21项，真实Godot主屏/图层文档不变/快捷键/保存/试玩；实际原生exe退出0，headless导入0，console包装退出码差异已记录",
+        "A18制作人验收accepted；docs/art/a18-resource-qa.json：178项通过；已查看48/64联系表和1280/960场景/巡逻独显/属性/真实主屏图",
+        "art-assets/productionDocs/@editor-icon-production-standard-v01已正式应用；docs/art/editor-icon-standard.md规定后续世界素材+图标+映射+小尺寸QA一起交付",
+        "R01–R04地图文件未改写，旧世界PNG未改，project.godot用户原5行移除差异保留；未关闭/保存用户旧草稿窗口，未声明手机硬件验证"
+      ],
+      "at": "2026-10-06T07:57:33.351Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p51-editor-layout-layers-20261006",
+        "title": "P51 · 编辑器操作素材分区与分类图层",
+        "description": "修复操作与可摆放物混在一起、无可视化素材面板及地图点杂乱。拆出独立操作工具栏、带图标分类素材库、对象页与显示/锁定图层，并接入A18图标。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "操作工具与可放置素材彻底分区；图标卡片按类别筛选，选择立即激活对应放置，不依赖旧下拉框。分类墙门/摆设/人物/巡逻/物品/日常/区域，显示与锁定作用于绘制、点选、对象列表和编辑，隐藏巡逻连线与标签一并隐藏。筛选状态不改地图JSON，保存/撤销/试玩保持，小窗口/实际Godot主屏可用，未知图标有兼容回退；A18资源验收后接入。",
+        "result": "编辑器改为独立操作条、分类两列图标素材页、对象页和7类显示/锁定图层。A18资源已独立验收并接入；美术必须配套editor_icon规范已正式应用GameCreator，原风格基准保留。程序227项、资源178项，累计405检查通过，原R04/用户配置差异保留。",
+        "dependencyIds": [
+          "p50b-editor-field-focus-20261006"
+        ],
+        "references": [],
+        "producerSelfReview": true,
+        "positionIds": [
+          "producer"
+        ],
+        "workScope": {
+          "entry": "Godot关卡编辑页 / 独立场景",
+          "interfaceContract": "地图JSON字段和运行时不变；图层是编辑器视图状态，隐藏不删除对象，锁定只禁止本层编辑。图标资源来自A18独立manifest，加载Texture2D；原美术manifest保持不改。现有项目配置的用户差异原样保留。",
+          "allowedPaths": [
+            "scripts/editor/*",
+            "addons/escape_map_editor/*",
+            "qa/p51*",
+            "docs/dev/p51*",
+            "docs/tests/p51*"
+          ]
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "dispatchHistory": [
+          {
+            "id": "c53450b2-7f61-49bf-994e-259ea9363929",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T07:27:28.447Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T08:00:21.198Z",
+        "note": "验收通过：227 项编辑器检查和 178 项图标检查通过。已查看 1280 与 960 原生截图，操作区、26 张素材卡、七类显隐锁定和对象筛选符合要求；真实鼠标、输入提交、撤销、保存和草稿试玩验证通过。原生 Godot 可执行进程退出码 0。原始地图、用户 project.godot 改动及既有编辑窗口保留；不宣称手机实机验证。A18 图标交付规范已写入正式美术文档。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

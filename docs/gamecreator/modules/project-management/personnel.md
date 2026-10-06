@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T07:17:02.370Z
-> 文档内容基准：e58f792536fec575a48974f4c54cfe318f16bc3cd5e757755a8b898fac0dc41d
+> 文档生成时间：2026-10-06T08:00:56.807Z
+> 文档内容基准：e4804b9c8de0f5106067976927ffc81d99bf2f0f998cf4f1966e31bc1209cb91
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -68,6 +68,7 @@
 - P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
 - P50 · Godot关卡编辑页与编辑试玩闭环 [p50-level-editor-20261006] · 已完成
 - P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
+- P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -90,6 +91,7 @@
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 - A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
+- A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -990,6 +992,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：真实工具栏点击且属性LineEdit保持焦点时，撤销先提交待编辑字段再撤销该字段；删除先提交并删，撤销删除还原该文字；无索引错误。新回归headless和native通过，P50原完整编辑用例保持通过。
 - 验收负责人：制作人
+### P51 · 编辑器操作素材分区与分类图层
+- ID：p51-editor-layout-layers-20261006
+- 当前状态：已完成
+- 内容：修复操作与可摆放物混在一起、无可视化素材面板及地图点杂乱。拆出独立操作工具栏、带图标分类素材库、对象页与显示/锁定图层，并接入A18图标。
+- 前置任务：p50b-editor-field-focus-20261006
+- 允许修改路径：scripts/editor/*、addons/escape_map_editor/*、qa/p51*、docs/dev/p51*、docs/tests/p51*
+- 接口契约：地图JSON字段和运行时不变；图层是编辑器视图状态，隐藏不删除对象，锁定只禁止本层编辑。图标资源来自A18独立manifest，加载Texture2D；原美术manifest保持不改。现有项目配置的用户差异原样保留。
+- 交付入口：Godot关卡编辑页 / 独立场景
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：操作工具与可放置素材彻底分区；图标卡片按类别筛选，选择立即激活对应放置，不依赖旧下拉框。分类墙门/摆设/人物/巡逻/物品/日常/区域，显示与锁定作用于绘制、点选、对象列表和编辑，隐藏巡逻连线与标签一并隐藏。筛选状态不改地图JSON，保存/撤销/试玩保持，小窗口/实际Godot主屏可用，未知图标有兼容回退；A18资源验收后接入。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1062,6 +1075,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
 - P50 · Godot关卡编辑页与编辑试玩闭环 [p50-level-editor-20261006] · 已完成
 - P50B · 关卡属性未提交文字与撤销删除修复 [p50b-editor-field-focus-20261006] · 已完成
+- A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成
+- P51 · 编辑器操作素材分区与分类图层 [p51-editor-layout-layers-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1517,6 +1532,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/characters/thug_v17/manifest.json → 制作人P48接入现有看守ActorVisual
 - 验收要求：透明背景，便服小混混无警服/帽/徽章，画风与既有人物一致，角色高度约60世界单位；站立+至少8帧行走注册锚点稳定，左右翻转可用；交付源提示/图片/尺寸与帧区域/脚锚点/资源QA和制作说明；本人凭证提交待验收由制作人审核。
 - 验收负责人：制作人
+### A18 · 地图编辑器图标与素材配套交付规范
+- ID：a18-editor-icons-20261006
+- 当前状态：已完成
+- 内容：用户要求美术制作场景素材时同时交付对应地图编辑器图标。本轮补齐已有14项摆设图标与规则点/物品/角色放置图标，制定长期交付标准。
+- 前置任务：无
+- 允许修改路径：art/editor/v01/*、docs/art/a18*、docs/art/editor-icon-standard.md
+- 接口契约：schema:1，assets:[{id,name,category,editor_icon}]；tools:[{id,name,icon}]。category用furniture/cafeteria/props，资产id保持世界素材id。tools需要gate_guards,merchants,items,work,meal,dine,free,zones,dorm_doors；可另提供select/pan/walls等操作图标。制作人独占scripts/editor与QA集成，主美不改原素材manifest和程序。
+- 交付入口：art/editor/v01/manifest.json
+- 验收要求：图标与场景素材一一对应，透明/清晰/固定显示框，48–64px可辨认；对应图标清单含id、name、category、editor_icon，工具清单含id、name、icon。已有资源可用独立AtlasTexture裁框资源引用已验收PNG，不改原PNG像素；逻辑点可沿用现有SVG风格制作。实际Godot资源加载和联系表查看，未来美术必须提交编辑器图标/字段/小尺寸QA；主美待验收，制作人接入复核。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1537,3 +1562,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 - A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
 - A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
+- A18 · 地图编辑器图标与素材配套交付规范 [a18-editor-icons-20261006] · 已完成

@@ -533,6 +533,17 @@
         "images": [],
         "createdAt": "2026-10-04T11:42:39.738Z",
         "updatedAt": "2026-10-04T11:42:39.738Z"
+      },
+      {
+        "id": "editor-icon-production-standard-v01",
+        "assetIds": [],
+        "requirementIds": [],
+        "images": [],
+        "title": "地图编辑器图标 · 美术配套交付规范 v1",
+        "category": "编辑器与美术交付",
+        "createdAt": "2026-10-06T07:45:28.9482218Z",
+        "updatedAt": "2026-10-06T07:45:28.9482218Z",
+        "content": "用户于2026-10-06要求：美术制作场景素材时必须同时提供对应地图编辑器图标。本规范适用于今后每项可摆放家具、场景设施、角色/NPC、可交互或拾取物；规则点使用独立符号，不拿世界完整图片代替规则含义。\n交付必须包含：世界资源、独立编辑器Texture2D图标、同ID的manifest映射、中文名称与分类、来源/裁框/透明说明，以及48/64px实际渲染与透明QA。缺少编辑器图标不视为完整美术交付。已有资源允许独立AtlasTexture.tres引用原PNG，通过region/margin构成正方形图标，不改原PNG；新绘图标可用透明PNG或沿用SVG图标系统。\n清单schema:1，assets条目为{id,name,category,editor_icon}；editor_icon是res://Texture2D路径，id必须与world asset id一致。场景类别furniture/cafeteria/props；其他类别接入前约定，不混用操作工具与可摆放素材。tools条目为{id,name,icon}，覆盖巡逻、门岗、商人、物品、日常点、区域以及操作符号。\n图标实际显示48px，64px联系表复核；透明边距和轮廓不能被裁断，长栏杆与窄门必要时采用代表性局部，不能只剩难辨认的细线。统一墨线/青绿操作符号与纸色界面。AtlasTexture验收必须用实际SubViewport合成检查虚拟margin，不能把get_image的局部裁图误判为图标不透明。\n锁门/开门外观图标只代表静态摆设，不能暗示新增真实主门、自动撬锁或通行逻辑；主规则门/寝室门使用独立规则标记。世界碰撞、宽高、视线和绘制深度由原世界定义控制，编辑器图标不得更改这些语义。\n主美负责资源与小尺寸联系表；制作人检查图标资源加载、卡片选择与实际放置的ID一致、分类和用户交互，再验收接入。兼容旧资源时程序允许缩略图回退，但不替代今后美术的图标交付。规范文件：E:/Project/Godot/这次怎么逃/docs/art/editor-icon-standard.md；本轮参考：art/editor/v01/manifest.json、A18任务a18-editor-icons-20261006、程序P51。"
       }
     ]
   }

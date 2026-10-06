@@ -1,0 +1,52 @@
+{
+  "id": "a18-editor-icons-ready-20261006",
+  "digest": "2b64e2f8d3892a88a6c3fa4303f83344a87d13c34e6359c05e732cd916567cec",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T07:46:51.866Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a18-editor-icons-ready-20261006",
+    "taskId": "a18-editor-icons-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "主美已补齐14世界摆设对应editor_icon AtlasTexture及26工具/角色/物品/日常/区域符号，复用原PNG和原生SVG风格，独立manifest字段/分类/ID准确。实际Godot加载、64透明SubViewport及48/64联系表178项通过并审图，14原PNG事后哈希未改变。editor-icon-standard.md规定后续新摆设/角色/交互物必须配图标/映射/缩小QA，逻辑标记专用符号、开锁门外观仅摆设。制作人P51接入/真实编辑器复核另行验收；未自验收、改程序/原manifest/project.godot或提交Git。",
+    "evidence": [
+      "E:/Project/Godot/这次怎么逃/art/editor/v01/manifest.json：schema1，assets14项{id,name,category,editor_icon}与tools26项{id,name,icon}，覆盖必需九项、选择/平移/绘墙、eye/lock及door_key/lock_tool/scrap等。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a18-icon-sources.json：14原始PNG来源manifest/crop/正方形margin/source SHA及原生后哈希全部一致；AtlasTexture.filter_clip=true，未更改原PNG。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a18-resource-qa.json：178项passed=true，无failed；真实ResourceLoader Texture2D加载、ID/类别/必需项、虚拟方框与64透明SubViewport四角，原生联系表成功保存。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a18-icon-contact.png：1120×820原生Godot4.7.2 D3D12，主美view_image实际查看，全部40引用在固定48/64框可辨认；25个SVG供26工具引用，逻辑图标不读内部ID。",
+      "E:/Project/Godot/这次怎么逃/docs/art/editor-icon-standard.md：今后每项新摆设/角色/交互物必须editor_icon与世界稳定ID对应、分类/name/来源/尺寸/透明/48与64真实加载和审图证据齐全，缺项不算交付；主规则门与开/锁门外观摆设独立。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a18-editor-icons.md：资源接口、修正Atlas get_image不含margin透明误报、全部QA与制作人P51集成边界；a18-build-editor-icons.py与a18-native-icon-qa.gd可追溯重建/复查。制作人另报告P51 headless61项通过，不冒充主美本人运行程序集成。"
+    ],
+    "at": "2026-10-06T07:46:51.981Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a18-editor-icons-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a18-editor-icons-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "8df9d323e094b3a6d57d8724af58bf92560f5cd3c50f09b9bac5494a6681373c"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "8df9d323e094b3a6d57d8724af58bf92560f5cd3c50f09b9bac5494a6681373c",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

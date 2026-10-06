@@ -1,0 +1,12 @@
+{
+  "taskId": "a18-editor-icons-20261006",
+  "revision": "9762b0fd9d8e9ba2aa8b54d9dcaa5253a9b7ec7c05e8c562899b0a3df130aef9",
+  "feedbackId": "a18-editor-icons-start-20261006",
+  "requestId": "a18-editor-icons-start-20261006",
+  "status": "进行中",
+  "summary": "主美本人已接手A18。确认现有14世界素材ID，制作独立AtlasTexture引用原PNG，逻辑标记/选择平移绘墙及可见锁定用专用SVG符号；同步制定后续每项新摆设/角色/交互物必须配编辑器图标的交付规范。仅编辑art/editor/v01与a18文档/规范，不改原素材manifest/程序/配置。",
+  "evidence": [
+    "已读map_document.ASSET_NAMES与prison_v08/cafeteria_v14/props manifest-v03，14项一一匹配；程序分类与图层接入由制作人P51负责。",
+    "清单schema1/assets[{id,name,category,editor_icon}]/tools[{id,name,icon}]；类别furniture/cafeteria/props，Texture2D固定48/64显示框、透明缩小QA与实际Godot资源加载联系表。"
+  ]
+}

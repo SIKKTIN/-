@@ -9,8 +9,8 @@ func _enter_tree() -> void:
 	page.hide()
 	if OS.get_environment("ESCAPE_OPEN_MAP_EDITOR") == "1":
 		call_deferred("open_page")
-	if OS.get_cmdline_user_args().has("--map-editor-qa"):
-		var probe = load("res://qa/p50_editor_plugin.gd").new()
+	if OS.get_cmdline_user_args().has("--map-editor-qa") or OS.get_cmdline_user_args().has("--map-editor-p51-qa"):
+		var probe = load("res://qa/p51_editor_plugin.gd" if OS.get_cmdline_user_args().has("--map-editor-p51-qa") else "res://qa/p50_editor_plugin.gd").new()
 		probe.plugin = self
 		add_child(probe)
 

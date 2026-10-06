@@ -3,11 +3,23 @@ extends Control
 
 const Document = preload("res://scripts/editor/map_document.gd")
 const Canvas = preload("res://scripts/editor/map_canvas.gd")
+const Layers = preload("res://scripts/editor/map_layers.gd")
+const Catalog = preload("res://scripts/editor/editor_catalog.gd")
 var document = Document.new()
+var layers = Layers.new()
+var catalog = Catalog.new()
 var canvas
 var maps: OptionButton
-var asset_picker: OptionButton
-var tool_picker: ItemList
+var palette: ItemList
+var category_picker: OptionButton
+var object_filter: OptionButton
+var library_tabs: TabContainer
+var operation_bar: HFlowContainer
+var operation_buttons: Dictionary = {}
+var active_tool: Label
+var layer_rows: Dictionary = {}
+var palette_entries: Array[Dictionary] = []
+var placement: Dictionary = {}
 var objects: ItemList
 var inspector: VBoxContainer
 var title_input: LineEdit
@@ -25,7 +37,6 @@ var preview_path := ""
 var preview_button: Button
 var undo_button: Button
 var redo_button: Button
-var tools: Array = ["select","pan","walls","fixtures","patrol","gate_guards","merchants","items","zones","work","meal","dine","free"]
 var asset_ids: Array[String] = []
 var workspace_root := ""
 
@@ -52,17 +63,19 @@ func _ready() -> void:
 	workspace_root = ProjectSettings.globalize_path("res://")
 	build_ui()
 	document.changed.connect(refresh)
+	layers.changed.connect(on_layers_changed)
 	load_maps()
 	request_open("res://data/rooms/r04.json")
 	get_window().focus_exited.connect(func(): canvas.finish_gesture())
 	if not Engine.is_editor_hint():
-		get_window().title = "这次怎么逃 · 关卡编辑器"
+		get_window().title = "这次怎么逃 · 关卡编辑器 · 分类图层"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
 
 func button(parent: Node, label: String, callback: Callable, width := 80) -> Button:
 	var b := Button.new()
 	b.text = label
+	b.add_theme_font_size_override("font_size",14)
 	b.custom_minimum_size = Vector2(width,36)
 	b.focus_mode = Control.FOCUS_NONE
 	b.pressed.connect(callback)
@@ -89,100 +102,149 @@ func build_ui() -> void:
 	margin.add_child(root_box)
 	var top := HBoxContainer.new()
 	root_box.add_child(top)
-	label(top,"关卡编辑",21)
+	label(top,"关卡编辑",19)
 	maps = OptionButton.new()
 	maps.name = "MapSelector"
-	maps.custom_minimum_size.x = 174
+	maps.custom_minimum_size.x = 96
+	maps.add_theme_font_size_override("font_size",14)
 	maps.item_selected.connect(func(index): request_open(str(maps.get_item_metadata(index))))
 	top.add_child(maps)
-	button(top,"重读",func(): request_open(document.path))
-	button(top,"保存",save_current)
-	button(top,"另存为",func(): save_as.popup_centered(Vector2i(760,500)))
-	button(top,"检查地图",check_map,96)
-	preview_button = button(top,"▶ 试玩草稿",playtest,120)
-	preview_button.name = "Playtest"
-	var row := HBoxContainer.new()
-	root_box.add_child(row)
-	label(row,"名称")
 	title_input = LineEdit.new()
 	title_input.name = "MapTitle"
-	title_input.custom_minimum_size.x = 190
+	title_input.custom_minimum_size.x = 140
+	title_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title_input.add_theme_font_size_override("font_size",14)
+	title_input.tooltip_text = "地图名称"
 	title_input.text_submitted.connect(func(value): document.begin(); document.data.title = value; document.commit())
 	title_input.focus_exited.connect(func():
 		if not refreshing and document.data.get("title","") != title_input.text:
 			document.begin()
 			document.data.title = title_input.text
 			document.commit())
-	row.add_child(title_input)
-	undo_button = button(row,"撤销",func(): commit_fields(); document.undo(); refresh_inspector())
-	redo_button = button(row,"重做",func(): commit_fields(); document.redo(); refresh_inspector())
-	button(row,"复制",duplicate_selected)
-	button(row,"删除",delete_selected)
-	button(row,"全图",canvas_fit)
+	top.add_child(title_input)
+	button(top,"重读",func(): request_open(document.path),56)
+	button(top,"保存",save_current,56)
+	button(top,"另存为",func(): commit_fields(); save_as.popup_centered(Vector2i(760,500)),68)
+	button(top,"检查地图",check_map,80)
+	preview_button = button(top,"▶ 试玩草稿",playtest,112)
+	preview_button.name = "Playtest"
+	operation_bar = HFlowContainer.new()
+	operation_bar.name = "Operations"
+	root_box.add_child(operation_bar)
+	for mode in ["select","pan","walls"]:
+		var mode_button := button(operation_bar,{"select":"选择 V","pan":"平移 H","walls":"绘墙 B"}[mode],func(): set_tool(mode),90)
+		mode_button.name = "Tool_"+mode
+		mode_button.icon = catalog.icon({"id":mode,"icon":catalog.tool_icons.get(mode,"")})
+		mode_button.expand_icon = true
+		mode_button.add_theme_constant_override("icon_max_width",18)
+		mode_button.toggle_mode = true
+		operation_buttons[mode] = mode_button
+	undo_button = button(operation_bar,"撤销",func(): commit_fields(); document.undo(); refresh_inspector(),56)
+	redo_button = button(operation_bar,"重做",func(): commit_fields(); document.redo(); refresh_inspector(),56)
+	button(operation_bar,"复制",duplicate_selected,56)
+	button(operation_bar,"删除",delete_selected,56)
+	button(operation_bar,"全图",canvas_fit,56)
 	var snap := CheckButton.new()
 	snap.text = "20格吸附"
+	snap.add_theme_font_size_override("font_size",13)
 	snap.button_pressed = true
 	snap.toggled.connect(func(on): document.grid = 20 if on else 0)
-	row.add_child(snap)
+	operation_bar.add_child(snap)
 	var collision := CheckButton.new()
 	collision.text = "碰撞"
+	collision.add_theme_font_size_override("font_size",13)
 	collision.toggled.connect(func(on): canvas.show_collision = on; canvas.queue_redraw())
-	row.add_child(collision)
+	operation_bar.add_child(collision)
+	active_tool = label(operation_bar,"选择对象",13)
 	var split := HSplitContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	root_box.add_child(split)
-	var left := VBoxContainer.new()
-	left.custom_minimum_size.x = 176
-	split.add_child(left)
-	label(left,"放置工具",16)
-	tool_picker = ItemList.new()
-	tool_picker.name = "ToolPalette"
-	tool_picker.custom_minimum_size.y = 180
-	tool_picker.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	for tool in tools:
-		tool_picker.add_item({"select":"选择 / 拖动","pan":"平移视野"}.get(tool,Document.GROUP_NAMES.get(tool,tool)))
-	tool_picker.select(0)
-	tool_picker.item_selected.connect(func(index):
-		canvas.finish_gesture()
-		canvas.tool = tools[index]
-		show_status("已选 "+tool_picker.get_item_text(index)+"；点击地图放置，墙可拖动绘制。"))
-	left.add_child(tool_picker)
-	asset_picker = OptionButton.new()
-	asset_picker.name = "AssetPicker"
-	asset_picker.custom_minimum_size.x = 174
-	left.add_child(asset_picker)
-	var manifests: Array = ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json"]
-	for manifest_path in manifests:
-		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
-		for asset in manifest.get("assets",[]):
-			if str(asset.id) not in asset_ids:
-				asset_ids.append(str(asset.id))
-				asset_picker.add_item(Document.ASSET_NAMES.get(str(asset.id),str(asset.id)))
-	label(left,"地图对象（点击定位）",14)
+	library_tabs = TabContainer.new()
+	library_tabs.name = "Library"
+	library_tabs.custom_minimum_size.x = 242
+	var tab_panel := StyleBoxFlat.new()
+	tab_panel.bg_color = Color("f1eadb")
+	for edge in ["left","right","top","bottom"]: tab_panel.set_content_margin(int({"left":0,"top":1,"right":2,"bottom":3}[edge]),6)
+	library_tabs.add_theme_stylebox_override("panel",tab_panel)
+	var tab_bar := library_tabs.get_tab_bar()
+	tab_bar.add_theme_font_size_override("font_size",14)
+	for style in ["tab_selected","tab_unselected","tab_hovered"]:
+		var tab := StyleBoxFlat.new()
+		tab.bg_color = Color("e4f1e9") if style == "tab_selected" else Color("e5dfd1")
+		tab.set_corner_radius_all(5)
+		tab.set_content_margin_all(8)
+		tab_bar.add_theme_stylebox_override(style,tab)
+	tab_bar.add_theme_color_override("font_selected_color",Color("2c3e47"))
+	tab_bar.add_theme_color_override("font_unselected_color",Color("52615e"))
+	split.add_child(library_tabs)
+	var resources := VBoxContainer.new()
+	resources.name = "素材"
+	library_tabs.add_child(resources)
+	category_picker = OptionButton.new()
+	category_picker.name = "ResourceCategory"
+	category_picker.add_theme_font_size_override("font_size",14)
+	for category in Catalog.CATEGORIES: category_picker.add_item(Catalog.CATEGORY_NAMES[category])
+	category_picker.item_selected.connect(func(_index): rebuild_palette())
+	resources.add_child(category_picker)
+	palette = ItemList.new()
+	palette.name = "ResourceCards"
+	palette.max_columns = 2
+	palette.same_column_width = true
+	palette.fixed_column_width = 90
+	palette.max_text_lines = 2
+	palette.fixed_icon_size = Vector2i(48,48)
+	palette.icon_mode = ItemList.ICON_MODE_TOP
+	palette.add_theme_font_size_override("font_size",13)
+	palette.add_theme_constant_override("v_separation",10)
+	palette.add_theme_constant_override("h_separation",6)
+	palette.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	palette.item_selected.connect(func(index): activate_resource(palette_entries[index]))
+	resources.add_child(palette)
+	var palette_help := label(resources,"选素材，再点击地图放置。\nEsc取消；绘墙使用顶部工具。",12)
+	palette_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	for asset in catalog.assets: asset_ids.append(str(asset))
+	var object_tab := VBoxContainer.new()
+	object_tab.name = "对象"
+	library_tabs.add_child(object_tab)
+	object_filter = OptionButton.new()
+	object_filter.tooltip_text = "仅列出可见图层；隐藏层请先在右侧打开眼睛。"
+	object_filter.add_theme_font_size_override("font_size",14)
+	object_filter.add_item("所有可见图层")
+	for key in Layers.ORDER: object_filter.add_item(Layers.NAMES[key])
+	object_filter.item_selected.connect(func(_index): refresh())
+	object_tab.add_child(object_filter)
 	objects = ItemList.new()
 	objects.name = "ObjectList"
-	objects.custom_minimum_size.y = 180
+	objects.add_theme_font_size_override("font_size",14)
 	objects.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	objects.item_selected.connect(func(index):
+		commit_fields()
 		canvas.choose(object_refs[index])
 		canvas.origin = canvas.size / 2 - document.geometry(object_refs[index]).get_center() * canvas.zoom
 		canvas.queue_redraw())
-	left.add_child(objects)
+	object_tab.add_child(objects)
 	var right_split := HSplitContainer.new()
 	split.add_child(right_split)
 	canvas = Canvas.new()
 	canvas.name = "MapCanvas"
 	canvas.custom_minimum_size = Vector2(280,240)
 	canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	canvas.setup(document)
+	canvas.setup(document,layers)
 	canvas.selected.connect(select_object)
 	canvas.placed.connect(place_object)
 	canvas.edited.connect(refresh_inspector)
+	canvas.blocked.connect(show_status)
+	canvas.interaction_started.connect(commit_fields)
 	right_split.add_child(canvas)
+	var side := VBoxContainer.new()
+	side.custom_minimum_size.x = 234
+	right_split.add_child(side)
+	build_layers(side)
+	side.add_child(HSeparator.new())
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size.x = 234
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	right_split.add_child(scroll)
+	side.add_child(scroll)
 	inspector = VBoxContainer.new()
 	inspector.name = "Properties"
 	inspector.custom_minimum_size.x = 218
@@ -214,12 +276,123 @@ func build_ui() -> void:
 	save_as.current_dir = "res://data/rooms"
 	save_as.filters = PackedStringArray(["*.json ; 地图JSON"])
 	save_as.file_selected.connect(func(path):
+		commit_fields()
 		if document.save_file(path,true):
 			load_maps()
 			show_status("已保存新地图："+path)
 		else:
 			show_error(document.last_error))
 	add_child(save_as)
+	rebuild_palette()
+	set_tool("select")
+
+func build_layers(parent: Node) -> void:
+	var heading := HBoxContainer.new()
+	parent.add_child(heading)
+	var body := VBoxContainer.new()
+	var fold: Button
+	fold = button(heading,"图层 ▾",func(): body.visible = not body.visible; fold.text = "图层 ▾" if body.visible else "图层 ▸",64)
+	button(heading,"场景",func(): commit_fields(); layers.preset("scene"),48)
+	button(heading,"全部",func(): commit_fields(); layers.preset("all"),48)
+	button(heading,"独显",solo_layer,48)
+	parent.add_child(body)
+	for key in Layers.ORDER:
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation",2)
+		body.add_child(row)
+		var name_label := label(row,Layers.NAMES[key],12)
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var visibility := CheckBox.new()
+		visibility.name = "Visible_"+key
+		visibility.text = "显"
+		if catalog.tool_icons.has("eye"):
+			visibility.text = ""
+			visibility.icon = catalog.icon({"id":"eye","icon":catalog.tool_icons.eye})
+			visibility.expand_icon = true
+			visibility.add_theme_constant_override("icon_max_width",16)
+			visibility.custom_minimum_size.x = 54
+		visibility.tooltip_text = "显示/隐藏本图层；隐藏对象不会被删除或选中。"
+		visibility.add_theme_font_size_override("font_size",12)
+		visibility.button_pressed = layers.visible[key]
+		visibility.toggled.connect(func(value): commit_fields(); layers.set_visible(key,value))
+		row.add_child(visibility)
+		var lock := CheckBox.new()
+		lock.name = "Locked_"+key
+		lock.text = "锁"
+		if catalog.tool_icons.has("lock"):
+			lock.text = ""
+			lock.icon = catalog.icon({"id":"lock","icon":catalog.tool_icons.lock})
+			lock.expand_icon = true
+			lock.add_theme_constant_override("icon_max_width",16)
+			lock.custom_minimum_size.x = 54
+		lock.tooltip_text = "锁定后可见，但不能点选、移动或放置本层对象。"
+		lock.add_theme_font_size_override("font_size",12)
+		lock.button_pressed = layers.locked[key]
+		lock.toggled.connect(func(value): commit_fields(); layers.set_locked(key,value))
+		row.add_child(lock)
+		layer_rows[key] = {"name":name_label,"visible":visibility,"locked":lock}
+	var help := label(body,"眼睛：显示  ·  锁：禁止编辑",11)
+	help.modulate = Color("6d807b")
+
+func rebuild_palette() -> void:
+	palette.clear()
+	palette_entries.clear()
+	var category: String = Catalog.CATEGORIES[category_picker.selected]
+	for entry in catalog.entries:
+		if entry.category != category: continue
+		palette_entries.append(entry)
+		var index := palette.add_item(str(entry.name),catalog.icon(entry))
+		palette.set_item_tooltip(index,"放置："+str(entry.name))
+		palette.set_item_disabled(index,layers.locked[layers.key_for(entry.group)])
+		if not placement.is_empty() and entry.id == placement.id: palette.select(index)
+
+func set_tool(mode: String) -> void:
+	commit_fields()
+	placement.clear()
+	if is_instance_valid(canvas):
+		if mode == "walls" and layers.locked.architecture:
+			show_status("墙门 / 机关图层已锁定，请先解锁。")
+			mode = "select"
+		elif mode == "walls" and not layers.visible.architecture:
+			layers.set_visible("architecture",true)
+		canvas.tool = mode
+	for key in operation_buttons: operation_buttons[key].set_pressed_no_signal(key == mode)
+	if is_instance_valid(palette): palette.deselect_all()
+	active_tool.text = {"select":"选择对象","pan":"平移视野","walls":"绘制墙体"}.get(mode,mode)
+
+func activate_resource(entry: Dictionary) -> void:
+	commit_fields()
+	var key: String = layers.key_for(entry.group)
+	if layers.locked[key]:
+		show_status(Layers.NAMES[key]+"已锁定，请先解锁。")
+		return
+	if not layers.visible[key]: layers.set_visible(key,true)
+	placement = entry.duplicate()
+	canvas.tool = str(entry.group)
+	for index in range(palette_entries.size()):
+		if palette_entries[index].id == entry.id: palette.select(index)
+	for control in operation_buttons.values(): control.set_pressed_no_signal(false)
+	active_tool.text = "放置："+str(entry.name)
+	show_status("已选“"+str(entry.name)+"”，点击地图放置；V切回选择，Esc取消。")
+
+func solo_layer() -> void:
+	commit_fields()
+	var key: String = layers.key_for(selection.group) if not selection.is_empty() else layers.key_for(placement.group) if not placement.is_empty() else "architecture"
+	layers.preset("solo",key)
+
+func on_layers_changed() -> void:
+	if not is_instance_valid(canvas): return
+	canvas.finish_gesture()
+	if not selection.is_empty() and not layers.is_editable(selection.group): canvas.choose({})
+	if not placement.is_empty() and not layers.is_editable(placement.group): set_tool("select")
+	if canvas.tool == "walls" and not layers.is_editable("walls"): set_tool("select")
+	canvas.queue_redraw()
+	rebuild_palette()
+	refresh()
+	refresh_inspector()
+
+func can_edit_selection() -> bool:
+	return not selection.is_empty() and layers.is_editable(selection.group)
 
 func load_maps() -> void:
 	maps.clear()
@@ -268,13 +441,24 @@ func refresh() -> void:
 	undo_button.disabled = document.cursor == 0
 	redo_button.disabled = document.cursor == document.history.size()
 	objects.clear()
-	object_refs = document.entries()
-	var valid_selection := false
-	for index in range(object_refs.size()):
-		objects.add_item(document.name_for(object_refs[index]))
-		if object_refs[index] == selection:
-			objects.select(index)
-			valid_selection = true
+	object_refs.clear()
+	var all_refs: Array = document.entries()
+	var valid_selection: bool = selection in all_refs and not selection.is_empty() and layers.is_editable(selection.group)
+	var counts := {}
+	for key in Layers.ORDER: counts[key] = 0
+	for ref in all_refs:
+		var key: String = layers.key_for(ref.group)
+		counts[key] += 1
+		if not layers.is_visible(ref.group): continue
+		if object_filter.selected > 0 and key != Layers.ORDER[object_filter.selected-1]: continue
+		object_refs.append(ref)
+		var index := objects.add_item(("锁 · " if layers.locked[key] else "")+document.name_for(ref))
+		objects.set_item_disabled(index,layers.locked[key])
+		if ref == selection: objects.select(index)
+	for key in layer_rows:
+		layer_rows[key].name.text = Layers.NAMES[key]+"  "+str(counts[key])
+		layer_rows[key].visible.set_pressed_no_signal(layers.visible[key])
+		layer_rows[key].locked.set_pressed_no_signal(layers.locked[key])
 	if not valid_selection:
 		selection.clear()
 		canvas.selection.clear()
@@ -317,7 +501,7 @@ func refresh_inspector() -> void:
 		spin.step = 1
 		spin.value = {"x":rect.position.x,"y":rect.position.y,"w":rect.size.x,"h":rect.size.y}[field]
 		spin.value_changed.connect(func(value):
-			if refreshing: return
+			if refreshing or not can_edit_selection(): return
 			var changed_rect: Rect2 = document.geometry(ref)
 			match field:
 				"x": changed_rect.position.x = value
@@ -380,6 +564,8 @@ func refresh_inspector() -> void:
 	label(inspector,"所有坐标都使用世界位置。",12)
 
 func reorder_patrol(direction: int) -> void:
+	commit_fields()
+	if not can_edit_selection(): return
 	var index: int = selection.index
 	var target: int = index+direction
 	if target < 0 or target >= document.data.patrol.size():
@@ -393,18 +579,24 @@ func reorder_patrol(direction: int) -> void:
 	refresh_inspector()
 
 func place_object(group: String, point: Vector2) -> void:
-	var asset: String = asset_ids[asset_picker.selected] if group == "fixtures" and not asset_ids.is_empty() else "scrap"
+	if not layers.is_editable(group):
+		show_status(Layers.NAMES[layers.key_for(group)]+"已隐藏或锁定，请先显示并解锁。")
+		return
+	var asset: String = str(placement.get("asset_id","")) if group == "fixtures" else str(placement.get("definition_id","scrap"))
+	if group == "fixtures" and asset == "":
+		show_status("请先在素材卡片中选择摆设。")
+		return
 	canvas.choose(document.add(group,point,asset))
 	show_status("已添加 "+Document.GROUP_NAMES.get(group,group)+"；可继续放置，或选“选择/拖动”调整。")
 
 func duplicate_selected() -> void:
 	commit_fields()
-	if not selection.is_empty():
+	if can_edit_selection():
 		canvas.choose(document.duplicate_entry(selection))
 
 func delete_selected() -> void:
 	commit_fields()
-	if document.can_remove(selection):
+	if can_edit_selection() and document.can_remove(selection):
 		document.remove(selection)
 		canvas.choose({})
 	else:
@@ -487,9 +679,16 @@ func _input(event: InputEvent) -> void:
 		delete_selected()
 	elif event.keycode == KEY_F:
 		canvas.fit()
+	elif event.keycode == KEY_V:
+		set_tool("select")
+	elif event.keycode == KEY_H:
+		set_tool("pan")
+	elif event.keycode == KEY_B:
+		set_tool("walls")
 	elif event.keycode == KEY_ESCAPE:
 		canvas.finish_gesture(true)
 		canvas.choose({})
+		set_tool("select")
 	else:
 		return
 	get_viewport().set_input_as_handled()

@@ -4,7 +4,10 @@ extends Control
 signal selected(ref: Dictionary)
 signal placed(group: String, point: Vector2)
 signal edited
+signal blocked(message: String)
+signal interaction_started
 var document
+var layers
 var selection: Dictionary = {}
 var tool := "select"
 var zoom := 0.35
@@ -20,8 +23,9 @@ var font: Font
 var show_collision := false
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 
-func setup(model) -> void:
+func setup(model, layer_model = null) -> void:
 	document = model
+	layers = layer_model if layer_model != null else load("res://scripts/editor/map_layers.gd").new()
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	clip_contents = true
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -54,6 +58,8 @@ func at(point: Vector2) -> Dictionary:
 	# Points and small props win over enclosing zones and the map bounds.
 	for pass_index in range(2):
 		for ref in entries:
+			if ref.group == "bounds" or not layers.is_editable(ref.group): continue
+			if ref.group == "fixtures" and document.value(ref).get("hidden",false) and not show_collision: continue
 			var background: bool = ref.group in ["bounds","guard_zone","dormitories","zones"]
 			if background != (pass_index == 1):
 				continue
@@ -66,6 +72,9 @@ func at(point: Vector2) -> Dictionary:
 	return {}
 
 func choose(ref: Dictionary) -> void:
+	if not ref.is_empty() and not layers.is_editable(ref.group):
+		blocked.emit("对象图层已隐藏或锁定，请先显示并解锁。")
+		return
 	selection = ref.duplicate()
 	selected.emit(selection)
 	queue_redraw()
@@ -99,13 +108,20 @@ func handle_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_LEFT:
 			if not event.pressed:
 				finish_gesture()
-			elif tool == "select":
+				accept_event()
+				return
+			interaction_started.emit()
+			if tool == "select":
 				choose(at(event.position))
 				if not selection.is_empty():
 					drag_ref = selection.duplicate()
 					drag_offset = world(event.position)-document.geometry(selection).position
 					document.begin()
 			elif tool == "walls":
+				if not layers.is_editable("walls"):
+					blocked.emit("墙门 / 机关图层已隐藏或锁定，请先显示并解锁。")
+					accept_event()
+					return
 				draw_start = document.snap_point(world(event.position))
 				selection = document.add("walls",draw_start)
 				# Add+resize are one undo transaction.
@@ -115,7 +131,8 @@ func handle_input(event: InputEvent) -> void:
 				drawing_wall = true
 				choose(selection)
 			else:
-				placed.emit(tool,document.snap_point(world(event.position)))
+				if layers.is_editable(tool): placed.emit(tool,document.snap_point(world(event.position)))
+				else: blocked.emit("当前放置图层已隐藏或锁定。")
 			accept_event()
 	elif event is InputEventMouseMotion:
 		if panning:
@@ -140,24 +157,28 @@ func _draw() -> void:
 	var bounds: Rect2 = document.geometry({"group":"bounds","index":-1})
 	draw_rect(Rect2(screen(bounds.position),bounds.size*zoom),Color("a5af9a"))
 	var step: float = maxf(20,document.grid)
+	if step*zoom < 12: step = 100
 	if step*zoom >= 6:
 		for x in range(floori(bounds.position.x/step),ceili(bounds.end.x/step)+1):
-			draw_line(screen(Vector2(x*step,bounds.position.y)),screen(Vector2(x*step,bounds.end.y)),Color(0.18,0.26,0.24,0.18),1)
+			draw_line(screen(Vector2(x*step,bounds.position.y)),screen(Vector2(x*step,bounds.end.y)),Color(0.18,0.26,0.24,0.10),1)
 		for y in range(floori(bounds.position.y/step),ceili(bounds.end.y/step)+1):
-			draw_line(screen(Vector2(bounds.position.x,y*step)),screen(Vector2(bounds.end.x,y*step)),Color(0.18,0.26,0.24,0.18),1)
+			draw_line(screen(Vector2(bounds.position.x,y*step)),screen(Vector2(bounds.end.x,y*step)),Color(0.18,0.26,0.24,0.10),1)
 	var entries: Array = document.entries()
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
+		if not layers.is_visible(ref.group): continue
 		if ref.group in ["guard_zone","zones","dormitories"]:
 			var tint := Color("cf9975") if ref.group == "guard_zone" else Color("75c0b5") if ref.group == "dormitories" else Color("e0d29e")
 			paint_rect(ref,tint,true)
 	for ref in entries:
+		if not layers.is_visible(ref.group): continue
 		if ref.group in ["bounds","guard_zone","zones","dormitories"]:
 			continue
 		var rect: Rect2 = document.geometry(ref)
 		if document.is_rect(ref):
 			var color := Color("435555") if ref.group == "walls" else Color("a17b4b") if ref.group in ["door","dorm_doors"] else Color("318c82") if ref.group == "exit" else Color("896b45")
 			if ref.group == "fixtures":
+				if document.value(ref).get("hidden",false) and not show_collision: continue
 				var asset: String = document.value(ref).asset_id
 				var texture: Texture2D = textures.get(asset)
 				if texture:
@@ -180,7 +201,7 @@ func _draw() -> void:
 				var label: String = short_names.get(ref.group,ref.group)+(str(int(ref.index)+1) if int(ref.index) >= 0 else "")
 				if zoom >= 0.45 or selection == ref or ref.group in ["starts","merchants","gate_guards"]:
 					draw_string(font,p+Vector2(10,4),label,HORIZONTAL_ALIGNMENT_LEFT,100,12,Color("243739"))
-	var patrol: Array = document.data.get("patrol",[])
+	var patrol: Array = document.data.get("patrol",[]) if layers.is_visible("patrol") else []
 	for index in range(patrol.size()):
 		var a: Array = patrol[index]
 		var b: Array = patrol[(index+1)%patrol.size()]
