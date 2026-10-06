@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T15:59:42.938Z
-> 文档内容基准：55fe6a30ba3061170c181ebfbf81115155e5eacb2ab9350d8d83b04449792f60
+> 文档生成时间：2026-10-06T05:13:37.420Z
+> 文档内容基准：8107ace0bb0e952c3ed439061c06ef2374e6f368f990fac78f696cec10343462
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1213,6 +1213,43 @@
 - 允许修改路径：scripts/core/escape_game.gd、scripts/core/prison_alert.gd、scripts/core/prison_schedule.gd、scripts/core/daily_routine.gd、scripts/core/gate_watch.gd、scripts/actors/guard.gd、scripts/actors/gate_guard.gd、scripts/actors/police_dog.gd、scripts/world/prison_world.gd、scripts/presentation/scene_layers.gd、scripts/presentation/actor_visual.gd、scripts/presentation/lighting_system.gd、scripts/ui/fullscreen_hud.gd、scripts/ui/mini_map.gd、qa/p45*、docs/dev/p45*、docs/tests/p45*
 - 接口契约：共用警报状态与既有碰撞/视线/寻路，保留正常白天不抓人规则；报警后全员搜查。非本任务改动及project.godot保留。
 - 交付入口：res://scenes/main.tscn，R04，午夜查寝；CLI qa/p45_rollcall.gd
+- 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A16 · 竖排伙伴栏与摇杆操作HUD
+- ID：a16-vertical-mobile-hud-20261006
+- 程序；普通；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户批准A15摇杆概念并将人物栏改为左侧竖排，授权实装。主美兼技术美术维护fullscreen_hud.gd，制作人同步开发输入与逻辑。先前服务离线时以用户明确工作包开工，现恢复服务登记真实分工。
+- 验收条件：真实HUD：左竖排伙伴、左下pad、右下情景交互/技能/背包及多目标切换；1200×720与960×540触区不重叠、背包与商店/日程模态层级正确，原头像和持续操作保留，制作人统一CLI运行并审图。
+- 验收结果：主美已在唯一归属fullscreen_hud.gd实装用户批准的左竖伙伴栏/左下摇杆布局/右下情境交互、技能、背包及多目标切换，复用真实原头像与Theme。背包默认收起，1/3真实容量，停止入包，商店库存可选，其他模态清空pad并禁用已逃脱卡片。主美只读实际复核两尺寸final/shop及三格背包；制作人统一真实Input与回归332项通过。手机真机触屏尚未测试，未自行验收/改配置/提交Git。
+
+验收通过：制作人按实际整合结果验收主美HUD：已读取交付说明、主美签名反馈与真实59/62/62输入报告，查看1200/960游戏final和真实商店/背包画面。竖排伙伴与左右操作区匹配用户批准方向，两尺寸触区不重叠，背包/模态正确；整合332项通过，不宣称手机真机或真人体验。主美仅维护分派HUD文件，无借用制作人身份。
+- 前置任务：无
+- 工作岗位：art-director
+- 允许修改路径：scripts/ui/fullscreen_hud.gd、docs/art/a16*
+- 接口契约：game.mobile_controls.pad/cancel_input/is_moving；interaction.activate_mobile/mobile_label/mobile_icon/mobile_available/cycle_mobile_target/mobile_target_count；公开action_button/ability_button/bag_button/target_button/bag_open/toggle_bag。代码共享边界仅fullscreen_hud.gd归主美。
+- 交付入口：res://scenes/main.tscn与docs/art/a15-mobile-joystick-concept.png，按用户更正使用竖排
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P46 · 手机摇杆移动与情景交互
+- ID：p46-direct-mobile-control-20261006
+- 程序；普通；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户授权从点地寻路改为直接摇杆控制，切换控制人物不停止其他伙伴持续操作。制作人实现输入、多指、碰撞、镜头和交互，与主美A16 HUD集成。
+- 验收条件：真实触控摇杆移动/松手/死区/多指右键交互/切人归零，墙门碰撞与推箱/出口、属性与NPC日程继续；工作聊天持续，暂停/捕获/重开/失焦取消输入，手机双尺寸原生输入及旧功能回归；提交程序自测与截图，区别真机结论。
+- 验收结果：已完成左侧竖排伙伴切换、左下直接摇杆、右侧情景/技能/背包及目标切换，并整合已验收主美A16；切人清空旧输入而其他伙伴持续工作聊天，真实多指及鼠标仿真去重、墙/锁门/推箱/出口、背包/购买、暂停/失焦/捕获/重开、拖主图与小地图恢复跟随通过。59项headless及两尺寸62项原生移动验证，加四组149项旧功能，共332项通过。无手机真机/真人手感结论，未改project.godot差异。
+
+验收通过：制作人按明确程序任务自验收。已整合独立验收的A16，并核对332项通过报告与两尺寸Windows原生帧缓冲；多指、触控去重、持续技能/工作、碰撞/出口、跨时段手动接管、库存/商店、暂停/重开及旧功能回归均有真实运行证据。位置/时间/钱包及失焦信号fixture已列明，无手机真机或真人手感结论。
+- 前置任务：无
+- 工作岗位：producer
+- 允许修改路径：scripts/core/mobile_controls.gd、scripts/core/escape_game.gd、scripts/core/map_camera.gd、scripts/core/prison_schedule.gd、scripts/core/actor_attributes.gd、scripts/skills/skill_controller.gd、scripts/presentation/interaction_prompt.gd、qa/p46*、docs/dev/p46*、docs/tests/p46*
+- 接口契约：直接控制只接管当前人物；现有MoveOrders保留NPC/技能路径，UI在A16由主美维护。真实碰撞/视线/多日警报规则保留，不改project.godot或原PNG。
+- 交付入口：res://scenes/main.tscn，qa/p46_mobile_controls.gd
 - 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
 

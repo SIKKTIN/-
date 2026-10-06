@@ -1,0 +1,26 @@
+{
+	"checks": {
+		"buy_ok": true,
+		"first_chat": true,
+		"key_blocked_not_consumed": true,
+		"key_now_opens": true,
+		"lock_blocked": true,
+		"night_posts_off_duty": true,
+		"no_sell_button": true,
+		"no_sell_price": true,
+		"one_guard_still_blocks": true,
+		"open_gate_path": true,
+		"r01_no_new_posts": true,
+		"r03_two_posts": true,
+		"release_chat_reblocks": true,
+		"reset_posts": true,
+		"second_chat": true,
+		"sell_preserves_assets": true,
+		"sell_rejected": true,
+		"sentries_never_catch_in_day": true,
+		"two_chats_release_gate": true,
+		"two_sentries": true
+	},
+	"passed": true,
+	"scope": "Isolated actor positions for real two-guard chat and door/key/barrier rules; explicit commerce wallet fixture; no human claim."
+}

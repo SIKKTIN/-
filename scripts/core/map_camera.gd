@@ -122,7 +122,8 @@ func end_pointer(point: Vector2, cancelled: bool = false) -> void:
 		# continue while a finger is held, without shifting its command target.
 		var world_point: Vector2 = _pointer_world_transform*point
 		if not game.select_at(world_point):
-			game.command_at(world_point)
+			if game.mobile_controls == null:
+				game.command_at(world_point)
 	pointer_id = -2
 	pointer_dragged = false
 
@@ -146,6 +147,8 @@ func tick(delta: float) -> void:
 	var keys := Vector2(
 		float(Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_LEFT)),
 		float(Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_UP)))
+	if game.mobile_controls != null:
+		keys = Vector2.ZERO
 	if keys != Vector2.ZERO:
 		scroll_direction = keys.normalized()
 	if scroll_direction != Vector2.ZERO:
@@ -220,7 +223,8 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventKey:
 		if event.keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN] or event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
-			get_viewport().set_input_as_handled()
+			if game.mobile_controls == null:
+				get_viewport().set_input_as_handled()
 		elif event.pressed and not event.echo and event.keycode == KEY_F:
 			locate_selected()
 			get_viewport().set_input_as_handled()

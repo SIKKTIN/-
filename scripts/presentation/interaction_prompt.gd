@@ -7,6 +7,8 @@ var actor_id: int = -1
 var kind: String = ""
 var extras: Dictionary = {}
 var targets: Array = []
+var mobile_target_key := ""
+var _mobile_targets: Array = []
 
 func configure(owner_game, owner_presentation) -> void:
 	game = owner_game
@@ -32,6 +34,64 @@ func refresh() -> void:
 	for b in extras.values():
 		if not targets.any(func(t): return t.button == b):
 			b.visible = false
+	if game.mobile_controls != null:
+		_mobile_targets = targets.duplicate()
+		_mobile_targets.sort_custom(func(a,b): return a.distance < b.distance)
+		if not _mobile_targets.any(func(t): return _target_key(t) == mobile_target_key):
+			mobile_target_key = _target_key(_mobile_targets[0]) if not _mobile_targets.is_empty() else ""
+		button.hide()
+		for b in extras.values():
+			b.hide()
+
+func _target_key(target: Dictionary) -> String:
+	return "%d:%s:%s" % [game.selected_actor_id,target.kind,target.id]
+
+func _mobile_target() -> Dictionary:
+	for target in _mobile_targets:
+		if _target_key(target) == mobile_target_key:
+			return target
+	return {}
+
+func mobile_target_count() -> int:
+	return _mobile_targets.size()
+
+func mobile_available() -> bool:
+	return not game.world_input_blocked() and not _mobile_target().is_empty()
+
+func mobile_label() -> String:
+	var target := _mobile_target()
+	if target.is_empty():
+		return "靠近互动"
+	if target.kind == "skill":
+		return "停止操作" if game.skills.actions.has(game.selected_actor_id) else {"chat":"交谈","lockpick":"撬锁","strong":"推箱"}.get(kind,"互动")
+	return {"pickup":"拾取","trade":"购买","meal":"取餐"}.get(target.kind,"互动")
+
+func mobile_icon() -> Texture2D:
+	var target := _mobile_target()
+	return target.button.icon if not target.is_empty() else null
+
+func cycle_mobile_target() -> void:
+	refresh()
+	if _mobile_targets.size() < 2:
+		return
+	for index in range(_mobile_targets.size()):
+		if _target_key(_mobile_targets[index]) == mobile_target_key:
+			mobile_target_key = _target_key(_mobile_targets[(index+1)%_mobile_targets.size()])
+			break
+	if game.fullscreen_ui:
+		game.fullscreen_ui.refresh()
+
+func activate_mobile() -> void:
+	if game.mobile_controls:
+		game.mobile_controls.cancel_input()
+	refresh()
+	var target := _mobile_target()
+	if target.is_empty():
+		return
+	if target.kind == "skill":
+		activate(false)
+	else:
+		_activate_extra(str(target.kind)+":"+str(target.id))
 
 func _refresh_targets() -> void:
 	kind = ""
@@ -142,6 +202,9 @@ func _activate_extra(key: String) -> void:
 	refresh()
 
 func activate_nearest() -> void:
+	if game.mobile_controls != null:
+		activate_mobile()
+		return
 	refresh()
 	if targets.is_empty():
 		game.show_status("靠近目标后点击互动图标，或选背包物品使用。")
@@ -163,7 +226,7 @@ func activate_nearest() -> void:
 func activate(check_selection: bool = true) -> void:
 	var previous_id := actor_id
 	refresh()
-	if not button.visible or (check_selection and previous_id != game.selected_actor_id):
+	if (not button.visible and game.mobile_controls == null) or kind.is_empty() or (check_selection and previous_id != game.selected_actor_id):
 		return
 	if kind == "strong":
 		var actor = game.actors[actor_id]

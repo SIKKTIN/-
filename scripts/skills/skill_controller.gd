@@ -32,7 +32,7 @@ func target_reason(actor) -> String:
 	if actor.skill_id == "backpack":
 		return "被动能力：背包3格。"
 	if actor.skill_id == "strong":
-		return "右键箱子另一侧移动；接触后自动施力推箱。"
+		return "用摇杆抵住箱子移动，接触后自动施力推箱。"
 	if actor.skill_id == "chat":
 		if game.schedule and game.schedule.is_curfew():
 			return "宵禁警戒中，狱警不接受交谈。"

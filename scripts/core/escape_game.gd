@@ -23,6 +23,7 @@ const GateWatch = preload("res://scripts/core/gate_watch.gd")
 const ActorAttributes = preload("res://scripts/core/actor_attributes.gd")
 const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
 const PrisonAlert = preload("res://scripts/core/prison_alert.gd")
+const MobileControls = preload("res://scripts/core/mobile_controls.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -46,6 +47,7 @@ var fullscreen_ui
 var gate_watch
 var attributes
 var prison_alert
+var mobile_controls
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -144,6 +146,9 @@ func _ready() -> void:
 	routine_panel = RoutinePanel.new()
 	add_child(routine_panel)
 	routine_panel.configure(self)
+	mobile_controls = MobileControls.new()
+	add_child(mobile_controls)
+	mobile_controls.configure(self)
 	fullscreen_ui = FullscreenHUD.new()
 	add_child(fullscreen_ui)
 	fullscreen_ui.configure(self)
@@ -247,6 +252,8 @@ func _process(delta: float) -> void:
 			return
 	if gate_watch:
 		gate_watch.tick(delta)
+	if mobile_controls:
+		mobile_controls.tick(delta)
 	orders.tick(delta)
 	trade.tick(delta)
 	skills.tick(delta)
@@ -292,7 +299,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var point: Vector2 = get_global_transform_with_canvas().affine_inverse() * event.position
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			select_at(point)
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
+		elif event.button_index == MOUSE_BUTTON_RIGHT and mobile_controls == null:
 			command_at(point)
 	elif event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_3:
@@ -326,6 +333,8 @@ func command_at(point: Vector2) -> bool:
 	return command_move(selected_actor_id,point)
 
 func stop_selected() -> void:
+	if mobile_controls:
+		mobile_controls.cancel_input()
 	if routines:
 		routines.take_control(selected_actor_id)
 	orders.stop(selected_actor_id)
@@ -352,6 +361,8 @@ func on_actor_escaped(actor_id: int) -> void:
 func select_actor(index: int) -> void:
 	if index < 0 or index >= actors.size() or actors[index].escaped:
 		return
+	if mobile_controls:
+		mobile_controls.cancel_input()
 	if selected_actor_id != index and shop_panel:
 		shop_panel.close()
 	selected_actor_id = index
@@ -360,11 +371,16 @@ func select_actor(index: int) -> void:
 	for actor in actors:
 		actor.selected = actor.actor_id == index
 		actor.queue_redraw()
+	if presentation and presentation.interaction:
+		presentation.interaction.refresh()
 	_update_ui()
 
 func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	if fullscreen_ui:
 		fullscreen_ui.close_menu()
+		fullscreen_ui.bag_open = false
+	if mobile_controls:
+		mobile_controls.cancel_input()
 	phase = "playing"
 	elapsed = 0
 	status_until = 0
@@ -509,6 +525,8 @@ func finish_timeout() -> void:
 	schedule.show_result(false)
 
 func capture_actor(actor_id: int) -> void:
+	if mobile_controls and selected_actor_id == actor_id:
+		mobile_controls.cancel_input()
 	if routines:
 		routines.take_control(actor_id)
 	if shop_panel and shop_panel.actor_id == actor_id:
@@ -529,6 +547,8 @@ func show_status(text: String, duration: float = 2.5) -> void:
 	status_until = elapsed + duration
 
 func use_selected_skill() -> void:
+	if mobile_controls:
+		mobile_controls.cancel_input()
 	if skills and skills.actions.has(selected_actor_id):
 		skills.cancel(selected_actor_id, "已停止操作，撬锁进度保留。")
 		return

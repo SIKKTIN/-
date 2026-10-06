@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-05T15:59:42.943Z
-> 文档内容基准：2a2e1a9f0bf102f6760307c25072c96268cc79161d6cc38c8febfd05a56746e0
+> 文档生成时间：2026-10-06T05:13:37.437Z
+> 文档内容基准：4e6b0d8862e29bcf098a6dcba164c98c25f36d0580f6ddf1890b23be2fddca28
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -62,6 +62,7 @@
 - P43 · R04食堂改装与午餐日程 [6111af3a-de2a-4d09-8c37-48caa1697c98] · 已完成
 - P44 · 围合食堂与后厨房间结构 [40f6576a-d8d7-422d-897c-8a330019c9d1] · 已完成
 - P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
+- P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -81,6 +82,7 @@
 - A12 · 商人逐帧行走动画 [ee12d268-9e8e-4cb1-a4f1-032386940126] · 已完成
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
+- A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -914,6 +916,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：实测实际查房后触发、不在午夜提前触发、在场不误报、已逃脱计缺员、增援真实导航与发现捕获、晨间继续警戒、暂停及重开清理、小地图和HUD显示；回归正常白天与多日查寝。
 - 验收负责人：制作人
+### P46 · 手机摇杆移动与情景交互
+- ID：p46-direct-mobile-control-20261006
+- 当前状态：已完成
+- 内容：用户授权从点地寻路改为直接摇杆控制，切换控制人物不停止其他伙伴持续操作。制作人实现输入、多指、碰撞、镜头和交互，与主美A16 HUD集成。
+- 前置任务：无
+- 允许修改路径：scripts/core/mobile_controls.gd、scripts/core/escape_game.gd、scripts/core/map_camera.gd、scripts/core/prison_schedule.gd、scripts/core/actor_attributes.gd、scripts/skills/skill_controller.gd、scripts/presentation/interaction_prompt.gd、qa/p46*、docs/dev/p46*、docs/tests/p46*
+- 接口契约：直接控制只接管当前人物；现有MoveOrders保留NPC/技能路径，UI在A16由主美维护。真实碰撞/视线/多日警报规则保留，不改project.godot或原PNG。
+- 交付入口：res://scenes/main.tscn，qa/p46_mobile_controls.gd
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：真实触控摇杆移动/松手/死区/多指右键交互/切人归零，墙门碰撞与推箱/出口、属性与NPC日程继续；工作聊天持续，暂停/捕获/重开/失焦取消输入，手机双尺寸原生输入及旧功能回归；提交程序自测与截图，区别真机结论。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -977,6 +990,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P43 · R04食堂改装与午餐日程 [6111af3a-de2a-4d09-8c37-48caa1697c98] · 已完成
 - P44 · 围合食堂与后厨房间结构 [40f6576a-d8d7-422d-897c-8a330019c9d1] · 已完成
 - P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
+- A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
+- P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1402,6 +1417,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：E:/Project/Godot/这次怎么逃/art/props/cafeteria_v14/manifest.json
 - 验收要求：素材真实透明、无地板/文字/人物，无丰盛肉丸或鲜亮菜色；方向比例贴合现有俯视监狱，裁区/脚印明确、在预期世界尺寸清晰；主图来源与真实资源检查可追溯。代码/地图启用由制作人集成任务承担。
 - 验收负责人：制作人
+### A16 · 竖排伙伴栏与摇杆操作HUD
+- ID：a16-vertical-mobile-hud-20261006
+- 当前状态：已完成
+- 内容：用户批准A15摇杆概念并将人物栏改为左侧竖排，授权实装。主美兼技术美术维护fullscreen_hud.gd，制作人同步开发输入与逻辑。先前服务离线时以用户明确工作包开工，现恢复服务登记真实分工。
+- 前置任务：无
+- 允许修改路径：scripts/ui/fullscreen_hud.gd、docs/art/a16*
+- 接口契约：game.mobile_controls.pad/cancel_input/is_moving；interaction.activate_mobile/mobile_label/mobile_icon/mobile_available/cycle_mobile_target/mobile_target_count；公开action_button/ability_button/bag_button/target_button/bag_open/toggle_bag。代码共享边界仅fullscreen_hud.gd归主美。
+- 交付入口：res://scenes/main.tscn与docs/art/a15-mobile-joystick-concept.png，按用户更正使用竖排
+- 验收要求：真实HUD：左竖排伙伴、左下pad、右下情景交互/技能/背包及多目标切换；1200×720与960×540触区不重叠、背包与商店/日程模态层级正确，原头像和持续操作保留，制作人统一CLI运行并审图。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1419,3 +1444,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A12 · 商人逐帧行走动画 [ee12d268-9e8e-4cb1-a4f1-032386940126] · 已完成
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
+- A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成

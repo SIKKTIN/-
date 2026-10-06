@@ -164,6 +164,8 @@ func in_dorm_zone(actor_id: int) -> bool:
 
 func is_sleeping(actor_id: int) -> bool:
 	var actor = game.actors[actor_id]
+	if game.mobile_controls != null and game.mobile_controls.is_moving_actor(actor_id):
+		return false
 	return is_sleep_time() and not actor.escaped and in_dormitory(actor_id) and actor.position.distance_to(actor.home) <= 28 and not game.orders.active.has(actor_id) and actor.action_state == "idle"
 
 func can_skip_night() -> bool:
