@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T15:36:09.858Z
-> 文档内容基准：7f5f69f252fcf9949096c603fa1bb76e0a5d20b148b67b17df30af9237b8c379
+> 文档生成时间：2026-10-06T16:26:27.313Z
+> 文档内容基准：da309c82b96d0c071d3697e5d6f122da4a1a6c1bf6377dd5cb9f6ccda7c3901c
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -76,6 +76,7 @@
 - P56 同源瓦片墙体接入与实际视觉验证 [p56-unified-wall-tiles-integration-20261006] · 已完成
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
+- P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1097,6 +1098,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：R04左右24外角/20厨房实际完整L轮廓连续，接口不换材质不露硬缝，原H/柱/楣/竖墙/FPS和规则保持。两尺寸/编辑器与必要回归，主美复核actual并A28先独立验收，P58先证据再程序自验收。
 - 验收负责人：制作人
+### P59 编辑器素材二级分类与查找
+- ID：p59-editor-secondary-categories-20261007
+- 当前状态：已完成
+- 内容：用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。
+- 前置任务：p58-complete-corner-integration-20261006
+- 允许修改路径：scripts/editor/**、qa/p59*、docs/dev/p59/**、docs/tests/p59*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1188,6 +1200,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P57 恢复第一版墙体并局部修接点 [p57-first-version-visual-local-repair-20261006] · 已完成
 - A28 完整L转角瓦片 [a28-complete-l-corner-tiles-20261006] · 已完成
 - P58 完整L转角局部接入 [p58-complete-corner-integration-20261006] · 已完成
+- P59 编辑器素材二级分类与查找 [p59-editor-secondary-categories-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

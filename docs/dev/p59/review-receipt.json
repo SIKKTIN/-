@@ -1,0 +1,59 @@
+{
+  "id": "p59-self-review-20261007",
+  "digest": "147fd27733111294121b6900e41788bd2e12c6d13f11fcac494169eedf58aa4b",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-06T16:26:25.050Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p59-ready-20261007",
+    "taskId": "p59-editor-secondary-categories-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "素材主分类下增加二级用途：家具默认不混建筑，墙体分横/纵/角/端/柱楣/压顶；建筑/门禁/墙面设施独立二级，食堂及日常规则也按用途分。搜索名称/ID、计数、空提示、主分类切换记忆，图标沿用。真实原生两尺寸各10项通过，真实卡片点击/放置匹配asset_id/undo/锁定/源地图SHA保留。12交付hash冻结，旧素材/地图/运行时/用户project.godot未动。",
+    "evidence": [
+      "docs/dev/p59/delivery.json",
+      "docs/dev/p59/README.md",
+      "docs/tests/p59-1200-native.json",
+      "docs/tests/p59-960-native.json",
+      "docs/tests/p59-1200-corners.png",
+      "docs/tests/p59-1200-search.png",
+      "docs/tests/p59-960-furniture.png"
+    ],
+    "at": "2026-10-06T16:26:23.333Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-06T16:26:25.194Z",
+      "note": "制作人程序本人自验收，先证据后判断。12hash一致，两尺寸20项通过，亲眼核对原生素材栏：主分类/二级/搜索/计数垂直独立，建筑不堆家具；四新L图标易找，真实输入选择与放置正确，图层锁定/撤销兼容。旧地图SHA和素材不变，新窗口标题区分旧运行实例。未替用户作审美批准。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p59-ready-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "a41c577ec8142ce2314aafdbe2e6d032e43ff52cc98c62995b25a192cf1021a1"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "a41c577ec8142ce2314aafdbe2e6d032e43ff52cc98c62995b25a192cf1021a1",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

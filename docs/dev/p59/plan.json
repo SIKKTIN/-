@@ -1,0 +1,35 @@
+{
+  "scheduleRevision": "215a318c45708fa7fc17376d69fdbe277dc8428f07126743fd2d47d95f0552a6",
+  "creates": [
+    {
+      "task": {
+        "id": "p59-editor-secondary-categories-20261007",
+        "title": "P59 编辑器素材二级分类与查找",
+        "description": "用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p58-complete-corner-integration-20261006"
+        ],
+        "acceptance": "主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/**",
+            "qa/p59*",
+            "docs/dev/p59/**",
+            "docs/tests/p59*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求建筑瓦片归二次分类、优化难找长列表。",
+  "requestId": "p59-editor-categories-plan-20261007"
+}

@@ -5,6 +5,8 @@ const Document = preload("res://scripts/editor/map_document.gd")
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 const CATEGORIES := ["furniture","cafeteria","props","actors","items","rules","areas"]
 const CATEGORY_NAMES := {"furniture":"家具 / 设施","cafeteria":"食堂设施","props":"杂物摆设","actors":"人物 / NPC","items":"可拾取物品","rules":"规则 / 日常点","areas":"区域 / 寝室门"}
+const SUBCATEGORY_NAMES := {"all":"全部类型", "furnishings":"家具摆设", "tiles_h":"建筑瓦片 · 横墙", "tiles_v":"建筑瓦片 · 纵墙", "tiles_corner":"建筑瓦片 · 转角", "tiles_end":"建筑瓦片 · 端面", "tiles_frame":"建筑瓦片 · 门柱 / 门楣", "tiles_coping":"建筑瓦片 · 压顶", "buildings":"完整建筑 / 原图", "doors":"门窗 / 门禁", "attachments":"墙面设施", "serving":"取餐 / 回收", "tableware":"餐盘", "barriers":"排队围栏", "misc":"杂物", "staff":"人物", "loot":"物品", "routes":"巡逻路线", "activities":"日常活动", "regions":"区域", "dorms":"寝室门"}
+const SUBCATEGORY_ORDER := ["furnishings","tiles_h","tiles_v","tiles_corner","tiles_end","tiles_frame","tiles_coping","buildings","doors","attachments","serving","tableware","barriers","misc","staff","loot","routes","activities","regions","dorms"]
 var entries: Array[Dictionary] = []
 var assets: Dictionary = {}
 var tool_icons: Dictionary = {}
@@ -24,7 +26,10 @@ func _init() -> void:
 		if assets[id].get("render_mode","") == "architecture_material": continue
 		var category := "cafeteria" if str(id).begins_with("cafeteria_") else "furniture"
 		var entry: Dictionary = paired.get(id,{})
-		entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":str(entry.get("category",category)),"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
+		var subcategory := asset_subcategory(str(id),assets[id])
+		if subcategory in ["tiles_h","tiles_v","tiles_corner","tiles_end","tiles_frame","tiles_coping","buildings","doors","attachments"]: category = "furniture"
+		else: category = str(entry.get("category",category))
+		entries.append({"id":id,"name":str(entry.get("name",Document.ASSET_NAMES.get(id,id))),"category":category,"subcategory":subcategory,"group":"fixtures","asset_id":id,"icon":str(entry.get("editor_icon",""))})
 		if not str(entry.get("editor_icon","")).is_empty(): paired_icons += 1
 	var definitions := [
 		["gate_guards","门岗混混","actors","gate_guards"],
@@ -42,7 +47,7 @@ func _init() -> void:
 	for definition in definitions:
 		var id: String = definition[0]
 		var group: String = definition[3]
-		entries.append({"id":id,"name":definition[1],"category":definition[2],"group":group,"definition_id":id if group == "items" else "","icon":tool_icons.get(id,tool_icons.get(group,""))})
+		entries.append({"id":id,"name":definition[1],"category":definition[2],"subcategory": "routes" if group == "patrol" else "activities" if definition[2] == "rules" else "dorms" if group == "dorm_doors" else "regions" if definition[2] == "areas" else "loot" if definition[2] == "items" else "staff","group":group,"definition_id":id if group == "items" else "","icon":tool_icons.get(id,tool_icons.get(group,""))})
 
 func icon(entry: Dictionary) -> Texture2D:
 	var id: String = str(entry.id)
@@ -62,3 +67,36 @@ func icon(entry: Dictionary) -> Texture2D:
 		texture = load(fallback)
 	texture_cache[id] = texture
 	return texture
+
+func asset_subcategory(id: String, definition: Dictionary) -> String:
+	var mode := str(definition.get("render_mode",""))
+	if mode == "architecture_corner_l": return "tiles_corner"
+	if mode == "architecture_tiled_top": return "tiles_v"
+	if mode == "architecture_end_face": return "tiles_end"
+	if mode in ["architecture_jamb","architecture_lintel"] or id.contains("jamb") or id.contains("lintel") or id.contains("corner_post"): return "tiles_frame"
+	if mode == "architecture_coping": return "tiles_coping"
+	if mode in ["architecture_shell","architecture_shell_overlay","architecture_portal_reference"]: return "buildings"
+	if mode.begins_with("architecture_"): return "tiles_h"
+	if mode == "embedded_door" or id.contains("door") or id.contains("gate") or id in ["access_reader","cell_bars"]: return "doors"
+	if mode == "wall_attachment": return "attachments"
+	if id in ["cafeteria_counter","cafeteria_return"]: return "serving"
+	if id == "cafeteria_tray": return "tableware"
+	if id == "cafeteria_queue": return "barriers"
+	return "misc" if id.begins_with("heavy_crate") else "furnishings"
+
+func subcategories(category: String) -> Array[String]:
+	var result: Array[String] = ["all"]
+	for id in SUBCATEGORY_ORDER:
+		if entries.any(func(e): return e.category == category and e.subcategory == id): result.append(id)
+	return result
+
+func filtered_entries(category: String, subcategory: String, query := "") -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	var term := query.strip_edges().to_lower()
+	for entry in entries:
+		if entry.category != category or (subcategory != "all" and entry.subcategory != subcategory): continue
+		if not term.is_empty() and not (str(entry.name)+" "+str(entry.id)).to_lower().contains(term): continue
+		result.append(entry)
+	if subcategory.begins_with("tiles_"):
+		result.sort_custom(func(a,b): return str(a.id).naturalnocasecmp_to(str(b.id)) > 0)
+	return result

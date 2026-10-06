@@ -4446,6 +4446,55 @@
             "at": "2026-10-06T15:11:46.493Z"
           }
         ]
+      },
+      {
+        "id": "p59-editor-secondary-categories-20261007",
+        "title": "P59 编辑器素材二级分类与查找",
+        "description": "用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-06",
+        "actualEnd": "2026-10-06",
+        "milestoneId": "",
+        "acceptance": "主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。",
+        "result": "素材主分类下增加二级用途：家具默认不混建筑，墙体分横/纵/角/端/柱楣/压顶；建筑/门禁/墙面设施独立二级，食堂及日常规则也按用途分。搜索名称/ID、计数、空提示、主分类切换记忆，图标沿用。真实原生两尺寸各10项通过，真实卡片点击/放置匹配asset_id/undo/锁定/源地图SHA保留。12交付hash冻结，旧素材/地图/运行时/用户project.godot未动。\n\n验收通过：制作人程序本人自验收，先证据后判断。12hash一致，两尺寸20项通过，亲眼核对原生素材栏：主分类/二级/搜索/计数垂直独立，建筑不堆家具；四新L图标易找，真实输入选择与放置正确，图层锁定/撤销兼容。旧地图SHA和素材不变，新窗口标题区分旧运行实例。未替用户作审美批准。",
+        "dependencyIds": [
+          "p58-complete-corner-integration-20261006"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/**",
+            "qa/p59*",
+            "docs/dev/p59/**",
+            "docs/tests/p59*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/editor/map_editor.tscn",
+          "interfaceContract": "制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p59-editor-categories-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-06T16:19:42.567Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -5602,6 +5651,18 @@
         "createdTaskIds": [
           "a28-complete-l-corner-tiles-20261006",
           "p58-complete-corner-integration-20261006"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p59-editor-categories-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-06T16:19:42.567Z",
+        "reason": "用户要求建筑瓦片归二次分类、优化难找长列表。",
+        "createdTaskIds": [
+          "p59-editor-secondary-categories-20261007"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -18729,6 +18790,145 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-06T15:35:26.454Z",
           "note": "制作人P58本人程序自验收，证据先提交再单独判断。28hash一致，67项通过，实际完整L内凹角倒角/顶面连成整体，原H/厚柱/楣/墙脚保留，外24/内20无错误缩纵长，原墙正面/中段未挖空，内角透地无bbox影。A28已制作人独立美术验收；物理/规则/FPS/project.godot保留。技术通过不代替真人批准，磨损较密和角块大及启动FPS性质记录。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p59-start-20261007",
+        "taskId": "p59-editor-secondary-categories-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "新增主分类下二级用途分类与搜索，建筑瓦片归横墙/纵墙/转角/端面/门框等，家具默认只显示家具；沿用图标和放置行为。",
+        "evidence": [
+          "docs/dev/p59/plan.json"
+        ],
+        "at": "2026-10-06T16:22:09.302Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p59-editor-secondary-categories-20261007",
+          "title": "P59 编辑器素材二级分类与查找",
+          "description": "用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。",
+          "result": "新增主分类下二级用途分类与搜索，建筑瓦片归横墙/纵墙/转角/端面/门框等，家具默认只显示家具；沿用图标和放置行为。",
+          "dependencyIds": [
+            "p58-complete-corner-integration-20261006"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/editor/**",
+              "qa/p59*",
+              "docs/dev/p59/**",
+              "docs/tests/p59*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p59-editor-categories-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T16:19:42.567Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p59-ready-20261007",
+        "taskId": "p59-editor-secondary-categories-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "素材主分类下增加二级用途：家具默认不混建筑，墙体分横/纵/角/端/柱楣/压顶；建筑/门禁/墙面设施独立二级，食堂及日常规则也按用途分。搜索名称/ID、计数、空提示、主分类切换记忆，图标沿用。真实原生两尺寸各10项通过，真实卡片点击/放置匹配asset_id/undo/锁定/源地图SHA保留。12交付hash冻结，旧素材/地图/运行时/用户project.godot未动。",
+        "evidence": [
+          "docs/dev/p59/delivery.json",
+          "docs/dev/p59/README.md",
+          "docs/tests/p59-1200-native.json",
+          "docs/tests/p59-960-native.json",
+          "docs/tests/p59-1200-corners.png",
+          "docs/tests/p59-1200-search.png",
+          "docs/tests/p59-960-furniture.png"
+        ],
+        "at": "2026-10-06T16:26:23.333Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p59-editor-secondary-categories-20261007",
+          "title": "P59 编辑器素材二级分类与查找",
+          "description": "用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-06",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。",
+          "result": "素材主分类下增加二级用途：家具默认不混建筑，墙体分横/纵/角/端/柱楣/压顶；建筑/门禁/墙面设施独立二级，食堂及日常规则也按用途分。搜索名称/ID、计数、空提示、主分类切换记忆，图标沿用。真实原生两尺寸各10项通过，真实卡片点击/放置匹配asset_id/undo/锁定/源地图SHA保留。12交付hash冻结，旧素材/地图/运行时/用户project.godot未动。",
+          "dependencyIds": [
+            "p58-complete-corner-integration-20261006"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/editor/**",
+              "qa/p59*",
+              "docs/dev/p59/**",
+              "docs/tests/p59*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/editor/map_editor.tscn",
+            "interfaceContract": "制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p59-editor-categories-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-06T16:19:42.567Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-06T16:26:25.194Z",
+          "note": "制作人程序本人自验收，先证据后判断。12hash一致，两尺寸20项通过，亲眼核对原生素材栏：主分类/二级/搜索/计数垂直独立，建筑不堆家具；四新L图标易找，真实输入选择与放置正确，图层锁定/撤销兼容。旧地图SHA和素材不变，新窗口标题区分旧运行实例。未替用户作审美批准。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }

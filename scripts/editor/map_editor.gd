@@ -12,6 +12,11 @@ var canvas
 var maps: OptionButton
 var palette: ItemList
 var category_picker: OptionButton
+var subcategory_picker: OptionButton
+var resource_search: LineEdit
+var resource_count: Label
+var subcategory_ids: Array[String] = []
+var remembered_subcategories: Dictionary = {}
 var object_filter: OptionButton
 var library_tabs: TabContainer
 var operation_bar: HFlowContainer
@@ -68,7 +73,7 @@ func _ready() -> void:
 	request_open("res://data/rooms/r04.json")
 	get_window().focus_exited.connect(func(): canvas.finish_gesture())
 	if not Engine.is_editor_hint():
-		get_window().title = "这次怎么逃 · 关卡编辑器 · 分类图层"
+		get_window().title = "这次怎么逃 · 关卡编辑器 · 素材二级分类"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
 
@@ -184,8 +189,28 @@ func build_ui() -> void:
 	category_picker.name = "ResourceCategory"
 	category_picker.add_theme_font_size_override("font_size",14)
 	for category in Catalog.CATEGORIES: category_picker.add_item(Catalog.CATEGORY_NAMES[category])
-	category_picker.item_selected.connect(func(_index): rebuild_palette())
+	category_picker.item_selected.connect(func(_index): rebuild_subcategories())
+	category_picker.tooltip_text = "一级分类"
 	resources.add_child(category_picker)
+	subcategory_picker = OptionButton.new()
+	subcategory_picker.name = "ResourceSubcategory"
+	subcategory_picker.tooltip_text = "二级分类：按部件用途查找"
+	subcategory_picker.add_theme_font_size_override("font_size",14)
+	subcategory_picker.item_selected.connect(func(index):
+		remembered_subcategories[Catalog.CATEGORIES[category_picker.selected]] = subcategory_ids[index]
+		rebuild_palette())
+	resources.add_child(subcategory_picker)
+	resource_search = LineEdit.new()
+	resource_search.name = "ResourceSearch"
+	resource_search.placeholder_text = "搜索名称 / 素材ID"
+	resource_search.tooltip_text = "在当前二级分类中搜索；选择全部类型可搜索整个主分类。"
+	resource_search.clear_button_enabled = true
+	resource_search.add_theme_font_size_override("font_size",13)
+	resource_search.text_changed.connect(func(_text): rebuild_palette())
+	resources.add_child(resource_search)
+	resource_count = label(resources,"",12)
+	resource_count.name = "ResourceCount"
+	resource_count.modulate = Color("52615e")
 	palette = ItemList.new()
 	palette.name = "ResourceCards"
 	palette.max_columns = 2
@@ -284,7 +309,7 @@ func build_ui() -> void:
 		else:
 			show_error(document.last_error))
 	add_child(save_as)
-	rebuild_palette()
+	rebuild_subcategories()
 	set_tool("select")
 
 func build_layers(parent: Node) -> void:
@@ -335,17 +360,31 @@ func build_layers(parent: Node) -> void:
 	var help := label(body,"眼睛：显示  ·  锁：禁止编辑",11)
 	help.modulate = Color("6d807b")
 
+func rebuild_subcategories() -> void:
+	var category: String = Catalog.CATEGORIES[category_picker.selected]
+	subcategory_ids = catalog.subcategories(category)
+	subcategory_picker.clear()
+	for id in subcategory_ids:
+		var count := catalog.filtered_entries(category,id).size()
+		subcategory_picker.add_item("%s (%d)" % [Catalog.SUBCATEGORY_NAMES[id],count])
+	var preferred: String = remembered_subcategories.get(category,"furnishings" if category == "furniture" else "all")
+	var index := subcategory_ids.find(preferred)
+	subcategory_picker.select(maxi(0,index))
+	rebuild_palette()
+
 func rebuild_palette() -> void:
+	if not is_instance_valid(palette) or subcategory_ids.is_empty(): return
 	palette.clear()
 	palette_entries.clear()
 	var category: String = Catalog.CATEGORIES[category_picker.selected]
-	for entry in catalog.entries:
-		if entry.category != category: continue
-		palette_entries.append(entry)
+	var subcategory: String = subcategory_ids[subcategory_picker.selected]
+	palette_entries = catalog.filtered_entries(category,subcategory,resource_search.text)
+	for entry in palette_entries:
 		var index := palette.add_item(str(entry.name),catalog.icon(entry))
-		palette.set_item_tooltip(index,"放置："+str(entry.name))
+		palette.set_item_tooltip(index,"%s / %s\n%s\n%s" % [Catalog.CATEGORY_NAMES[category],Catalog.SUBCATEGORY_NAMES[entry.subcategory],entry.name,entry.id])
 		palette.set_item_disabled(index,layers.locked[layers.key_for(entry.group)])
 		if not placement.is_empty() and entry.id == placement.id: palette.select(index)
+	resource_count.text = "找到 %d 个素材" % palette_entries.size() if not palette_entries.is_empty() else "没有匹配素材，试试全部类型。"
 
 func set_tool(mode: String) -> void:
 	commit_fields()

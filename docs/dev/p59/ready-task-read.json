@@ -1,0 +1,140 @@
+{
+  "task": {
+    "id": "p59-editor-secondary-categories-20261007",
+    "title": "P59 编辑器素材二级分类与查找",
+    "description": "用户指出建筑瓦片混在家具长列表难找，增加二级分类和名称/素材ID搜索，将墙体按用途分组，不改素材或地图。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-06",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "主分类下可切二级用途，家具默认不堆建筑瓦片；横墙/纵墙/角/端面/门柱楣/门禁/整栋等各归属清晰。搜索与切分类正确、配套图标及放置/图层锁定行为保留。实际1280和1200编辑器图核对，地图未改。",
+    "result": "新增主分类下二级用途分类与搜索，建筑瓦片归横墙/纵墙/转角/端面/门框等，家具默认只显示家具；沿用图标和放置行为。",
+    "dependencyIds": [
+      "p58-complete-corner-integration-20261006"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/editor/**",
+        "qa/p59*",
+        "docs/dev/p59/**",
+        "docs/tests/p59*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "制作人本人只优化素材库分类/搜索与UI，不改art及旧交付、不改地图保存数据或运行时规则；沿用现有图标。实现/证据先提交，另程序自验收。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p59-editor-categories-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-06T16:19:42.567Z"
+      }
+    ]
+  },
+  "revision": "f79da848adfa804ac185deead307a0e948476b6271ce0d2c998dd8647ce21dd3",
+  "scheduleRevision": "d3d6a31ad622692dfe779e74030cab4cd97965b34f53bdf6fbd608509cc1ceaa",
+  "planChanges": [
+    {
+      "id": "p59-editor-categories-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T16:19:42.567Z",
+      "reason": "用户要求建筑瓦片归二次分类、优化难找长列表。",
+      "createdTaskIds": [
+        "p59-editor-secondary-categories-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p58-complete-corner-integration-20261006",
+      "title": "P58 完整L转角局部接入",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p59-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f79da848adfa804ac185deead307a0e948476b6271ce0d2c998dd8647ce21dd3"
+  },
+  "feedback": [
+    {
+      "id": "p59-start-20261007",
+      "taskId": "p59-editor-secondary-categories-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "新增主分类下二级用途分类与搜索，建筑瓦片归横墙/纵墙/转角/端面/门框等，家具默认只显示家具；沿用图标和放置行为。",
+      "evidence": [
+        "docs/dev/p59/plan.json"
+      ],
+      "at": "2026-10-06T16:22:09.302Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p59-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f79da848adfa804ac185deead307a0e948476b6271ce0d2c998dd8647ce21dd3"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "f79da848adfa804ac185deead307a0e948476b6271ce0d2c998dd8647ce21dd3",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}
