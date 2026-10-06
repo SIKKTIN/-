@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T05:35:07.639Z
-> 文档内容基准：056cdabf9edf1c2af1e7f133ad90ace7b0cd368b7dc44ff820e7e478344246ff
+> 文档生成时间：2026-10-06T06:19:03.802Z
+> 文档内容基准：9f5c986955565fe2b4dfd2ae0d8a593cf392315cf97ad47096944b1c1cfb9ce6
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -64,6 +64,8 @@
 - P45 · 查寝缺员警报与警员增援 [p45-rollcall-alert-20261005] · 已完成
 - P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
 - P47 · 自定义摇杆与交互按键位置 [p47-custom-mobile-layout-20261006] · 已完成
+- P48 · 人物栏置于时钟下方与无辜被困者故事文案 [p48-hud-story-premise-20261006] · 已完成
+- P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -84,7 +86,8 @@
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -940,6 +943,29 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
 - 验收要求：1200和960实际输入验证拖动摇杆及互动/技能/背包/目标键、保存跨重开与重启、取消和默认恢复、安全区限制、编辑不移动角色/不触发技能、两尺寸原生截图；P46输入回归通过。
 - 验收负责人：制作人
+### P48 · 人物栏置于时钟下方与无辜被困者故事文案
+- ID：p48-hud-story-premise-20261006
+- 当前状态：已完成
+- 内容：用户明确人物栏放在左上时钟日程下面，故事为三位无辜的人被小混混抓进封闭工厂强迫干活，目标合作逃出。制作人修改布局锚点和实际游戏文案，保留原规则与自定义摇杆。
+- 前置任务：无
+- 允许修改路径：scripts/ui/fullscreen_hud.gd、scripts/core/escape_game.gd、scripts/core/prison_schedule.gd、scripts/core/prison_alert.gd、scripts/skills/skill_controller.gd、scripts/actors/guard.gd、scripts/actors/police_dog.gd、scripts/presentation/dog_visual.gd、scripts/presentation/scene_layers.gd、scripts/presentation/lighting_system.gd、data/schedule.json、data/skills/library.json、data/rooms/r04.json、qa/p48*、docs/dev/p48*、docs/tests/p48*
+- 接口契约：人物栏固定时钟下12单位竖排，不跟随摇杆位置；手机小尺寸仍保留摇杆空间。只替换显示文案与地图区名，不改guard等内部标识与捕获/日程/寻路规则，保留用户project.godot差异。A17新形象独立交付，P49接入。
+- 交付入口：res://scenes/main.tscn → R04
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：两尺寸实测人物栏紧贴时钟下方、竖排、无遮挡，移动自定义摇杆后人物栏不动；开局/时段/聊天/缺员/追捕状态文案统一看守与黑工厂背景，主动说明三人为无辜被困者；原有日程、角色操作、警戒行为回归保持。
+- 验收负责人：制作人
+### P49 · 混混看守主干接入与整体试玩验收
+- ID：p49-thug-mainline-integration-20261006
+- 当前状态：已完成
+- 内容：接入主美A17透明混混形象，覆盖巡逻、门岗和缺员增援。GameCreator之前被未保存编辑暂时阻止记录，按用户已授权换形象范围先完成代码准备和初步QA；用户保存后现在登记实际集成工作与独立主干验收，不虚构之前状态。
+- 前置任务：a17-thug-lookout-20261006
+- 允许修改路径：data/presentation/active.json、scripts/presentation/game_presentation.gd、qa/p49*、docs/dev/p49*、docs/tests/p49*
+- 接口契约：guard保留内部逻辑身份，从active.guard_appearance加载完整A17 definition；门岗和增援依既有attach_visual继承同一套站立/八帧行走。只改配置和美术读取，不改捕获/视野/日程/碰撞，不覆盖主美原图与用户project.godot。
+- 交付入口：res://scenes/main.tscn；qa/p49_thug_integration.gd
+- 集成来源任务：a17-thug-lookout-20261006
+- 验收约定：仅制作人本人独立执行可自验收；先提交证据，再单独填写结论
+- 验收要求：实际生产入口四地图巡逻均使用便服混混，R04两个门岗及实际查寝缺员两名增援统一外观；8帧12fps、左右翻转/暂停/停止稳定，主角旧资源保留；两尺寸原生截图和P48/P47原输入规则回归全部通过，无加载或脚本错误。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1006,7 +1032,10 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
 - P46 · 手机摇杆移动与情景交互 [p46-direct-mobile-control-20261006] · 已完成
 - P47 · 自定义摇杆与交互按键位置 [p47-custom-mobile-layout-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成
+- P48 · 人物栏置于时钟下方与无辜被困者故事文案 [p48-hud-story-premise-20261006] · 已完成
+- P49 · 混混看守主干接入与整体试玩验收 [p49-thug-mainline-integration-20261006] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1444,13 +1473,23 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 验收负责人：制作人
 ### A17 监狱门与场景美术扩展包
 - ID：a17-prison-scene-expansion-20261006
-- 当前状态：进行中
+- 当前状态：待验收
 - 内容：按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。
 - 前置任务：无
 - 允许修改路径：art/props/prison_v17/**、docs/art/prison-v17/**
 - 接口契约：schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。
 - 交付入口：art/props/prison_v17/manifest.json
 - 验收要求：透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。
+- 验收负责人：制作人
+### A17 · 小混混看守站立与八帧行走形象
+- ID：a17-thug-lookout-20261006
+- 当前状态：已完成
+- 内容：用户将故事更正为三个无辜的人被抓进封闭黑工厂强迫劳动，要求警卫改成小混混看守。复用现有手绘小人比例，以便服、短发、背心与木棍表现，不再使用警服、警帽、徽章。
+- 前置任务：无
+- 允许修改路径：art/characters/thug_v17/*、docs/art/a17*
+- 接口契约：主美独立制作透明站立和至少8帧12fps行走，朝右且脚底原点统一；按既有ActorVisual结构交付一个actor_id=guard的完整定义，包含idle/legacy帧与walk_animation。制作人负责配置切换、巡逻/门岗/增援复用与原生集成测试。不改旧资源或程序。
+- 交付入口：art/characters/thug_v17/manifest.json → 制作人P48接入现有看守ActorVisual
+- 验收要求：透明背景，便服小混混无警服/帽/徽章，画风与既有人物一致，角色高度约60世界单位；站立+至少8帧行走注册锚点稳定，左右翻转可用；交付源提示/图片/尺寸与帧区域/脚锚点/资源QA和制作说明；本人凭证提交待验收由制作人审核。
 - 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
@@ -1470,4 +1509,5 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A13 · 监狱食堂场景概念图 [f8548250-e6e4-4267-9b03-5c6bbe4e41b0] · 已完成
 - A14 · 食堂场景可用素材 [c2c6c499-e6e9-4568-b807-7a71c92c1eab] · 已完成
 - A16 · 竖排伙伴栏与摇杆操作HUD [a16-vertical-mobile-hud-20261006] · 已完成
-- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 进行中
+- A17 监狱门与场景美术扩展包 [a17-prison-scene-expansion-20261006] · 待验收
+- A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006] · 已完成

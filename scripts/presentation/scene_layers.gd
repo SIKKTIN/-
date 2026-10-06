@@ -84,7 +84,7 @@ func _draw() -> void:
 		for y in range(int(zone.position.y+12),int(zone.end.y),24):
 			draw_line(Vector2(zone.position.x,y),Vector2(zone.position.x,y+10),boundary,1.5,true)
 		var label_color := Color("d8e8dc") if presentation.lighting.period == "night" else Color("536052")
-		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"午夜锁寝 · 警卫查房" if game.schedule and game.schedule.is_sleep_time() else "寝区自由 · 室外警戒" if game.schedule and game.schedule.is_curfew() else "寝室区",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+		draw_string(presentation.font,Vector2(world.bounds.position.x+12,world.bounds.end.y-12),"午夜锁寝 · 看守查房" if game.schedule and game.schedule.is_sleep_time() else "寝区自由 · 室外警戒" if game.schedule and game.schedule.is_curfew() else "寝室区",HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 		if game.schedule and game.schedule.is_curfew():
 			for index in range(game.actors.size()):
 				var dorm: Rect2 = game.schedule.dormitory(index)

@@ -62,6 +62,11 @@ func configure(escape_game) -> void:
 		asset = asset.duplicate(true)
 		if walk_definitions.has(str(asset.actor_id)):
 			asset.walk_animation = walk_definitions[str(asset.actor_id)]
+		# Guard is a logic role. Its active appearance can be a civilian lookout,
+		# and gate guards/reinforcements inherit this complete definition.
+		var guard_appearance: String = str(active.get("guard_appearance",""))
+		if str(asset.actor_id) == "guard" and not guard_appearance.is_empty() and FileAccess.file_exists(guard_appearance):
+			asset = JSON.parse_string(FileAccess.get_file_as_string(guard_appearance))
 		var actor = game.guard if str(asset.actor_id) == "guard" else game.actors[int(asset.actor_id)]
 		actor.art_body = true
 		actor.z_index = 15 if actor == game.guard else 20

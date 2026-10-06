@@ -80,8 +80,8 @@ func _make_ui() -> void:
 	stage_button.pressed.connect(toggle)
 	blocker = _blocker("ScheduleMapBlocker",Rect2(74,114,922,560),110)
 	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,364),111)
-	_label(panel,Vector2(20,16),"今日监区日程",22)
-	var lines := "08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–08:00  锁寝睡觉 · 警卫进房查寝"
+	_label(panel,Vector2(20,16),"今日工厂日程",22)
+	var lines := "08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–08:00  锁寝睡觉 · 看守进房查寝"
 	_label(panel,Vector2(20,60),lines,17)
 	schedule_note = _label(panel,Vector2(20,235),"",15)
 	skip_button = _button(panel,Vector2(20,304),"跳过夜晚",skip_night)
@@ -234,9 +234,9 @@ func enter_curfew() -> void:
 				break
 		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"
 	if game.prison_alert != null and game.prison_alert.active:
-		game.show_status("缺员警报持续：全监狱搜查中，夜晚无法跳过。",6)
+		game.show_status("缺员警报持续：全厂区搜查中，夜晚无法跳过。",6)
 	else:
-		game.show_status("午夜锁寝：回床睡觉可跳过；继续行动要避开进房查寝的警卫。" if is_sleep_time() else "20:00：寝室区自由活动，室外进入警戒；午夜锁寝查房。",6)
+		game.show_status("午夜锁寝：回床睡觉可跳过；继续行动要避开进房查寝的看守。" if is_sleep_time() else "20:00：寝室区自由活动，室外进入警戒；午夜锁寝查房。",6)
 
 func dog_active() -> bool:
 	return (game.prison_alert != null and game.prison_alert.active) or (stage_index >= 0 and bool(config.stages[stage_index].dog_active))
@@ -260,7 +260,7 @@ func tick(announce: bool = true) -> void:
 			game.guard.schedule_changed(is_sleep_time())
 		if announce:
 			if not is_curfew():
-				game.show_status("缺员警报仍未解除，全监狱继续搜查。" if game.prison_alert != null and game.prison_alert.active else "%s开始：%s" % [stage.name,stage.detail],4)
+				game.show_status("缺员警报仍未解除，全厂区继续搜查。" if game.prison_alert != null and game.prison_alert.active else "%s开始：%s" % [stage.name,stage.detail],4)
 	game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
 	skip_button.visible = is_sleep_time()
 	if game.gate_watch:
@@ -269,7 +269,7 @@ func tick(announce: bool = true) -> void:
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
 	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
 	if game.prison_alert != null and game.prison_alert.active:
-		schedule_note.text = "查寝发现缺员：全监狱警戒，增派2名警员。\n警报持续到本局结束，无法跳过夜晚。"
+		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到本局结束，无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
 	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
@@ -313,7 +313,7 @@ func show_result(success: bool) -> void:
 		game.shop_panel.close()
 	var count: int = game.actors.filter(func(a): return a.escaped).size()
 	var carried: int = game.inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-	result_label.text = "%s\n逃出 %d / 3 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"三位伙伴都已逃出。" if success else "未逃出的伙伴被留在监区。"]
+	result_label.text = "%s\n逃出 %d / 3 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"三位伙伴都已逃出。" if success else "未逃出的伙伴仍被困在黑工厂。"]
 	result_panel.show()
 	result_blocker.show()
 	# Draw depth does not determine GUI hit order. Bring the allowed control

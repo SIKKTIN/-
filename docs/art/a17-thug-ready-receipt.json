@@ -1,0 +1,52 @@
+{
+  "id": "a17-thug-art-ready-20261006",
+  "digest": "47b1cd928b33724f23e19b5937005ddddb1a4acfde60c6cb7d7e776410f67fab",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-06T06:07:41.512Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a17-thug-art-ready-20261006",
+    "taskId": "a17-thug-lookout-20261006",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "主美已生成便服短发/暗背心/工作靴/木棍小混混，交付透明站立及8帧12fps真实行走的完整ActorVisual定义。单张原RGBA图共9独立姿势，world_height60、统一scale_height385、裁区脚锚稳定，左右翻转原生可用。资源RGBA/源哈希/裁区/锚点和Godot60单位联系表检查通过并实际查看；制作人P48另行接入巡逻/门岗/增援与整体QA。未改旧资源或生产程序、未提交Git、未自行验收。",
+    "evidence": [
+      "E:/Project/Godot/这次怎么逃/art/characters/thug_v17/manifest.json：顶层actor_id=guard完整定义，texture/idle/walk_a/walk_b/anchors/initial_walk_frame_seconds/world_height=60及8帧walk_animation（fps12、scale_height385）。",
+      "E:/Project/Godot/这次怎么逃/art/characters/thug_v17/thug_idle_walk8_v17.png：1254×1254原始RGBA、首idle后八walk，无警服帽徽章；SHA256 4031e6f0a72694b06d106e661fe27d4d4691942e973babaf6b332c6122d5f72d，逐字节匹配内置生成源。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a17-imagegen-source.json：完整准确prompt、透明请求、两张既有guard参考只用于风格/比例，生成源绝对路径；未代码改PNG或用idle变形伪造步态。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a17-resource-qa.json：RGBA/alpha0=0.6223、9独立姿势哈希、零漏裁主体、锚点在裁区内、源复制哈希通过；统一缩放约0.155844，彩色高度57.04–58.60，脚点共同原点。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a17-native-contact.png：Godot4.7.2 D3D12独立联系表已实际view_image查看，八帧60单位可读、脚基线一致、左翻转干净无底雾；a17-native-resource-qa.gd可复现。",
+      "E:/Project/Godot/这次怎么逃/docs/art/a17-thug-lookout.md：资产接口、来源、注册方法、全部文件与资源/整合QA边界。独立原生资源QA已退出；完整连续动画/暂停/巡逻门岗增援/手机两尺寸由制作人P48验证。"
+    ],
+    "at": "2026-10-06T06:07:41.590Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "a17-thug-art-ready-20261006",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "a17-thug-art-ready-20261006",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "fb02cb5d623ec082cd238e0750ad1739b97e3ad702cc5288236f35420635e3a8"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "fb02cb5d623ec082cd238e0750ad1739b97e3ad702cc5288236f35420635e3a8",
+    "delivery": "review_inbox",
+    "next": "等待验收；可继续其他已分配任务",
+    "received": true
+  }
+}

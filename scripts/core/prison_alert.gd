@@ -53,7 +53,7 @@ func check_rollcall() -> void:
 func _raise_alarm() -> void:
 	active = true
 	triggered_minute = game.schedule.absolute_minutes()
-	game.cancel_guard_chat("查寝发现缺员，警卫结束交谈！")
+	game.cancel_guard_chat("查寝发现缺员，看守结束交谈！")
 	for index in range(2):
 		var officer = Guard.new()
 		officer.name = "SearchReinforcement%d" % (index+1)
@@ -89,7 +89,7 @@ func _raise_alarm() -> void:
 		for step in range(search_points.size()):
 			route.append(search_points[(offset+step)%search_points.size()])
 		routes[officer.get_instance_id()] = route
-	game.show_status("查寝发现伙伴%d缺员！全监狱警戒，增派2名警员搜查。" % (missing_ids[0]+1),8)
+	game.show_status("查寝发现伙伴%d缺员！全厂区警戒，增派2名混混搜查。" % (missing_ids[0]+1),8)
 
 func search_route(officer) -> Array[Vector2]:
 	return routes.get(officer.get_instance_id(),game.world.patrol)

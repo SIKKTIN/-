@@ -119,7 +119,7 @@ func investigate(point: Vector2) -> bool:
 		if not found:
 			return false
 	if chat_partner_id >= 0:
-		game.cancel_guard_chat("警犬示警，狱警结束交谈并去调查。")
+		game.cancel_guard_chat("看门犬示警，看守结束交谈并去调查。")
 	chat_partner_id = -1
 	target_id = -1
 	state = "searching"
@@ -164,7 +164,7 @@ func tick(delta: float) -> void:
 			nearest_distance = distance
 	if nearest_id >= 0:
 		if chat_partner_id >= 0 and game.has_method("cancel_guard_chat"):
-			game.cancel_guard_chat("狱警发现了其他人，聊天中断！")
+			game.cancel_guard_chat("看守发现了其他人，聊天中断！")
 		chat_partner_id = -1
 		state = "chasing"
 		target_id = nearest_id

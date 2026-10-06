@@ -180,7 +180,7 @@ func _build_ui() -> void:
 	room_selector.position = Vector2(566,35)
 	room_selector.size = Vector2(230,42)
 	for index in range(ROOM_IDS.size()):
-		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所", "R04 · 监区生活层"][index])
+		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所", "R04 · 黑工厂生活区"][index])
 		room_selector.set_item_disabled(index,not FileAccess.file_exists("res://data/rooms/%s.json" % ROOM_IDS[index]))
 	room_selector.select(ROOM_IDS.find(room_id))
 	room_selector.item_selected.connect(func(index): load_room(ROOM_IDS[index]))
@@ -269,7 +269,7 @@ func _process(delta: float) -> void:
 	if map_camera:
 		map_camera.tick(delta)
 	if phase == "playing" and elapsed >= status_until:
-		status_text = "逃脱 %d / 3 · 锁门%s · 抓回 %d 次 · 狱警%s" % [actors.filter(func(a): return a.escaped).size(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
+		status_text = "逃脱 %d / 3 · 锁门%s · 抓回 %d 次 · 看守%s" % [actors.filter(func(a): return a.escaped).size(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
 	_update_ui()
 	if presentation:
 		presentation.tick(delta)
@@ -428,7 +428,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routines.tick()
 	if developer_settings:
 		developer_settings.close()
-	show_status("三天内让三人逃脱；日常表可安排伙伴工作和活动。",4)
+	show_status("我们是被抓来干活的无辜人。避开混混看守，带三位伙伴一起逃出去。",4)
 	select_actor(0)
 	if routine_panel and routine_panel.panel.visible:
 		routine_panel.reload()

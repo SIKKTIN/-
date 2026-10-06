@@ -117,7 +117,7 @@ func tick(delta: float) -> void:
 			bark_until = game.elapsed+1
 			bark_count += 1
 			var alerted: bool = game.guard.investigate(target)
-			game.show_status("警犬犬吠示警！狱警前往调查。" if alerted else "警犬发现附近伙伴并犬吠！",2)
+			game.show_status("看门犬犬吠示警！看守前往调查。" if alerted else "看门犬发现附近伙伴并犬吠！",2)
 	else:
 		# Smell a reachable patch of floor, not the hidden actor's current position.
 		var newest: Dictionary = {}

@@ -43,7 +43,7 @@ func configure(owner_game, theme: Theme) -> void:
 	toggle_button.size = Vector2(155,38)
 	toggle_button.theme = theme
 	toggle_button.add_theme_font_size_override("font_size",16)
-	toggle_button.tooltip_text = "日程决定昼夜；白天狱警看得更远，夜晚视野缩短。"
+	toggle_button.tooltip_text = "日程决定昼夜；白天看守看得更远，夜晚视野缩短。"
 	game.get_node("HUD").add_child(toggle_button)
 	guard_light = PointLight2D.new()
 	guard_light.name = "GuardFlashlight"

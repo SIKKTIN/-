@@ -35,18 +35,18 @@ func target_reason(actor) -> String:
 		return "用摇杆抵住箱子移动，接触后自动施力推箱。"
 	if actor.skill_id == "chat":
 		if game.schedule and game.schedule.is_curfew():
-			return "宵禁警戒中，狱警不接受交谈。"
+			return "宵禁警戒中，看守不接受交谈。"
 		var guard = chat_guard(actor)
 		if guard == null:
-			return "靠近空闲警卫后再交谈。"
+			return "靠近空闲看守后再交谈。"
 		if guard.state == "chasing":
-			return "狱警正在追击，不能交谈。"
+			return "看守正在追击，不能交谈。"
 		if guard.chat_partner_id >= 0 and guard.chat_partner_id != actor.actor_id:
-			return "狱警正和另一个伙伴交谈。"
+			return "看守正和另一个伙伴交谈。"
 		if actor.position.distance_to(guard.position) > float(definition.range):
-			return "靠近狱警后再交谈。"
+			return "靠近看守后再交谈。"
 		if not game.world.line_clear(actor.position,guard.position):
-			return "你和狱警之间有遮挡。"
+			return "你和看守之间有遮挡。"
 		return ""
 	return door_reason(actor, float(definition.range))
 
@@ -85,7 +85,7 @@ func toggle(actor_id: int) -> bool:
 		guard.start_chat(actor_id)
 		if game.gate_watch:
 			game.gate_watch.tick(0)
-		game.show_status("伙伴%d交谈中；当前非戒备，狱警不追捕。" % (actor_id+1))
+		game.show_status("伙伴%d交谈中；当前非戒备，看守不追捕。" % (actor_id+1))
 	else:
 		game.show_status("伙伴%d撬锁中；可以换人行动，离开会中断。" % (actor_id+1))
 	return true
@@ -144,7 +144,7 @@ func tick(delta: float) -> void:
 			for actor_id in actions.keys():
 				if actions[actor_id].kind in ["lockpick", "lock_tool"]:
 					cancel(actor_id)
-			game.show_status("锁撬开了！伙伴和狱警都能走这条通路。")
+			game.show_status("锁撬开了！伙伴和看守都能走这条通路。")
 
 func snapshot() -> Array:
 	var result: Array = []

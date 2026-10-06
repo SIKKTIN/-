@@ -62,7 +62,7 @@ class PartnerFace extends Control:
 			var values: Dictionary = ui.game.attributes.values[index]
 			for row in range(2):
 				var value: float = values.stamina if row == 0 else values.fullness
-				var y: float = 63+row*12
+				var y: float = 63+row*12-minf(8,82-size.y)
 				var tint := Color("c9534b") if value < 25 else Color("328b82") if row == 0 else Color("c69c5e")
 				draw_string(ui.font,Vector2(8,y+4),"体力" if row == 0 else "饱腹",HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("536052"))
 				draw_rect(Rect2(38,y-3,size.x-78,5),Color("d3d7c8"))
@@ -225,7 +225,7 @@ func configure(owner_game) -> void:
 	var layout_button: Button = game.schedule._button(menu,Vector2(24,352),"按键布局",func(): button_layout.open())
 	layout_button.name = "EditButtonLayout"
 	layout_button.size = Vector2(312,48)
-	game.schedule._label(menu,Vector2(24,416),"左侧摇杆移动 · 切换伙伴 · 右侧互动",14)
+	game.schedule._label(menu,Vector2(24,416),"无辜被困 · 合作逃出黑工厂",14)
 	menu.hide()
 	menu_blocker.hide()
 	# GUI hit order follows tree order. Shop can still select the floating bag.
@@ -339,8 +339,8 @@ func layout() -> void:
 	var pad: Control = game.mobile_controls.pad
 	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size-12)
 	pad.size = Vector2(pad_size,pad_size)
-	var card_height := 82.0
-	var card_top := pad.position.y-12-3*card_height-16
+	var card_top: float = clock.position.y+clock.size.y+12
+	var card_height: float = minf(82,floorf((pad.position.y-12-card_top-16)/3))
 	for index in range(3):
 		game.cards[index].position = Vector2(safe.position.x,card_top+index*(card_height+8))
 		game.cards[index].size = Vector2(164,card_height)

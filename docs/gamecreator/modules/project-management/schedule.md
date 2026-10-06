@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T05:35:07.637Z
-> 文档内容基准：32dd67d75bce74675a4192331ba4bbe840ab37b0eab116b8ef7a807e98e6880e
+> 文档生成时间：2026-10-06T06:19:03.795Z
+> 文档内容基准：9074b94d9328d7515288761eac1b4400620a93afce301dd19cf582968d2ff035
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1274,19 +1274,76 @@
 
 ### 制作任务：A17 监狱门与场景美术扩展包
 - ID：a17-prison-scene-expansion-20261006
-- 美术；高；进行中；负责人：主美
+- 美术；高；待验收；负责人：主美
 - 里程碑：未分组
 - 计划：未定 → 未定
 - 实际：2026-10-06 → 未记录
 按用户2026-10-06参考图扩充FINAL-WARM-01场景：监狱铁门开闭状态，以及通风口、墙灯、旧管线、洗漱盆、消防设施、布告板、推车等独立可摆放素材。复用现有床/栅栏/便器/工作台，不无谓重做旧资产。
 - 验收条件：透明原PNG及region/ground_rect/脚底和尺寸清单；开闭门共享注册；附完整来源提示词/透明QA/SHA与同尺度拼装预览。仅新目录，制作人独立验收并决定生产接入。
-- 验收结果：接手用户新需求。计划新增监狱滑动铁门闭合/打开两状态，以及墙通风口、笼罩墙灯、管线阀门、双位洗漱盆、消防器具、旧布告板、洗衣推车。复用现有床/栅栏/便器/车间摆设，独立新prison_v17目录，不改生产代码和旧清单。内置imagegen逐素材生成，建立统一尺寸/地面注册、透明/原生尺度QA和场景拼装预览后提交制作人。
+- 验收结果：用户新场景扩展交付 prison-expansion-art-v17-20261006-1c24afa8af78（27文件SHA清单）。8张内置imagegen原样透明PNG、9状态：滑动监狱门关闭/打开，通风口、笼罩墙灯、管线阀门、双位洗漱盆、灭火器挂架、旧布告板、洗衣推车。新入口res://art/props/prison_v17/manifest.json；提供region/ground_rect/anchor/等比scale/footprint/world_size/elevation/render_mode/blocking等。门两状态原始框体730x721像素，门框位置、注册尺寸与缩放完全一致，打开门洞3取样alpha0。地面门槛80x14，洗漱100x42，推车68x48；墙挂装饰独立mount_anchor/挂载高度且无地面碰撞，不附加玩法。源RGBA/原样SHA、9项完整裁框和等比缩放、129旧资产不变；浏览器两尺寸独立素材/拼装4项和隔离Godot4.7.2 headless Image/AtlasTexture均通过。拼装已查看复用旧地板/床/便器/工作台/柜子/人物，风格和比例衔接。门源外缘最大alpha1/255残余如实登记无可见边框，未代码修改PNG。仅新增允许目录，无共享scripts/data/scenes/active/旧manifest/根project改动，无Git或生产窗口。请制作人独立验收并加载新清单；优先将水平门槛铁门绑定牢房/走廊开闭逻辑，墙附件不要走地面阴影与碰撞。拼装图是素材预览，实际关卡放置/遮挡/碰撞和状态切换需接入验收。
 - 前置任务：无
 - 工作岗位：art-director
 - 允许修改路径：art/props/prison_v17/**、docs/art/prison-v17/**
 - 接口契约：schema1 assets{id,texture,region,ground_rect,footprint_world_size,world_size,elevation_world,shadow_baked,blocking,interactive};门开闭same pair registration/scale；图片源文件不程序修改。不改scripts/data/scenes/active或现有manifest，不Git提交。
 - 交付入口：art/props/prison_v17/manifest.json
 - AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A17 · 小混混看守站立与八帧行走形象
+- ID：a17-thug-lookout-20261006
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户将故事更正为三个无辜的人被抓进封闭黑工厂强迫劳动，要求警卫改成小混混看守。复用现有手绘小人比例，以便服、短发、背心与木棍表现，不再使用警服、警帽、徽章。
+- 验收条件：透明背景，便服小混混无警服/帽/徽章，画风与既有人物一致，角色高度约60世界单位；站立+至少8帧行走注册锚点稳定，左右翻转可用；交付源提示/图片/尺寸与帧区域/脚锚点/资源QA和制作说明；本人凭证提交待验收由制作人审核。
+- 验收结果：主美已生成便服短发/暗背心/工作靴/木棍小混混，交付透明站立及8帧12fps真实行走的完整ActorVisual定义。单张原RGBA图共9独立姿势，world_height60、统一scale_height385、裁区脚锚稳定，左右翻转原生可用。资源RGBA/源哈希/裁区/锚点和Godot60单位联系表检查通过并实际查看；制作人P48另行接入巡逻/门岗/增援与整体QA。未改旧资源或生产程序、未提交Git、未自行验收。
+
+验收通过：制作人审核：实际查看原PNG及主游戏1200 HUD、960门岗、1200缺员增援原生截图，便服短发木棍无警服帽徽章，风格/透明/脚底锚点与8帧12fps满足要求。P49目前已测主巡逻、门岗、实际缺员增援统一definition，左右翻转和暂停正确；人物操作和昼夜警戒逻辑保留。资源交付通过，P49完整主干验收单独记录。
+- 前置任务：无
+- 工作岗位：art-director
+- 允许修改路径：art/characters/thug_v17/*、docs/art/a17*
+- 接口契约：主美独立制作透明站立和至少8帧12fps行走，朝右且脚底原点统一；按既有ActorVisual结构交付一个actor_id=guard的完整定义，包含idle/legacy帧与walk_animation。制作人负责配置切换、巡逻/门岗/增援复用与原生集成测试。不改旧资源或程序。
+- 交付入口：art/characters/thug_v17/manifest.json → 制作人P48接入现有看守ActorVisual
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P48 · 人物栏置于时钟下方与无辜被困者故事文案
+- ID：p48-hud-story-premise-20261006
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+用户明确人物栏放在左上时钟日程下面，故事为三位无辜的人被小混混抓进封闭工厂强迫干活，目标合作逃出。制作人修改布局锚点和实际游戏文案，保留原规则与自定义摇杆。
+- 验收条件：两尺寸实测人物栏紧贴时钟下方、竖排、无遮挡，移动自定义摇杆后人物栏不动；开局/时段/聊天/缺员/追捕状态文案统一看守与黑工厂背景，主动说明三人为无辜被困者；原有日程、角色操作、警戒行为回归保持。
+- 验收结果：人物栏固定左上时钟下12单位，小屏压缩至77高并保留摇杆空间；自定义摇杆位置不带走人物栏。开局、时段/技能/警报/结算、地图区名统一无辜被困者与混混黑工厂背景，正式项目概览/手机平台设计已应用；365项最终回归全部通过。
+
+验收通过：制作人独立程序任务自验收：人物栏正确锚定时钟下方，1200和960画面属性条均清晰、摇杆无重叠，自定义位置不会搬动卡片。365项实际输入/日程/警报回归已通过；故事与手机平台正式设计已应用，文案一致，无GC未完成编辑阻塞。
+- 前置任务：无
+- 工作岗位：producer
+- 允许修改路径：scripts/ui/fullscreen_hud.gd、scripts/core/escape_game.gd、scripts/core/prison_schedule.gd、scripts/core/prison_alert.gd、scripts/skills/skill_controller.gd、scripts/actors/guard.gd、scripts/actors/police_dog.gd、scripts/presentation/dog_visual.gd、scripts/presentation/scene_layers.gd、scripts/presentation/lighting_system.gd、data/schedule.json、data/skills/library.json、data/rooms/r04.json、qa/p48*、docs/dev/p48*、docs/tests/p48*
+- 接口契约：人物栏固定时钟下12单位竖排，不跟随摇杆位置；手机小尺寸仍保留摇杆空间。只替换显示文案与地图区名，不改guard等内部标识与捕获/日程/寻路规则，保留用户project.godot差异。A17新形象独立交付，P49接入。
+- 交付入口：res://scenes/main.tscn → R04
+- 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P49 · 混混看守主干接入与整体试玩验收
+- ID：p49-thug-mainline-integration-20261006
+- 其他；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-06 → 2026-10-06
+接入主美A17透明混混形象，覆盖巡逻、门岗和缺员增援。GameCreator之前被未保存编辑暂时阻止记录，按用户已授权换形象范围先完成代码准备和初步QA；用户保存后现在登记实际集成工作与独立主干验收，不虚构之前状态。
+- 验收条件：实际生产入口四地图巡逻均使用便服混混，R04两个门岗及实际查寝缺员两名增援统一外观；8帧12fps、左右翻转/暂停/停止稳定，主角旧资源保留；两尺寸原生截图和P48/P47原输入规则回归全部通过，无加载或脚本错误。
+- 验收结果：A17新便服混混的完整站立及八帧12fps行走已通过active.guard_appearance接入所有地图巡逻，R04门岗及实际缺员两名增援自动复用。81项素材集成检查及365项最终功能回归共446项通过，无加载/脚本错误；代码配置未更改捕获/碰撞/技能/昼夜规则。
+
+验收通过：制作人主干集成自验收：A17资源已独立验收，真实生产四地图巡逻、两门岗与两缺员增援使用混混形象；实测8帧/12fps/翻转/暂停/重开，81项集成与365项输入规则回归共446通过。主游戏原生三种场景已查看，捕获/技能/日程规则保留，无资源加载错误；Windows事件模拟，不宣称手机真机手感。
+- 前置任务：A17 · 小混混看守站立与八帧行走形象 [a17-thug-lookout-20261006]
+- 工作岗位：producer
+- 允许修改路径：data/presentation/active.json、scripts/presentation/game_presentation.gd、qa/p49*、docs/dev/p49*、docs/tests/p49*
+- 接口契约：guard保留内部逻辑身份，从active.guard_appearance加载完整A17 definition；门岗和增援依既有attach_visual继承同一套站立/八帧行走。只改配置和美术读取，不改捕获/视野/日程/碰撞，不覆盖主美原图与用户project.godot。
+- 交付入口：res://scenes/main.tscn；qa/p49_thug_integration.gd
+- 主干集成来源任务：a17-thug-lookout-20261006；模块通过不等于主干已集成
+- 验收约定：仅允许制作人本人独立执行时自验收，仍需提交证据与单独验收结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
 
 ### 排期待处理
 - P09 真人试玩与核心决策观察：任务标记为受阻

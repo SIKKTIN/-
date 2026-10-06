@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "version": "thug-art-v17-20261006",
+  "base_style": "art-v03 / FINAL-WARM-01",
+  "actor_id": "guard",
+  "texture": "res://art/characters/thug_v17/thug_idle_walk8_v17.png",
+  "texture_size": [
+    1254,
+    1254
+  ],
+  "world_height": 60,
+  "initial_walk_frame_seconds": 0.08333333333333333,
+  "frames": {
+    "idle": [
+      76,
+      29,
+      252,
+      385
+    ],
+    "walk_a": [
+      479,
+      35,
+      285,
+      382
+    ],
+    "walk_b": [
+      905,
+      442,
+      292,
+      382
+    ]
+  },
+  "anchor": {
+    "idle": [
+      144.5,
+      379
+    ],
+    "walk_a": [
+      153.5,
+      376
+    ],
+    "walk_b": [
+      158.5,
+      376
+    ]
+  },
+  "shadow_baked": false,
+  "direction": "right",
+  "sha256": "4031e6f0a72694b06d106e661fe27d4d4691942e973babaf6b332c6122d5f72d",
+  "walk_animation": {
+    "texture": "res://art/characters/thug_v17/thug_idle_walk8_v17.png",
+    "texture_size": [
+      1254,
+      1254
+    ],
+    "fps": 12,
+    "scale_height": 385,
+    "frames": [
+      {
+        "id": "walk_0",
+        "region": [
+          479,
+          35,
+          285,
+          382
+        ],
+        "anchor": [
+          153.5,
+          376
+        ]
+      },
+      {
+        "id": "walk_1",
+        "region": [
+          899,
+          36,
+          287,
+          378
+        ],
+        "anchor": [
+          163.0,
+          372
+        ]
+      },
+      {
+        "id": "walk_2",
+        "region": [
+          73,
+          440,
+          262,
+          383
+        ],
+        "anchor": [
+          151.0,
+          377
+        ]
+      },
+      {
+        "id": "walk_3",
+        "region": [
+          482,
+          435,
+          281,
+          386
+        ],
+        "anchor": [
+          159.5,
+          380
+        ]
+      },
+      {
+        "id": "walk_4",
+        "region": [
+          905,
+          442,
+          292,
+          382
+        ],
+        "anchor": [
+          158.5,
+          376
+        ]
+      },
+      {
+        "id": "walk_5",
+        "region": [
+          71,
+          847,
+          275,
+          381
+        ],
+        "anchor": [
+          153.5,
+          375
+        ]
+      },
+      {
+        "id": "walk_6",
+        "region": [
+          508,
+          839,
+          250,
+          388
+        ],
+        "anchor": [
+          127.0,
+          382
+        ]
+      },
+      {
+        "id": "walk_7",
+        "region": [
+          909,
+          840,
+          288,
+          384
+        ],
+        "anchor": [
+          161.5,
+          378
+        ]
+      }
+    ],
+    "shadow_baked": false,
+    "direction": "right",
+    "cycle_seconds": 0.6666666666666666,
+    "region_policy": "Independent clean atlas regions; every walk frame uses world_height / scale_height, never region height",
+    "registration_origin": "Head-center axis over lowest opaque shoe sole; per-frame source anchor maps to shared world foot origin"
+  }
+}
