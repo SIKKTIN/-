@@ -49,6 +49,7 @@ func default_plans() -> Array:
 
 func current_slot() -> int:
 	var minute: float = game.schedule.clock_minutes()
+	if game.schedule.preparing_for_work(): return 0
 	for index in range(SLOTS.size()):
 		if minute >= SLOTS[index].start and minute < SLOTS[index].end:
 			return index
@@ -102,6 +103,8 @@ func resume(actor_id: int) -> void:
 		_start(actor_id)
 
 func _target(actor_id: int, kind: String) -> Vector2:
+	if kind == "free" and slot == 3 and game.schedule.clock_minutes() >= 1160:
+		return game.actors[actor_id].home
 	var points: Array = game.room_config.get("routine_points",{}).get(kind,[])
 	if kind in ["work","meal"] or (kind == "free" and slot != 4 and not points.is_empty()):
 		var coords: Array = points[actor_id % points.size()]
@@ -195,6 +198,11 @@ func tick() -> void:
 			_start(id)
 	for id in records.keys():
 		var record: Dictionary = records[id]
+		# Default free routines leave enough travel time to obey 20:00 curfew.
+		# A manually controlled lead retains the chosen route.
+		if slot == 3 and record.kind == "free" and record.goal != _target(id,"free"):
+			_start(id)
+			record = records[id]
 		if game.actors[id].escaped:
 			records.erase(id)
 			continue
@@ -246,6 +254,7 @@ func work_wage() -> int:
 	return clampi(int(game.room_config.get("work_pay", {}).get("wage", 4)), 1, 1000)
 
 func is_working(actor_id: int) -> bool:
+	if game.schedule.preparing_for_work(): return false
 	if game.phase != "playing" or slot not in [0, 2] or current_slot() != slot or manual.has(actor_id) or not records.has(actor_id):
 		return false
 	var actor = game.actors[actor_id]
@@ -309,6 +318,8 @@ func status_for(actor_id: int) -> String:
 		return "路线受阻" if r.status == "blocked" else "用餐中" if is_eating(actor_id) else "前往饭桌" if carries_meal(actor_id) else "前往取餐"
 	if r.kind == "work" and game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
 		return "疲惫 · 请休息"
+	if r.kind == "work" and game.schedule.preparing_for_work():
+		return "前往劳动室" if game.orders.active.has(actor_id) else "到岗待命 · 8点开工"
 	if is_working(actor_id):
 		return "工作中 %d%%" % floori(work_progress(actor_id)*100+0.000001)
 	return "路线受阻" if r.status == "blocked" else "前往"+NAMES[r.kind] if game.orders.active.has(actor_id) else NAMES[r.kind]+"中"

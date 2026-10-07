@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "p71-wake-0720-day-circle-20261007",
+    "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+    "description": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。",
+    "result": "实现起床通勤和严格晨班关门，以及实际360度警戒与一致的显示。",
+    "dependencyIds": [
+      "p70-workshop-alert-all-guards-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p71*",
+        "docs/dev/p71/**",
+        "docs/tests/p71*",
+        "docs/gamecreator/**",
+        "gamecreator/**",
+        "data/schedule.json"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p71-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T10:42:55.022Z"
+      }
+    ]
+  },
+  "revision": "b02f1c6a33b9af067151560a7874b81f4431d971adfa6337cefe5dcac004492f",
+  "scheduleRevision": "d4db36bcfb9782b370f44fd2007e83ab356a5187866ffe16ade1f771fb58917b",
+  "planChanges": [
+    {
+      "id": "p71-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T10:42:55.022Z",
+      "reason": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+      "createdTaskIds": [
+        "p71-wake-0720-day-circle-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p70-workshop-alert-all-guards-20261007",
+      "title": "P70 单主角HUD与全看守劳动执法",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p71-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "b02f1c6a33b9af067151560a7874b81f4431d971adfa6337cefe5dcac004492f"
+  },
+  "feedback": [
+    {
+      "id": "p71-start-20261007",
+      "taskId": "p71-wake-0720-day-circle-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "实现起床通勤和严格晨班关门，以及实际360度警戒与一致的显示。",
+      "evidence": [
+        "docs/dev/p71/baseline-state.json"
+      ],
+      "at": "2026-10-07T10:42:57.082Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p71-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "b02f1c6a33b9af067151560a7874b81f4431d971adfa6337cefe5dcac004492f"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "b02f1c6a33b9af067151560a7874b81f4431d971adfa6337cefe5dcac004492f",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -120,7 +120,7 @@ func tick(delta: float) -> void:
 	_claim_control(game.orders.active.has(id) or not game.routines.manual.has(id))
 	var push: bool = actor.skill_id == "strong"
 	var speed: float = game.MOVE_SPEED*(game.attributes.move_efficiency(id) if game.attributes else 1.0)
-	var moved: Vector2 = game.world.move_actor(actor,direction*speed*delta,push,85*delta)
+	var moved: Vector2 = game.world.move_actor(actor,direction*speed*game.schedule.preparation_move_scale()*delta,push,85*delta)
 	actor.moved_this_frame = moved.length_squared() > 0.001
 	if actor.moved_this_frame:
 		actor.facing = moved.normalized()

@@ -1,0 +1,23 @@
+{
+  "taskId": "p71-wake-0720-day-circle-20261007",
+  "revision": "b02f1c6a33b9af067151560a7874b81f4431d971adfa6337cefe5dcac004492f",
+  "feedbackId": "p71-delivery-20261007",
+  "status": "待验收",
+  "summary": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。",
+  "evidence": [
+    "docs/dev/p71/report.md",
+    "docs/dev/p71/delivery.json",
+    "docs/dev/p71/preservation.json",
+    "docs/tests/p71-wake-circle-headless.json",
+    "docs/tests/p71-wake-circle-native.json",
+    "docs/tests/p71-enforcement-headless.json",
+    "docs/tests/p71-enforcement-native.json",
+    "docs/tests/p71-regression-single-player-headless.json",
+    "docs/tests/p71-day-cycle.json",
+    "docs/tests/p71-live-runtime.json",
+    "docs/tests/p71-wake-planner.png",
+    "docs/tests/p71-day-circles.png",
+    "docs/tests/p71-live-runtime.png"
+  ],
+  "requestId": "p71-delivery-20261007"
+}

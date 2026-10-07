@@ -5323,6 +5323,59 @@
             "at": "2026-10-07T10:01:16.382Z"
           }
         ]
+      },
+      {
+        "id": "p71-wake-0720-day-circle-20261007",
+        "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+        "description": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "2026-10-07",
+        "milestoneId": "",
+        "acceptance": "每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。",
+        "result": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。\n\n验收通过：制作人本人任务独立自验：两环境41项晨间/圆形视野、两环境33项执法、49项单人、7项日夜、10项正常循环全部通过；0正常误抓与缺员报警、117.16FPS、原地图/素材/编辑器34路径不变。实现07:20起床与暂停安排，08:00实际闭门，真实圆形判定保留墙遮挡和非劳动安全规则。",
+        "dependencyIds": [
+          "p70-workshop-alert-all-guards-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "qa/p71*",
+            "docs/dev/p71/**",
+            "docs/tests/p71*",
+            "docs/gamecreator/**",
+            "gamecreator/**",
+            "data/schedule.json"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p71-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T10:42:55.022Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -6661,6 +6714,18 @@
         "reason": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
         "createdTaskIds": [
           "p70-workshop-alert-all-guards-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p71-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-07T10:42:55.022Z",
+        "reason": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+        "createdTaskIds": [
+          "p71-wake-0720-day-circle-20261007"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -22494,6 +22559,159 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-07T10:14:54.721Z",
           "note": "制作人独立开发自验收：33项新规则原生/无头通过，四类看守真实追捕和禁闭、视野遮挡/到岗宽限/返回岗位/暂停、两种屏幕布局和持续警告可见，7项整日0误抓、49项单人通关回归、10项正常原生循环127.86FPS通过。仅5源码增量，34个外部修改/删除状态保留；自验不替代真人试玩。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p71-start-20261007",
+        "taskId": "p71-wake-0720-day-circle-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "实现起床通勤和严格晨班关门，以及实际360度警戒与一致的显示。",
+        "evidence": [
+          "docs/dev/p71/baseline-state.json"
+        ],
+        "at": "2026-10-07T10:42:57.082Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p71-wake-0720-day-circle-20261007",
+          "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+          "description": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。",
+          "result": "实现起床通勤和严格晨班关门，以及实际360度警戒与一致的显示。",
+          "dependencyIds": [
+            "p70-workshop-alert-all-guards-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/actors/**",
+              "scripts/ui/**",
+              "scripts/presentation/**",
+              "qa/p71*",
+              "docs/dev/p71/**",
+              "docs/tests/p71*",
+              "docs/gamecreator/**",
+              "gamecreator/**",
+              "data/schedule.json"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p71-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T10:42:55.022Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p71-delivery-20261007",
+        "taskId": "p71-wake-0720-day-circle-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。",
+        "evidence": [
+          "docs/dev/p71/report.md",
+          "docs/dev/p71/delivery.json",
+          "docs/dev/p71/preservation.json",
+          "docs/tests/p71-wake-circle-headless.json",
+          "docs/tests/p71-wake-circle-native.json",
+          "docs/tests/p71-enforcement-headless.json",
+          "docs/tests/p71-enforcement-native.json",
+          "docs/tests/p71-regression-single-player-headless.json",
+          "docs/tests/p71-day-cycle.json",
+          "docs/tests/p71-live-runtime.json",
+          "docs/tests/p71-wake-planner.png",
+          "docs/tests/p71-day-circles.png",
+          "docs/tests/p71-live-runtime.png"
+        ],
+        "at": "2026-10-07T11:07:12.714Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p71-wake-0720-day-circle-20261007",
+          "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+          "description": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。",
+          "result": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。",
+          "dependencyIds": [
+            "p70-workshop-alert-all-guards-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/actors/**",
+              "scripts/ui/**",
+              "scripts/presentation/**",
+              "qa/p71*",
+              "docs/dev/p71/**",
+              "docs/tests/p71*",
+              "docs/gamecreator/**",
+              "gamecreator/**",
+              "data/schedule.json"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p71-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T10:42:55.022Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T11:07:14.217Z",
+          "note": "制作人本人任务独立自验：两环境41项晨间/圆形视野、两环境33项执法、49项单人、7项日夜、10项正常循环全部通过；0正常误抓与缺员报警、117.16FPS、原地图/素材/编辑器34路径不变。实现07:20起床与暂停安排，08:00实际闭门，真实圆形判定保留墙遮挡和非劳动安全规则。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }

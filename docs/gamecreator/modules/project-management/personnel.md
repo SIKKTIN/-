@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T10:14:56.501Z
-> 文档内容基准：59d92d90643fd1f78b3cbcc0fc8003a2c2e354ff915f7796e13b4efb50bb932f
+> 文档生成时间：2026-10-07T11:07:15.919Z
+> 文档内容基准：c19ccb9023da2e957b8e419a5d9e510b8815f3d9471a758052db0b99ce829227
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -89,6 +89,7 @@
 - P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
 - P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
+- P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1258,6 +1259,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。
 - 验收负责人：制作人
+### P71 07:20起床与08:00关门、白天圆形警戒
+- ID：p71-wake-0720-day-circle-20261007
+- 当前状态：已完成
+- 内容：用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。
+- 前置任务：p70-workshop-alert-all-guards-20261007
+- 允许修改路径：scripts/core/**、scripts/actors/**、scripts/ui/**、scripts/presentation/**、qa/p71*、docs/dev/p71/**、docs/tests/p71*、docs/gamecreator/**、gamecreator/**、data/schedule.json
+- 接口契约：保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1367,6 +1379,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
 - P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
+- P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

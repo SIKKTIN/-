@@ -64,8 +64,19 @@ func tick(delta: float) -> void:
 		if not path.is_empty():
 			var difference: Vector2 = path[0] - actor.position
 			var efficiency: float = game.attributes.move_efficiency(id) if game.attributes else 1.0
-			var request: Vector2 = difference.normalized() * minf(game.MOVE_SPEED*efficiency*delta,difference.length())
-			moved = game.world.move_actor(actor,request,order.push,85*delta)
+			var preparing: bool = game.schedule.preparing_for_work()
+			var budget: float = game.MOVE_SPEED*efficiency*delta*game.schedule.preparation_move_scale()
+			var origin: Vector2 = actor.position
+			for step in range(64 if preparing else 1):
+				if path.is_empty() or budget <= 0.001: break
+				difference = path[0]-actor.position
+				var request: Vector2 = difference.normalized()*minf(budget,difference.length())
+				var actual: Vector2 = game.world.move_actor(actor,request,order.push,85*delta)
+				budget -= request.length()
+				if actor.position.distance_to(path[0]) < 2.5: path.remove_at(0)
+				elif actual.length_squared() < 0.001: break
+				moved = actor.position-origin
+			order.path = path
 		actor.moved_this_frame = moved.length_squared() > 0.001
 		if actor.moved_this_frame:
 			actor.facing = moved.normalized()

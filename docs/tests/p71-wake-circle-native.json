@@ -1,0 +1,62 @@
+{
+	"arrival_positions": [
+		[
+			850.000061035156,
+			330.0
+		],
+		[
+			1229.99963378906,
+			329.999877929688
+		],
+		[
+			850.0,
+			570.000122070313
+		]
+	],
+	"checks": {
+		"0719_still_sleep_and_locked": true,
+		"0719_to_0720_planner_pause": true,
+		"0800_closes_even_if_body_crossing": true,
+		"0800_closes_gate": true,
+		"0800_starts_work": true,
+		"actual_capture_two_hours": true,
+		"alarm_does_not_open_door_remotely": true,
+		"all_day_guards_full_circle": true,
+		"all_guards_in_warning_render_list": true,
+		"arrive_before_0800": true,
+		"at_station_no_early_work_credit": true,
+		"circle_behind_starts_real_chase": true,
+		"circle_does_not_rotate_with_facing": true,
+		"circle_has_no_origin_spoke": true,
+		"circle_sees_behind": true,
+		"circle_wall_blocks": true,
+		"closing_body_not_stuck": true,
+		"day2_default_plans": true,
+		"day_avoids_per_guard_shadow_lights": true,
+		"day_circle_light_texture": true,
+		"first_day_0720_planner_pauses": true,
+		"high_speed_exact_0720_boundary": true,
+		"labor_perimeter_alert": true,
+		"manual_wake_travel_matches_auto_speed": true,
+		"no_morning_late_arrival_grace": true,
+		"noon_cafeteria_opens": true,
+		"noon_opens_work_gate": true,
+		"noon_perimeter_stands_down": true,
+		"noon_remains_circle": true,
+		"planner_note_mentions_0720_and_0800": true,
+		"polygon_clipped_at_left_wall": true,
+		"preparation_no_arrest": true,
+		"ready_status": true,
+		"skip_night_to_0720": true,
+		"skip_night_unlocks_dorms": true,
+		"sleep_can_skip": true,
+		"speed16_arrives_by_0800": true,
+		"speed16_gate_closed": true,
+		"wake_stage": true,
+		"wake_unlocks_dorms": true,
+		"work_gate_open_for_preparation": true
+	},
+	"failed": [],
+	"map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+	"total": 41
+}

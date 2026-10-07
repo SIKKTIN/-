@@ -40,6 +40,7 @@ func reset() -> void:
 	overseer.position = point(config.overseer_start)
 	for coords in config.patrol: overseer.route.append(point(coords))
 	game.gate_watch.attach_visual(overseer)
+	overseer.escaped = not on_duty()
 	update_gate()
 
 func point(coords: Array) -> Vector2:
@@ -88,6 +89,7 @@ func update_gate() -> void:
 	if config.is_empty() or game.phase != "playing" or game.get_tree().paused: return
 	var next := current_shift()
 	var now: float = game.schedule.absolute_minutes()
+	var closing_morning: bool = next == 480 and next != shift
 	if next != shift:
 		shift = next
 		warnings.clear()
@@ -97,8 +99,8 @@ func update_gate() -> void:
 		overseer.release_target()
 		if shift >= 0:
 			var start: float = floorf(now/1440.0)*1440.0+shift
-			for actor in game.actors: grace[actor.actor_id] = start+float(config.get("arrival_minutes",45))
-			game.show_status("车间上工：先入场，入场结束锁门。离开工位会被监工查岗。",5)
+			for actor in game.actors: grace[actor.actor_id] = start+(0.0 if shift == 480 else float(config.get("arrival_minutes",45)))
+			game.show_status("08:00车间锁门，外围警戒；请在工位劳动。" if shift == 480 else "车间上工：先入场，入场结束锁门。离开工位会被监工查岗。",5)
 		else:
 			game.show_status("劳动结束，车间开门，可前往吃饭或自由活动。",4)
 	for actor in game.actors:
@@ -119,7 +121,10 @@ func update_gate() -> void:
 			# Approaching a locked gate must never grant a prisoner access.
 			if not gate.closed and game.world._circle_hits_rect(actor.position,20,gate.rect): open = true
 		# The overseer opens the gate with his key to search for absentees.
-		if not wanted.is_empty() and (not area.has_point(overseer.position) or wanted.keys().any(func(id): return not area.has_point(game.actors[id].position))): open = true
+		if not wanted.is_empty() and overseer.position.distance_to(gate.rect.get_center()) < 140: open = true
+		elif not wanted.is_empty() and gate.closed and overseer.path.is_empty():
+			var approach: Vector2 = gate.rect.get_center()+Vector2(0,-85 if area.has_point(overseer.position) else 85)
+			overseer.path = game.world.find_path(overseer.position,approach,overseer,true)
 		for merchant in game.trade.actors.values():
 			# Staff commute through the same physical gate, never teleport.
 			if not merchant.at_destination() and area.has_point(merchant.position) != area.has_point(merchant.goal):
@@ -128,7 +133,20 @@ func update_gate() -> void:
 				elif gate.closed and merchant.path.is_empty():
 					var approach: Vector2 = gate.rect.get_center()+Vector2(0,-85 if area.has_point(merchant.position) else 85)
 					merchant.path = game.world.find_path(merchant.position,approach,merchant,true)
+	if closing_morning: open = false
 	game.world.set_access_closed(str(config.access_id),not open)
+	if closing_morning:
+		# Closing on time must not trap a body inside the collision rectangle.
+		# Settle only crossing occupants on their current side of the doorway.
+		var occupants: Array = game.actors.duplicate()
+		occupants.append_array([game.guard,overseer])
+		if game.gate_watch: occupants.append_array(game.gate_watch.guards)
+		if game.trade: occupants.append_array(game.trade.actors.values())
+		for actor in occupants:
+			if game.world._circle_hits_rect(actor.position,17,gate.rect):
+				var side: float = -1.0 if actor.position.y < gate.rect.get_center().y else 1.0
+				var landing := Vector2(actor.position.x,gate.rect.get_center().y+side*(gate.rect.size.y/2+18))
+				actor.position = game.room_access._landing(actor,landing)
 
 func tick(delta: float) -> void:
 	if config.is_empty() or game.phase != "playing" or game.get_tree().paused: return

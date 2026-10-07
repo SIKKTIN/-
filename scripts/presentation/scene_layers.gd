@@ -101,16 +101,21 @@ func _draw() -> void:
 				var dorm: Rect2 = game.schedule.dormitory(index)
 				draw_rect(dorm,Color(0.3,0.7,0.6,0.1))
 				draw_rect(dorm,Color("328b82"),false,1.5,true)
-		var officers: Array = game.prison_alert.officers() if game.prison_alert != null and game.prison_alert.active else [game.guard]
+		var officers: Array = game.guard.warning_officers()
 		for officer in officers:
-			if world.is_under_roof(officer.position): continue
+			if world.is_under_roof(officer.position) or not officer.search_zone().has_point(officer.position): continue
 			var radius: float = officer.view_radius()
 			if not Rect2(officer.position-Vector2.ONE*radius,Vector2.ONE*radius*2).intersects(view): continue
-			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.curfew_alert() else Color("e1c787")
+			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.alert_mode() else Color("e1c787")
 			edge_color.a = 0.48
 			draw_set_transform(officer.position)
 			var outline: PackedVector2Array = officer.view_polygon()
-			if officer.curfew_alert() and not outline.is_empty():
+			if presentation.lighting.period == "day" and outline.size() >= 3:
+				var fill := edge_color
+				fill.a = 0.12
+				var mesh: ArrayMesh = officer.view_mesh()
+				if mesh.get_surface_count() > 0: draw_mesh(mesh,null,Transform2D.IDENTITY,fill)
+			if officer.half_fov() >= PI-0.00001 and not outline.is_empty():
 				outline.append(outline[0])
 			if outline.size() >= 2:
 				draw_polyline(outline,edge_color,1.2,true)

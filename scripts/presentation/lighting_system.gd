@@ -102,15 +102,17 @@ func _tick_guard_light() -> void:
 		if guard_boundaries[0].occluder.polygon[0] != zone.position:
 			_sync_guard_boundaries()
 	guard_light.position = game.guard.position
-	var desired: Texture2D = curfew_beam_texture if game.guard.curfew_alert() else beam_texture
+	var desired: Texture2D = curfew_beam_texture if game.guard.half_fov() >= PI-0.00001 else beam_texture
 	if guard_light.texture != desired:
 		guard_light.texture = desired
-	guard_light.rotation = 0 if game.guard.curfew_alert() else game.guard.facing.angle()
+	guard_light.rotation = 0 if game.guard.half_fov() >= PI-0.00001 else game.guard.facing.angle()
 	guard_light.texture_scale = game.guard.view_radius()/128.0
-	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" or game.guard.curfew_alert() else Color("ffe5b2")
+	guard_light.color = Color("ff9a74") if game.guard.state == "chasing" or game.guard.alert_mode() else Color("ffe5b2")
 	guard_light.energy = 0.65 if period == "night" else 0.26
-	guard_light.enabled = game.phase == "playing" and game.guard.search_zone().has_point(game.guard.position)
-	var team: Array = game.prison_alert.officers().slice(1) if game.prison_alert != null and game.prison_alert.active else []
+	guard_light.enabled = game.phase == "playing" and period == "night" and game.guard.search_zone().has_point(game.guard.position)
+	# Daytime warning regions use the same cached, wall-clipped polygons as
+	# detection. Sunlight needs no per-officer GPU shadow maps.
+	var team: Array = game.guard.warning_officers().filter(func(g): return g != game.guard) if period == "night" else []
 	var ids: Array = team.map(func(g): return g.get_instance_id())
 	for id in search_lights.keys():
 		if id not in ids:
@@ -125,10 +127,10 @@ func _tick_guard_light() -> void:
 			search_lights[id] = light
 		var light: PointLight2D = search_lights[id]
 		light.position = officer.position
-		light.texture = curfew_beam_texture
-		light.rotation = 0
+		light.texture = curfew_beam_texture if officer.half_fov() >= PI-0.00001 else beam_texture
+		light.rotation = 0 if officer.half_fov() >= PI-0.00001 else officer.facing.angle()
 		light.texture_scale = officer.view_radius()/128.0
-		light.color = Color("ff9a74")
+		light.color = Color("ff9a74") if officer.state == "chasing" or officer.alert_mode() else Color("ffe5b2")
 		light.energy = guard_light.energy
 		light.enabled = game.phase == "playing" and officer.visible
 

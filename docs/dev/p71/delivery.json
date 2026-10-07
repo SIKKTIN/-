@@ -1,0 +1,65 @@
+{
+  "sources": [
+    "data/schedule.json",
+    "scripts/actors/guard.gd",
+    "scripts/core/daily_routine.gd",
+    "scripts/core/prison_schedule.gd",
+    "scripts/core/move_orders.gd",
+    "scripts/core/mobile_controls.gd",
+    "scripts/core/workshop_rules.gd",
+    "scripts/presentation/actor_visual.gd",
+    "scripts/presentation/scene_layers.gd",
+    "scripts/presentation/lighting_system.gd",
+    "scripts/ui/routine_board.gd",
+    "scripts/ui/routine_panel.gd"
+  ],
+  "source_sha256": {
+    "data/schedule.json": "d2eb7a653a0129367ccc4a2dfd8aa0cae5268a83f92cfb5b11d84067927f5d25",
+    "scripts/actors/guard.gd": "1681d8339e085c9998044032518359f5f3726071c446c33d7c86afcbfdd76384",
+    "scripts/core/daily_routine.gd": "1e7ddc653a03338313926e785278520342d9e28ace4b2819aeb6927c62f89f4a",
+    "scripts/core/prison_schedule.gd": "5cb2631456557217fa050cbde7d3a595e7e19f1bcb90a19686c626c1197d8944",
+    "scripts/core/move_orders.gd": "0f9db41c5651d92ebc7421a9a8f2541195231a08aeeb25bdcadbd55c3d15afe3",
+    "scripts/core/mobile_controls.gd": "89649a7ebf7c278312d47ca618edd40de09d34023d680c87b5758b77a3492a57",
+    "scripts/core/workshop_rules.gd": "6649bbd986913ed017e73cfdd572004a929abb8073aab19e27a47b72bc6b9d95",
+    "scripts/presentation/actor_visual.gd": "1eb03e6186ef2a2be6e9aa94c7dd7f2ea8b46f50279fc9ed0679ef146576512d",
+    "scripts/presentation/scene_layers.gd": "f00cf67c756a1c54e620f1747f09f9b0f046bb7a700c319a2c31677765491353",
+    "scripts/presentation/lighting_system.gd": "8bed2c94289172dca10c631fbf0e6db31d78675f7ca58e1403aeb8741b07e54a",
+    "scripts/ui/routine_board.gd": "4436e8ec64e551363f4dfec21575bb215d02640fe4333dfe6b9c83e9d87c7466",
+    "scripts/ui/routine_panel.gd": "c9a8c08ccd3ddbb564da1c51f9fcc0137275087ec1a6aa660cc37a938c7a3d1c"
+  },
+  "reports": {
+    "wake-circle-headless": {
+      "checks": 41,
+      "failed": []
+    },
+    "wake-circle-native": {
+      "checks": 41,
+      "failed": []
+    },
+    "enforcement-headless": {
+      "checks": 33,
+      "failed": []
+    },
+    "enforcement-native": {
+      "checks": 33,
+      "failed": []
+    },
+    "regression-single-player-headless": {
+      "checks": 49,
+      "failed": []
+    },
+    "day-cycle": {
+      "checks": 7,
+      "failed": []
+    },
+    "live-runtime": {
+      "checks": 10,
+      "failed": []
+    }
+  },
+  "fps": 117.163006467698,
+  "p95_ms": 11.302,
+  "map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+  "preserved_paths": 34,
+  "self_review": true
+}

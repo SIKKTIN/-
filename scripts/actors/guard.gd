@@ -7,6 +7,8 @@ const HALF_FOV := PI / 3.0
 const VisibilityGeometry = preload("res://scripts/presentation/visibility_geometry.gd")
 var _view_key: Array = []
 var _view_polygon := PackedVector2Array()
+var _view_mesh: ArrayMesh
+var _view_mesh_key: Array = []
 var world
 var game
 var state: String = "patrol"
@@ -104,11 +106,24 @@ func patrol_route() -> Array[Vector2]:
 		return [world.guard_start]
 	return inspection_route if game.schedule != null and game.schedule.is_sleep_time() and not inspection_route.is_empty() else world.patrol
 
+func daylight() -> bool:
+	return game.presentation != null and game.presentation.lighting != null and game.presentation.lighting.period == "day"
+
+func alert_mode() -> bool:
+	return labor_enforcement() or curfew_alert()
+
+func warning_officers() -> Array:
+	var team: Array = [self]
+	if game.gate_watch: team.append_array(game.gate_watch.guards)
+	if game.prison_alert: team.append_array(game.prison_alert.reinforcements)
+	if game.workshop and is_instance_valid(game.workshop.overseer): team.append(game.workshop.overseer)
+	return team.filter(func(g): return g.visible and not g.escaped and (not g.has_method("is_gate_guard") or g.on_duty()))
+
 func curfew_alert() -> bool:
 	return global_alert() or (game.schedule != null and game.schedule.is_curfew())
 
 func half_fov() -> float:
-	return PI if curfew_alert() else HALF_FOV
+	return PI if daylight() or curfew_alert() else HALF_FOV
 
 func release_target() -> void:
 	state = "patrol"
@@ -265,7 +280,8 @@ func view_polygon() -> PackedVector2Array:
 	var radius := view_radius()
 	var zone := search_zone()
 	var half := half_fov()
-	var key := [position,facing,radius,half,zone,world.obstacle_revision,world.crate]
+	var full_circle: bool = half >= PI-0.00001
+	var key := [position,Vector2.ZERO if full_circle else facing,radius,half,zone,world.obstacle_revision,world.crate]
 	if key == _view_key: return _view_polygon
 	_view_key = key
 	# Distant obstacles cannot intersect these rays. Keep every original angle
@@ -275,17 +291,17 @@ func view_polygon() -> PackedVector2Array:
 		if position.distance_squared_to(position.clamp(rect.position,rect.end)) <= (radius+0.001)*(radius+0.001):
 			blockers.append(rect)
 	var angles: Array[float] = []
-	var base_angle := facing.angle()
-	for index in range(40 if curfew_alert() else 41):
+	var base_angle := 0.0 if full_circle else facing.angle()
+	for index in range(40 if full_circle else 41):
 		angles.append(base_angle-half+2*half*index/40.0)
-	for rect in world.solid_rects():
+	for rect in blockers:
 		for corner in [rect.position,rect.position+Vector2(rect.size.x,0),rect.end,rect.position+Vector2(0,rect.size.y)]:
 			var relative := wrapf((corner-position).angle()-base_angle,-PI,PI)
 			if absf(relative) < half:
 				for epsilon in [-0.0001,0.0,0.0001]:
 					angles.append(base_angle+relative+epsilon)
 	angles.sort()
-	var polygon := PackedVector2Array() if curfew_alert() else PackedVector2Array([Vector2.ZERO])
+	var polygon := PackedVector2Array() if full_circle else PackedVector2Array([Vector2.ZERO])
 	for angle in angles:
 		var direction := Vector2.from_angle(angle)
 		var distance := radius
@@ -305,13 +321,37 @@ func view_polygon() -> PackedVector2Array:
 	_view_polygon = polygon
 	return _view_polygon
 
+func view_mesh() -> ArrayMesh:
+	var polygon := view_polygon()
+	if _view_mesh != null and _view_mesh_key == _view_key: return _view_mesh
+	_view_mesh_key = _view_key.duplicate()
+	_view_mesh = ArrayMesh.new()
+	# Visibility regions are star-shaped around the observer. A triangle fan
+	# handles near-parallel wall-edge rays without fragile polygon ear clipping.
+	var ring: PackedVector2Array = polygon if half_fov() >= PI-0.00001 else polygon.slice(1)
+	var vertices := PackedVector3Array()
+	var edges: int = ring.size() if half_fov() >= PI-0.00001 else ring.size()-1
+	for index in range(edges):
+		var a := ring[index]
+		var b := ring[(index+1)%ring.size()]
+		if absf(a.cross(b)) < 0.000001: continue
+		vertices.append(Vector3.ZERO)
+		vertices.append(Vector3(a.x,a.y,0))
+		vertices.append(Vector3(b.x,b.y,0))
+	if not vertices.is_empty():
+		var arrays := []
+		arrays.resize(Mesh.ARRAY_MAX)
+		arrays[Mesh.ARRAY_VERTEX] = vertices
+		_view_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	return _view_mesh
+
 func _draw() -> void:
 	if not world:
 		return
 	if presentation_layers:
 		return
 	var dangerous: bool = state == "chasing"
-	var tint := Color("c9534b") if dangerous or curfew_alert() else Color("d9ac54")
+	var tint := Color("c9534b") if dangerous or alert_mode() else Color("d9ac54")
 	tint.a = 0.21
 	draw_colored_polygon(view_polygon(),tint)
 	if not art_body:
@@ -327,4 +367,4 @@ func _draw() -> void:
 	draw_string(ThemeDB.fallback_font,Vector2(-22,-52),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("c9534b") if dangerous else Color("303b46"))
 
 func snapshot() -> Dictionary:
-	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":view_radius(),"guard_zone":[world.guard_zone.position.x,world.guard_zone.position.y,world.guard_zone.size.x,world.guard_zone.size.y],"fov_degrees":360 if curfew_alert() else 120,"curfew_alert":curfew_alert(),"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}
+	return {"position":[position.x,position.y],"facing":[facing.x,facing.y],"state":state,"target_id":target_id,"chat_partner_id":chat_partner_id,"lost_time":lost_time,"route_index":route_index,"view_radius":view_radius(),"guard_zone":[world.guard_zone.position.x,world.guard_zone.position.y,world.guard_zone.size.x,world.guard_zone.size.y],"fov_degrees":roundi(rad_to_deg(half_fov()*2)),"curfew_alert":curfew_alert(),"path_size":path.size(),"stalled_time":stalled_time,"skipped_waypoints":skipped_waypoints}

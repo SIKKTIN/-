@@ -1,0 +1,215 @@
+{
+  "task": {
+    "id": "p71-wake-0720-day-circle-20261007",
+    "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+    "description": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "每日07:20起床自动暂停打开安排；默认囚徒可实际步行到岗；08:00车间锁门，外出者受抓捕；白天各类看守360度视野并受墙遮挡；夜晚/食堂/工资/正常日程和帧率回归通过。",
+    "result": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。",
+    "dependencyIds": [
+      "p70-workshop-alert-all-guards-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p71*",
+        "docs/dev/p71/**",
+        "docs/tests/p71*",
+        "docs/gamecreator/**",
+        "gamecreator/**",
+        "data/schedule.json"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "保持原地图、美术与编辑器未提交改动；07:20准备只到岗不计工钱，08:00晨班锁门。圆形仅改变白天视野与警戒呈现，不让休息时段误抓。保留禁闭释放返岗和工作人员钥匙通行。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p71-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T10:42:55.022Z"
+      }
+    ]
+  },
+  "revision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65",
+  "scheduleRevision": "b429d1c4a9d5b0bb7cf5a846d871f3c9e0670d6dea05ab02a5c9e50cd32e5d05",
+  "planChanges": [
+    {
+      "id": "p71-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T10:42:55.022Z",
+      "reason": "用户要求07:20起床、08:00劳动关门，劳动期间外围警戒，白天看守警戒视野为圆形。",
+      "createdTaskIds": [
+        "p71-wake-0720-day-circle-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p70-workshop-alert-all-guards-20261007",
+      "title": "P70 单主角HUD与全看守劳动执法",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p71-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p71-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p71-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65"
+  },
+  "feedback": [
+    {
+      "id": "p71-start-20261007",
+      "taskId": "p71-wake-0720-day-circle-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "实现起床通勤和严格晨班关门，以及实际360度警戒与一致的显示。",
+      "evidence": [
+        "docs/dev/p71/baseline-state.json"
+      ],
+      "at": "2026-10-07T10:42:57.082Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p71-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p71-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p71-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p71-delivery-20261007",
+      "taskId": "p71-wake-0720-day-circle-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "每天07:20起床暂停安排、默认通勤、08:00准时锁门；所有白天看守360度墙遮挡视野，劳动外围警戒。41项原生/无头、33项原生/无头、49项单人、7项日夜、10项实时检查通过，0正常误抓；117.16FPS；34个已有改动原样保留。",
+      "evidence": [
+        "docs/dev/p71/report.md",
+        "docs/dev/p71/delivery.json",
+        "docs/dev/p71/preservation.json",
+        "docs/tests/p71-wake-circle-headless.json",
+        "docs/tests/p71-wake-circle-native.json",
+        "docs/tests/p71-enforcement-headless.json",
+        "docs/tests/p71-enforcement-native.json",
+        "docs/tests/p71-regression-single-player-headless.json",
+        "docs/tests/p71-day-cycle.json",
+        "docs/tests/p71-live-runtime.json",
+        "docs/tests/p71-wake-planner.png",
+        "docs/tests/p71-day-circles.png",
+        "docs/tests/p71-live-runtime.png"
+      ],
+      "at": "2026-10-07T11:07:12.714Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p71-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p71-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p71-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "06ee309e2fa1d10fd9de559220bd96f79a94340bd5388612bbe1b281eb8e4b65",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

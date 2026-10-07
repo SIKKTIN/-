@@ -79,13 +79,13 @@ func _make_ui() -> void:
 	stage_button = game.presentation.lighting.toggle_button
 	stage_button.pressed.connect(toggle)
 	blocker = _blocker("ScheduleMapBlocker",Rect2(74,114,922,560),110)
-	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,364),111)
+	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,400),111)
 	_label(panel,Vector2(20,16),"今日工厂日程",22)
-	var lines := "08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–08:00  锁寝睡觉 · 看守进房查寝"
+	var lines := "07:20–08:00  起床 · 前往车间\n08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–07:20  锁寝睡觉 · 看守进房查寝"
 	_label(panel,Vector2(20,60),lines,17)
-	schedule_note = _label(panel,Vector2(20,235),"",15)
-	skip_button = _button(panel,Vector2(20,304),"跳过夜晚",skip_night)
-	_button(panel,Vector2(358,304),"继续行动",close)
+	schedule_note = _label(panel,Vector2(20,263),"",15)
+	skip_button = _button(panel,Vector2(20,340),"跳过夜晚",skip_night)
+	_button(panel,Vector2(358,340),"继续行动",close)
 	result_blocker = _blocker("RoundResultBlocker",Rect2(0,0,1200,720),200)
 	result_panel = _paper_panel("RoundResult",Vector2(340,234),Vector2(500,255),201)
 	result_label = _label(result_panel,Vector2(24,24),"",20)
@@ -118,9 +118,9 @@ func advance(real_delta: float) -> void:
 		return
 	var target := minf(limit_seconds,clock_elapsed+maxf(0,real_delta)*time_speed)
 	if game.routines and game.routine_panel and game.fullscreen_ui:
-		# Land exactly on the next 08:00, including at high developer speeds.
+		# Land exactly on the next wake-up, including at high developer speeds.
 		# Routine.tick opens its paused planner before this frame's AI runs.
-		var morning := floorf(absolute_minutes()/1440.0)*1440.0+480.0
+		var morning := floorf(absolute_minutes()/1440.0)*1440.0+wake_minutes()
 		if morning <= absolute_minutes()+0.00001:
 			morning += 1440.0
 		var boundary: float = (morning-float(config.start_minutes))/1440.0*day_seconds
@@ -156,6 +156,16 @@ func set_escape_days(value: int) -> bool:
 	tick(false)
 	return true
 
+func wake_minutes() -> float:
+	return float(config.get("wake_minutes",440))
+
+func preparing_for_work() -> bool:
+	return clock_minutes() >= wake_minutes() and clock_minutes() < 480
+
+func preparation_move_scale() -> float:
+	# Compressed days still leave a usable 40-minute journey to the gate.
+	return 2.0*maxf(1,time_speed) if preparing_for_work() else 1.0
+
 func is_sleep_time() -> bool:
 	return stage_index >= 0 and str(config.stages[stage_index].id) == "sleep"
 
@@ -175,7 +185,7 @@ func skip_night() -> void:
 	if not can_skip_night():
 		game.show_status("已触发警报或有人缺员，不能跳过查寝。" if (game.prison_alert != null and game.prison_alert.active) or game.actors.any(func(a): return a.escaped) else "所有伙伴需回到各自床位，停止行动后才能跳过夜晚。")
 		return
-	var target := absolute_minutes()-clock_minutes()+480.0
+	var target := absolute_minutes()-clock_minutes()+wake_minutes()
 	var previous_clock := clock_elapsed
 	clock_elapsed = minf(limit_seconds,(target-float(config.start_minutes))/1440.0*day_seconds)
 	if game.attributes:
@@ -187,7 +197,7 @@ func skip_night() -> void:
 	if remaining() <= 0:
 		game.finish_timeout()
 	else:
-		game.show_status("第%d天 08:00，寝室门已打开，继续逃脱。" % day_number(),5)
+		game.show_status("第%d天 07:20，寝室开门；8点车间关门，请提前到岗。" % day_number(),5)
 
 func actor_status(actor_id: int) -> String:
 	if game.room_access and game.room_access.is_held(actor_id):
@@ -271,7 +281,7 @@ func tick(announce: bool = true) -> void:
 		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
-	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
+	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日07:20。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
 	if game.prison_alert != null and game.prison_alert.active:
 		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到本局结束，无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]

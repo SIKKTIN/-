@@ -1,5 +1,5 @@
 {
-  "start_minutes": 480,
+  "start_minutes": 440,
   "room_seconds": {
     "r01": 180,
     "r02": 180,
@@ -14,7 +14,16 @@
       "period": "night",
       "dog_active": true,
       "curfew": true,
-      "detail": "00:00–08:00，寝室锁门，看守进房查寝；可继续操作或回床睡觉后跳过。"
+      "detail": "00:00–07:20，寝室锁门，看守进房查寝；可继续操作或回床睡觉后跳过。"
+    },
+    {
+      "id": "wake_prepare",
+      "name": "起床准备",
+      "minute": 440,
+      "period": "day",
+      "dog_active": false,
+      "curfew": false,
+      "detail": "07:20起床，安排日常并前往车间；08:00关门开始劳动。"
     },
     {
       "id": "morning_work",
@@ -23,7 +32,7 @@
       "period": "day",
       "dog_active": false,
       "curfew": false,
-      "detail": "08:00–12:00，上午劳动。"
+      "detail": "08:00–12:00，车间锁门劳动，外围看守进入圆形警戒。"
     },
     {
       "id": "meal_rest",
@@ -84,5 +93,6 @@
       ]
     ]
   },
-  "escape_days": 3
+  "escape_days": 3,
+  "wake_minutes": 440
 }
