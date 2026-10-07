@@ -222,7 +222,7 @@ func tick(delta: float) -> void:
 		goal = route[route_index]
 	path_timer -= delta
 	var invalid: bool = not path.is_empty() and path_revision != world.obstacle_revision and not world.motion_clear(position,path[0])
-	if path.is_empty() or invalid or path_state != state or path_goal.distance_to(goal) > 10 or (stalled_time >= 0.35 and path_timer <= 0):
+	if invalid or path_state != state or path_goal.distance_to(goal) > 10 or ((path.is_empty() or stalled_time >= 0.35) and path_timer <= 0):
 		path = world.find_path(position,goal,self,state == "patrol")
 		path_goal = goal
 		path_revision = world.obstacle_revision

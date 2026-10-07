@@ -1,0 +1,51 @@
+{
+  "id": "p74-start-20261007",
+  "digest": "eabb3bea5a463484670e166667b55e52f22a0ad36af74ee01b618c6e08dd1a76",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T13:11:02.979Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p74-start-20261007",
+    "taskId": "p74-many-patrol-performance-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "先做增加巡逻人数的真实帧率基线与模块耗时定位，随后优化并对照回归。",
+    "evidence": [
+      "docs/dev/p74/baseline-state.json"
+    ],
+    "at": "2026-10-07T13:11:03.113Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p74-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

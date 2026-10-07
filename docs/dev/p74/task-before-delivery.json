@@ -1,0 +1,143 @@
+{
+  "task": {
+    "id": "p74-many-patrol-performance-20261007",
+    "title": "P74 多巡逻NPC性能优化",
+    "description": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。",
+    "result": "先做增加巡逻人数的真实帧率基线与模块耗时定位，随后优化并对照回归。",
+    "dependencyIds": [
+      "p73-private-wages-lunch-walk-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/presentation/**",
+        "scripts/world/prison_world.gd",
+        "qa/p74*",
+        "docs/dev/p74/**",
+        "docs/tests/p74*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "性能优化仅程序层；美术WIP按字节保留，共享文件只提交本轮改动。真实侦测与抓捕每帧继续，优先减少重复计算、缓存及绘制成本。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p74-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T13:11:02.003Z"
+      }
+    ]
+  },
+  "revision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13",
+  "scheduleRevision": "eef568f22457aede111c0cada64a909ed2ffcfa617bdcf4da07b7d9d29f1622d",
+  "planChanges": [
+    {
+      "id": "p74-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T13:11:02.003Z",
+      "reason": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+      "createdTaskIds": [
+        "p74-many-patrol-performance-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p73-private-wages-lunch-walk-20261007",
+      "title": "P73 独立工资、20分钟午餐与步行返工",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p74-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13"
+  },
+  "feedback": [
+    {
+      "id": "p74-start-20261007",
+      "taskId": "p74-many-patrol-performance-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "先做增加巡逻人数的真实帧率基线与模块耗时定位，随后优化并对照回归。",
+      "evidence": [
+        "docs/dev/p74/baseline-state.json"
+      ],
+      "at": "2026-10-07T13:11:03.113Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p74-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

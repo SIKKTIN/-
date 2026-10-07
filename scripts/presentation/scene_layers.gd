@@ -22,6 +22,8 @@ func _draw() -> void:
 	if not game:
 		return
 	var world = game.world
+	var camera_view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else world.bounds
+	var actor_view := camera_view.grow(100)
 	if kind == "fixture_shadows":
 		# Static furnishings retain cached CanvasItem draw commands between frames.
 		for fixture in world.fixtures:
@@ -67,22 +69,22 @@ func _draw() -> void:
 				draw_line(rail.position,Vector2(rail.end.x,rail.position.y),Color("738176"),4,true)
 				draw_line(Vector2(r.position.x,r.end.y),r.end,Color("738176"),4,true)
 		for visual in presentation.visuals:
-			if not visual.actor.escaped:
+			if not visual.actor.escaped and actor_view.has_point(visual.actor.position):
 				if presentation.profile.get("soft_shadows",false):
 					if not visual.definition.get("shadow_baked",false):
 						SoftShadow.contact_actor(self,visual.actor.position,presentation.profile)
 				else:
 					draw_ellipse(visual.actor.position+Vector2(0,2),15,4,Color(0,0,0,0.12))
 		draw_rect(world.exit_strip_rect(),Color("328b82"))
-		if game.dog:
+		if game.dog and actor_view.has_point(game.dog.position):
 			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
-		if presentation.dog_visual and not world.is_under_roof(game.dog.position):
+		if presentation.dog_visual and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			draw_set_transform(game.dog.position)
 			presentation.dog_visual.paint_information(self,presentation.font)
 			draw_set_transform(Vector2.ZERO)
-		var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else world.bounds
+		var view: Rect2 = camera_view
 		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
 		for zone in game.room_config.get("zones",[]):
 			if zone.get("hide_label",false): continue
@@ -101,25 +103,6 @@ func _draw() -> void:
 				var dorm: Rect2 = game.schedule.dormitory(index)
 				draw_rect(dorm,Color(0.3,0.7,0.6,0.1))
 				draw_rect(dorm,Color("328b82"),false,1.5,true)
-		var officers: Array = game.guard.warning_officers()
-		for officer in officers:
-			if world.is_under_roof(officer.position) or not officer.search_zone().has_point(officer.position): continue
-			var radius: float = officer.view_radius()
-			if not Rect2(officer.position-Vector2.ONE*radius,Vector2.ONE*radius*2).intersects(view): continue
-			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.alert_mode() else Color("e1c787")
-			edge_color.a = 0.48
-			draw_set_transform(officer.position)
-			var outline: PackedVector2Array = officer.view_polygon()
-			if presentation.lighting.period == "day" and outline.size() >= 3:
-				var fill := edge_color
-				fill.a = 0.12
-				var mesh: ArrayMesh = officer.view_mesh()
-				if mesh.get_surface_count() > 0: draw_mesh(mesh,null,Transform2D.IDENTITY,fill)
-			if officer.half_fov() >= PI-0.00001 and not outline.is_empty():
-				outline.append(outline[0])
-			if outline.size() >= 2:
-				draw_polyline(outline,edge_color,1.2,true)
-		draw_set_transform(Vector2.ZERO)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
 		for gate in world.access_doors:
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
@@ -136,7 +119,7 @@ func _draw() -> void:
 			draw_rect(Rect2(point+progress_offset,Vector2(56,6)),Color("536052"))
 			draw_rect(Rect2(point+progress_offset,Vector2(56*world.lock_progress,6)),Color("9a8fb9"))
 		for visual in presentation.visuals:
-			if not visual.actor.escaped and not world.is_under_roof(visual.actor.position):
+			if not visual.actor.escaped and actor_view.has_point(visual.actor.position) and not world.is_under_roof(visual.actor.position):
 				draw_set_transform(visual.actor.position)
 				visual.paint_information(self)
 				draw_set_transform(Vector2.ZERO)

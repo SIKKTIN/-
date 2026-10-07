@@ -14,6 +14,9 @@ var inspection_grid := AStarGrid2D.new()
 var inspection_solids: Array[Rect2] = []
 var planning_guard_doors := false
 var admission_filter: Callable
+const SolidIndex = preload("res://scripts/core/solid_spatial_index.gd")
+var solid_index = SolidIndex.new()
+var inspection_index = SolidIndex.new()
 var fixtures_revision: int = 0
 var door := Rect2(486,335,22,120)
 var crate := Rect2(467,572,94,92)
@@ -172,9 +175,11 @@ func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = nul
 		return false
 	if not inside_room(point, radius):
 		return false
-	for rect in solid_rects(include_crate):
-		if _circle_hits_rect(point, radius, rect):
-			return false
+	var index = inspection_index if planning_guard_doors else solid_index
+	if index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)
+	for rect in index.nearby(point,radius):
+		if _circle_hits_rect(point, radius, rect): return false
+	if include_crate and _circle_hits_rect(point,radius,crate): return false
 	if check_actors:
 		for actor in actors:
 			if actor != ignore_actor and not actor.escaped and point.distance_to(actor.position) < radius + RADIUS - 0.01:

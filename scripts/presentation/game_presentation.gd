@@ -1,5 +1,8 @@
 extends Node
 
+const GuardWarning = preload("res://scripts/presentation/guard_warning.gd")
+var guard_warnings: Dictionary = {}
+
 const ActorVisual = preload("res://scripts/presentation/actor_visual.gd")
 const WorldVolume = preload("res://scripts/presentation/world_volume.gd")
 const RoofBuilding = preload("res://scripts/presentation/roof_building.gd")
@@ -268,9 +271,29 @@ func _add_volume(kind: String, index: int = 0) -> void:
 	volume.configure(game.world,kind,index,profile,asset_definitions)
 	volumes.append(volume)
 
+func _tick_guard_warnings() -> void:
+	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
+	var officers: Array = game.guard.warning_officers()
+	var ids: Array = officers.map(func(g): return g.get_instance_id())
+	for id in guard_warnings.keys():
+		if id not in ids:
+			guard_warnings[id].free()
+			guard_warnings.erase(id)
+	var enabled: bool = scene_layers.any(func(layer): return layer.kind == "information" and layer.visible)
+	for officer in officers:
+		var id: int = officer.get_instance_id()
+		if not guard_warnings.has(id):
+			var warning = GuardWarning.new()
+			game.add_child(warning)
+			warning.configure(officer)
+			guard_warnings[id] = warning
+		guard_warnings[id].refresh(view,enabled,lighting != null and lighting.period == "day")
+
 func _tick_scene() -> void:
 	if not profile.get("perspective",false):
+		for warning in guard_warnings.values(): warning.hide()
 		return
+	_tick_guard_warnings()
 	if visual_world_revision != game.world.fixtures_revision or volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
 		_refresh_volumes()
 	for visual in visuals:
@@ -296,8 +319,9 @@ func _state() -> Dictionary:
 	return {"actions":game.skills.actions.duplicate(true),"guard":game.guard.state,"captures":game.captures,"door":game.world.door_open,"escaped":game.actors.map(func(a): return a.escaped),"immune":game.actors.map(func(a): return a.immune_until),"crate":game.world.crate.position,"phase":game.phase,"deal":game.deal_number}
 
 func tick(delta: float) -> void:
+	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
 	for visual in visuals:
-		visual.tick_visual(delta)
+		visual.tick_visual(delta,view)
 	if dog_visual:
 		dog_visual.tick_visual(delta)
 	_tick_scene()

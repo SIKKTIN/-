@@ -1,0 +1,38 @@
+{
+  "taskId": "p74-many-patrol-performance-20261007",
+  "source_sha256": {
+    "scripts/actors/guard.gd": "04120c4094dafcc078ca63a77025cda65ef3b92ece56d9a4ab4957c2998f78f5",
+    "scripts/core/solid_spatial_index.gd": "580517a2c21023e1111af9b7a84a8ff3f7bfa7c610728332446813523f806ac9",
+    "scripts/presentation/guard_warning.gd": "7d1306198d6d34b0c43acd1fe423509abad3e95b0858c2b07559431cd7e758fb",
+    "scripts/presentation/guard_warning.gdshader": "46599661034c980233a7875c9660b71bffb35a7d0ab0f91570e3b30e7de2f05a",
+    "scripts/presentation/actor_visual.gd": "e1854fecca17f7440e0361b02180698a635f62ad45232b655e74085c4dfc5353",
+    "scripts/presentation/scene_layers.gd": "1de8df9e66425820f937b25f3c89c4cc378d4dd32f8294e871992a5aeb43e716",
+    "scripts/presentation/game_presentation.gd": "d7b01c33eb11367a17c93adcea09fab58a048a94121dd90dc6e92ce9621444fa",
+    "scripts/presentation/lighting_system.gd": "897f5a160686fb8476e7acc6d856a6d60058c77f2c138da539607536c58b9e87",
+    "scripts/world/prison_world.gd": "bdca798f9361b35e11282e1af863d4b0865d0c78d7566f570736a8d4f2476d84"
+  },
+  "checks": {
+    "p74-rules-dialogue-headless.json": 78,
+    "p74-enforcement-headless.json": 33,
+    "p74-lunch-wallet.json": 23,
+    "p74-two-day-cycle.json": 13,
+    "p74-geometry-native.json": 20,
+    "p74-live-runtime.json": 14
+  },
+  "total_checks": 181,
+  "collision_queries": 10000,
+  "collision_mismatches": 0,
+  "gpu_pixel_samples": 3582,
+  "clean_logs": [
+    "p74-matched-before.log",
+    "p74-optimized.log",
+    "p74-rules.log",
+    "p74-labor.log",
+    "p74-two-day-cycle.log",
+    "p74-geometry.log",
+    "p74-lunch-wallet.log",
+    "p74-live-runtime.log"
+  ],
+  "performance": "docs/dev/p74/performance-comparison.json",
+  "external_work_preserved": "docs/dev/p74/preservation.json"
+}

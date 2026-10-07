@@ -50,8 +50,9 @@ func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, t
 	is_guard = str(asset.actor_id) == "guard"
 	tick_visual(0)
 
-func tick_visual(delta: float) -> void:
-	visible = not actor.escaped and not game.world.is_under_roof(actor.position)
+func tick_visual(delta: float, camera_view: Rect2 = Rect2()) -> void:
+	var on_screen: bool = not camera_view.has_area() or camera_view.grow(100).has_point(actor.position)
+	visible = on_screen and not actor.escaped and not game.world.is_under_roof(actor.position)
 	if game.get_tree().paused:
 		return
 	flash_time = maxf(0,flash_time-delta)
@@ -71,6 +72,7 @@ func tick_visual(delta: float) -> void:
 	else:
 		walk_clock = 0
 		frame_name = "idle"
+	if not visible: return
 	var anchor: Array
 	var scale_height: float
 	if walk_frame_index >= 0:

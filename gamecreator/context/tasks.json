@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "a784c53118db4f445ec4c0aa96217c74c5e8a104f478fd6dafbaa8f2f21e24bd",
+  "snapshotId": "d3bb5bd90735c614bac2c4ac1ec7b9f065cd3a453228e309208b1ec629cda000",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -5483,6 +5483,58 @@
           "at": "2026-10-07T12:20:03.728Z"
         }
       ]
+    },
+    {
+      "id": "p74-many-patrol-performance-20261007",
+      "title": "P74 多巡逻NPC性能优化",
+      "description": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-07",
+      "actualEnd": "2026-10-07",
+      "milestoneId": "",
+      "acceptance": "同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。",
+      "result": "多看守警戒绘制改为GPU精确遮挡四边形，空间索引加速碰撞，屏外表现及灯光裁剪，不可达路线按原间隔重试。匹配测试16人白天53.80→83.40FPS(+55%)，夜间64.25→80.77(+25.7%)；181项检查、10000碰撞对照、3582GPU像素及两天日程通过，屏外AI继续，34路径外部WIP保留。\n\n验收通过：制作人本人独立开发自验收：相同场景16名看守白天+55.0%、夜间+25.7%，P95均下降；181项检查、10000碰撞等价对照、3582实际GPU像素验证、两天日程及实际运行通过。屏外继续巡逻/侦测、灯光返回、密集遮挡完整回退通过，8最终日志无报错，外部34路径内容保留。",
+      "dependencyIds": [
+        "p73-private-wages-lunch-walk-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/core/**",
+          "scripts/actors/**",
+          "scripts/presentation/**",
+          "scripts/world/prison_world.gd",
+          "qa/p74*",
+          "docs/dev/p74/**",
+          "docs/tests/p74*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn",
+        "interfaceContract": "性能优化仅程序层；美术WIP按字节保留，共享文件只提交本轮改动。真实侦测与抓捕每帧继续，优先减少重复计算、缓存及绘制成本。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p74-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T13:11:02.003Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -5660,7 +5712,8 @@
             "p70-workshop-alert-all-guards-20261007",
             "p71-wake-0720-day-circle-20261007",
             "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
-            "p73-private-wages-lunch-walk-20261007"
+            "p73-private-wages-lunch-walk-20261007",
+            "p74-many-patrol-performance-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -7142,6 +7195,18 @@
       "reason": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
       "createdTaskIds": [
         "p73-private-wages-lunch-walk-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p74-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T13:11:02.003Z",
+      "reason": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+      "createdTaskIds": [
+        "p74-many-patrol-performance-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -23438,6 +23503,158 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-07T12:32:26.127Z",
         "note": "制作人本人独立开发自验收：223项通过，工资独立及重复结算、就座20分钟/暂停/大时间步、午间自由与13:30连续步行到岗、14时门禁离场、两天无误抓、单主角/聊天/警报/禁闭回归均有证据；真实124.42FPS，8日志无报错，34路径WIP内容保留。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p74-start-20261007",
+      "taskId": "p74-many-patrol-performance-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "先做增加巡逻人数的真实帧率基线与模块耗时定位，随后优化并对照回归。",
+      "evidence": [
+        "docs/dev/p74/baseline-state.json"
+      ],
+      "at": "2026-10-07T13:11:03.113Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p74-many-patrol-performance-20261007",
+        "title": "P74 多巡逻NPC性能优化",
+        "description": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。",
+        "result": "先做增加巡逻人数的真实帧率基线与模块耗时定位，随后优化并对照回归。",
+        "dependencyIds": [
+          "p73-private-wages-lunch-walk-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/presentation/**",
+            "scripts/world/prison_world.gd",
+            "qa/p74*",
+            "docs/dev/p74/**",
+            "docs/tests/p74*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "性能优化仅程序层；美术WIP按字节保留，共享文件只提交本轮改动。真实侦测与抓捕每帧继续，优先减少重复计算、缓存及绘制成本。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p74-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T13:11:02.003Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p74-delivery-20261007",
+      "taskId": "p74-many-patrol-performance-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "多看守警戒绘制改为GPU精确遮挡四边形，空间索引加速碰撞，屏外表现及灯光裁剪，不可达路线按原间隔重试。匹配测试16人白天53.80→83.40FPS(+55%)，夜间64.25→80.77(+25.7%)；181项检查、10000碰撞对照、3582GPU像素及两天日程通过，屏外AI继续，34路径外部WIP保留。",
+      "evidence": [
+        "docs/dev/p74/report.md",
+        "docs/dev/p74/delivery.json",
+        "docs/dev/p74/performance-comparison.json",
+        "docs/dev/p74/preservation.json",
+        "docs/tests/p74-matched-before.json",
+        "docs/tests/p74-optimized.json",
+        "docs/tests/p74-rules-dialogue-headless.json",
+        "docs/tests/p74-enforcement-headless.json",
+        "docs/tests/p74-lunch-wallet.json",
+        "docs/tests/p74-two-day-cycle.json",
+        "docs/tests/p74-geometry-native.json",
+        "docs/tests/p74-live-runtime.json",
+        "docs/tests/p74-gpu-clip.png",
+        "docs/tests/p74-live-runtime.png"
+      ],
+      "at": "2026-10-07T13:36:55.331Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p74-many-patrol-performance-20261007",
+        "title": "P74 多巡逻NPC性能优化",
+        "description": "多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。",
+        "result": "多看守警戒绘制改为GPU精确遮挡四边形，空间索引加速碰撞，屏外表现及灯光裁剪，不可达路线按原间隔重试。匹配测试16人白天53.80→83.40FPS(+55%)，夜间64.25→80.77(+25.7%)；181项检查、10000碰撞对照、3582GPU像素及两天日程通过，屏外AI继续，34路径外部WIP保留。",
+        "dependencyIds": [
+          "p73-private-wages-lunch-walk-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/presentation/**",
+            "scripts/world/prison_world.gd",
+            "qa/p74*",
+            "docs/dev/p74/**",
+            "docs/tests/p74*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "性能优化仅程序层；美术WIP按字节保留，共享文件只提交本轮改动。真实侦测与抓捕每帧继续，优先减少重复计算、缓存及绘制成本。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p74-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T13:11:02.003Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T13:37:49.010Z",
+        "note": "制作人本人独立开发自验收：相同场景16名看守白天+55.0%、夜间+25.7%，P95均下降；181项检查、10000碰撞等价对照、3582实际GPU像素验证、两天日程及实际运行通过。屏外继续巡逻/侦测、灯光返回、密集遮挡完整回退通过，8最终日志无报错，外部34路径内容保留。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

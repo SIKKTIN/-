@@ -1,0 +1,24 @@
+{
+  "taskId": "p74-many-patrol-performance-20261007",
+  "revision": "d0f1f74034d7ba3fc6a98fb98b04ff56b5bc2a560c6aa13caef08a68d2331b13",
+  "feedbackId": "p74-delivery-20261007",
+  "status": "待验收",
+  "summary": "多看守警戒绘制改为GPU精确遮挡四边形，空间索引加速碰撞，屏外表现及灯光裁剪，不可达路线按原间隔重试。匹配测试16人白天53.80→83.40FPS(+55%)，夜间64.25→80.77(+25.7%)；181项检查、10000碰撞对照、3582GPU像素及两天日程通过，屏外AI继续，34路径外部WIP保留。",
+  "evidence": [
+    "docs/dev/p74/report.md",
+    "docs/dev/p74/delivery.json",
+    "docs/dev/p74/performance-comparison.json",
+    "docs/dev/p74/preservation.json",
+    "docs/tests/p74-matched-before.json",
+    "docs/tests/p74-optimized.json",
+    "docs/tests/p74-rules-dialogue-headless.json",
+    "docs/tests/p74-enforcement-headless.json",
+    "docs/tests/p74-lunch-wallet.json",
+    "docs/tests/p74-two-day-cycle.json",
+    "docs/tests/p74-geometry-native.json",
+    "docs/tests/p74-live-runtime.json",
+    "docs/tests/p74-gpu-clip.png",
+    "docs/tests/p74-live-runtime.png"
+  ],
+  "requestId": "p74-delivery-20261007"
+}

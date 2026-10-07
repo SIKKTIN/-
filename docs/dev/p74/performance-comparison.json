@@ -1,0 +1,86 @@
+{
+  "same_map": true,
+  "renderer": "forward_plus",
+  "adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "viewport": [
+    1200,
+    720
+  ],
+  "patrol_pool": 16,
+  "night_on_duty": 13,
+  "protocol": "同一基准脚本每场景预热1秒+采样4秒，禁用垂直同步，不减少NPC人数或暂停AI；移除另一个运行实例后顺序执行before/optimized。警戒显示在镜头内实时裁切，AI不按镜头裁剪。",
+  "results": [
+    {
+      "case": "day_4_guards",
+      "before_fps": 95.4487917232405,
+      "after_fps": 137.483488258012,
+      "fps_gain_percent": 44.039003297866365,
+      "before_p95_ms": 12.272,
+      "after_p95_ms": 8.284,
+      "before_extra_ai_ms": 0.000513089005235602,
+      "after_extra_ai_ms": 0.000575317604355717,
+      "before_draw_calls": 1171.48429319372,
+      "after_draw_calls": 1099.59346642468
+    },
+    {
+      "case": "day_16_guards",
+      "before_fps": 53.8047693942529,
+      "after_fps": 83.4049808755376,
+      "fps_gain_percent": 55.01410342341588,
+      "before_p95_ms": 20.889,
+      "after_p95_ms": 14.064,
+      "before_extra_ai_ms": 2.04013888888889,
+      "after_extra_ai_ms": 1.13921856287425,
+      "before_draw_calls": 1324.64814814815,
+      "after_draw_calls": 1198.43113772455
+    },
+    {
+      "case": "day_16_without_information",
+      "before_fps": 79.6672101464159,
+      "after_fps": 105.989957451532,
+      "fps_gain_percent": 33.04088000162051,
+      "before_p95_ms": 14.478,
+      "after_p95_ms": 10.876,
+      "before_extra_ai_ms": 1.84695625,
+      "after_extra_ai_ms": 1.00300943396226,
+      "before_draw_calls": 1149.39375,
+      "after_draw_calls": 1124.40801886792
+    },
+    {
+      "case": "day_16_without_extra_ai",
+      "before_fps": 72.887243434407,
+      "after_fps": 105.034049993214,
+      "fps_gain_percent": 44.10484612130612,
+      "before_p95_ms": 15.524,
+      "after_p95_ms": 10.642,
+      "before_extra_ai_ms": 0.00025,
+      "after_extra_ai_ms": 0.000228028503562946,
+      "before_draw_calls": 1323.56164383562,
+      "after_draw_calls": 1190.28266033254
+    },
+    {
+      "case": "night_16_guards",
+      "before_fps": 64.2462576554916,
+      "after_fps": 80.7734305273707,
+      "fps_gain_percent": 25.72472463766362,
+      "before_p95_ms": 17.582,
+      "after_p95_ms": 14.069,
+      "before_extra_ai_ms": 3.09534241245136,
+      "after_extra_ai_ms": 2.29043518518519,
+      "before_draw_calls": 1322.96887159533,
+      "after_draw_calls": 1263.16049382716
+    },
+    {
+      "case": "night_16_without_lighting",
+      "before_fps": 68.4302182849039,
+      "after_fps": 88.6090893955886,
+      "fps_gain_percent": 29.488246006569096,
+      "before_p95_ms": 16.702,
+      "after_p95_ms": 13.108,
+      "before_extra_ai_ms": 2.39113138686132,
+      "after_extra_ai_ms": 1.64614929577465,
+      "before_draw_calls": 1213.94890510949,
+      "after_draw_calls": 1149.18591549296
+    }
+  ]
+}

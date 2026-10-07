@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T12:32:27.769Z
-> 文档内容基准：211423994ffc029d1e3efcaa6b299631031c2a843f598e42c3e0fbe7930cfe0e
+> 文档生成时间：2026-10-07T13:37:50.601Z
+> 文档内容基准：6b206375462185e80c22a4b1f6a146cf89f068c22fe4fc7528fb84a5637283c4
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -92,6 +92,7 @@
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
 - P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
+- P74 多巡逻NPC性能优化 [p74-many-patrol-performance-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1294,6 +1295,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。
 - 验收负责人：制作人
+### P74 多巡逻NPC性能优化
+- ID：p74-many-patrol-performance-20261007
+- 当前状态：已完成
+- 内容：多巡逻NPC帧率下降，定位AI、寻路、视野与光影瓶颈并验证优化。
+- 前置任务：p73-private-wages-lunch-walk-20261007
+- 允许修改路径：scripts/core/**、scripts/actors/**、scripts/presentation/**、scripts/world/prison_world.gd、qa/p74*、docs/dev/p74/**、docs/tests/p74*、docs/gamecreator/**、gamecreator/**
+- 接口契约：性能优化仅程序层；美术WIP按字节保留，共享文件只提交本轮改动。真实侦测与抓捕每帧继续，优先减少重复计算、缓存及绘制成本。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1406,6 +1418,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
 - P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
+- P74 多巡逻NPC性能优化 [p74-many-patrol-performance-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

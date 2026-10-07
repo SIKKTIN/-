@@ -1,0 +1,66 @@
+{
+  "id": "p74-review-20261007",
+  "digest": "fa8d078777f4884c71aca171e56fe327810b695830b4cac350637eab9bc44b52",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T13:37:48.904Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p74-delivery-20261007",
+    "taskId": "p74-many-patrol-performance-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "多看守警戒绘制改为GPU精确遮挡四边形，空间索引加速碰撞，屏外表现及灯光裁剪，不可达路线按原间隔重试。匹配测试16人白天53.80→83.40FPS(+55%)，夜间64.25→80.77(+25.7%)；181项检查、10000碰撞对照、3582GPU像素及两天日程通过，屏外AI继续，34路径外部WIP保留。",
+    "evidence": [
+      "docs/dev/p74/report.md",
+      "docs/dev/p74/delivery.json",
+      "docs/dev/p74/performance-comparison.json",
+      "docs/dev/p74/preservation.json",
+      "docs/tests/p74-matched-before.json",
+      "docs/tests/p74-optimized.json",
+      "docs/tests/p74-rules-dialogue-headless.json",
+      "docs/tests/p74-enforcement-headless.json",
+      "docs/tests/p74-lunch-wallet.json",
+      "docs/tests/p74-two-day-cycle.json",
+      "docs/tests/p74-geometry-native.json",
+      "docs/tests/p74-live-runtime.json",
+      "docs/tests/p74-gpu-clip.png",
+      "docs/tests/p74-live-runtime.png"
+    ],
+    "at": "2026-10-07T13:36:55.331Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T13:37:49.010Z",
+      "note": "制作人本人独立开发自验收：相同场景16名看守白天+55.0%、夜间+25.7%，P95均下降；181项检查、10000碰撞等价对照、3582实际GPU像素验证、两天日程及实际运行通过。屏外继续巡逻/侦测、灯光返回、密集遮挡完整回退通过，8最终日志无报错，外部34路径内容保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p74-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "7a8b2d6aad776183a8a6b3e7d4c6c347f56b94cdb377bac3fc9178cb1dc0b3ab"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "7a8b2d6aad776183a8a6b3e7d4c6c347f56b94cdb377bac3fc9178cb1dc0b3ab",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}
