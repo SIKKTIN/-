@@ -12,16 +12,53 @@ func _init(escape_game) -> void:
 
 func chat_guard(actor):
 	if actions.has(actor.actor_id) and actions[actor.actor_id].kind == "chat":
-		var id: String = actions[actor.actor_id].get("guard_id", "patrol")
+		var action: Dictionary = actions[actor.actor_id]
+		if action.has("guard_instance_id"):
+			var target = instance_from_id(int(action.guard_instance_id))
+			return target if is_instance_valid(target) else null
+		var id: String = action.get("guard_id", "patrol")
 		return game.guard if id == "patrol" else game.gate_watch.by_id(id) if game.gate_watch else null
 	var candidates: Array = [game.guard]
-	if game.gate_watch:
-		candidates.append_array(game.gate_watch.guards.filter(func(g): return g.on_duty()))
+	if game.gate_watch: candidates.append_array(game.gate_watch.guards.filter(func(g): return g.on_duty()))
+	if game.workshop and is_instance_valid(game.workshop.overseer): candidates.append(game.workshop.overseer)
+	if game.prison_alert: candidates.append_array(game.prison_alert.reinforcements)
+	candidates = candidates.filter(func(g): return g.visible and not g.escaped)
 	candidates.sort_custom(func(a,b): return actor.position.distance_squared_to(a.position) < actor.position.distance_squared_to(b.position))
 	for guard in candidates:
-		if guard.chat_partner_id < 0 and actor.position.distance_to(guard.position) <= float(library.chat.range) and game.world.line_clear(actor.position,guard.position):
-			return guard
+		if guard.chat_partner_id < 0 and chat_reason(actor,guard).is_empty(): return guard
 	return null
+
+func chat_reason(actor, guard) -> String:
+	if actor.confined or actor.escaped or game.phase != "playing": return "当前不能交谈。"
+	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0: return "体力耗尽，先休息。"
+	if game.schedule and game.schedule.is_curfew(): return "宵禁警戒中，看守不接受分心交谈。"
+	if game.prison_alert and game.prison_alert.active: return "全员警戒中，看守不会分心。"
+	if game.workshop and game.workshop.outside_violation(actor.actor_id): return "劳动时间脱离监管，看守不会放弃追捕。"
+	if not is_instance_valid(guard) or guard.escaped or not guard.visible: return "靠近空闲看守后再交谈。"
+	if guard.state in ["chasing","searching"]: return "看守正在追捕或搜查，不能分散注意。"
+	if guard.chat_partner_id >= 0 and guard.chat_partner_id != actor.actor_id: return "看守正在和别人交谈。"
+	if actor.position.distance_to(guard.position) > float(library.chat.range): return "靠近看守后再交谈。"
+	if not game.world.line_clear(actor.position,guard.position): return "你和看守之间有遮挡。"
+	return ""
+
+func start_chat_with(actor_id: int, guard) -> bool:
+	if not game.actor_is_controllable(actor_id): return false
+	var actor = game.actors[actor_id]
+	var reason := chat_reason(actor,guard)
+	if actor.skill_id != "chat": reason = "分散看守注意力需要会聊天技能。"
+	if not reason.is_empty():
+		game.show_status(reason)
+		return false
+	cancel(actor_id)
+	game.orders.stop(actor_id)
+	game.routines.take_control(actor_id)
+	var guard_id: String = str(guard.guard_id) if guard.has_method("is_gate_guard") else "overseer" if guard.has_method("is_workshop_overseer") else "patrol" if guard == game.guard else "reinforcement"
+	actions[actor_id] = {"kind":"chat","anchor":actor.position,"guard_id":guard_id,"guard_instance_id":guard.get_instance_id()}
+	actor.action_state = "chatting"
+	guard.start_chat(actor_id)
+	if game.gate_watch: game.gate_watch.tick(0)
+	game.show_status("正在分散看守注意力；移动或停止操作会结束交谈。",4)
+	return true
 
 func target_reason(actor) -> String:
 	if actor.confined: return "禁闭中，等待关押结束后可继续行动。"
@@ -35,20 +72,7 @@ func target_reason(actor) -> String:
 	if actor.skill_id == "strong":
 		return "用摇杆抵住箱子移动，接触后自动施力推箱。"
 	if actor.skill_id == "chat":
-		if game.schedule and game.schedule.is_curfew():
-			return "宵禁警戒中，看守不接受交谈。"
-		var guard = chat_guard(actor)
-		if guard == null:
-			return "靠近空闲看守后再交谈。"
-		if guard.state == "chasing":
-			return "看守正在追击，不能交谈。"
-		if guard.chat_partner_id >= 0 and guard.chat_partner_id != actor.actor_id:
-			return "看守正和另一个伙伴交谈。"
-		if actor.position.distance_to(guard.position) > float(definition.range):
-			return "靠近看守后再交谈。"
-		if not game.world.line_clear(actor.position,guard.position):
-			return "你和看守之间有遮挡。"
-		return ""
+		return chat_reason(actor,chat_guard(actor))
 	return door_reason(actor, float(definition.range))
 
 func door_id(actor) -> String:
@@ -105,23 +129,16 @@ func toggle(actor_id: int) -> bool:
 		cancel(actor_id,"已停止操作，门的进度会保留。")
 		return true
 	var actor = game.actors[actor_id]
+	if actor.skill_id == "chat": return start_chat_with(actor_id,chat_guard(actor))
 	var reason := target_reason(actor)
-	if reason != "":
+	if not reason.is_empty():
 		game.show_status(reason)
 		return false
-	if game.routines:
-		game.routines.take_control(actor_id)
-	var guard = chat_guard(actor) if actor.skill_id == "chat" else null
-	actions[actor_id] = {"kind":actor.skill_id,"anchor":actor.position,"door_id":door_id(actor),"guard_id":guard.guard_id if guard != null and guard.has_method("is_gate_guard") else "patrol"}
-	actor.action_state = "chatting" if actor.skill_id == "chat" else "lockpicking"
+	if game.routines: game.routines.take_control(actor_id)
+	actions[actor_id] = {"kind":actor.skill_id,"anchor":actor.position,"door_id":door_id(actor)}
+	actor.action_state = "lockpicking"
 	actor.queue_redraw()
-	if actor.skill_id == "chat":
-		guard.start_chat(actor_id)
-		if game.gate_watch:
-			game.gate_watch.tick(0)
-		game.show_status("伙伴%d交谈中；当前非戒备，看守不追捕。" % (actor_id+1))
-	else:
-		game.show_status("主角撬锁中；离开会中断，进度保留。")
+	game.show_status("主角撬锁中；离开会中断，进度保留。")
 	return true
 
 func cancel(actor_id: int, reason: String = "") -> void:

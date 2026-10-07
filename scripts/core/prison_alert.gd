@@ -7,6 +7,7 @@ var missing_ids: Array[int] = []
 var checked_rooms: Dictionary = {}
 var inspection_day := -1
 var triggered_minute := -1.0
+var cleared_minute := -1.0
 var reinforcements: Array = []
 var routes: Dictionary = {}
 
@@ -25,6 +26,29 @@ func reset() -> void:
 	checked_rooms.clear()
 	inspection_day = -1
 	triggered_minute = -1
+	cleared_minute = -1
+
+func release_at_dawn() -> void:
+	if not active or game.phase != "playing" or game.schedule == null: return
+	var dawn: float = floorf(triggered_minute/1440.0)*1440.0+game.schedule.wake_minutes()
+	if game.schedule.absolute_minutes() < dawn: return
+	var now: float = game.schedule.absolute_minutes()
+	game.cancel_guard_chat("起床点名结束，全员警戒解除。")
+	var team := officers()
+	if game.workshop and is_instance_valid(game.workshop.overseer): team.append(game.workshop.overseer)
+	for officer in team:
+		officer.stop_chat()
+		officer.release_target()
+		officer.inspection_route.clear()
+		officer.route_index = 0
+		officer.path_timer = 0
+		officer.returning_from_inspection = not game.world.guard_zone.grow(-17).has_point(officer.position)
+	reset()
+	cleared_minute = now
+	if game.workshop:
+		game.workshop.wanted.clear()
+		game.workshop.warnings.clear()
+	game.show_status("07:20晨间点名结束：全员警戒解除，增援撤回。",5)
 
 func officers() -> Array:
 	var result: Array = [game.guard]
@@ -102,4 +126,4 @@ func tick(delta: float) -> void:
 			officer.tick(delta)
 
 func snapshot() -> Dictionary:
-	return {"active":active,"missing_ids":missing_ids.duplicate(),"checked_rooms":checked_rooms.duplicate(),"triggered_minute":triggered_minute,"reinforcements":reinforcements.map(func(g): return g.snapshot()),"officer_count":officers().size()}
+	return {"active":active,"cleared_minute":cleared_minute,"missing_ids":missing_ids.duplicate(),"checked_rooms":checked_rooms.duplicate(),"triggered_minute":triggered_minute,"reinforcements":reinforcements.map(func(g): return g.snapshot()),"officer_count":officers().size()}

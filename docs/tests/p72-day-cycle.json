@@ -1,0 +1,104 @@
+{
+	"alarm": {
+		"active": false,
+		"checked_rooms": {
+			"0": 1515.19999999998
+		},
+		"cleared_minute": -1.0,
+		"missing_ids": [],
+		"officer_count": 3,
+		"reinforcements": [],
+		"triggered_minute": -1.0
+	},
+	"arrival": [
+		[
+			849.999755859375,
+			329.999938964844
+		],
+		[
+			1230.00012207031,
+			330.000091552734
+		],
+		[
+			850.000244140625,
+			570.000366210938
+		]
+	],
+	"capture_events": [],
+	"captured": 0,
+	"checks": {
+		"natural_npc_lunch": true,
+		"natural_npc_sleep": true,
+		"natural_npc_work": true,
+		"night_beds": true,
+		"no_missing_alarm": true,
+		"no_workshop_false_arrests": true,
+		"npc_wages": true
+	},
+	"clock": 75.1999999999798,
+	"failed": [],
+	"held": {},
+	"positions": [
+		[
+			319.999938964844,
+			280.000030517578
+		],
+		[
+			320.115997314453,
+			570.387084960938
+		],
+		[
+			320.000061035156,
+			859.999572753906
+		]
+	],
+	"routines": {
+		"day": 1,
+		"manual": [],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"slot": -1,
+		"states": [
+			"",
+			"",
+			""
+		],
+		"work_earned": [
+			28,
+			28,
+			28
+		],
+		"work_minutes": [
+			35.3599999999509,
+			38.2399999999509,
+			45.9199999999511
+		],
+		"work_rounds": [
+			7,
+			7,
+			7
+		],
+		"working": []
+	}
+}

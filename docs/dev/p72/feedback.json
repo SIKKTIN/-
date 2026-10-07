@@ -1,0 +1,24 @@
+{
+  "taskId": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+  "revision": "687c0951d6f459c66b2f4c258ebb6be668ce10360250535eff8d5b598033b3fb",
+  "feedbackId": "p72-delivery-20261007",
+  "status": "待验收",
+  "summary": "取消晨间倍速，正常步行8点前到岗；主角第三次实际禁闭立即失败，计数跨天独立NPC。全部现有人形NPC有基础对白和选项、守卫技能分心保持执法限制；7:20清除缺员警报与追捕增援，次晚可重触发。78项双环境、33/49/7回归、14实时检查全部通过；游戏94.19FPS/聊天127.56FPS；原34个外部改动保留。",
+  "evidence": [
+    "docs/dev/p72/report.md",
+    "docs/dev/p72/delivery.json",
+    "docs/dev/p72/preservation.json",
+    "docs/tests/p72-rules-dialogue-headless.json",
+    "docs/tests/p72-rules-dialogue-native.json",
+    "docs/tests/p72-enforcement-headless.json",
+    "docs/tests/p72-regression-single-player-headless.json",
+    "docs/tests/p72-day-cycle.json",
+    "docs/tests/p72-live-runtime.json",
+    "docs/tests/p72-dialogue-1200.png",
+    "docs/tests/p72-dialogue-960.png",
+    "docs/tests/p72-third-custody-failure.png",
+    "docs/tests/p72-dawn-alarm-cleared.png",
+    "docs/tests/p72-live-dialogue.png"
+  ],
+  "requestId": "p72-delivery-20261007"
+}

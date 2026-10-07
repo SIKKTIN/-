@@ -1,0 +1,66 @@
+{
+  "id": "p72-review-20261007",
+  "digest": "6318ff1aa939a62e531d00166f37f694fc808913682048147beb6ea24506523e",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T11:49:55.519Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p72-delivery-20261007",
+    "taskId": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "取消晨间倍速，正常步行8点前到岗；主角第三次实际禁闭立即失败，计数跨天独立NPC。全部现有人形NPC有基础对白和选项、守卫技能分心保持执法限制；7:20清除缺员警报与追捕增援，次晚可重触发。78项双环境、33/49/7回归、14实时检查全部通过；游戏94.19FPS/聊天127.56FPS；原34个外部改动保留。",
+    "evidence": [
+      "docs/dev/p72/report.md",
+      "docs/dev/p72/delivery.json",
+      "docs/dev/p72/preservation.json",
+      "docs/tests/p72-rules-dialogue-headless.json",
+      "docs/tests/p72-rules-dialogue-native.json",
+      "docs/tests/p72-enforcement-headless.json",
+      "docs/tests/p72-regression-single-player-headless.json",
+      "docs/tests/p72-day-cycle.json",
+      "docs/tests/p72-live-runtime.json",
+      "docs/tests/p72-dialogue-1200.png",
+      "docs/tests/p72-dialogue-960.png",
+      "docs/tests/p72-third-custody-failure.png",
+      "docs/tests/p72-dawn-alarm-cleared.png",
+      "docs/tests/p72-live-dialogue.png"
+    ],
+    "at": "2026-10-07T11:49:53.667Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T11:49:55.682Z",
+      "note": "制作人本人开发独立自验：259项合计通过，两个窗口尺寸对白可用，NPC恢复路线、聊天不暂停与不绕过抓捕、实际第三次禁闭失败原因、重复/跨日计数、晨间警报撤回和次夜重触发均有证据；94.19FPS游戏/127.56FPS聊天，6份验收日志无错误，34路径WIP未动。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p72-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "0621f028f8bc8a1dff3e09a0801b3cc5f814106b53a2f179198f755a6e3ce0f8"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "0621f028f8bc8a1dff3e09a0801b3cc5f814106b53a2f179198f755a6e3ce0f8",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

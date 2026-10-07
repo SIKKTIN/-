@@ -226,6 +226,7 @@ func offer_morning() -> void:
 		return
 	if game.routine_panel == null or game.fullscreen_ui == null:
 		return
+	if game.dialogue: game.dialogue.close()
 	if game.routine_panel.panel.visible:
 		game.routine_panel.reload()
 	else:

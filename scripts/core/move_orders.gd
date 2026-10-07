@@ -46,6 +46,9 @@ func tick(delta: float) -> void:
 		if actor.escaped:
 			stop(id)
 			continue
+		if game.dialogue and game.dialogue.holds_movement(actor):
+			actor.moved_this_frame = false
+			continue
 		var order: Dictionary = active[id]
 		order.repath -= delta
 		if actor.position.distance_to(order.goal) < 2.5:
@@ -65,7 +68,7 @@ func tick(delta: float) -> void:
 			var difference: Vector2 = path[0] - actor.position
 			var efficiency: float = game.attributes.move_efficiency(id) if game.attributes else 1.0
 			var preparing: bool = game.schedule.preparing_for_work()
-			var budget: float = game.MOVE_SPEED*efficiency*delta*game.schedule.preparation_move_scale()
+			var budget: float = game.MOVE_SPEED*efficiency*delta
 			var origin: Vector2 = actor.position
 			for step in range(64 if preparing else 1):
 				if path.is_empty() or budget <= 0.001: break

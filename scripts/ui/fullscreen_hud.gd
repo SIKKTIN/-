@@ -44,6 +44,8 @@ class PartnerFace extends Control:
 			draw_texture_rect(portrait,Rect2(area.position+(area.size-fitted)/2,fitted),false)
 		var ink := Color("303b46")
 		draw_string(ui.font,Vector2(53,22),str(index+1),HORIZONTAL_ALIGNMENT_LEFT,-1,18,ink)
+		if ui.game.actor_is_controllable(index):
+			draw_string(ui.font,Vector2(80,21),"禁闭%d/3" % ui.game.confinement_counts[index],HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("bc5348") if ui.game.confinement_counts[index] >= 2 else Color("727d70"))
 		var icon: Texture2D = ui.game.presentation.skill_icons.get(actor.skill_id)
 		if actor.skill_id == "backpack":
 			icon = ui.game.items_view.icon_for("backpack")
@@ -55,6 +57,7 @@ class PartnerFace extends Control:
 			state = ui.game.routines.status_for(index)
 		if ui.game.schedule.is_curfew() and not actor.escaped:
 			state = ui.game.schedule.actor_status(index)
+		if ui.game.dialogue and ui.game.dialogue.panel.visible: state = "交谈中"
 		if actor.selected and not actor.escaped and ui.game.mobile_controls.is_moving():
 			state = "移动中"
 		draw_string(ui.font,Vector2(53,56),state,HORIZONTAL_ALIGNMENT_LEFT,size.x-61,13,Color("536052"))
@@ -146,7 +149,7 @@ func configure(owner_game) -> void:
 	routine_button = _button("日常表",func(): game.routine_panel.toggle())
 	routine_button.tooltip_text = "查看三名囚徒日程；可以调整主角的安排。"
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
-	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日08:00。"
+	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日07:20。"
 	goal = _button("逃脱 0/1",Callable())
 	goal.mouse_filter = Control.MOUSE_FILTER_STOP
 	wallet = _button("0",Callable(),"coin")
@@ -601,7 +604,9 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
-		if game.routine_panel.panel.visible:
+		if game.dialogue and game.dialogue.panel.visible:
+			game.dialogue.close()
+		elif game.routine_panel.panel.visible:
 			if game.routine_panel.picker.visible:
 				game.routine_panel.close_picker()
 			else:

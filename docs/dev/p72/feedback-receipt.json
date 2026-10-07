@@ -1,0 +1,70 @@
+{
+  "id": "p72-delivery-20261007",
+  "digest": "1e4732da9f1460b243fdca66ba714e5507f0f7c1763c4bfa0560e44b99dedd31",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T11:49:53.548Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p72-delivery-20261007",
+    "taskId": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "取消晨间倍速，正常步行8点前到岗；主角第三次实际禁闭立即失败，计数跨天独立NPC。全部现有人形NPC有基础对白和选项、守卫技能分心保持执法限制；7:20清除缺员警报与追捕增援，次晚可重触发。78项双环境、33/49/7回归、14实时检查全部通过；游戏94.19FPS/聊天127.56FPS；原34个外部改动保留。",
+    "evidence": [
+      "docs/dev/p72/report.md",
+      "docs/dev/p72/delivery.json",
+      "docs/dev/p72/preservation.json",
+      "docs/tests/p72-rules-dialogue-headless.json",
+      "docs/tests/p72-rules-dialogue-native.json",
+      "docs/tests/p72-enforcement-headless.json",
+      "docs/tests/p72-regression-single-player-headless.json",
+      "docs/tests/p72-day-cycle.json",
+      "docs/tests/p72-live-runtime.json",
+      "docs/tests/p72-dialogue-1200.png",
+      "docs/tests/p72-dialogue-960.png",
+      "docs/tests/p72-third-custody-failure.png",
+      "docs/tests/p72-dawn-alarm-cleared.png",
+      "docs/tests/p72-live-dialogue.png"
+    ],
+    "at": "2026-10-07T11:49:53.667Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p72-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p72-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p72-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

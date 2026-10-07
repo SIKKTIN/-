@@ -62,8 +62,9 @@ func mobile_label() -> String:
 	var target := _mobile_target()
 	if target.is_empty():
 		return "靠近互动"
+	if target.kind == "talk": return str(target.get("name","NPC"))+"\n聊天"
 	if target.kind == "skill":
-		return "停止操作" if game.skills.actions.has(game.selected_actor_id) else {"chat":"交谈","lockpick":"撬锁","strong":"推箱"}.get(kind,"互动")
+		return "停止操作" if game.skills.actions.has(game.selected_actor_id) else {"chat":"分散注意","lockpick":"撬锁","strong":"推箱"}.get(kind,"互动")
 	return {"pickup":"拾取","trade":"购买","meal":"取餐","work":"工作"}.get(target.kind,"互动")
 
 func mobile_icon() -> Texture2D:
@@ -103,6 +104,7 @@ func _refresh_targets() -> void:
 	if actor.escaped:
 		return
 	_refresh_items(actor)
+	_refresh_npcs(actor)
 	if game.workshop and game.room_config.has("workshop") and game.workshop.on_duty() and not actor.confined and not game.routines.is_working(actor_id):
 		var point: Vector2 = game.routines._target(actor_id,"work")
 		if actor.position.distance_to(point) <= 85 and game.world.line_clear(actor.position,point):
@@ -125,7 +127,7 @@ func _refresh_targets() -> void:
 	elif game.skills.target_reason(actor) == "":
 		kind = actor.skill_id
 		anchor = chat_target.position+Vector2(40,-80) if kind == "chat" and chat_target != null else game.skills.door_rect(actor).get_center()+Vector2(36,-55)
-		button.tooltip_text = "停止操作（E）；撬锁进度保留。" if active else "交谈（E）" if kind == "chat" else "撬锁（E）"
+		button.tooltip_text = "停止操作（E）；撬锁进度保留。" if active else "分散注意（E）" if kind == "chat" else "撬锁（E）"
 	else:
 		return
 	button.icon = presentation.skill_icons.get("lockpick" if kind == "lock_tool" else kind)
@@ -154,6 +156,9 @@ func _extra(key: String, text: String, anchor: Vector2, tooltip: String) -> Butt
 		b.expand_icon = true
 		if key.begins_with("meal:"):
 			b.icon = game.world.art_textures.get("cafeteria_tray")
+		elif key.begins_with("talk:"):
+			b.icon = presentation.skill_icons.get("chat")
+			b.text = text
 		elif icon_id == "full":
 			b.text = "满包"
 	b.tooltip_text = tooltip
@@ -164,6 +169,14 @@ func _place(b: Button, screen: Vector2) -> void:
 	var view: Rect2 = game.map_camera.view_rect() if game.map_camera else Rect2(Vector2.ZERO,game.get_viewport_rect().size)
 	b.visible = view.has_point(screen)
 	b.position = (screen-b.size/2).clamp(view.position+Vector2(3,3),view.end-b.size-Vector2(3,3))
+
+func _refresh_npcs(actor) -> void:
+	if game.dialogue == null: return
+	for target in game.dialogue.targets():
+		if not game.dialogue.reason_target(target).is_empty(): continue
+		var npc = target.node
+		var b := _extra("talk:"+str(target.id),"聊天",npc.position+Vector2(0,-82),"和"+str(target.name)+"聊天；普通聊天不暂停世界，看守照常执法。")
+		targets.append({"button":b,"kind":"talk","id":str(target.id),"name":str(target.name),"distance":actor.position.distance_to(npc.position)})
 
 func _refresh_items(actor) -> void:
 	if not game.inventory or not game.trade:
@@ -196,7 +209,9 @@ func _refresh_items(actor) -> void:
 func _activate_extra(key: String) -> void:
 	if game.world_input_blocked():
 		return
-	if key.begins_with("pickup:"):
+	if key.begins_with("talk:"):
+		game.dialogue.open(key.substr(5))
+	elif key.begins_with("pickup:"):
 		var result: Dictionary = game.inventory.try_pickup(game.selected_actor_id, key.substr(7))
 		game.show_status(str(result.reason) if str(result.reason) != "" else "物品已放入当前伙伴背包。")
 	elif key.begins_with("meal:"):

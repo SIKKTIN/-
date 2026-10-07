@@ -1,0 +1,217 @@
+{
+  "task": {
+    "id": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+    "title": "P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除",
+    "description": "用户要求取消起床后加速、主角三次禁闭失败、所有人形NPC可聊天，并修复隔天全员警戒未解除。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "7:20正常速度移动；主角第三次实际禁闭立即失败，NPC和重复捕获不误计；聊天入口覆盖真实人形NPC、角色对白与规则询问、保留聊天技能分心；对话不暂停世界或绕过执法；7:20清警报/增援/追捕，白天劳动警戒继续；正常日程、暂停、通关、帧率回归。",
+    "result": "取消晨间倍速，正常步行8点前到岗；主角第三次实际禁闭立即失败，计数跨天独立NPC。全部现有人形NPC有基础对白和选项、守卫技能分心保持执法限制；7:20清除缺员警报与追捕增援，次晚可重触发。78项双环境、33/49/7回归、14实时检查全部通过；游戏94.19FPS/聊天127.56FPS；原34个外部改动保留。",
+    "dependencyIds": [
+      "p71-wake-0720-day-circle-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p72*",
+        "docs/dev/p72/**",
+        "docs/tests/p72*",
+        "docs/gamecreator/**",
+        "gamecreator/**",
+        "scripts/skills/**",
+        "data/dialogue.json"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "不改外部地图/美术/编辑器WIP。晨间移动无额外倍速；主角累计3次实际禁闭即失败，保留各角色计数和明确原因。普通聊天所有主角技能可用；守卫技能分心仍受技能/距离/警戒约束。新一天起床解除上夜缺员报警，保留禁闭时长和劳动执法。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p72-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T11:25:57.137Z"
+      }
+    ]
+  },
+  "revision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c",
+  "scheduleRevision": "6ea57b919ffd1cd675521c596b5880682dc54575adcaafed5db23670265bd3d9",
+  "planChanges": [
+    {
+      "id": "p72-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T11:25:57.137Z",
+      "reason": "用户要求取消起床后加速、主角三次禁闭失败、所有人形NPC可聊天，并修复隔天全员警戒未解除。",
+      "createdTaskIds": [
+        "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p71-wake-0720-day-circle-20261007",
+      "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p72-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p72-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p72-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c"
+  },
+  "feedback": [
+    {
+      "id": "p72-start-20261007",
+      "taskId": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "取消晨间倍速并实现实际禁闭次数失败、全NPC基础对白和清晨解除缺员警戒。",
+      "evidence": [
+        "docs/dev/p72/baseline-state.json"
+      ],
+      "at": "2026-10-07T11:25:58.595Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p72-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p72-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p72-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p72-delivery-20261007",
+      "taskId": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "取消晨间倍速，正常步行8点前到岗；主角第三次实际禁闭立即失败，计数跨天独立NPC。全部现有人形NPC有基础对白和选项、守卫技能分心保持执法限制；7:20清除缺员警报与追捕增援，次晚可重触发。78项双环境、33/49/7回归、14实时检查全部通过；游戏94.19FPS/聊天127.56FPS；原34个外部改动保留。",
+      "evidence": [
+        "docs/dev/p72/report.md",
+        "docs/dev/p72/delivery.json",
+        "docs/dev/p72/preservation.json",
+        "docs/tests/p72-rules-dialogue-headless.json",
+        "docs/tests/p72-rules-dialogue-native.json",
+        "docs/tests/p72-enforcement-headless.json",
+        "docs/tests/p72-regression-single-player-headless.json",
+        "docs/tests/p72-day-cycle.json",
+        "docs/tests/p72-live-runtime.json",
+        "docs/tests/p72-dialogue-1200.png",
+        "docs/tests/p72-dialogue-960.png",
+        "docs/tests/p72-third-custody-failure.png",
+        "docs/tests/p72-dawn-alarm-cleared.png",
+        "docs/tests/p72-live-dialogue.png"
+      ],
+      "at": "2026-10-07T11:49:53.667Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p72-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p72-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p72-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "06d92a4e97228d9c06bef506bb75f9f0f64f189ff19a4e5edfc4bc0e4d04ee5c",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

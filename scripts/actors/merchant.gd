@@ -54,6 +54,10 @@ func tick(delta: float) -> void:
 	if game.phase != "playing" or game.get_tree().paused:
 		return
 	update_schedule()
+	if game.dialogue and game.dialogue.holds_movement(self):
+		walk_clock = 0
+		walk_elapsed = 0
+		return
 	if at_destination() or game.schedule.time_speed <= 0:
 		walk_clock = 0.0
 		walk_elapsed = 0.0

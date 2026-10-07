@@ -1,0 +1,103 @@
+{
+  "task": {
+    "id": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+    "title": "P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除",
+    "description": "用户要求取消起床后加速、主角三次禁闭失败、所有人形NPC可聊天，并修复隔天全员警戒未解除。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "7:20正常速度移动；主角第三次实际禁闭立即失败，NPC和重复捕获不误计；聊天入口覆盖真实人形NPC、角色对白与规则询问、保留聊天技能分心；对话不暂停世界或绕过执法；7:20清警报/增援/追捕，白天劳动警戒继续；正常日程、暂停、通关、帧率回归。",
+    "result": "",
+    "dependencyIds": [
+      "p71-wake-0720-day-circle-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p72*",
+        "docs/dev/p72/**",
+        "docs/tests/p72*",
+        "docs/gamecreator/**",
+        "gamecreator/**",
+        "scripts/skills/**",
+        "data/dialogue.json"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "不改外部地图/美术/编辑器WIP。晨间移动无额外倍速；主角累计3次实际禁闭即失败，保留各角色计数和明确原因。普通聊天所有主角技能可用；守卫技能分心仍受技能/距离/警戒约束。新一天起床解除上夜缺员报警，保留禁闭时长和劳动执法。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p72-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T11:25:57.137Z"
+      }
+    ]
+  },
+  "revision": "5fa2a611f9faeb654efdda2c2029e6614ac99ff5e7ac91ce7817134c3fa29766",
+  "scheduleRevision": "f4d6df37fbcc2bbbde5d57b799c08e632b31175d1fa5205d9e6f3b0d9bdeb428",
+  "planChanges": [
+    {
+      "id": "p72-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T11:25:57.137Z",
+      "reason": "用户要求取消起床后加速、主角三次禁闭失败、所有人形NPC可聊天，并修复隔天全员警戒未解除。",
+      "createdTaskIds": [
+        "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p71-wake-0720-day-circle-20261007",
+      "title": "P71 07:20起床与08:00关门、白天圆形警戒",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "5fa2a611f9faeb654efdda2c2029e6614ac99ff5e7ac91ce7817134c3fa29766"
+  },
+  "feedback": []
+}

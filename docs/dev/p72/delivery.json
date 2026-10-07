@@ -1,0 +1,65 @@
+{
+  "sources": [
+    "data/dialogue.json",
+    "scripts/actors/merchant.gd",
+    "scripts/core/daily_routine.gd",
+    "scripts/core/escape_game.gd",
+    "scripts/core/mobile_controls.gd",
+    "scripts/core/move_orders.gd",
+    "scripts/core/prison_alert.gd",
+    "scripts/core/prison_schedule.gd",
+    "scripts/presentation/actor_visual.gd",
+    "scripts/presentation/interaction_prompt.gd",
+    "scripts/skills/skill_controller.gd",
+    "scripts/ui/fullscreen_hud.gd",
+    "scripts/ui/npc_dialogue.gd"
+  ],
+  "source_sha256": {
+    "data/dialogue.json": "59903b52621971ab047fb6fdb0082bb3ad80f11d117e9af08bc80712ea254bbb",
+    "scripts/actors/merchant.gd": "ad2b74dbf426e6cfb4688c9f6166965fd2a4df6b1bbfb6e19e7d58fe6f2c0bac",
+    "scripts/core/daily_routine.gd": "e65b7b6515da488e14ddd0bffc68c607904c2c986f196bee2215895c32ff0a09",
+    "scripts/core/escape_game.gd": "c62d08d43e839962f64ea16b855754203507ec11ea1234652c573863f1be0b66",
+    "scripts/core/mobile_controls.gd": "cd4529c6cd69cd148c88e7b60b9747773bd70f43c727613a9b457431eefa0294",
+    "scripts/core/move_orders.gd": "1533be8aaa2b6a81ed29fa1a32187745817dc7d45fbdd3b29ebbfd578249077a",
+    "scripts/core/prison_alert.gd": "adc13d5608e16efacbb76eecbe33b5f5d9d6e8fec8e4adb3b190d69af1be4388",
+    "scripts/core/prison_schedule.gd": "c3a50dee64f00f78be2137145b645fe1d3f09f5d62596e9bebea621597525c63",
+    "scripts/presentation/actor_visual.gd": "929097b3bd45b3de9b43e39b2a3c60ca91c0b120f95236a514b2c442dbacaa01",
+    "scripts/presentation/interaction_prompt.gd": "2a9792b2a1ae20cdfd2e618e48d278ebfd463b94c0b93ff5da39124b0bb6e7f6",
+    "scripts/skills/skill_controller.gd": "a55b9ed1259836d3006ec0063c83417afea298e05a4edbc41e259c3053d99588",
+    "scripts/ui/fullscreen_hud.gd": "43b4c5f28c8fd297078da776c6e5d4b9c85862e458ee2de1f4f7570bff0e2e81",
+    "scripts/ui/npc_dialogue.gd": "55cdda4acfd94004c382739a722362677fcf8f6c4a896f70e4b4979104c154b1"
+  },
+  "reports": {
+    "rules-dialogue-headless": {
+      "checks": 78,
+      "failed": []
+    },
+    "rules-dialogue-native": {
+      "checks": 78,
+      "failed": []
+    },
+    "enforcement-headless": {
+      "checks": 33,
+      "failed": []
+    },
+    "regression-single-player-headless": {
+      "checks": 49,
+      "failed": []
+    },
+    "day-cycle": {
+      "checks": 7,
+      "failed": []
+    },
+    "live-runtime": {
+      "checks": 14,
+      "failed": []
+    }
+  },
+  "total_checks": 259,
+  "fps": 94.1933074031068,
+  "dialogue_fps": 127.555140955092,
+  "p95_ms": 11.942,
+  "map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+  "preserved_paths": 34,
+  "self_review": true
+}

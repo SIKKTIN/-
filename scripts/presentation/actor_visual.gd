@@ -185,7 +185,7 @@ func paint_information(canvas: CanvasItem) -> void:
 				canvas.draw_string(font,Vector2(-width/2+8,top-31-rise),text,HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("977037"))
 		if actor.action_state != "idle":
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
-			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else actor.skill_id)
+			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else "chat")
 			if icon:
 				canvas.draw_texture_rect(icon,Rect2(8,top-14,24,24),false)
 		if game.elapsed < actor.immune_until:

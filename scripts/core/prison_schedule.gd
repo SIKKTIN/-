@@ -162,10 +162,6 @@ func wake_minutes() -> float:
 func preparing_for_work() -> bool:
 	return clock_minutes() >= wake_minutes() and clock_minutes() < 480
 
-func preparation_move_scale() -> float:
-	# Compressed days still leave a usable 40-minute journey to the gate.
-	return 2.0*maxf(1,time_speed) if preparing_for_work() else 1.0
-
 func is_sleep_time() -> bool:
 	return stage_index >= 0 and str(config.stages[stage_index].id) == "sleep"
 
@@ -254,6 +250,7 @@ func dog_active() -> bool:
 	return (game.prison_alert != null and game.prison_alert.active) or (stage_index >= 0 and bool(config.stages[stage_index].dog_active))
 
 func tick(announce: bool = true) -> void:
+	if game.prison_alert: game.prison_alert.release_at_dawn()
 	var minute := clock_minutes()
 	var next_index := 0
 	for index in range(config.stages.size()):
@@ -283,7 +280,7 @@ func tick(announce: bool = true) -> void:
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
 	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日07:20。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
 	if game.prison_alert != null and game.prison_alert.active:
-		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到本局结束，无法跳过夜晚。"
+		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到07:20起床点名结束，期间无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
 	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
@@ -318,6 +315,7 @@ func close() -> void:
 		blocker.hide()
 
 func show_result(success: bool) -> void:
+	if game.dialogue: game.dialogue.close()
 	close()
 	if game.routine_panel:
 		game.routine_panel.close()
@@ -327,7 +325,7 @@ func show_result(success: bool) -> void:
 		game.shop_panel.close()
 	var count: int = game.escape_count()
 	var carried: int = game.inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-	result_label.text = "%s\n逃出 %d / 1 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"主角已逃出黑工厂。" if success else "主角仍被困在黑工厂。"]
+	result_label.text = "%s\n逃出 %d / 1 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else game.failure_reason if not game.failure_reason.is_empty() else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"主角已逃出黑工厂。" if success else "主角累计禁闭 %d/3 次。" % game.confinement_counts[0]]
 	result_panel.show()
 	result_blocker.show()
 	# Draw depth does not determine GUI hit order. Bring the allowed control
