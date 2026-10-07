@@ -1,0 +1,20 @@
+{
+  "taskId": "p70-workshop-alert-all-guards-20261007",
+  "revision": "786ab13a47b80f9dc09b02923d5612f7f80815635614e3a56668588f3b546891",
+  "feedbackId": "p70-delivery-20261007",
+  "status": "待验收",
+  "summary": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+  "evidence": [
+    "docs/dev/p70/report.md",
+    "docs/dev/p70/delivery.json",
+    "docs/tests/p70-enforcement-headless.json",
+    "docs/tests/p70-enforcement-native.json",
+    "docs/tests/p70-day-cycle.json",
+    "docs/tests/p70-regression-single-player-headless.json",
+    "docs/tests/p70-live-runtime.json",
+    "docs/tests/p70-outside-1200.png",
+    "docs/tests/p70-outside-960.png",
+    "docs/tests/p70-gate-chase.png"
+  ],
+  "requestId": "p70-delivery-20261007"
+}

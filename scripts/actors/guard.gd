@@ -60,7 +60,15 @@ func view_radius() -> float:
 	return NIGHT_VIEW_RADIUS if night else DAY_VIEW_RADIUS
 
 func inspection_allowed() -> bool:
-	return global_alert() or returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
+	return labor_enforcement() or global_alert() or returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
+
+func labor_enforcement() -> bool:
+	return game.workshop != null and game.workshop.on_duty()
+
+func pursuit_allowed(actor) -> bool:
+	if actor.escaped or actor.confined or game.elapsed < actor.immune_until: return false
+	if game.workshop != null and game.workshop.outside_violation(actor.actor_id): return true
+	return curfew_alert() and not (game.routines != null and game.routines.is_lawful(actor.actor_id)) and actor.actor_id != chat_partner_id and not (game.schedule != null and game.schedule.is_sleeping(actor.actor_id))
 
 func global_alert() -> bool:
 	return game.prison_alert != null and game.prison_alert.active
@@ -69,7 +77,7 @@ func allowed_zone() -> Rect2:
 	return world.bounds if inspection_allowed() else world.guard_zone
 
 func search_zone() -> Rect2:
-	return world.bounds if global_alert() or (game.schedule != null and game.schedule.is_sleep_time()) else world.guard_zone
+	return world.bounds if labor_enforcement() or global_alert() or (game.schedule != null and game.schedule.is_sleep_time()) else world.guard_zone
 
 func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
 	return allowed_zone().grow(-radius).has_point(point)
@@ -144,29 +152,32 @@ func sees(point: Vector2) -> bool:
 
 func tick(delta: float) -> void:
 	moved_this_frame = false
-	if game.phase != "playing":
+	if game.phase != "playing" or game.get_tree().paused:
 		return
-	if not curfew_alert() and state in ["chasing", "searching"]:
+	if not curfew_alert() and not labor_enforcement() and state in ["chasing", "searching"]:
 		release_target()
+	if not labor_enforcement() and not curfew_alert() and not world.guard_zone.grow(-17).has_point(position):
+		returning_from_inspection = true
 	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),game.inspection_positions())
 	if returning_from_inspection and world.guard_zone.grow(-17).has_point(position):
 		returning_from_inspection = false
 		path.clear()
 		route_index = 0
-	if state == "chasing" and (target_id < 0 or (game.routines != null and game.routines.is_lawful(target_id)) or not search_zone().has_point(game.actors[target_id].position)):
+	if state == "chasing" and (target_id < 0 or not pursuit_allowed(game.actors[target_id]) or not search_zone().has_point(game.actors[target_id].position)):
 		release_target()
 	var nearest_id: int = -1
 	var nearest_distance: float = INF
 	for actor in game.actors:
-		if not curfew_alert():
+		if not curfew_alert() and not labor_enforcement():
 			break
-		if actor.escaped or actor.confined or (game.routines != null and game.routines.is_lawful(actor.actor_id)) or game.elapsed < actor.immune_until or actor.actor_id == chat_partner_id or (game.schedule != null and game.schedule.is_sleeping(actor.actor_id)):
+		if not pursuit_allowed(actor):
 			continue
 		var distance: float = position.distance_to(actor.position)
 		if distance < nearest_distance and sees(actor.position):
 			nearest_id = actor.actor_id
 			nearest_distance = distance
 	if nearest_id >= 0:
+		if game.workshop != null: game.workshop.report_escape_seen(nearest_id)
 		if chat_partner_id >= 0 and game.has_method("cancel_guard_chat"):
 			game.cancel_guard_chat("看守发现了其他人，聊天中断！")
 		chat_partner_id = -1
@@ -223,10 +234,10 @@ func tick(delta: float) -> void:
 	queue_redraw()
 
 func _capture_if_touching() -> void:
-	if not curfew_alert() or state != "chasing" or target_id < 0:
+	if state != "chasing" or target_id < 0:
 		return
 	var target = game.actors[target_id]
-	if target.escaped or target.confined or (game.routines != null and game.routines.is_lawful(target_id)) or (game.schedule != null and game.schedule.is_sleeping(target_id)) or not search_zone().has_point(target.position) or game.elapsed < target.immune_until or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
+	if not pursuit_allowed(target) or not search_zone().has_point(target.position) or position.distance_to(target.position) > 38 or not world.line_clear(position,target.position):
 		return
 	game.capture_actor(target_id)
 	state = "patrol"

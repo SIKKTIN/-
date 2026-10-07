@@ -1,0 +1,211 @@
+{
+  "task": {
+    "id": "p70-workshop-alert-all-guards-20261007",
+    "title": "P70 单主角HUD与全看守劳动执法",
+    "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+    "result": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+    "dependencyIds": [
+      "p69-workshop-supervision-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p70*",
+        "docs/dev/p70/**",
+        "docs/tests/p70*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p70-workshop-alert-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T10:01:16.382Z"
+      }
+    ]
+  },
+  "revision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2",
+  "scheduleRevision": "0057f06ca3583a5474040ec3847a8405369cb2cc47d50381bf3695f507773c62",
+  "planChanges": [
+    {
+      "id": "p70-workshop-alert-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T10:01:16.382Z",
+      "reason": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+      "createdTaskIds": [
+        "p70-workshop-alert-all-guards-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p69-workshop-supervision-20261007",
+      "title": "P69 封闭车间与劳动监工",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p70-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p70-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p70-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2"
+  },
+  "feedback": [
+    {
+      "id": "p70-start-20261007",
+      "taskId": "p70-workshop-alert-all-guards-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "新增共同劳动外出判定和HUD持续警告，隐藏NPC快捷卡，保护工作区其他修改。",
+      "evidence": [
+        "docs/dev/p70/baseline-state.json"
+      ],
+      "at": "2026-10-07T10:01:18.693Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p70-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p70-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p70-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p70-delivery-20261007",
+      "taskId": "p70-workshop-alert-all-guards-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+      "evidence": [
+        "docs/dev/p70/report.md",
+        "docs/dev/p70/delivery.json",
+        "docs/tests/p70-enforcement-headless.json",
+        "docs/tests/p70-enforcement-native.json",
+        "docs/tests/p70-day-cycle.json",
+        "docs/tests/p70-regression-single-player-headless.json",
+        "docs/tests/p70-live-runtime.json",
+        "docs/tests/p70-outside-1200.png",
+        "docs/tests/p70-outside-960.png",
+        "docs/tests/p70-gate-chase.png"
+      ],
+      "at": "2026-10-07T10:14:09.813Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p70-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p70-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p70-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

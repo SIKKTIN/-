@@ -1,0 +1,38 @@
+{
+  "scheduleRevision": "a5a0a63ecf325e6a9eab3dae090242ea4fab144325f34de068758ccf7acfa80e",
+  "creates": [
+    {
+      "task": {
+        "id": "p70-workshop-alert-all-guards-20261007",
+        "title": "P70 单主角HUD与全看守劳动执法",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p69-workshop-supervision-20261007"
+        ],
+        "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+        "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "qa/p70*",
+            "docs/dev/p70/**",
+            "docs/tests/p70*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+  "requestId": "p70-workshop-alert-plan-20261007"
+}

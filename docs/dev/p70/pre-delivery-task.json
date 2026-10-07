@@ -1,0 +1,143 @@
+{
+  "task": {
+    "id": "p70-workshop-alert-all-guards-20261007",
+    "title": "P70 单主角HUD与全看守劳动执法",
+    "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+    "result": "新增共同劳动外出判定和HUD持续警告，隐藏NPC快捷卡，保护工作区其他修改。",
+    "dependencyIds": [
+      "p69-workshop-supervision-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "qa/p70*",
+        "docs/dev/p70/**",
+        "docs/tests/p70*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p70-workshop-alert-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T10:01:16.382Z"
+      }
+    ]
+  },
+  "revision": "786ab13a47b80f9dc09b02923d5612f7f80815635614e3a56668588f3b546891",
+  "scheduleRevision": "148b933efd1e13ba2dca704574d90718f536f1b42e77fd76824aa43acb81a6fa",
+  "planChanges": [
+    {
+      "id": "p70-workshop-alert-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T10:01:16.382Z",
+      "reason": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+      "createdTaskIds": [
+        "p70-workshop-alert-all-guards-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p69-workshop-supervision-20261007",
+      "title": "P69 封闭车间与劳动监工",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p70-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "786ab13a47b80f9dc09b02923d5612f7f80815635614e3a56668588f3b546891"
+  },
+  "feedback": [
+    {
+      "id": "p70-start-20261007",
+      "taskId": "p70-workshop-alert-all-guards-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "新增共同劳动外出判定和HUD持续警告，隐藏NPC快捷卡，保护工作区其他修改。",
+      "evidence": [
+        "docs/dev/p70/baseline-state.json"
+      ],
+      "at": "2026-10-07T10:01:18.693Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p70-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "786ab13a47b80f9dc09b02923d5612f7f80815635614e3a56668588f3b546891"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "786ab13a47b80f9dc09b02923d5612f7f80815635614e3a56668588f3b546891",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

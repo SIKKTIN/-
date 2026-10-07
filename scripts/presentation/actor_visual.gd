@@ -142,7 +142,7 @@ func paint_information(canvas: CanvasItem) -> void:
 	canvas.draw_line(actor.facing*31,actor.facing*25-actor.facing.orthogonal()*4,direction_color,2,true)
 	if is_guard:
 		if separate_information:
-			var label := "交谈中" if actor.state == "talking" else "守门" if actor.has_method("is_gate_guard") else "追击！" if actor.state == "chasing" else "调查" if actor.state == "searching" else "查寝" if game.schedule and game.schedule.is_sleep_time() else "宵禁警戒" if actor.curfew_alert() else "巡逻"
+			var label := "交谈中" if actor.state == "talking" else "追击！" if actor.state == "chasing" else "守门" if actor.has_method("is_gate_guard") else "调查" if actor.state == "searching" else "查寝" if game.schedule and game.schedule.is_sleep_time() else "宵禁警戒" if actor.curfew_alert() else "巡逻"
 			if actor.global_alert():
 				label = "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "增援搜查" if actor in game.prison_alert.reinforcements else "警戒搜查"
 			if actor.has_method("is_workshop_overseer"):

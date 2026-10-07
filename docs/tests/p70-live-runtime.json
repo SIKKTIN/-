@@ -1,0 +1,79 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"checks": {
+		"both_npcs_working": true,
+		"default_work_progresses": true,
+		"fps_above_45": true,
+		"lead_selected": true,
+		"no_false_arrests": true,
+		"npcs_read_only": true,
+		"only_player_hud": true,
+		"supervisor_exists": true,
+		"unpaused": true,
+		"work_gate_closed": true
+	},
+	"engine_fps": 129.0,
+	"failed": [],
+	"fps": 127.86464296392,
+	"frames": 1023,
+	"map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+	"p95_ms": 9.03,
+	"renderer": "forward_plus",
+	"routines": {
+		"day": 1,
+		"manual": [],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"slot": 0,
+		"states": [
+			"工作中 9%",
+			"工作中 16%",
+			"工作中 35%"
+		],
+		"work_earned": [
+			4,
+			4,
+			4
+		],
+		"work_minutes": [
+			5.56815791514884,
+			9.94146648888625,
+			21.131037866664
+		],
+		"work_rounds": [
+			1,
+			1,
+			1
+		],
+		"working": [
+			0,
+			1,
+			2
+		]
+	},
+	"viewport": [
+		1200,
+		720
+	]
+}

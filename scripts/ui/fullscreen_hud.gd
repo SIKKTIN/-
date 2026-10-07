@@ -120,6 +120,9 @@ var button_layout
 var fps_badge: PanelContainer
 var fps_label: Label
 var fps_sample_time := -1000
+var warning_banner: Panel
+var warning_title: Label
+var warning_detail: Label
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -165,6 +168,27 @@ func configure(owner_game) -> void:
 	fps_label.add_theme_color_override("font_color",Color("e4edda"))
 	fps_badge.add_child(fps_label)
 	hud.add_child(fps_badge)
+	warning_banner = Panel.new()
+	warning_banner.name = "SupervisionWarning"
+	warning_banner.z_index = 70
+	warning_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var warning_style := StyleBoxFlat.new()
+	warning_style.bg_color = Color("f2dfd5")
+	warning_style.border_color = Color("bc5348")
+	warning_style.set_border_width_all(2)
+	warning_style.set_corner_radius_all(8)
+	warning_banner.add_theme_stylebox_override("panel",warning_style)
+	for line in range(2):
+		var label := Label.new()
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		label.add_theme_font_override("font",font)
+		label.add_theme_font_size_override("font_size",19 if line == 0 else 13)
+		label.add_theme_color_override("font_color",Color("943a31") if line == 0 else Color("713d34"))
+		label.position = Vector2(12,5 if line == 0 else 33)
+		warning_banner.add_child(label)
+		if line == 0: warning_title = label
+		else: warning_detail = label
+	hud.add_child(warning_banner)
 	menu_button = _button("",toggle_menu,"pause")
 	menu_button.z_index = 240
 	menu_button.tooltip_text = "暂停 / 菜单"
@@ -363,11 +387,21 @@ func layout() -> void:
 	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size-12)
 	pad.size = Vector2(pad_size,pad_size)
 	var card_top: float = clock.position.y+clock.size.y+12
-	var card_height: float = minf(82,floorf((pad.position.y-12-card_top-16)/3))
+	var card_height: float = minf(82,maxf(64,pad.position.y-12-card_top))
 	for index in range(3):
+		game.cards[index].visible = game.actor_is_controllable(index)
 		game.cards[index].position = Vector2(safe.position.x,card_top+index*(card_height+8))
 		game.cards[index].size = Vector2(164,card_height)
 		faces[index].size = game.cards[index].size
+	var warning_left: float = routine_button.position.x+routine_button.size.x+12
+	var warning_width: float = goal.position.x-12-warning_left
+	if warning_width >= 320:
+		warning_banner.position = Vector2(warning_left,safe.position.y)
+		warning_banner.size = Vector2(minf(440,warning_width),68)
+	else:
+		warning_banner.size = Vector2(minf(400,safe.size.x-380),68)
+		warning_banner.position = Vector2(safe.get_center().x-warning_banner.size.x/2,clock.position.y+clock.size.y+12)
+	for label in [warning_title,warning_detail]: label.size = Vector2(warning_banner.size.x-24,28)
 	action_button.size = Vector2(104,104)
 	action_button.position = safe.end-action_button.size-Vector2(40,32)
 	ability_button.size = Vector2(72,64)
@@ -476,6 +510,7 @@ func refresh() -> void:
 		face.queue_redraw()
 	for index in range(game.cards.size()):
 		var card = game.cards[index]
+		card.visible = game.actor_is_controllable(index)
 		card.icon = null
 		card.text = ""
 		card.disabled = blocked or game.actors[index].escaped or not game.actor_is_controllable(index)
@@ -506,6 +541,26 @@ func refresh() -> void:
 	map_toggle.visible = minimap_collapsed and not game.world_input_blocked()
 	toast.visible = game.elapsed < game.status_until and not game.world_input_blocked()
 	game.status_label.visible = toast.visible
+	refresh_warning(blocked)
+
+func refresh_warning(blocked: bool) -> void:
+	var title := ""
+	var detail := ""
+	var id: int = game.PLAYER_ACTOR_ID
+	if game.workshop and game.workshop.on_duty() and not game.actors[id].confined and not game.actors[id].escaped:
+		var count: int = game.workshop.chase_count(id)
+		if count > 0 or game.workshop.wanted.has(id):
+			title = "！正在被追捕"
+			detail = "%d名看守正在追捕 · 被抓关禁闭2小时" % count if count > 0 else "监工搜捕中 · 回工位继续劳动"
+		elif game.workshop.outside_violation(id):
+			title = "！脱离劳动监管"
+			detail = "劳动时间禁止外出 · 看守发现会立即抓捕"
+		elif game.workshop.warnings.has(id):
+			title = "！监工警告"
+			detail = "请回自己的工位，点击“工作”继续劳动"
+	warning_title.text = title
+	warning_detail.text = detail
+	warning_banner.visible = not title.is_empty() and not blocked and game.phase == "playing"
 
 func toggle_menu() -> void:
 	if button_layout and button_layout.editing:

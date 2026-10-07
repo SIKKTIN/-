@@ -10,6 +10,7 @@ var grace: Dictionary = {}
 var warnings: Dictionary = {}
 var wanted: Dictionary = {}
 var previously_held: Dictionary = {}
+var admitted: Dictionary = {}
 
 func _init(owner_game) -> void:
 	game = owner_game
@@ -25,6 +26,7 @@ func reset() -> void:
 	warnings.clear()
 	wanted.clear()
 	previously_held.clear()
+	admitted.clear()
 	if config.is_empty(): return
 	if game.world.access_by_id(str(config.get("access_id",""))).is_empty():
 		config = {}
@@ -53,6 +55,31 @@ func current_shift() -> int:
 func on_duty() -> bool:
 	return current_shift() >= 0
 
+func outside_violation(id: int) -> bool:
+	if not on_duty() or id < 0 or id >= game.actors.size(): return false
+	var actor = game.actors[id]
+	if actor.escaped or actor.confined or area.has_point(actor.position): return false
+	# Admission grace only covers the initial journey to work. Walking out
+	# after entering does not regain that grace, even before the deadline.
+	return admitted.has(id) or game.schedule.absolute_minutes() >= float(grace.get(id,INF))
+
+func chase_count(id: int) -> int:
+	var count := 0
+	var guards: Array = [game.guard]
+	if game.gate_watch: guards.append_array(game.gate_watch.guards)
+	if game.prison_alert: guards.append_array(game.prison_alert.reinforcements)
+	if is_instance_valid(overseer): guards.append(overseer)
+	for guard in guards:
+		if guard.state == "chasing" and guard.target_id == id: count += 1
+	return count
+
+func report_escape_seen(id: int) -> void:
+	if not outside_violation(id) or game.get_tree().paused: return
+	if not wanted.has(id):
+		wanted[id] = true
+		game.show_status("囚徒%d劳动时间擅自外出，看守发现后立即追捕！" % (id+1),5)
+	update_gate()
+
 func commuting(id: int) -> bool:
 	if game.routines.manual.has(id) or not game.routines.records.has(id): return false
 	return game.routines.records[id].kind == "work" and game.schedule.absolute_minutes() < float(grace.get(id,0))
@@ -66,6 +93,7 @@ func update_gate() -> void:
 		warnings.clear()
 		wanted.clear()
 		grace.clear()
+		admitted.clear()
 		overseer.release_target()
 		if shift >= 0:
 			var start: float = floorf(now/1440.0)*1440.0+shift
@@ -78,6 +106,7 @@ func update_gate() -> void:
 		if previously_held.get(id,false) and not actor.confined:
 			grace[id] = now+float(config.get("arrival_minutes",45))
 		previously_held[id] = actor.confined
+		if not actor.confined and area.grow(-17).has_point(actor.position): admitted[id] = true
 	var gate: Dictionary = game.world.access_by_id(str(config.access_id))
 	var open: bool = shift < 0
 	if shift >= 0:
@@ -115,10 +144,11 @@ func tick(delta: float) -> void:
 			warnings.erase(id)
 			wanted.erase(id)
 			continue
-		if commuting(id): continue
+		if outside_violation(id) and overseer.state != "talking" and overseer.sees(actor.position): report_escape_seen(id)
+		if commuting(id) and not outside_violation(id): continue
 		# The opening roll call detects absent workers; within the room,
 		# slacking is only counted while actually seen by the overseer.
-		var absent: bool = not area.has_point(actor.position) and game.schedule.absolute_minutes() >= float(grace.get(id,0))
+		var absent := outside_violation(id)
 		if not absent and (overseer.state == "talking" or not overseer.sees(actor.position)): continue
 		if not warnings.has(id):
 			warnings[id] = 0.0
@@ -137,6 +167,7 @@ func warning_label(id: int) -> String:
 
 func on_release(id: int) -> void:
 	grace[id] = game.schedule.absolute_minutes()+float(config.get("arrival_minutes",45))
+	admitted.erase(id)
 	warnings.erase(id)
 	wanted.erase(id)
 

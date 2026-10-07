@@ -1,0 +1,41 @@
+{
+  "sources": [
+    "scripts/actors/guard.gd",
+    "scripts/actors/gate_guard.gd",
+    "scripts/core/workshop_rules.gd",
+    "scripts/ui/fullscreen_hud.gd",
+    "scripts/presentation/actor_visual.gd"
+  ],
+  "source_sha256": {
+    "scripts/actors/guard.gd": "c0eb683bbbbe6e2cc89f715d8069c76555e3ab6ef7c61a4961304925c75278c9",
+    "scripts/actors/gate_guard.gd": "405e5a6bdcc552d422289cd51e462f614e186d45654d8834e5288e1e2c70f707",
+    "scripts/core/workshop_rules.gd": "37bda75d982c2ab84a6fc715b2c926b807182b7f8ccbcba78a99f33e421598b3",
+    "scripts/ui/fullscreen_hud.gd": "dd361fd5997cc10e916396d0859cb3ca5b935b2d0f3d2324d8130b40a482822f",
+    "scripts/presentation/actor_visual.gd": "a16d9366ac56a69b5d4856eacbe07ad97474a2f02fe60d5ccec75cd5d3a78ad5"
+  },
+  "reports": {
+    "enforcement-headless": {
+      "checks": 33,
+      "failed": []
+    },
+    "enforcement-native": {
+      "checks": 33,
+      "failed": []
+    },
+    "day-cycle": {
+      "checks": 7,
+      "failed": []
+    },
+    "regression-single-player-headless": {
+      "checks": 49,
+      "failed": []
+    },
+    "live-runtime": {
+      "checks": 10,
+      "failed": []
+    }
+  },
+  "runtime_fps": 127.86464296392,
+  "preserved_count": 34,
+  "map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211"
+}

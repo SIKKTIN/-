@@ -16,13 +16,23 @@ func on_duty() -> bool:
 	return global_alert() or (game.schedule != null and not game.schedule.is_curfew())
 
 func blocking_gate() -> bool:
-	return on_duty() and not global_alert() and state != "talking"
+	return on_duty() and not global_alert() and state not in ["talking","chasing"] and position.distance_to(post) < 100
+
+func patrol_route() -> Array[Vector2]:
+	if global_alert(): return super.patrol_route()
+	var result: Array[Vector2] = [post]
+	return result
 
 func tick(_delta: float) -> void:
 	if global_alert():
 		escaped = false
 		show()
 		super.tick(_delta)
+		return
+	if labor_enforcement() or state == "chasing" or position.distance_to(post) > 4:
+		escaped = not on_duty()
+		visible = not escaped
+		if not escaped: super.tick(_delta)
 		return
 	moved_this_frame = false
 	escaped = not on_duty()
@@ -34,5 +44,5 @@ func tick(_delta: float) -> void:
 	else:
 		state = "patrol"
 		facing = Vector2.LEFT
-	# Door guards never arrest during their daytime shift.
+	# Outside labor shifts, door guards only block the gate during daytime.
 	target_id = -1

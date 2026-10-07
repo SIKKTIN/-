@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "6d9e04bb003dec81e0488261a936774711b0366848ca6e4cce7efb527f2ca479",
+  "snapshotId": "44c399aad999deb56505a9e98022ba955b2a8096d8c8bd5579390d6b339c75fd",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -5271,6 +5271,58 @@
           "at": "2026-10-07T09:31:13.566Z"
         }
       ]
+    },
+    {
+      "id": "p70-workshop-alert-all-guards-20261007",
+      "title": "P70 单主角HUD与全看守劳动执法",
+      "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-07",
+      "actualEnd": "2026-10-07",
+      "milestoneId": "",
+      "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+      "result": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。\n\n验收通过：制作人独立开发自验收：33项新规则原生/无头通过，四类看守真实追捕和禁闭、视野遮挡/到岗宽限/返回岗位/暂停、两种屏幕布局和持续警告可见，7项整日0误抓、49项单人通关回归、10项正常原生循环127.86FPS通过。仅5源码增量，34个外部修改/删除状态保留；自验不替代真人试玩。",
+      "dependencyIds": [
+        "p69-workshop-supervision-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/core/**",
+          "scripts/actors/**",
+          "scripts/ui/**",
+          "scripts/presentation/**",
+          "qa/p70*",
+          "docs/dev/p70/**",
+          "docs/tests/p70*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn",
+        "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p70-workshop-alert-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T10:01:16.382Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -5444,7 +5496,8 @@
             "p67-runtime-fps-optimization-20261007",
             "p68-single-player-default-routines-20261007",
             "p69-workshop-supervision-20261007",
-            "p69-editor-workshop-compat-20261007"
+            "p69-editor-workshop-compat-20261007",
+            "p70-workshop-alert-all-guards-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -6878,6 +6931,18 @@
       "reason": "新劳动门禁类型需要编辑器校验和属性说明；单独补齐范围，保护既有美术编辑器工作。",
       "createdTaskIds": [
         "p69-editor-workshop-compat-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p70-workshop-alert-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T10:01:16.382Z",
+      "reason": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+      "createdTaskIds": [
+        "p70-workshop-alert-all-guards-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -22563,6 +22628,154 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-07T09:51:06.403Z",
         "note": "制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p70-start-20261007",
+      "taskId": "p70-workshop-alert-all-guards-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "新增共同劳动外出判定和HUD持续警告，隐藏NPC快捷卡，保护工作区其他修改。",
+      "evidence": [
+        "docs/dev/p70/baseline-state.json"
+      ],
+      "at": "2026-10-07T10:01:18.693Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p70-workshop-alert-all-guards-20261007",
+        "title": "P70 单主角HUD与全看守劳动执法",
+        "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+        "result": "新增共同劳动外出判定和HUD持续警告，隐藏NPC快捷卡，保护工作区其他修改。",
+        "dependencyIds": [
+          "p69-workshop-supervision-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "qa/p70*",
+            "docs/dev/p70/**",
+            "docs/tests/p70*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p70-workshop-alert-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T10:01:16.382Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p70-delivery-20261007",
+      "taskId": "p70-workshop-alert-all-guards-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+      "evidence": [
+        "docs/dev/p70/report.md",
+        "docs/dev/p70/delivery.json",
+        "docs/tests/p70-enforcement-headless.json",
+        "docs/tests/p70-enforcement-native.json",
+        "docs/tests/p70-day-cycle.json",
+        "docs/tests/p70-regression-single-player-headless.json",
+        "docs/tests/p70-live-runtime.json",
+        "docs/tests/p70-outside-1200.png",
+        "docs/tests/p70-outside-960.png",
+        "docs/tests/p70-gate-chase.png"
+      ],
+      "at": "2026-10-07T10:14:09.813Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p70-workshop-alert-all-guards-20261007",
+        "title": "P70 单主角HUD与全看守劳动执法",
+        "description": "用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。",
+        "result": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+        "dependencyIds": [
+          "p69-workshop-supervision-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "qa/p70*",
+            "docs/dev/p70/**",
+            "docs/tests/p70*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p70-workshop-alert-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T10:01:16.382Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T10:14:54.721Z",
+        "note": "制作人独立开发自验收：33项新规则原生/无头通过，四类看守真实追捕和禁闭、视野遮挡/到岗宽限/返回岗位/暂停、两种屏幕布局和持续警告可见，7项整日0误抓、49项单人通关回归、10项正常原生循环127.86FPS通过。仅5源码增量，34个外部修改/删除状态保留；自验不替代真人试玩。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

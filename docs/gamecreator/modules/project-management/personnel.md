@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T09:51:53.736Z
-> 文档内容基准：43883a89f54f56e94d211e179f49a2b85b4ebd5ec57ffe42ec53320c60a2fd90
+> 文档生成时间：2026-10-07T10:14:56.501Z
+> 文档内容基准：59d92d90643fd1f78b3cbcc0fc8003a2c2e354ff915f7796e13b4efb50bb932f
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -88,6 +88,7 @@
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
 - P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
 - P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
+- P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1246,6 +1247,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。
 - 验收负责人：制作人
+### P70 单主角HUD与全看守劳动执法
+- ID：p70-workshop-alert-all-guards-20261007
+- 当前状态：已完成
+- 内容：用户要求隐藏NPC快捷卡、持续劳动脱管警告、所有守卫见到劳动室外违规囚徒立即抓捕。
+- 前置任务：p69-workshop-supervision-20261007
+- 允许修改路径：scripts/core/**、scripts/actors/**、scripts/ui/**、scripts/presentation/**、qa/p70*、docs/dev/p70/**、docs/tests/p70*、docs/gamecreator/**、gamecreator/**
+- 接口契约：只修改可控角色HUD与共同劳动违规判定，保留未提交地图/美术/编辑器修改。劳动室外在被看到时立即执法；到岗和释放宽限服从暂停，监工室内偷懒警告保留。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：仅显示可控主角快捷卡；脱管/被追捕持续HUD清楚且不遮控制或弹窗；劳动外出者被巡逻、门岗、增援看见均可实际追捕禁闭，室内正常劳动/入场/返岗宽限无误抓；非劳动白天不抓人；原工作、暂停、日夜、单人胜利与FPS回归通过。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1354,6 +1366,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
 - P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
 - P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
+- P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

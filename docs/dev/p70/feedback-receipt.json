@@ -1,0 +1,66 @@
+{
+  "id": "p70-delivery-20261007",
+  "digest": "469d58f7bdb008d51a0976454e4e16371715cf93a23f90d1745d76c8a421a287",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T10:14:09.694Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p70-delivery-20261007",
+    "taskId": "p70-workshop-alert-all-guards-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "只显示主角快捷卡，顶部持续脱管/追捕警告显示人数且不被工资覆盖。四类看守劳动时段见到违规外出囚徒立即追捕；保留真正入场/释放宽限，入场后离开不重给宽限。33/33原生与无头、7/7日夜、49/49单主角回归、10/10实时循环通过，无误抓，本机127.86FPS，34个其他改动原样保留。",
+    "evidence": [
+      "docs/dev/p70/report.md",
+      "docs/dev/p70/delivery.json",
+      "docs/tests/p70-enforcement-headless.json",
+      "docs/tests/p70-enforcement-native.json",
+      "docs/tests/p70-day-cycle.json",
+      "docs/tests/p70-regression-single-player-headless.json",
+      "docs/tests/p70-live-runtime.json",
+      "docs/tests/p70-outside-1200.png",
+      "docs/tests/p70-outside-960.png",
+      "docs/tests/p70-gate-chase.png"
+    ],
+    "at": "2026-10-07T10:14:09.813Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p70-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p70-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p70-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "d7b028592e2362a8db74d526ea0d0efd142d435f9ae88ba3a6317441f78131b2",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}
