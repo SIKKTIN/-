@@ -1,0 +1,39 @@
+{
+  "scheduleRevision": "ececab2aba612313746c6f7e674349a851f4e990b8999fbff37e5b3ade218e74",
+  "creates": [
+    {
+      "task": {
+        "id": "p68-single-player-default-routines-20261007",
+        "title": "P68 默认日程与单角色操控",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p67-runtime-fps-optimization-20261007"
+        ],
+        "description": "用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。",
+        "acceptance": "新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/skills/**",
+            "scripts/items/**",
+            "scripts/presentation/interaction_prompt.gd",
+            "qa/p68*",
+            "docs/dev/p68/**",
+            "docs/tests/p68*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求默认日程和一名可控角色，创建制作人本人程序任务。",
+  "requestId": "p68-single-player-plan-20261007"
+}

@@ -43,7 +43,7 @@ func capture(actor_id: int) -> bool:
 	held[actor_id] = {"cell":actor_id,"until":game.schedule.absolute_minutes()+float(game.room_config.confinement.get("duration_minutes",120))}
 	var minutes := ceili(float(game.room_config.confinement.get("duration_minutes",120)))
 	var duration: String = "%d小时" % (minutes/60) if minutes%60 == 0 else "%d分钟" % minutes
-	game.show_status("伙伴%d被关进禁闭室，关押%s；可切换伙伴撬门救人。" % [actor_id+1,duration],6)
+	game.show_status("囚徒%d被关进禁闭室，关押%s。" % [actor_id+1,duration],6)
 	return true
 
 func release(actor_id: int, rescued := false) -> void:
@@ -58,6 +58,7 @@ func release(actor_id: int, rescued := false) -> void:
 	actor.position = _landing(actor,_point(cell.release))
 	actor.immune_until = game.elapsed+3.0
 	held.erase(actor_id)
+	if not game.actor_is_controllable(actor_id): game.routines.resume(actor_id)
 	game.show_status("伙伴%d%s，已离开禁闭室。" % [actor_id+1,"获救" if rescued else "禁闭结束"],5)
 
 func tick() -> void:

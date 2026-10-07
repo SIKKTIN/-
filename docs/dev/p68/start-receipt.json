@@ -1,0 +1,51 @@
+{
+  "id": "p68-start-20261007",
+  "digest": "0e8ab3b098435176c87494108023a7f674010ba7644e119c2aff41b55f5b1083",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T08:41:26.317Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p68-start-20261007",
+    "taskId": "p68-single-player-default-routines-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "制作人已接手，固定角色1可控、NPC日程只读，默认日常与输入限制正在实现；其他未提交文件冻结保护。",
+    "evidence": [
+      "docs/dev/p68/baseline-state.json"
+    ],
+    "at": "2026-10-07T08:41:26.476Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p68-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

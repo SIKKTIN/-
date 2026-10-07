@@ -84,7 +84,7 @@ func _draw() -> void:
 		var badge := Rect2(rect.position+Vector2(78,13),Vector2(25,26))
 		draw_style_box(_round_box(Color("328b82") if selected else muted,5),badge)
 		_center_text(font, badge.position+Vector2(12.5,21), str(id+1), 18, Color("fffdf5"))
-		draw_string(font, rect.position+Vector2(78,61), "已逃脱" if ui.game.actors[id].escaped else "伙伴%d" % (id+1), HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
+		draw_string(font, rect.position+Vector2(78,61), "已逃脱" if ui.game.actors[id].escaped else "主角" if ui.game.actor_is_controllable(id) else "自动囚徒", HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
 	var x: float = pad+22
 	for kind in ui.KINDS:
 		if kind == "meal" and not ui.game.routines.has_cafeteria():

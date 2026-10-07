@@ -29,6 +29,7 @@ const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
 const MOVE_SPEED := 260.0
+const PLAYER_ACTOR_ID := 0
 const SKILL_NAMES := {"chat": "会聊天", "lockpick": "会撬锁", "strong": "大力气", "backpack": "会收纳"}
 const ROOM_IDS := ["r01", "r02", "r03", "r04"]
 var inventory
@@ -303,7 +304,7 @@ func _process(delta: float) -> void:
 	if map_camera:
 		map_camera.tick(delta)
 	if phase == "playing" and elapsed >= status_until:
-		status_text = "逃脱 %d / 3 · 锁门%s · 抓回 %d 次 · 看守%s" % [actors.filter(func(a): return a.escaped).size(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
+		status_text = "逃脱 %d / 1 · 锁门%s · 抓回 %d 次 · 看守%s" % [escape_count(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
 	_update_ui(false)
 	if presentation:
 		presentation.tick(delta)
@@ -356,6 +357,7 @@ func select_at(world_point: Vector2) -> bool:
 	return false
 
 func command_move(actor_id: int, target: Vector2) -> bool:
+	if not actor_is_controllable(actor_id): return false
 	var accepted: bool = orders.issue(actor_id,target)
 	_update_ui()
 	queue_redraw()
@@ -367,6 +369,7 @@ func command_at(point: Vector2) -> bool:
 	return command_move(selected_actor_id,point)
 
 func stop_selected() -> void:
+	if not actor_is_controllable(selected_actor_id): return
 	if mobile_controls:
 		mobile_controls.cancel_input()
 	if routines:
@@ -378,22 +381,23 @@ func stop_selected() -> void:
 
 func on_actor_escaped(actor_id: int) -> void:
 	inventory.carry_out(actor_id)
-	if selected_actor_id == actor_id:
-		for other in actors:
-			if not other.escaped:
-				select_actor(other.actor_id)
-				break
-	if actors.all(func(a): return a.escaped):
+	if actors[PLAYER_ACTOR_ID].escaped:
 		phase = "complete"
 		orders.clear()
 		skills.clear_all()
 		var carried: int = inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-		status_text = "三人全部逃脱！%.1f秒 · 抓回%d次 · 带出%d件 · 钱%d · R重开" % [elapsed,captures,carried,inventory.wallet]
+		status_text = "主角逃脱成功！%.1f秒 · 抓回%d次 · 带出%d件 · 钱%d · R重开" % [elapsed,captures,carried,inventory.wallet]
 		if schedule:
 			schedule.show_result(true)
 
+func actor_is_controllable(index: int) -> bool:
+	return index == PLAYER_ACTOR_ID and index >= 0 and index < actors.size()
+
+func escape_count() -> int:
+	return 1 if actors[PLAYER_ACTOR_ID].escaped else 0
+
 func select_actor(index: int) -> void:
-	if index < 0 or index >= actors.size() or actors[index].escaped:
+	if not actor_is_controllable(index) or actors[index].escaped:
 		return
 	if mobile_controls:
 		mobile_controls.cancel_input()
@@ -466,7 +470,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routines.tick()
 	if developer_settings:
 		developer_settings.close()
-	show_status("我们是被抓来干活的无辜人。避开混混看守，带三位伙伴一起逃出去。",4)
+	show_status("你控制囚徒1寻找逃脱机会；囚徒2、3按默认日程自动生活。",4)
 	select_actor(0)
 	if routine_panel and routine_panel.panel.visible:
 		routine_panel.reload()
@@ -486,7 +490,7 @@ func _update_ui(refresh_hud := true) -> void:
 			if schedule and schedule.is_curfew() and not actor.escaped and phase == "playing":
 				var label: String = "寝室内" if schedule.in_dormitory(index) else "归寝中" if orders.active.has(index) and schedule.dormitory(index).has_point(orders.active[index].goal) else "宵禁外出！"
 				cards[index].text = "%s伙伴 %d\n%s\n%s" % ["● " if actor.selected else "",index+1,SKILL_NAMES[actor.skill_id],label]
-		cards[index].disabled = actor.escaped
+		cards[index].disabled = actor.escaped or not actor_is_controllable(index)
 	status_label.text = status_text
 	if skill_button and skills:
 		var actor = actors[selected_actor_id]
@@ -495,9 +499,9 @@ func _update_ui(refresh_hud := true) -> void:
 		skill_button.text = "停止技能  E" if active else ("接触重箱自动推" if actor.skill_id == "strong" else "使用%s  E" % SKILL_NAMES[actor.skill_id])
 		skill_button.disabled = phase != "playing" or actor.escaped or actor.skill_id == "strong" or (not active and reason != "")
 		var no_opener: bool = actors.all(func(a): return a.skill_id == "chat") and trade.merchants.is_empty()
-		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("伙伴留在原地操作，可以换人行动。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
+		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("主角正在操作；移动会中断，进度保留。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
 		if phase != "playing":
-			hint_label.text = "已封监，点击重新开始。" if phase == "failed" else "全员已逃脱，点击重新开始。"
+			hint_label.text = "已封监，点击重新开始。" if phase == "failed" else "主角已逃脱，点击重新开始。"
 	if inventory_panel:
 		inventory_panel.refresh()
 	if shop_panel:
@@ -566,7 +570,7 @@ func capture_actor(actor_id: int) -> void:
 	if mobile_controls and selected_actor_id == actor_id:
 		mobile_controls.cancel_input()
 	if routines:
-		routines.take_control(actor_id)
+		routines.suspend(actor_id)
 	if shop_panel and shop_panel.actor_id == actor_id:
 		shop_panel.close()
 	var actor = actors[actor_id]
@@ -588,6 +592,7 @@ func show_status(text: String, duration: float = 2.5) -> void:
 	status_until = elapsed + duration
 
 func use_selected_skill() -> void:
+	if not actor_is_controllable(selected_actor_id): return
 	if mobile_controls:
 		mobile_controls.cancel_input()
 	if skills and skills.actions.has(selected_actor_id):

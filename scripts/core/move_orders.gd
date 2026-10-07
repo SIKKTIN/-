@@ -9,6 +9,7 @@ func _init(escape_game) -> void:
 func issue(actor_id: int, goal: Vector2, source: String = "manual") -> bool:
 	if game.phase != "playing" or actor_id < 0 or actor_id >= game.actors.size():
 		return false
+	if source == "manual" and not game.actor_is_controllable(actor_id): return false
 	var actor = game.actors[actor_id]
 	if actor.escaped:
 		return false
@@ -25,7 +26,7 @@ func issue(actor_id: int, goal: Vector2, source: String = "manual") -> bool:
 	game.skills.cancel(actor_id,"收到移动指令，当前操作停止；撬锁进度保留。")
 	active[actor_id] = {"source":source,"goal":goal,"path":path,"push":push,"stalled":0.0,"repath":0.0,"revision":game.world.obstacle_revision}
 	if source == "manual":
-		game.show_status("伙伴%d前往目标；可以切换其他人，S停止当前人物。" % (actor_id+1),1.5)
+		game.show_status("主角前往目标；S停止移动。",1.5)
 	return true
 
 func stop(actor_id: int) -> void:

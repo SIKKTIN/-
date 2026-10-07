@@ -315,9 +315,9 @@ func show_result(success: bool) -> void:
 		game.developer_settings.close()
 	if game.shop_panel:
 		game.shop_panel.close()
-	var count: int = game.actors.filter(func(a): return a.escaped).size()
+	var count: int = game.escape_count()
 	var carried: int = game.inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-	result_label.text = "%s\n逃出 %d / 3 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"三位伙伴都已逃出。" if success else "未逃出的伙伴仍被困在黑工厂。"]
+	result_label.text = "%s\n逃出 %d / 1 · 带出 %d 件\n用时 %.1f 秒 · 抓回 %d 次\n%s" % ["逃脱成功！" if success else "逃脱期限已到 · 时间耗尽",count,carried,game.elapsed,game.captures,"主角已逃出黑工厂。" if success else "主角仍被困在黑工厂。"]
 	result_panel.show()
 	result_blocker.show()
 	# Draw depth does not determine GUI hit order. Bring the allowed control

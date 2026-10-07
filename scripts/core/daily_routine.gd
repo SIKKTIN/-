@@ -34,13 +34,18 @@ func reset() -> void:
 	work_account_clock = 0.0
 	recent_wages.clear()
 	slot = -1
-	plans = []
-	for index in range(3):
-		plans.append(["idle","idle","idle","idle","idle"])
+	plans = default_plans()
 	records.clear()
 	manual.clear()
 	if game.get("routine_panel"):
 		game.routine_panel.close()
+
+func default_plans() -> Array:
+	var labor := "work" if allowed(0,"work") else "rest"
+	var lunch := "meal" if has_cafeteria() else "rest"
+	var result := []
+	for id in range(3): result.append([labor,lunch,labor,"free","free"])
+	return result
 
 func current_slot() -> int:
 	var minute: float = game.schedule.clock_minutes()
@@ -61,7 +66,9 @@ func has_cafeteria() -> bool:
 func apply_today(value: Array) -> bool:
 	if value.size() != 3 or game.schedule.is_sleep_time():
 		return false
-	for row in value:
+	for id in range(value.size()):
+		var row: Array = value[id]
+		if not game.actor_is_controllable(id) and row != plans[id]: return false
 		if row.size() != SLOTS.size():
 			return false
 		for index in range(SLOTS.size()):
@@ -74,10 +81,15 @@ func apply_today(value: Array) -> bool:
 	plans = value.duplicate(true)
 	for id in changed:
 		resume(id)
-	game.show_status("第%d天日常已安排；手动行动可接管，下一时段按表继续。" % day,4)
+	game.show_status("第%d天主角日常已安排；其他囚徒按默认日程生活。" % day,4)
 	return true
 
 func take_control(actor_id: int) -> void:
+	if not game.actor_is_controllable(actor_id): return
+	suspend(actor_id)
+
+func suspend(actor_id: int) -> void:
+	# Custody can suspend any routine; player input can take over only the lead.
 	manual[actor_id] = true
 	records.erase(actor_id)
 	if game.orders.active.has(actor_id) and game.orders.active[actor_id].get("source","") == "routine":
@@ -147,6 +159,7 @@ func meal_reason(actor_id: int) -> String:
 	return "靠近取餐窗口后领取午餐。"
 
 func start_meal(actor_id: int) -> bool:
+	if not game.actor_is_controllable(actor_id): return false
 	var reason := meal_reason(actor_id)
 	if not reason.is_empty():
 		game.show_status(reason)
@@ -166,9 +179,7 @@ func tick() -> void:
 				game.orders.stop(id)
 		day = game.schedule.day_number()
 		morning_pending = true
-		plans.clear()
-		for id in range(3):
-			plans.append(["idle","idle","idle","idle","idle"])
+		plans = default_plans()
 		records.clear()
 		manual.clear()
 		slot = -1

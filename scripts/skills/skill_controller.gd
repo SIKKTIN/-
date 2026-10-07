@@ -24,7 +24,7 @@ func chat_guard(actor):
 	return null
 
 func target_reason(actor) -> String:
-	if actor.confined: return "禁闭中，可切换伙伴撬门救人，或等待关押结束。"
+	if actor.confined: return "禁闭中，等待关押结束后可继续行动。"
 	if actor.escaped or game.phase != "playing":
 		return "这个伙伴已经逃脱。"
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0.000001:
@@ -82,7 +82,7 @@ func open_target(id: String) -> void:
 		game.room_access.tick()
 
 func door_reason(actor, distance: float = 55) -> String:
-	if actor.confined: return "禁闭中，可切换伙伴撬门救人，或等待关押结束。"
+	if actor.confined: return "禁闭中，等待关押结束后可继续行动。"
 	if actor.escaped or game.phase != "playing":
 		return "这个伙伴已经逃脱。"
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0.000001:
@@ -96,10 +96,11 @@ func door_reason(actor, distance: float = 55) -> String:
 	if not game.world.line_clear(actor.position,point):
 		return "你和门边操作点之间有遮挡。"
 	if id.is_empty() and game.gate_watch and game.gate_watch.blocking():
-		return "铁门有人值守；让会聊天的伙伴分别牵制两名守卫。"
+		return "白天铁门有人值守；避开值守时段再开门。"
 	return ""
 
 func toggle(actor_id: int) -> bool:
+	if not game.actor_is_controllable(actor_id): return false
 	if actions.has(actor_id):
 		cancel(actor_id,"已停止操作，门的进度会保留。")
 		return true
@@ -120,7 +121,7 @@ func toggle(actor_id: int) -> bool:
 			game.gate_watch.tick(0)
 		game.show_status("伙伴%d交谈中；当前非戒备，看守不追捕。" % (actor_id+1))
 	else:
-		game.show_status("伙伴%d撬锁中；可以换人行动，离开会中断。" % (actor_id+1))
+		game.show_status("主角撬锁中；离开会中断，进度保留。")
 	return true
 
 func cancel(actor_id: int, reason: String = "") -> void:

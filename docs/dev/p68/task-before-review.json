@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "p68-single-player-default-routines-20261007",
+    "title": "P68 默认日程与单角色操控",
+    "description": "用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。",
+    "result": "制作人已接手，固定角色1可控、NPC日程只读，默认日常与输入限制正在实现；其他未提交文件冻结保护。",
+    "dependencyIds": [
+      "p67-runtime-fps-optimization-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/ui/**",
+        "scripts/skills/**",
+        "scripts/items/**",
+        "scripts/presentation/interaction_prompt.gd",
+        "qa/p68*",
+        "docs/dev/p68/**",
+        "docs/tests/p68*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p68-single-player-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T08:40:20.460Z"
+      }
+    ]
+  },
+  "revision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924",
+  "scheduleRevision": "f4a80a5cdfdf5ef53f09a960fcb6c2000d0ac4f6e16b9ca6a8980420ca71cc62",
+  "planChanges": [
+    {
+      "id": "p68-single-player-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T08:40:20.460Z",
+      "reason": "用户要求默认日程和一名可控角色，创建制作人本人程序任务。",
+      "createdTaskIds": [
+        "p68-single-player-default-routines-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p67-runtime-fps-optimization-20261007",
+      "title": "P67 R04运行时帧率诊断与优化",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p68-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924"
+  },
+  "feedback": [
+    {
+      "id": "p68-start-20261007",
+      "taskId": "p68-single-player-default-routines-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手，固定角色1可控、NPC日程只读，默认日常与输入限制正在实现；其他未提交文件冻结保护。",
+      "evidence": [
+        "docs/dev/p68/baseline-state.json"
+      ],
+      "at": "2026-10-07T08:41:26.476Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p68-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -56,6 +56,7 @@ func reason(actor_id: int, merchant_id: String) -> String:
 	return ""
 
 func try_buy(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
+	if not game.actor_is_controllable(actor_id): return {"ok":false,"reason":"这名囚徒不能手动购买。"}
 	var error := reason(actor_id, merchant_id)
 	if error != "":
 		return {"ok": false, "reason": error}

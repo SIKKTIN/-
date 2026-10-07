@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T08:11:45.582Z
-> 文档内容基准：d0ad7b9d407e304e62e0fb960574261a7c8119affddac146e78d1a864dc03c34
+> 文档生成时间：2026-10-07T08:58:33.961Z
+> 文档内容基准：13608ed5073057e639036698616e399c9715c168a1b9b9407fe272a2dc48ad09
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -85,6 +85,7 @@
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
+- P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1210,6 +1211,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。
 - 验收负责人：制作人
+### P68 默认日程与单角色操控
+- ID：p68-single-player-default-routines-20261007
+- 当前状态：已完成
+- 内容：用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。
+- 前置任务：p67-runtime-fps-optimization-20261007
+- 允许修改路径：scripts/core/**、scripts/ui/**、scripts/skills/**、scripts/items/**、scripts/presentation/interaction_prompt.gd、qa/p68*、docs/dev/p68/**、docs/tests/p68*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1315,6 +1327,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
+- P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

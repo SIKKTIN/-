@@ -1,0 +1,17 @@
+{
+  "taskId": "p68-single-player-default-routines-20261007",
+  "revision": "f62bd358b066704de5fce7c87957f73b311e0413d5a07e1d492a033133e28924",
+  "feedbackId": "p68-single-player-delivery-20261007",
+  "status": "待验收",
+  "summary": "默认三人工作/午餐/工作/自由/寝区日程；仅囚徒1可控，2/3自主且日常表只读。用户确认主角单人逃脱胜利，HUD及结果0/1同步。49/49 headless、49/49 native、完整日夜6/6及实时循环5/5通过，NPC工资/睡眠/禁闭恢复正常，无缺员误报；保留11个其他工作区文件。",
+  "evidence": [
+    "docs/dev/p68/report.md",
+    "docs/dev/p68/delivery.json",
+    "docs/tests/p68-single-player-native.json",
+    "docs/tests/p68-single-player-headless.json",
+    "docs/tests/p68-day-cycle.json",
+    "docs/tests/p68-live-runtime.json",
+    "docs/tests/p68-default-planner.png"
+  ],
+  "requestId": "p68-single-player-delivery-20261007"
+}

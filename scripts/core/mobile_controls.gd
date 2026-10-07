@@ -44,7 +44,7 @@ func configure(owner_game) -> void:
 	game.get_window().focus_exited.connect(cancel_input)
 
 func inputs_blocked() -> bool:
-	return game.world_input_blocked() or (game.fullscreen_ui != null and game.fullscreen_ui.bag_open)
+	return not game.actor_is_controllable(game.selected_actor_id) or game.world_input_blocked() or (game.fullscreen_ui != null and game.fullscreen_ui.bag_open)
 
 func is_moving() -> bool:
 	return direction.length_squared() > 0.0001 and not inputs_blocked()

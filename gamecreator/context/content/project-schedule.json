@@ -5117,6 +5117,59 @@
             "at": "2026-10-07T07:45:58.271Z"
           }
         ]
+      },
+      {
+        "id": "p68-single-player-default-routines-20261007",
+        "title": "P68 默认日程与单角色操控",
+        "description": "用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "2026-10-07",
+        "milestoneId": "",
+        "acceptance": "新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。",
+        "result": "默认三人工作/午餐/工作/自由/寝区日程；仅囚徒1可控，2/3自主且日常表只读。用户确认主角单人逃脱胜利，HUD及结果0/1同步。49/49 headless、49/49 native、完整日夜6/6及实时循环5/5通过，NPC工资/睡眠/禁闭恢复正常，无缺员误报；保留11个其他工作区文件。\n\n验收通过：制作人独立开发自验收：用户确认单人逃脱，默认三人日程和NPC只读控制完整覆盖，49项规则分别在原生/无头通过，正常整日AI无误报，禁闭恢复和实际出口通关通过；运行循环及原生UI检查通过，既有11文件未改。",
+        "dependencyIds": [
+          "p67-runtime-fps-optimization-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/skills/**",
+            "scripts/items/**",
+            "scripts/presentation/interaction_prompt.gd",
+            "qa/p68*",
+            "docs/dev/p68/**",
+            "docs/tests/p68*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p68-single-player-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T08:40:20.460Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -6407,6 +6460,18 @@
         "reason": "用户要求优化当前13FPS，创建制作人本人明确程序任务。",
         "createdTaskIds": [
           "p67-runtime-fps-optimization-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p68-single-player-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-07T08:40:20.460Z",
+        "reason": "用户要求默认日程和一名可控角色，创建制作人本人程序任务。",
+        "createdTaskIds": [
+          "p68-single-player-default-routines-20261007"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -21657,6 +21722,153 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-07T08:11:43.317Z",
           "note": "制作人独立开发自验收：同图同机原生性能实测显著提升，25项绘制/缓存/视野等价回归与73项规则回归通过。未降画质，既有修改保护，接受交付；数据为电脑自动化场景，手机性能未实测。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p68-start-20261007",
+        "taskId": "p68-single-player-default-routines-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "制作人已接手，固定角色1可控、NPC日程只读，默认日常与输入限制正在实现；其他未提交文件冻结保护。",
+        "evidence": [
+          "docs/dev/p68/baseline-state.json"
+        ],
+        "at": "2026-10-07T08:41:26.476Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p68-single-player-default-routines-20261007",
+          "title": "P68 默认日程与单角色操控",
+          "description": "用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。",
+          "result": "制作人已接手，固定角色1可控、NPC日程只读，默认日常与输入限制正在实现；其他未提交文件冻结保护。",
+          "dependencyIds": [
+            "p67-runtime-fps-optimization-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/ui/**",
+              "scripts/skills/**",
+              "scripts/items/**",
+              "scripts/presentation/interaction_prompt.gd",
+              "qa/p68*",
+              "docs/dev/p68/**",
+              "docs/tests/p68*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p68-single-player-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T08:40:20.460Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p68-single-player-delivery-20261007",
+        "taskId": "p68-single-player-default-routines-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "默认三人工作/午餐/工作/自由/寝区日程；仅囚徒1可控，2/3自主且日常表只读。用户确认主角单人逃脱胜利，HUD及结果0/1同步。49/49 headless、49/49 native、完整日夜6/6及实时循环5/5通过，NPC工资/睡眠/禁闭恢复正常，无缺员误报；保留11个其他工作区文件。",
+        "evidence": [
+          "docs/dev/p68/report.md",
+          "docs/dev/p68/delivery.json",
+          "docs/tests/p68-single-player-native.json",
+          "docs/tests/p68-single-player-headless.json",
+          "docs/tests/p68-day-cycle.json",
+          "docs/tests/p68-live-runtime.json",
+          "docs/tests/p68-default-planner.png"
+        ],
+        "at": "2026-10-07T08:57:32.779Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p68-single-player-default-routines-20261007",
+          "title": "P68 默认日程与单角色操控",
+          "description": "用户要求三名囚徒默认日程，仅一名可操控。固定角色1为主角，2/3自治日程；保留状态与日常表但NPC只读，默认工作/午餐/工作/自由/寝区自由，每日重置。胜利条件按用户回复衔接，默认主角逃脱胜利。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。",
+          "result": "默认三人工作/午餐/工作/自由/寝区日程；仅囚徒1可控，2/3自主且日常表只读。用户确认主角单人逃脱胜利，HUD及结果0/1同步。49/49 headless、49/49 native、完整日夜6/6及实时循环5/5通过，NPC工资/睡眠/禁闭恢复正常，无缺员误报；保留11个其他工作区文件。",
+          "dependencyIds": [
+            "p67-runtime-fps-optimization-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/ui/**",
+              "scripts/skills/**",
+              "scripts/items/**",
+              "scripts/presentation/interaction_prompt.gd",
+              "qa/p68*",
+              "docs/dev/p68/**",
+              "docs/tests/p68*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "制作人独立执行共享输入、默认日常和HUD逻辑，不改地图、美术、编辑器及project.godot；三名角色继续有体力/饱腹/工资/查寝，只有角色1接受手动控制。日程点缺失时回寝室休息，不创建不存在的路径。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p68-single-player-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T08:40:20.460Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T08:58:32.307Z",
+          "note": "制作人独立开发自验收：用户确认单人逃脱，默认三人日程和NPC只读控制完整覆盖，49项规则分别在原生/无头通过，正常整日AI无误报，禁闭恢复和实际出口通关通过；运行循环及原生UI检查通过，既有11文件未改。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }

@@ -47,9 +47,9 @@ class PartnerFace extends Control:
 		var icon: Texture2D = ui.game.presentation.skill_icons.get(actor.skill_id)
 		if actor.skill_id == "backpack":
 			icon = ui.game.items_view.icon_for("backpack")
-		if icon:
+		if icon and ui.game.actor_is_controllable(index):
 			draw_texture_rect(icon,Rect2(size.x-26,29,16,16),false)
-		draw_string(ui.font,Vector2(53,39),ui.game.SKILL_NAMES[actor.skill_id],HORIZONTAL_ALIGNMENT_LEFT,size.x-82,13,ink)
+		draw_string(ui.font,Vector2(53,39),ui.game.SKILL_NAMES[actor.skill_id] if ui.game.actor_is_controllable(index) else "自动日程",HORIZONTAL_ALIGNMENT_LEFT,size.x-61,13,ink)
 		var state: String = "已逃脱" if actor.escaped else "移动中" if ui.game.orders.active.has(index) else {"idle":"待命","chatting":"交谈中","lockpicking":"撬锁中"}.get(actor.action_state,"待命")
 		if ui.game.routines and ui.game.routines.status_for(index) != "" and not actor.escaped:
 			state = ui.game.routines.status_for(index)
@@ -141,10 +141,10 @@ func configure(owner_game) -> void:
 	clock.pressed.connect(func(): game.schedule.toggle())
 	hud.add_child(clock)
 	routine_button = _button("日常表",func(): game.routine_panel.toggle())
-	routine_button.tooltip_text = "安排三位伙伴今天的工作、休息和活动。"
+	routine_button.tooltip_text = "查看三名囚徒日程；可以调整主角的安排。"
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
 	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日08:00。"
-	goal = _button("逃脱 0/3",Callable())
+	goal = _button("逃脱 0/1",Callable())
 	goal.mouse_filter = Control.MOUSE_FILTER_STOP
 	wallet = _button("0",Callable(),"coin")
 	fps_badge = PanelContainer.new()
@@ -470,7 +470,7 @@ func refresh() -> void:
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text
-	goal.text = "逃脱 %d/3" % game.actors.filter(func(a): return a.escaped).size()
+	goal.text = "逃脱 %d/1" % game.escape_count()
 	wallet.text = str(game.inventory.wallet)
 	for face in faces:
 		face.queue_redraw()
@@ -478,7 +478,8 @@ func refresh() -> void:
 		var card = game.cards[index]
 		card.icon = null
 		card.text = ""
-		card.disabled = blocked or game.actors[index].escaped
+		card.disabled = blocked or game.actors[index].escaped or not game.actor_is_controllable(index)
+		card.tooltip_text = "主角 · 玩家控制" if game.actor_is_controllable(index) else "自动囚徒 · 按默认日程生活，不能切换控制"
 	var interaction = game.presentation.interaction
 	action_button.text = interaction.mobile_label()
 	action_button.display_icon = interaction.mobile_icon()

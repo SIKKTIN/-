@@ -85,6 +85,7 @@ func configure(owner_game) -> void:
 		b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 		b.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 		b.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
+		b.add_theme_stylebox_override("disabled", StyleBoxEmpty.new())
 		b.pressed.connect(func(): _select_actor(id))
 		panel.add_child(b)
 		identities.append(b)
@@ -100,7 +101,7 @@ func configure(owner_game) -> void:
 			panel.add_child(b)
 			row.append(b)
 		selectors.append(row)
-	restore_button = game.schedule._button(panel, Vector2.ZERO, "恢复选中伙伴", restore)
+	restore_button = game.schedule._button(panel, Vector2.ZERO, "恢复主角日程", restore)
 	close_button = game.schedule._button(panel, Vector2.ZERO, "关闭", close)
 	apply_button = game.schedule._button(panel, Vector2.ZERO, "应用今日安排", apply)
 	apply_button.add_theme_stylebox_override("normal", _style(Color("328b82"), false))
@@ -223,7 +224,7 @@ func reload() -> void:
 	refresh()
 
 func editable(id: int, index: int) -> bool:
-	return not game.actors[id].escaped and not game.schedule.is_sleep_time() and game.phase == "playing" and game.schedule.clock_minutes() < game.routines.SLOTS[index].end
+	return game.actor_is_controllable(id) and not game.actors[id].escaped and not game.schedule.is_sleep_time() and game.phase == "playing" and game.schedule.clock_minutes() < game.routines.SLOTS[index].end
 
 func refresh() -> void:
 	if not panel.visible:
@@ -239,6 +240,7 @@ func refresh() -> void:
 		for id in range(3):
 			var b: ActivityCell = selectors[index][id]
 			b.disabled = not editable(id, index)
+			b.tooltip_text = "自动囚徒的固定日程，只读" if not game.actor_is_controllable(id) else "点击调整主角安排"
 			# A live clock may finish a slot while its draft/menu is open.
 			if b.disabled:
 				draft[id][index] = game.routines.plans[id][index]
@@ -249,7 +251,7 @@ func refresh() -> void:
 				b.set_meta("locked", b.disabled)
 				_skin(b, selected)
 	for id in range(3):
-		identities[id].disabled = game.actors[id].escaped
+		identities[id].disabled = game.actors[id].escaped or not game.actor_is_controllable(id)
 	apply_button.disabled = game.schedule.is_sleep_time() or game.phase != "playing"
 	restore_button.disabled = game.schedule.is_sleep_time() or game.actors[game.selected_actor_id].escaped
 	note.text = "午夜只读；早晨08:00可安排新一天。" if game.schedule.is_sleep_time() else "本关没有工作岗位，可安排休息与自由活动。" if game.room_config.get("routine_points", {}).get("work", []).is_empty() else "点击活动格修改；工作仅限劳动时段，20点后自由活动留在寝室区。"
@@ -257,6 +259,7 @@ func refresh() -> void:
 		note.text = "尚未应用 · "+note.text
 	if not game.schedule.is_sleep_time() and game.routines.allowed(0, "work"):
 		note.text = ("尚未应用 · " if draft != game.routines.plans else "")+"满%d有效分钟工资 +%d；休息恢复体力，" % [roundi(game.routines.work_duration()), game.routines.work_wage()]+("12–14选吃饭，赴食堂取餐就座。" if game.routines.has_cafeteria() else "12–14寝室进食。")
+	note.text += " 囚徒2、3自动日程只读。"
 	if picker.visible:
 		if not editable(editing_actor, editing_slot):
 			close_picker()
@@ -266,6 +269,7 @@ func refresh() -> void:
 	board.queue_redraw()
 
 func _select_actor(id: int) -> void:
+	if not game.actor_is_controllable(id): return
 	close_picker()
 	editing_actor = id
 	game.select_actor(id)

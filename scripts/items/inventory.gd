@@ -41,6 +41,7 @@ func _result(ok: bool, reason: String = "") -> Dictionary:
 	return {"ok": ok, "reason": reason}
 
 func try_pickup(actor_id: int, id: String) -> Dictionary:
+	if not game.actor_is_controllable(actor_id): return _result(false,"这名囚徒按日程自动生活，不能手动操作。")
 	if not available(actor_id) or not instances.has(id) or instances[id].location != "ground":
 		return _result(false, "物品已不在地面。")
 	var actor = game.actors[actor_id]
@@ -58,7 +59,7 @@ func try_pickup(actor_id: int, id: String) -> Dictionary:
 	return _result(true)
 
 func owns(actor_id: int, id: String) -> bool:
-	return available(actor_id) and bags.get(actor_id, []).has(id) and instances.has(id) and instances[id].location == "bag" and instances[id].actor_id == actor_id
+	return game.actor_is_controllable(actor_id) and available(actor_id) and bags.get(actor_id, []).has(id) and instances.has(id) and instances[id].location == "bag" and instances[id].actor_id == actor_id
 
 func try_drop(actor_id: int, id: String) -> Dictionary:
 	if not owns(actor_id, id):
@@ -121,7 +122,7 @@ func try_use(actor_id: int, id: String) -> Dictionary:
 	consume(actor_id, id)
 	game.skills.actions[actor_id] = {"kind": "lock_tool", "anchor": game.actors[actor_id].position,"door_id":game.skills.door_id(game.actors[actor_id])}
 	game.actors[actor_id].action_state = "lockpicking"
-	return _result(true, "工具已消耗，开始6秒撬锁；可切换伙伴。")
+	return _result(true, "工具已消耗，开始6秒撬锁；离开会中断。")
 
 func snapshot() -> Dictionary:
 	return {"wallet": wallet, "instances": instances.duplicate(true), "bags": bags.duplicate(true), "capacities": game.actors.map(func(a): return capacity(a.actor_id))}
