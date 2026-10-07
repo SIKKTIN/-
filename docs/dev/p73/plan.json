@@ -1,0 +1,39 @@
+{
+  "scheduleRevision": "a16e9b75215eb05f389f35405ab1ec94f88f1598432df753a0ff80fdbbfba3a1",
+  "creates": [
+    {
+      "task": {
+        "id": "p73-private-wages-lunch-walk-20261007",
+        "title": "P73 独立工资、20分钟午餐与步行返工",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+        ],
+        "description": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+        "acceptance": "NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/world/prison_world.gd",
+            "data/schedule.json",
+            "data/dialogue.json",
+            "qa/p73*",
+            "docs/dev/p73/**",
+            "docs/tests/p73*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+  "requestId": "p73-plan-20261007"
+}

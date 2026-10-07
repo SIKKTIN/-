@@ -20,6 +20,8 @@ var work_rounds: Array = [0, 0, 0]
 var work_earned: Array = [0, 0, 0]
 var work_account_clock := 0.0
 var recent_wages: Dictionary = {}
+const MEAL_MINUTES := 20.0
+var meal_minutes: Array = [0.0, 0.0, 0.0]
 
 func _init(owner_game) -> void:
 	game = owner_game
@@ -33,6 +35,7 @@ func reset() -> void:
 	work_earned = [0, 0, 0]
 	work_account_clock = 0.0
 	recent_wages.clear()
+	meal_minutes = [0.0, 0.0, 0.0]
 	slot = -1
 	plans = default_plans()
 	records.clear()
@@ -111,11 +114,25 @@ func _target(actor_id: int, kind: String) -> Vector2:
 		return Vector2(coords[0],coords[1])
 	return game.actors[actor_id].home
 
+func preparing_afternoon() -> bool:
+	var minute: float = game.schedule.clock_minutes()
+	return minute >= 810 and minute < 840
+
+func consume_meal(actor_id: int, minutes: float) -> float:
+	# Called by the attribute integrator only for actual seated meal time.
+	var credit: float = minf(maxf(minutes,0),maxf(0,MEAL_MINUTES-float(meal_minutes[actor_id])))
+	meal_minutes[actor_id] += credit
+	return credit
+
 func _start(actor_id: int, override_kind: String = "") -> void:
 	var actor = game.actors[actor_id]
 	if actor.escaped or actor.confined or slot < 0 or manual.has(actor_id):
 		return
 	var kind: String = str(plans[actor_id][slot]) if override_kind.is_empty() else override_kind
+	if slot == 1 and preparing_afternoon() and plans[actor_id][2] == "work" and override_kind.is_empty():
+		kind = "work"
+	elif kind == "meal" and float(meal_minutes[actor_id]) >= MEAL_MINUTES-0.000001:
+		kind = "free"
 	if kind == "idle":
 		return
 	game.orders.stop(actor_id)
@@ -133,18 +150,22 @@ func _send(actor_id: int, record: Dictionary) -> void:
 	record.retry = game.elapsed+3.0
 	if actor.position.distance_to(goal) <= 12:
 		record.status = "arrived"
-	elif not game.orders.issue(actor_id,goal,"routine"):
+	else:
+		# Leave a closing room first, even when the next destination is locked.
+		var exit: Variant = game.room_access.exit_goal(actor) if game.room_access else null
+		if game.orders.issue(actor_id,exit if exit is Vector2 else goal,"routine"):
+			record.status = "moving"
+			return
 		record.status = "blocked"
 		game.show_status("伙伴%d的%s路线受阻，请手动开路或改安排。" % [actor_id+1,NAMES[record.kind]],4)
-	else:
-		record.status = "moving"
+		return
 
 func is_eating(actor_id: int) -> bool:
 	if game.phase != "playing" or current_slot() != 1 or slot != 1 or manual.has(actor_id) or not records.has(actor_id):
 		return false
 	var actor = game.actors[actor_id]
 	var record: Dictionary = records[actor_id]
-	return record.kind == "meal" and record.get("meal_stage","") == "dine" and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
+	return float(meal_minutes[actor_id]) < MEAL_MINUTES-0.000001 and record.kind == "meal" and record.get("meal_stage","") == "dine" and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
 
 func carries_meal(actor_id: int) -> bool:
 	return current_slot() == 1 and records.has(actor_id) and records[actor_id].kind == "meal" and records[actor_id].get("meal_stage","") == "dine" and not manual.has(actor_id)
@@ -152,6 +173,8 @@ func carries_meal(actor_id: int) -> bool:
 func meal_reason(actor_id: int) -> String:
 	if not has_cafeteria() or current_slot() != 1 or game.phase != "playing":
 		return "食堂供应午餐的时间为12:00–14:00。"
+	if float(meal_minutes[actor_id]) >= MEAL_MINUTES-0.000001:
+		return "今天的午餐已吃完，可以自由活动。"
 	var actor = game.actors[actor_id]
 	if actor.escaped or (records.has(actor_id) and records[actor_id].kind == "meal"):
 		return "当前伙伴已在取餐或用餐。"
@@ -169,6 +192,7 @@ func start_meal(actor_id: int) -> bool:
 		return false
 	manual.erase(actor_id)
 	_start(actor_id,"meal")
+	if records.has(actor_id): records[actor_id]["player_meal"] = true
 	game.show_status("伙伴%d领取午餐，前往饭桌用餐。" % (actor_id+1),3)
 	return true
 
@@ -182,6 +206,7 @@ func tick() -> void:
 				game.orders.stop(id)
 		day = game.schedule.day_number()
 		morning_pending = true
+		meal_minutes = [0.0, 0.0, 0.0]
 		plans = default_plans()
 		records.clear()
 		manual.clear()
@@ -198,6 +223,12 @@ func tick() -> void:
 			_start(id)
 	for id in records.keys():
 		var record: Dictionary = records[id]
+		if slot == 1 and preparing_afternoon() and plans[id][2] == "work" and record.kind != "work" and not record.get("player_meal",false):
+			_start(id,"work")
+			record = records[id]
+		elif record.kind == "meal" and float(meal_minutes[id]) >= MEAL_MINUTES-0.000001:
+			_start(id,"free")
+			record = records[id]
 		# Default free routines leave enough travel time to obey 20:00 curfew.
 		# A manually controlled lead retains the chosen route.
 		if slot == 3 and record.kind == "free" and record.goal != _target(id,"free"):
@@ -300,6 +331,8 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_cred
 		var amount: int = rounds*wage
 		work_rounds[id] += rounds
 		work_earned[id] += amount
+		# NPC income stays in its personal ledger, never the player wallet.
+		if not game.actor_is_controllable(id): continue
 		game.inventory.wallet += amount
 		recent_wages[id] = {"amount": amount, "until": game.elapsed+2.4}
 		paid += amount
@@ -316,14 +349,14 @@ func status_for(actor_id: int) -> String:
 		return ""
 	var r: Dictionary = records[actor_id]
 	if r.kind == "meal":
-		return "路线受阻" if r.status == "blocked" else "用餐中" if is_eating(actor_id) else "前往饭桌" if carries_meal(actor_id) else "前往取餐"
+		return "路线受阻" if r.status == "blocked" else "用餐 %d/20分" % floori(float(meal_minutes[actor_id])) if is_eating(actor_id) else "前往饭桌" if carries_meal(actor_id) else "前往取餐"
 	if r.kind == "work" and game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
 		return "疲惫 · 请休息"
-	if r.kind == "work" and game.schedule.preparing_for_work():
-		return "前往劳动室" if game.orders.active.has(actor_id) else "到岗待命 · 8点开工"
+	if r.kind == "work" and (game.schedule.preparing_for_work() or preparing_afternoon()):
+		return "前往劳动室" if game.orders.active.has(actor_id) else "到岗待命 · %s点开工" % ("14" if preparing_afternoon() else "8")
 	if is_working(actor_id):
 		return "工作中 %d%%" % floori(work_progress(actor_id)*100+0.000001)
 	return "路线受阻" if r.status == "blocked" else "前往"+NAMES[r.kind] if game.orders.active.has(actor_id) else NAMES[r.kind]+"中"
 
 func snapshot() -> Dictionary:
-	return {"day":day,"slot":slot,"plans":plans.duplicate(true),"manual":manual.keys(),"states":game.actors.map(func(a): return status_for(a.actor_id)),"work_minutes":work_minutes.duplicate(),"work_rounds":work_rounds.duplicate(),"work_earned":work_earned.duplicate(),"working":working_ids()}
+	return {"day":day,"slot":slot,"plans":plans.duplicate(true),"manual":manual.keys(),"states":game.actors.map(func(a): return status_for(a.actor_id)),"work_minutes":work_minutes.duplicate(),"work_rounds":work_rounds.duplicate(),"work_earned":work_earned.duplicate(),"working":working_ids(),"meal_minutes":meal_minutes.duplicate(),"preparing_afternoon":preparing_afternoon()}

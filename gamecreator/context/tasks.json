@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "4be8237fb78fa798ce8ba9b6b0a4ed4967d27a762010f5f01b9588ffb896fe4b",
+  "snapshotId": "a784c53118db4f445ec4c0aa96217c74c5e8a104f478fd6dafbaa8f2f21e24bd",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -5430,6 +5430,59 @@
           "at": "2026-10-07T11:25:57.137Z"
         }
       ]
+    },
+    {
+      "id": "p73-private-wages-lunch-walk-20261007",
+      "title": "P73 独立工资、20分钟午餐与步行返工",
+      "description": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-07",
+      "actualEnd": "2026-10-07",
+      "milestoneId": "",
+      "acceptance": "NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。",
+      "result": "NPC工资仅个人记账，主角收入才进入钱包。午间吃饭20游戏分钟后自由活动，13:30步行返工，14:00开工；食堂关闭只出不进，人物步行离场不传送。223项自测与两天正常日程通过，真实运行124.42FPS；34路径外部WIP内容保留。\n\n验收通过：制作人本人独立开发自验收：223项通过，工资独立及重复结算、就座20分钟/暂停/大时间步、午间自由与13:30连续步行到岗、14时门禁离场、两天无误抓、单主角/聊天/警报/禁闭回归均有证据；真实124.42FPS，8日志无报错，34路径WIP内容保留。",
+      "dependencyIds": [
+        "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/core/**",
+          "scripts/ui/**",
+          "scripts/world/prison_world.gd",
+          "data/schedule.json",
+          "data/dialogue.json",
+          "qa/p73*",
+          "docs/dev/p73/**",
+          "docs/tests/p73*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn",
+        "interfaceContract": "保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p73-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T12:20:03.728Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -5606,7 +5659,8 @@
             "p69-editor-workshop-compat-20261007",
             "p70-workshop-alert-all-guards-20261007",
             "p71-wake-0720-day-circle-20261007",
-            "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+            "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+            "p73-private-wages-lunch-walk-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -7076,6 +7130,18 @@
       "reason": "用户要求取消起床后加速、主角三次禁闭失败、所有人形NPC可聊天，并修复隔天全员警戒未解除。",
       "createdTaskIds": [
         "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p73-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T12:20:03.728Z",
+      "reason": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+      "createdTaskIds": [
+        "p73-private-wages-lunch-walk-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -23218,6 +23284,160 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-07T11:49:55.682Z",
         "note": "制作人本人开发独立自验：259项合计通过，两个窗口尺寸对白可用，NPC恢复路线、聊天不暂停与不绕过抓捕、实际第三次禁闭失败原因、重复/跨日计数、晨间警报撤回和次夜重触发均有证据；94.19FPS游戏/127.56FPS聊天，6份验收日志无错误，34路径WIP未动。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p73-start-20261007",
+      "taskId": "p73-private-wages-lunch-walk-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "修正独立工资、20分钟午餐、13:30步行返工与无传送闭店离场。",
+      "evidence": [
+        "docs/dev/p73/baseline-state.json"
+      ],
+      "at": "2026-10-07T12:21:26.078Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p73-private-wages-lunch-walk-20261007",
+        "title": "P73 独立工资、20分钟午餐与步行返工",
+        "description": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。",
+        "result": "修正独立工资、20分钟午餐、13:30步行返工与无传送闭店离场。",
+        "dependencyIds": [
+          "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/world/prison_world.gd",
+            "data/schedule.json",
+            "data/dialogue.json",
+            "qa/p73*",
+            "docs/dev/p73/**",
+            "docs/tests/p73*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p73-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T12:20:03.728Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p73-delivery-20261007",
+      "taskId": "p73-private-wages-lunch-walk-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "NPC工资仅个人记账，主角收入才进入钱包。午间吃饭20游戏分钟后自由活动，13:30步行返工，14:00开工；食堂关闭只出不进，人物步行离场不传送。223项自测与两天正常日程通过，真实运行124.42FPS；34路径外部WIP内容保留。",
+      "evidence": [
+        "docs/dev/p73/report.md",
+        "docs/dev/p73/delivery.json",
+        "docs/dev/p73/preservation.json",
+        "docs/tests/p73-lunch-wallet.json",
+        "docs/tests/p73-two-day-cycle.json",
+        "docs/tests/p73-regression-single-player-headless.json",
+        "docs/tests/p73-rules-dialogue-headless.json",
+        "docs/tests/p73-enforcement-headless.json",
+        "docs/tests/p73-live-runtime.json",
+        "docs/tests/p73-lunch-visual.json",
+        "docs/tests/p73-meal.png",
+        "docs/tests/p73-lunch-free.png",
+        "docs/tests/p73-return-work.png",
+        "docs/tests/p73-afternoon.png"
+      ],
+      "at": "2026-10-07T12:31:57.640Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p73-private-wages-lunch-walk-20261007",
+        "title": "P73 独立工资、20分钟午餐与步行返工",
+        "description": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。",
+        "result": "NPC工资仅个人记账，主角收入才进入钱包。午间吃饭20游戏分钟后自由活动，13:30步行返工，14:00开工；食堂关闭只出不进，人物步行离场不传送。223项自测与两天正常日程通过，真实运行124.42FPS；34路径外部WIP内容保留。",
+        "dependencyIds": [
+          "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/ui/**",
+            "scripts/world/prison_world.gd",
+            "data/schedule.json",
+            "data/dialogue.json",
+            "qa/p73*",
+            "docs/dev/p73/**",
+            "docs/tests/p73*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p73-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T12:20:03.728Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T12:32:26.127Z",
+        "note": "制作人本人独立开发自验收：223项通过，工资独立及重复结算、就座20分钟/暂停/大时间步、午间自由与13:30连续步行到岗、14时门禁离场、两天无误抓、单主角/聊天/警报/禁闭回归均有证据；真实124.42FPS，8日志无报错，34路径WIP内容保留。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

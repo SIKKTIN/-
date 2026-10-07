@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T11:49:57.663Z
-> 文档内容基准：65f489815e19e02beff3ac350056b58d30c7c949f8ea3d447092a3e5a5bb7885
+> 文档生成时间：2026-10-07T12:32:27.769Z
+> 文档内容基准：211423994ffc029d1e3efcaa6b299631031c2a843f598e42c3e0fbe7930cfe0e
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -91,6 +91,7 @@
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
+- P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1282,6 +1283,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：7:20正常速度移动；主角第三次实际禁闭立即失败，NPC和重复捕获不误计；聊天入口覆盖真实人形NPC、角色对白与规则询问、保留聊天技能分心；对话不暂停世界或绕过执法；7:20清警报/增援/追捕，白天劳动警戒继续；正常日程、暂停、通关、帧率回归。
 - 验收负责人：制作人
+### P73 独立工资、20分钟午餐与步行返工
+- ID：p73-private-wages-lunch-walk-20261007
+- 当前状态：已完成
+- 内容：NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。
+- 前置任务：p72-normal-speed-three-custody-npc-dialogue-dawn-20261007
+- 允许修改路径：scripts/core/**、scripts/ui/**、scripts/world/prison_world.gd、data/schedule.json、data/dialogue.json、qa/p73*、docs/dev/p73/**、docs/tests/p73*、docs/gamecreator/**、gamecreator/**
+- 接口契约：保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1393,6 +1405,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
+- P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

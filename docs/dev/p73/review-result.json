@@ -1,0 +1,66 @@
+{
+  "id": "p73-review-20261007",
+  "digest": "4a29b897da4f512db1f3b80ea1fff519ecff8a6b814e174a1059df71022c0e5a",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T12:32:26.017Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p73-delivery-20261007",
+    "taskId": "p73-private-wages-lunch-walk-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "NPC工资仅个人记账，主角收入才进入钱包。午间吃饭20游戏分钟后自由活动，13:30步行返工，14:00开工；食堂关闭只出不进，人物步行离场不传送。223项自测与两天正常日程通过，真实运行124.42FPS；34路径外部WIP内容保留。",
+    "evidence": [
+      "docs/dev/p73/report.md",
+      "docs/dev/p73/delivery.json",
+      "docs/dev/p73/preservation.json",
+      "docs/tests/p73-lunch-wallet.json",
+      "docs/tests/p73-two-day-cycle.json",
+      "docs/tests/p73-regression-single-player-headless.json",
+      "docs/tests/p73-rules-dialogue-headless.json",
+      "docs/tests/p73-enforcement-headless.json",
+      "docs/tests/p73-live-runtime.json",
+      "docs/tests/p73-lunch-visual.json",
+      "docs/tests/p73-meal.png",
+      "docs/tests/p73-lunch-free.png",
+      "docs/tests/p73-return-work.png",
+      "docs/tests/p73-afternoon.png"
+    ],
+    "at": "2026-10-07T12:31:57.640Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T12:32:26.127Z",
+      "note": "制作人本人独立开发自验收：223项通过，工资独立及重复结算、就座20分钟/暂停/大时间步、午间自由与13:30连续步行到岗、14时门禁离场、两天无误抓、单主角/聊天/警报/禁闭回归均有证据；真实124.42FPS，8日志无报错，34路径WIP内容保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p73-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "8263d2e70ea72f593848c66a2d2962bcd67394b9b6936241251e63ae093ad002"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "8263d2e70ea72f593848c66a2d2962bcd67394b9b6936241251e63ae093ad002",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

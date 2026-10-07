@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "p73-private-wages-lunch-walk-20261007",
+    "title": "P73 独立工资、20分钟午餐与步行返工",
+    "description": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "NPC工资不进入玩家钱包；12–14午餐加自由活动，到座位就餐20游戏分钟；13:30自动NPC步行返工，14开工；定时门禁不传送，允许离场禁止闭店入场；暂停、大时间步和正常一天回归。",
+    "result": "修正独立工资、20分钟午餐、13:30步行返工与无传送闭店离场。",
+    "dependencyIds": [
+      "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/ui/**",
+        "scripts/world/prison_world.gd",
+        "data/schedule.json",
+        "data/dialogue.json",
+        "qa/p73*",
+        "docs/dev/p73/**",
+        "docs/tests/p73*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "保留地图、美术、编辑器WIP；玩家钱包仅主角收入；日程移动走物理寻路，保留抓捕关押的剧情位置变更。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p73-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T12:20:03.728Z"
+      }
+    ]
+  },
+  "revision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe",
+  "scheduleRevision": "e5b92ec34daae6d12953d89cff1f52cc4223ccb44a1e64e8e9c9d3739f06120f",
+  "planChanges": [
+    {
+      "id": "p73-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T12:20:03.728Z",
+      "reason": "NPC工资独立，午间20分钟就餐后自由活动，13:30步行返工，取消定时传送。",
+      "createdTaskIds": [
+        "p73-private-wages-lunch-walk-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p72-normal-speed-three-custody-npc-dialogue-dawn-20261007",
+      "title": "P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p73-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe"
+  },
+  "feedback": [
+    {
+      "id": "p73-start-20261007",
+      "taskId": "p73-private-wages-lunch-walk-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "修正独立工资、20分钟午餐、13:30步行返工与无传送闭店离场。",
+      "evidence": [
+        "docs/dev/p73/baseline-state.json"
+      ],
+      "at": "2026-10-07T12:21:26.078Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p73-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

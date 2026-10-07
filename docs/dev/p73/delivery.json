@@ -1,0 +1,63 @@
+{
+  "taskId": "p73-private-wages-lunch-walk-20261007",
+  "source_sha256": {
+    "scripts/core/daily_routine.gd": "c1c5cd30ba840398529d5fb67859e5fa205bbf2f0c53fe1bf959abe5e7c8f481",
+    "scripts/core/actor_attributes.gd": "d2f51c5eafe27326f007876ab1fdf884cbb81ec69a99fd400b434ef900d59860",
+    "scripts/core/room_access.gd": "458b8189b4a407df77b81a81ad0ece09595a50fb29db7ff4b56363e0f85a04d8",
+    "scripts/core/workshop_rules.gd": "26379a3a7435bd1be79bfb3904e2d28b761d2b52a66edd6ab4d1077ac657d4b7",
+    "scripts/core/move_orders.gd": "59d93fe378a0dcf0d4ba4e21dc365ab78b3cd079b165bd92f24b732980f78e29",
+    "scripts/world/prison_world.gd": "ff68d5cf1ae3ff72dbb8a3a205040aa30401e5b7bf868c237e6ec93514579255",
+    "scripts/ui/routine_board.gd": "93d4f3b57023fdbfae12f24d47bb05088be1922f08b5825164cfa4a17365e11b",
+    "scripts/ui/routine_panel.gd": "672c1a973addcaeb8aec8fcb27215d37db03439e348f3c7db2840158ee9f3336",
+    "data/schedule.json": "a5cc62d0740b3cca54cf00ee1a10837d4b3f3656c1f0e2d381ebb1099559b086",
+    "data/dialogue.json": "efcdce7c42b333dcf9fe80f7def14bd385eaa3789d8952da8f23a206f58b5a49"
+  },
+  "tests": {
+    "p73-lunch-wallet.json": {
+      "checks": 23,
+      "failed": []
+    },
+    "p73-day-cycle.json": {
+      "checks": 13,
+      "failed": []
+    },
+    "p73-two-day-cycle.json": {
+      "checks": 13,
+      "failed": []
+    },
+    "p73-regression-single-player-headless.json": {
+      "checks": 49,
+      "failed": []
+    },
+    "p73-rules-dialogue-headless.json": {
+      "checks": 78,
+      "failed": []
+    },
+    "p73-enforcement-headless.json": {
+      "checks": 33,
+      "failed": []
+    },
+    "p73-live-runtime.json": {
+      "checks": 14,
+      "failed": []
+    }
+  },
+  "passed": 223,
+  "clean_logs": [
+    "p73-lunch-wallet.log",
+    "p73-day-cycle.log",
+    "p73-two-day-cycle.log",
+    "p73-single-player.log",
+    "p73-rules.log",
+    "p73-labor.log",
+    "p73-live.log",
+    "p73-lunch-visual.log"
+  ],
+  "map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+  "native_visuals": [
+    "docs/tests/p73-meal.png",
+    "docs/tests/p73-lunch-free.png",
+    "docs/tests/p73-return-work.png",
+    "docs/tests/p73-afternoon.png"
+  ]
+}

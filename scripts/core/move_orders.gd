@@ -67,7 +67,7 @@ func tick(delta: float) -> void:
 		if not path.is_empty():
 			var difference: Vector2 = path[0] - actor.position
 			var efficiency: float = game.attributes.move_efficiency(id) if game.attributes else 1.0
-			var preparing: bool = game.schedule.preparing_for_work()
+			var preparing: bool = game.schedule.preparing_for_work() or game.routines.preparing_afternoon()
 			var budget: float = game.MOVE_SPEED*efficiency*delta
 			var origin: Vector2 = actor.position
 			for step in range(64 if preparing else 1):

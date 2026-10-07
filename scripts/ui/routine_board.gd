@@ -1,7 +1,7 @@
 extends Control
 
 const TIMES := ["08:00–12:00", "12:00–14:00", "14:00–18:00", "18:00–20:00", "20:00–24:00"]
-const PHASES := ["劳动", "吃饭休息", "劳动", "自由活动", "寝室区自由"]
+const PHASES := ["劳动", "吃饭与自由", "劳动", "自由活动", "寝室区自由"]
 var ui
 
 static func draw_activity_icon(canvas: CanvasItem, kind: String, p: Vector2, ink: Color) -> void:

@@ -1,0 +1,89 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"checks": {
+		"both_npcs_working": true,
+		"default_work_progresses": true,
+		"dialogue_does_not_pause_time": true,
+		"dialogue_fps_above_45": true,
+		"dialogue_remains_open": true,
+		"fps_above_45": true,
+		"lead_selected": true,
+		"no_false_arrests": true,
+		"npcs_read_only": true,
+		"only_player_hud": true,
+		"real_dialogue_opens": true,
+		"supervisor_exists": true,
+		"unpaused": true,
+		"work_gate_closed": true
+	},
+	"dialogue_fps": 162.743895356674,
+	"engine_fps": 166.0,
+	"failed": [],
+	"fps": 124.415521860657,
+	"frames": 996,
+	"map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+	"p95_ms": 9.863,
+	"process_ms": 8.889,
+	"renderer": "forward_plus",
+	"routines": {
+		"day": 1,
+		"manual": [
+			0
+		],
+		"meal_minutes": [
+			0.0,
+			0.0,
+			0.0
+		],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"preparing_afternoon": false,
+		"slot": 3,
+		"states": [
+			"手动接管",
+			"前往自由活动",
+			"前往自由活动"
+		],
+		"work_earned": [
+			4,
+			4,
+			4
+		],
+		"work_minutes": [
+			5.23925119999865,
+			5.23925119999865,
+			5.23925119999865
+		],
+		"work_rounds": [
+			1,
+			1,
+			1
+		],
+		"working": []
+	},
+	"viewport": [
+		1200,
+		720
+	]
+}

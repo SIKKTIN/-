@@ -13,6 +13,7 @@ var access_doors: Array = []
 var inspection_grid := AStarGrid2D.new()
 var inspection_solids: Array[Rect2] = []
 var planning_guard_doors := false
+var admission_filter: Callable
 var fixtures_revision: int = 0
 var door := Rect2(486,335,22,120)
 var crate := Rect2(467,572,94,92)
@@ -166,6 +167,7 @@ func inside_room(point: Vector2, radius: float = RADIUS, allow_exit: bool = true
 	return allow_exit and point.y >= exit_area.position.y + radius and point.y <= exit_area.end.y - radius and point.x <= exit_area.end.x - radius
 
 func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
+	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
 		return false
 	if not inside_room(point, radius):

@@ -86,10 +86,11 @@ func accrue(begin_clock: float, end_clock: float, states: Array) -> Dictionary:
 			elif kind == "rest":
 				state.stamina += float(config.rest_stamina_per_minute)*minutes
 				if not game.routines.has_cafeteria() and minute >= 720 and minute < 840:
-					state.fullness += float(config.meal_fullness_per_minute)*minutes
+					state.fullness += float(config.meal_fullness_per_minute)*game.routines.consume_meal(id,minutes)
 			elif kind == "meal" and minute >= 720 and minute < 840:
-				state.stamina += float(config.rest_stamina_per_minute)*minutes
-				state.fullness += float(config.meal_fullness_per_minute)*minutes
+				var eating: float = game.routines.consume_meal(id,minutes)
+				state.stamina += float(config.rest_stamina_per_minute)*eating
+				state.fullness += float(config.meal_fullness_per_minute)*eating
 			elif kind == "sleep":
 				state.stamina += float(config.sleep_stamina_per_minute)*minutes
 			state.stamina = clampf(state.stamina,0,100)

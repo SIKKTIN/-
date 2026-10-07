@@ -1,0 +1,24 @@
+{
+  "taskId": "p73-private-wages-lunch-walk-20261007",
+  "revision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe",
+  "feedbackId": "p73-delivery-20261007",
+  "status": "待验收",
+  "summary": "NPC工资仅个人记账，主角收入才进入钱包。午间吃饭20游戏分钟后自由活动，13:30步行返工，14:00开工；食堂关闭只出不进，人物步行离场不传送。223项自测与两天正常日程通过，真实运行124.42FPS；34路径外部WIP内容保留。",
+  "evidence": [
+    "docs/dev/p73/report.md",
+    "docs/dev/p73/delivery.json",
+    "docs/dev/p73/preservation.json",
+    "docs/tests/p73-lunch-wallet.json",
+    "docs/tests/p73-two-day-cycle.json",
+    "docs/tests/p73-regression-single-player-headless.json",
+    "docs/tests/p73-rules-dialogue-headless.json",
+    "docs/tests/p73-enforcement-headless.json",
+    "docs/tests/p73-live-runtime.json",
+    "docs/tests/p73-lunch-visual.json",
+    "docs/tests/p73-meal.png",
+    "docs/tests/p73-lunch-free.png",
+    "docs/tests/p73-return-work.png",
+    "docs/tests/p73-afternoon.png"
+  ],
+  "requestId": "p73-delivery-20261007"
+}

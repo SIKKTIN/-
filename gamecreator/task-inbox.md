@@ -109,6 +109,7 @@
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成 · 未排期
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成 · 未排期
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成 · 未排期
+- P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -224,6 +225,7 @@
 - P70 单主角HUD与全看守劳动执法 [p70-workshop-alert-all-guards-20261007] · 已完成
 - P71 07:20起床与08:00关门、白天圆形警戒 [p71-wake-0720-day-circle-20261007] · 已完成
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
+- P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

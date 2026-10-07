@@ -1,0 +1,51 @@
+{
+  "id": "p73-start-20261007",
+  "digest": "7b2253fb12a29b902a6eabd394ea2a91a81c64062710c4330d3bf7863533b7cc",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T12:21:25.971Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p73-start-20261007",
+    "taskId": "p73-private-wages-lunch-walk-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "修正独立工资、20分钟午餐、13:30步行返工与无传送闭店离场。",
+    "evidence": [
+      "docs/dev/p73/baseline-state.json"
+    ],
+    "at": "2026-10-07T12:21:26.078Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p73-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "201ec1ca45d4fc19ba4a503d7098d55f8f9afc065872eec158297fc3ea4c99fe",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}
