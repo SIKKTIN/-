@@ -79,7 +79,7 @@ func view_rect() -> Rect2:
 	return Rect2(Vector2.ZERO,get_viewport_rect().size)
 
 func world_view_rect() -> Rect2:
-	return Rect2(position,view_rect().size)
+	return Rect2(position,view_rect().size/zoom)
 
 func camera_limits() -> Array:
 	var low: Vector2 = game.world.bounds.position

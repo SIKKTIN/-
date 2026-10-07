@@ -96,6 +96,11 @@ func tick_visual() -> void:
 		var scale := footprint.size/Vector2(ground[2],ground[3])
 		display_rect = Rect2(footprint.position-Vector2(ground[0],ground[1])*scale,world.art_textures[prop_id()].get_size()*scale)
 		elevation = float(definition.get("elevation_world",20))
+	if kind == "wall" and profile.get("painted_facade",{}).get("layout","") == "tiled":
+		var definition: Dictionary = definitions.get(str(profile.painted_facade.asset),{})
+		if definition.has("render_size"):
+			var visual_height := float(definition.render_size[1])
+			display_rect = Rect2(footprint.position.x,footprint.end.y-visual_height,footprint.size.x,visual_height)
 	if kind == "fixture":
 		var fixture: Dictionary = world.fixtures[wall_index]
 		var definition: Dictionary = definitions.get(prop_id(),{})
@@ -168,7 +173,11 @@ func paint_facade(area: Rect2) -> void:
 		var origin := Vector2(area.end.x if patch.get("anchor","") == "right" else area.position.x,area.position.y)
 		var rect := Rect2(origin+Vector2(offset[0],offset[1]),Vector2(size[0],size[1]))
 		var phase: Array = patch.get("phase_shift",[0,0])
-		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),Rect2(),Vector2(phase[0],phase[1]),patch.get("top_only",false),patch.get("reuse_cap",false))
+		var patch_clip := Rect2()
+		if patch.has("clip"):
+			var values: Array = patch.clip
+			patch_clip = Rect2(area.position+Vector2(values[0],values[1]),Vector2(values[2],values[3]))
+		paint_junction(str(patch.asset),rect,patch.get("mirror_x",false),patch_clip,Vector2(phase[0],phase[1]),patch.get("top_only",false),patch.get("reuse_cap",false))
 	for post in facade.get("posts",[]):
 		var offset: Array = post.offset
 		var size: Array = post.size

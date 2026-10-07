@@ -1,0 +1,52 @@
+{
+  "id": "a33-start-20261007",
+  "digest": "9b750d25dcc49488f96d1821ba7756052d47605c584dbd2318227ac904fbbb18",
+  "operation": "feedback_submit",
+  "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+  "memberName": "主美",
+  "at": "2026-10-07T03:13:52.620Z",
+  "status": "succeeded",
+  "result": {
+    "id": "a33-start-20261007",
+    "taskId": "a33-approved-full-wall-20261007",
+    "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "按批准左右开放完整墙体PNG制作整套同源横墙/T全墙身/V和端面，配必要L角/门框/独立标牌与原生图标。母图原字节保存，以AtlasUV定义121.5全高替换契约；不改共享程序/地图或旧冻结。",
+    "evidence": [
+      "docs/dev/p66/plan.json",
+      "docs/dev/p66/approved-full-wall.png"
+    ],
+    "at": "2026-10-07T03:13:52.766Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "a33-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1"
+    },
+    "reviewMode": "independent",
+    "reviewerName": "制作人",
+    "taskRevision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

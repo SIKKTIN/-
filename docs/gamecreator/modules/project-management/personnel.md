@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T20:16:30.224Z
-> 文档内容基准：c981995a4579229a91dc4fab7e0e1c61046d43086897f8cdf0e57a61d3c44c2e
+> 文档生成时间：2026-10-07T03:42:35.179Z
+> 文档内容基准：35354853692bbcae33bd56cb5d90dabedcd0b80c946aad964fd4e197999557b6
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -83,6 +83,7 @@
 - P63 自然砌接墙体替换与素材统一 [p63-natural-junction-integration-20261007] · 已完成
 - P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
+- P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -120,6 +121,7 @@
 - A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
 - A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007] · 已完成
 - A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
+- A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成
 
 ### 模块负责人
 - 岗位 ID：module-owner
@@ -1185,6 +1187,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：批准C完整左右actual核对：同高小凹圆弧，无横线压低V、旧新风格跳变；game/editor1200/960及两图标/尺寸/新选放/旧ID兼容通过，门禁/物理不变；A32独立验收后P65自验收。
 - 验收负责人：制作人
+### P66 完整同源厨房墙体接入
+- ID：p66-approved-full-wall-integration-20261007
+- 当前状态：已完成
+- 内容：用户批准完整母图：移除旧局部贴顶与底下旧墙身/墙脚，整H和T墙身同源覆盖完整视觉区域，长V和末端同源；门/牌独立；更新单套新建分类，保留历史ID。
+- 前置任务：p65-approved-rounded-wall-integration-20261007
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p66*、docs/dev/p66/**、docs/tests/p66*、docs/gamecreator/**、gamecreator/**
+- 接口契约：所有共享绘制/data由producer执行。厨房H7/8/11改新完整body/foot同源可接续片；两T为全视觉121.5高区域替换，取消新顶+旧墙身做法；V9/10/12/13和端面从同源source接，门保留独立开闭，移出旧墙身烘焙招牌为独立非阻挡fixture。保持物理墙/规则/NPC等不变（可新增装饰牌）；检查zdepth/clip/编辑选取。新建只当前套，旧T32/V32/H24属性保留。允许A33候选集成actual，A33独立通过后P66验收。减少往返，一次工作包、一整套候选交接、完整actual必要一轮修正。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：完整厨房H/T/V/end同源body/foot，无旧墙身叠加残留；独立牌与门开闭/可见层正确；1200/960游戏/editor完整左右和overview、新建图标选放/旧ID兼容，门禁禁闭救援规则不变，A33独立通过后P66单独自验收发布。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1287,6 +1300,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
 - A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
+- A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成
+- P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
@@ -1892,6 +1907,16 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 交付入口：art/architecture/v32/manifest.json
 - 验收要求：20/24两规格圆弧T、配套长V/图标；完整actual重现批准C两个小凹圆弧同高连接，H暗线不得跨Vroot，无正面柱石或凸T牌，无旧新纵墙跳变。旧资产冻结。
 - 验收负责人：制作人
+### A33 批准完整墙体母图与同源建筑件
+- ID：a33-approved-full-wall-20261007
+- 当前状态：已完成
+- 内容：用户否定墙顶覆盖旧墙身的叠加感，已批准左右开放的完整墙体母图接入。直接使用此PNG同源Atlas/UV，整套横顶、米灰墙面、深灰脚、圆弧T全墙身、纵顶/端面一起替换，门/招牌独立。
+- 前置任务：a32-approved-rounded-wall-20261007
+- 允许修改路径：art/architecture/v33/**、art/editor/v13/**、docs/art/architecture-v33/**
+- 接口契约：批准源docs/dev/p66/approved-full-wall.png，原PNG同源Atlas元数据而非又生成顶片。尺寸依据现有物理：H全视觉高121.5=90front+31.5cap，厨房H parentorigin1140，end1261.5；T全墙身132/136×121.5、stemx56 cross20/24、offset[114,0]/[754,0]，全高度替换H原body/root而非80高cap贴片，允许测量后在interface注明必要alpha起止。只需T区域内完整同源H+柱根；下面V从T121.5以后接到原endface y1370，同源UV方向/周期/phase明确；V和endface包括周边24厚纵墙9/10都用新同源。H做同源可接续片，新整T取同图同尺度，同body灰米/深灰foot一体；必要L角/门柱/门楣可同AtlasUV组装，不引入旧米灰墙身和旧脚。原门开闭独立保留，招牌可在本版注册旧V24标牌的独立源窗（仅标牌复用，不旧墙），给producer非阻挡位置契约。交付新建ID列表与图标，旧V24–32冻结保留，仅本版art/editor/docs不改shared/data/Git；图标MeshTexture/AtlasTexture真实，源和phase/alpha/native证据齐交一次，actual必要时一轮修正。
+- 交付入口：art/architecture/v33/manifest.json
+- 验收要求：完整母图原字节冻结，H和T墙身整体同源含深灰墙脚，纵顶/端面同源相位衔接；不再新顶叠旧米灰墙身/旧墙脚。两T20/24与配套H/V4/end2必要角/门框以及独立招牌，全部配真实图标和专属源/原生自测；游戏与editor完整厨房实际对批准图复核，通过producer独立审。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1927,3 +1952,4 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - A30 按已批准概念重绘自然石墙接口 [a30-integrated-stone-junction-20261007] · 已完成
 - A31 同源同透视石墙T接口 [a31-same-source-wall-junction-20261007] · 已完成
 - A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
+- A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成

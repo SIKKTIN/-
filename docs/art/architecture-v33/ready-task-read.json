@@ -1,0 +1,138 @@
+{
+  "task": {
+    "id": "a33-approved-full-wall-20261007",
+    "title": "A33 批准完整墙体母图与同源建筑件",
+    "description": "用户否定墙顶覆盖旧墙身的叠加感，已批准左右开放的完整墙体母图接入。直接使用此PNG同源Atlas/UV，整套横顶、米灰墙面、深灰脚、圆弧T全墙身、纵顶/端面一起替换，门/招牌独立。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "完整母图原字节冻结，H和T墙身整体同源含深灰墙脚，纵顶/端面同源相位衔接；不再新顶叠旧米灰墙身/旧墙脚。两T20/24与配套H/V4/end2必要角/门框以及独立招牌，全部配真实图标和专属源/原生自测；游戏与editor完整厨房实际对批准图复核，通过producer独立审。",
+    "result": "按批准左右开放完整墙体PNG制作整套同源横墙/T全墙身/V和端面，配必要L角/门框/独立标牌与原生图标。母图原字节保存，以AtlasUV定义121.5全高替换契约；不改共享程序/地图或旧冻结。",
+    "dependencyIds": [
+      "a32-approved-rounded-wall-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v33/**",
+        "art/editor/v13/**",
+        "docs/art/architecture-v33/**"
+      ],
+      "entry": "art/architecture/v33/manifest.json",
+      "interfaceContract": "批准源docs/dev/p66/approved-full-wall.png，原PNG同源Atlas元数据而非又生成顶片。尺寸依据现有物理：H全视觉高121.5=90front+31.5cap，厨房H parentorigin1140，end1261.5；T全墙身132/136×121.5、stemx56 cross20/24、offset[114,0]/[754,0]，全高度替换H原body/root而非80高cap贴片，允许测量后在interface注明必要alpha起止。只需T区域内完整同源H+柱根；下面V从T121.5以后接到原endface y1370，同源UV方向/周期/phase明确；V和endface包括周边24厚纵墙9/10都用新同源。H做同源可接续片，新整T取同图同尺度，同body灰米/深灰foot一体；必要L角/门柱/门楣可同AtlasUV组装，不引入旧米灰墙身和旧脚。原门开闭独立保留，招牌可在本版注册旧V24标牌的独立源窗（仅标牌复用，不旧墙），给producer非阻挡位置契约。交付新建ID列表与图标，旧V24–32冻结保留，仅本版art/editor/docs不改shared/data/Git；图标MeshTexture/AtlasTexture真实，源和phase/alpha/native证据齐交一次，actual必要时一轮修正。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p66-approved-full-wall-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-07T03:11:47.965Z"
+      }
+    ]
+  },
+  "revision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1",
+  "scheduleRevision": "5e55b9d704884c1eaac26f8d008b83886608f2fe51973b6ed55100fba0c886bf",
+  "planChanges": [
+    {
+      "id": "p66-approved-full-wall-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T03:11:47.965Z",
+      "reason": "用户批准左右开放完整墙体母图接入，明确否定上一顶片覆盖旧墙身；新A33/P66保持旧冻结及纠正历史。",
+      "createdTaskIds": [
+        "a33-approved-full-wall-20261007",
+        "p66-approved-full-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "a32-approved-rounded-wall-20261007",
+      "title": "A32 批准C圆弧同高墙接口与同源纵墙",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "a33-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1"
+  },
+  "feedback": [
+    {
+      "id": "a33-start-20261007",
+      "taskId": "a33-approved-full-wall-20261007",
+      "memberId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按批准左右开放完整墙体PNG制作整套同源横墙/T全墙身/V和端面，配必要L角/门框/独立标牌与原生图标。母图原字节保存，以AtlasUV定义121.5全高替换契约；不改共享程序/地图或旧冻结。",
+      "evidence": [
+        "docs/dev/p66/plan.json",
+        "docs/dev/p66/approved-full-wall.png"
+      ],
+      "at": "2026-10-07T03:13:52.766Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "a33-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1"
+      },
+      "reviewMode": "independent",
+      "reviewerName": "制作人",
+      "taskRevision": "926f16d94cc1008695faa2c87b663c11b713194e7658e15c2c6958d6b5b88fb1",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

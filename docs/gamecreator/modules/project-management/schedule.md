@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-06T20:16:30.220Z
-> 文档内容基准：12f7cc7ef3b07aacf587c49f43d396debbc2987aa0c770de2f72c7311aa3fe61
+> 文档生成时间：2026-10-07T03:42:35.170Z
+> 文档内容基准：79dc5d313463901f3c634756e56ef6c0e3d78698b8a5d093066bbf15f0e0d9ab
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -1934,6 +1934,43 @@ P50已验收后、提交仓库前，额外真实工具栏焦点检查复现：�
 - 工作岗位：producer
 - 允许修改路径：scripts/**、data/rooms/r04.json、qa/p65*、docs/dev/p65/**、docs/tests/p65*、docs/gamecreator/**、gamecreator/**
 - 接口契约：与主美协商C局部cap切口及patch/长V UV契约，不能继续reuse_cap只stem造成H底暗线压低V。厨房左右用新T32和配套长V，全墙phase连续。继承P64未发布的shared裁剪支持/候选注册；明确只architecture改，不改碰撞规则。保留A31/P64冻结历史与人类高度观察。新建白名单T32/V32、旧ID继续读。candidate实际game/editor完整左右墙一次审后发布。
+- 交付入口：res://scenes/editor/map_editor.tscn
+- 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
+- AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：A33 批准完整墙体母图与同源建筑件
+- ID：a33-approved-full-wall-20261007
+- 美术；高；已完成；负责人：主美
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-07 → 2026-10-07
+用户否定墙顶覆盖旧墙身的叠加感，已批准左右开放的完整墙体母图接入。直接使用此PNG同源Atlas/UV，整套横顶、米灰墙面、深灰脚、圆弧T全墙身、纵顶/端面一起替换，门/招牌独立。
+- 验收条件：完整母图原字节冻结，H和T墙身整体同源含深灰墙脚，纵顶/端面同源相位衔接；不再新顶叠旧米灰墙身/旧墙脚。两T20/24与配套H/V4/end2必要角/门框以及独立招牌，全部配真实图标和专属源/原生自测；游戏与editor完整厨房实际对批准图复核，通过producer独立审。
+- 验收结果：architecture-v33-20261007-a541bfaca39c，62文件冻结。批准完整墙体母图逐字节copy，16原生UV本体/16真实MeshTexture图标；后续人类要求左右缩短已实现T20/24=68/72×121.5、左右24短臂stemx24，长墙靠直墙拼接。整H/T墙顶+米灰墙身+深灰脚一体同源替换，不再盖新顶留旧body；长V与末端同源、sourceY500/phase连续。亲眼对照批准母图和1200/960完整左右game/editor/overview、短T独立/分类，圆弧同高、横暗线止于凹角、墙身脚完整贯通，无前轮贴顶外端帽；135native、73规则全通过、真实T/V连续参考RGB差0。重复磨损/门柱注册有细部差异，不称逐像素或人类再审actual。仅新art/editor/docs，旧21art与A32冻结65hash未变，无共享代码/地图/Git写入，制作人独立审后另P66验收发布。
+
+验收通过：制作人独立验收A33：62文件SHA匹配，亲眼核对两尺寸完整左右game/editor、闭/开门overview、短T墙身/脚与V本体和真实分类。批准完整母图和缩臂补充已重现；全H/T/body/foot同源不再顶片叠旧身，V/end同源下口连续；门/现有牌独立。16真实图标及135原生/73规则支持，旧冻结不变。重复磨损、同源端面用于柱注册有细部差异，非逐像素概念复刻，未称用户已审actual。
+- 前置任务：A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007]
+- 工作岗位：art-director
+- 允许修改路径：art/architecture/v33/**、art/editor/v13/**、docs/art/architecture-v33/**
+- 接口契约：批准源docs/dev/p66/approved-full-wall.png，原PNG同源Atlas元数据而非又生成顶片。尺寸依据现有物理：H全视觉高121.5=90front+31.5cap，厨房H parentorigin1140，end1261.5；T全墙身132/136×121.5、stemx56 cross20/24、offset[114,0]/[754,0]，全高度替换H原body/root而非80高cap贴片，允许测量后在interface注明必要alpha起止。只需T区域内完整同源H+柱根；下面V从T121.5以后接到原endface y1370，同源UV方向/周期/phase明确；V和endface包括周边24厚纵墙9/10都用新同源。H做同源可接续片，新整T取同图同尺度，同body灰米/深灰foot一体；必要L角/门柱/门楣可同AtlasUV组装，不引入旧米灰墙身和旧脚。原门开闭独立保留，招牌可在本版注册旧V24标牌的独立源窗（仅标牌复用，不旧墙），给producer非阻挡位置契约。交付新建ID列表与图标，旧V24–32冻结保留，仅本版art/editor/docs不改shared/data/Git；图标MeshTexture/AtlasTexture真实，源和phase/alpha/native证据齐交一次，actual必要时一轮修正。
+- 交付入口：art/architecture/v33/manifest.json
+- AI 分配：主负责人 20df60dc-6f5f-40ca-930a-a606b45a0dac；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4
+
+### 制作任务：P66 完整同源厨房墙体接入
+- ID：p66-approved-full-wall-integration-20261007
+- 程序；高；已完成；负责人：制作人
+- 里程碑：未分组
+- 计划：未定 → 未定
+- 实际：2026-10-07 → 2026-10-07
+用户批准完整母图：移除旧局部贴顶与底下旧墙身/墙脚，整H和T墙身同源覆盖完整视觉区域，长V和末端同源；门/牌独立；更新单套新建分类，保留历史ID。
+- 验收条件：完整厨房H/T/V/end同源body/foot，无旧墙身叠加残留；独立牌与门开闭/可见层正确；1200/960游戏/editor完整左右和overview、新建图标选放/旧ID兼容，门禁禁闭救援规则不变，A33独立通过后P66单独自验收发布。
+- 验收结果：完整短T68/72×121.5与H全墙身墙脚、全部长V和端面同源替换，门牌独立；右邻接片clip不伸缩，新建18当前件旧ID保留、16Mesh icons。真实H/V/T卡选放尺寸准确，editor全图选取拖动撤销通过；135原生+73规则，实际T/V连续采样差0，所有最终日志无ERROR，旧21art SHA不变。R04仅architecture和门lintel改，物理规则全保持。world_view_rect视区计算和全H bounds修正，59程序交付冻结。
+
+验收通过：制作人程序本人自验收，执行证据与结论分开。A33已独立accepted，59程序hash核对。135原生+73规则过、最终日志无ERROR，完整两窗口左右game/editor和overview亲眼看全墙替换，短T全body/foot取代旧底层，H/V/end同源；门/牌独立。真实H/V/T卡点击选放尺寸和drag/undo/层次回归过，真实T下口对V参考RGB0、旧21art保持。仅architecture和门lintel改变，没有物理/规则/NPC布局修改。程序加入fullH bounds和patch clip保持缩短邻接片UV，camera.world_view_rect按zoom反映真实可见地板。既有project.godot修改不纳入，未称用户重新审actual。
+- 前置任务：P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007]
+- 工作岗位：producer
+- 允许修改路径：scripts/**、data/rooms/r04.json、qa/p66*、docs/dev/p66/**、docs/tests/p66*、docs/gamecreator/**、gamecreator/**
+- 接口契约：所有共享绘制/data由producer执行。厨房H7/8/11改新完整body/foot同源可接续片；两T为全视觉121.5高区域替换，取消新顶+旧墙身做法；V9/10/12/13和端面从同源source接，门保留独立开闭，移出旧墙身烘焙招牌为独立非阻挡fixture。保持物理墙/规则/NPC等不变（可新增装饰牌）；检查zdepth/clip/编辑选取。新建只当前套，旧T32/V32/H24属性保留。允许A33候选集成actual，A33独立通过后P66验收。减少往返，一次工作包、一整套候选交接、完整actual必要一轮修正。
 - 交付入口：res://scenes/editor/map_editor.tscn
 - 自验收约定：制作人开发；仅限本人独立执行，先证据后结论
 - AI 分配：主负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4；协作者 无；验收负责人 adc303e1-b1e9-4a6f-8b44-de27cc83cca4

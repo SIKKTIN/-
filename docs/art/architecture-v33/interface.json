@@ -1,0 +1,117 @@
+{
+  "schema": 3,
+  "master": "res://art/architecture/v33/full_wall_master_v33.png",
+  "master_sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+  "generation_mode": "built-in imagegen",
+  "pixel_policy": "raw copy only; native UV/mesh resources; no painted or resampled production PNG",
+  "user_shortening": "左右各保留24world短臂，长横墙靠独立直墙块拼接",
+  "full_wall_source": [
+    590,
+    130,
+    360,
+    370
+  ],
+  "full_height": 121.5,
+  "source_y_scale": 0.32837837837837835,
+  "T_sizes": {
+    "20": [
+      68,
+      121.5
+    ],
+    "24": [
+      72,
+      121.5
+    ]
+  },
+  "stem_x": 24,
+  "original_source_stem": [
+    710,
+    130,
+    120,
+    370
+  ],
+  "horizontal_cap_visible_world": 28.568918918918918,
+  "source_repeat_window": [
+    710,
+    382,
+    120,
+    288
+  ],
+  "vertical_period_world": 94.57297297297296,
+  "source_at_T_bottom_y": 500,
+  "phase_source_pixels_at_T_bottom": 118,
+  "phase_world_at_T_bottom": 38.74864864864865,
+  "V_origin_local_y": 82.75135135135135,
+  "V_origin_world_y": 1222.7513513513513,
+  "V_clip_world_y": 1261.5,
+  "endface_source": [
+    710,
+    670,
+    120,
+    301
+  ],
+  "endface_size_y": 90,
+  "kitchen": {
+    "T_offsets": [
+      [
+        146,
+        0
+      ],
+      [
+        786,
+        0
+      ]
+    ],
+    "T_full_replacement_rects": [
+      [
+        146,
+        0,
+        68,
+        121.5
+      ],
+      [
+        786,
+        0,
+        68,
+        121.5
+      ]
+    ],
+    "physical_roots_x": [
+      1270,
+      1910
+    ],
+    "H_origin_y": 1140,
+    "H_end_y": 1261.5,
+    "V_southface_y": 1370,
+    "remove_old_body_and_foot": true,
+    "outer_L_sizes": [
+      48,
+      121.5
+    ],
+    "outer_L_stem_x": {
+      "l": 0,
+      "r": 24
+    }
+  },
+  "mirror_policy": "right T whole-asset mirror once; V_r has X mirror baked in its UV. Never flip longitudinal Y.",
+  "joining_policy": "No terminal outlines on H edges; T is a short complete wall piece, not a thin overlay. Clip H all-height under complete T/L. Native actual review required.",
+  "sign_policy": "V24 portal PNG has no sign. Existing map architecture.wall_sign may be drawn independently; do not retain any old facade to retain a sign.",
+  "complete_asset_ids": [
+    "cafeteria_t_20_v33",
+    "cafeteria_wall_v_l_20_v33",
+    "cafeteria_wall_v_r_20_v33",
+    "cafeteria_end_20_v33",
+    "cafeteria_t_v33",
+    "cafeteria_wall_v_l_v33",
+    "cafeteria_wall_v_r_v33",
+    "cafeteria_end_v33",
+    "cafeteria_wall_mid_v33",
+    "cafeteria_wall_join_l_v33",
+    "cafeteria_wall_join_r_v33",
+    "cafeteria_turn_l_v33",
+    "cafeteria_turn_r_v33",
+    "cafeteria_jamb_left_v33",
+    "cafeteria_jamb_right_v33",
+    "cafeteria_lintel_v33"
+  ]
+}

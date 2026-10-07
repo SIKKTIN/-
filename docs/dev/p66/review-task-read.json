@@ -1,0 +1,229 @@
+{
+  "task": {
+    "id": "p66-approved-full-wall-integration-20261007",
+    "title": "P66 完整同源厨房墙体接入",
+    "description": "用户批准完整母图：移除旧局部贴顶与底下旧墙身/墙脚，整H和T墙身同源覆盖完整视觉区域，长V和末端同源；门/牌独立；更新单套新建分类，保留历史ID。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "完整厨房H/T/V/end同源body/foot，无旧墙身叠加残留；独立牌与门开闭/可见层正确；1200/960游戏/editor完整左右和overview、新建图标选放/旧ID兼容，门禁禁闭救援规则不变，A33独立通过后P66单独自验收发布。",
+    "result": "完整短T68/72×121.5与H全墙身墙脚、全部长V和端面同源替换，门牌独立；右邻接片clip不伸缩，新建18当前件旧ID保留、16Mesh icons。真实H/V/T卡选放尺寸准确，editor全图选取拖动撤销通过；135原生+73规则，实际T/V连续采样差0，所有最终日志无ERROR，旧21art SHA不变。R04仅architecture和门lintel改，物理规则全保持。world_view_rect视区计算和全H bounds修正，59程序交付冻结。",
+    "dependencyIds": [
+      "p65-approved-rounded-wall-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p66*",
+        "docs/dev/p66/**",
+        "docs/tests/p66*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "所有共享绘制/data由producer执行。厨房H7/8/11改新完整body/foot同源可接续片；两T为全视觉121.5高区域替换，取消新顶+旧墙身做法；V9/10/12/13和端面从同源source接，门保留独立开闭，移出旧墙身烘焙招牌为独立非阻挡fixture。保持物理墙/规则/NPC等不变（可新增装饰牌）；检查zdepth/clip/编辑选取。新建只当前套，旧T32/V32/H24属性保留。允许A33候选集成actual，A33独立通过后P66验收。减少往返，一次工作包、一整套候选交接、完整actual必要一轮修正。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p66-approved-full-wall-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T03:11:47.965Z"
+      }
+    ]
+  },
+  "revision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500",
+  "scheduleRevision": "eff8923fe41dade05e9bd15629fc7e89e41e9e69e68c84f5353317550b4b45d7",
+  "planChanges": [
+    {
+      "id": "p66-approved-full-wall-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T03:11:47.965Z",
+      "reason": "用户批准左右开放完整墙体母图接入，明确否定上一顶片覆盖旧墙身；新A33/P66保持旧冻结及纠正历史。",
+      "createdTaskIds": [
+        "a33-approved-full-wall-20261007",
+        "p66-approved-full-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p65-approved-rounded-wall-integration-20261007",
+      "title": "P65 批准C圆弧同高墙集成",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p66-ready-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p66-ready-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p66-ready-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500"
+  },
+  "feedback": [
+    {
+      "id": "p66-start-20261007",
+      "taskId": "p66-approved-full-wall-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已接手完整墙体集成，按全视觉121.5高替换H/T旧墙身，准备独立牌、完整厨房actual与规则回归；等待主美一次整套候选交接。",
+      "evidence": [
+        "docs/dev/p66/plan.json",
+        "docs/dev/p66/approved-full-wall.png"
+      ],
+      "at": "2026-10-07T03:12:55.329Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p66-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p66-ready-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p66-ready-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p66-ready-20261007",
+      "taskId": "p66-approved-full-wall-integration-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完整短T68/72×121.5与H全墙身墙脚、全部长V和端面同源替换，门牌独立；右邻接片clip不伸缩，新建18当前件旧ID保留、16Mesh icons。真实H/V/T卡选放尺寸准确，editor全图选取拖动撤销通过；135原生+73规则，实际T/V连续采样差0，所有最终日志无ERROR，旧21art SHA不变。R04仅architecture和门lintel改，物理规则全保持。world_view_rect视区计算和全H bounds修正，59程序交付冻结。",
+      "evidence": [
+        "docs/dev/p66/delivery.json",
+        "docs/dev/p66/README.md",
+        "docs/dev/p66/approved-full-wall.png",
+        "docs/dev/p66/geometry-contract-update.json",
+        "docs/art/architecture-v33/p66-visual-review.md",
+        "docs/tests/p66-1200-architecture-native.json",
+        "docs/tests/p66-1200-editor-overview.png",
+        "docs/tests/p66-1200-editor-t-left.png",
+        "docs/tests/p66-1200-editor-t-right.png",
+        "docs/tests/p66-1200-full-wall-native.json",
+        "docs/tests/p66-1200-native.json",
+        "docs/tests/p66-1200-runtime-overview-closed.png",
+        "docs/tests/p66-1200-runtime-overview-open.png",
+        "docs/tests/p66-1200-runtime-t-left.png",
+        "docs/tests/p66-1200-runtime-t-right.png",
+        "docs/tests/p66-960-editor-overview.png",
+        "docs/tests/p66-960-editor-t-left.png",
+        "docs/tests/p66-960-editor-t-right.png",
+        "docs/tests/p66-960-full-wall-native.json",
+        "docs/tests/p66-960-native.json",
+        "docs/tests/p66-960-runtime-overview-closed.png",
+        "docs/tests/p66-960-runtime-overview-open.png",
+        "docs/tests/p66-960-runtime-t-left.png",
+        "docs/tests/p66-960-runtime-t-right.png",
+        "docs/tests/p66-access-access-headless-1200.json",
+        "docs/tests/p66-preservation.json",
+        "docs/tests/p66-runtime-t-components.json",
+        "docs/tests/p66-runtime-t-components.png"
+      ],
+      "at": "2026-10-07T03:41:28.023Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p66-ready-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p66-ready-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p66-ready-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

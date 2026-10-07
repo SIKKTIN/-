@@ -1101,7 +1101,7 @@
         180,
         90
       ],
-      "lintel_asset": "cafeteria_lintel_v24",
+      "lintel_asset": "cafeteria_lintel_v33",
       "lintel_height": 31.5,
       "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
     },
@@ -1827,32 +1827,44 @@
       {
         "wall_index": 7,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
+        "front": "cafeteria_wall_mid_v33",
+        "top": "cafeteria_wall_mid_v33",
         "painted_facade": {
-          "layout": "wing",
-          "asset": "cafeteria_wing_left_v24",
-          "trim_left": 24,
-          "junctions": [
-            {
-              "asset": "cafeteria_turn_l_v28",
-              "offset": [
-                0,
-                6.48
-              ],
-              "size": [
-                80,
-                80
-              ]
-            }
-          ],
-          "cap_cutouts": [
+          "layout": "tiled",
+          "asset": "cafeteria_wall_mid_v33",
+          "replace_ranges": [
             [
               0,
-              0,
-              80,
-              30.48
+              48
+            ],
+            [
+              168,
+              32
             ]
+          ],
+          "junctions": [
+            {
+              "asset": "cafeteria_turn_l_v33",
+              "offset": [
+                0,
+                0
+              ],
+              "size": [
+                48,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_jamb_left_v33",
+              "offset": [
+                168,
+                0
+              ],
+              "size": [
+                32,
+                121.5
+              ]
+            }
           ]
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1860,83 +1872,143 @@
       {
         "wall_index": 8,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
+        "front": "cafeteria_wall_mid_v33",
+        "top": "cafeteria_wall_mid_v33",
         "painted_facade": {
-          "layout": "extended",
-          "jamb": "cafeteria_jamb_right_v24",
-          "middle": "cafeteria_wall_mid_v24",
-          "corner": "cafeteria_corner_post_v24",
-          "trim_right": 24,
-          "junctions": [
-            {
-              "asset": "cafeteria_turn_r_v28",
-              "offset": [
-                844,
-                6.48
-              ],
-              "size": [
-                80,
-                80
-              ]
-            },
-            {
-              "asset": "cafeteria_t_20_v32",
-              "offset": [
-                114,
-                6.48
-              ],
-              "size": [
-                132,
-                80
-              ]
-            },
-            {
-              "asset": "cafeteria_t_20_v32",
-              "offset": [
-                754,
-                6.48
-              ],
-              "size": [
-                132,
-                80
-              ],
-              "mirror_x": true
-            }
-          ],
+          "layout": "tiled",
+          "asset": "cafeteria_wall_mid_v33",
           "replace_ranges": [
             [
-              170,
-              20,
-              27.48
+              0,
+              32
             ],
             [
-              810,
-              20,
-              27.48
+              108,
+              38
+            ],
+            [
+              146,
+              68
+            ],
+            [
+              214,
+              37.2
+            ],
+            [
+              748.8,
+              37.2
+            ],
+            [
+              786,
+              68
+            ],
+            [
+              854,
+              22
+            ],
+            [
+              876,
+              48
             ]
           ],
-          "end_post_width": 24,
-          "omit_end_post": true,
-          "cap_cutouts": [
-            [
-              114,
-              0,
-              132,
-              27.48
-            ],
-            [
-              754,
-              0,
-              132,
-              27.48
-            ],
-            [
-              844,
-              0,
-              80,
-              30.48
-            ]
+          "junctions": [
+            {
+              "asset": "cafeteria_jamb_right_v33",
+              "offset": [
+                0,
+                0
+              ],
+              "size": [
+                32,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_wall_join_l_v33",
+              "offset": [
+                108,
+                0
+              ],
+              "size": [
+                38,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_t_20_v33",
+              "offset": [
+                146,
+                0
+              ],
+              "size": [
+                68,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_wall_join_r_v33",
+              "offset": [
+                214,
+                0
+              ],
+              "size": [
+                37.2,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_wall_join_r_v33",
+              "offset": [
+                748.8,
+                0
+              ],
+              "size": [
+                37.2,
+                121.5
+              ],
+              "mirror_x": true
+            },
+            {
+              "asset": "cafeteria_t_20_v33",
+              "offset": [
+                786,
+                0
+              ],
+              "size": [
+                68,
+                121.5
+              ],
+              "mirror_x": true
+            },
+            {
+              "asset": "cafeteria_wall_join_l_v33",
+              "offset": [
+                854,
+                0
+              ],
+              "size": [
+                38,
+                121.5
+              ],
+              "mirror_x": true,
+              "clip": [
+                854,
+                0,
+                22,
+                121.5
+              ]
+            },
+            {
+              "asset": "cafeteria_turn_r_v33",
+              "offset": [
+                876,
+                0
+              ],
+              "size": [
+                48,
+                121.5
+              ]
+            }
           ]
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1944,17 +2016,17 @@
       {
         "wall_index": 9,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
-        "render_top_start": 1226.48,
+        "front": "cafeteria_end_v33",
+        "top": "cafeteria_wall_v_l_v33",
+        "render_top_start": 1261.5,
         "return_wall": {
-          "top": "cafeteria_wall_v_l_v27",
-          "end": "cafeteria_end_v27",
+          "top": "cafeteria_wall_v_l_v33",
+          "end": "cafeteria_end_v33",
           "tile_size": [
             24,
-            123.1413612565445
+            189.14594594594593
           ],
-          "tile_origin_y": 1226.48,
+          "tile_origin_y": 1222.7513513513513,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1962,17 +2034,17 @@
       {
         "wall_index": 10,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
-        "render_top_start": 1226.48,
+        "front": "cafeteria_end_v33",
+        "top": "cafeteria_wall_v_r_v33",
+        "render_top_start": 1261.5,
         "return_wall": {
-          "top": "cafeteria_wall_v_r_v27",
-          "end": "cafeteria_end_v27",
+          "top": "cafeteria_wall_v_r_v33",
+          "end": "cafeteria_end_v33",
           "tile_size": [
             24,
-            123.1413612565445
+            189.14594594594593
           ],
-          "tile_origin_y": 1226.48,
+          "tile_origin_y": 1222.7513513513513,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -1980,23 +2052,27 @@
       {
         "wall_index": 11,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23"
+        "front": "cafeteria_wall_mid_v33",
+        "top": "cafeteria_wall_mid_v33",
+        "painted_facade": {
+          "layout": "tiled",
+          "asset": "cafeteria_wall_mid_v33"
+        }
       },
       {
         "wall_index": 12,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
-        "render_top_start": 1226.48,
+        "front": "cafeteria_end_20_v33",
+        "top": "cafeteria_wall_v_l_20_v33",
+        "render_top_start": 1261.5,
         "return_wall": {
-          "top": "cafeteria_wall_v_l_20_v32",
-          "end": "cafeteria_end_20_v27",
+          "top": "cafeteria_wall_v_l_20_v33",
+          "end": "cafeteria_end_20_v33",
           "tile_size": [
             20,
-            151.63636363636363
+            189.14594594594593
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1222.7513513513513,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"
@@ -2004,17 +2080,17 @@
       {
         "wall_index": 13,
         "height": 90,
-        "front": "cafeteria_wall_front_v23",
-        "top": "cafeteria_coping_v23",
-        "render_top_start": 1226.48,
+        "front": "cafeteria_end_20_v33",
+        "top": "cafeteria_wall_v_r_20_v33",
+        "render_top_start": 1261.5,
         "return_wall": {
-          "top": "cafeteria_wall_v_r_20_v32",
-          "end": "cafeteria_end_20_v27",
+          "top": "cafeteria_wall_v_r_20_v33",
+          "end": "cafeteria_end_20_v33",
           "tile_size": [
             20,
-            151.63636363636363
+            189.14594594594593
           ],
-          "tile_origin_y": 1170.48,
+          "tile_origin_y": 1222.7513513513513,
           "mirror_x": false
         },
         "alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader"

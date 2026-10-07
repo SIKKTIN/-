@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p66-approved-full-wall-integration-20261007",
+    "title": "P66 完整同源厨房墙体接入",
+    "description": "用户批准完整母图：移除旧局部贴顶与底下旧墙身/墙脚，整H和T墙身同源覆盖完整视觉区域，长V和末端同源；门/牌独立；更新单套新建分类，保留历史ID。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "完整厨房H/T/V/end同源body/foot，无旧墙身叠加残留；独立牌与门开闭/可见层正确；1200/960游戏/editor完整左右和overview、新建图标选放/旧ID兼容，门禁禁闭救援规则不变，A33独立通过后P66单独自验收发布。",
+    "result": "",
+    "dependencyIds": [
+      "p65-approved-rounded-wall-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "data/rooms/r04.json",
+        "qa/p66*",
+        "docs/dev/p66/**",
+        "docs/tests/p66*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/editor/map_editor.tscn",
+      "interfaceContract": "所有共享绘制/data由producer执行。厨房H7/8/11改新完整body/foot同源可接续片；两T为全视觉121.5高区域替换，取消新顶+旧墙身做法；V9/10/12/13和端面从同源source接，门保留独立开闭，移出旧墙身烘焙招牌为独立非阻挡fixture。保持物理墙/规则/NPC等不变（可新增装饰牌）；检查zdepth/clip/编辑选取。新建只当前套，旧T32/V32/H24属性保留。允许A33候选集成actual，A33独立通过后P66验收。减少往返，一次工作包、一整套候选交接、完整actual必要一轮修正。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p66-approved-full-wall-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T03:11:47.965Z"
+      }
+    ]
+  },
+  "revision": "c8203ffc3f28bf9e41e2514375403325e1bacb3aabb221cd5a8af44669db22da",
+  "scheduleRevision": "a23494a2d6a8cf8c07285074b1ff0c2c04e06944581dcc2459ca8e2d6f2b383e",
+  "planChanges": [
+    {
+      "id": "p66-approved-full-wall-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T03:11:47.965Z",
+      "reason": "用户批准左右开放完整墙体母图接入，明确否定上一顶片覆盖旧墙身；新A33/P66保持旧冻结及纠正历史。",
+      "createdTaskIds": [
+        "a33-approved-full-wall-20261007",
+        "p66-approved-full-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p65-approved-rounded-wall-integration-20261007",
+      "title": "P65 批准C圆弧同高墙集成",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "c8203ffc3f28bf9e41e2514375403325e1bacb3aabb221cd5a8af44669db22da"
+  },
+  "feedback": []
+}

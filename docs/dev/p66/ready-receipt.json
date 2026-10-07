@@ -1,0 +1,84 @@
+{
+  "id": "p66-ready-20261007",
+  "digest": "00421de125488cd552c650d1ae7abebfe8b593dc61d9b147b8c787c32fe30df7",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T03:41:27.868Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p66-ready-20261007",
+    "taskId": "p66-approved-full-wall-integration-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "完整短T68/72×121.5与H全墙身墙脚、全部长V和端面同源替换，门牌独立；右邻接片clip不伸缩，新建18当前件旧ID保留、16Mesh icons。真实H/V/T卡选放尺寸准确，editor全图选取拖动撤销通过；135原生+73规则，实际T/V连续采样差0，所有最终日志无ERROR，旧21art SHA不变。R04仅architecture和门lintel改，物理规则全保持。world_view_rect视区计算和全H bounds修正，59程序交付冻结。",
+    "evidence": [
+      "docs/dev/p66/delivery.json",
+      "docs/dev/p66/README.md",
+      "docs/dev/p66/approved-full-wall.png",
+      "docs/dev/p66/geometry-contract-update.json",
+      "docs/art/architecture-v33/p66-visual-review.md",
+      "docs/tests/p66-1200-architecture-native.json",
+      "docs/tests/p66-1200-editor-overview.png",
+      "docs/tests/p66-1200-editor-t-left.png",
+      "docs/tests/p66-1200-editor-t-right.png",
+      "docs/tests/p66-1200-full-wall-native.json",
+      "docs/tests/p66-1200-native.json",
+      "docs/tests/p66-1200-runtime-overview-closed.png",
+      "docs/tests/p66-1200-runtime-overview-open.png",
+      "docs/tests/p66-1200-runtime-t-left.png",
+      "docs/tests/p66-1200-runtime-t-right.png",
+      "docs/tests/p66-960-editor-overview.png",
+      "docs/tests/p66-960-editor-t-left.png",
+      "docs/tests/p66-960-editor-t-right.png",
+      "docs/tests/p66-960-full-wall-native.json",
+      "docs/tests/p66-960-native.json",
+      "docs/tests/p66-960-runtime-overview-closed.png",
+      "docs/tests/p66-960-runtime-overview-open.png",
+      "docs/tests/p66-960-runtime-t-left.png",
+      "docs/tests/p66-960-runtime-t-right.png",
+      "docs/tests/p66-access-access-headless-1200.json",
+      "docs/tests/p66-preservation.json",
+      "docs/tests/p66-runtime-t-components.json",
+      "docs/tests/p66-runtime-t-components.png"
+    ],
+    "at": "2026-10-07T03:41:28.023Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p66-ready-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p66-ready-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p66-ready-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "b8ebcededbde5322cc51bca9f83082eb29a8712c6dcbc2e3fc21d73c0556e500",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

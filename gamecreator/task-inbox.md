@@ -100,6 +100,8 @@
 - P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成 · 未排期
 - A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成 · 未排期
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成 · 未排期
+- A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成 · 未排期
+- P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -206,6 +208,8 @@
 - P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
 - A32 批准C圆弧同高墙接口与同源纵墙 [a32-approved-rounded-wall-20261007] · 已完成
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
+- A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成
+- P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。
