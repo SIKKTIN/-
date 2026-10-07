@@ -58,6 +58,7 @@ func release(actor_id: int, rescued := false) -> void:
 	actor.position = _landing(actor,_point(cell.release))
 	actor.immune_until = game.elapsed+3.0
 	held.erase(actor_id)
+	if game.workshop: game.workshop.on_release(actor_id)
 	if not game.actor_is_controllable(actor_id): game.routines.resume(actor_id)
 	game.show_status("伙伴%d%s，已离开禁闭室。" % [actor_id+1,"获救" if rescued else "禁闭结束"],5)
 

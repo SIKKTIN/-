@@ -1,0 +1,39 @@
+{
+  "scheduleRevision": "08c7ec1b662f2a126811e787b0931163a8fa41b2f13d21dde9ba09aab029e4b6",
+  "creates": [
+    {
+      "task": {
+        "id": "p69-workshop-supervision-20261007",
+        "title": "P69 封闭车间与劳动监工",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p68-single-player-default-routines-20261007"
+        ],
+        "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+        "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/presentation/**",
+            "scripts/ui/**",
+            "data/rooms/r04.json",
+            "qa/p69*",
+            "docs/dev/p69/**",
+            "docs/tests/p69*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "封闭车间、工作时段门禁、混混监工查岗与偷懒禁闭。",
+  "requestId": "p69-workshop-plan-20261007"
+}

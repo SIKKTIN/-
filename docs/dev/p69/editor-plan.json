@@ -1,0 +1,34 @@
+{
+  "scheduleRevision": "72669965b564c4706ec7aefccb5fab39184ee6be0ae3210da566b8cbd5924973",
+  "creates": [
+    {
+      "task": {
+        "id": "p69-editor-workshop-compat-20261007",
+        "title": "P69 车间门禁编辑器兼容",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [],
+        "description": "新增workshop类型门禁的地图形状校验与属性说明，仅最小校验/标签增量，保留其他编辑器修改。",
+        "acceptance": "R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/map_document.gd",
+            "scripts/editor/map_editor.gd",
+            "qa/p69*",
+            "docs/dev/p69/**",
+            "docs/tests/p69*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/map_editor.tscn",
+          "interfaceContract": "承接P69劳动门禁编辑器兼容，仅新增合法kind和固定日程说明，不改已有素材分类、预览和编辑逻辑。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "新劳动门禁类型需要编辑器校验和属性说明；单独补齐范围，保护既有美术编辑器工作。",
+  "requestId": "p69-editor-plan-20261007"
+}

@@ -145,6 +145,8 @@ func paint_information(canvas: CanvasItem) -> void:
 			var label := "交谈中" if actor.state == "talking" else "守门" if actor.has_method("is_gate_guard") else "追击！" if actor.state == "chasing" else "调查" if actor.state == "searching" else "查寝" if game.schedule and game.schedule.is_sleep_time() else "宵禁警戒" if actor.curfew_alert() else "巡逻"
 			if actor.global_alert():
 				label = "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "增援搜查" if actor in game.prison_alert.reinforcements else "警戒搜查"
+			if actor.has_method("is_workshop_overseer"):
+				label = "监工追捕！" if actor.state == "chasing" else "监工 · 查岗"
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"
@@ -156,6 +158,8 @@ func paint_information(canvas: CanvasItem) -> void:
 			canvas.draw_string(font,Vector2(14,top),"Zz",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("d8e8dc"))
 		if actor.confined and game.room_access:
 			canvas.draw_string(font,Vector2(-40,top),game.room_access.label_for(actor.actor_id),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("bc5348"))
+		elif game.workshop and not game.workshop.warning_label(actor.actor_id).is_empty():
+			canvas.draw_string(font,Vector2(-60,top-26),game.workshop.warning_label(actor.actor_id),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("bc5348"))
 		if game.routines and game.routines.is_working(actor.actor_id):
 			var progress: float = game.routines.work_progress(actor.actor_id)
 			var text := "工作中 %d%%" % floori(progress*100+0.000001)

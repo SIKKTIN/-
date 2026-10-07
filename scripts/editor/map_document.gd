@@ -52,6 +52,15 @@ func open_file(file_path: String) -> bool:
 	return true
 
 static func check_shape(candidate: Dictionary) -> String:
+	var workshop = candidate.get("workshop",{})
+	if not workshop is Dictionary: return "workshop必须是对象。"
+	if not workshop.is_empty():
+		if not valid_coords(workshop.get("room_rect",[]),4) or not valid_coords(workshop.get("overseer_start",[]),2): return "车间缺少范围或监工位置。"
+		if not workshop.get("patrol",[]) is Array or workshop.get("patrol",[]).is_empty(): return "车间需有监工巡查路线。"
+		for point in workshop.patrol:
+			if not valid_coords(point,2): return "监工巡查点坐标格式错误。"
+		if not candidate.get("access_doors",[]) is Array: return "access_doors必须是数组。"
+		if not candidate.get("access_doors",[]).any(func(g): return g is Dictionary and g.get("id","") == workshop.get("access_id","") and g.get("kind","") == "workshop"): return "车间缺少关联的劳动门禁。"
 	if not candidate.get("walls",[]) is Array: return "walls必须是数组。"
 	if not candidate.get("architecture",{}) is Dictionary: return "architecture必须是对象。"
 	var surfaces = candidate.get("architecture",{}).get("wall_surfaces",[])
@@ -84,7 +93,7 @@ static func check_shape(candidate: Dictionary) -> String:
 			if group == "fixtures" and not item.has("asset_id"):
 				return "摆设缺少asset_id。"
 			if group == "access_doors":
-				if str(item.get("id","")) == "" or item.get("kind","") not in ["timed","confinement"]: return "管制门缺少ID或有效kind。"
+				if str(item.get("id","")) == "" or item.get("kind","") not in ["timed","confinement","workshop"]: return "管制门缺少ID或有效kind。"
 				if item.kind == "timed":
 					if not valid_coords(item.get("hours",[]),2) or item.hours[0] < 0 or item.hours[1] > 1440 or item.hours[0] >= item.hours[1]: return "管制门开放分钟需在0–1440内，先开后关。"
 					if not valid_coords(item.get("room_rect",[]),4) or not valid_coords(item.get("evacuation",[]),2): return "定时门缺少区域或疏散点。"

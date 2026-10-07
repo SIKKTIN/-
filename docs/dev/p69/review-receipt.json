@@ -1,0 +1,61 @@
+{
+  "id": "p69-review-20261007",
+  "digest": "4d588de76fa7d78c1b405988f41791c53341a0759d86ceefc257d844c0851507",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T09:49:52.943Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p69-delivery-20261007",
+    "taskId": "p69-workshop-supervision-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+    "evidence": [
+      "docs/dev/p69/report.md",
+      "docs/dev/p69/delivery.json",
+      "docs/tests/p69-workshop-native.json",
+      "docs/tests/p69-workshop-headless.json",
+      "docs/tests/p69-workshop-published-map.json",
+      "docs/tests/p69-day-cycle.json",
+      "docs/tests/p69-live-runtime.json",
+      "docs/tests/p69-regression-single-player-headless.json",
+      "docs/tests/p69-locked-workshop.png"
+    ],
+    "at": "2026-10-07T09:48:30.406Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T09:49:53.109Z",
+      "note": "制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p69-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "c82978d75295bcb5762b2be04f6724dfbf6375a4d2ee9679c2f4beca92cae670"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "c82978d75295bcb5762b2be04f6724dfbf6375a4d2ee9679c2f4beca92cae670",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

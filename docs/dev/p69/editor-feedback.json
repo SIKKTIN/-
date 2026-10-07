@@ -1,0 +1,19 @@
+{
+  "taskId": "p69-editor-workshop-compat-20261007",
+  "revision": "46d659d63db1b6908abefadc99f132ce0c916999a4892c3a1f5f6ca649920e0b",
+  "feedbackId": "p69-editor-delivery-20261007",
+  "status": "待验收",
+  "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+  "evidence": [
+    "docs/dev/p69/report.md",
+    "docs/dev/p69/delivery.json",
+    "docs/tests/p69-workshop-native.json",
+    "docs/tests/p69-workshop-headless.json",
+    "docs/tests/p69-workshop-published-map.json",
+    "docs/tests/p69-day-cycle.json",
+    "docs/tests/p69-live-runtime.json",
+    "docs/tests/p69-regression-single-player-headless.json",
+    "docs/tests/p69-locked-workshop.png"
+  ],
+  "requestId": "p69-editor-delivery-20261007"
+}

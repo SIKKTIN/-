@@ -299,6 +299,7 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_cred
 
 func status_for(actor_id: int) -> String:
 	if game.room_access and game.room_access.is_held(actor_id): return game.room_access.label_for(actor_id)
+	if game.workshop and not game.workshop.warning_label(actor_id).is_empty(): return game.workshop.warning_label(actor_id)
 	if manual.has(actor_id) and slot >= 0 and plans[actor_id][slot] != "idle":
 		return "手动接管"
 	if not records.has(actor_id):

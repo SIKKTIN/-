@@ -1,0 +1,65 @@
+{
+  "id": "p69-editor-delivery-20261007",
+  "digest": "7193267b997e2f0b7626d3ddc86aaa2b045aca84f4d8d0fbef529ee099b7ee6f",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T09:48:32.101Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p69-editor-delivery-20261007",
+    "taskId": "p69-editor-workshop-compat-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+    "evidence": [
+      "docs/dev/p69/report.md",
+      "docs/dev/p69/delivery.json",
+      "docs/tests/p69-workshop-native.json",
+      "docs/tests/p69-workshop-headless.json",
+      "docs/tests/p69-workshop-published-map.json",
+      "docs/tests/p69-day-cycle.json",
+      "docs/tests/p69-live-runtime.json",
+      "docs/tests/p69-regression-single-player-headless.json",
+      "docs/tests/p69-locked-workshop.png"
+    ],
+    "at": "2026-10-07T09:48:32.265Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p69-editor-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p69-editor-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p69-editor-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "c2b5d282a4d44a94f0b521180ddc2ef0bb91997bcd7a370d475522555d306c7c"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "c2b5d282a4d44a94f0b521180ddc2ef0bb91997bcd7a370d475522555d306c7c",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

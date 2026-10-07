@@ -1,0 +1,211 @@
+{
+  "task": {
+    "id": "p69-workshop-supervision-20261007",
+    "title": "P69 封闭车间与劳动监工",
+    "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+    "result": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+    "dependencyIds": [
+      "p68-single-player-default-routines-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/presentation/**",
+        "scripts/ui/**",
+        "data/rooms/r04.json",
+        "qa/p69*",
+        "docs/dev/p69/**",
+        "docs/tests/p69*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p69-workshop-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T09:18:49.616Z"
+      }
+    ]
+  },
+  "revision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b",
+  "scheduleRevision": "ada356ae307531ce2c1e289ab5fe2abaaf235d64ef49ee6cfce874f695431ca3",
+  "planChanges": [
+    {
+      "id": "p69-workshop-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T09:18:49.616Z",
+      "reason": "封闭车间、工作时段门禁、混混监工查岗与偷懒禁闭。",
+      "createdTaskIds": [
+        "p69-workshop-supervision-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p68-single-player-default-routines-20261007",
+      "title": "P68 默认日程与单角色操控",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p69-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p69-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p69-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b"
+  },
+  "feedback": [
+    {
+      "id": "p69-start-20261007",
+      "taskId": "p69-workshop-supervision-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "复用R04工位与混混动画，补围墙和劳动门禁；入场宽限、可视查岗警告、追捕禁闭与正常日程回归。",
+      "evidence": [
+        "docs/dev/p69/baseline-state.json"
+      ],
+      "at": "2026-10-07T09:23:33.677Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p69-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p69-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p69-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p69-delivery-20261007",
+      "taskId": "p69-workshop-supervision-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+      "evidence": [
+        "docs/dev/p69/report.md",
+        "docs/dev/p69/delivery.json",
+        "docs/tests/p69-workshop-native.json",
+        "docs/tests/p69-workshop-headless.json",
+        "docs/tests/p69-workshop-published-map.json",
+        "docs/tests/p69-day-cycle.json",
+        "docs/tests/p69-live-runtime.json",
+        "docs/tests/p69-regression-single-player-headless.json",
+        "docs/tests/p69-locked-workshop.png"
+      ],
+      "at": "2026-10-07T09:48:30.406Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p69-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p69-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p69-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "ed9e355e10131ac26d5fa5cb57a05e1b1586b939b79b6b9a59f4164801955f3b",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

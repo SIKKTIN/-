@@ -104,6 +104,8 @@
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成 · 未排期
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成 · 未排期
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成 · 未排期
+- P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成 · 未排期
+- P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成 · 未排期
 
 ## 待验收
 - A20 门墙一体场景概念评审 [a20-door-wall-concept-20261006]
@@ -214,6 +216,8 @@
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
+- P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
+- P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
 
 任务状态与项目排期共用同一份记录。结构建议须由负责人审核，不自动增删资产。
 派发反馈：intent=dispatch，target.kind=task，changes 仅填写 assigneeId（成员 ID）。签名提交后由客户端核对并确认。

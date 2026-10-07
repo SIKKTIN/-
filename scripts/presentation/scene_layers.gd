@@ -119,6 +119,7 @@ func _draw() -> void:
 		for gate in world.access_doors:
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
 			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
+			if str(gate.get("kind","")) == "workshop": text = "车间锁门 · 请在工位劳动" if gate.closed else "车间入场" if game.workshop and game.workshop.on_duty() else "车间开放"
 			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
 				draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:

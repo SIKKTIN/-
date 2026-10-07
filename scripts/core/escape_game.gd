@@ -25,6 +25,7 @@ const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
 const PrisonAlert = preload("res://scripts/core/prison_alert.gd")
 const MobileControls = preload("res://scripts/core/mobile_controls.gd")
 const RoomAccess = preload("res://scripts/core/room_access.gd")
+const WorkshopRules = preload("res://scripts/core/workshop_rules.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := 17.0
@@ -51,6 +52,7 @@ var attributes
 var prison_alert
 var mobile_controls
 var room_access
+var workshop
 var editor_preview_mode := false
 
 var actors: Array = []
@@ -184,6 +186,8 @@ func _ready() -> void:
 	attributes = ActorAttributes.new(self)
 	room_access = RoomAccess.new(self)
 	room_access.tick()
+	workshop = WorkshopRules.new(self)
+	workshop.reset()
 	fullscreen_ui.layout()
 	routines.offer_morning()
 	if editor_preview_mode:
@@ -273,6 +277,8 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	if room_access:
 		room_access.tick()
+	if workshop:
+		workshop.update_gate()
 	var work_credit: Dictionary = attributes.accrue(previous_clock,schedule.clock_elapsed,behaviors_before) if attributes else {}
 	for actor in actors:
 		actor.moved_this_frame = false
@@ -296,6 +302,8 @@ func _process(delta: float) -> void:
 		gate_watch.tick(0)
 	dog.tick(delta)
 	guard.tick(delta)
+	if workshop:
+		workshop.tick(delta)
 	if prison_alert:
 		prison_alert.tick(delta)
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
@@ -464,6 +472,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		gate_watch.reset(room_config)
 	if attributes:
 		attributes.reset()
+	if workshop:
+		workshop.reset()
 	if room_access:
 		room_access.tick()
 	if routines:

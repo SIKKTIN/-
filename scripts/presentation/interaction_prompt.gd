@@ -64,7 +64,7 @@ func mobile_label() -> String:
 		return "靠近互动"
 	if target.kind == "skill":
 		return "停止操作" if game.skills.actions.has(game.selected_actor_id) else {"chat":"交谈","lockpick":"撬锁","strong":"推箱"}.get(kind,"互动")
-	return {"pickup":"拾取","trade":"购买","meal":"取餐"}.get(target.kind,"互动")
+	return {"pickup":"拾取","trade":"购买","meal":"取餐","work":"工作"}.get(target.kind,"互动")
 
 func mobile_icon() -> Texture2D:
 	var target := _mobile_target()
@@ -103,6 +103,11 @@ func _refresh_targets() -> void:
 	if actor.escaped:
 		return
 	_refresh_items(actor)
+	if game.workshop and game.room_config.has("workshop") and game.workshop.on_duty() and not actor.confined and not game.routines.is_working(actor_id):
+		var point: Vector2 = game.routines._target(actor_id,"work")
+		if actor.position.distance_to(point) <= 85 and game.world.line_clear(actor.position,point):
+			var b := _extra("work:station","工作",point+Vector2(0,-70),"返回自己的工位开始劳动；上班时监工会抓偷懒的人。")
+			targets.append({"button":b,"kind":"work","id":"station","distance":actor.position.distance_to(point)})
 	var anchor := Vector2.ZERO
 	var active: bool = game.skills.actions.has(actor_id)
 	var chat_target = game.skills.chat_guard(actor) if actor.skill_id == "chat" else null
@@ -196,6 +201,8 @@ func _activate_extra(key: String) -> void:
 		game.show_status(str(result.reason) if str(result.reason) != "" else "物品已放入当前伙伴背包。")
 	elif key.begins_with("meal:"):
 		game.routines.start_meal(game.selected_actor_id)
+	elif key.begins_with("work:"):
+		game.workshop.start_work(game.selected_actor_id)
 	else:
 		game.shop_panel.open(key.substr(6))
 	game._update_ui()

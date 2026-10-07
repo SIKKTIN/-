@@ -1,0 +1,66 @@
+{
+  "taskIds": [
+    "p69-workshop-supervision-20261007",
+    "p69-editor-workshop-compat-20261007"
+  ],
+  "reports": {
+    "workshop-headless": {
+      "checks": 34,
+      "failed": []
+    },
+    "workshop-native": {
+      "checks": 34,
+      "failed": []
+    },
+    "workshop-published-map": {
+      "checks": 34,
+      "failed": []
+    },
+    "day-cycle": {
+      "checks": 7,
+      "failed": []
+    },
+    "live-runtime": {
+      "checks": 9,
+      "failed": []
+    },
+    "regression-single-player-headless": {
+      "checks": 49,
+      "failed": []
+    }
+  },
+  "source_sha256": {
+    "scripts/core/workshop_rules.gd": "fca045915d218864328fa00e14f7b7efceb521d60ffc7343462b0eccec756063",
+    "scripts/actors/workshop_overseer.gd": "4f0f4bdf88f5277f57c01ca710ff07bc66478b678cc79c67ee517171accc7bf1",
+    "scripts/core/escape_game.gd": "42071fa481920fcf33b4d4d9d87cfa5938620ca100e14e14aefb3b11ec9570ba",
+    "scripts/core/room_access.gd": "83b9226819c103fa9543f6056e41e150f658fb5096277411b922d6b0071b6918",
+    "scripts/core/daily_routine.gd": "90d8fee499bc928975733bdab7ce7212c84c4b30a0dbb4efbf8b2c761baac733",
+    "scripts/presentation/actor_visual.gd": "83b112a324a0b7ac9efb432197c66f540ed59e8a23553762b54598488b8d805b",
+    "scripts/presentation/interaction_prompt.gd": "f6f7bcf62528addf2652fbfd0059014e60bba5ff1d18a1a025e9938238534b3d",
+    "scripts/presentation/scene_layers.gd": "21089d87505d2273a488e7d4c57b4217df83d6d3251e5090f86d448b2bd06758",
+    "scripts/ui/mini_map.gd": "0bb61bba563d3e07fab4ebfe91ba8583c6680645c9b2aa39c57b832727e542d2",
+    "scripts/ui/routine_panel.gd": "50b311fa38bc9819e644e782427f54479832d862a9036f94a1a7ec11be0afa7a",
+    "data/rooms/r04.json": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+    "scripts/editor/map_document.gd": "2ddfd4dbac333783e4162a097f5e120399dee709f2bab71a508272c0eb04fcd3",
+    "scripts/editor/map_editor.gd": "250db87619c041e3b9197e40b0fbf74926a09c2523399b88024e2bf96c0f61b2"
+  },
+  "staged_source_sha256": {
+    "scripts/core/workshop_rules.gd": "fca045915d218864328fa00e14f7b7efceb521d60ffc7343462b0eccec756063",
+    "scripts/actors/workshop_overseer.gd": "4f0f4bdf88f5277f57c01ca710ff07bc66478b678cc79c67ee517171accc7bf1",
+    "scripts/core/escape_game.gd": "42071fa481920fcf33b4d4d9d87cfa5938620ca100e14e14aefb3b11ec9570ba",
+    "scripts/core/room_access.gd": "83b9226819c103fa9543f6056e41e150f658fb5096277411b922d6b0071b6918",
+    "scripts/core/daily_routine.gd": "7408ffd89f3a2f514ed7e94ce6921cf6514566c3c869e54bf81f0435057ae3d8",
+    "scripts/presentation/actor_visual.gd": "83b112a324a0b7ac9efb432197c66f540ed59e8a23553762b54598488b8d805b",
+    "scripts/presentation/interaction_prompt.gd": "f6f7bcf62528addf2652fbfd0059014e60bba5ff1d18a1a025e9938238534b3d",
+    "scripts/presentation/scene_layers.gd": "216b21bc018bacaf0e68c18b749163168dd1d2ff6d0fe3bd76c5a4b7bd115c63",
+    "scripts/ui/mini_map.gd": "68864c5f9a821a8bfe0e9c3cd71238567c40dbb26d8f4e98ffb84fbb69334849",
+    "scripts/ui/routine_panel.gd": "50b311fa38bc9819e644e782427f54479832d862a9036f94a1a7ec11be0afa7a",
+    "data/rooms/r04.json": "42df540aefc169d417fffc5cf711bb51bf1210fcbdbd9885fbaaa33997520a64",
+    "scripts/editor/map_document.gd": "18226bd0e82db1acb728997d3041407833385d9a03b1138de436b9a2f9710a9a",
+    "scripts/editor/map_editor.gd": "dfcc14b359b502f7147c4b4ccccd4c4f3861aa82b6b9f4ebda63e75ab111ff71"
+  },
+  "map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+  "published_map_sha256": "42df540aefc169d417fffc5cf711bb51bf1210fcbdbd9885fbaaa33997520a64",
+  "runtime_fps": 102.313368984358,
+  "preservation_note": "仅提交R04语义增量和编辑器11/1行兼容增量；本地保留主美WIP素材。editor_catalog在本轮被外部继续更新了退役素材列表，未覆盖/提交。其他冻结非本轮源码哈希一致。"
+}

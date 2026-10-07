@@ -5170,6 +5170,107 @@
             "at": "2026-10-07T08:40:20.460Z"
           }
         ]
+      },
+      {
+        "id": "p69-workshop-supervision-20261007",
+        "title": "P69 封闭车间与劳动监工",
+        "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "2026-10-07",
+        "milestoneId": "",
+        "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+        "result": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。\n\n验收通过：制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
+        "dependencyIds": [
+          "p68-single-player-default-routines-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/presentation/**",
+            "scripts/ui/**",
+            "data/rooms/r04.json",
+            "qa/p69*",
+            "docs/dev/p69/**",
+            "docs/tests/p69*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p69-workshop-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T09:18:49.616Z"
+          }
+        ]
+      },
+      {
+        "id": "p69-editor-workshop-compat-20261007",
+        "title": "P69 车间门禁编辑器兼容",
+        "description": "新增workshop类型门禁的地图形状校验与属性说明，仅最小校验/标签增量，保留其他编辑器修改。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "已完成",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "2026-10-07",
+        "milestoneId": "",
+        "acceptance": "R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。",
+        "result": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。\n\n验收通过：制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
+        "dependencyIds": [],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/editor/map_document.gd",
+            "scripts/editor/map_editor.gd",
+            "qa/p69*",
+            "docs/dev/p69/**",
+            "docs/tests/p69*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/map_editor.tscn",
+          "interfaceContract": "承接P69劳动门禁编辑器兼容，仅新增合法kind和固定日程说明，不改已有素材分类、预览和编辑逻辑。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p69-editor-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T09:31:13.566Z"
+          }
+        ]
       }
     ],
     "milestones": [
@@ -6472,6 +6573,30 @@
         "reason": "用户要求默认日程和一名可控角色，创建制作人本人程序任务。",
         "createdTaskIds": [
           "p68-single-player-default-routines-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p69-workshop-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-07T09:18:49.616Z",
+        "reason": "封闭车间、工作时段门禁、混混监工查岗与偷懒禁闭。",
+        "createdTaskIds": [
+          "p69-workshop-supervision-20261007"
+        ],
+        "dependencyChanges": [],
+        "milestoneChanges": []
+      },
+      {
+        "id": "p69-editor-plan-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "memberName": "制作人",
+        "at": "2026-10-07T09:31:13.566Z",
+        "reason": "新劳动门禁类型需要编辑器校验和属性说明；单独补齐范围，保护既有美术编辑器工作。",
+        "createdTaskIds": [
+          "p69-editor-workshop-compat-20261007"
         ],
         "dependencyChanges": [],
         "milestoneChanges": []
@@ -21869,6 +21994,294 @@
           "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
           "at": "2026-10-07T08:58:32.307Z",
           "note": "制作人独立开发自验收：用户确认单人逃脱，默认三人日程和NPC只读控制完整覆盖，49项规则分别在原生/无头通过，正常整日AI无误报，禁闭恢复和实际出口通关通过；运行循环及原生UI检查通过，既有11文件未改。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p69-start-20261007",
+        "taskId": "p69-workshop-supervision-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "复用R04工位与混混动画，补围墙和劳动门禁；入场宽限、可视查岗警告、追捕禁闭与正常日程回归。",
+        "evidence": [
+          "docs/dev/p69/baseline-state.json"
+        ],
+        "at": "2026-10-07T09:23:33.677Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p69-workshop-supervision-20261007",
+          "title": "P69 封闭车间与劳动监工",
+          "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+          "result": "复用R04工位与混混动画，补围墙和劳动门禁；入场宽限、可视查岗警告、追捕禁闭与正常日程回归。",
+          "dependencyIds": [
+            "p68-single-player-default-routines-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/actors/**",
+              "scripts/presentation/**",
+              "scripts/ui/**",
+              "data/rooms/r04.json",
+              "qa/p69*",
+              "docs/dev/p69/**",
+              "docs/tests/p69*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p69-workshop-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T09:18:49.616Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p69-editor-start-20261007",
+        "taskId": "p69-editor-workshop-compat-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "进行中",
+        "summary": "补充劳动门禁kind识别、关联配置校验和属性说明，保留其他编辑器修改。",
+        "evidence": [
+          "docs/dev/p69/editor-plan.json"
+        ],
+        "at": "2026-10-07T09:37:54.890Z",
+        "evidenceVersion": 1,
+        "state": "recorded",
+        "taskSnapshot": {
+          "id": "p69-editor-workshop-compat-20261007",
+          "title": "P69 车间门禁编辑器兼容",
+          "description": "新增workshop类型门禁的地图形状校验与属性说明，仅最小校验/标签增量，保留其他编辑器修改。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "进行中",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。",
+          "result": "补充劳动门禁kind识别、关联配置校验和属性说明，保留其他编辑器修改。",
+          "dependencyIds": [],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/editor/map_document.gd",
+              "scripts/editor/map_editor.gd",
+              "qa/p69*",
+              "docs/dev/p69/**",
+              "docs/tests/p69*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/map_editor.tscn",
+            "interfaceContract": "承接P69劳动门禁编辑器兼容，仅新增合法kind和固定日程说明，不改已有素材分类、预览和编辑逻辑。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p69-editor-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T09:31:13.566Z"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p69-delivery-20261007",
+        "taskId": "p69-workshop-supervision-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+        "evidence": [
+          "docs/dev/p69/report.md",
+          "docs/dev/p69/delivery.json",
+          "docs/tests/p69-workshop-native.json",
+          "docs/tests/p69-workshop-headless.json",
+          "docs/tests/p69-workshop-published-map.json",
+          "docs/tests/p69-day-cycle.json",
+          "docs/tests/p69-live-runtime.json",
+          "docs/tests/p69-regression-single-player-headless.json",
+          "docs/tests/p69-locked-workshop.png"
+        ],
+        "at": "2026-10-07T09:48:30.406Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p69-workshop-supervision-20261007",
+          "title": "P69 封闭车间与劳动监工",
+          "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+          "result": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+          "dependencyIds": [
+            "p68-single-player-default-routines-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/core/**",
+              "scripts/actors/**",
+              "scripts/presentation/**",
+              "scripts/ui/**",
+              "data/rooms/r04.json",
+              "qa/p69*",
+              "docs/dev/p69/**",
+              "docs/tests/p69*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p69-workshop-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T09:18:49.616Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T09:49:53.109Z",
+          "note": "制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
+          "mode": "producer-self",
+          "evidenceVersion": 1
+        }
+      },
+      {
+        "id": "p69-editor-delivery-20261007",
+        "taskId": "p69-editor-workshop-compat-20261007",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "status": "待验收",
+        "summary": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+        "evidence": [
+          "docs/dev/p69/report.md",
+          "docs/dev/p69/delivery.json",
+          "docs/tests/p69-workshop-native.json",
+          "docs/tests/p69-workshop-headless.json",
+          "docs/tests/p69-workshop-published-map.json",
+          "docs/tests/p69-day-cycle.json",
+          "docs/tests/p69-live-runtime.json",
+          "docs/tests/p69-regression-single-player-headless.json",
+          "docs/tests/p69-locked-workshop.png"
+        ],
+        "at": "2026-10-07T09:48:32.265Z",
+        "evidenceVersion": 1,
+        "state": "accepted",
+        "taskSnapshot": {
+          "id": "p69-editor-workshop-compat-20261007",
+          "title": "P69 车间门禁编辑器兼容",
+          "description": "新增workshop类型门禁的地图形状校验与属性说明，仅最小校验/标签增量，保留其他编辑器修改。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "待验收",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "",
+          "milestoneId": "",
+          "acceptance": "R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。",
+          "result": "封闭生产车间、两班门禁、混混监工警告追捕与120分钟禁闭接入。34/34规则分别通过原生/无头/发布地图；正常日夜7/7无误抓、49/49单主角回归、正常循环9/9，102.31FPS。编辑器支持劳动门禁配置/说明，既有工作区修改保留。",
+          "dependencyIds": [],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/editor/map_document.gd",
+              "scripts/editor/map_editor.gd",
+              "qa/p69*",
+              "docs/dev/p69/**",
+              "docs/tests/p69*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/map_editor.tscn",
+            "interfaceContract": "承接P69劳动门禁编辑器兼容，仅新增合法kind和固定日程说明，不改已有素材分类、预览和编辑逻辑。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p69-editor-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T09:31:13.566Z"
+            }
+          ]
+        },
+        "review": {
+          "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T09:51:06.403Z",
+          "note": "制作人独立开发自验收：34项功能分别在原生、无头、独立发布地图通过；无误抓日夜与单主角完整逃脱回归通过，真实运行102FPS。门禁碰撞、遮挡查岗、可见警告/返岗、追捕送禁闭和2小时释放、暂停及地图切换均有证据；编辑器类型/关联校验与标签通过。只提交本轮增量，既有美术/编辑器修改保留，真人趣味性待试玩。",
           "mode": "producer-self",
           "evidenceVersion": 1
         }

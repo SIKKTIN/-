@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T08:58:33.961Z
-> 文档内容基准：13608ed5073057e639036698616e399c9715c168a1b9b9407fe272a2dc48ad09
+> 文档生成时间：2026-10-07T09:51:53.736Z
+> 文档内容基准：43883a89f54f56e94d211e179f49a2b85b4ebd5ec57ffe42ec53320c60a2fd90
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -86,6 +86,8 @@
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
+- P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
+- P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1222,6 +1224,28 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：新局/新一天默认日程有效；NPC自动去工作、吃饭、休息和归寝；点击人物/快捷键/摇杆/手动指令/技能/日常表均不能接管NPC；主角可接管恢复；UI标注自动与只读，胜利/失败/禁闭规则可运行。保留先前FPS缓存及工作区其他修改。
 - 验收负责人：制作人
+### P69 封闭车间与劳动监工
+- ID：p69-workshop-supervision-20261007
+- 当前状态：已完成
+- 内容：R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。
+- 前置任务：p68-single-player-default-routines-20261007
+- 允许修改路径：scripts/core/**、scripts/actors/**、scripts/presentation/**、scripts/ui/**、data/rooms/r04.json、qa/p69*、docs/dev/p69/**、docs/tests/p69*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。
+- 验收负责人：制作人
+### P69 车间门禁编辑器兼容
+- ID：p69-editor-workshop-compat-20261007
+- 当前状态：已完成
+- 内容：新增workshop类型门禁的地图形状校验与属性说明，仅最小校验/标签增量，保留其他编辑器修改。
+- 前置任务：无
+- 允许修改路径：scripts/editor/map_document.gd、scripts/editor/map_editor.gd、qa/p69*、docs/dev/p69/**、docs/tests/p69*、docs/gamecreator/**、gamecreator/**
+- 接口契约：承接P69劳动门禁编辑器兼容，仅新增合法kind和固定日程说明，不改已有素材分类、预览和编辑逻辑。
+- 交付入口：res://scenes/map_editor.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：R04合法通过编辑器校验、劳动门禁正确说明；冻结修改保留。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1328,6 +1352,8 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
 - P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
 - P68 默认日程与单角色操控 [p68-single-player-default-routines-20261007] · 已完成
+- P69 封闭车间与劳动监工 [p69-workshop-supervision-20261007] · 已完成
+- P69 车间门禁编辑器兼容 [p69-editor-workshop-compat-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

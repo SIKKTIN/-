@@ -582,7 +582,7 @@ func refresh_inspector() -> void:
 					if not refreshing: document.set_property(ref,property,input.text))
 				inspector.add_child(input)
 		if ref.group == "access_doors":
-			label(inspector,"定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
+			label(inspector,"劳动门禁 · 08–12 / 14–18锁门" if item.get("kind","") == "workshop" else "定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
 			if item.get("kind","") == "timed":
 				for index in range(2):
 					label(inspector,"开放 / 关闭分钟（12:00 = 720）" if index == 0 else "关闭分钟（14:00 = 840）",13)

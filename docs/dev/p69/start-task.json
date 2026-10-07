@@ -1,0 +1,102 @@
+{
+  "task": {
+    "id": "p69-workshop-supervision-20261007",
+    "title": "P69 封闭车间与劳动监工",
+    "description": "R04补齐封闭生产车间、唯一定时锁门；8–12/14–18留入场宽限后锁门，监工巡查并警告持续偷懒者，追捕后关押2小时。正常上班、午餐与下班可通行，其他白天地区仍不抓人。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "围墙与门实际碰撞；两个劳动时段有效、上下班自动日程通路不死锁；赶工宽限和暂停不误判，持续偷懒被可见监工抓捕送禁闭，正常工作免抓；地图切换重开无重复监工；原单主角规则、午餐门禁、运行FPS通过验证。",
+    "result": "",
+    "dependencyIds": [
+      "p68-single-player-default-routines-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/presentation/**",
+        "scripts/ui/**",
+        "data/rooms/r04.json",
+        "qa/p69*",
+        "docs/dev/p69/**",
+        "docs/tests/p69*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "制作人本人开发与集成。复用当前墙门和混混素材；保护既有未提交地图、美术及编辑器修改，仅提交本轮语义增量。日程与监工计时服从暂停。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p69-workshop-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T09:18:49.616Z"
+      }
+    ]
+  },
+  "revision": "04148e6e5b04184775ea3509e673f0dfe818f3c804976f7111cb4f52b0fe0d71",
+  "scheduleRevision": "2d794a7086f8a2f758d460d50d280e865dc53ea3f1ca2aa97304049b8b040d2b",
+  "planChanges": [
+    {
+      "id": "p69-workshop-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T09:18:49.616Z",
+      "reason": "封闭车间、工作时段门禁、混混监工查岗与偷懒禁闭。",
+      "createdTaskIds": [
+        "p69-workshop-supervision-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p68-single-player-default-routines-20261007",
+      "title": "P68 默认日程与单角色操控",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "04148e6e5b04184775ea3509e673f0dfe818f3c804976f7111cb4f52b0fe0d71"
+  },
+  "feedback": []
+}
