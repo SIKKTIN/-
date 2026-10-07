@@ -23,6 +23,7 @@ func reset(config: Dictionary) -> void:
 		actor.configure(game.world,game)
 		attach_visual(actor,base)
 		guards.append(actor)
+		game.staff_traffic.register(actor,"gate",actor.post)
 	tick(0)
 
 func attach_visual(actor, base = null) -> void:
@@ -44,6 +45,7 @@ func by_id(id: String):
 	return null
 
 func blocking() -> bool:
+	if game.staff_traffic and game.staff_traffic.factory_passage(): return false
 	return guards.any(func(actor): return actor.blocking_gate())
 
 func tick(delta: float) -> void:

@@ -1,0 +1,35 @@
+{
+  "taskId": "p75-physical-staff-entrance-exit-20261007",
+  "source_sha256": {
+    "scripts/actors/gate_guard.gd": "7752ed5dcccf55fa2f8c13542e3383095ea74d410f9e5bb952eb4628e3728a5d",
+    "scripts/actors/guard.gd": "d94a4aa0679c450970eb1795d4f256fd7ee621a2ce1e9f8ff8a40c7c95b4d358",
+    "scripts/actors/workshop_overseer.gd": "b635447ca8fd3420b0a44fd5aac2febb455e1a5fd530bec13d82759de8892251",
+    "scripts/core/escape_game.gd": "c6e1281d507a903cbed1788ccc0ee40d61c7a8b582f31a584047795f56d7f874",
+    "scripts/core/gate_watch.gd": "788187799a28adb6df7cc107c532599709508d8269bba0d378a672cfd7e8a018",
+    "scripts/core/prison_alert.gd": "b3ec8447d10e6cfe92b7215cfa67b6897e3546958bcd115c1e67e3dcfcf2c65e",
+    "scripts/core/workshop_rules.gd": "bb2c2a5d61da7a997698f076146a30171a9ca960d0d240fa15495d68d9a4389e",
+    "scripts/core/staff_traffic.gd": "c4d26835abe3c872588c376136be9cc824d8a72508bd1b2248e0012e659ee3f3",
+    "scripts/presentation/actor_visual.gd": "ef3843ca4d44a8afaf393e6d46dc1d2186e5005a029a5ec0ed4ae5ae31219295",
+    "scripts/world/prison_world.gd": "70687f458cd9ad5a1e8b0a1c988b90a128c1ab959ccefd1bc0eeacf85de5ac23"
+  },
+  "checks": {
+    "p75-staff-traffic.json": 20,
+    "p75-rules-dialogue-headless.json": 79,
+    "p75-enforcement-headless.json": 33,
+    "p75-lunch-wallet.json": 23,
+    "p75-two-day-cycle.json": 16,
+    "p75-native-departure.json": 7,
+    "p75-live-runtime.json": 14
+  },
+  "total_checks": 192,
+  "clean_logs": [
+    "p75-staff-traffic.log",
+    "p75-rules_and_dialogue.log",
+    "p75-labor_enforcement.log",
+    "p75-lunch_wallet.log",
+    "p75-two-day.log",
+    "p75-native-departure.log",
+    "p75-live-runtime.log"
+  ],
+  "external_preserved": 34
+}

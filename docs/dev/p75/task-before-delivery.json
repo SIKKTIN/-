@@ -1,0 +1,145 @@
+{
+  "task": {
+    "id": "p75-physical-staff-entrance-exit-20261007",
+    "title": "P75 看守从厂区正门步行上下岗及增援撤离",
+    "description": "用户明确看守要从车间门步行到厂区铁门进出，所有看守日程和增援不得在场内突然出现/消失。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "监工12/18点不在车间消失，经车间门/厂区铁门步行离场；提前进场回岗；门岗换班、报警增援和7:20撤离同样有连续进出路线；只在地图外退场/复用；门禁钥匙临时开启且玩家永久开门不被回锁；警报及时解除但增援实际走出；角色聊天、昼夜警戒、追捕、日程与FPS回归。",
+    "result": "制作监工、门岗、增援共享的正门步行进出流程，移除场内定时显隐。",
+    "dependencyIds": [
+      "p74-many-patrol-performance-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/**",
+        "scripts/actors/**",
+        "scripts/skills/**",
+        "scripts/ui/**",
+        "scripts/presentation/**",
+        "scripts/world/prison_world.gd",
+        "qa/p75*",
+        "docs/dev/p75/**",
+        "docs/tests/p75*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "R04使用现有车间门和厂区铁门，不修改地图/美术WIP。在场人物只通过真实移动进出，上岗/撤退中可见且可寻路，移到地图外才结束表现；全员警戒解除时不删除场内增援。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p75-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T13:50:46.091Z"
+      }
+    ]
+  },
+  "revision": "3e029c712fb93893d4e7de6782fc2163525e022843ad9428d7dc1a54121b7b57",
+  "scheduleRevision": "b31d451607b12caa22379fd59f3d06d6afb7dfdd706ab9452cb29106db41e918",
+  "planChanges": [
+    {
+      "id": "p75-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T13:50:46.091Z",
+      "reason": "用户明确看守要从车间门步行到厂区铁门进出，所有看守日程和增援不得在场内突然出现/消失。",
+      "createdTaskIds": [
+        "p75-physical-staff-entrance-exit-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p74-many-patrol-performance-20261007",
+      "title": "P74 多巡逻NPC性能优化",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p75-start-20261007",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "3e029c712fb93893d4e7de6782fc2163525e022843ad9428d7dc1a54121b7b57"
+  },
+  "feedback": [
+    {
+      "id": "p75-start-20261007",
+      "taskId": "p75-physical-staff-entrance-exit-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作监工、门岗、增援共享的正门步行进出流程，移除场内定时显隐。",
+      "evidence": [
+        "docs/dev/p75/baseline-state.json"
+      ],
+      "at": "2026-10-07T13:50:48.332Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p75-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "3e029c712fb93893d4e7de6782fc2163525e022843ad9428d7dc1a54121b7b57"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "3e029c712fb93893d4e7de6782fc2163525e022843ad9428d7dc1a54121b7b57",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

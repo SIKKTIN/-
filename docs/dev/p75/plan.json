@@ -1,0 +1,40 @@
+{
+  "scheduleRevision": "b1531fcae430348de16bd4a489a593dcef096e4ff3bc7e9cae136c4de3b32dce",
+  "creates": [
+    {
+      "task": {
+        "id": "p75-physical-staff-entrance-exit-20261007",
+        "title": "P75 看守从厂区正门步行上下岗及增援撤离",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p74-many-patrol-performance-20261007"
+        ],
+        "description": "用户明确看守要从车间门步行到厂区铁门进出，所有看守日程和增援不得在场内突然出现/消失。",
+        "acceptance": "监工12/18点不在车间消失，经车间门/厂区铁门步行离场；提前进场回岗；门岗换班、报警增援和7:20撤离同样有连续进出路线；只在地图外退场/复用；门禁钥匙临时开启且玩家永久开门不被回锁；警报及时解除但增援实际走出；角色聊天、昼夜警戒、追捕、日程与FPS回归。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/**",
+            "scripts/actors/**",
+            "scripts/skills/**",
+            "scripts/ui/**",
+            "scripts/presentation/**",
+            "scripts/world/prison_world.gd",
+            "qa/p75*",
+            "docs/dev/p75/**",
+            "docs/tests/p75*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "R04使用现有车间门和厂区铁门，不修改地图/美术WIP。在场人物只通过真实移动进出，上岗/撤退中可见且可寻路，移到地图外才结束表现；全员警戒解除时不删除场内增援。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户明确看守要从车间门步行到厂区铁门进出，所有看守日程和增援不得在场内突然出现/消失。",
+  "requestId": "p75-plan-20261007"
+}

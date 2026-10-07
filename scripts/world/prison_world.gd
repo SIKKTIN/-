@@ -169,11 +169,14 @@ func inside_room(point: Vector2, radius: float = RADIUS, allow_exit: bool = true
 		return true
 	return allow_exit and point.y >= exit_area.position.y + radius and point.y <= exit_area.end.y - radius and point.x <= exit_area.end.x - radius
 
+func _staff_exterior(actor, point: Vector2, radius: float = RADIUS) -> bool:
+	return actor != null and actor.has_method("staff_exterior_allowed") and actor.staff_exterior_allowed(point,radius)
+
 func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
 	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
 		return false
-	if not inside_room(point, radius):
+	if not inside_room(point, radius) and not _staff_exterior(ignore_actor,point,radius):
 		return false
 	var index = inspection_index if planning_guard_doors else solid_index
 	if index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)
@@ -329,7 +332,7 @@ func _segment_hits_rect(from: Vector2, to: Vector2, rect: Rect2) -> bool:
 	return false
 
 func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> bool:
-	if not inside_room(from) or not inside_room(to):
+	if (not inside_room(from) and not _staff_exterior(ignore_actor,from)) or (not inside_room(to) and not _staff_exterior(ignore_actor,to)):
 		return false
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed"):
 		if not ignore_actor.movement_allowed(from,RADIUS) or not ignore_actor.movement_allowed(to,RADIUS):

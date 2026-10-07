@@ -82,7 +82,12 @@ func search_zone() -> Rect2:
 	return world.bounds if labor_enforcement() or global_alert() or (game.schedule != null and game.schedule.is_sleep_time()) else world.guard_zone
 
 func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
+	if game.staff_traffic and game.staff_traffic.transiting(self):
+		return world.bounds.grow(-radius).has_point(point) or staff_exterior_allowed(point,radius)
 	return allowed_zone().grow(-radius).has_point(point)
+
+func staff_exterior_allowed(point: Vector2, radius: float = 17.0) -> bool:
+	return game.staff_traffic != null and game.staff_traffic.transiting(self) and game.staff_traffic.exterior_allowed(point,radius)
 
 func schedule_changed(sleep_time: bool) -> void:
 	if global_alert():
@@ -169,6 +174,7 @@ func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing" or game.get_tree().paused:
 		return
+	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
 	if not curfew_alert() and not labor_enforcement() and state in ["chasing", "searching"]:
 		release_target()
 	if not labor_enforcement() and not curfew_alert() and not world.guard_zone.grow(-17).has_point(position):

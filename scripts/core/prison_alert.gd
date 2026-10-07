@@ -43,7 +43,12 @@ func release_at_dawn() -> void:
 		officer.route_index = 0
 		officer.path_timer = 0
 		officer.returning_from_inspection = not game.world.guard_zone.grow(-17).has_point(officer.position)
-	reset()
+	active = false
+	missing_ids.clear()
+	checked_rooms.clear()
+	routes.clear()
+	inspection_day = -1
+	triggered_minute = -1
 	cleared_minute = now
 	if game.workshop:
 		game.workshop.wanted.clear()
@@ -79,19 +84,13 @@ func _raise_alarm() -> void:
 	active = true
 	triggered_minute = game.schedule.absolute_minutes()
 	game.cancel_guard_chat("查寝发现缺员，看守结束交谈！")
-	for index in range(2):
+	while reinforcements.size() < 2:
 		var officer = Guard.new()
-		officer.name = "SearchReinforcement%d" % (index+1)
+		officer.name = "SearchReinforcement%d" % (reinforcements.size()+1)
 		game.add_child(officer)
 		officer.configure(game.world,game)
-		# Deploy at a physical patrol entrance, never at the fugitive.
-		var candidates: Array = [game.world.guard_start+Vector2(0,48*(index+1)),game.world.guard_start+Vector2(48*(index+1),0)]
-		candidates.append_array(game.world.patrol)
-		for point in candidates:
-			if game.world.can_place_circle(point,17,officer,true) and reinforcements.all(func(other): return other.position.distance_to(point) >= 36):
-				officer.position = point
-				break
 		reinforcements.append(officer)
+		game.staff_traffic.register(officer,"reinforcement",game.world.door.get_center()-Vector2(90,0),true)
 		game.gate_watch.attach_visual(officer)
 	var search_points: Array[Vector2] = []
 	for actor in game.actors:
@@ -106,8 +105,7 @@ func _raise_alarm() -> void:
 		officer.release_target()
 		officer.chat_partner_id = -1
 		officer.returning_from_inspection = false
-		officer.escaped = false
-		officer.show()
+		# Presence is controlled by crossing the exterior boundary, not the alarm.
 		officer.route_index = 0
 		var route: Array[Vector2] = []
 		var offset: int = index*search_points.size()/team.size()
@@ -121,7 +119,7 @@ func search_route(officer) -> Array[Vector2]:
 
 func tick(delta: float) -> void:
 	check_rollcall()
-	if active and game.phase == "playing" and not game.get_tree().paused:
+	if game.phase == "playing" and not game.get_tree().paused:
 		for officer in reinforcements:
 			officer.tick(delta)
 

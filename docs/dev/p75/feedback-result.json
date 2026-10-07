@@ -1,0 +1,68 @@
+{
+  "id": "p75-feedback-20261007",
+  "digest": "7bfba556a796743414359298631e24723122c6828e21db33690118090ad64c74",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T14:17:35.650Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p75-delivery-20261007",
+    "taskId": "p75-physical-staff-entrance-exit-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "监工、门岗和增援使用持续身份，从车间门及厂区铁门步行进出；仅地图外退场，重报警原地折返。监工7/13点提前进场，12/18点退岗；临时钥匙开门不覆盖玩家永久解锁。192项自测通过，实际离岗及返岗149FPS，两天四班到岗、无误抓，34路径外部WIP保留。",
+    "evidence": [
+      "docs/dev/p75/report.md",
+      "docs/dev/p75/delivery.json",
+      "docs/dev/p75/preservation.json",
+      "docs/tests/p75-staff-traffic.json",
+      "docs/tests/p75-rules-dialogue-headless.json",
+      "docs/tests/p75-enforcement-headless.json",
+      "docs/tests/p75-lunch-wallet.json",
+      "docs/tests/p75-two-day-cycle.json",
+      "docs/tests/p75-native-departure.json",
+      "docs/tests/p75-live-runtime.json",
+      "docs/tests/p75-depart-workshop.png",
+      "docs/tests/p75-depart-factory.png"
+    ],
+    "at": "2026-10-07T14:17:35.760Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p75-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p75-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p75-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f42840c8fe54b6b1b3bf3dfd7429b885db832926a8904578a0830938331f2120"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f42840c8fe54b6b1b3bf3dfd7429b885db832926a8904578a0830938331f2120",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

@@ -149,6 +149,9 @@ func paint_information(canvas: CanvasItem) -> void:
 				label = "追击！" if actor.state == "chasing" else "交谈中" if actor.state == "talking" else "增援搜查" if actor in game.prison_alert.reinforcements else "警戒搜查"
 			if actor.has_method("is_workshop_overseer"):
 				label = "监工追捕！" if actor.state == "chasing" else "监工 · 查岗"
+			if game.staff_traffic:
+				var commute: String = game.staff_traffic.label(actor)
+				if not commute.is_empty(): label = commute
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"

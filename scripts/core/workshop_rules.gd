@@ -40,7 +40,7 @@ func reset() -> void:
 	overseer.position = point(config.overseer_start)
 	for coords in config.patrol: overseer.route.append(point(coords))
 	game.gate_watch.attach_visual(overseer)
-	overseer.escaped = not on_duty()
+	game.staff_traffic.register(overseer,"overseer",overseer.position)
 	update_gate()
 
 func point(coords: Array) -> Vector2:
@@ -132,16 +132,18 @@ func update_gate() -> void:
 				elif gate.closed and merchant.path.is_empty():
 					var approach: Vector2 = gate.rect.get_center()+Vector2(0,-85 if area.has_point(merchant.position) else 85)
 					merchant.path = game.world.find_path(merchant.position,approach,merchant,true)
+	if game.staff_traffic and game.staff_traffic.workshop_passage(): open = true
 	game.world.set_access_closed(str(config.access_id),not open)
 
 func tick(delta: float) -> void:
 	if config.is_empty() or game.phase != "playing" or game.get_tree().paused: return
 	update_gate()
 	if not on_duty():
-		overseer.escaped = not overseer.global_alert()
-		if not overseer.escaped: overseer.tick(delta)
+		overseer.tick(delta)
 		return
-	overseer.escaped = false
+	if overseer.escaped or game.staff_traffic.transiting(overseer):
+		overseer.tick(delta)
+		return
 	for actor in game.actors:
 		var id: int = actor.actor_id
 		if actor.escaped or actor.confined or game.elapsed < actor.immune_until or game.routines.is_working(id):

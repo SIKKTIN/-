@@ -16,33 +16,23 @@ func on_duty() -> bool:
 	return global_alert() or (game.schedule != null and not game.schedule.is_curfew())
 
 func blocking_gate() -> bool:
-	return on_duty() and not global_alert() and state not in ["talking","chasing"] and position.distance_to(post) < 100
+	return not escaped and not game.staff_traffic.transiting(self) and on_duty() and not global_alert() and state not in ["talking","chasing"] and position.distance_to(post) < 100
 
 func patrol_route() -> Array[Vector2]:
 	if global_alert(): return super.patrol_route()
 	var result: Array[Vector2] = [post]
 	return result
 
-func tick(_delta: float) -> void:
-	if global_alert():
-		escaped = false
-		show()
-		super.tick(_delta)
-		return
-	if labor_enforcement() or state == "chasing" or position.distance_to(post) > 4:
-		escaped = not on_duty()
-		visible = not escaped
-		if not escaped: super.tick(_delta)
+func tick(delta: float) -> void:
+	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
+	if global_alert() or labor_enforcement() or state == "chasing" or position.distance_to(post) > 4:
+		super.tick(delta)
 		return
 	moved_this_frame = false
-	escaped = not on_duty()
-	visible = not escaped
-	if game.phase != "playing" or game.get_tree().paused:
-		return
+	if game.phase != "playing" or game.get_tree().paused: return
 	if state == "talking" and chat_partner_id >= 0:
 		facing = position.direction_to(game.actors[chat_partner_id].position)
 	else:
 		state = "patrol"
 		facing = Vector2.LEFT
-	# Outside labor shifts, door guards only block the gate during daytime.
 	target_id = -1

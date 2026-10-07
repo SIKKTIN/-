@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T13:37:50.601Z
-> 文档内容基准：6b206375462185e80c22a4b1f6a146cf89f068c22fe4fc7528fb84a5637283c4
+> 文档生成时间：2026-10-07T14:18:11.522Z
+> 文档内容基准：2d327861b60fa72af3e83467c014471b9a9d25600b277d5e48fe98dba16a18e6
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -93,6 +93,7 @@
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
 - P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
 - P74 多巡逻NPC性能优化 [p74-many-patrol-performance-20261007] · 已完成
+- P75 看守从厂区正门步行上下岗及增援撤离 [p75-physical-staff-entrance-exit-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1306,6 +1307,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：同地图同数量多巡逻NPC优化前后真实渲染性能对比；定位耗时并显著降低；保持巡逻、碰撞、圆形警戒、视线遮挡、追捕/查房和日程；屏外NPC继续模拟，优化不缩短警戒距离或减少人数；保留外部美术和编辑器WIP。
 - 验收负责人：制作人
+### P75 看守从厂区正门步行上下岗及增援撤离
+- ID：p75-physical-staff-entrance-exit-20261007
+- 当前状态：已完成
+- 内容：用户明确看守要从车间门步行到厂区铁门进出，所有看守日程和增援不得在场内突然出现/消失。
+- 前置任务：p74-many-patrol-performance-20261007
+- 允许修改路径：scripts/core/**、scripts/actors/**、scripts/skills/**、scripts/ui/**、scripts/presentation/**、scripts/world/prison_world.gd、qa/p75*、docs/dev/p75/**、docs/tests/p75*、docs/gamecreator/**、gamecreator/**
+- 接口契约：R04使用现有车间门和厂区铁门，不修改地图/美术WIP。在场人物只通过真实移动进出，上岗/撤退中可见且可寻路，移到地图外才结束表现；全员警戒解除时不删除场内增援。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：监工12/18点不在车间消失，经车间门/厂区铁门步行离场；提前进场回岗；门岗换班、报警增援和7:20撤离同样有连续进出路线；只在地图外退场/复用；门禁钥匙临时开启且玩家永久开门不被回锁；警报及时解除但增援实际走出；角色聊天、昼夜警戒、追捕、日程与FPS回归。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1419,6 +1431,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P72 正常晨行、三次禁闭失败、NPC聊天与晨间警戒解除 [p72-normal-speed-three-custody-npc-dialogue-dawn-20261007] · 已完成
 - P73 独立工资、20分钟午餐与步行返工 [p73-private-wages-lunch-walk-20261007] · 已完成
 - P74 多巡逻NPC性能优化 [p74-many-patrol-performance-20261007] · 已完成
+- P75 看守从厂区正门步行上下岗及增援撤离 [p75-physical-staff-entrance-exit-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac

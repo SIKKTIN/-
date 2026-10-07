@@ -1,0 +1,161 @@
+{
+	"checks": {
+		"afternoon_entry_starts_outside": true,
+		"bounded_physical_step": true,
+		"dawn_alarm_clears_without_deletion": true,
+		"evening_walks_out": true,
+		"factory_relocks_after_staff_exit": true,
+		"gate_guards_walk_out": true,
+		"never_hidden_inside": true,
+		"no_noon_hide_or_teleport": true,
+		"noon_retires_outside_map": true,
+		"overseer_exits_workshop_then_factory": true,
+		"pause_stops_commute": true,
+		"player_cannot_use_staff_exterior": true,
+		"recall_never_repositions": true,
+		"recall_reuses_same_people": true,
+		"reinforcements_finish_departure": true,
+		"reinforcements_spawn_outside": true,
+		"reinforcements_start_walking_out": true,
+		"reinforcements_walk_in": true,
+		"returns_through_both_gates": true,
+		"staff_does_not_relock_player_door": true
+	},
+	"crossings": {
+		"120376527805factory": true,
+		"120426859451factory": true,
+		"120477191107factory": true,
+		"120477191107workshop": true,
+		"120527522941factory": true,
+		"120577854600factory": true
+	},
+	"failed": [],
+	"max_step": 10.7501611709595,
+	"traces": [
+		{
+			"label": "after_noon_exit",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2070.0,
+						750.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2070.0,
+						915.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2960.0,
+						850.0
+					],
+					"role": "overseer",
+					"status": "offsite",
+					"visible": false
+				}
+			]
+		},
+		{
+			"label": "afternoon_arrival",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2070.0,
+						750.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2070.0,
+						915.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						1040.00012207031,
+						420.000030517578
+					],
+					"role": "overseer",
+					"status": "duty",
+					"visible": true
+				}
+			]
+		},
+		{
+			"label": "alarm_arrivals",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2070.0,
+						750.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2069.87915039063,
+						914.016540527344
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						1040.00012207031,
+						420.000030517578
+					],
+					"role": "overseer",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2062.0,
+						850.0
+					],
+					"role": "reinforcement",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2062.0,
+						850.0
+					],
+					"role": "reinforcement",
+					"status": "duty",
+					"visible": true
+				}
+			]
+		}
+	]
+}

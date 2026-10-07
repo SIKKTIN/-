@@ -19,6 +19,7 @@ const RoutinePanel = preload("res://scripts/ui/routine_panel.gd")
 const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
 const PoliceDog = preload("res://scripts/actors/police_dog.gd")
 const FullscreenHUD = preload("res://scripts/ui/fullscreen_hud.gd")
+const StaffTraffic = preload("res://scripts/core/staff_traffic.gd")
 const GateWatch = preload("res://scripts/core/gate_watch.gd")
 const ActorAttributes = preload("res://scripts/core/actor_attributes.gd")
 const DeveloperSettings = preload("res://scripts/ui/developer_settings.gd")
@@ -48,6 +49,7 @@ var developer_settings
 var routines
 var routine_panel
 var fullscreen_ui
+var staff_traffic
 var gate_watch
 var attributes
 var prison_alert
@@ -184,6 +186,7 @@ func _ready() -> void:
 	fullscreen_ui = FullscreenHUD.new()
 	add_child(fullscreen_ui)
 	fullscreen_ui.configure(self)
+	staff_traffic = StaffTraffic.new(self)
 	gate_watch = GateWatch.new(self)
 	gate_watch.reset(room_config)
 	prison_alert = PrisonAlert.new(self)
@@ -298,6 +301,8 @@ func _process(delta: float) -> void:
 		if get_tree().paused:
 			_update_ui()
 			return
+	if staff_traffic:
+		staff_traffic.update_gate()
 	if gate_watch:
 		gate_watch.tick(delta)
 	if mobile_controls:
@@ -462,6 +467,8 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		shop_panel.close()
 	if inventory_panel:
 		inventory_panel.selected_item = ""
+	if staff_traffic:
+		staff_traffic.reset()
 	if prison_alert:
 		prison_alert.reset()
 	if world:

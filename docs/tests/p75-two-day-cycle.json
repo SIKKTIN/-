@@ -1,0 +1,173 @@
+{
+	"afternoon_arrival": [
+		[
+			850.000244140625,
+			330.000091552734
+		],
+		[
+			1228.59216308594,
+			331.760223388672
+		],
+		[
+			850.000183105469,
+			569.999938964844
+		]
+	],
+	"alarm": {
+		"active": false,
+		"checked_rooms": {},
+		"cleared_minute": -1.0,
+		"missing_ids": [],
+		"officer_count": 3,
+		"reinforcements": [],
+		"triggered_minute": -1.0
+	},
+	"arrival": [
+		[
+			849.999755859375,
+			329.999938964844
+		],
+		[
+			1230.00012207031,
+			330.000091552734
+		],
+		[
+			850.000244140625,
+			570.000366210938
+		]
+	],
+	"capture_events": [],
+	"captured": 0,
+	"checks": {
+		"afternoon_arrival": true,
+		"meal_exactly_20": true,
+		"natural_npc_lunch": true,
+		"natural_npc_sleep": true,
+		"natural_npc_work": true,
+		"night_beds": true,
+		"no_missing_alarm": true,
+		"no_timed_teleport": true,
+		"no_workshop_false_arrests": true,
+		"npc_depart_1330": true,
+		"npc_lunch_then_free": true,
+		"npc_wages": true,
+		"staff_never_hidden_inside": true,
+		"staff_no_timed_teleport": true,
+		"supervisor_arrives_for_every_shift": true,
+		"wallet_is_lead_income_only": true
+	},
+	"clock": 75.1999999999143,
+	"departures": {
+		"1": 810.560000000003,
+		"2": 810.560000000003
+	},
+	"failed": [],
+	"held": {},
+	"max_move": 52.0013084411621,
+	"max_staff_move": 43.0005645751953,
+	"morning2": [
+		[
+			967.322021484375,
+			432.204010009766
+		],
+		[
+			1230.00073242188,
+			330.000122070313
+		],
+		[
+			849.999816894531,
+			570.000366210938
+		]
+	],
+	"positions": [
+		[
+			320.000030517578,
+			280.000061035156
+		],
+		[
+			320.0,
+			570.0
+		],
+		[
+			320.000061035156,
+			859.999938964844
+		]
+	],
+	"routines": {
+		"day": 2,
+		"manual": [],
+		"meal_minutes": [
+			20.0,
+			20.0,
+			20.0
+		],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"preparing_afternoon": false,
+		"slot": -1,
+		"states": [
+			"",
+			"",
+			""
+		],
+		"work_earned": [
+			48,
+			52,
+			52
+		],
+		"work_minutes": [
+			58.6732000000216,
+			5.81760000000493,
+			5.62800000000335
+		],
+		"work_rounds": [
+			12,
+			13,
+			13
+		],
+		"working": []
+	},
+	"shift_arrivals": [
+		{
+			"onsite": true,
+			"shift": "1:480",
+			"status": "duty"
+		},
+		{
+			"onsite": true,
+			"shift": "1:840",
+			"status": "duty"
+		},
+		{
+			"onsite": true,
+			"shift": "2:480",
+			"status": "duty"
+		},
+		{
+			"onsite": true,
+			"shift": "2:840",
+			"status": "duty"
+		}
+	]
+}
