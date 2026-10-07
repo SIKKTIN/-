@@ -98,7 +98,7 @@ func configure(escape_game) -> void:
 	if profile.perspective:
 		game.world.presentation_layers = true
 		game.world.art_textures.exit_v01 = load("res://art/props/exit_v01.png")
-		for kind in ["ground","fixture_shadows","information"]:
+		for kind in ["ground_static","ground","fixture_shadows","information"]:
 			var layer = SceneLayers.new()
 			layer.name = "Scene_%s" % kind
 			game.add_child(layer)
@@ -259,7 +259,7 @@ func _refresh_volumes() -> void:
 	_add_volume("door")
 	_add_volume("crate")
 	for layer in scene_layers:
-		if layer.kind == "fixture_shadows":
+		if layer.kind in ["ground_static","fixture_shadows"]:
 			layer.queue_redraw()
 
 func _add_volume(kind: String, index: int = 0) -> void:
@@ -280,7 +280,12 @@ func _tick_scene() -> void:
 	for building in roof_buildings:
 		building.tick_information()
 	for layer in scene_layers:
-		if layer.kind == "fixture_shadows":
+		if layer.kind == "ground_static":
+			var key := [game.world.obstacle_revision,game.world.fixtures_revision,game.world.crate,game.world.door_open]
+			if layer.ground_key != key:
+				layer.ground_key = key
+				layer.queue_redraw()
+		elif layer.kind == "fixture_shadows":
 			if layer.fixtures_revision != game.world.fixtures_revision:
 				layer.fixtures_revision = game.world.fixtures_revision
 				layer.queue_redraw()
@@ -338,7 +343,9 @@ func update_cards() -> void:
 		card.icon = null if game.fullscreen_ui else skill_icons[actor.skill_id]
 		if game.fullscreen_ui:
 			card.text = ""
-		card.add_theme_stylebox_override("normal",card.get_meta("selected_style") if actor.selected and not actor.escaped else card.get_meta("base_style"))
+		var style = card.get_meta("selected_style") if actor.selected and not actor.escaped else card.get_meta("base_style")
+		if card.get_theme_stylebox("normal") != style:
+			card.add_theme_stylebox_override("normal",style)
 		var symbol: TextureRect = card_symbols[index]
 		symbol.visible = not game.fullscreen_ui and (actor.escaped or actor.selected or visuals[index].flash_time > 0)
 		symbol.texture = fx.escaped if actor.escaped else (fx[visuals[index].flash_state] if visuals[index].flash_time > 0 else fx.selected)

@@ -1,0 +1,35 @@
+{
+  "scheduleRevision": "2b9999918dad4062b338809b721b16999f11c304c985e5aeb6a01b76ccfe3133",
+  "creates": [
+    {
+      "task": {
+        "id": "p67-runtime-fps-optimization-20261007",
+        "title": "P67 R04运行时帧率诊断与优化",
+        "description": "用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p66-approved-full-wall-integration-20261007"
+        ],
+        "acceptance": "同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p67*",
+            "docs/dev/p67/**",
+            "docs/tests/p67*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求优化当前13FPS，创建制作人本人明确程序任务。",
+  "requestId": "p67-fps-plan-20261007"
+}

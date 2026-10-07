@@ -1,0 +1,16 @@
+{
+  "taskId": "p67-runtime-fps-optimization-20261007",
+  "revision": "3a671fc720d385fa0ad4c1fe8a49cede7b3d54b1aaabda9f776a92e51c1f01c8",
+  "feedbackId": "p67-fps-delivery-20261007",
+  "status": "待验收",
+  "summary": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+  "evidence": [
+    "docs/dev/p67/report.md",
+    "docs/dev/p67/delivery.json",
+    "docs/tests/p67-reference.json",
+    "docs/tests/p67-final.json",
+    "docs/tests/p67-render-regression.json",
+    "docs/tests/p67-access-access-headless-1200.json"
+  ],
+  "requestId": "p67-fps-delivery-20261007"
+}

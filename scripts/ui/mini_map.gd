@@ -5,6 +5,8 @@ var game
 var pointer_id: int = -2
 var locate_button: Button
 var stop_button: Button
+var _painting := false
+var _paint_transform := Transform2D.IDENTITY
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -43,6 +45,7 @@ func map_rect() -> Rect2:
 	return Rect2(map_area().get_center()-fitted/2,fitted)
 
 func to_map(point: Vector2) -> Vector2:
+	if _painting: return _paint_transform*point
 	var rect := map_rect()
 	var bounds: Rect2 = game.world.bounds
 	return rect.position + (point-bounds.position)/bounds.size*rect.size
@@ -107,6 +110,9 @@ func _draw() -> void:
 		draw_string(game.presentation.font,Vector2(10,22),"小地图 · 点击 / 拖动",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
 	draw_rect(map_area(),Color("465557"))
 	var rect := map_rect()
+	var scale_factor: Vector2 = rect.size/game.world.bounds.size
+	_paint_transform = Transform2D(Vector2(scale_factor.x,0),Vector2(0,scale_factor.y),rect.position-game.world.bounds.position*scale_factor)
+	_painting = true
 	draw_rect(rect,Color("91a190"))
 	draw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color("adab89"))
 	for zone in game.room_config.get("zones",[]):
@@ -148,3 +154,4 @@ func _draw() -> void:
 			draw_circle(point,3.5,Color("248a82"))
 	draw_rect(frame_rect(),Color("ffffff"),false,2)
 	draw_rect(rect,Color("536052"),false,1)
+	_painting = false

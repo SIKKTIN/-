@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "235ca54aabce6ff9b15bd38ba8b1af4bf4669a11352cd8335c45c5121e8ff79d",
+  "snapshotId": "f92d093c5b1b38104e5054f963b4ebd6c6c4d3a9230a811d7f39785cce6bc4dc",
   "tasks": [
     {
       "id": "1a9bae45-1b19-4734-97f0-9de69fbc61e3",
@@ -5068,6 +5068,55 @@
           "at": "2026-10-07T03:11:47.965Z"
         }
       ]
+    },
+    {
+      "id": "p67-runtime-fps-optimization-20261007",
+      "title": "P67 R04运行时帧率诊断与优化",
+      "description": "用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。",
+      "kind": "程序",
+      "owner": "制作人",
+      "status": "已完成",
+      "priority": "高",
+      "start": "",
+      "end": "",
+      "actualStart": "2026-10-07",
+      "actualEnd": "2026-10-07",
+      "milestoneId": "",
+      "acceptance": "同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。",
+      "result": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。\n\n验收通过：制作人独立开发自验收：同图同机原生性能实测显著提升，25项绘制/缓存/视野等价回归与73项规则回归通过。未降画质，既有修改保护，接受交付；数据为电脑自动化场景，手机性能未实测。",
+      "dependencyIds": [
+        "p66-approved-full-wall-integration-20261007"
+      ],
+      "references": [],
+      "selfReviewRole": "producer",
+      "workScope": {
+        "allowedPaths": [
+          "scripts/**",
+          "qa/p67*",
+          "docs/dev/p67/**",
+          "docs/tests/p67*",
+          "docs/gamecreator/**",
+          "gamecreator/**"
+        ],
+        "entry": "res://scenes/main.tscn",
+        "interfaceContract": "制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。"
+      },
+      "assignment": {
+        "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "collaboratorIds": [],
+        "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+      },
+      "positionIds": [
+        "producer"
+      ],
+      "dispatchHistory": [
+        {
+          "id": "p67-fps-plan-20261007",
+          "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "at": "2026-10-07T07:45:58.271Z"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -5237,7 +5286,8 @@
             "p63-natural-junction-integration-20261007",
             "p64-same-source-wall-integration-20261007",
             "p65-approved-rounded-wall-integration-20261007",
-            "p66-approved-full-wall-integration-20261007"
+            "p66-approved-full-wall-integration-20261007",
+            "p67-runtime-fps-optimization-20261007"
           ],
           "scope": "project",
           "expiresAt": "",
@@ -6623,6 +6673,18 @@
       "createdTaskIds": [
         "a33-approved-full-wall-20261007",
         "p66-approved-full-wall-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    },
+    {
+      "id": "p67-fps-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T07:45:58.271Z",
+      "reason": "用户要求优化当前13FPS，创建制作人本人明确程序任务。",
+      "createdTaskIds": [
+        "p67-runtime-fps-optimization-20261007"
       ],
       "dependencyChanges": [],
       "milestoneChanges": []
@@ -21735,6 +21797,144 @@
         "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
         "at": "2026-10-07T03:42:33.152Z",
         "note": "制作人程序本人自验收，执行证据与结论分开。A33已独立accepted，59程序hash核对。135原生+73规则过、最终日志无ERROR，完整两窗口左右game/editor和overview亲眼看全墙替换，短T全body/foot取代旧底层，H/V/end同源；门/牌独立。真实H/V/T卡点击选放尺寸和drag/undo/层次回归过，真实T下口对V参考RGB0、旧21art保持。仅architecture和门lintel改变，没有物理/规则/NPC布局修改。程序加入fullH bounds和patch clip保持缩短邻接片UV，camera.world_view_rect按zoom反映真实可见地板。既有project.godot修改不纳入，未称用户重新审actual。",
+        "mode": "producer-self",
+        "evidenceVersion": 1
+      }
+    },
+    {
+      "id": "p67-fps-start-20261007",
+      "taskId": "p67-runtime-fps-optimization-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手，冻结当前未提交地图/共享代码并开始原生基准诊断。",
+      "evidence": [
+        "docs/dev/p67/baseline-state.json"
+      ],
+      "at": "2026-10-07T07:48:15.940Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "taskSnapshot": {
+        "id": "p67-runtime-fps-optimization-20261007",
+        "title": "P67 R04运行时帧率诊断与优化",
+        "description": "用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "进行中",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。",
+        "result": "制作人已接手，冻结当前未提交地图/共享代码并开始原生基准诊断。",
+        "dependencyIds": [
+          "p66-approved-full-wall-integration-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p67*",
+            "docs/dev/p67/**",
+            "docs/tests/p67*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p67-fps-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T07:45:58.271Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p67-fps-delivery-20261007",
+      "taskId": "p67-runtime-fps-optimization-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+      "evidence": [
+        "docs/dev/p67/report.md",
+        "docs/dev/p67/delivery.json",
+        "docs/tests/p67-reference.json",
+        "docs/tests/p67-final.json",
+        "docs/tests/p67-render-regression.json",
+        "docs/tests/p67-access-access-headless-1200.json"
+      ],
+      "at": "2026-10-07T08:10:03.229Z",
+      "evidenceVersion": 1,
+      "state": "accepted",
+      "taskSnapshot": {
+        "id": "p67-runtime-fps-optimization-20261007",
+        "title": "P67 R04运行时帧率诊断与优化",
+        "description": "用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。",
+        "kind": "程序",
+        "owner": "制作人",
+        "status": "待验收",
+        "priority": "高",
+        "start": "",
+        "end": "",
+        "actualStart": "2026-10-07",
+        "actualEnd": "",
+        "milestoneId": "",
+        "acceptance": "同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。",
+        "result": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+        "dependencyIds": [
+          "p66-approved-full-wall-integration-20261007"
+        ],
+        "references": [],
+        "selfReviewRole": "producer",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p67*",
+            "docs/dev/p67/**",
+            "docs/tests/p67*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。"
+        },
+        "assignment": {
+          "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+          "collaboratorIds": [],
+          "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+        },
+        "positionIds": [
+          "producer"
+        ],
+        "dispatchHistory": [
+          {
+            "id": "p67-fps-plan-20261007",
+            "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "at": "2026-10-07T07:45:58.271Z"
+          }
+        ]
+      },
+      "review": {
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T08:11:43.317Z",
+        "note": "制作人独立开发自验收：同图同机原生性能实测显著提升，25项绘制/缓存/视野等价回归与73项规则回归通过。未降画质，既有修改保护，接受交付；数据为电脑自动化场景，手机性能未实测。",
         "mode": "producer-self",
         "evidenceVersion": 1
       }

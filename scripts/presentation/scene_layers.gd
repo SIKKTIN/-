@@ -6,12 +6,13 @@ var game
 var presentation
 var kind: String
 var fixtures_revision: int = -1
+var ground_key: Array = []
 
 func configure(owner_game, owner_presentation, type: String) -> void:
 	game = owner_game
 	presentation = owner_presentation
 	kind = type
-	z_index = 10 if kind == "ground" else 11 if kind == "fixture_shadows" else 2000
+	z_index = 10 if kind in ["ground_static","ground"] else 11 if kind == "fixture_shadows" else 2000
 	if kind == "information":
 		var unshaded := CanvasItemMaterial.new()
 		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
@@ -37,7 +38,7 @@ func _draw() -> void:
 			if not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall"):
 				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
 		return
-	if kind == "ground":
+	if kind == "ground_static":
 		for zone in game.room_config.get("zones",[]):
 			var values: Array = zone.rect
 			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
@@ -54,6 +55,8 @@ func _draw() -> void:
 					SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)
 			else:
 				draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
+		return
+	if kind == "ground":
 		for gate in world.dorm_doors:
 			var r: Rect2 = gate.rect
 			if gate.closed:
@@ -101,6 +104,8 @@ func _draw() -> void:
 		var officers: Array = game.prison_alert.officers() if game.prison_alert != null and game.prison_alert.active else [game.guard]
 		for officer in officers:
 			if world.is_under_roof(officer.position): continue
+			var radius: float = officer.view_radius()
+			if not Rect2(officer.position-Vector2.ONE*radius,Vector2.ONE*radius*2).intersects(view): continue
 			var edge_color := Color("eb977b") if officer.state == "chasing" or officer.curfew_alert() else Color("e1c787")
 			edge_color.a = 0.48
 			draw_set_transform(officer.position)

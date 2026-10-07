@@ -420,7 +420,8 @@ func refresh_inventory() -> void:
 		slot.disabled = game.phase != "playing" or game.actors[game.selected_actor_id].escaped or (game.world_input_blocked() and not shop_open)
 		slot.theme = theme
 		slot.theme_type_variation = "InventorySlot"
-		slot.add_theme_constant_override("icon_max_width",38)
+		if slot.get_theme_constant("icon_max_width") != 38:
+			slot.add_theme_constant_override("icon_max_width",38)
 	game.mini_map.stop_button.position = Vector2(width-62,8)
 	game.mini_map.stop_button.size = Vector2(48,48)
 	game.mini_map.stop_button.disabled = game.world_input_blocked() or game.actors[game.selected_actor_id].escaped

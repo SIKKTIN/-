@@ -4,6 +4,9 @@ const VIEW_RADIUS := 210.0
 const DAY_VIEW_RADIUS := 210.0
 const NIGHT_VIEW_RADIUS := 155.0
 const HALF_FOV := PI / 3.0
+const VisibilityGeometry = preload("res://scripts/presentation/visibility_geometry.gd")
+var _view_key: Array = []
+var _view_polygon := PackedVector2Array()
 var world
 var game
 var state: String = "patrol"
@@ -34,6 +37,7 @@ func configure(prison_world, escape_game) -> void:
 	reset_guard()
 
 func reset_guard() -> void:
+	_view_key.clear()
 	position = world.guard_start
 	facing = Vector2.UP
 	state = "patrol"
@@ -247,9 +251,20 @@ func stop_chat() -> void:
 	queue_redraw()
 
 func view_polygon() -> PackedVector2Array:
+	var radius := view_radius()
+	var zone := search_zone()
+	var half := half_fov()
+	var key := [position,facing,radius,half,zone,world.obstacle_revision,world.crate]
+	if key == _view_key: return _view_polygon
+	_view_key = key
+	# Distant obstacles cannot intersect these rays. Keep every original angle
+	# and its exact clipping, while testing only the nearby sight blockers.
+	var blockers: Array[Rect2] = []
+	for rect in world.sight_rects():
+		if position.distance_squared_to(position.clamp(rect.position,rect.end)) <= (radius+0.001)*(radius+0.001):
+			blockers.append(rect)
 	var angles: Array[float] = []
 	var base_angle := facing.angle()
-	var half := half_fov()
 	for index in range(40 if curfew_alert() else 41):
 		angles.append(base_angle-half+2*half*index/40.0)
 	for rect in world.solid_rects():
@@ -262,14 +277,22 @@ func view_polygon() -> PackedVector2Array:
 	var polygon := PackedVector2Array() if curfew_alert() else PackedVector2Array([Vector2.ZERO])
 	for angle in angles:
 		var direction := Vector2.from_angle(angle)
-		var distance := view_radius()
-		var zone: Rect2 = search_zone()
+		var distance := radius
 		if absf(direction.x) > 0.00001:
 			distance = minf(distance,((zone.end.x if direction.x > 0 else zone.position.x)-position.x)/direction.x)
 		if absf(direction.y) > 0.00001:
 			distance = minf(distance,((zone.end.y if direction.y > 0 else zone.position.y)-position.y)/direction.y)
-		polygon.append(world.clip_ray(position,direction,maxf(0,distance))-position)
-	return polygon
+		# Match the world-space float rounding used by line-of-sight rays,
+		# including nearly parallel rays originating on a wall edge.
+		var endpoint := position+direction*maxf(0,distance)
+		var delta := endpoint-position
+		var nearest := 1.0
+		for rect in blockers:
+			var hit := VisibilityGeometry.fraction(position,delta,rect)
+			if hit >= 0: nearest = minf(nearest,hit)
+		polygon.append(position.lerp(endpoint,nearest)-position)
+	_view_polygon = polygon
+	return _view_polygon
 
 func _draw() -> void:
 	if not world:

@@ -1,0 +1,102 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"label": "reference",
+	"map_sha256": "1866813692bc8154632c63599c7a4b968cf786a4adbedf23497922cecf3e61f3",
+	"microbench": {
+		"view_polygon_ms": 32.9459333333333,
+		"view_polygon_uncached_ms": 30.6204
+	},
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"draw_calls": 1163.52542372881,
+			"engine_fps": 12.0,
+			"fps": 11.6925246519046,
+			"frames": 59,
+			"mean_ms": 85.5247288135593,
+			"name": "day_stationary",
+			"p50_ms": 83.722,
+			"p95_ms": 100.434,
+			"process": {
+				"fps": 10.2911972761468,
+				"frames": 59,
+				"mean_ms": 97.1704237288136,
+				"p50_ms": 100.15,
+				"p95_ms": 101.751
+			}
+		},
+		{
+			"draw_calls": 1122.0,
+			"engine_fps": 27.0,
+			"fps": 27.6504450722243,
+			"frames": 83,
+			"mean_ms": 36.1657831325301,
+			"name": "day_without_information",
+			"p50_ms": 35.787,
+			"p95_ms": 40.35,
+			"process": {
+				"fps": 21.4909599442167,
+				"frames": 83,
+				"mean_ms": 46.5311927710844,
+				"p50_ms": 43.297,
+				"p95_ms": 55.958
+			}
+		},
+		{
+			"draw_calls": 1151.7125,
+			"engine_fps": 17.0,
+			"fps": 15.9124528668173,
+			"frames": 80,
+			"mean_ms": 62.8438625,
+			"name": "day_moving",
+			"p50_ms": 62.106,
+			"p95_ms": 73.882,
+			"process": {
+				"fps": 4.47816803519482,
+				"frames": 80,
+				"mean_ms": 223.3056,
+				"p50_ms": 73.721,
+				"p95_ms": 991.652
+			}
+		},
+		{
+			"draw_calls": 1221.73076923077,
+			"engine_fps": 6.0,
+			"fps": 5.02298207490889,
+			"frames": 26,
+			"mean_ms": 199.084923076923,
+			"name": "night_inspection",
+			"p50_ms": 188.001,
+			"p95_ms": 251.026,
+			"process": {
+				"fps": 4.25827206198472,
+				"frames": 26,
+				"mean_ms": 234.837038461538,
+				"p50_ms": 239.605,
+				"p95_ms": 255.843
+			}
+		},
+		{
+			"draw_calls": 1267.0,
+			"engine_fps": 2.0,
+			"fps": 1.35948094240773,
+			"frames": 7,
+			"mean_ms": 735.574857142857,
+			"name": "night_full_alert",
+			"p50_ms": 734.757,
+			"p95_ms": 756.49,
+			"process": {
+				"fps": 1.34825608853189,
+				"frames": 7,
+				"mean_ms": 741.698857142857,
+				"p50_ms": 744.519,
+				"p95_ms": 751.674
+			}
+		}
+	],
+	"viewport": [
+		1200,
+		720
+	],
+	"vsync": 1
+}

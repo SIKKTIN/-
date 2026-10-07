@@ -8,6 +8,7 @@ var last_actor: int = -1
 var use_button: Button
 var drop_button: Button
 var transfer_buttons: Array[Button] = []
+var _display_key: Array = []
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -72,6 +73,9 @@ func refresh() -> void:
 	var bag: Array = game.inventory.items(id)
 	if not bag.has(selected_item):
 		selected_item = ""
+	var key := [id,bag.duplicate(),selected_item,game.inventory.wallet,game.inventory.capacity(id),game.phase,game.actors.map(func(a): return [a.escaped,game.inventory.available(a.actor_id)]),game.cards[0].theme,game.fullscreen_ui != null]
+	if key == _display_key: return
+	_display_key = key
 	label.text = "背包 %d/%d · 钱 %d" % [bag.size(), game.inventory.capacity(id), game.inventory.wallet]
 	label.add_theme_color_override("font_color", Color("a75d47") if bag.size() >= game.inventory.capacity(id) else Color("536052"))
 	for index in range(slots.size()):

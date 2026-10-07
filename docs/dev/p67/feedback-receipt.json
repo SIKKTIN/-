@@ -1,0 +1,62 @@
+{
+  "id": "p67-fps-delivery-20261007",
+  "digest": "98f5dad84eb71e19435b151b1ae8e32cfca1db803692fd10d39cee54eac70f0f",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T08:10:03.058Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p67-fps-delivery-20261007",
+    "taskId": "p67-runtime-fps-optimization-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+    "evidence": [
+      "docs/dev/p67/report.md",
+      "docs/dev/p67/delivery.json",
+      "docs/tests/p67-reference.json",
+      "docs/tests/p67-final.json",
+      "docs/tests/p67-render-regression.json",
+      "docs/tests/p67-access-access-headless-1200.json"
+    ],
+    "at": "2026-10-07T08:10:03.229Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p67-fps-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p67-fps-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p67-fps-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

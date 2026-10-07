@@ -12,6 +12,8 @@ var definitions: Dictionary = {}
 var elevation: float = 20.0
 var _wall_geometry_valid := false
 var _wall_bounds := Rect2()
+var _visual_asset := ""
+var _fixture_revision := -1
 var lintel_visual: Sprite2D
 
 func painted_material(shader_path := "res://art/architecture/v24/opaque_core.gdshader") -> ShaderMaterial:
@@ -81,11 +83,14 @@ func tick_visual() -> void:
 	var next_footprint: Rect2 = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate
 	# Godot retains canvas commands across camera transforms and light updates.
 	# Static wall polygons only need rebuilding on configure/geometry changes.
-	if kind == "wall" and _wall_geometry_valid and next_footprint == footprint and _wall_bounds == world.bounds:
+	var next_asset := "" if kind == "wall" else prop_id()
+	if _wall_geometry_valid and next_footprint == footprint and _wall_bounds == world.bounds and _visual_asset == next_asset and (kind == "wall" or _fixture_revision == world.fixtures_revision):
 		return
 	footprint = next_footprint
-	_wall_geometry_valid = kind == "wall"
+	_wall_geometry_valid = true
 	_wall_bounds = world.bounds
+	_visual_asset = next_asset
+	_fixture_revision = world.fixtures_revision
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
 	visible = not world.wall_is_roofed(wall_index) if kind == "wall" else not world.fixtures[wall_index].get("hidden",false) if kind == "fixture" else true

@@ -1,0 +1,51 @@
+{
+  "id": "p67-fps-start-20261007",
+  "digest": "faf4579f1c0a1768397219ecc98da46483be14f00dce2a38f0f1eabb4c31cdd8",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T07:48:15.759Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p67-fps-start-20261007",
+    "taskId": "p67-runtime-fps-optimization-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "制作人已接手，冻结当前未提交地图/共享代码并开始原生基准诊断。",
+    "evidence": [
+      "docs/dev/p67/baseline-state.json"
+    ],
+    "at": "2026-10-07T07:48:15.940Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p67-fps-start-20261007",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "3a671fc720d385fa0ad4c1fe8a49cede7b3d54b1aaabda9f776a92e51c1f01c8"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "3a671fc720d385fa0ad4c1fe8a49cede7b3d54b1aaabda9f776a92e51c1f01c8",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

@@ -1,0 +1,102 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"label": "final",
+	"map_sha256": "1866813692bc8154632c63599c7a4b968cf786a4adbedf23497922cecf3e61f3",
+	"microbench": {
+		"view_polygon_ms": 0.0678,
+		"view_polygon_uncached_ms": 0.855066666666667
+	},
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"draw_calls": 1163.46993318486,
+			"engine_fps": 93.0,
+			"fps": 89.6982104707578,
+			"frames": 449,
+			"mean_ms": 11.1484944320713,
+			"name": "day_stationary",
+			"p50_ms": 10.722,
+			"p95_ms": 14.015,
+			"process": {
+				"fps": 40.125495391243,
+				"frames": 449,
+				"mean_ms": 24.9218106904231,
+				"p50_ms": 16.531,
+				"p95_ms": 87.615
+			}
+		},
+		{
+			"draw_calls": 1122.0,
+			"engine_fps": 112.0,
+			"fps": 108.822945068374,
+			"frames": 327,
+			"mean_ms": 9.1892385321101,
+			"name": "day_without_information",
+			"p50_ms": 8.487,
+			"p95_ms": 12.042,
+			"process": {
+				"fps": 94.3269412167187,
+				"frames": 327,
+				"mean_ms": 10.6014250764527,
+				"p50_ms": 10.623,
+				"p95_ms": 12.463
+			}
+		},
+		{
+			"draw_calls": 1148.60774410774,
+			"engine_fps": 123.0,
+			"fps": 118.756416395183,
+			"frames": 594,
+			"mean_ms": 8.42059764309765,
+			"name": "day_moving",
+			"p50_ms": 8.327,
+			"p95_ms": 9.893,
+			"process": {
+				"fps": 80.4078002063793,
+				"frames": 594,
+				"mean_ms": 12.4366043771045,
+				"p50_ms": 11.402,
+				"p95_ms": 23.777
+			}
+		},
+		{
+			"draw_calls": 1232.28817204301,
+			"engine_fps": 82.0,
+			"fps": 92.7306915256712,
+			"frames": 465,
+			"mean_ms": 10.7839161290323,
+			"name": "night_inspection",
+			"p50_ms": 10.898,
+			"p95_ms": 13.711,
+			"process": {
+				"fps": 38.2171698484447,
+				"frames": 465,
+				"mean_ms": 26.1662494623655,
+				"p50_ms": 17.94,
+				"p95_ms": 81.66
+			}
+		},
+		{
+			"draw_calls": 1271.79359430605,
+			"engine_fps": 53.0,
+			"fps": 56.112643836076,
+			"frames": 281,
+			"mean_ms": 17.8212953736655,
+			"name": "night_full_alert",
+			"p50_ms": 17.712,
+			"p95_ms": 20.27,
+			"process": {
+				"fps": 35.9070694374996,
+				"frames": 281,
+				"mean_ms": 27.849669039146,
+				"p50_ms": 31.876,
+				"p95_ms": 43.433
+			}
+		}
+	],
+	"viewport": [
+		1200,
+		720
+	],
+	"vsync": 1
+}

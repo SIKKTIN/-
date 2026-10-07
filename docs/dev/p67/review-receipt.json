@@ -1,0 +1,58 @@
+{
+  "id": "p67-fps-review-20261007",
+  "digest": "ba3c6594f1da25c11c7e8e716b79b0bd57b00926b6d0d5498ce7665efa81a6b2",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T08:11:43.134Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p67-fps-delivery-20261007",
+    "taskId": "p67-runtime-fps-optimization-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+    "evidence": [
+      "docs/dev/p67/report.md",
+      "docs/dev/p67/delivery.json",
+      "docs/tests/p67-reference.json",
+      "docs/tests/p67-final.json",
+      "docs/tests/p67-render-regression.json",
+      "docs/tests/p67-access-access-headless-1200.json"
+    ],
+    "at": "2026-10-07T08:10:03.229Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T08:11:43.317Z",
+      "note": "制作人独立开发自验收：同图同机原生性能实测显著提升，25项绘制/缓存/视野等价回归与73项规则回归通过。未降画质，既有修改保护，接受交付；数据为电脑自动化场景，手机性能未实测。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p67-fps-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "a0a2f4678f168cacbfaf0270d7d150cbbcd18f56c184c0d1c16c910c964bc54a"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "a0a2f4678f168cacbfaf0270d7d150cbbcd18f56c184c0d1c16c910c964bc54a",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

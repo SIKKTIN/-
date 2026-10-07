@@ -304,7 +304,7 @@ func _process(delta: float) -> void:
 		map_camera.tick(delta)
 	if phase == "playing" and elapsed >= status_until:
 		status_text = "逃脱 %d / 3 · 锁门%s · 抓回 %d 次 · 看守%s" % [actors.filter(func(a): return a.escaped).size(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
-	_update_ui()
+	_update_ui(false)
 	if presentation:
 		presentation.tick(delta)
 	queue_redraw()
@@ -475,7 +475,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	_update_ui()
 	queue_redraw()
 
-func _update_ui() -> void:
+func _update_ui(refresh_hud := true) -> void:
 	if cards.is_empty():
 		return
 	for index in range(actors.size()):
@@ -504,7 +504,7 @@ func _update_ui() -> void:
 		shop_panel.refresh()
 	if routine_panel:
 		routine_panel.refresh()
-	if fullscreen_ui:
+	if fullscreen_ui and refresh_hud:
 		fullscreen_ui.refresh()
 	if items_view:
 		items_view.queue_redraw()

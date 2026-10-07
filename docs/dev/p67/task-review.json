@@ -1,0 +1,204 @@
+{
+  "task": {
+    "id": "p67-runtime-fps-optimization-20261007",
+    "title": "P67 R04运行时帧率诊断与优化",
+    "description": "用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。",
+    "result": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+    "dependencyIds": [
+      "p66-approved-full-wall-integration-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "qa/p67*",
+        "docs/dev/p67/**",
+        "docs/tests/p67*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p67-fps-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T07:45:58.271Z"
+      }
+    ]
+  },
+  "revision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90",
+  "scheduleRevision": "a8d7e13096a97b24ad2ad7dfd5b33e2952297b3a9cefb5e1f3e1d7f729b2c09b",
+  "planChanges": [
+    {
+      "id": "p67-fps-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T07:45:58.271Z",
+      "reason": "用户要求优化当前13FPS，创建制作人本人明确程序任务。",
+      "createdTaskIds": [
+        "p67-runtime-fps-optimization-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p66-approved-full-wall-integration-20261007",
+      "title": "P66 完整同源厨房墙体接入",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p67-fps-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p67-fps-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p67-fps-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90"
+  },
+  "feedback": [
+    {
+      "id": "p67-fps-start-20261007",
+      "taskId": "p67-runtime-fps-optimization-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作人已接手，冻结当前未提交地图/共享代码并开始原生基准诊断。",
+      "evidence": [
+        "docs/dev/p67/baseline-state.json"
+      ],
+      "at": "2026-10-07T07:48:15.940Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p67-fps-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p67-fps-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p67-fps-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p67-fps-delivery-20261007",
+      "taskId": "p67-runtime-fps-optimization-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "完成视野精确局部裁剪/缓存、静态墙家具阴影命令保留、HUD与背包变化刷新、小地图变换缓存。同图原生白天11.7→89.7FPS，移动15.9→118.8，查房5.0→92.7，全员警戒1.4→56.1；原生25/25和规则73/73通过；保留10个已有工作区编辑，不改project.godot/地图/美术。详见报告，非手机实测。",
+      "evidence": [
+        "docs/dev/p67/report.md",
+        "docs/dev/p67/delivery.json",
+        "docs/tests/p67-reference.json",
+        "docs/tests/p67-final.json",
+        "docs/tests/p67-render-regression.json",
+        "docs/tests/p67-access-access-headless-1200.json"
+      ],
+      "at": "2026-10-07T08:10:03.229Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p67-fps-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p67-fps-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p67-fps-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "54bc06f1b9ba8e66263b307e3c9a59cc27d3b1bd211baef1166930233a86ff90",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

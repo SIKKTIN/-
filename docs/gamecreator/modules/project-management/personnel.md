@@ -1,7 +1,7 @@
 # 这次怎么逃
 
-> 文档生成时间：2026-10-07T03:42:35.179Z
-> 文档内容基准：35354853692bbcae33bd56cb5d90dabedcd0b80c946aad964fd4e197999557b6
+> 文档生成时间：2026-10-07T08:11:45.582Z
+> 文档内容基准：d0ad7b9d407e304e62e0fb960574261a7c8119affddac146e78d1a864dc03c34
 
 > 项目版本：v0.1.0
 > 由 GameCreator 同步，供开发查阅。
@@ -84,6 +84,7 @@
 - P64 T与整条纵墙同源连续绘制 [p64-same-source-wall-integration-20261007] · 已完成
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
+- P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
 
 ### 主美
 - 岗位 ID：art-director
@@ -1198,6 +1199,17 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - 自验收约定：制作人开发；先提交证据，再单独填写结论
 - 验收要求：完整厨房H/T/V/end同源body/foot，无旧墙身叠加残留；独立牌与门开闭/可见层正确；1200/960游戏/editor完整左右和overview、新建图标选放/旧ID兼容，门禁禁闭救援规则不变，A33独立通过后P66单独自验收发布。
 - 验收负责人：制作人
+### P67 R04运行时帧率诊断与优化
+- ID：p67-runtime-fps-optimization-20261007
+- 当前状态：已完成
+- 内容：用户报告R04仅13FPS；以当前未提交地图版本为基线，测量静止、移动镜头、夜间搜索，减少实际运行瓶颈而不降低美术质量或修改规则。
+- 前置任务：p66-approved-full-wall-integration-20261007
+- 允许修改路径：scripts/**、qa/p67*、docs/dev/p67/**、docs/tests/p67*、docs/gamecreator/**、gamecreator/**
+- 接口契约：制作人独立诊断和优化核心循环、显示缓存/失效、寻路等，使用真实原生帧测；不接管A34美术，不修改art、地图数据或project.godot。预先冻结未提交状态，代码缓存必须在状态改变时正确更新。
+- 交付入口：res://scenes/main.tscn
+- 自验收约定：制作人开发；先提交证据，再单独填写结论
+- 验收要求：同机器同地图同原生渲染前后量化对比；改善正常及移动帧耗时，无墙体闪烁、门禁/禁闭/AI/工资/UI回归；保留其他未提交修改和project.godot，提交基准、验证与局限。
+- 验收负责人：制作人
 
 只提交获准任务的反馈。私有凭证由管理者单独交付；提交方式见 ../README.md。
 历史成员任务：
@@ -1302,6 +1314,7 @@ gc_project_read 的 contentSnapshotId 是当前内容摘要；snapshotId 只有�
 - P65 批准C圆弧同高墙集成 [p65-approved-rounded-wall-integration-20261007] · 已完成
 - A33 批准完整墙体母图与同源建筑件 [a33-approved-full-wall-20261007] · 已完成
 - P66 完整同源厨房墙体接入 [p66-approved-full-wall-integration-20261007] · 已完成
+- P67 R04运行时帧率诊断与优化 [p67-runtime-fps-optimization-20261007] · 已完成
 
 ### 主美
 - 成员 ID：20df60dc-6f5f-40ca-930a-a606b45a0dac
