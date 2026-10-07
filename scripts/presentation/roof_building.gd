@@ -76,6 +76,7 @@ func configure(owner_game, owner_presentation, index: int) -> void:
 	queue_redraw()
 
 func tick_information() -> void:
+	visible = game.world.room_visibility == null or not game.world.room_visibility.visible_at(footprint.get_center())
 	if game.room_access == null: return
 	var gate: Dictionary = game.world.access_by_id(str(spec.door_id))
 	var next_closed: bool = gate.get("closed",true)
@@ -84,6 +85,7 @@ func tick_information() -> void:
 		queue_redraw()
 	var text := "禁闭室 · 已锁" if gate.get("closed",true) else "禁闭室 · 已开"
 	for id in game.room_access.held:
+		if int(id) != game.PLAYER_ACTOR_ID and game.world.is_under_roof(footprint.get_center()): continue
 		if str(game.room_access.cells()[int(game.room_access.held[id].cell)].get("door_id","")) == str(spec.door_id):
 			text = "伙伴%d · %s" % [int(id)+1,game.room_access.label_for(int(id))]
 	if status_label.text != text: status_label.text = text

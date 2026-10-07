@@ -1,0 +1,32 @@
+{
+  "scenes": [
+    {
+      "scene": "corridor-day",
+      "before_fps": 66.6094852404068,
+      "after_fps": 68.767342887177,
+      "change_percent": 3.239565114460885,
+      "before_p95_ms": 16.98,
+      "after_p95_ms": 16.76
+    },
+    {
+      "scene": "workshop-day",
+      "before_fps": 68.8858733293616,
+      "after_fps": 68.5759884293605,
+      "change_percent": -0.449852611317636,
+      "before_p95_ms": 15.874,
+      "after_p95_ms": 18.04
+    },
+    {
+      "scene": "corridor-night",
+      "before_fps": 71.4177645592703,
+      "after_fps": 73.5303098168447,
+      "change_percent": 2.958010896324237,
+      "before_p95_ms": 15.726,
+      "after_p95_ms": 17.25
+    }
+  ],
+  "max_overhead_target_percent": 5,
+  "passed": true,
+  "adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "map_sha256": "e7c469665e1d56220e45544e4dda29cae499f6ab7d4ccf17809b20c65ac09a26"
+}

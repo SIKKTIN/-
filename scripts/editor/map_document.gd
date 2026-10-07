@@ -4,7 +4,7 @@ extends RefCounted
 signal changed
 const World = preload("res://scripts/world/prison_world.gd")
 const RECT_KEYS := ["bounds","door","crate","exit","guard_zone"]
-const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界","access_doors":"管制门","confinement":"禁闭室范围"}
+const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界","access_doors":"管制门","confinement":"禁闭室范围","visibility_rooms":"房间可见范围"}
 const ASSET_NAMES := {"access_reader":"门禁控制盒","prison_gate_closed":"铁门关闭外观","prison_gate_open":"铁门打开外观","solitary_bed":"薄单人床","solitary_door_closed":"禁闭门关闭外观","solitary_door_open":"禁闭门打开外观","prison_notice_board":"旧布告板","wall_vent":"通风口","caged_wall_lamp":"笼罩墙灯","pipe_valve":"管线阀门","wash_basin":"双位洗漱盆","fire_extinguisher":"灭火器","laundry_cart":"洗衣推车","bunk_bed":"双层床","cell_bars":"铁栏杆","toilet_sink":"洗手台与马桶","workbench":"工作台","tool_locker":"工具柜","communal_table":"长桌长凳","notice_board":"公告栏","cafeteria_counter":"食堂取餐台","cafeteria_return":"餐盘回收架","cafeteria_tray":"简陋餐盘","cafeteria_queue":"排队围栏","heavy_crate_handpaint_v03":"木箱摆设","locked_door_closed_v02":"锁门外观（摆设）","locked_door_open_v02":"开门外观（摆设）"}
 var data: Dictionary = {}
 var path := ""
@@ -41,6 +41,8 @@ func open_file(file_path: String) -> bool:
 		var rooms: Array = schedule.get("room_dormitories",{}).get(str(data.id),[])
 		if not rooms.is_empty():
 			data.dormitories = rooms.duplicate(true)
+	if not data.has("visibility_rooms"):
+		data.visibility_rooms = preload("res://scripts/core/room_visibility.gd").rooms_for(data)
 	path = file_path
 	disk_hash = FileAccess.get_sha256(path)
 	saved_text = text()
@@ -78,18 +80,22 @@ static func check_shape(candidate: Dictionary) -> String:
 	for key in RECT_KEYS+["guard_start"]:
 		if candidate.has(key) and not valid_coords(candidate[key],2 if key == "guard_start" else 4):
 			return key+"坐标格式错误。"
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement"]:
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement","visibility_rooms"]:
 		var items = candidate.get("confinement",{}).get("cells",[]) if group == "confinement" else candidate.get(group,[])
 		if not items is Array:
 			return group+"必须是数组。"
 		for item in items:
-			var rectangle: bool = group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement"]
-			var object: bool = group in ["fixtures","gate_guards","merchants","items","dorm_doors","zones","access_doors","confinement"]
+			var rectangle: bool = group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement","visibility_rooms"]
+			var object: bool = group in ["fixtures","gate_guards","merchants","items","dorm_doors","zones","access_doors","confinement","visibility_rooms"]
 			if object and not item is Dictionary:
 				return group+"对象格式错误。"
 			var coords = item.get("rect" if rectangle else "position",[]) if object else item
 			if not valid_coords(coords,4 if rectangle else 2):
 				return group+"坐标格式错误。"
+			if group == "visibility_rooms":
+				if str(item.get("id","")) == "" or coords[2] <= 0 or coords[3] <= 0: return "可见范围需要唯一ID和正数宽高。"
+				var doors = item.get("door_ids",[])
+				if not doors is Array or doors.any(func(id): return not id is String): return "关联门必须是门ID数组。"
 			if group == "fixtures" and not item.has("asset_id"):
 				return "摆设缺少asset_id。"
 			if group == "access_doors":
@@ -162,7 +168,7 @@ func entries() -> Array:
 			result.append({"group":group,"index":-1})
 	if data.has("guard_start"):
 		result.append({"group":"guard_start","index":-1})
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement","work","meal","dine","free"]:
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","access_doors","confinement","visibility_rooms","work","meal","dine","free"]:
 		for index in range(collection(group).size()):
 			result.append({"group":group,"index":index})
 	return result
@@ -171,7 +177,7 @@ func value(ref: Dictionary):
 	return data.get(ref.group) if int(ref.index) < 0 else collection(ref.group)[ref.index]
 
 func is_rect(ref: Dictionary) -> bool:
-	return ref.group in RECT_KEYS or ref.group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement"]
+	return ref.group in RECT_KEYS or ref.group in ["walls","fixtures","dormitories","dorm_doors","zones","access_doors","confinement","visibility_rooms"]
 
 func geometry(ref: Dictionary) -> Rect2:
 	var item = value(ref)
@@ -262,6 +268,7 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 					if item.has("draw_depth"): item.draw_depth += p.y-float(item.rect[1])
 					item.rect = [p.x,p.y,existing.rect[2],existing.rect[3]]
 					break
+		"visibility_rooms": item = {"id":unique_id("room"),"name":"新房间","rect":[p.x,p.y,320,240],"door_ids":[],"kind":"room"}
 		"zones": item = {"id":unique_id("zone"),"name":"新区域","rect":[p.x,p.y,320,240],"color":"#a5b19a"}
 		"dormitories": item = [p.x,p.y,240,180]
 		"dorm_doors": item = {"actor_id":mini(2,collection(group).size()),"rect":[p.x,p.y,120,12]}
@@ -368,6 +375,9 @@ func validate() -> Dictionary:
 				errors.append(name_for(ref)+"：出生点被墙、门或摆设挡住。")
 			else:
 				warnings.append(name_for(ref)+"：操作点有碰撞，请确认可抵达。")
+		if ref.group == "visibility_rooms":
+			for door_id in item.get("door_ids",[]):
+				if world.access_by_id(str(door_id)).is_empty(): errors.append(name_for(ref)+"：关联门不存在："+str(door_id))
 		if ref.group == "dorm_doors" and (int(item.get("actor_id",-1)) < 0 or int(item.get("actor_id",-1)) > 2):
 			errors.append("寝室门归属必须为伙伴1、2或3。")
 	world.free()

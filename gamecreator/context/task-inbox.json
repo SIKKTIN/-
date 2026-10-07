@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "projectId": "project-10beb421-66ef-416e-8bcb-abf7bba4cd5c",
-  "snapshotId": "caa7e82fd9d072a611c058f69101dfb67a3e317d8e9d6820448eaf430f17f32f",
+  "snapshotId": "7c431b906f13cbde8cdbe8c8266e0caf7e0e2f92cadae8784b021f259146dd79",
   "members": [
     {
       "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
@@ -4113,6 +4113,55 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-07T13:50:46.091Z"
+            }
+          ]
+        },
+        {
+          "id": "p76-room-interior-visibility-20261007",
+          "title": "P76 主角进房揭顶、离房隐藏与编辑器范围",
+          "description": "按用户确认方案实现房间级遮挡，主角进入揭顶、离开重盖，不通过室外、小地图和交互泄露室内实时信息。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "2026-10-07",
+          "milestoneId": "",
+          "acceptance": "寝室车间食堂禁闭室及封闭新增区域独立遮挡；主角脚底跨门进入才揭顶，NPC及开门不揭顶；出房重盖、门槛缓冲及过渡；人物阴影提示灯光物品警戒圈/小地图/交互一致；AI碰撞抓捕日程仍运行；编辑器范围可新增修改关联门、撤销保存试跑；自测及同场景FPS对照新增开销目标5%以内，外部WIP保留。",
+          "result": "主角进房揭顶、离开重盖，11间房独立，0.2秒过渡及缓冲，小地图/人物提示/聊天/物品/灯光一致过滤，隐藏NPC继续模拟。编辑器范围及门关联、撤销保存试跑通过。189项检查、100碰撞对照，两天日程无误抓；冻结同图性能66.61→68.77、68.89→68.58、71.42→73.53FPS，开销目标5%内。保留所有并行地图/美术/程序修改。\n\n验收通过：制作人本人独立程序任务自验收：189项检查、100碰撞等价和冻结同图三场景性能通过（变化−0.45%至+3.24%）。真实像素与截图验证房外隐藏、进入揭顶、离开复盖、小地图及禁闭室占用信息过滤；NPC后台工作巡逻、两天四班到岗和编辑器保存/门关联正确。八最终日志无错误，并行地图、美术、门岗及地面细节更新保留。",
+          "dependencyIds": [
+            "p75-physical-staff-entrance-exit-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "qa/p76*",
+              "docs/dev/p76/**",
+              "docs/tests/p76*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "独立visibility_rooms配置，不改原有房间与AI逻辑，旧地图从现有寝室/车间/门禁/禁闭等区域兼容生成；编辑器完整可见，试跑应用房间遮挡。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p76-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T14:46:08.116Z"
             }
           ]
         }
@@ -9578,6 +9627,55 @@
               "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
               "at": "2026-10-07T13:50:46.091Z"
+            }
+          ]
+        },
+        {
+          "id": "p76-room-interior-visibility-20261007",
+          "title": "P76 主角进房揭顶、离房隐藏与编辑器范围",
+          "description": "按用户确认方案实现房间级遮挡，主角进入揭顶、离开重盖，不通过室外、小地图和交互泄露室内实时信息。",
+          "kind": "程序",
+          "owner": "制作人",
+          "status": "已完成",
+          "priority": "高",
+          "start": "",
+          "end": "",
+          "actualStart": "2026-10-07",
+          "actualEnd": "2026-10-07",
+          "milestoneId": "",
+          "acceptance": "寝室车间食堂禁闭室及封闭新增区域独立遮挡；主角脚底跨门进入才揭顶，NPC及开门不揭顶；出房重盖、门槛缓冲及过渡；人物阴影提示灯光物品警戒圈/小地图/交互一致；AI碰撞抓捕日程仍运行；编辑器范围可新增修改关联门、撤销保存试跑；自测及同场景FPS对照新增开销目标5%以内，外部WIP保留。",
+          "result": "主角进房揭顶、离开重盖，11间房独立，0.2秒过渡及缓冲，小地图/人物提示/聊天/物品/灯光一致过滤，隐藏NPC继续模拟。编辑器范围及门关联、撤销保存试跑通过。189项检查、100碰撞对照，两天日程无误抓；冻结同图性能66.61→68.77、68.89→68.58、71.42→73.53FPS，开销目标5%内。保留所有并行地图/美术/程序修改。\n\n验收通过：制作人本人独立程序任务自验收：189项检查、100碰撞等价和冻结同图三场景性能通过（变化−0.45%至+3.24%）。真实像素与截图验证房外隐藏、进入揭顶、离开复盖、小地图及禁闭室占用信息过滤；NPC后台工作巡逻、两天四班到岗和编辑器保存/门关联正确。八最终日志无错误，并行地图、美术、门岗及地面细节更新保留。",
+          "dependencyIds": [
+            "p75-physical-staff-entrance-exit-20261007"
+          ],
+          "references": [],
+          "selfReviewRole": "producer",
+          "workScope": {
+            "allowedPaths": [
+              "scripts/**",
+              "qa/p76*",
+              "docs/dev/p76/**",
+              "docs/tests/p76*",
+              "docs/gamecreator/**",
+              "gamecreator/**"
+            ],
+            "entry": "res://scenes/main.tscn",
+            "interfaceContract": "独立visibility_rooms配置，不改原有房间与AI逻辑，旧地图从现有寝室/车间/门禁/禁闭等区域兼容生成；编辑器完整可见，试跑应用房间遮挡。"
+          },
+          "assignment": {
+            "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+            "collaboratorIds": [],
+            "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+          },
+          "positionIds": [
+            "producer"
+          ],
+          "dispatchHistory": [
+            {
+              "id": "p76-plan-20261007",
+              "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+              "at": "2026-10-07T14:46:08.116Z"
             }
           ]
         }

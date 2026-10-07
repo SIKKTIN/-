@@ -14,6 +14,7 @@ var _wall_geometry_valid := false
 var _wall_bounds := Rect2()
 var _visual_asset := ""
 var _fixture_revision := -1
+var _visibility_revision := -1
 var lintel_visual: Sprite2D
 
 func painted_material(shader_path := "res://art/architecture/v24/opaque_core.gdshader") -> ShaderMaterial:
@@ -79,7 +80,20 @@ func prop_id() -> String:
 		return str(world.fixtures[wall_index].asset_id)
 	return asset_id("crate","heavy_crate_v02") if kind == "crate" else asset_id("door_open","locked_door_open_v02") if world.door_open else asset_id("door_closed","locked_door_closed_v02")
 
+func _sync_visibility() -> void:
+	if kind == "wall":
+		visible = not world.wall_is_roofed(wall_index) and profile.get("render_enabled",true)
+	elif kind == "fixture":
+		var fixture: Dictionary = world.fixtures[wall_index]
+		var inner: bool = not world.is_under_roof(fixture.rect.get_center())
+		var shell_part: bool = world.roofed_cells.any(func(cell): return cell.rect.grow(20).has_point(fixture.rect.get_center()))
+		visible = (not fixture.get("hidden",false) or inner and shell_part) and (inner or fixture.has("access_id"))
 func tick_visual() -> void:
+	var rules = world.get("room_visibility")
+	var revision: int = rules.revision if rules != null else 0
+	if _visibility_revision != revision or _fixture_revision != world.fixtures_revision or not _wall_geometry_valid:
+		_visibility_revision = revision
+		_sync_visibility()
 	var next_footprint: Rect2 = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate
 	# Godot retains canvas commands across camera transforms and light updates.
 	# Static wall polygons only need rebuilding on configure/geometry changes.
@@ -93,7 +107,6 @@ func tick_visual() -> void:
 	_fixture_revision = world.fixtures_revision
 	elevation = float(profile.get("block_elevation",24)) if kind == "wall" and footprint.size.x > 60 else float(profile.get("wall_elevation",18)) if kind == "wall" else 20.0
 	display_rect = Rect2(footprint.position-Vector2(0,elevation),footprint.size+Vector2(0,elevation))
-	visible = not world.wall_is_roofed(wall_index) if kind == "wall" else not world.fixtures[wall_index].get("hidden",false) if kind == "fixture" else true
 	if kind == "wall": visible = visible and profile.get("render_enabled",true)
 	if kind != "wall" and world.art_textures.has(prop_id()) and definitions.get(prop_id(),{}).has("ground_rect"):
 		var definition: Dictionary = definitions[prop_id()]

@@ -1,0 +1,69 @@
+{
+  "id": "p76-verified-feedback-20261007",
+  "digest": "5cb9a59c3f1b3fdc6b6bd2b229620e8ee843d84d57411c35d1852eeb98f9ef91",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T15:33:56.613Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p76-verified-delivery-20261007",
+    "taskId": "p76-room-interior-visibility-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "主角进房揭顶、离开重盖，11间房独立，0.2秒过渡及缓冲，小地图/人物提示/聊天/物品/灯光一致过滤，隐藏NPC继续模拟。编辑器范围及门关联、撤销保存试跑通过。189项检查、100碰撞对照，两天日程无误抓；冻结同图性能66.61→68.77、68.89→68.58、71.42→73.53FPS，开销目标5%内。保留所有并行地图/美术/程序修改。",
+    "evidence": [
+      "docs/dev/p76/report.md",
+      "docs/dev/p76/delivery.json",
+      "docs/dev/p76/performance.json",
+      "docs/dev/p76/preservation.json",
+      "docs/tests/p76-visibility-headless.json",
+      "docs/tests/p76-visibility-native.json",
+      "docs/tests/p76-enforcement-headless.json",
+      "docs/tests/p76-lunch-wallet.json",
+      "docs/tests/p76-two-day-cycle.json",
+      "docs/tests/p76-editor-ui.json",
+      "docs/tests/p76-outside-covered.png",
+      "docs/tests/p76-inside-revealed.png",
+      "docs/tests/p76-editor-visibility-layer.png"
+    ],
+    "at": "2026-10-07T15:33:56.768Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p76-verified-delivery-20261007",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p76-verified-delivery-20261007",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p76-verified-delivery-20261007",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "ef4eddd2675908c8bb5229a54560d76ad9e1d46870a64eedae65534eb301a367"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "ef4eddd2675908c8bb5229a54560d76ad9e1d46870a64eedae65534eb301a367",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

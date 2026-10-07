@@ -581,6 +581,18 @@ func refresh_inspector() -> void:
 				input.focus_exited.connect(func():
 					if not refreshing: document.set_property(ref,property,input.text))
 				inspector.add_child(input)
+		if ref.group == "visibility_rooms":
+			label(inspector,"关联门（多扇门用英文逗号分隔）",13)
+			var doors := LineEdit.new()
+			doors.name = "VisibilityDoors"
+			doors.text = ",".join(item.get("door_ids",[]))
+			doors.focus_exited.connect(func():
+				if refreshing: return
+				var values: Array = []
+				for value in doors.text.split(",",false): values.append(value.strip_edges())
+				document.set_property(ref,"door_ids",values))
+			inspector.add_child(doors)
+			label(inspector,"试跑时：主角进入揭顶，离开重盖；编辑视图完整显示。",13)
 		if ref.group == "access_doors":
 			label(inspector,"劳动门禁 · 08–12 / 14–18锁门" if item.get("kind","") == "workshop" else "定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
 			if item.get("kind","") == "timed":

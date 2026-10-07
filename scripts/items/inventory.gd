@@ -41,6 +41,9 @@ func _result(ok: bool, reason: String = "") -> Dictionary:
 	return {"ok": ok, "reason": reason}
 
 func try_pickup(actor_id: int, id: String) -> Dictionary:
+	if instances.has(id) and instances[id].location == "ground":
+		var coords: Array = instances[id].position
+		if game.world.is_under_roof(Vector2(coords[0],coords[1])): return _result(false,"进入房间后才能拾取室内物品。")
 	if not game.actor_is_controllable(actor_id): return _result(false,"这名囚徒按日程自动生活，不能手动操作。")
 	if not available(actor_id) or not instances.has(id) or instances[id].location != "ground":
 		return _result(false, "物品已不在地面。")

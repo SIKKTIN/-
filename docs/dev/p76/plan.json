@@ -1,0 +1,35 @@
+{
+  "scheduleRevision": "c77f19ed07301ac75e23c547108a0fdc96419a0757c195d7162eefc6021b762a",
+  "creates": [
+    {
+      "task": {
+        "id": "p76-room-interior-visibility-20261007",
+        "title": "P76 主角进房揭顶、离房隐藏与编辑器范围",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p75-physical-staff-entrance-exit-20261007"
+        ],
+        "description": "按用户确认方案实现房间级遮挡，主角进入揭顶、离开重盖，不通过室外、小地图和交互泄露室内实时信息。",
+        "acceptance": "寝室车间食堂禁闭室及封闭新增区域独立遮挡；主角脚底跨门进入才揭顶，NPC及开门不揭顶；出房重盖、门槛缓冲及过渡；人物阴影提示灯光物品警戒圈/小地图/交互一致；AI碰撞抓捕日程仍运行；编辑器范围可新增修改关联门、撤销保存试跑；自测及同场景FPS对照新增开销目标5%以内，外部WIP保留。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/**",
+            "qa/p76*",
+            "docs/dev/p76/**",
+            "docs/tests/p76*",
+            "docs/gamecreator/**",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "独立visibility_rooms配置，不改原有房间与AI逻辑，旧地图从现有寝室/车间/门禁/禁闭等区域兼容生成；编辑器完整可见，试跑应用房间遮挡。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户已确认房间遮挡计划，制作人承接程序及编辑器集成。",
+  "requestId": "p76-plan-20261007"
+}

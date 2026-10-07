@@ -94,6 +94,21 @@ func activate_mobile() -> void:
 	else:
 		_activate_extra(str(target.kind)+":"+str(target.id))
 
+func _visible_target(target: Dictionary) -> bool:
+	var point := Vector2.ZERO
+	match str(target.kind):
+		"talk":
+			var npc: Dictionary = game.dialogue.find_target(str(target.id))
+			return not npc.is_empty()
+		"work": point = game.routines._target(game.selected_actor_id,"work")
+		"pickup":
+			var coords: Array = game.inventory.instances[target.id].position
+			point = Vector2(coords[0],coords[1])
+		"trade": point = game.trade.actors[target.id].position
+		"meal": point = game.routines._target(game.selected_actor_id,"meal")
+		_: return true
+	return not game.world.is_under_roof(point)
+
 func _refresh_targets() -> void:
 	kind = ""
 	targets.clear()
@@ -201,6 +216,7 @@ func _refresh_items(actor) -> void:
 		var point: Vector2 = game.routines._target(actor.actor_id,"meal")
 		var b := _extra("meal:cafeteria","取餐",point+Vector2(0,-76),"领取午餐（E）；自动前往自己的饭桌用餐，不占背包格。")
 		targets.append({"button":b,"kind":"meal","id":"cafeteria","distance":actor.position.distance_to(point)})
+	targets = targets.filter(func(target): return target.kind == "skill" or target.kind == "latch" or _visible_target(target))
 	for key in extras.keys():
 		if key.begins_with("pickup:") and not game.inventory.instances.has(key.substr(7)):
 			extras[key].queue_free()

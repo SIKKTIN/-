@@ -1,0 +1,211 @@
+{
+  "task": {
+    "id": "p76-room-interior-visibility-20261007",
+    "title": "P76 主角进房揭顶、离房隐藏与编辑器范围",
+    "description": "按用户确认方案实现房间级遮挡，主角进入揭顶、离开重盖，不通过室外、小地图和交互泄露室内实时信息。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-07",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "寝室车间食堂禁闭室及封闭新增区域独立遮挡；主角脚底跨门进入才揭顶，NPC及开门不揭顶；出房重盖、门槛缓冲及过渡；人物阴影提示灯光物品警戒圈/小地图/交互一致；AI碰撞抓捕日程仍运行；编辑器范围可新增修改关联门、撤销保存试跑；自测及同场景FPS对照新增开销目标5%以内，外部WIP保留。",
+    "result": "房间脚底跨门揭顶、离开重盖、0.2秒过渡及缓冲；11间房独立，小地图人物/物品、聊天及拾取、灯光/阴影/警戒和工作提示统一过滤，后台AI继续。编辑器范围图层及门关联、撤销/保存验证。187项自测、100碰撞对照及两天日程通过；同场景90→103、101→106、93→105FPS，保留地图与程序/美术WIP。",
+    "dependencyIds": [
+      "p75-physical-staff-entrance-exit-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/**",
+        "qa/p76*",
+        "docs/dev/p76/**",
+        "docs/tests/p76*",
+        "docs/gamecreator/**",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "独立visibility_rooms配置，不改原有房间与AI逻辑，旧地图从现有寝室/车间/门禁/禁闭等区域兼容生成；编辑器完整可见，试跑应用房间遮挡。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p76-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-07T14:46:08.116Z"
+      }
+    ]
+  },
+  "revision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc",
+  "scheduleRevision": "48545cab3a10f8a34897d72535b8d86c9de25cf27d2901d0d5b8cfd122e4625e",
+  "planChanges": [
+    {
+      "id": "p76-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-07T14:46:08.116Z",
+      "reason": "用户已确认房间遮挡计划，制作人承接程序及编辑器集成。",
+      "createdTaskIds": [
+        "p76-room-interior-visibility-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p75-physical-staff-entrance-exit-20261007",
+      "title": "P75 看守从厂区正门步行上下岗及增援撤离",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p76-delivery-20261007",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p76-delivery-20261007",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p76-delivery-20261007",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc"
+  },
+  "feedback": [
+    {
+      "id": "p76-start-20261007",
+      "taskId": "p76-room-interior-visibility-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "制作统一房间可见性、屋顶过渡、信息过滤和编辑器范围，保留当前地图与程序WIP。",
+      "evidence": [
+        "docs/dev/p76/plan.json"
+      ],
+      "at": "2026-10-07T14:46:10.241Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p76-start-20261007",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p76-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p76-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p76-delivery-20261007",
+      "taskId": "p76-room-interior-visibility-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "房间脚底跨门揭顶、离开重盖、0.2秒过渡及缓冲；11间房独立，小地图人物/物品、聊天及拾取、灯光/阴影/警戒和工作提示统一过滤，后台AI继续。编辑器范围图层及门关联、撤销/保存验证。187项自测、100碰撞对照及两天日程通过；同场景90→103、101→106、93→105FPS，保留地图与程序/美术WIP。",
+      "evidence": [
+        "docs/dev/p76/report.md",
+        "docs/dev/p76/delivery.json",
+        "docs/dev/p76/performance.json",
+        "docs/dev/p76/preservation.json",
+        "docs/tests/p76-visibility-headless.json",
+        "docs/tests/p76-visibility-native.json",
+        "docs/tests/p76-enforcement-headless.json",
+        "docs/tests/p76-lunch-wallet.json",
+        "docs/tests/p76-two-day-cycle.json",
+        "docs/tests/p76-editor-ui.json",
+        "docs/tests/p76-outside-covered.png",
+        "docs/tests/p76-inside-revealed.png",
+        "docs/tests/p76-editor-visibility-layer.png"
+      ],
+      "at": "2026-10-07T15:16:53.892Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p76-delivery-20261007",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p76-delivery-20261007",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p76-delivery-20261007",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "35dbb9c97f337b9e51f49cdeb54051d517d407f348d45bb4de6fe0543d8276fc",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

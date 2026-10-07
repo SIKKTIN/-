@@ -29,6 +29,7 @@ func chat_guard(actor):
 	return null
 
 func chat_reason(actor, guard) -> String:
+	if guard != null and game.world.is_under_roof(guard.position): return "进入房间后才能与里面的看守交谈。"
 	if actor.confined or actor.escaped or game.phase != "playing": return "当前不能交谈。"
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0: return "体力耗尽，先休息。"
 	if game.schedule and game.schedule.is_curfew(): return "宵禁警戒中，看守不接受分心交谈。"

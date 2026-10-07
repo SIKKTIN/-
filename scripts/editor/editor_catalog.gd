@@ -45,6 +45,7 @@ func _init() -> void:
 		["dine","用餐点","rules","dine"],
 		["free","活动点","rules","free"],
 		["zones","区域范围","areas","zones"],
+		["visibility_rooms","房间可见范围","areas","visibility_rooms"],
 		["dorm_doors","寝室门","areas","dorm_doors"]]
 	for definition in definitions:
 		var id: String = definition[0]

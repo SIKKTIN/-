@@ -1,0 +1,23 @@
+{
+  "taskId": "p76-room-interior-visibility-20261007",
+  "revision": "a73113835e3d42bce7a9683578ad645a8a5f54abe4573ec450845178711fee62",
+  "feedbackId": "p76-verified-delivery-20261007",
+  "status": "待验收",
+  "summary": "主角进房揭顶、离开重盖，11间房独立，0.2秒过渡及缓冲，小地图/人物提示/聊天/物品/灯光一致过滤，隐藏NPC继续模拟。编辑器范围及门关联、撤销保存试跑通过。189项检查、100碰撞对照，两天日程无误抓；冻结同图性能66.61→68.77、68.89→68.58、71.42→73.53FPS，开销目标5%内。保留所有并行地图/美术/程序修改。",
+  "evidence": [
+    "docs/dev/p76/report.md",
+    "docs/dev/p76/delivery.json",
+    "docs/dev/p76/performance.json",
+    "docs/dev/p76/preservation.json",
+    "docs/tests/p76-visibility-headless.json",
+    "docs/tests/p76-visibility-native.json",
+    "docs/tests/p76-enforcement-headless.json",
+    "docs/tests/p76-lunch-wallet.json",
+    "docs/tests/p76-two-day-cycle.json",
+    "docs/tests/p76-editor-ui.json",
+    "docs/tests/p76-outside-covered.png",
+    "docs/tests/p76-inside-revealed.png",
+    "docs/tests/p76-editor-visibility-layer.png"
+  ],
+  "requestId": "p76-verified-feedback-20261007"
+}

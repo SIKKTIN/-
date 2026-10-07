@@ -54,6 +54,7 @@ var gate_watch
 var attributes
 var prison_alert
 var mobile_controls
+var room_visibility
 var room_access
 var workshop
 var dialogue
@@ -198,6 +199,8 @@ func _ready() -> void:
 	dialogue = NpcDialogue.new()
 	add_child(dialogue)
 	dialogue.configure(self)
+	room_visibility = preload("res://scripts/core/room_visibility.gd").new(self)
+	room_visibility.reset()
 	fullscreen_ui.layout()
 	routines.offer_morning()
 	if editor_preview_mode:
@@ -318,6 +321,7 @@ func _process(delta: float) -> void:
 		workshop.tick(delta)
 	if prison_alert:
 		prison_alert.tick(delta)
+	if room_visibility: room_visibility.tick(delta)
 	if dialogue: dialogue.tick()
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
 		finish_timeout()
@@ -486,6 +490,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routines.reset()
 	if schedule:
 		schedule.reset()
+	if room_visibility: room_visibility.reset()
 	if gate_watch:
 		gate_watch.reset(room_config)
 	if attributes:

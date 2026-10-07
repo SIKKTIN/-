@@ -27,7 +27,7 @@ func _draw() -> void:
 	if kind == "fixture_shadows":
 		# Static furnishings retain cached CanvasItem draw commands between frames.
 		for fixture in world.fixtures:
-			if fixture.get("hidden",false):
+			if fixture.get("hidden",false) or world.is_under_roof(fixture.rect.get_center()):
 				continue
 			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
 			if definition.has("assembly_patches"):
@@ -69,14 +69,14 @@ func _draw() -> void:
 				draw_line(rail.position,Vector2(rail.end.x,rail.position.y),Color("738176"),4,true)
 				draw_line(Vector2(r.position.x,r.end.y),r.end,Color("738176"),4,true)
 		for visual in presentation.visuals:
-			if not visual.actor.escaped and actor_view.has_point(visual.actor.position):
+			if not visual.actor.escaped and actor_view.has_point(visual.actor.position) and not world.is_under_roof(visual.actor.position):
 				if presentation.profile.get("soft_shadows",false):
 					if not visual.definition.get("shadow_baked",false):
 						SoftShadow.contact_actor(self,visual.actor.position,presentation.profile)
 				else:
 					draw_ellipse(visual.actor.position+Vector2(0,2),15,4,Color(0,0,0,0.12))
 		draw_rect(world.exit_strip_rect(),Color("328b82"))
-		if game.dog and actor_view.has_point(game.dog.position):
+		if game.dog and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 	else:
@@ -88,6 +88,8 @@ func _draw() -> void:
 		var zone_label_color := Color("e1dfc9") if presentation.lighting and presentation.lighting.period == "night" else Color("405347")
 		for zone in game.room_config.get("zones",[]):
 			if zone.get("hide_label",false): continue
+			var region: Array = zone.rect
+			if world.is_under_roof(Vector2(region[0]+region[2]/2.0,region[1]+region[3]/2.0)): continue
 			var values: Array = zone.rect
 			var visible_area := Rect2(values[0],values[1],values[2],values[3]).intersection(view)
 			if visible_area.size.x >= 150 and visible_area.size.y >= 60:
@@ -125,7 +127,7 @@ func _draw() -> void:
 				draw_set_transform(Vector2.ZERO)
 		if game.items_view:
 			game.items_view.paint_information(self)
-		if game.room_config.has("cafeteria"):
+		if game.room_config.has("cafeteria") and (game.room_visibility == null or not game.world.is_under_roof(game.routines._target(game.PLAYER_ACTOR_ID,"meal"))):
 			var cafeteria: Dictionary = game.room_config.cafeteria
 			var pickup: Array = cafeteria.pickup_label
 			var returned: Array = cafeteria.return_label

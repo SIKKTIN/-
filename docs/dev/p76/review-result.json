@@ -1,0 +1,65 @@
+{
+  "id": "p76-accept-20261007",
+  "digest": "b919e0a2dc6bd76ed41fcc024f9d65fd06d06cd0ced96e98ae1af3fe4e004068",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-07T15:35:13.332Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p76-verified-delivery-20261007",
+    "taskId": "p76-room-interior-visibility-20261007",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "主角进房揭顶、离开重盖，11间房独立，0.2秒过渡及缓冲，小地图/人物提示/聊天/物品/灯光一致过滤，隐藏NPC继续模拟。编辑器范围及门关联、撤销保存试跑通过。189项检查、100碰撞对照，两天日程无误抓；冻结同图性能66.61→68.77、68.89→68.58、71.42→73.53FPS，开销目标5%内。保留所有并行地图/美术/程序修改。",
+    "evidence": [
+      "docs/dev/p76/report.md",
+      "docs/dev/p76/delivery.json",
+      "docs/dev/p76/performance.json",
+      "docs/dev/p76/preservation.json",
+      "docs/tests/p76-visibility-headless.json",
+      "docs/tests/p76-visibility-native.json",
+      "docs/tests/p76-enforcement-headless.json",
+      "docs/tests/p76-lunch-wallet.json",
+      "docs/tests/p76-two-day-cycle.json",
+      "docs/tests/p76-editor-ui.json",
+      "docs/tests/p76-outside-covered.png",
+      "docs/tests/p76-inside-revealed.png",
+      "docs/tests/p76-editor-visibility-layer.png"
+    ],
+    "at": "2026-10-07T15:33:56.768Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-07T15:35:13.468Z",
+      "note": "制作人本人独立程序任务自验收：189项检查、100碰撞等价和冻结同图三场景性能通过（变化−0.45%至+3.24%）。真实像素与截图验证房外隐藏、进入揭顶、离开复盖、小地图及禁闭室占用信息过滤；NPC后台工作巡逻、两天四班到岗和编辑器保存/门关联正确。八最终日志无错误，并行地图、美术、门岗及地面细节更新保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p76-verified-delivery-20261007",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "7f463315f7904eb8f70ba42a8964997e17aae538f0166367e5c444b0979fb6a7"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "7f463315f7904eb8f70ba42a8964997e17aae538f0166367e5c444b0979fb6a7",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

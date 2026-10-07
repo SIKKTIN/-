@@ -1,0 +1,47 @@
+{
+  "taskId": "p76-room-interior-visibility-20261007",
+  "source_sha256": {
+    "scripts/core/escape_game.gd": "d584540d179678ec1ac0b1c5c7c0adf86e4a3aac7ad4fb360f7a2c5e5f9d005d",
+    "scripts/world/prison_world.gd": "53dcd570ef126d4ba44c65d63cc6ad8b00a8cac4879989cf9655d6284f93690b",
+    "scripts/presentation/world_volume.gd": "de8bbd3b5e0cc9a1a70c1cf90ad28ebf5ff0e4deffb9d79f8c78cee206f16491",
+    "scripts/presentation/roof_building.gd": "e4982fa294573c9a832cf5f27af38401dfc5d834e318e3e4abce39078b9ee979",
+    "scripts/presentation/scene_layers.gd": "c474f8602066bde78eb68ca3859660f885ff8e2134bc67251b621d924d858014",
+    "scripts/ui/npc_dialogue.gd": "50a5ae91104ec8d8ac01ce91f9d50219681cf34e8981bf30cdd61ccb8f4ac649",
+    "scripts/presentation/interaction_prompt.gd": "b61882fbab0e07a9a59f12f71758e322918c0767643d2c25b2d746ff90621f98",
+    "scripts/presentation/lighting_system.gd": "8a59dcb28c931d7d28c4f812f6e928e30bbf7f3db5061a9de6d3ab9a56d5d633",
+    "scripts/ui/mini_map.gd": "5a1ab402b094f1faed32a0582f2274917e6878dacd2c0b9eea0531ac809b9ca5",
+    "scripts/editor/map_document.gd": "25ed43f7d7753af5716f28b16796f0380b0134df1bc3c836702e2c81c17da763",
+    "scripts/editor/map_layers.gd": "521b14afd941f63845aa9ba53f418acc5bad9c23f5d2e6094428da0e25a66fd4",
+    "scripts/editor/editor_catalog.gd": "d5b27b987f4645998bac627f250359f52c86810bf3f7803fd50a09c6b6e25d90",
+    "scripts/editor/map_editor.gd": "4577189a48c93cc9f223436f72a6631031ffeffea36d1ac16bf121d7212c5ac7",
+    "scripts/editor/map_canvas.gd": "707645dd24d15641f6873b4d5a67dfacf10ad30438c31a29ada7af2ae8096d9e",
+    "scripts/skills/skill_controller.gd": "c15ae4d9f3686a97b078589a9a66a232450d728620869d27e98e2e2ad1e83325",
+    "scripts/editor/preview_geometry.gd": "2ca69819bd7f83e8362d9da45364e75682c68290ee9fb969e9582e5223a87cd8",
+    "scripts/items/trade.gd": "bec88e1de8f0d00dc41ec136a138ec19e28ce4f303f7de988efabb7960e28bb9",
+    "scripts/items/inventory.gd": "f79cf3c7cd923697ac4c6894b98714c7c60e2ac397fea19d3ef161b82cbc4f0e",
+    "scripts/core/room_visibility.gd": "5ea512a5ff90d7d3476c1b147c4693c9cbdc5052504e92006a83b6eeae5dab15",
+    "scripts/presentation/room_cover.gd": "28d824efc92c46f307fa99755ea9343c9ee405dc91b4e0ea077f35af37a59847"
+  },
+  "checks": {
+    "p76-visibility-headless.json": 55,
+    "p76-visibility-native.json": 57,
+    "p76-enforcement-headless.json": 33,
+    "p76-lunch-wallet.json": 23,
+    "p76-two-day-cycle.json": 16,
+    "p76-editor-ui.json": 5
+  },
+  "total_checks": 189,
+  "performance_cases": 3,
+  "collision_equivalence_samples": 100,
+  "clean_logs": [
+    "p76-room_visibility.log",
+    "p76-visibility-native.log",
+    "p76-labor_enforcement.log",
+    "p76-lunch_wallet.log",
+    "p76-two_day_cycle.log",
+    "p76-editor-ui.log",
+    "p76-fps-before-final.log",
+    "p76-fps-after-final.log"
+  ],
+  "external_initial_paths": 46
+}

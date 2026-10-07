@@ -87,7 +87,7 @@ func at(point: Vector2) -> Dictionary:
 		for ref in entries:
 			if ref.group == "bounds" or not layers.is_editable(ref.group): continue
 			if ref.group == "fixtures" and document.value(ref).get("hidden",false) and not show_collision: continue
-			var background: bool = ref.group in ["bounds","guard_zone","dormitories","zones","confinement"]
+			var background: bool = ref.group in ["bounds","guard_zone","dormitories","zones","confinement","visibility_rooms"]
 			if background != (pass_index == 1):
 				continue
 			var rect: Rect2 = document.geometry(ref)
@@ -206,7 +206,7 @@ func _draw() -> void:
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
-		if ref.group in ["guard_zone","zones","dormitories","confinement"]:
+		if ref.group in ["guard_zone","zones","dormitories","confinement","visibility_rooms"]:
 			var tint := Color("cf9975") if ref.group == "guard_zone" else Color("75c0b5") if ref.group == "dormitories" else Color("e0d29e")
 			paint_rect(ref,tint,true)
 
@@ -215,7 +215,7 @@ func paint_foreground(painter: CanvasItem) -> void:
 	var entries: Array = document.entries()
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
-		if ref.group in ["bounds","guard_zone","zones","dormitories","confinement"]:
+		if ref.group in ["bounds","guard_zone","zones","dormitories","confinement","visibility_rooms"]:
 			continue
 		var rect: Rect2 = document.geometry(ref)
 		if document.is_rect(ref):
@@ -257,8 +257,8 @@ func paint_rect(ref: Dictionary, color: Color, outline := false, painter: Canvas
 	if outline:
 		painter.draw_rect(on_screen,Color(color,0.12))
 		painter.draw_rect(on_screen,color,false,1.5)
-		if zoom > 0.17 and (ref.group == "zones" or selection == ref):
-			var text: String = str(document.value(ref).get("name","区域")) if ref.group == "zones" else document.name_for(ref)
+		if zoom > 0.17 and (ref.group in ["zones","visibility_rooms"] or selection == ref):
+			var text: String = str(document.value(ref).get("name","区域")) if ref.group in ["zones","visibility_rooms"] else document.name_for(ref)
 			painter.draw_string(font,on_screen.position+Vector2(4,14),text,HORIZONTAL_ALIGNMENT_LEFT,on_screen.size.x,12,Color("243739"))
 	else:
 		painter.draw_rect(on_screen,color)

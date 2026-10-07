@@ -111,7 +111,7 @@ func _tick_guard_light() -> void:
 	guard_light.energy = 0.65 if period == "night" else 0.26
 	var view: Rect2 = game.map_camera.world_view_rect().grow(8) if game.map_camera else game.world.bounds
 	var radius: float = game.guard.view_radius()
-	guard_light.enabled = game.phase == "playing" and period == "night" and game.guard.search_zone().has_point(game.guard.position) and Rect2(game.guard.position-Vector2.ONE*radius,Vector2.ONE*radius*2).intersects(view)
+	guard_light.enabled = not game.world.is_under_roof(game.guard.position) and game.phase == "playing" and period == "night" and game.guard.search_zone().has_point(game.guard.position) and Rect2(game.guard.position-Vector2.ONE*radius,Vector2.ONE*radius*2).intersects(view)
 	# Daytime warning regions use the same cached, wall-clipped polygons as
 	# detection. Sunlight needs no per-officer GPU shadow maps.
 	var team: Array = game.guard.warning_officers().filter(func(g): return g != game.guard) if period == "night" else []
@@ -135,7 +135,7 @@ func _tick_guard_light() -> void:
 		light.color = Color("ff9a74") if officer.state == "chasing" or officer.alert_mode() else Color("ffe5b2")
 		light.energy = guard_light.energy
 		var reach: float = officer.view_radius()
-		light.enabled = game.phase == "playing" and officer.visible and Rect2(officer.position-Vector2.ONE*reach,Vector2.ONE*reach*2).intersects(view)
+		light.enabled = not game.world.is_under_roof(officer.position) and game.phase == "playing" and officer.visible and Rect2(officer.position-Vector2.ONE*reach,Vector2.ONE*reach*2).intersects(view)
 
 func _sync_guard_boundaries() -> void:
 	for node in guard_boundaries:
@@ -220,10 +220,12 @@ func tick() -> void:
 	if obstacle_revision != game.world.obstacle_revision:
 		_sync_occluders()
 	_tick_guard_light()
+	for index in range(lamps.size()): lamps[index].enabled = period == "night" and not game.world.is_under_roof(lamps[index].position)
 
 func _draw() -> void:
 	for spec in lamp_specs:
 		var point := Vector2(spec.position[0],spec.position[1])
+		if game.world.is_under_roof(point): continue
 		draw_line(point-Vector2(0,15),point,Color("515b5b"),3,true)
 		draw_style_box(_fixture(),Rect2(point-Vector2(9,6),Vector2(18,12)))
 		draw_circle(point,4,Color("ffe6af") if period == "night" else Color("b8b8a8"))

@@ -42,6 +42,9 @@ func update(data: Dictionary, show_roofs: bool) -> void:
 	door = rect(data.get("door",[0,0,20,20]))
 	crate = rect(data.get("crate",[0,0,20,20]))
 
+func is_under_roof(point: Vector2) -> bool:
+	return roofed_cells.any(func(cell): return cell.rect.has_point(point))
+
 func wall_is_roofed(index: int) -> bool:
 	return roofed_cells.any(func(cell): return cell.rect.grow(1).encloses(walls[index]))
 

@@ -8,6 +8,7 @@ var walls: Array[Rect2] = []
 var fixtures: Array = []
 var wall_surfaces: Dictionary = {}
 var roofed_cells: Array = []
+var room_visibility
 var dorm_doors: Array = []
 var access_doors: Array = []
 var inspection_grid := AStarGrid2D.new()
@@ -91,10 +92,11 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 	reset_world()
 
 func is_under_roof(point: Vector2) -> bool:
+	if room_visibility != null: return not room_visibility.visible_at(point)
 	return roofed_cells.any(func(cell): return cell.rect.has_point(point))
 
 func wall_is_roofed(index: int) -> bool:
-	return roofed_cells.any(func(cell): return cell.rect.grow(1).encloses(walls[index]))
+	return roofed_cells.any(func(cell): return cell.rect.grow(1).encloses(walls[index]) and (room_visibility == null or not room_visibility.visible_at(cell.rect.get_center())))
 
 func _rect(value: Array) -> Rect2:
 	return Rect2(value[0],value[1],value[2],value[3])

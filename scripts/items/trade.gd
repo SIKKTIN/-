@@ -51,6 +51,7 @@ func reason(actor_id: int, merchant_id: String) -> String:
 	var actor = game.actors[actor_id]
 	var pos: Array = merchants[merchant_id].position
 	var point := Vector2(pos[0], pos[1])
+	if game.world.is_under_roof(point): return "进入房间后才能与里面的商人交易。"
 	if actor.position.distance_to(point) > 100 or not game.world.line_clear(actor.position, point):
 		return "靠近商人100单位且无遮挡才能交易。"
 	return ""

@@ -75,7 +75,7 @@ func targets() -> Array:
 	if game.trade:
 		for id in game.trade.actors:
 			result.append({"id":"merchant:"+str(id),"name":str(game.trade.merchants[id].name),"role":"merchant","node":game.trade.actors[id]})
-	return result.filter(func(t): return is_instance_valid(t.node) and t.node.visible and not t.node.escaped)
+	return result.filter(func(t): return is_instance_valid(t.node) and t.node.visible and not t.node.escaped and not game.world.is_under_roof(t.node.position))
 
 func find_target(id: String) -> Dictionary:
 	for target in targets():
@@ -90,6 +90,7 @@ func reason_target(target: Dictionary) -> String:
 	var actor = game.actors[game.selected_actor_id]
 	if actor.confined: return "禁闭中，出门后再找人交谈。"
 	if target.is_empty() or not is_instance_valid(target.get("node")): return "对方已离开。"
+	if game.world.is_under_roof(target.node.position): return "对方在不可见的房间内，进入后再交谈。"
 	if target.role == "prisoner" and game.schedule.is_sleeping(target.node.actor_id): return "对方正在睡觉。"
 	if actor.position.distance_to(target.node.position) > float(config.range): return "靠近对方再聊天。"
 	if not game.world.line_clear(actor.position,target.node.position): return "你们之间有墙或锁门遮挡。"
