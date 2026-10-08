@@ -1,0 +1,20 @@
+{
+  "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+  "revision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1",
+  "feedbackId": "p87-delivery-20261008",
+  "status": "待验收",
+  "summary": "门框位于角色下方；封闭车间失败寻路早退消除主要20ms尖峰。本机60帧两个触发场景最长帧36ms降至17ms；91项回归通过，原编辑器游戏已恢复运行。",
+  "evidence": [
+    "docs/dev/p87/report.md",
+    "docs/dev/p87/delivery.json",
+    "docs/dev/p87/performance.json",
+    "docs/dev/p87/restart.json",
+    "docs/tests/p87-door-readability-native.json",
+    "docs/tests/p87-boundaries-headless.json",
+    "docs/tests/p87-two-day-cycle.json",
+    "docs/tests/p87-chase-before-valid.json",
+    "docs/tests/p87-chase-after-valid.json",
+    "docs/tests/p87-free-outside.png"
+  ],
+  "requestId": "p87-delivery-20261008"
+}

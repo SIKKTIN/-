@@ -1,0 +1,29 @@
+{
+	"checks": {
+		"all_caps_remain_inside_apertures": true,
+		"closed_reject_cache_reused": true,
+		"closed_workshop_early_rejects_crossing": true,
+		"closed_workshop_has_proven_perimeter": true,
+		"door_below_actor_body": true,
+		"entry_keeps_door_commands_cached": true,
+		"entry_keeps_physics_and_navigation": true,
+		"free_dorm_is_not_sealed": true,
+		"free_remains_open_at_night": true,
+		"free_type_and_aperture_unchanged": true,
+		"iron_still_blocks_when_closed": true,
+		"iron_still_opens": true,
+		"main_can_cross_free_entrance": true,
+		"map_is_byte_unchanged": true,
+		"one_open_entrance_breaks_perimeter": true,
+		"opening_gate_invalidates_cached_seal": true,
+		"original_free_sprite_unchanged": true
+	},
+	"failed": [],
+	"images": [
+		"res://docs/tests/p87-free-outside.png",
+		"res://docs/tests/p87-free-inside.png",
+		"res://docs/tests/p87-iron-closed.png",
+		"res://docs/tests/p87-iron-open.png"
+	],
+	"total": 17
+}

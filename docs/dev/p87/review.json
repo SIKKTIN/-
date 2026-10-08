@@ -1,0 +1,9 @@
+{
+  "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+  "revision": "3a36cd93b4d9b6811ccf242b2a6be0d7fea44c11f1bf0a437bff712d5a09567a",
+  "feedbackId": "p87-delivery-20261008",
+  "evidenceVersion": 1,
+  "decision": "accepted",
+  "note": "门层级原生截图及91项回归通过。比较有效出生点的before-valid/after-valid，本机60fps两个场景最长帧约36ms降到17ms；封闭边界早退保守、单门开放及动态失效通过，警卫检查网格不受早退影响。地图未改。远距离空路径旧问题和非全场景帧率保证已明确记录；原编辑器游戏helper_live恢复，未覆盖其他WIP。",
+  "requestId": "p87-accept-20261008"
+}

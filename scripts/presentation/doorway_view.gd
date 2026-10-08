@@ -142,7 +142,9 @@ func configure(source_world, rooms: Array, config: Dictionary = {}) -> void:
 	world = source_world
 	room_config = config
 	name = "RetainedDoorways"
-	z_index = 4095
+	# Roof openings already cut out this footprint. Door hardware is ground
+	# decoration and must never cover a body's feet or head while crossing.
+	z_index = 12
 	geometry_builds += 1
 	for child in get_children(): child.free()
 	doors.clear()

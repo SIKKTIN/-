@@ -1,0 +1,52 @@
+{
+  "id": "p87-start-20261008",
+  "digest": "2bdcc0a39bca1e3faa42193131aad2c1d0ddf65280a1fae22eb3987ce4c9d0d1",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T14:49:38.739Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p87-start-20261008",
+    "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "已复现36–42ms帧间隔；主要峰值为NPC进封闭车间的失败寻路19–26ms。实现物理封闭外围早退判断及门框地面图层，准备同场景复测。",
+    "evidence": [
+      "docs/dev/p87/baseline.json",
+      "docs/tests/p87-chase-before.json"
+    ],
+    "at": "2026-10-08T14:49:38.889Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p87-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

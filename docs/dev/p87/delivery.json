@@ -1,0 +1,105 @@
+{
+  "checks": 91,
+  "counts": [
+    17,
+    61,
+    13
+  ],
+  "reports": [
+    "docs/tests/p87-door-readability-native.json",
+    "docs/tests/p87-boundaries-headless.json",
+    "docs/tests/p87-two-day-cycle.json"
+  ],
+  "comparison": [
+    {
+      "scenario": "outside_dorm_warning_to_chase",
+      "before_frame": {
+        "max_ms": 36.796,
+        "mean_ms": 16.64907,
+        "p95_ms": 16.708,
+        "p99_ms": 30.411
+      },
+      "after_frame": {
+        "max_ms": 17.325,
+        "mean_ms": 16.63126,
+        "p95_ms": 16.781,
+        "p99_ms": 16.965
+      },
+      "before_transition": {
+        "max_ms": 22.169,
+        "mean_ms": 3.454,
+        "p95_ms": 4.782,
+        "p99_ms": 22.169
+      },
+      "after_transition": {
+        "max_ms": 5.583,
+        "mean_ms": 2.92456666666667,
+        "p95_ms": 5.065,
+        "p99_ms": 5.583
+      },
+      "before_paths": {
+        "max_ms": 27.055,
+        "mean_ms": 0.244364864864864,
+        "p95_ms": 0.037,
+        "p99_ms": 2.696
+      },
+      "after_paths": {
+        "max_ms": 2.979,
+        "mean_ms": 0.0600271800679505,
+        "p95_ms": 0.04,
+        "p99_ms": 2.421
+      }
+    },
+    {
+      "scenario": "outside_workshop_warning_to_chase",
+      "before_frame": {
+        "max_ms": 35.889,
+        "mean_ms": 16.64992,
+        "p95_ms": 16.799,
+        "p99_ms": 28.876
+      },
+      "after_frame": {
+        "max_ms": 17.024,
+        "mean_ms": 16.63308,
+        "p95_ms": 16.719,
+        "p99_ms": 16.837
+      },
+      "before_transition": {
+        "max_ms": 21.388,
+        "mean_ms": 3.22663333333333,
+        "p95_ms": 5.066,
+        "p99_ms": 21.388
+      },
+      "after_transition": {
+        "max_ms": 5.687,
+        "mean_ms": 2.62383333333333,
+        "p95_ms": 5.654,
+        "p99_ms": 5.687
+      },
+      "before_paths": {
+        "max_ms": 24.37,
+        "mean_ms": 0.23904406779661,
+        "p95_ms": 0.038,
+        "p99_ms": 2.953
+      },
+      "after_paths": {
+        "max_ms": 2.973,
+        "mean_ms": 0.0635863636363638,
+        "p95_ms": 0.037,
+        "p99_ms": 2.801
+      }
+    }
+  ],
+  "files": [
+    {
+      "file": "scripts/presentation/doorway_view.gd",
+      "working_sha256": "eca8d3a69ec52df62f2ba764c191b780e806b804b7b931a157ea3781d5821e4a",
+      "index_sha256": "eca8d3a69ec52df62f2ba764c191b780e806b804b7b931a157ea3781d5821e4a"
+    },
+    {
+      "file": "scripts/world/prison_world.gd",
+      "working_sha256": "b4c603e28178ffea54f852849e49dfe35beda602844096e8c05f97604b5730e1",
+      "index_sha256": "c75ef5c22de1c8804620a560b4b15cb57491b4547274fe26796d523bed5a99c2"
+    }
+  ]
+}

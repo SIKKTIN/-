@@ -1,0 +1,143 @@
+{
+  "task": {
+    "id": "p87-door-layer-supervision-chase-performance-20261008",
+    "title": "P87 门框位于角色下方及监管追击耗时修复",
+    "description": "用户报告门遮住角色，监管触发追击瞬时掉帧到30fps。先记录真实前后耗时再按瓶颈修复。P86在记录服务离线时完成，仅有本地证据。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "门框显示在角色下方，开启遮挡前后可见；真实监管触发基准包含触发第一帧，定位并降低路径或门控耗时，通行和追捕规则保持；报告实测范围和限制。",
+    "result": "已复现36–42ms帧间隔；主要峰值为NPC进封闭车间的失败寻路19–26ms。实现物理封闭外围早退判断及门框地面图层，准备同场景复测。",
+    "dependencyIds": [
+      "p85-flush-door-art-integration-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/doorway_view.gd",
+        "scripts/world/prison_world.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/workshop_overseer.gd",
+        "qa/p87*",
+        "docs/dev/p87/**",
+        "docs/tests/p87*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p87-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T14:41:33.810Z"
+      }
+    ]
+  },
+  "revision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1",
+  "scheduleRevision": "a72afe44850a7333abe723f5f7d8dd618c0ed850fbc026acb03d5b00da814001",
+  "planChanges": [
+    {
+      "id": "p87-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T14:41:33.810Z",
+      "reason": "用户要求检查监管追击瞬间掉帧并使门图层低于角色。",
+      "createdTaskIds": [
+        "p87-door-layer-supervision-chase-performance-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p85-flush-door-art-integration-20261008",
+      "title": "P85 平齐自由通行门与铁门素材接入",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p87-start-20261008",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1"
+  },
+  "feedback": [
+    {
+      "id": "p87-start-20261008",
+      "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "已复现36–42ms帧间隔；主要峰值为NPC进封闭车间的失败寻路19–26ms。实现物理封闭外围早退判断及门框地面图层，准备同场景复测。",
+      "evidence": [
+        "docs/dev/p87/baseline.json",
+        "docs/tests/p87-chase-before.json"
+      ],
+      "at": "2026-10-08T14:49:38.889Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p87-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "16313f68ddc6396c86361b0c08ca1807b5ac3f26390e8d65ec455369a577a6b1",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

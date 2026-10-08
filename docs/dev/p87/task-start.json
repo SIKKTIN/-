@@ -1,0 +1,100 @@
+{
+  "task": {
+    "id": "p87-door-layer-supervision-chase-performance-20261008",
+    "title": "P87 门框位于角色下方及监管追击耗时修复",
+    "description": "用户报告门遮住角色，监管触发追击瞬时掉帧到30fps。先记录真实前后耗时再按瓶颈修复。P86在记录服务离线时完成，仅有本地证据。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "门框显示在角色下方，开启遮挡前后可见；真实监管触发基准包含触发第一帧，定位并降低路径或门控耗时，通行和追捕规则保持；报告实测范围和限制。",
+    "result": "",
+    "dependencyIds": [
+      "p85-flush-door-art-integration-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/doorway_view.gd",
+        "scripts/world/prison_world.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/workshop_overseer.gd",
+        "qa/p87*",
+        "docs/dev/p87/**",
+        "docs/tests/p87*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p87-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T14:41:33.810Z"
+      }
+    ]
+  },
+  "revision": "bf312a8f0bdc65b8dcbe2801cb25c843aade9c071d6183e5b84303cc8453cde4",
+  "scheduleRevision": "90e7cd7f1956434f4678932cb131be795843175d0482703330f4fed127505a66",
+  "planChanges": [
+    {
+      "id": "p87-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T14:41:33.810Z",
+      "reason": "用户要求检查监管追击瞬间掉帧并使门图层低于角色。",
+      "createdTaskIds": [
+        "p87-door-layer-supervision-chase-performance-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p85-flush-door-art-integration-20261008",
+      "title": "P85 平齐自由通行门与铁门素材接入",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "bf312a8f0bdc65b8dcbe2801cb25c843aade9c071d6183e5b84303cc8453cde4"
+  },
+  "feedback": []
+}

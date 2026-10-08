@@ -1,0 +1,66 @@
+{
+  "id": "p87-delivery-20261008",
+  "digest": "b345e1a5fac84bae1db9dfdbd2883e0dcdc3f28d7bd0912c932cf2cfd74703b6",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T15:10:56.781Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p87-delivery-20261008",
+    "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "门框位于角色下方；封闭车间失败寻路早退消除主要20ms尖峰。本机60帧两个触发场景最长帧36ms降至17ms；91项回归通过，原编辑器游戏已恢复运行。",
+    "evidence": [
+      "docs/dev/p87/report.md",
+      "docs/dev/p87/delivery.json",
+      "docs/dev/p87/performance.json",
+      "docs/dev/p87/restart.json",
+      "docs/tests/p87-door-readability-native.json",
+      "docs/tests/p87-boundaries-headless.json",
+      "docs/tests/p87-two-day-cycle.json",
+      "docs/tests/p87-chase-before-valid.json",
+      "docs/tests/p87-chase-after-valid.json",
+      "docs/tests/p87-free-outside.png"
+    ],
+    "at": "2026-10-08T15:10:56.925Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p87-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p87-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p87-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "3a36cd93b4d9b6811ccf242b2a6be0d7fea44c11f1bf0a437bff712d5a09567a"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "3a36cd93b4d9b6811ccf242b2a6be0d7fea44c11f1bf0a437bff712d5a09567a",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

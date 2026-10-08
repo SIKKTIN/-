@@ -1,0 +1,62 @@
+{
+  "id": "p87-accept-20261008",
+  "digest": "f6cef6b8cc4fc8eebffb19425137cc585f3f4c7bd5de4e61ebb6d2ea9a5d0e6a",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T15:13:00.925Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p87-delivery-20261008",
+    "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "门框位于角色下方；封闭车间失败寻路早退消除主要20ms尖峰。本机60帧两个触发场景最长帧36ms降至17ms；91项回归通过，原编辑器游戏已恢复运行。",
+    "evidence": [
+      "docs/dev/p87/report.md",
+      "docs/dev/p87/delivery.json",
+      "docs/dev/p87/performance.json",
+      "docs/dev/p87/restart.json",
+      "docs/tests/p87-door-readability-native.json",
+      "docs/tests/p87-boundaries-headless.json",
+      "docs/tests/p87-two-day-cycle.json",
+      "docs/tests/p87-chase-before-valid.json",
+      "docs/tests/p87-chase-after-valid.json",
+      "docs/tests/p87-free-outside.png"
+    ],
+    "at": "2026-10-08T15:10:56.925Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T15:13:01.055Z",
+      "note": "门层级原生截图及91项回归通过。比较有效出生点的before-valid/after-valid，本机60fps两个场景最长帧约36ms降到17ms；封闭边界早退保守、单门开放及动态失效通过，警卫检查网格不受早退影响。地图未改。远距离空路径旧问题和非全场景帧率保证已明确记录；原编辑器游戏helper_live恢复，未覆盖其他WIP。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p87-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "9214ff419f85d10ac0976ef9b67282db01fc8b97c016c74a1a5d35ef6c758e78"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "9214ff419f85d10ac0976ef9b67282db01fc8b97c016c74a1a5d35ef6c758e78",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

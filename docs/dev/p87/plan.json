@@ -1,0 +1,37 @@
+{
+  "scheduleRevision": "d054d48a32b40fc4d7381cfc1d10885f3f7458c0f57a51e90483765fa8ed16ca",
+  "creates": [
+    {
+      "task": {
+        "id": "p87-door-layer-supervision-chase-performance-20261008",
+        "title": "P87 门框位于角色下方及监管追击耗时修复",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p85-flush-door-art-integration-20261008"
+        ],
+        "description": "用户报告门遮住角色，监管触发追击瞬时掉帧到30fps。先记录真实前后耗时再按瓶颈修复。P86在记录服务离线时完成，仅有本地证据。",
+        "acceptance": "门框显示在角色下方，开启遮挡前后可见；真实监管触发基准包含触发第一帧，定位并降低路径或门控耗时，通行和追捕规则保持；报告实测范围和限制。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/presentation/doorway_view.gd",
+            "scripts/world/prison_world.gd",
+            "scripts/core/workshop_rules.gd",
+            "scripts/actors/guard.gd",
+            "scripts/actors/workshop_overseer.gd",
+            "qa/p87*",
+            "docs/dev/p87/**",
+            "docs/tests/p87*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求检查监管追击瞬间掉帧并使门图层低于角色。",
+  "requestId": "p87-plan-20261008"
+}

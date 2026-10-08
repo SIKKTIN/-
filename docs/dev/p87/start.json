@@ -1,0 +1,12 @@
+{
+  "taskId": "p87-door-layer-supervision-chase-performance-20261008",
+  "revision": "bf312a8f0bdc65b8dcbe2801cb25c843aade9c071d6183e5b84303cc8453cde4",
+  "feedbackId": "p87-start-20261008",
+  "status": "进行中",
+  "summary": "已复现36–42ms帧间隔；主要峰值为NPC进封闭车间的失败寻路19–26ms。实现物理封闭外围早退判断及门框地面图层，准备同场景复测。",
+  "evidence": [
+    "docs/dev/p87/baseline.json",
+    "docs/tests/p87-chase-before.json"
+  ],
+  "requestId": "p87-start-20261008"
+}
