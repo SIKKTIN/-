@@ -14,7 +14,7 @@ func issue(actor_id: int, goal: Vector2, source: String = "manual") -> bool:
 	if actor.escaped:
 		return false
 	var push: bool = source == "manual" and actor.skill_id == "strong"
-	if not game.world.can_place_circle(goal,17,actor,true,not push):
+	if not game.world.can_place_circle(goal,game.world.RADIUS,actor,true,not push):
 		game.show_status("目标被墙、门或伙伴占据，请选择可站立的位置。")
 		return false
 	var path: PackedVector2Array = game.world.find_path(actor.position,goal,actor,true,push)

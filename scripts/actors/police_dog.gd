@@ -1,5 +1,7 @@
 extends Node2D
 
+const Footprint = preload("res://scripts/core/actor_footprint.gd")
+
 const SCENT_RADIUS := 180.0
 const CONFIRM_RADIUS := 90.0
 const TRAIL_SECONDS := 10.0
@@ -35,7 +37,7 @@ func reset_dog() -> void:
 	position = world.guard_start
 	# Use an existing navigable patrol point, with no new hidden spawn geometry.
 	for index in range(world.patrol.size()-1,-1,-1):
-		if world.can_place_circle(world.patrol[index],17,self,false):
+		if world.can_place_circle(world.patrol[index],Footprint.RADIUS,self,false):
 			position = world.patrol[index]
 			break
 	state = "resting"
@@ -56,7 +58,7 @@ func reset_dog() -> void:
 	skipped_waypoints = 0
 	moved_this_frame = false
 
-func movement_allowed(point: Vector2, radius: float = 17) -> bool:
+func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
 	return search_zone().grow(-radius).has_point(point)
 
 func inspection_allowed() -> bool:

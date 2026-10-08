@@ -1,0 +1,62 @@
+{
+  "id": "p84-delivery-20261008",
+  "digest": "4b13a7267f96adbb2efa8d436b7c1ab59d609a369921b0968faee7fda9d07c10",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T09:38:39.542Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p84-delivery-20261008",
+    "taskId": "p84-small-foot-collision-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "角色移动统一脚底半径8（原17），同步导航、移动指令和落点检查；64项原生脚底及两日通勤检查通过，墙/门与地图未改。",
+    "evidence": [
+      "docs/dev/p84/report.md",
+      "docs/dev/p84/delivery.json",
+      "docs/tests/p84-boundaries-native.json",
+      "docs/tests/p84-two-day-cycle.json",
+      "docs/tests/p84-dorm-wall-contact.png",
+      "docs/tests/p84-food-wall-contact.png"
+    ],
+    "at": "2026-10-08T09:38:39.690Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p84-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p84-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p84-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

@@ -32,7 +32,7 @@ func _landing(actor, origin: Vector2) -> Vector2:
 	for radius in [0,40,80,120,160]:
 		for offset in [Vector2.ZERO,Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN,Vector2(-1,-1),Vector2(1,-1)]:
 			var point: Vector2 = origin+offset*radius
-			if game.world.can_place_circle(point,17,actor,true): return point
+			if game.world.can_place_circle(point,game.world.RADIUS,actor,true): return point
 	return actor.position
 
 func capture(actor_id: int) -> bool:
@@ -80,7 +80,7 @@ func tick() -> void:
 		var waiting := false
 		for actor in occupants:
 			if actor.escaped or (actor in game.actors and actor.confined): continue
-			if not room.has_point(actor.position) and not game.world._circle_hits_rect(actor.position,17,game.world.door_collision_rect(gate.rect)): continue
+			if not room.has_point(actor.position) and not game.world._circle_hits_rect(actor.position,game.world.RADIUS,game.world.door_collision_rect(gate.rect)): continue
 			waiting = true
 			if not closed or closing.has(str(gate.id)): continue
 			var exit: Vector2 = _point(gate.get("evacuation",[1010,1100]))
@@ -111,7 +111,7 @@ func exit_goal(actor) -> Variant:
 	for gate in game.world.access_doors:
 		if not closing.has(str(gate.id)): continue
 		var room := _rect(gate.get("room_rect",[0,0,0,0]))
-		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,17,game.world.door_collision_rect(gate.rect)):
+		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,game.world.RADIUS,game.world.door_collision_rect(gate.rect)):
 			return _point(gate.get("evacuation",[1010,1100]))
 	return null
 

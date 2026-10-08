@@ -1,0 +1,44 @@
+{
+  "scheduleRevision": "61d070d294e9d2a75fdf1f849f540018022b0a606dce2d55496653805c9398ea",
+  "creates": [
+    {
+      "task": {
+        "id": "p84-small-foot-collision-20261008",
+        "title": "P84 角色脚底小范围碰撞",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p83-visible-wall-boundary-collision-20261008"
+        ],
+        "description": "用户要求缩小人物碰撞到脚部范围。",
+        "acceptance": "统一脚底半径8用于角色移动、导航和落点验证；可贴近墙体但脚底不能穿墙，玩家/NPC过门正常；不改变人物美术锚点和警戒抓捕距离。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/world/prison_world.gd",
+            "scripts/actors/prisoner.gd",
+            "scripts/actors/guard.gd",
+            "scripts/actors/police_dog.gd",
+            "scripts/core/move_orders.gd",
+            "scripts/core/escape_game.gd",
+            "scripts/core/room_access.gd",
+            "scripts/core/prison_alert.gd",
+            "scripts/core/prison_schedule.gd",
+            "scripts/core/workshop_rules.gd",
+            "scripts/editor/map_document.gd",
+            "scripts/core/actor_footprint.gd",
+            "qa/p84*",
+            "docs/dev/p84/**",
+            "docs/tests/p84*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "移动碰撞从17缩为8，继续使用固定脚底锚点；墙/门物理边界保持，UI选中圈和抓捕/互动规则不变。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户要求缩小人物碰撞到脚部范围。",
+  "requestId": "p84-plan-20261008"
+}

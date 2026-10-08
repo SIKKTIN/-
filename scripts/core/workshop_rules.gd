@@ -107,7 +107,7 @@ func update_gate() -> void:
 		if previously_held.get(id,false) and not actor.confined:
 			grace[id] = now+float(config.get("arrival_minutes",45))
 		previously_held[id] = actor.confined
-		if not actor.confined and area.grow(-17).has_point(actor.position): admitted[id] = true
+		if not actor.confined and area.grow(-game.world.RADIUS).has_point(actor.position): admitted[id] = true
 	var gate: Dictionary = game.world.access_by_id(str(config.access_id))
 	var open: bool = shift < 0
 	if shift >= 0:
@@ -115,7 +115,7 @@ func update_gate() -> void:
 		# stopping/restarting a manual order or choosing an idle daily plan.
 		for actor in game.actors:
 			if actor.escaped or actor.confined: continue
-			if now < float(grace.get(actor.actor_id,0)) and not area.grow(-17).has_point(actor.position): open = true
+			if now < float(grace.get(actor.actor_id,0)) and not area.grow(-game.world.RADIUS).has_point(actor.position): open = true
 			# Only defer closing an already open gate around a crossing body.
 			# Approaching a locked gate must never grant a prisoner access.
 			if not gate.closed and game.world._circle_hits_rect(actor.position,20,game.world.door_collision_rect(gate.rect)): open = true

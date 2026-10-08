@@ -1,6 +1,6 @@
 extends Node2D
 
-const RADIUS := 17.0
+const RADIUS := preload("res://scripts/core/actor_footprint.gd").RADIUS
 const GRID_SIZE := 20.0
 var room_id: String = "r01"
 var bounds := Rect2(74,114,922,560)

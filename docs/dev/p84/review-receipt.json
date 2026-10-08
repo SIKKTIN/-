@@ -1,0 +1,58 @@
+{
+  "id": "p84-accept-20261008",
+  "digest": "aa4a321d67e6f9ae5a11f4555b5ba18622618b06e5b7a406a325efe8395a88ae",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T09:39:12.888Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p84-delivery-20261008",
+    "taskId": "p84-small-foot-collision-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "角色移动统一脚底半径8（原17），同步导航、移动指令和落点检查；64项原生脚底及两日通勤检查通过，墙/门与地图未改。",
+    "evidence": [
+      "docs/dev/p84/report.md",
+      "docs/dev/p84/delivery.json",
+      "docs/tests/p84-boundaries-native.json",
+      "docs/tests/p84-two-day-cycle.json",
+      "docs/tests/p84-dorm-wall-contact.png",
+      "docs/tests/p84-food-wall-contact.png"
+    ],
+    "at": "2026-10-08T09:38:39.690Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T09:39:13.059Z",
+      "note": "统一脚底移动碰撞半径8，51项原生边界/过门检查与13项两日NPC日程检查全部通过，地图SHA与任务基线一致。新版游戏PID37548窗口已启动且响应，日志无启动错误。没有新增帧率基准或作出FPS保证。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p84-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "03840060b4174a2c35c65149d91e990c796704744cc6ba7479a45e752a29fae5"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "03840060b4174a2c35c65149d91e990c796704744cc6ba7479a45e752a29fae5",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

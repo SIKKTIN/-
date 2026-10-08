@@ -1,0 +1,107 @@
+{
+  "task": {
+    "id": "p84-small-foot-collision-20261008",
+    "title": "P84 角色脚底小范围碰撞",
+    "description": "用户要求缩小人物碰撞到脚部范围。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "统一脚底半径8用于角色移动、导航和落点验证；可贴近墙体但脚底不能穿墙，玩家/NPC过门正常；不改变人物美术锚点和警戒抓捕距离。",
+    "result": "",
+    "dependencyIds": [
+      "p83-visible-wall-boundary-collision-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/world/prison_world.gd",
+        "scripts/actors/prisoner.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/police_dog.gd",
+        "scripts/core/move_orders.gd",
+        "scripts/core/escape_game.gd",
+        "scripts/core/room_access.gd",
+        "scripts/core/prison_alert.gd",
+        "scripts/core/prison_schedule.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/editor/map_document.gd",
+        "scripts/core/actor_footprint.gd",
+        "qa/p84*",
+        "docs/dev/p84/**",
+        "docs/tests/p84*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "移动碰撞从17缩为8，继续使用固定脚底锚点；墙/门物理边界保持，UI选中圈和抓捕/互动规则不变。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p84-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T09:27:29.234Z"
+      }
+    ]
+  },
+  "revision": "7d8ac39b7c3a75f67dd19dfcffd09fb46a9356316c4df66df9254eed96ef461a",
+  "scheduleRevision": "12c3d403e60094ad2f7336ae968164043a5adf71648e246305b6e7c0c0084320",
+  "planChanges": [
+    {
+      "id": "p84-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T09:27:29.234Z",
+      "reason": "用户要求缩小人物碰撞到脚部范围。",
+      "createdTaskIds": [
+        "p84-small-foot-collision-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p83-visible-wall-boundary-collision-20261008",
+      "title": "P83 固定墙边碰撞与门口通行对齐",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "7d8ac39b7c3a75f67dd19dfcffd09fb46a9356316c4df66df9254eed96ef461a"
+  },
+  "feedback": []
+}

@@ -1,0 +1,213 @@
+{
+  "task": {
+    "id": "p84-small-foot-collision-20261008",
+    "title": "P84 角色脚底小范围碰撞",
+    "description": "用户要求缩小人物碰撞到脚部范围。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "统一脚底半径8用于角色移动、导航和落点验证；可贴近墙体但脚底不能穿墙，玩家/NPC过门正常；不改变人物美术锚点和警戒抓捕距离。",
+    "result": "角色移动统一脚底半径8（原17），同步导航、移动指令和落点检查；64项原生脚底及两日通勤检查通过，墙/门与地图未改。",
+    "dependencyIds": [
+      "p83-visible-wall-boundary-collision-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/world/prison_world.gd",
+        "scripts/actors/prisoner.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/police_dog.gd",
+        "scripts/core/move_orders.gd",
+        "scripts/core/escape_game.gd",
+        "scripts/core/room_access.gd",
+        "scripts/core/prison_alert.gd",
+        "scripts/core/prison_schedule.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/editor/map_document.gd",
+        "scripts/core/actor_footprint.gd",
+        "qa/p84*",
+        "docs/dev/p84/**",
+        "docs/tests/p84*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "移动碰撞从17缩为8，继续使用固定脚底锚点；墙/门物理边界保持，UI选中圈和抓捕/互动规则不变。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p84-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T09:27:29.234Z"
+      }
+    ]
+  },
+  "revision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20",
+  "scheduleRevision": "e674c775734fc28a064ef14ae1965f4c75dda215fecc97d634169f871db85221",
+  "planChanges": [
+    {
+      "id": "p84-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T09:27:29.234Z",
+      "reason": "用户要求缩小人物碰撞到脚部范围。",
+      "createdTaskIds": [
+        "p84-small-foot-collision-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p83-visible-wall-boundary-collision-20261008",
+      "title": "P83 固定墙边碰撞与门口通行对齐",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p84-delivery-20261008",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p84-delivery-20261008",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p84-delivery-20261008",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20"
+  },
+  "feedback": [
+    {
+      "id": "p84-start-20261008",
+      "taskId": "p84-small-foot-collision-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "统一脚底半径从17缩到8，同步NPC寻路、移动目标和落点检查，原生贴墙/开关门与两日通勤回归运行中。",
+      "evidence": [
+        "docs/dev/p84/baseline.json"
+      ],
+      "at": "2026-10-08T09:30:21.336Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p84-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p84-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p84-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p84-delivery-20261008",
+      "taskId": "p84-small-foot-collision-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "角色移动统一脚底半径8（原17），同步导航、移动指令和落点检查；64项原生脚底及两日通勤检查通过，墙/门与地图未改。",
+      "evidence": [
+        "docs/dev/p84/report.md",
+        "docs/dev/p84/delivery.json",
+        "docs/tests/p84-boundaries-native.json",
+        "docs/tests/p84-two-day-cycle.json",
+        "docs/tests/p84-dorm-wall-contact.png",
+        "docs/tests/p84-food-wall-contact.png"
+      ],
+      "at": "2026-10-08T09:38:39.690Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p84-delivery-20261008",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p84-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p84-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "0907c4d9b0938048331f3d166dcd0be4fddcc4983a1a1b3d60dde7f00be93d20",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

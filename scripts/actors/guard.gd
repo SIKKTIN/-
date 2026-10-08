@@ -1,5 +1,7 @@
 extends Node2D
 
+const Footprint = preload("res://scripts/core/actor_footprint.gd")
+
 const VIEW_RADIUS := 210.0
 const DAY_VIEW_RADIUS := 210.0
 const NIGHT_VIEW_RADIUS := 155.0
@@ -82,12 +84,12 @@ func allowed_zone() -> Rect2:
 func search_zone() -> Rect2:
 	return world.bounds if labor_enforcement() or global_alert() or (game.schedule != null and game.schedule.is_sleep_time()) else world.guard_zone
 
-func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
+func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
 	if game.staff_traffic and game.staff_traffic.transiting(self):
 		return world.bounds.grow(-radius).has_point(point) or staff_exterior_allowed(point,radius)
 	return allowed_zone().grow(-radius).has_point(point)
 
-func staff_exterior_allowed(point: Vector2, radius: float = 17.0) -> bool:
+func staff_exterior_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
 	return game.staff_traffic != null and game.staff_traffic.transiting(self) and game.staff_traffic.exterior_allowed(point,radius)
 
 func schedule_changed(sleep_time: bool) -> void:
@@ -103,7 +105,7 @@ func schedule_changed(sleep_time: bool) -> void:
 			# Inspect from beside the bed rather than stepping onto a sleeping body.
 			inspection_route.append(game.schedule.inspection_point(actor.actor_id))
 	else:
-		returning_from_inspection = not world.guard_zone.grow(-17).has_point(position)
+		returning_from_inspection = not world.guard_zone.grow(-Footprint.RADIUS).has_point(position)
 
 func patrol_route() -> Array[Vector2]:
 	if global_alert():
@@ -139,13 +141,13 @@ func release_target() -> void:
 	stalled_time = 0
 
 func investigate(point: Vector2) -> bool:
-	if not curfew_alert() or game.phase != "playing" or state == "chasing" or not search_zone().grow(-17).has_point(point):
+	if not curfew_alert() or game.phase != "playing" or state == "chasing" or not search_zone().grow(-Footprint.RADIUS).has_point(point):
 		return false
 	var goal := point
-	if not world.can_place_circle(goal,17,self,true):
+	if not world.can_place_circle(goal,Footprint.RADIUS,self,true):
 		var found := false
 		for offset in [Vector2(45,0),Vector2(-45,0),Vector2(0,45),Vector2(0,-45)]:
-			if world.can_place_circle(point+offset,17,self,true):
+			if world.can_place_circle(point+offset,Footprint.RADIUS,self,true):
 				goal = point+offset
 				found = true
 				break
@@ -178,10 +180,10 @@ func tick(delta: float) -> void:
 	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
 	if not curfew_alert() and not labor_enforcement() and state in ["chasing", "searching"]:
 		release_target()
-	if not labor_enforcement() and not curfew_alert() and not world.guard_zone.grow(-17).has_point(position):
+	if not labor_enforcement() and not curfew_alert() and not world.guard_zone.grow(-Footprint.RADIUS).has_point(position):
 		returning_from_inspection = true
 	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),game.inspection_positions())
-	if returning_from_inspection and world.guard_zone.grow(-17).has_point(position):
+	if returning_from_inspection and world.guard_zone.grow(-Footprint.RADIUS).has_point(position):
 		returning_from_inspection = false
 		path.clear()
 		route_index = 0

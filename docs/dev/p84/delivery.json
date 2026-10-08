@@ -1,0 +1,60 @@
+{
+  "checks": 64,
+  "reports": [
+    "docs/tests/p84-boundaries-native.json",
+    "docs/tests/p84-two-day-cycle.json"
+  ],
+  "sources": {
+    "scripts/actors/guard.gd": {
+      "working_sha256": "7fd1eebdc34390e376358d3915aaa75de8e23630e99ec9c6a7253252e6f57b9b",
+      "index_sha256": "7fd1eebdc34390e376358d3915aaa75de8e23630e99ec9c6a7253252e6f57b9b"
+    },
+    "scripts/actors/police_dog.gd": {
+      "working_sha256": "c32b6074d4a3ccb030935965c064d2dddefa15da3ace24a511316f0807105976",
+      "index_sha256": "c32b6074d4a3ccb030935965c064d2dddefa15da3ace24a511316f0807105976"
+    },
+    "scripts/actors/prisoner.gd": {
+      "working_sha256": "fc90202ff62a22b1e5399b913acdc2eacaff3da68b81cc255a77e1e4174191dd",
+      "index_sha256": "fc90202ff62a22b1e5399b913acdc2eacaff3da68b81cc255a77e1e4174191dd"
+    },
+    "scripts/core/actor_footprint.gd": {
+      "working_sha256": "98052bbb2d46e8567828421aa44dbdc0028422159211579f4e80b162ac524ec3",
+      "index_sha256": "98052bbb2d46e8567828421aa44dbdc0028422159211579f4e80b162ac524ec3"
+    },
+    "scripts/core/escape_game.gd": {
+      "working_sha256": "5139ff92203eb0a8c2c0acc39b7d3b8d60a70babe0592f87e3e7e23a8a42d3b7",
+      "index_sha256": "2a086b8fa9883e4e49ef7938dcf8fc5e8e3e09a54b329aec6c38f15fbdecc9b5"
+    },
+    "scripts/core/move_orders.gd": {
+      "working_sha256": "46923117c088c0bd8ffce60aa87ed23e8d2d72dc9b4fb8c4ba40b0f8906cfe31",
+      "index_sha256": "46923117c088c0bd8ffce60aa87ed23e8d2d72dc9b4fb8c4ba40b0f8906cfe31"
+    },
+    "scripts/core/prison_alert.gd": {
+      "working_sha256": "0d2aed587ae2a3ce117b8e00ce9b1fa05accdb496ee9c65d5c2d118aec858e3b",
+      "index_sha256": "0d2aed587ae2a3ce117b8e00ce9b1fa05accdb496ee9c65d5c2d118aec858e3b"
+    },
+    "scripts/core/prison_schedule.gd": {
+      "working_sha256": "9f663d079a10f57aef2e2fa045fe1971ce964dde1380aaad4416ad7936b7f3af",
+      "index_sha256": "9f663d079a10f57aef2e2fa045fe1971ce964dde1380aaad4416ad7936b7f3af"
+    },
+    "scripts/core/room_access.gd": {
+      "working_sha256": "8c2ec6e67e9b194894484348d24ac88ffe24d1d58ae24b6f15f14e0d9d0608b6",
+      "index_sha256": "6bd0c3c2d5cfd1a751e5c95df31a5025522ebd8da32f652b17e7c7ad229fcd0d"
+    },
+    "scripts/core/workshop_rules.gd": {
+      "working_sha256": "3a7e108dc3dc6e7b7f7f720ef13dbbb77de0e0f230e96df22a4ff52173edffb0",
+      "index_sha256": "3a7e108dc3dc6e7b7f7f720ef13dbbb77de0e0f230e96df22a4ff52173edffb0"
+    },
+    "scripts/editor/map_document.gd": {
+      "working_sha256": "f4d55fe0f7d246236c7e51eab2f1fdbe1cb0ce85e31cd148123f2d9b839f85fd",
+      "index_sha256": "4db64036d25f711f25528691617cefe21999f7d931617c8e34e058047ca6fe52"
+    },
+    "scripts/world/prison_world.gd": {
+      "working_sha256": "ee7e2bf19f81754aef2adf1741ed66d41c5404c566887290c8a8381e6a8dfc11",
+      "index_sha256": "c6314ad6d16745b61e686b0619f58b6b0ff630199885f77efd721e7039bb1dc9"
+    }
+  },
+  "map_sha256": "894b330b1e0cecc95449517ef4b0500cdc7f7b7dabfdd8147e9e3ef5a8c63a81",
+  "foot_radius": 8,
+  "previous_radius": 17
+}

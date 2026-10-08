@@ -1,5 +1,7 @@
 extends Node2D
 
+const Footprint = preload("res://scripts/core/actor_footprint.gd")
+
 var actor_id: int = 0
 var skill_id: String = "chat"
 var home := Vector2.ZERO
@@ -9,7 +11,7 @@ var escaped: bool = false
 var confined := false
 var confinement_rect := Rect2()
 
-func movement_allowed(point: Vector2, radius: float = 17.0) -> bool:
+func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
 	return not confined or confinement_rect.grow(-radius).has_point(point)
 var selected: bool = false
 var immune_until: float = 0.0

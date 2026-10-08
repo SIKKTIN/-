@@ -1,0 +1,16 @@
+{
+  "taskId": "p84-small-foot-collision-20261008",
+  "revision": "c217de73af51db1cc8abcd484aad75541f1d1b034fa0ac3a8d88370d50d85954",
+  "feedbackId": "p84-delivery-20261008",
+  "status": "待验收",
+  "summary": "角色移动统一脚底半径8（原17），同步导航、移动指令和落点检查；64项原生脚底及两日通勤检查通过，墙/门与地图未改。",
+  "evidence": [
+    "docs/dev/p84/report.md",
+    "docs/dev/p84/delivery.json",
+    "docs/tests/p84-boundaries-native.json",
+    "docs/tests/p84-two-day-cycle.json",
+    "docs/tests/p84-dorm-wall-contact.png",
+    "docs/tests/p84-food-wall-contact.png"
+  ],
+  "requestId": "p84-delivery-20261008"
+}

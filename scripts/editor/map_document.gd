@@ -371,7 +371,7 @@ func validate() -> Dictionary:
 			if ids.has(key):
 				errors.append(name_for(ref)+"：同类ID重复。")
 			ids[key] = true
-		if not is_rect(ref) and ref.group != "items" and not world.can_place_circle(rect.position,17,null,false):
+		if not is_rect(ref) and ref.group != "items" and not world.can_place_circle(rect.position,world.RADIUS,null,false):
 			if ref.group in ["starts","guard_start","gate_guards"]:
 				errors.append(name_for(ref)+"：出生点被墙、门或摆设挡住。")
 			else:
@@ -386,7 +386,7 @@ func validate() -> Dictionary:
 		errors.append("寝室范围需要按伙伴1、2、3顺序设置3个。")
 	if data.has("dormitories") and data.dormitories.size() == 3:
 		for index in range(3):
-			if not geometry({"group":"dormitories","index":index}).grow(-17).has_point(geometry({"group":"starts","index":index}).position):
+			if not geometry({"group":"dormitories","index":index}).grow(-preload("res://scripts/core/actor_footprint.gd").RADIUS).has_point(geometry({"group":"starts","index":index}).position):
 				warnings.append("伙伴%d出生点不在自己的寝室内，请检查夜间归属。" % (index+1))
 	if data.get("patrol",[]).size() < 2:
 		warnings.append("巡逻路线少于2点，看守将主要原地停留。")
@@ -399,10 +399,10 @@ func validate() -> Dictionary:
 		var probe = World.new()
 		probe.configure(data,[])
 		for cell in collection("confinement"):
-			var inside := Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3]).grow(-17)
+			var inside := Rect2(cell.rect[0],cell.rect[1],cell.rect[2],cell.rect[3]).grow(-preload("res://scripts/core/actor_footprint.gd").RADIUS)
 			var spawn := Vector2(cell.spawn[0],cell.spawn[1])
-			if not inside.has_point(spawn) or not probe.can_place_circle(spawn,17,null,false): errors.append("禁闭关押点需在室内可站立处。")
-			if not probe.can_place_circle(Vector2(cell.release[0],cell.release[1]),17,null,false): errors.append("禁闭释放点被障碍挡住。")
+			if not inside.has_point(spawn) or not probe.can_place_circle(spawn,probe.RADIUS,null,false): errors.append("禁闭关押点需在室内可站立处。")
+			if not probe.can_place_circle(Vector2(cell.release[0],cell.release[1]),probe.RADIUS,null,false): errors.append("禁闭释放点被障碍挡住。")
 			if probe.access_by_id(str(cell.door_id)).get("kind","") != "confinement": errors.append("禁闭室关联门缺失。")
 		probe.free()
 	return {"errors":errors,"warnings":warnings}

@@ -215,7 +215,7 @@ func dormitory(actor_id: int) -> Rect2:
 	return Rect2(game.actors[actor_id].home-Vector2(64,64),Vector2(128,128)).intersection(game.world.bounds)
 
 func in_dormitory(actor_id: int) -> bool:
-	return dormitory(actor_id).grow(-17).has_point(game.actors[actor_id].position)
+	return dormitory(actor_id).grow(-game.world.RADIUS).has_point(game.actors[actor_id].position)
 
 func inspection_point(actor_id: int) -> Vector2:
 	var home: Vector2 = game.actors[actor_id].home
@@ -237,7 +237,7 @@ func enter_curfew() -> void:
 		var accepted := false
 		for offset in [Vector2.ZERO,Vector2(40,0),Vector2(-40,0),Vector2(0,40),Vector2(0,-40)]:
 			var goal: Vector2 = actor.home+offset
-			if dormitory(actor.actor_id).grow(-17).has_point(goal) and game.world.can_place_circle(goal,17,actor,true) and game.orders.issue(actor.actor_id,goal,"curfew"):
+			if dormitory(actor.actor_id).grow(-game.world.RADIUS).has_point(goal) and game.world.can_place_circle(goal,game.world.RADIUS,actor,true) and game.orders.issue(actor.actor_id,goal,"curfew"):
 				accepted = true
 				break
 		curfew_returns[actor.actor_id] = "returning" if accepted else "blocked"

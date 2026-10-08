@@ -1,0 +1,51 @@
+{
+  "id": "p84-start-20261008",
+  "digest": "f376b132687e598351c958527196fc5958986463014a1d54f4017d74c0ac7f8d",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T09:30:21.205Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p84-start-20261008",
+    "taskId": "p84-small-foot-collision-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "统一脚底半径从17缩到8，同步NPC寻路、移动目标和落点检查，原生贴墙/开关门与两日通勤回归运行中。",
+    "evidence": [
+      "docs/dev/p84/baseline.json"
+    ],
+    "at": "2026-10-08T09:30:21.336Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p84-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "c217de73af51db1cc8abcd484aad75541f1d1b034fa0ac3a8d88370d50d85954"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "c217de73af51db1cc8abcd484aad75541f1d1b034fa0ac3a8d88370d50d85954",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

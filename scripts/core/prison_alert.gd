@@ -42,7 +42,7 @@ func release_at_dawn() -> void:
 		officer.inspection_route.clear()
 		officer.route_index = 0
 		officer.path_timer = 0
-		officer.returning_from_inspection = not game.world.guard_zone.grow(-17).has_point(officer.position)
+		officer.returning_from_inspection = not game.world.guard_zone.grow(-game.world.RADIUS).has_point(officer.position)
 	active = false
 	missing_ids.clear()
 	checked_rooms.clear()
@@ -72,7 +72,7 @@ func check_rollcall() -> void:
 		if actor.confined: continue # Registered custody is not a missing prisoner.
 		var checkpoint: Vector2 = game.schedule.inspection_point(actor.actor_id)
 		# Only an actual room visit counts. Walls/gates cannot be inspected through.
-		if not game.schedule.dormitory(actor.actor_id).grow(-17).has_point(game.guard.position) or game.guard.position.distance_to(checkpoint) > 35 or not game.world.line_clear(game.guard.position,actor.home):
+		if not game.schedule.dormitory(actor.actor_id).grow(-game.world.RADIUS).has_point(game.guard.position) or game.guard.position.distance_to(checkpoint) > 35 or not game.world.line_clear(game.guard.position,actor.home):
 			continue
 		checked_rooms[actor.actor_id] = game.schedule.absolute_minutes()
 		if actor.escaped or not game.schedule.in_dormitory(actor.actor_id):
