@@ -1,0 +1,82 @@
+{
+  "id": "p89-accept-20261009",
+  "digest": "da19ece8bbaff2ec63ce5c938da6b5b34d2428377a46a5687e3bbb3a4485f9f1",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T16:57:03.175Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p89-delivery-20261009",
+    "taskId": "p89-full-body-door-passages-20261009",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "保留8px脚部圈，新增36×68全身门框/门扇判定；侧门从40px高扩至96px，下端墙缝固定。寻路、移动、开关及屋顶过门状态同步；105项不同检查通过，本机追捕60/90档约60/90fps，编辑器游戏已启动。",
+    "evidence": [
+      "docs/dev/p89/report.md",
+      "docs/dev/p89/delivery.json",
+      "docs/dev/p89/performance.json",
+      "docs/dev/p89/restart.json",
+      "docs/tests/p89-boundaries-native.json",
+      "docs/tests/p89-boundaries-headless.json",
+      "docs/tests/p89-gameplay-regression.json",
+      "docs/tests/p89-two-day-cycle.json",
+      "docs/tests/p89-moving-after60.json",
+      "docs/tests/p89-moving-after90.json",
+      "docs/tests/p89-full-body-entering.png"
+    ],
+    "at": "2026-10-08T16:42:39.544Z",
+    "evidenceVersion": 2,
+    "state": "accepted",
+    "supplements": [
+      {
+        "id": "p89-append-linked-20261009",
+        "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T16:56:00.902Z",
+        "note": "补充联动门另一侧身体未清除时暂缓整组关闭，新增3项实际联动检查；最终原生/无渲染各84项，加11项抓捕、13项两日作息，共108项不同检查通过，最终60/90追捕性能与重新启动回执已更新。",
+        "deliveryVersion": "p89-final-efa0ad6b76403acb",
+        "evidence": [
+          "docs/dev/p89/report.md",
+          "docs/dev/p89/delivery.json",
+          "docs/dev/p89/performance.json",
+          "docs/dev/p89/restart.json",
+          "docs/tests/p89-boundaries-native.json",
+          "docs/tests/p89-boundaries-headless.json",
+          "docs/tests/p89-moving-after60.json",
+          "docs/tests/p89-moving-after90.json"
+        ]
+      }
+    ],
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T16:57:03.376Z",
+      "note": "原生和无渲染84项门/身体/路径检查、11项实际抓捕及13项两日作息通过，共108项不同检查。人物全身框36×68独立于脚8px圈；侧门96px固定墙缝，全身框约束移动和导航、合法入门才揭屋顶；联动两侧均等待身体清除。真实室外移动追捕60/90平均16.604/11.081ms，声明本机路线范围。编辑器主场景启动helper_live无新增错误，源文件仅本轮自身增量，其他WIP保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 2
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p89-delivery-20261009",
+      "feedbackState": "accepted",
+      "evidenceVersion": 2,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "fe3bb3eb61b805ebc1ddc6ee917298160a46e9757eb48fe0b4226d0334e6683a"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "fe3bb3eb61b805ebc1ddc6ee917298160a46e9757eb48fe0b4226d0334e6683a",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

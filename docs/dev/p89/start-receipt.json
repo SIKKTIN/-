@@ -1,0 +1,51 @@
+{
+  "id": "p89-start-20261009",
+  "digest": "1fd874bacd0b5d5d9c8afa25fba54410beff18f669059809f6760d0428108fd6",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T16:15:32.427Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p89-start-20261009",
+    "taskId": "p89-full-body-door-passages-20261009",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "确认门可见投影仅40px而人物约60px。保持墙底接缝向上扩到96px，并新增全身门框/门扇约束及共享寻路缓存。",
+    "evidence": [
+      "docs/dev/p89/baseline.json"
+    ],
+    "at": "2026-10-08T16:15:32.567Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p89-start-20261009",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

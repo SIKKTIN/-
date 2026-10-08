@@ -1,0 +1,12 @@
+{
+  "staged_production": [
+    "scripts/core/actor_footprint.gd",
+    "scripts/core/door_passage.gd",
+    "scripts/core/room_visibility.gd",
+    "scripts/core/room_access.gd",
+    "scripts/presentation/doorway_geometry.gd",
+    "scripts/world/prison_world.gd"
+  ],
+  "world": "Only before/after owned hunks staged onto HEAD; closure insertion moved to common function prefix. Existing linked-door/escape/map WIP kept unstaged.",
+  "room_access": "Only foot-overlap to full-body-overlap delta staged onto HEAD."
+}

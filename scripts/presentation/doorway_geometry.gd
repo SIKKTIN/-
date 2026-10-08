@@ -1,7 +1,8 @@
 extends RefCounted
 
-# Door collision stays on the foot line. The painted horizontal wall cap is
-# above that line; every view uses the same projection, in either door state.
+# Shared visible apertures. Ground movement still uses feet; door passage
+# additionally tests the independent projected body against jambs/leaves.
+const SIDE_SPAN := 96.0
 static func managed_fixture(fixture: Dictionary) -> bool:
 	return controlled_fixture(fixture) or str(fixture.get("asset_id","")).begins_with("prison_gate_") or str(fixture.get("asset_id","")).begins_with("doorway_")
 
@@ -18,7 +19,7 @@ static func projected_rect(world, gate: Dictionary) -> Rect2:
 		var bottom := rect.end.y
 		# A horizontal wall's painted elevation can overlap the foot-line
 		# collider. Stop the side-door drawing at its stone header, not below
-		# it in the next room. Real collision remains the original full rect.
+		# it in the next room. Short apertures extend upward for body clearance.
 		for index in world.wall_surfaces:
 			var surface: Dictionary = world.wall_surfaces[index]
 			if not surface.has("grid_tile_asset") or not surface.get("render_enabled",true): continue
@@ -27,7 +28,8 @@ static func projected_rect(world, gate: Dictionary) -> Rect2:
 			if wall.end.x<=rect.position.x or wall.position.x>=rect.end.x: continue
 			if surface.get("collision_parts",[]).any(func(p):return float(p[2])>float(p[3])):
 				bottom = wall.position.y
-		return Rect2(rect.position,Vector2(rect.size.x,bottom-rect.position.y))
+		var span := maxf(SIDE_SPAN,bottom-rect.position.y)
+		return Rect2(rect.position.x,bottom-span,rect.size.x,span)
 	var top := rect.position.y
 	var distance := INF
 	for index in world.wall_surfaces:

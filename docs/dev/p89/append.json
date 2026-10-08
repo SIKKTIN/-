@@ -1,0 +1,19 @@
+{
+  "taskId": "p89-full-body-door-passages-20261009",
+  "revision": "7fc4ddadba5d51b9852d49ba7e7a6d2ceea220cb61715b73a09d112b2f13e535",
+  "feedbackId": "p89-delivery-20261009",
+  "evidenceVersion": 1,
+  "note": "补充联动门另一侧身体未清除时暂缓整组关闭，新增3项实际联动检查；最终原生/无渲染各84项，加11项抓捕、13项两日作息，共108项不同检查通过，最终60/90追捕性能与重新启动回执已更新。",
+  "deliveryVersion": "p89-final-efa0ad6b76403acb",
+  "evidence": [
+    "docs/dev/p89/report.md",
+    "docs/dev/p89/delivery.json",
+    "docs/dev/p89/performance.json",
+    "docs/dev/p89/restart.json",
+    "docs/tests/p89-boundaries-native.json",
+    "docs/tests/p89-boundaries-headless.json",
+    "docs/tests/p89-moving-after60.json",
+    "docs/tests/p89-moving-after90.json"
+  ],
+  "requestId": "p89-append-linked-20261009"
+}

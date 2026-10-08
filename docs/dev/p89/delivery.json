@@ -1,0 +1,87 @@
+{
+  "reports": {
+    "boundaries-native": 84,
+    "boundaries-headless": 84,
+    "two-day-cycle": 13,
+    "gameplay-regression": 11
+  },
+  "unique_checks": 108,
+  "performance": {
+    "60": {
+      "frame": {
+        "max_ms": 18.586,
+        "mean_ms": 16.6037166666667,
+        "p95_ms": 16.714,
+        "p99_ms": 16.865
+      },
+      "cpu": {
+        "max_ms": 6.031,
+        "mean_ms": 2.86733888888889,
+        "p95_ms": 3.533,
+        "p99_ms": 5.112
+      },
+      "warning": {
+        "max_ms": 0.323,
+        "mean_ms": 0.131122222222222,
+        "p95_ms": 0.185,
+        "p99_ms": 0.292
+      },
+      "fps_from_intervals": 60.227479188896346,
+      "moving_frames": 180
+    },
+    "90": {
+      "frame": {
+        "max_ms": 12.4,
+        "mean_ms": 11.080937037037,
+        "p95_ms": 11.65,
+        "p99_ms": 12.229
+      },
+      "cpu": {
+        "max_ms": 4.396,
+        "mean_ms": 2.7694037037037,
+        "p95_ms": 3.272,
+        "p99_ms": 3.692
+      },
+      "warning": {
+        "max_ms": 0.237,
+        "mean_ms": 0.127488888888889,
+        "p95_ms": 0.163,
+        "p99_ms": 0.214
+      },
+      "fps_from_intervals": 90.24507554348456,
+      "moving_frames": 270
+    }
+  },
+  "production": [
+    {
+      "file": "scripts/core/actor_footprint.gd",
+      "index_sha256": "8d62b9ecc1dfafe0d44dd7b129476ad2b87264abb75bc5841916d3d3808d1888",
+      "working_sha256": "8d62b9ecc1dfafe0d44dd7b129476ad2b87264abb75bc5841916d3d3808d1888"
+    },
+    {
+      "file": "scripts/core/door_passage.gd",
+      "index_sha256": "7ee275d9d3b985b9a7ac9b7e1a1021427d6d7d225a8cb456d7a4962aece0165f",
+      "working_sha256": "7ee275d9d3b985b9a7ac9b7e1a1021427d6d7d225a8cb456d7a4962aece0165f"
+    },
+    {
+      "file": "scripts/core/room_access.gd",
+      "index_sha256": "5014710deb39284ea6fb9c5c57cb5d162a75850e5a576d8930143cf4ed8bb352",
+      "working_sha256": "fa1bc7ebcb15117f93f66c907ef945035aec3f4fd1de9bb9388b1f94e5b4958c"
+    },
+    {
+      "file": "scripts/core/room_visibility.gd",
+      "index_sha256": "0864a30097a4c0da36c896c67e660bf11ecc75189b58d9b3bf2586c0cc8c0658",
+      "working_sha256": "feeb7f6eadcb3496c03ee4b4e5243f300d52aeb61655659a9da33eefdac9b1d6"
+    },
+    {
+      "file": "scripts/presentation/doorway_geometry.gd",
+      "index_sha256": "29a3f374dbbc2f34fbbc301ca9fd003425d06fe125325c84a812c0c741f165c0",
+      "working_sha256": "7d4af10fe677a361ac6ae36701823053c43a58787fcb0f0d24aa549efa3fd0e4"
+    },
+    {
+      "file": "scripts/world/prison_world.gd",
+      "index_sha256": "f303b5cf0a003c7e94120f364f4be49e6accc491823d7d8f5213e6d6946743ac",
+      "working_sha256": "efa0ad6b76403acbffff13c1af167b0bd04b283b6b6e3e2c42b3956320dcfcd3"
+    }
+  ]
+}

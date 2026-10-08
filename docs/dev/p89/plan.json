@@ -1,0 +1,39 @@
+{
+  "scheduleRevision": "7f6d804e3c93a6a8d4650fc073e1c675d28c510cb3b8c65bf037ed126db05e61",
+  "creates": [
+    {
+      "task": {
+        "id": "p89-full-body-door-passages-20261009",
+        "title": "P89 全身门洞通行框与脚部移动框分离",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p88-moving-outdoor-chase-fps-20261008"
+        ],
+        "description": "用户批准两种碰撞用途：日常移动仍脚部，门洞通行检查全身；门洞高于人物避免头部覆盖墙体。",
+        "acceptance": "侧门可见口大于人物完整投影；保留8px脚部圈，门洞全身框阻止头肩蹭门框和关闭门；玩家、NPC及警卫寻路和实际移动一致，门开关/遮挡正确且追捕60/90性能无回退。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/actor_footprint.gd",
+            "scripts/core/door_passage.gd",
+            "scripts/core/room_visibility.gd",
+            "scripts/core/room_access.gd",
+            "scripts/world/prison_world.gd",
+            "scripts/presentation/doorway_geometry.gd",
+            "scripts/presentation/doorway_view.gd",
+            "qa/p89*",
+            "docs/dev/p89/**",
+            "docs/tests/p89*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "脚部碰撞保持；门通行和寻路新增相同全身门框约束；复用现有门美术、保留相邻墙体接缝，不修改其他资产WIP。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户确认实施两种碰撞框和较高门洞。",
+  "requestId": "p89-plan-20261009"
+}

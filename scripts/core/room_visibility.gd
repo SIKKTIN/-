@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Footprint = preload("res://scripts/core/actor_footprint.gd")
 const Cover = preload("res://scripts/presentation/room_cover.gd")
 const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
 const WallEdges = preload("res://scripts/presentation/roof_wall_edges.gd")
@@ -77,6 +78,7 @@ func reset() -> void:
 		for gate in game.world.access_doors+game.world.dorm_doors:
 			projected[gate.rect] = Doorways.Geometry.projected_rect(game.world,gate)
 		projected[game.world.door] = Doorways.Geometry.projected_rect(game.world,{"rect":game.world.door})
+	game.world.door_passage.configure(game.world,rooms)
 	game.world.set_wall_boundaries(clips,projected)
 	game.world.room_visibility = self
 	tick(0,true)
@@ -108,17 +110,23 @@ func visible_at(point: Vector2) -> bool:
 		if area.has_point(point): return false
 	return true
 
+func entering_portal(room: Dictionary, body: Rect2, point: Vector2) -> bool:
+	if not room.enter_area.intersects(body) or not game.world.door_body_clear(point): return false
+	return room.roof_plan.ports.any(func(port):return body.intersects(port.get("visual_rect",port.rect)))
+
 func tick(delta: float, force := false) -> void:
 	if not force and game.get_tree().paused: return
 	if game.actors.is_empty(): return
 	if is_instance_valid(doorways): doorways.tick(force)
 	var point: Vector2 = game.actors[game.PLAYER_ACTOR_ID].position
+	var body := Footprint.body_at(point)
 	var next := active_id
-	if not _current_area.has_area() or not _current_area.grow(6).has_point(point):
+	if not _current_area.has_area() or not _current_area.grow(6).intersects(body):
 		next = ""
 		for room in rooms:
-			# Foot origin, not the sprite/head or another NPC, crosses the threshold.
-			if room.enter_area.has_point(point):
+			# Reveal on a valid doorway crossing by the whole player body.
+			# A head overlapping an ordinary wall cannot reveal its room.
+			if room.enter_area.has_point(point) or entering_portal(room,body,point):
 				next = str(room.id)
 				break
 	if force or next != active_id:

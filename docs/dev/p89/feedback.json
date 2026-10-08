@@ -1,0 +1,21 @@
+{
+  "taskId": "p89-full-body-door-passages-20261009",
+  "revision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92",
+  "feedbackId": "p89-delivery-20261009",
+  "status": "待验收",
+  "summary": "保留8px脚部圈，新增36×68全身门框/门扇判定；侧门从40px高扩至96px，下端墙缝固定。寻路、移动、开关及屋顶过门状态同步；105项不同检查通过，本机追捕60/90档约60/90fps，编辑器游戏已启动。",
+  "evidence": [
+    "docs/dev/p89/report.md",
+    "docs/dev/p89/delivery.json",
+    "docs/dev/p89/performance.json",
+    "docs/dev/p89/restart.json",
+    "docs/tests/p89-boundaries-native.json",
+    "docs/tests/p89-boundaries-headless.json",
+    "docs/tests/p89-gameplay-regression.json",
+    "docs/tests/p89-two-day-cycle.json",
+    "docs/tests/p89-moving-after60.json",
+    "docs/tests/p89-moving-after90.json",
+    "docs/tests/p89-full-body-entering.png"
+  ],
+  "requestId": "p89-delivery-20261009"
+}

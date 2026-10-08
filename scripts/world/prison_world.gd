@@ -1,6 +1,13 @@
 extends Node2D
 
-const RADIUS := preload("res://scripts/core/actor_footprint.gd").RADIUS
+const Footprint = preload("res://scripts/core/actor_footprint.gd")
+const RADIUS := Footprint.RADIUS
+const DoorPassage = preload("res://scripts/core/door_passage.gd")
+var door_passage = DoorPassage.new()
+var body_solids: Array[Rect2] = []
+var inspection_body_solids: Array[Rect2] = []
+var navigation_body_solids: Array[Rect2] = []
+var navigation_inspection_body_solids: Array[Rect2] = []
 const GRID_SIZE := 20.0
 var room_id: String = "r01"
 var bounds := Rect2(74,114,922,560)
@@ -24,6 +31,8 @@ const SolidIndex = preload("res://scripts/core/solid_spatial_index.gd")
 var solid_index = SolidIndex.new()
 var inspection_index = SolidIndex.new()
 var sight_index = SolidIndex.new()
+var body_index = SolidIndex.new()
+var inspection_body_index = SolidIndex.new()
 var navigation_solids: Array[Rect2] = []
 var navigation_inspection_solids: Array[Rect2] = []
 var navigation_layout: Array = []
@@ -94,6 +103,7 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
 	boundary_solids.clear()
 	boundary_doors.clear()
+	door_passage.portals.clear()
 	boundary_interactions.clear()
 	boundary_destinations.clear()
 	walls.clear()
@@ -155,6 +165,9 @@ func access_by_id(id: String) -> Dictionary:
 func set_access_closed(id: String, closed: bool, reset_progress := false) -> void:
 	var gate := access_by_id(id)
 	if gate.is_empty(): return
+	# Timed/manual closure waits for the complete body to clear the leaf.
+	# Forced confinement still closes immediately before its landing move.
+	if closed and not reset_progress and actors.any(func(a):return not a.escaped and door_closure_overlap(a,gate)): closed=false
 	if reset_progress: gate.progress = 0.0
 	if bool(gate.closed) == closed: return
 	gate.closed = closed
@@ -166,6 +179,7 @@ func update_dorm_doors(locked: bool, keyholders: Variant) -> void:
 	for gate in dorm_doors:
 		# The guard uses a key and opens the gate before crossing its collider.
 		var closed: bool = str(gate.get("kind","dorm")) != "open" and locked and not points.any(func(point): return gate.rect.get_center().distance_to(point) <= 85)
+		if closed and actors.any(func(a):return not a.escaped and body_overlaps_door(a,gate.rect)): closed=false
 		if bool(gate.closed) != closed:
 			gate.closed = closed
 			changed = true
@@ -214,7 +228,22 @@ func inside_room(point: Vector2, radius: float = RADIUS, allow_exit: bool = true
 func _staff_exterior(actor, point: Vector2, radius: float = RADIUS) -> bool:
 	return actor != null and actor.has_method("staff_exterior_allowed") and actor.staff_exterior_allowed(point,radius)
 
+func door_body_clear(point: Vector2) -> bool:
+	var index = inspection_body_index if planning_guard_doors else body_index
+	if index.revision != obstacle_revision: index.rebuild(inspection_body_solids if planning_guard_doors else body_solids,obstacle_revision)
+	return not index.nearby(point,0).any(func(rect):return rect.has_point(point))
+
+func body_overlaps_door(actor, rect: Rect2) -> bool:
+	return Footprint.body_at(actor.position).intersects(door_collision_rect(rect))
+
+func door_closure_overlap(actor, gate: Dictionary) -> bool:
+	if body_overlaps_door(actor,gate.rect): return true
+	for companion in access_doors:
+		if str(companion.get("linked_to",""))==str(gate.get("id","")) and body_overlaps_door(actor,companion.rect): return true
+	return false
+
 func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
+	if not door_body_clear(point): return false
 	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
 		return false
@@ -335,6 +364,11 @@ func _rebuild_navigation() -> void:
 	for rect in navigation_solids: old_solids[rect]=true
 	for rect in static_solids: new_solids[rect]=true
 	var changed_rects: Array[Rect2] = []
+	for pair in [[navigation_body_solids,body_solids],[navigation_inspection_body_solids,inspection_body_solids]]:
+		for rect in pair[0]:
+			if rect not in pair[1] and rect not in changed_rects: changed_rects.append(rect)
+		for rect in pair[1]:
+			if rect not in pair[0] and rect not in changed_rects: changed_rects.append(rect)
 	for rect in old_solids:
 		if not new_solids.has(rect): changed_rects.append(rect)
 	for rect in new_solids:
@@ -387,9 +421,24 @@ func _rebuild_navigation() -> void:
 						triple[0].set_point_solid(cell,true)
 						triple[1].set_point_solid(cell,true)
 						if inspection_members.has(rect):triple[2].set_point_solid(cell,true)
+	for pair in [[body_solids,false],[inspection_body_solids,true]]:
+		for rect in pair[0]:
+			var start := Vector2i(floori(rect.position.x/GRID_SIZE),floori(rect.position.y/GRID_SIZE))
+			var end := Vector2i(ceili(rect.end.x/GRID_SIZE),ceili(rect.end.y/GRID_SIZE))
+			for y in range(maxi(start.y,low.y),mini(end.y,high.y)):
+				for x in range(maxi(start.x,low.x),mini(end.x,high.x)):
+					var cell := Vector2i(x,y)
+					for triple in sets:
+						if not rect.has_point(triple[0].get_point_position(cell)): continue
+						if pair[1]: triple[2].set_point_solid(cell,true)
+						else:
+							triple[0].set_point_solid(cell,true)
+							triple[1].set_point_solid(cell,true)
 	_finish_navigation(layout)
 
 func _finish_navigation(layout: Array) -> void:
+	navigation_body_solids = body_solids.duplicate()
+	navigation_inspection_body_solids = inspection_body_solids.duplicate()
 	navigation_layout = layout
 	navigation_solids = static_solids.duplicate()
 	navigation_inspection_solids = inspection_solids.duplicate()
@@ -408,10 +457,10 @@ func _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:
 	for cell in cells:
 		for triple in _navigation_sets():
 			var point: Vector2 = triple[0].get_point_position(cell)
-			var blocked := not inside_room(point)
+			var blocked := not inside_room(point) or body_solids.any(func(rect):return rect.has_point(point))
 			for rect in solid_index.nearby(point,RADIUS):
 				if _circle_hits_rect(point,RADIUS,rect): blocked=true;break
-			var inspection_blocked := not inside_room(point)
+			var inspection_blocked := not inside_room(point) or inspection_body_solids.any(func(rect):return rect.has_point(point))
 			for rect in inspection_index.nearby(point,RADIUS):
 				if _circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break
 			triple[0].set_point_solid(cell,blocked)
@@ -441,6 +490,10 @@ func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors:
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed"):
 		if not ignore_actor.movement_allowed(from,RADIUS) or not ignore_actor.movement_allowed(to,RADIUS):
 			return false
+	var body = inspection_body_index if planning_guard_doors else body_index
+	if body.revision != obstacle_revision: body.rebuild(inspection_body_solids if planning_guard_doors else body_solids,obstacle_revision)
+	for rect in body.along_segment(from,to,0):
+		if ray_rect_fraction(from,to,rect) >= 0: return false
 	# The room interior is convex. Only the legacy external exit needs a seam check.
 	if maxf(from.x,to.x) > bounds.end.x-RADIUS and absf(to.x-from.x) > 0.001:
 		var crossing := from.lerp(to,clampf((bounds.end.x-RADIUS-from.x)/(to.x-from.x),0,1))
@@ -531,6 +584,8 @@ func _overlay_rect(navigation: AStarGrid2D, area: Rect2, changed: Array[Vector2i
 
 func _changed(static_changed: bool = false) -> void:
 	obstacle_revision += 1
+	body_solids = door_passage.solids()
+	inspection_body_solids = door_passage.solids(true)
 	nav_dirty = true
 	static_nav_dirty = static_nav_dirty or static_changed
 	static_solids = wall_collision_rects()
@@ -621,7 +676,7 @@ func _navigation_sets() -> Array:
 
 func _prefer_portal_grid(from: Vector2, to: Vector2) -> bool:
 	for rect in boundary_doors.values():
-		if rect.size.y<=rect.size.x or rect.size.y>44: continue
+		if rect.size.y<=rect.size.x: continue
 		for point in [from,to]:
 			if point.x<rect.position.x and absf(point.y-rect.get_center().y)<320:return true
 	return false
@@ -726,7 +781,8 @@ func set_wall_boundaries(clips: Dictionary, doors: Dictionary) -> void:
 	var next: Array[Rect2] = []
 	for pieces in clips.values(): next.append_array(pieces)
 	if next == boundary_solids and doors == boundary_doors:
-		if static_nav_dirty: _rebuild_navigation()
+		_changed(true)
+		_rebuild_navigation()
 		return
 	boundary_solids = next
 	boundary_doors = doors

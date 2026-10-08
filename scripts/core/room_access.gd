@@ -80,7 +80,7 @@ func tick() -> void:
 		var waiting := false
 		for actor in occupants:
 			if actor.escaped or (actor in game.actors and actor.confined): continue
-			if not room.has_point(actor.position) and not game.world._circle_hits_rect(actor.position,game.world.RADIUS,game.world.door_collision_rect(gate.rect)): continue
+			if not room.has_point(actor.position) and not game.world.body_overlaps_door(actor,gate.rect): continue
 			waiting = true
 			if not closed or closing.has(str(gate.id)): continue
 			var exit: Vector2 = _point(gate.get("evacuation",[1010,1100]))
