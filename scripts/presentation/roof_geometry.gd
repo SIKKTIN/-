@@ -45,7 +45,9 @@ static func plan(world, room: Dictionary) -> Dictionary:
 		var rect: Rect2 = gate.rect
 		var point := rect.get_center()
 		var side := ""
-		if point.y >= area.position.y-140 and point.y <= area.end.y+40:
+		# A side entrance belongs to the room containing its physical foot
+		# line. The old header margin also assigned it to the next room.
+		if rect.size.y > rect.size.x and point.y >= area.position.y and point.y <= area.end.y:
 			if absf(point.x-area.position.x) <= 44: side = "west"
 			elif absf(point.x-area.end.x) <= 44: side = "east"
 		if point.x >= area.position.x and point.x <= area.end.x:

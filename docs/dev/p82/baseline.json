@@ -1,0 +1,74 @@
+{
+  "map_sha256": "894b330b1e0cecc95449517ef4b0500cdc7f7b7dabfdd8147e9e3ef5a8c63a81",
+  "dorm_doors": [
+    {
+      "actor_id": 0,
+      "rect": [
+        680,
+        400,
+        20,
+        120
+      ]
+    },
+    {
+      "actor_id": 1,
+      "rect": [
+        680,
+        740,
+        20,
+        120
+      ]
+    },
+    {
+      "actor_id": 2,
+      "rect": [
+        680,
+        1080,
+        20,
+        120
+      ]
+    }
+  ],
+  "confinement_doors": [
+    {
+      "id": "solitary-0",
+      "name": "禁闭室1",
+      "kind": "confinement",
+      "rect": [
+        680,
+        1420,
+        20,
+        120
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "solitary-1",
+      "name": "禁闭室2",
+      "kind": "confinement",
+      "rect": [
+        680,
+        1740,
+        20,
+        120
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    },
+    {
+      "id": "solitary-2",
+      "name": "禁闭室3",
+      "kind": "confinement",
+      "rect": [
+        680,
+        2060,
+        20,
+        120
+      ],
+      "initial_closed": true,
+      "blocks_sight": true
+    }
+  ],
+  "terrain_manifest": "res://art/environment/factory_v46/manifest.json"
+}

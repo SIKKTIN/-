@@ -48,7 +48,7 @@ func refresh() -> void:
 	if not is_instance_valid(doorways):
 		doorways = Doorways.new()
 		add_child(doorways)
-	doorways.configure(world,rooms)
+	doorways.configure(world,rooms,canvas.document.data)
 	doorways.visible = canvas.layers.is_visible("walls") or canvas.layers.is_visible("fixtures")
 	var live := {}
 	for kind in ["wall","fixture","door","crate"]:

@@ -1,0 +1,60 @@
+{
+  "id": "p82-accept-20261008",
+  "digest": "e9441d591a0293e7c6bdcd3f77139cbf7ad45c39dca861f9528e061c1e95b9ab",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T08:15:26.412Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p82-delivery-20261008",
+    "taskId": "p82-side-door-threshold-and-neighbour-wall-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "侧门槛复用走廊地面，六处侧门截断在邻墙之前，恢复石墙转角与正确房间端口归属；70项原生游戏/编辑器检查全部通过，地图与真实碰撞保持P82基线。",
+    "evidence": [
+      "docs/dev/p82/report.md",
+      "docs/dev/p82/delivery.json",
+      "docs/tests/p82-after-native.json",
+      "docs/tests/p82-family-doorways-native.json",
+      "docs/tests/p82-family-editor-native.json",
+      "docs/tests/p82-after-reported-open-side.png",
+      "docs/tests/p82-after-reported-closed-side.png",
+      "docs/tests/p82-after-dorm-row.png"
+    ],
+    "at": "2026-10-08T08:13:39.346Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T08:15:26.565Z",
+      "note": "制作人自验收：22项侧门针对性检查、37项门型/门禁/钥匙撬锁/碰撞回归、11项编辑器检查，共70项全通过。原生截图确认无草地露底，六个侧门40或60长并停在邻墙顶部，墙角保留。缓存切换无门体重建；R04与P82开始基线一致，保留其它工作区WIP。可玩窗口PID46720正常响应。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p82-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "5688ca138774f61a74695699e8bdce55b0d7b6950403155621b323be21a89e0b"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "5688ca138774f61a74695699e8bdce55b0d7b6950403155621b323be21a89e0b",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

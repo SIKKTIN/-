@@ -1,0 +1,62 @@
+{
+	"checks": {
+		"cafeteria_north_appearance_preserved": true,
+		"door_port_not_assigned_to_next_room": true,
+		"dorm_and_confinement_collision_lengths_unchanged": true,
+		"map_unchanged": true,
+		"neighbour_facade_not_cut_away": true,
+		"neighbour_original_stone_corner_retained": true,
+		"only_owner_room_has_each_dorm_port": true,
+		"side_projection_dorm-0": true,
+		"side_projection_dorm-1": true,
+		"side_projection_dorm-2": true,
+		"side_projection_solitary-0": true,
+		"side_projection_solitary-1": true,
+		"side_projection_solitary-2": true,
+		"threshold_commands_cached_on_room_entry": true,
+		"threshold_has_corridor_floor_dorm-0": true,
+		"threshold_has_corridor_floor_dorm-1": true,
+		"threshold_has_corridor_floor_dorm-2": true,
+		"threshold_has_corridor_floor_solitary-0": true,
+		"threshold_has_corridor_floor_solitary-1": true,
+		"threshold_has_corridor_floor_solitary-2": true,
+		"trailing_hardware_within_visible_side_span": true,
+		"visibility_keeps_real_collision": true
+	},
+	"failed": [],
+	"images": [
+		"res://docs/tests/p82-after-reported-open-side.png",
+		"res://docs/tests/p82-after-reported-closed-side.png",
+		"res://docs/tests/p82-after-dorm-row.png",
+		"res://docs/tests/p82-after-solitary-row.png",
+		"res://docs/tests/p82-after-night-side.png",
+		"res://docs/tests/p82-after-cafeteria-north.png"
+	],
+	"side_doors": [
+		{
+			"id": "dorm-0",
+			"visual": "[P: (680.0, 400.0), S: (20.0, 40.0)]"
+		},
+		{
+			"id": "dorm-1",
+			"visual": "[P: (680.0, 740.0), S: (20.0, 40.0)]"
+		},
+		{
+			"id": "dorm-2",
+			"visual": "[P: (680.0, 1080.0), S: (20.0, 60.0)]"
+		},
+		{
+			"id": "solitary-0",
+			"visual": "[P: (680.0, 1420.0), S: (20.0, 40.0)]"
+		},
+		{
+			"id": "solitary-1",
+			"visual": "[P: (680.0, 1740.0), S: (20.0, 40.0)]"
+		},
+		{
+			"id": "solitary-2",
+			"visual": "[P: (680.0, 2060.0), S: (20.0, 60.0)]"
+		}
+	],
+	"total": 22
+}

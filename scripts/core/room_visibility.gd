@@ -75,7 +75,7 @@ func reset() -> void:
 	tick(0,true)
 	doorways = Doorways.new()
 	game.add_child(doorways)
-	doorways.configure(game.world,rooms)
+	doorways.configure(game.world,rooms,game.room_config)
 	# Remove only the old non-blocking painted lintels inside real entrances.
 	# This is prepared once at map load, never on a visibility transition.
 	for volume in game.presentation.volumes:

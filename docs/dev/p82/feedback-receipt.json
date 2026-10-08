@@ -1,0 +1,64 @@
+{
+  "id": "p82-delivery-20261008",
+  "digest": "cd345ab16ebaf573a446d974c67ce50f2b4b10099ea9fff507cdd80498869de6",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T08:13:39.181Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p82-delivery-20261008",
+    "taskId": "p82-side-door-threshold-and-neighbour-wall-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "侧门槛复用走廊地面，六处侧门截断在邻墙之前，恢复石墙转角与正确房间端口归属；70项原生游戏/编辑器检查全部通过，地图与真实碰撞保持P82基线。",
+    "evidence": [
+      "docs/dev/p82/report.md",
+      "docs/dev/p82/delivery.json",
+      "docs/tests/p82-after-native.json",
+      "docs/tests/p82-family-doorways-native.json",
+      "docs/tests/p82-family-editor-native.json",
+      "docs/tests/p82-after-reported-open-side.png",
+      "docs/tests/p82-after-reported-closed-side.png",
+      "docs/tests/p82-after-dorm-row.png"
+    ],
+    "at": "2026-10-08T08:13:39.346Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p82-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p82-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p82-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "e115380e9b888a8139639fe790d77ac017543649b85bf3152e84251caf05e51d"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "e115380e9b888a8139639fe790d77ac017543649b85bf3152e84251caf05e51d",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

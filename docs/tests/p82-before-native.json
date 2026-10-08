@@ -1,0 +1,73 @@
+{
+	"checks": {
+		"cafeteria_north_appearance_preserved": true,
+		"door_port_not_assigned_to_next_room": false,
+		"dorm_and_confinement_collision_lengths_unchanged": true,
+		"map_unchanged": false,
+		"neighbour_facade_not_cut_away": false,
+		"neighbour_original_stone_corner_retained": false,
+		"only_owner_room_has_each_dorm_port": false,
+		"side_projection_dorm-0": false,
+		"side_projection_dorm-1": false,
+		"side_projection_dorm-2": false,
+		"side_projection_solitary-0": false,
+		"side_projection_solitary-1": false,
+		"side_projection_solitary-2": false,
+		"threshold_has_corridor_floor_dorm-0": false,
+		"threshold_has_corridor_floor_dorm-1": false,
+		"threshold_has_corridor_floor_dorm-2": false,
+		"threshold_has_corridor_floor_solitary-0": false,
+		"threshold_has_corridor_floor_solitary-1": false,
+		"threshold_has_corridor_floor_solitary-2": false
+	},
+	"failed": [
+		"side_projection_dorm-0",
+		"threshold_has_corridor_floor_dorm-0",
+		"side_projection_dorm-1",
+		"threshold_has_corridor_floor_dorm-1",
+		"side_projection_dorm-2",
+		"threshold_has_corridor_floor_dorm-2",
+		"side_projection_solitary-0",
+		"threshold_has_corridor_floor_solitary-0",
+		"side_projection_solitary-1",
+		"threshold_has_corridor_floor_solitary-1",
+		"side_projection_solitary-2",
+		"threshold_has_corridor_floor_solitary-2",
+		"neighbour_facade_not_cut_away",
+		"neighbour_original_stone_corner_retained",
+		"door_port_not_assigned_to_next_room",
+		"only_owner_room_has_each_dorm_port",
+		"map_unchanged"
+	],
+	"images": [
+		"res://docs/tests/p82-before-reported-open-side.png",
+		"res://docs/tests/p82-before-reported-closed-side.png"
+	],
+	"side_doors": [
+		{
+			"id": "dorm-0",
+			"visual": "[P: (680.0, 400.0), S: (20.0, 120.0)]"
+		},
+		{
+			"id": "dorm-1",
+			"visual": "[P: (680.0, 740.0), S: (20.0, 120.0)]"
+		},
+		{
+			"id": "dorm-2",
+			"visual": "[P: (680.0, 1080.0), S: (20.0, 120.0)]"
+		},
+		{
+			"id": "solitary-0",
+			"visual": "[P: (680.0, 1420.0), S: (20.0, 120.0)]"
+		},
+		{
+			"id": "solitary-1",
+			"visual": "[P: (680.0, 1740.0), S: (20.0, 120.0)]"
+		},
+		{
+			"id": "solitary-2",
+			"visual": "[P: (680.0, 2060.0), S: (20.0, 120.0)]"
+		}
+	],
+	"total": 19
+}

@@ -1,0 +1,52 @@
+{
+  "id": "p82-start-20261008",
+  "digest": "dfea4def49638ea36392825b239fddef3c3c77775af92b34c0e705dfcdf48c77",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T08:01:37.771Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p82-start-20261008",
+    "taskId": "p82-side-door-threshold-and-neighbour-wall-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "复现120长侧门露出20宽草地带、并裁去邻室墙体；修复侧门投影与端帽范围、侧门归属、现有走廊地面门槛。",
+    "evidence": [
+      "qa/p82_side_doors.gd",
+      "docs/tests/p82-before-native.json"
+    ],
+    "at": "2026-10-08T08:01:37.908Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p82-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "84be8efd270991d573f4944d63225ca0d667002c4e05f5c1486be75d59203c5b"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "84be8efd270991d573f4944d63225ca0d667002c4e05f5c1486be75d59203c5b",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

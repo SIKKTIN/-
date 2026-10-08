@@ -4,7 +4,9 @@ const Geometry = preload("res://scripts/presentation/doorway_geometry.gd")
 const TextureLoader = preload("res://scripts/presentation/world_texture.gd")
 const MANIFEST := "res://art/architecture/doorways_v48/manifest.json"
 static var textures: Dictionary = {}
+static var floor_definitions: Dictionary = {}
 var world
+var room_config: Dictionary = {}
 var doors: Array = []
 var door_by_id: Dictionary = {}
 var revision := -1
@@ -22,8 +24,15 @@ class Door extends Node2D:
 	var primary := false
 	var texture: Texture2D
 	var draw_builds := 0
+	var floor_texture: Texture2D
+	var floor_asset := ""
+	var floor_origin := Vector2.ZERO
+	var floor_tile := Vector2(640,640)
+	var floor_tint := Color.WHITE
+	var vertical := false
+	var end_cap := 7.0
 
-	func configure(source_world, spec: Dictionary, rect: Rect2, art: Texture2D) -> void:
+	func configure(source_world, spec: Dictionary, rect: Rect2, art: Texture2D, floor_spec: Dictionary, ground: Texture2D) -> void:
 		owner_world = source_world
 		gate = spec
 		id = str(spec.get("id",""))
@@ -31,12 +40,20 @@ class Door extends Node2D:
 		primary = str(spec.get("kind","")) == "primary"
 		visual_rect = rect
 		texture = art
-		var vertical := rect.size.y > rect.size.x
+		vertical = rect.size.y > rect.size.x
 		length = rect.size.y if vertical else rect.size.x
 		depth = rect.size.x if vertical else rect.size.y
 		position = rect.position+Vector2(rect.size.x,0) if vertical else rect.position
 		rotation = PI/2 if vertical else 0.0
+		end_cap = minf(7,length*0.07) if vertical else 7.0
+		floor_texture = ground
+		if floor_texture != null:
+			floor_asset = str(floor_spec.asset_id)
+			floor_origin = floor_spec.origin
+			floor_tile = floor_spec.tile
+			floor_tint = floor_spec.tint
 		texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 		refresh(true)
 
 	func refresh(force := false) -> void:
@@ -46,18 +63,34 @@ class Door extends Node2D:
 		closed = next
 		queue_redraw()
 
+	func hardware_end() -> float:
+		return length if vertical else length+end_cap
+
+	func _paint_threshold() -> void:
+		if floor_texture == null: return
+		var corners := PackedVector2Array([Vector2.ZERO,Vector2(length,0),Vector2(length,depth),Vector2(0,depth)])
+		var uvs := PackedVector2Array()
+		for corner in corners:
+			# The steel rotates for side doors; the floor keeps the corridor's
+			# world registration and orientation, including its partial tile.
+			uvs.append((position+corner.rotated(rotation)-floor_origin)/floor_tile)
+		draw_polygon(corners,PackedColorArray([floor_tint,floor_tint,floor_tint,floor_tint]),uvs,floor_texture)
+
 	func _draw() -> void:
 		draw_builds += 1
+		_paint_threshold()
 		var size := texture.get_size()
 		var cap := size.x*0.057
-		# End caps stay outside the clear passage, in the ends of the stone.
+		# Keep the leading cap in the stone; a side-door trailing cap stays
+		# inside its shortened span, before the neighbouring wall header.
 		draw_texture_rect_region(texture,Rect2(-7,0,7,depth),Rect2(0,0,cap,size.y))
-		draw_texture_rect_region(texture,Rect2(length,0,7,depth),Rect2(size.x-cap,0,cap,size.y))
+		var trailing := length-end_cap if vertical else length
+		draw_texture_rect_region(texture,Rect2(trailing,0,end_cap,depth),Rect2(size.x-cap,0,cap,size.y))
 		if closed:
-			draw_texture_rect_region(texture,Rect2(0,2,length,depth-4),Rect2(cap,0,size.x-cap*2,size.y))
+			draw_texture_rect_region(texture,Rect2(0,2,trailing,depth-4),Rect2(cap,0,size.x-cap*2,size.y))
 		elif style == "locked":
 			# The exposed latch remains at the jamb after the leaf retracts.
-			draw_texture_rect_region(texture,Rect2(length,depth*0.23,6,depth*0.54),Rect2(size.x*0.87,size.y*0.2,size.x*0.047,size.y*0.6))
+			draw_texture_rect_region(texture,Rect2(trailing,depth*0.23,minf(6,end_cap),depth*0.54),Rect2(size.x*0.87,size.y*0.2,size.x*0.047,size.y*0.6))
 		if style == "grille":
 			var box := Rect2(-13,2,11,depth-4)
 			draw_rect(box,Color("25383c"))
@@ -73,8 +106,9 @@ static func load_textures() -> Dictionary:
 			textures["locked" if str(asset.id)=="door_locked_v48" else "grille"] = TextureLoader.load_asset(asset)
 	return textures
 
-func configure(source_world, rooms: Array) -> void:
+func configure(source_world, rooms: Array, config: Dictionary = {}) -> void:
 	world = source_world
+	room_config = config
 	name = "RetainedDoorways"
 	z_index = 4095
 	geometry_builds += 1
@@ -115,9 +149,22 @@ func configure(source_world, rooms: Array) -> void:
 func _add(gate: Dictionary, rect: Rect2, art: Dictionary) -> void:
 	var door := Door.new()
 	add_child(door)
-	door.configure(world,gate,rect,art.get(Geometry.style_for(gate),art.grille))
+	var floor_spec := Geometry.floor_for(room_config,rect)
+	door.configure(world,gate,rect,art.get(Geometry.style_for(gate),art.grille),floor_spec,_floor_texture(floor_spec))
 	doors.append(door)
 	door_by_id[door.id] = door
+
+func _floor_texture(spec: Dictionary) -> Texture2D:
+	if spec.is_empty(): return null
+	var file := str(room_config.get("terrain_manifest","res://art/environment/factory_v45/manifest.json"))
+	if not floor_definitions.has(file):
+		if not FileAccess.file_exists(file): return null
+		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
+		var definitions := {}
+		for asset in manifest.get("assets",[]): definitions[str(asset.id)] = asset
+		floor_definitions[file] = definitions
+	var asset: Dictionary = floor_definitions[file].get(str(spec.asset_id),{})
+	return null if asset.is_empty() else TextureLoader.load_asset(asset)
 
 func tick(force := false) -> void:
 	# Guard movement and room transitions do not rebuild door art or meshes.
