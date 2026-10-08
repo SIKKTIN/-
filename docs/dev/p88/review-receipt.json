@@ -1,0 +1,61 @@
+{
+  "id": "p88-accept-20261008",
+  "digest": "ba17855bf4d8599946b64a81681046e29233951ae5609048a9384b42bddd9ee9",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T15:48:03.129Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p88-delivery-20261008",
+    "taskId": "p88-moving-outdoor-chase-fps-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "复现实际室外移动监工约26–30fps：密集警戒区域CPU每帧约29ms。改为完整浮点遮挡数据GPU裁剪，CPU平均0.12ms；同路线60/90档约60/90fps，D3D12/OpenGL各16项绘制和11项实际规则检查通过，原编辑器游戏已启动无新增错误。",
+    "evidence": [
+      "docs/dev/p88/report.md",
+      "docs/dev/p88/performance.json",
+      "docs/dev/p88/restart.json",
+      "docs/tests/p88-moving-before.json",
+      "docs/tests/p88-moving-after60.json",
+      "docs/tests/p88-moving-after90.json",
+      "docs/tests/p88-warning-d3d12.json",
+      "docs/tests/p88-warning-opengl.json",
+      "docs/tests/p88-gameplay-regression.json"
+    ],
+    "at": "2026-10-08T15:46:56.390Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T15:48:03.313Z",
+      "note": "确认移动监工全程可见且密集警戒分支参与，复现CPU警戒29ms瓶颈；使用浮点数据纹理不截断遮挡，平均0.12ms。原生60/90帧间隔实测16.6/11.1ms；D3D12/OpenGL各16项、第265遮挡有效，11项实际检测抓捕检查通过。旧坐标测试失败及本机单路线范围已明确记录，未改变AI规则或覆盖其他WIP，原编辑器主场景helper_live、实读60fps。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p88-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "ce44038db6247ac78065bae7db52d25c00893d3bc3d340c835cc24060fb0a3e1"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "ce44038db6247ac78065bae7db52d25c00893d3bc3d340c835cc24060fb0a3e1",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

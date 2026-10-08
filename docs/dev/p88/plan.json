@@ -1,0 +1,38 @@
+{
+  "scheduleRevision": "984dc79fd422c036b1c24b3efde13474d40e2f19f9633b2d8af8b0702d74a20f",
+  "creates": [
+    {
+      "task": {
+        "id": "p88-moving-outdoor-chase-fps-20261008",
+        "title": "P88 室外移动监工追捕30帧复现和修复",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p87-door-layer-supervision-chase-performance-20261008"
+        ],
+        "description": "用户截图08:39监工已走出车间，在寝室门旁追捕时FPS30。补上真实室外移动且可见警戒区域的性能覆盖，按记录的热点修复。",
+        "acceptance": "原生渲染下记录移动追逐真实帧间隔和CPU热点，降低室外追捕耗时；保持警戒遮挡、范围、检测及抓捕规则，验证60/90预设并明确测试限制。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/presentation/guard_warning.gd",
+            "scripts/presentation/guard_warning.gdshader",
+            "scripts/presentation/visibility_geometry.gd",
+            "scripts/actors/guard.gd",
+            "scripts/actors/workshop_overseer.gd",
+            "scripts/core/workshop_rules.gd",
+            "qa/p88*",
+            "docs/dev/p88/**",
+            "docs/tests/p88*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "按用户新截图修复监工实际室外移动时的30fps。",
+  "requestId": "p88-plan-20261008"
+}

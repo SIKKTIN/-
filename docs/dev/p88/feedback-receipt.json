@@ -1,0 +1,65 @@
+{
+  "id": "p88-delivery-20261008",
+  "digest": "91512500e950d14a49422b6ff6c648ff230fc86ddf7a6230934f7cd2322589f5",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T15:46:56.274Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p88-delivery-20261008",
+    "taskId": "p88-moving-outdoor-chase-fps-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "复现实际室外移动监工约26–30fps：密集警戒区域CPU每帧约29ms。改为完整浮点遮挡数据GPU裁剪，CPU平均0.12ms；同路线60/90档约60/90fps，D3D12/OpenGL各16项绘制和11项实际规则检查通过，原编辑器游戏已启动无新增错误。",
+    "evidence": [
+      "docs/dev/p88/report.md",
+      "docs/dev/p88/performance.json",
+      "docs/dev/p88/restart.json",
+      "docs/tests/p88-moving-before.json",
+      "docs/tests/p88-moving-after60.json",
+      "docs/tests/p88-moving-after90.json",
+      "docs/tests/p88-warning-d3d12.json",
+      "docs/tests/p88-warning-opengl.json",
+      "docs/tests/p88-gameplay-regression.json"
+    ],
+    "at": "2026-10-08T15:46:56.390Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p88-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p88-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p88-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

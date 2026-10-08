@@ -1,0 +1,19 @@
+{
+  "taskId": "p88-moving-outdoor-chase-fps-20261008",
+  "revision": "e076aee0b1797754d7428980835bc3293c871ce94b42c0d391b504eee2f8d22e",
+  "feedbackId": "p88-delivery-20261008",
+  "status": "待验收",
+  "summary": "复现实际室外移动监工约26–30fps：密集警戒区域CPU每帧约29ms。改为完整浮点遮挡数据GPU裁剪，CPU平均0.12ms；同路线60/90档约60/90fps，D3D12/OpenGL各16项绘制和11项实际规则检查通过，原编辑器游戏已启动无新增错误。",
+  "evidence": [
+    "docs/dev/p88/report.md",
+    "docs/dev/p88/performance.json",
+    "docs/dev/p88/restart.json",
+    "docs/tests/p88-moving-before.json",
+    "docs/tests/p88-moving-after60.json",
+    "docs/tests/p88-moving-after90.json",
+    "docs/tests/p88-warning-d3d12.json",
+    "docs/tests/p88-warning-opengl.json",
+    "docs/tests/p88-gameplay-regression.json"
+  ],
+  "requestId": "p88-delivery-20261008"
+}

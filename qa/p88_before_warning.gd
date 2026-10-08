@@ -1,6 +1,6 @@
 extends Node2D
 
-const WarningShader = preload("res://scripts/presentation/guard_warning.gdshader")
+const WarningShader = preload("res://qa/p88_before_warning.gdshader")
 const MAX_BLOCKERS := 64
 var officer
 var shader_material: ShaderMaterial
@@ -8,9 +8,9 @@ var radius := -1.0
 var blockers := PackedVector4Array()
 var blocker_key: Array = []
 var geometry_updates := 0
-var blocker_image: Image
-var blocker_texture: ImageTexture
-var use_texture := false
+var fallback_mesh: ArrayMesh
+var fallback_material: CanvasItemMaterial
+var use_fallback := false
 var fill := Color()
 var edge := Color()
 var style_key: Array = []
@@ -21,6 +21,8 @@ func configure(owner_officer) -> void:
 	shader_material = ShaderMaterial.new()
 	shader_material.shader = WarningShader
 	material = shader_material
+	fallback_material = CanvasItemMaterial.new()
+	fallback_material.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 
 func refresh(view: Rect2, enabled: bool, daylight: bool) -> void:
 	var reach: float = officer.view_radius()
@@ -43,18 +45,19 @@ func refresh(view: Rect2, enabled: bool, daylight: bool) -> void:
 		for rect in sight:
 			if officer.position.distance_squared_to(officer.position.clamp(rect.position,rect.end)) <= (reach+1.5)*(reach+1.5):
 				blockers.append(Vector4(rect.position.x,rect.position.y,rect.size.x,rect.size.y))
-		# Dense scenes use a float data texture rather than rebuilding the CPU
-		# visibility polygon (corner rays x blockers) every time an officer moves.
-		# Every blocker is retained; this changes rendering, not guard detection.
-		use_texture = blockers.size() > MAX_BLOCKERS
-		if use_texture:
-			_upload_blockers()
+		var fallback: bool = blockers.size() > MAX_BLOCKERS
+		if fallback != use_fallback:
+			use_fallback = fallback
+			material = fallback_material if use_fallback else shader_material
+			queue_redraw()
+		if use_fallback:
+			fallback_mesh = officer.view_mesh()
+			queue_redraw()
 		else:
 			var packed := blockers.duplicate()
 			packed.resize(MAX_BLOCKERS)
+			shader_material.set_shader_parameter("blocker_count",blockers.size())
 			shader_material.set_shader_parameter("blockers",packed)
-		shader_material.set_shader_parameter("use_blocker_texture",use_texture)
-		shader_material.set_shader_parameter("blocker_count",blockers.size())
 		shader_material.set_shader_parameter("zone",Vector4(zone.position.x,zone.position.y,zone.size.x,zone.size.y))
 		shader_material.set_shader_parameter("half_angle",officer.half_fov())
 	var color := Color("eb977b") if officer.state == "chasing" or officer.alert_mode() else Color("e1c787")
@@ -67,21 +70,14 @@ func refresh(view: Rect2, enabled: bool, daylight: bool) -> void:
 		fill.a = 0.12 if daylight else 0.0
 		shader_material.set_shader_parameter("edge_color",edge)
 		shader_material.set_shader_parameter("fill_alpha",fill.a)
-
-func _upload_blockers() -> void:
-	var capacity := 1
-	while capacity < blockers.size(): capacity *= 2
-	var resized: bool = blocker_image == null or blocker_image.get_width() < capacity
-	if resized: blocker_image = Image.create(capacity,1,false,Image.FORMAT_RGBAF)
-	for index in range(blockers.size()):
-		var rect := blockers[index]
-		blocker_image.set_pixel(index,0,Color(rect.x,rect.y,rect.z,rect.w))
-	if resized:
-		blocker_texture = ImageTexture.create_from_image(blocker_image)
-		shader_material.set_shader_parameter("blocker_texture",blocker_texture)
-	else:
-		blocker_texture.update(blocker_image)
+		if use_fallback: queue_redraw()
 
 func _draw() -> void:
-	# Retain one quad for both sparse and dense scenes. Walls clip it on GPU.
-	draw_rect(Rect2(-Vector2.ONE*(radius+2),Vector2.ONE*(radius+2)*2),Color.WHITE)
+	if not use_fallback:
+		# One retained quad; GPU clips the exact circle against nearby walls.
+		draw_rect(Rect2(-Vector2.ONE*(radius+2),Vector2.ONE*(radius+2)*2),Color.WHITE)
+		return
+	if fill.a > 0 and fallback_mesh != null and fallback_mesh.get_surface_count() > 0: draw_mesh(fallback_mesh,null,Transform2D.IDENTITY,fill)
+	var line: PackedVector2Array = officer.view_polygon()
+	if officer.half_fov() >= PI-0.00001 and not line.is_empty(): line.append(line[0])
+	if line.size() >= 2: draw_polyline(line,edge,1.2,true)

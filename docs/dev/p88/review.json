@@ -1,0 +1,9 @@
+{
+  "taskId": "p88-moving-outdoor-chase-fps-20261008",
+  "revision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409",
+  "feedbackId": "p88-delivery-20261008",
+  "evidenceVersion": 1,
+  "decision": "accepted",
+  "note": "确认移动监工全程可见且密集警戒分支参与，复现CPU警戒29ms瓶颈；使用浮点数据纹理不截断遮挡，平均0.12ms。原生60/90帧间隔实测16.6/11.1ms；D3D12/OpenGL各16项、第265遮挡有效，11项实际检测抓捕检查通过。旧坐标测试失败及本机单路线范围已明确记录，未改变AI规则或覆盖其他WIP，原编辑器主场景helper_live、实读60fps。",
+  "requestId": "p88-accept-20261008"
+}

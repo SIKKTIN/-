@@ -8,8 +8,6 @@ uniform vec2 facing = vec2(0.0, -1.0);
 uniform float half_angle = 3.14159265;
 uniform int blocker_count = 0;
 uniform vec4 blockers[64];
-uniform bool use_blocker_texture = false;
-uniform sampler2D blocker_texture : filter_nearest, repeat_disable;
 uniform vec4 edge_color : source_color = vec4(0.88, 0.78, 0.53, 0.48);
 uniform float fill_alpha = 0.12;
 varying vec2 offset;
@@ -37,10 +35,7 @@ void fragment() {
 	if (abs(direction.x) >= 0.00001) reach = min(reach, ((direction.x > 0.0 ? zone.x + zone.z : zone.x) - observer.x) / direction.x);
 	if (abs(direction.y) >= 0.00001) reach = min(reach, ((direction.y > 0.0 ? zone.y + zone.w : zone.y) - observer.y) / direction.y);
 	for (int i = 0; i < blocker_count; i++) {
-		vec4 rect;
-		if (use_blocker_texture) rect = texelFetch(blocker_texture, ivec2(i, 0), 0);
-		else rect = blockers[i];
-		float hit = ray_hit(direction, rect);
+		float hit = ray_hit(direction, blockers[i]);
 		if (hit >= 0.0) reach = min(reach, hit);
 	}
 	float remaining = reach - distance;
