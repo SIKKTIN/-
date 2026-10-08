@@ -1,0 +1,9 @@
+{
+  "taskId": "p78-room-transition-hitch-20261008",
+  "revision": "f67614bfc18e8ff803724fa44f67fb6b404583117666b9cac4c41f3dab4a02cd",
+  "feedbackId": "p78-delivery-20261008",
+  "evidenceVersion": 1,
+  "decision": "accepted",
+  "note": "制作人独立任务自验收。原生60次昼夜车间/食堂/仓库跨门中位约200ms降到11.2–13.2ms，最大14.12ms；两静态层跨门均无重画。117项回归/画面对照检查通过，8组屏幕与原始阴影接口逐字节一致，200碰撞点一致，真实开门仍使静态层失效，换图/重开释放与重建渲染批次。保留地图及外部WIP。",
+  "requestId": "p78-accept-20261008"
+}

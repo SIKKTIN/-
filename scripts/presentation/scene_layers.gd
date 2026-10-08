@@ -7,6 +7,11 @@ var presentation
 var kind: String
 var fixtures_revision: int = -1
 var ground_key: Array = []
+var fixture_shadow_key: Array = []
+var fixture_shadow_commands: Array = []
+var fixture_shadow_builds := 0
+var shadow_batches: Dictionary = {}
+var shadow_batch_regions: Dictionary = {}
 
 func configure(owner_game, owner_presentation, type: String) -> void:
 	game = owner_game
@@ -17,6 +22,81 @@ func configure(owner_game, owner_presentation, type: String) -> void:
 		var unshaded := CanvasItemMaterial.new()
 		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 		material = unshaded
+	if kind == "fixture_shadows": prepare_fixture_shadows()
+
+func prepare_fixture_shadows() -> void:
+	var world = game.world
+	var key := [world.fixtures_revision,world.bounds]
+	if fixture_shadow_key == key: return
+	fixture_shadow_key = key
+	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
+	shadow_batches.clear()
+	shadow_batch_regions.clear()
+	fixture_shadow_commands.clear()
+	fixture_shadow_builds += 1
+	for fixture in world.fixtures:
+		var commands: Array = []
+		var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
+		var separate_shadow: bool = not fixture.get("hidden",false) and not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall")
+		if definition.has("assembly_patches"):
+			var filled := 0.0
+			for patch in definition.assembly_patches: filled += float(patch.destination[2])*float(patch.destination[3])
+			var dims: Array = definition.render_size
+			separate_shadow = separate_shadow and filled >= float(dims[0])*float(dims[1])*0.99
+		if separate_shadow:
+			# Same polygons/fringes as SoftShadow.contact_rect, prepared once for
+			# all rooms on map load. First entry never runs polygon clipping.
+			var rect: Rect2 = fixture.rect
+			var direction: Array = presentation.profile.get("projection_offset",[11,7.2])
+			var offset := Vector2(direction[0],direction[1])*float(definition.get("elevation_world",20))/20.0
+			var top_right := rect.position+Vector2(rect.size.x,0)
+			var bottom_left := rect.position+Vector2(0,rect.size.y)
+			var points := Geometry2D.convex_hull(PackedVector2Array([rect.position,top_right,rect.end,bottom_left,rect.position+offset,top_right+offset,rect.end+offset,bottom_left+offset]))
+			points.remove_at(points.size()-1)
+			var clip: Rect2 = world.bounds
+			var clip_polygon := PackedVector2Array([clip.position,clip.position+Vector2(clip.size.x,0),clip.end,clip.position+Vector2(0,clip.size.y)])
+			for fringe in range(3,-1,-1):
+				for polygon in Geometry2D.offset_polygon(points,float(fringe)*1.4,Geometry2D.JOIN_ROUND):
+					for clipped in Geometry2D.intersect_polygons(polygon,clip_polygon):
+						commands.append([clipped,Color(0.14,0.16,0.14,float(presentation.profile.get("projection_alpha",0.104))/4)])
+			for spread in range(3,0,-1):
+				var strip := Rect2(rect.position+Vector2(-spread,rect.size.y-1),Vector2(rect.size.x+spread*2,spread+1)).intersection(clip)
+				if strip.has_area(): commands.append([strip,Color(0.12,0.14,0.12,float(presentation.profile.get("contact_alpha",0.16))/5)])
+		fixture_shadow_commands.append(commands)
+	# Populate retained rendering commands at load time, including rooms that
+	# start hidden. No first-entry triangulation or command replay is needed.
+	var regions: Array = preload("res://scripts/core/room_visibility.gd").rooms_for(game.room_config)
+	for index in range(world.fixtures.size()):
+		var commands: Array = fixture_shadow_commands[index]
+		if commands.is_empty(): continue
+		var memberships: Array = []
+		for room in regions:
+			var rect: Array = room.rect
+			if Rect2(rect[0],rect[1],rect[2],rect[3]).has_point(world.fixtures[index].rect.get_center()):
+				memberships.append(str(room.id))
+		var batch := JSON.stringify(memberships)
+		if not shadow_batches.has(batch):
+			var rid := RenderingServer.canvas_item_create()
+			RenderingServer.canvas_item_set_parent(rid,get_canvas_item())
+			RenderingServer.canvas_item_set_use_parent_material(rid,true)
+			shadow_batches[batch] = rid
+			shadow_batch_regions[batch] = memberships
+		var rid: RID = shadow_batches[batch]
+		for command in commands:
+			if command[0] is Rect2: RenderingServer.canvas_item_add_rect(rid,command[0],command[1])
+			else: RenderingServer.canvas_item_add_polygon(rid,command[0],PackedColorArray([command[1]]))
+	sync_shadow_visibility()
+
+func sync_shadow_visibility() -> void:
+	if kind != "fixture_shadows": return
+	var rules = game.room_visibility
+	for id in shadow_batches:
+		var memberships: Array = shadow_batch_regions[id]
+		RenderingServer.canvas_item_set_visible(shadow_batches[id],rules==null or memberships.is_empty() or rules.active_id in memberships)
+
+func _exit_tree() -> void:
+	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
+	shadow_batches.clear()
 
 func _draw() -> void:
 	if not game:
@@ -25,22 +105,16 @@ func _draw() -> void:
 	var camera_view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else world.bounds
 	var actor_view := camera_view.grow(100)
 	if kind == "fixture_shadows":
-		# Static furnishings retain cached CanvasItem draw commands between frames.
-		for fixture in world.fixtures:
-			if fixture.get("hidden",false) or world.is_under_roof(fixture.rect.get_center()):
-				continue
-			var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
-			if definition.has("assembly_patches"):
-				# A compound corner's bounding rectangle includes empty floor.
-				# Do not fill that cutout with a rectangular contact shadow.
-				var filled := 0.0
-				for patch in definition.assembly_patches: filled += float(patch.destination[2])*float(patch.destination[3])
-				var dims: Array = definition.render_size
-				if filled < float(dims[0])*float(dims[1])*0.99: continue
-			if not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall"):
-				SoftShadow.contact_rect(self,fixture.rect,float(definition.get("elevation_world",20)),world.bounds,presentation.profile)
+		prepare_fixture_shadows()
+		sync_shadow_visibility()
 		return
 	if kind == "ground_static":
+		# Match the previous first-volume lookup in linear time. Scanning every
+		# volume for every wall made a single cache rebuild quadratic.
+		var shadow_sources := {}
+		if presentation.profile.get("soft_shadows",false):
+			for volume in presentation.volumes:
+				if not shadow_sources.has(volume.footprint): shadow_sources[volume.footprint] = volume
 		for zone in game.room_config.get("zones",[]):
 			var values: Array = zone.rect
 			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
@@ -51,7 +125,8 @@ func _draw() -> void:
 			if r == world.door and world.door_open:
 				continue
 			if presentation.profile.get("soft_shadows",false):
-				var volume = presentation.volumes.filter(func(v): return v.footprint == r).front()
+				var volume = shadow_sources.get(r)
+				if volume == null: continue
 				var id: String = volume.prop_id() if volume.kind != "wall" else volume.asset_id("wall_top","low_wall_top_v02")
 				if not presentation.asset_definitions.get(id,{}).get("shadow_baked",false):
 					SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)

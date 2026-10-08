@@ -1,0 +1,36 @@
+{
+  "scheduleRevision": "4acb22136a971cd2f52c681a0859b1c479c01d432898f9e2bd14792ef8d18d64",
+  "creates": [
+    {
+      "task": {
+        "id": "p78-room-transition-hitch-20261008",
+        "title": "P78 房间揭顶过门单帧卡顿优化",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p77-connected-room-roofs-20261008"
+        ],
+        "description": "用户实测过门瞬间卡顿，测量白天/夜间车间食堂仓库跨门帧时，消除不必要静态重绘与重复全场扫描。",
+        "acceptance": "三类房间白天与夜间反复跨门不触发静态地面全场重画，新增隐藏/揭顶仍同步且无信息泄露；保留门禁碰撞及后台AI；原生逐帧前后对照、遮挡回归，地图与外部WIP保留。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/room_visibility.gd",
+            "scripts/presentation/scene_layers.gd",
+            "scripts/presentation/world_volume.gd",
+            "qa/p78*",
+            "docs/dev/p78/**",
+            "docs/tests/p78*",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只优化遮挡同步和绘制失效范围，不改变房间逻辑或AI。静态绘制继续由真实几何/门/箱子变化失效。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户反馈进入房间瞬间卡顿，制作人承接定点优化。",
+  "requestId": "p78-plan-20261008"
+}

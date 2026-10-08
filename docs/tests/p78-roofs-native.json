@@ -1,0 +1,226 @@
+{
+	"checks": {
+		"all_assets_loaded": true,
+		"cached_meshes_not_redrawn_on_ticks": true,
+		"cafeteria_has_north_and_south_ports": true,
+		"corridor_stays_outdoors": true,
+		"doors_stay_visible_under_hidden_sections": true,
+		"four_direction_mesh_interior_opaque": true,
+		"four_direction_mesh_openings": true,
+		"four_material_styles": true,
+		"hidden_neighbours_cafeteria-entry-room": true,
+		"hidden_neighbours_cell-0": true,
+		"hidden_neighbours_cell-1": true,
+		"hidden_neighbours_cell-2": true,
+		"hidden_neighbours_dorm-0": true,
+		"hidden_neighbours_dorm-1": true,
+		"hidden_neighbours_dorm-2": true,
+		"hidden_neighbours_equipment": true,
+		"hidden_neighbours_laundry": true,
+		"hidden_neighbours_warehouse": true,
+		"hidden_neighbours_workshop": true,
+		"hidden_npc_dialogue_filtered": true,
+		"hidden_npc_visual_filtered": true,
+		"leave_restores_all_roofs": true,
+		"legacy_south_shell_disabled": true,
+		"no_mesh_blocks_port_cafeteria-entry-room": true,
+		"no_mesh_blocks_port_cell-0": true,
+		"no_mesh_blocks_port_cell-1": true,
+		"no_mesh_blocks_port_cell-2": true,
+		"no_mesh_blocks_port_dorm-0": true,
+		"no_mesh_blocks_port_dorm-1": true,
+		"no_mesh_blocks_port_dorm-2": true,
+		"no_mesh_blocks_port_equipment": true,
+		"no_mesh_blocks_port_laundry": true,
+		"no_mesh_blocks_port_warehouse": true,
+		"no_mesh_blocks_port_workshop": true,
+		"one_section_per_enclosed_room": true,
+		"outside_all_sections_opaque": true,
+		"reveal_only_cafeteria-entry-room": true,
+		"reveal_only_cell-0": true,
+		"reveal_only_cell-1": true,
+		"reveal_only_cell-2": true,
+		"reveal_only_dorm-0": true,
+		"reveal_only_dorm-1": true,
+		"reveal_only_dorm-2": true,
+		"reveal_only_equipment": true,
+		"reveal_only_laundry": true,
+		"reveal_only_warehouse": true,
+		"reveal_only_workshop": true,
+		"roof_extends_to_wall_headers": true,
+		"shadow_geometry_cache_reused": true,
+		"shared_dorm_coping_seams": true,
+		"side_doors_keep_original_orientation": true,
+		"ungated_warehouse_passage_kept": true,
+		"visibility_keeps_collision": true
+	},
+	"failed": [],
+	"pictures": [
+		"res://docs/tests/p78-compound-covered.png",
+		"res://docs/tests/p78-cafeteria-north-door.png",
+		"res://docs/tests/p78-confinement-side-doors.png",
+		"res://docs/tests/p78-cafeteria-revealed.png",
+		"res://docs/tests/p78-compound-cafeteria-revealed.png",
+		"res://docs/tests/p78-left-cafeteria-covered.png"
+	],
+	"sections": [
+		{
+			"area": "[P: (120.0, 220.0), S: (560.0, 300.0)]",
+			"id": "dorm-0",
+			"panels": 2,
+			"ports": [
+				"east"
+			],
+			"roof": "[P: (100.0, 100.0), S: (600.0, 340.0)]",
+			"shared_edges": [
+				"south"
+			],
+			"style": "concrete"
+		},
+		{
+			"area": "[P: (120.0, 560.0), S: (560.0, 300.0)]",
+			"id": "dorm-1",
+			"panels": 3,
+			"ports": [
+				"east",
+				"east"
+			],
+			"roof": "[P: (100.0, 440.0), S: (600.0, 340.0)]",
+			"shared_edges": [
+				"north",
+				"south"
+			],
+			"style": "concrete"
+		},
+		{
+			"area": "[P: (120.0, 900.0), S: (560.0, 300.0)]",
+			"id": "dorm-2",
+			"panels": 3,
+			"ports": [
+				"east",
+				"east"
+			],
+			"roof": "[P: (100.0, 780.0), S: (600.0, 360.0)]",
+			"shared_edges": [
+				"north",
+				"south"
+			],
+			"style": "concrete"
+		},
+		{
+			"area": "[P: (820.0, 320.0), S: (1360.0, 720.0)]",
+			"id": "workshop",
+			"panels": 1,
+			"ports": [
+				"south",
+				"south"
+			],
+			"roof": "[P: (800.0, 180.0), S: (1400.0, 760.0)]",
+			"shared_edges": [],
+			"style": "metal_green"
+		},
+		{
+			"area": "[P: (820.0, 1420.0), S: (1360.0, 560.0)]",
+			"id": "cafeteria-entry-room",
+			"panels": 7,
+			"ports": [
+				"north",
+				"south",
+				"south",
+				"north",
+				"west",
+				"east"
+			],
+			"roof": "[P: (800.0, 1300.0), S: (1400.0, 600.0)]",
+			"shared_edges": [
+				"south"
+			],
+			"style": "metal_light"
+		},
+		{
+			"area": "[P: (120.0, 1260.0), S: (560.0, 300.0)]",
+			"id": "cell-0",
+			"panels": 3,
+			"ports": [
+				"east",
+				"east"
+			],
+			"roof": "[P: (100.0, 1140.0), S: (600.0, 320.0)]",
+			"shared_edges": [
+				"north",
+				"south"
+			],
+			"style": "dark_concrete"
+		},
+		{
+			"area": "[P: (120.0, 1580.0), S: (560.0, 300.0)]",
+			"id": "cell-1",
+			"panels": 3,
+			"ports": [
+				"east",
+				"east"
+			],
+			"roof": "[P: (100.0, 1460.0), S: (600.0, 320.0)]",
+			"shared_edges": [
+				"north",
+				"south"
+			],
+			"style": "dark_concrete"
+		},
+		{
+			"area": "[P: (120.0, 1900.0), S: (560.0, 300.0)]",
+			"id": "cell-2",
+			"panels": 3,
+			"ports": [
+				"east",
+				"east"
+			],
+			"roof": "[P: (100.0, 1780.0), S: (600.0, 340.0)]",
+			"shared_edges": [
+				"north"
+			],
+			"style": "dark_concrete"
+		},
+		{
+			"area": "[P: (2600.0, 380.0), S: (760.0, 1540.0)]",
+			"id": "warehouse",
+			"panels": 7,
+			"ports": [
+				"west",
+				"east",
+				"east"
+			],
+			"roof": "[P: (2580.0, 220.0), S: (800.0, 1620.0)]",
+			"shared_edges": [],
+			"style": "metal_green"
+		},
+		{
+			"area": "[P: (820.0, 2040.0), S: (880.0, 440.0)]",
+			"id": "laundry",
+			"panels": 6,
+			"ports": [
+				"north",
+				"east",
+				"west"
+			],
+			"roof": "[P: (800.0, 1900.0), S: (900.0, 480.0)]",
+			"shared_edges": [
+				"north"
+			],
+			"style": "concrete"
+		},
+		{
+			"area": "[P: (1760.0, 2060.0), S: (740.0, 420.0)]",
+			"id": "equipment",
+			"panels": 1,
+			"ports": [
+				"east",
+				"west"
+			],
+			"roof": "[P: (1760.0, 1940.0), S: (740.0, 460.0)]",
+			"shared_edges": [],
+			"style": "concrete"
+		}
+	],
+	"total": 53
+}

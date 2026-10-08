@@ -101,8 +101,11 @@ func tick(delta: float, force := false) -> void:
 			else: _hidden_areas.append(room.area)
 		if not next.is_empty(): visited[next] = true
 		revision += 1
-		for volume in game.presentation.volumes: volume.tick_visual()
-		for layer in game.presentation.scene_layers: layer.queue_redraw()
+		# Presentation synchronizes volumes later in this same frame. A roof
+		# transition changes visibility, never static terrain/wall geometry.
+		for layer in game.presentation.scene_layers:
+			if layer.kind == "fixture_shadows": layer.sync_shadow_visibility()
+			elif layer.kind != "ground_static": layer.queue_redraw()
 		if game.presentation.lighting: game.presentation.lighting.queue_redraw()
 	for cover in covers: cover.tick(delta,force)
 

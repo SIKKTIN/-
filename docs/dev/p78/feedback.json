@@ -1,0 +1,17 @@
+{
+  "taskId": "p78-room-transition-hitch-20261008",
+  "revision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14",
+  "feedbackId": "p78-delivery-20261008",
+  "status": "待验收",
+  "summary": "消除过门触发全地图静态缓存失效、重复遍历与墙影平方查找；家具阴影按房间预存渲染命令，切换只显隐。60次昼夜三房间进出：单帧195–210ms→11.2–13.2ms，最大14.12ms，静态/家具阴影重画均为0；117项检查与8组逐像素一致性通过、200碰撞对照一致，保留地图及外部WIP。",
+  "evidence": [
+    "docs/dev/p78/report.md",
+    "docs/dev/p78/performance.json",
+    "docs/dev/p78/delivery.json",
+    "docs/tests/p78-doorways-before.json",
+    "docs/tests/p78-doorways-complete.json",
+    "docs/tests/p78-roofs-native.json",
+    "docs/tests/p78-shadow-parity.json"
+  ],
+  "requestId": "p78-delivery-20261008"
+}

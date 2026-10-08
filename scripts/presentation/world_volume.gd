@@ -91,7 +91,9 @@ func _sync_visibility() -> void:
 func tick_visual() -> void:
 	var rules = world.get("room_visibility")
 	var revision: int = rules.revision if rules != null else 0
-	if _visibility_revision != revision or _fixture_revision != world.fixtures_revision or not _wall_geometry_valid:
+	# Modular roofs keep perimeter walls/entrances visible. Only furnishings
+	# depend on the active interior; don't rescan static walls at every doorway.
+	if kind == "fixture" and _visibility_revision != revision or _fixture_revision != world.fixtures_revision or not _wall_geometry_valid:
 		_visibility_revision = revision
 		_sync_visibility()
 	var next_footprint: Rect2 = world.walls[wall_index] if kind == "wall" else world.fixtures[wall_index].rect if kind == "fixture" else world.door if kind == "door" else world.crate

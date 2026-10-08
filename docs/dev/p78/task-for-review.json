@@ -1,0 +1,141 @@
+{
+  "task": {
+    "id": "p78-room-transition-hitch-20261008",
+    "title": "P78 房间揭顶过门单帧卡顿优化",
+    "description": "用户实测过门瞬间卡顿，测量白天/夜间车间食堂仓库跨门帧时，消除不必要静态重绘与重复全场扫描。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "三类房间白天与夜间反复跨门不触发静态地面全场重画，新增隐藏/揭顶仍同步且无信息泄露；保留门禁碰撞及后台AI；原生逐帧前后对照、遮挡回归，地图与外部WIP保留。",
+    "result": "原生跨门基线确认约200ms单帧，其中静态地面171ms。正在移除错误缓存失效及重复遍历，验证昼夜跨门与信息过滤。",
+    "dependencyIds": [
+      "p77-connected-room-roofs-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/room_visibility.gd",
+        "scripts/presentation/scene_layers.gd",
+        "scripts/presentation/world_volume.gd",
+        "qa/p78*",
+        "docs/dev/p78/**",
+        "docs/tests/p78*",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只优化遮挡同步和绘制失效范围，不改变房间逻辑或AI。静态绘制继续由真实几何/门/箱子变化失效。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p78-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T02:27:02.329Z"
+      }
+    ]
+  },
+  "revision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14",
+  "scheduleRevision": "192adcd2582971145dd2e518ba28b7c870f6b5557459304354c7c26d6005e7af",
+  "planChanges": [
+    {
+      "id": "p78-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T02:27:02.329Z",
+      "reason": "用户反馈进入房间瞬间卡顿，制作人承接定点优化。",
+      "createdTaskIds": [
+        "p78-room-transition-hitch-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p77-connected-room-roofs-20261008",
+      "title": "P77 连通建筑分区屋顶与四向入口遮挡",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p78-start-20261008",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14"
+  },
+  "feedback": [
+    {
+      "id": "p78-start-20261008",
+      "taskId": "p78-room-transition-hitch-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "原生跨门基线确认约200ms单帧，其中静态地面171ms。正在移除错误缓存失效及重复遍历，验证昼夜跨门与信息过滤。",
+      "evidence": [
+        "docs/tests/p78-doorways-before.json"
+      ],
+      "at": "2026-10-08T02:29:14.152Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p78-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

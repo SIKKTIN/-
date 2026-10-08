@@ -1,0 +1,63 @@
+{
+  "id": "p78-delivery-20261008",
+  "digest": "78573e768cc4b1dce1336934c519ebf89bffe3e3abfeee045fed10e57623653e",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:41:44.529Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p78-delivery-20261008",
+    "taskId": "p78-room-transition-hitch-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "消除过门触发全地图静态缓存失效、重复遍历与墙影平方查找；家具阴影按房间预存渲染命令，切换只显隐。60次昼夜三房间进出：单帧195–210ms→11.2–13.2ms，最大14.12ms，静态/家具阴影重画均为0；117项检查与8组逐像素一致性通过、200碰撞对照一致，保留地图及外部WIP。",
+    "evidence": [
+      "docs/dev/p78/report.md",
+      "docs/dev/p78/performance.json",
+      "docs/dev/p78/delivery.json",
+      "docs/tests/p78-doorways-before.json",
+      "docs/tests/p78-doorways-complete.json",
+      "docs/tests/p78-roofs-native.json",
+      "docs/tests/p78-shadow-parity.json"
+    ],
+    "at": "2026-10-08T02:41:44.671Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p78-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p78-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p78-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f67614bfc18e8ff803724fa44f67fb6b404583117666b9cac4c41f3dab4a02cd"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f67614bfc18e8ff803724fa44f67fb6b404583117666b9cac4c41f3dab4a02cd",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

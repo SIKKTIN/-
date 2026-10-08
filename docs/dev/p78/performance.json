@@ -1,0 +1,95 @@
+{
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "transition_cases": [
+    {
+      "case": "day-cafeteria-enter",
+      "before_median_ms": 201.373,
+      "after_median_ms": 12.083,
+      "before_max_ms": 230.312,
+      "after_max_ms": 12.552
+    },
+    {
+      "case": "day-cafeteria-leave",
+      "before_median_ms": 196.954,
+      "after_median_ms": 11.891,
+      "before_max_ms": 214.106,
+      "after_max_ms": 12.712
+    },
+    {
+      "case": "day-warehouse-enter",
+      "before_median_ms": 203.558,
+      "after_median_ms": 12.189,
+      "before_max_ms": 221.603,
+      "after_max_ms": 12.486
+    },
+    {
+      "case": "day-warehouse-leave",
+      "before_median_ms": 202.606,
+      "after_median_ms": 12.706,
+      "before_max_ms": 217.881,
+      "after_max_ms": 12.968
+    },
+    {
+      "case": "day-workshop-enter",
+      "before_median_ms": 204.136,
+      "after_median_ms": 11.443,
+      "before_max_ms": 245.427,
+      "after_max_ms": 14.112
+    },
+    {
+      "case": "day-workshop-leave",
+      "before_median_ms": 209.606,
+      "after_median_ms": 12.223,
+      "before_max_ms": 214.547,
+      "after_max_ms": 12.471
+    },
+    {
+      "case": "night-cafeteria-enter",
+      "before_median_ms": 202.88,
+      "after_median_ms": 11.203,
+      "before_max_ms": 239.977,
+      "after_max_ms": 12.828
+    },
+    {
+      "case": "night-cafeteria-leave",
+      "before_median_ms": 196.061,
+      "after_median_ms": 11.276,
+      "before_max_ms": 242.482,
+      "after_max_ms": 12.302
+    },
+    {
+      "case": "night-warehouse-enter",
+      "before_median_ms": 194.682,
+      "after_median_ms": 11.808,
+      "before_max_ms": 199.49,
+      "after_max_ms": 12.99
+    },
+    {
+      "case": "night-warehouse-leave",
+      "before_median_ms": 206.571,
+      "after_median_ms": 13.173,
+      "before_max_ms": 211.158,
+      "after_max_ms": 13.58
+    },
+    {
+      "case": "night-workshop-enter",
+      "before_median_ms": 201.868,
+      "after_median_ms": 11.859,
+      "before_max_ms": 203.806,
+      "after_max_ms": 13.05
+    },
+    {
+      "case": "night-workshop-leave",
+      "before_median_ms": 199.985,
+      "after_median_ms": 11.677,
+      "before_max_ms": 208.662,
+      "after_max_ms": 12.636
+    }
+  ],
+  "transition_frames": 60,
+  "static_rebuilds_before": 60,
+  "static_rebuilds_after": 0,
+  "fixture_shadow_rebuilds_after": 0,
+  "after_steady_median_ms": 9.946,
+  "adapter": "NVIDIA GeForce RTX 4050 Laptop GPU"
+}

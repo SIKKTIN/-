@@ -1,0 +1,51 @@
+{
+  "id": "p78-start-20261008",
+  "digest": "0c196a1af18f3651e422f36d5a05d455e741bfab77f98acbd54a20c7829b6c73",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:29:13.994Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p78-start-20261008",
+    "taskId": "p78-room-transition-hitch-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "原生跨门基线确认约200ms单帧，其中静态地面171ms。正在移除错误缓存失效及重复遍历，验证昼夜跨门与信息过滤。",
+    "evidence": [
+      "docs/tests/p78-doorways-before.json"
+    ],
+    "at": "2026-10-08T02:29:14.152Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p78-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "0e96a04174885f07804aebf49617b747eb21d5fd5aea99a0e9478280bbaece14",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

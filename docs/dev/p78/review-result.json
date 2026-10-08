@@ -1,0 +1,59 @@
+{
+  "id": "p78-accept-20261008",
+  "digest": "4bf7b2b286eac60b610fbcbf22950f536e2cb4ae1e44b789ad0e90b2226e7652",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:43:17.151Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p78-delivery-20261008",
+    "taskId": "p78-room-transition-hitch-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "消除过门触发全地图静态缓存失效、重复遍历与墙影平方查找；家具阴影按房间预存渲染命令，切换只显隐。60次昼夜三房间进出：单帧195–210ms→11.2–13.2ms，最大14.12ms，静态/家具阴影重画均为0；117项检查与8组逐像素一致性通过、200碰撞对照一致，保留地图及外部WIP。",
+    "evidence": [
+      "docs/dev/p78/report.md",
+      "docs/dev/p78/performance.json",
+      "docs/dev/p78/delivery.json",
+      "docs/tests/p78-doorways-before.json",
+      "docs/tests/p78-doorways-complete.json",
+      "docs/tests/p78-roofs-native.json",
+      "docs/tests/p78-shadow-parity.json"
+    ],
+    "at": "2026-10-08T02:41:44.671Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T02:43:17.292Z",
+      "note": "制作人独立任务自验收。原生60次昼夜车间/食堂/仓库跨门中位约200ms降到11.2–13.2ms，最大14.12ms；两静态层跨门均无重画。117项回归/画面对照检查通过，8组屏幕与原始阴影接口逐字节一致，200碰撞点一致，真实开门仍使静态层失效，换图/重开释放与重建渲染批次。保留地图及外部WIP。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p78-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "b7ad80f340b4530871c2f073abfccf0ba0d7b86eef35b4bd2924cffea469e8d2"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "b7ad80f340b4530871c2f073abfccf0ba0d7b86eef35b4bd2924cffea469e8d2",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}
