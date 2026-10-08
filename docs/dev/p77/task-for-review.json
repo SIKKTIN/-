@@ -1,0 +1,149 @@
+{
+  "task": {
+    "id": "p77-connected-room-roofs-20261008",
+    "title": "P77 连通建筑分区屋顶与四向入口遮挡",
+    "description": "按照用户认可概念，为当前11间房替换材质封盖，四类屋面和屋顶设施，真实墙体接口与四向门洞保留，进房独立揭顶。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "每间房独立揭顶，走廊连通、侧门和上下入口不被新屋顶阻断；禁闭室取消固定向下门预制壳；不同屋面及通风排烟设施按概念；缓存绘制性能对照；碰撞导航与门禁不变；美术素材附编辑器图标；保留外部WIP。",
+    "result": "按已确认连通屋顶方案接入材质、独立分区和四向门洞，进行原生截图、碰撞与帧率验证。",
+    "dependencyIds": [
+      "p76-room-interior-visibility-20261007"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/room_cover.gd",
+        "scripts/presentation/roof_geometry.gd",
+        "scripts/presentation/roof_attachment.gdshader",
+        "scripts/presentation/roof_building.gd",
+        "scripts/core/room_visibility.gd",
+        "scripts/world/prison_world.gd",
+        "scripts/editor/map_editor.gd",
+        "scripts/editor/map_document.gd",
+        "art/architecture/room_roofs_v47/**",
+        "art/editor/room_roofs_v47/**",
+        "qa/p77*",
+        "docs/dev/p77/**",
+        "docs/tests/p77*",
+        "docs/tests/p76-fps-p77*",
+        "gamecreator/**"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "可见范围保持现有逻辑，屋顶来自当前墙体与门的位置；不写地图和门碰撞。资产atlas独立加载，材质与边缘绘制缓存。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p77-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T02:01:56.667Z"
+      }
+    ]
+  },
+  "revision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712",
+  "scheduleRevision": "e595e58d480e2d7ffe8a71154f60dbac25e31fad1a8a9112d0262f2c088ae365",
+  "planChanges": [
+    {
+      "id": "p77-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T02:01:56.667Z",
+      "reason": "用户确认连通建筑屋顶概念，制作人独立实施并验证。",
+      "createdTaskIds": [
+        "p77-connected-room-roofs-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p76-room-interior-visibility-20261007",
+      "title": "P76 主角进房揭顶、离房隐藏与编辑器范围",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p77-start-20261008",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712"
+  },
+  "feedback": [
+    {
+      "id": "p77-start-20261008",
+      "taskId": "p77-connected-room-roofs-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按已确认连通屋顶方案接入材质、独立分区和四向门洞，进行原生截图、碰撞与帧率验证。",
+      "evidence": [
+        "docs/dev/p77/plan.json"
+      ],
+      "at": "2026-10-08T02:04:27.196Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p77-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

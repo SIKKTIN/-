@@ -582,6 +582,20 @@ func refresh_inspector() -> void:
 					if not refreshing: document.set_property(ref,property,input.text))
 				inspector.add_child(input)
 		if ref.group == "visibility_rooms":
+			label(inspector,"屋顶样式",13)
+			var roofs := OptionButton.new()
+			roofs.name = "RoofStyle"
+			roofs.add_theme_constant_override("icon_max_width",24)
+			roofs.add_item("按建筑自动选择")
+			var roof_ids := ["concrete","dark_concrete","metal_green","metal_light"]
+			var roof_names := ["寝室 · 混凝土","禁闭室 · 深灰平顶","车间 / 仓库 · 灰绿金属","食堂 · 浅灰金属"]
+			var roof_assets := ["roof_concrete_warm","roof_concrete_dark","roof_metal_green","roof_metal_light"]
+			for index in range(roof_ids.size()):
+				roofs.add_icon_item(load("res://art/editor/room_roofs_v47/"+roof_assets[index]+".tres"),roof_names[index])
+			roofs.get_popup().set("theme_override_constants/icon_max_width",24)
+			roofs.select(roof_ids.find(str(item.get("roof_style","")))+1)
+			roofs.item_selected.connect(func(index): document.set_property(ref,"roof_style","auto" if index==0 else roof_ids[index-1]))
+			inspector.add_child(roofs)
 			label(inspector,"关联门（多扇门用英文逗号分隔）",13)
 			var doors := LineEdit.new()
 			doors.name = "VisibilityDoors"

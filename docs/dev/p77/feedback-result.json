@@ -1,0 +1,65 @@
+{
+  "id": "p77-delivery-20261008",
+  "digest": "ab72fa0abdf838aa8e626f6340185bfc31e899c51481e43216d51d233fe2d22a",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:14:25.378Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p77-delivery-20261008",
+    "taskId": "p77-connected-room-roofs-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "连通房间11套独立屋顶与四类材质、4类屋顶设施；四向门与缺墙通道留口、共墙收边，禁闭室取消固定南向壳，编辑器样式及图标可保存撤销重载。124项检查和200碰撞点对照通过，同图最终71/71/74FPS，保留原地图与外部WIP。",
+    "evidence": [
+      "docs/dev/p77/report.md",
+      "docs/dev/p77/delivery.json",
+      "docs/dev/p77/performance.json",
+      "docs/dev/p77/art-prompts.json",
+      "docs/tests/p77-roofs-native.json",
+      "docs/tests/p77-editor-native.json",
+      "docs/tests/p77-compound-covered.png",
+      "docs/tests/p77-compound-cafeteria-revealed.png",
+      "docs/tests/p77-editor-roof-picker.png"
+    ],
+    "at": "2026-10-08T02:14:25.526Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p77-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p77-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p77-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "55ad1b375aad0cfee75912f476ef905ad6ec93bab70b98bf9cc1b8c805ac79cb"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "55ad1b375aad0cfee75912f476ef905ad6ec93bab70b98bf9cc1b8c805ac79cb",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

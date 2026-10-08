@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "art/architecture/room_roofs_v47/concept.png",
+  "outputs": [
+    {
+      "path": "art/architecture/room_roofs_v47/materials.png",
+      "transparent_background": false,
+      "prompt": "Use case: stylized-concept. Asset type: PRODUCTION GAME ROOF MATERIAL ATLAS, to implement approved concept in supplied image. Generate exactly a square atlas composed of four equal square quadrants touching with no gaps, no borders and no text. Strict straight-down orthographic surface textures, not buildings. Upper left quadrant: muted weathered grey-green corrugated sheet metal roofing, straight parallel ribs running vertically, subtle restrained rust and screw seam joints. Upper right: warm light grey dull zinc sheet metal roofing, parallel vertical ribs, subtle warm oxidation. Lower left: warm grey fine-grained weathered concrete flat roof surface, low contrast stains and tiny cracks, no paver grid. Lower right: charcoal olive grey weathered concrete slab roof surface, subdued fine cracks and patches, NO square tile grid. Match hand-painted thin outline game materials in supplied approved map concept, restrained industrial wear, no glossy photorealism, no vivid rust. Fill each quadrant full-bleed with its respective material; edges of each material must tile seamlessly with itself. Perfect cross division exactly halfway across both image axes. No coping, no outer edge strips, no walls, no doors, no roof vents, no exhaust pipes, no props, no shadows from objects, no labels, no perspective or diagonal geometry. This is four repeating surface textures, NOT an art presentation sheet. Soft even neutral light across all panels, same scale of fine details."
+    },
+    {
+      "path": "art/architecture/room_roofs_v47/attachments.png",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: production GAME ROOFTOP PROP ATLAS, transparent background. Four separate isolated props in precise equal 2x2 square grid, centered one object per quadrant with generous transparent margins, no border or text. Art style exactly matches supplied handpainted top-down factory map, muted grey metal charcoal outlines understated industrial wear. Near overhead orthographic camera north up, very small front vertical face, 2.5D game prop sprites. Upper left: one small rectangular industrial ventilation hood, shallow corrugated slanted lid over dark horizontal ventilation grille on square metal base, roof vent similar workshop reference. Upper right: one squat round open kitchen exhaust chimney on square flashing base, short metal tube with dark oval mouth; avoid tall pipe, subtle shading. Lower left: square ventilation fan housing, visible top circular radial blades inside square steel casing with a very shallow lower side. Lower right: one tiny squat round capped concrete-roof drainage vent, domed metal cap above short neck on rectangular flashing. Each object confined entirely to its quadrant, no overlapping props, no walls or roofs under them, no ground plane or baked detached floor shadow, actual alpha transparency outside silhouettes. Light from upper-left, crisp clean silhouettes, consistent visual scale and muted contrast, no photorealism. Objects must be readable small in gameplay and editors. No labels or logos."
+    }
+  ]
+}

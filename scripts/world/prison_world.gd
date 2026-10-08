@@ -96,6 +96,7 @@ func is_under_roof(point: Vector2) -> bool:
 	return roofed_cells.any(func(cell): return cell.rect.has_point(point))
 
 func wall_is_roofed(index: int) -> bool:
+	if room_visibility != null: return false # Modular roofs keep real perimeter walls.
 	return roofed_cells.any(func(cell): return cell.rect.grow(1).encloses(walls[index]) and (room_visibility == null or not room_visibility.visible_at(cell.rect.get_center())))
 
 func _rect(value: Array) -> Rect2:

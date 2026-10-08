@@ -1,0 +1,33 @@
+{
+  "source_sha256": {
+    "scripts/presentation/room_cover.gd": "268f089fad95b94c2a6f76f98bac1d3707b6a499c115ad09088a14e5d6256957",
+    "scripts/presentation/roof_geometry.gd": "7728a739d5ee1afe167817beee0dee45056277e5fb16ef659c769e51ff5a1813",
+    "scripts/presentation/roof_attachment.gdshader": "2629d8094f8ddf568c40b640e420650116d2a21c7491f7b65740213a45f9cc05",
+    "scripts/presentation/roof_building.gd": "814dec9c6edeb390ff73f8f462ea071d872e60e7529c8b3e1f9b6232913460dd",
+    "scripts/core/room_visibility.gd": "3644af0ad850af37f1801a1f0279e3768bde1a43fd9391d798dcad1b8bd3b9b7",
+    "scripts/world/prison_world.gd": "4f8cb510229801035d7ad9e6a45139f04100696bdcda14ccfce339f9f77d458b",
+    "scripts/editor/map_editor.gd": "edc172348517ceed398650f0e8029b933a991ae52d815c467a3d5e0bcb2c8a33",
+    "scripts/editor/map_document.gd": "9c117561ce23d0ba798aebafc7b759e20195fa56253f8e1ceb283fc7b8c34280",
+    "qa/p77_roof_sections.gd": "2cff899a255be4e4c483469ced76fb3ac81fc47cdea98424bce0172fb7493afd",
+    "qa/p77_editor_roofs.gd": "53bca58d049597367135997aa014988e77129f064f5b95d5e2da39afc3fbc598"
+  },
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "original_map_preserved": true,
+  "checks": {
+    "p77-roofs-headless.json": 52,
+    "p77-roofs-native.json": 52,
+    "p77-editor-headless.json": 10,
+    "p77-editor-native.json": 10
+  },
+  "total_checks": 124,
+  "collision_probes": 200,
+  "ai_visibility_logic_unchanged": true,
+  "art_generation_mode": "built-in image_gen",
+  "clean_logs": [
+    "p77-roofs-headless.log",
+    "p77-roofs-native.log",
+    "p77-editor-headless.log",
+    "p77-editor-native.log",
+    "p77-fps-after-final.log"
+  ]
+}

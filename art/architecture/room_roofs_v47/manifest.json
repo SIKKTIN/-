@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "version": "room-roofs-v47-20261008",
+  "concept": "res://art/architecture/room_roofs_v47/concept.png",
+  "assets": [
+    {
+      "id": "roof_metal_green",
+      "name": "车间灰绿金属屋面",
+      "texture": "res://art/architecture/room_roofs_v47/materials.png",
+      "region": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "render_mode": "architecture_material",
+      "world_size": [
+        320,
+        320
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_metal_green.tres",
+      "opaque": true,
+      "blocking": false
+    },
+    {
+      "id": "roof_metal_light",
+      "name": "食堂浅灰金属屋面",
+      "texture": "res://art/architecture/room_roofs_v47/materials.png",
+      "region": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "render_mode": "architecture_material",
+      "world_size": [
+        320,
+        320
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_metal_light.tres",
+      "opaque": true,
+      "blocking": false
+    },
+    {
+      "id": "roof_concrete_warm",
+      "name": "寝室混凝土屋面",
+      "texture": "res://art/architecture/room_roofs_v47/materials.png",
+      "region": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "render_mode": "architecture_material",
+      "world_size": [
+        320,
+        320
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_concrete_warm.tres",
+      "opaque": true,
+      "blocking": false
+    },
+    {
+      "id": "roof_concrete_dark",
+      "name": "禁闭室深灰屋面",
+      "texture": "res://art/architecture/room_roofs_v47/materials.png",
+      "region": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "render_mode": "architecture_material",
+      "world_size": [
+        320,
+        320
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_concrete_dark.tres",
+      "opaque": true,
+      "blocking": false
+    },
+    {
+      "id": "roof_vent_hood",
+      "name": "车间通风罩",
+      "texture": "res://art/architecture/room_roofs_v47/attachments.png",
+      "region": [
+        195,
+        97,
+        420,
+        373
+      ],
+      "render_mode": "architecture_roof_detail",
+      "world_size": [
+        112,
+        98
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_vent_hood.tres",
+      "blocking": false
+    },
+    {
+      "id": "roof_kitchen_flue",
+      "name": "食堂排烟管",
+      "texture": "res://art/architecture/room_roofs_v47/attachments.png",
+      "region": [
+        978,
+        77,
+        320,
+        390
+      ],
+      "render_mode": "architecture_roof_detail",
+      "world_size": [
+        74,
+        90
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_kitchen_flue.tres",
+      "blocking": false
+    },
+    {
+      "id": "roof_fan",
+      "name": "设备房排风扇",
+      "texture": "res://art/architecture/room_roofs_v47/attachments.png",
+      "region": [
+        230,
+        557,
+        347,
+        357
+      ],
+      "render_mode": "architecture_roof_detail",
+      "world_size": [
+        76,
+        78
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_fan.tres",
+      "blocking": false
+    },
+    {
+      "id": "roof_drain_vent",
+      "name": "平顶通气帽",
+      "texture": "res://art/architecture/room_roofs_v47/attachments.png",
+      "region": [
+        973,
+        596,
+        332,
+        297
+      ],
+      "render_mode": "architecture_roof_detail",
+      "world_size": [
+        50,
+        45
+      ],
+      "editor_icon": "res://art/editor/room_roofs_v47/roof_drain_vent.tres",
+      "blocking": false
+    }
+  ]
+}

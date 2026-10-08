@@ -1,0 +1,51 @@
+{
+  "id": "p77-start-20261008",
+  "digest": "0897de3ab0585f8943dbab2fe4fc381ceebfa5a147e8ceb8f484b77d7861917c",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:04:27.034Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p77-start-20261008",
+    "taskId": "p77-connected-room-roofs-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "按已确认连通屋顶方案接入材质、独立分区和四向门洞，进行原生截图、碰撞与帧率验证。",
+    "evidence": [
+      "docs/dev/p77/plan.json"
+    ],
+    "at": "2026-10-08T02:04:27.196Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p77-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "979b0ffcbe4f7d9dff5765a3bcaff293a9f0809e69ca77440c068c28bf484712",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

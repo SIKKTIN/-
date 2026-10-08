@@ -1,6 +1,7 @@
 extends RefCounted
 
 const Cover = preload("res://scripts/presentation/room_cover.gd")
+const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
 var game
 var rooms: Array = []
 var visited: Dictionary = {}
@@ -57,11 +58,11 @@ func reset() -> void:
 		room.door_ids = spec.get("door_ids",[])
 		room.area = Rect2(spec.rect[0],spec.rect[1],spec.rect[2],spec.rect[3])
 		room.enter_area = room.area.grow(-4)
+		room.roof_plan = RoofGeometry.plan(game.world,room)
 		rooms.append(room)
 	game.world.room_visibility = self
 	tick(0,true)
 	for room in rooms:
-		if room.kind == "confinement" and game.world.roofed_cells.any(func(cell): return str(cell.cell_id)==str(room.id)): continue
 		var cover = Cover.new()
 		game.add_child(cover)
 		cover.configure(self,room)

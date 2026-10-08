@@ -1,0 +1,44 @@
+{
+  "scheduleRevision": "01a80c6408e422c393d99b65b9332f1b8fb42ef26cc40b8cae97ec1350e9d084",
+  "creates": [
+    {
+      "task": {
+        "id": "p77-connected-room-roofs-20261008",
+        "title": "P77 连通建筑分区屋顶与四向入口遮挡",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p76-room-interior-visibility-20261007"
+        ],
+        "description": "按照用户认可概念，为当前11间房替换材质封盖，四类屋面和屋顶设施，真实墙体接口与四向门洞保留，进房独立揭顶。",
+        "acceptance": "每间房独立揭顶，走廊连通、侧门和上下入口不被新屋顶阻断；禁闭室取消固定向下门预制壳；不同屋面及通风排烟设施按概念；缓存绘制性能对照；碰撞导航与门禁不变；美术素材附编辑器图标；保留外部WIP。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/presentation/room_cover.gd",
+            "scripts/presentation/roof_geometry.gd",
+            "scripts/presentation/roof_attachment.gdshader",
+            "scripts/presentation/roof_building.gd",
+            "scripts/core/room_visibility.gd",
+            "scripts/world/prison_world.gd",
+            "scripts/editor/map_editor.gd",
+            "scripts/editor/map_document.gd",
+            "art/architecture/room_roofs_v47/**",
+            "art/editor/room_roofs_v47/**",
+            "qa/p77*",
+            "docs/dev/p77/**",
+            "docs/tests/p77*",
+            "docs/tests/p76-fps-p77*",
+            "gamecreator/**"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "可见范围保持现有逻辑，屋顶来自当前墙体与门的位置；不写地图和门碰撞。资产atlas独立加载，材质与边缘绘制缓存。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户确认连通建筑屋顶概念，制作人独立实施并验证。",
+  "requestId": "p77-plan-20261008"
+}

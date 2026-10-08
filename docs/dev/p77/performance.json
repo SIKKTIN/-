@@ -1,0 +1,25 @@
+{
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "scenes": [
+    {
+      "scene": "corridor-day",
+      "before_fps": 65.0883530751379,
+      "after_fps": 70.5721581614331,
+      "p95_ms": 15.872
+    },
+    {
+      "scene": "workshop-day",
+      "before_fps": 49.7566650296724,
+      "after_fps": 71.4828151078307,
+      "p95_ms": 17.416
+    },
+    {
+      "scene": "corridor-night",
+      "before_fps": 47.5763818883938,
+      "after_fps": 73.6823553660171,
+      "p95_ms": 15.094
+    }
+  ],
+  "note": "原生1200×720，无垂直同步，同地图同场景。后台编辑器与机器负载影响FPS；这组结果只用于检查新屋顶未导致下降，不把增幅归因于单一改动。"
+}

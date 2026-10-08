@@ -1,0 +1,20 @@
+{
+  "scripts/world/prison_world.gd": [
+    [
+      "func wall_is_roofed(index: int) -> bool:\n",
+      "func wall_is_roofed(index: int) -> bool:\n\tif room_visibility != null: return false # Modular roofs keep real perimeter walls.\n"
+    ]
+  ],
+  "scripts/editor/map_editor.gd": [
+    [
+      "\t\tif ref.group == \"visibility_rooms\":\n",
+      "\t\tif ref.group == \"visibility_rooms\":\n\t\t\tlabel(inspector,\"屋顶样式\",13)\n\t\t\tvar roofs := OptionButton.new()\n\t\t\troofs.name = \"RoofStyle\"\n\t\t\troofs.add_theme_constant_override(\"icon_max_width\",24)\n\t\t\troofs.add_item(\"按建筑自动选择\")\n\t\t\tvar roof_ids := [\"concrete\",\"dark_concrete\",\"metal_green\",\"metal_light\"]\n\t\t\tvar roof_names := [\"寝室 · 混凝土\",\"禁闭室 · 深灰平顶\",\"车间 / 仓库 · 灰绿金属\",\"食堂 · 浅灰金属\"]\n\t\t\tvar roof_assets := [\"roof_concrete_warm\",\"roof_concrete_dark\",\"roof_metal_green\",\"roof_metal_light\"]\n\t\t\tfor index in range(roof_ids.size()):\n\t\t\t\troofs.add_icon_item(load(\"res://art/editor/room_roofs_v47/\"+roof_assets[index]+\".tres\"),roof_names[index])\n\t\t\troofs.get_popup().set(\"theme_override_constants/icon_max_width\",24)\n\t\t\troofs.select(roof_ids.find(str(item.get(\"roof_style\",\"\")))+1)\n\t\t\troofs.item_selected.connect(func(index): document.set_property(ref,\"roof_style\",\"auto\" if index==0 else roof_ids[index-1]))\n\t\t\tinspector.add_child(roofs)\n"
+    ]
+  ],
+  "scripts/editor/map_document.gd": [
+    [
+      "\t\t\t\tif str(item.get(\"id\",\"\")) == \"\" or coords[2] <= 0 or coords[3] <= 0: return \"可见范围需要唯一ID和正数宽高。\"\n",
+      "\t\t\t\tif str(item.get(\"id\",\"\")) == \"\" or coords[2] <= 0 or coords[3] <= 0: return \"可见范围需要唯一ID和正数宽高。\"\n\t\t\t\tif item.has(\"roof_style\") and item.roof_style not in [\"auto\",\"concrete\",\"dark_concrete\",\"metal_green\",\"metal_light\"]: return \"屋顶样式无效。\"\n"
+    ]
+  ]
+}

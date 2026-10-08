@@ -1,0 +1,61 @@
+{
+  "id": "p77-accept-20261008",
+  "digest": "7565095b50f614e45e2696801c10d924e9f4ec7b562de9edbdd7f983036b1aa1",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T02:14:54.965Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p77-delivery-20261008",
+    "taskId": "p77-connected-room-roofs-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "连通房间11套独立屋顶与四类材质、4类屋顶设施；四向门与缺墙通道留口、共墙收边，禁闭室取消固定南向壳，编辑器样式及图标可保存撤销重载。124项检查和200碰撞点对照通过，同图最终71/71/74FPS，保留原地图与外部WIP。",
+    "evidence": [
+      "docs/dev/p77/report.md",
+      "docs/dev/p77/delivery.json",
+      "docs/dev/p77/performance.json",
+      "docs/dev/p77/art-prompts.json",
+      "docs/tests/p77-roofs-native.json",
+      "docs/tests/p77-editor-native.json",
+      "docs/tests/p77-compound-covered.png",
+      "docs/tests/p77-compound-cafeteria-revealed.png",
+      "docs/tests/p77-editor-roof-picker.png"
+    ],
+    "at": "2026-10-08T02:14:25.526Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T02:14:55.127Z",
+      "note": "制作人独立任务自验收：原生截图确认连通平面、侧门/北门、共墙屋顶和当前食堂独立揭顶；124项检查、200碰撞点对照与缓存绘制验证通过。最终同图三场景71–74FPS且无下降；机器负载波动已记录，不把增幅归因于单一改动。原地图SHA不变，外部WIP保留。资产工程内落盘、对应编辑器图标与样式保存重载可用。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p77-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f9fbe1bbc7f06d6cc6e933d78f13f21b050dab1a2b2163c1e3a66ac02260e4e6"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f9fbe1bbc7f06d6cc6e933d78f13f21b050dab1a2b2163c1e3a66ac02260e4e6",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

@@ -94,6 +94,7 @@ static func check_shape(candidate: Dictionary) -> String:
 				return group+"坐标格式错误。"
 			if group == "visibility_rooms":
 				if str(item.get("id","")) == "" or coords[2] <= 0 or coords[3] <= 0: return "可见范围需要唯一ID和正数宽高。"
+				if item.has("roof_style") and item.roof_style not in ["auto","concrete","dark_concrete","metal_green","metal_light"]: return "屋顶样式无效。"
 				var doors = item.get("door_ids",[])
 				if not doors is Array or doors.any(func(id): return not id is String): return "关联门必须是门ID数组。"
 			if group == "fixtures" and not item.has("asset_id"):

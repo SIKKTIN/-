@@ -76,7 +76,9 @@ func configure(owner_game, owner_presentation, index: int) -> void:
 	queue_redraw()
 
 func tick_information() -> void:
-	visible = game.world.room_visibility == null or not game.world.room_visibility.visible_at(footprint.get_center())
+	# The per-room roof now covers confinement too, retaining all four door
+	# orientations from the real map instead of the legacy south-only shell.
+	visible = game.world.room_visibility == null
 	if game.room_access == null: return
 	var gate: Dictionary = game.world.access_by_id(str(spec.door_id))
 	var next_closed: bool = gate.get("closed",true)
