@@ -97,15 +97,28 @@ class Door extends Node2D:
 			draw_texture_rect_region(texture,Rect2(trailing,depth*0.23,minf(6,end_cap),depth*0.54),Rect2(size.x*0.87,size.y*0.2,size.x*0.047,size.y*0.6))
 	func hardware_rects() -> Array[Rect2]:
 		# End hardware stays in the original aperture, never the neighbour's wall.
-		var cap := minf(3.0,length*0.075) if vertical else minf(7.0,length*0.08)
+		# Three-pixel side caps flattened the source's round bolts into subpixels.
+		var cap := minf(8.0,length*0.20) if vertical else minf(9.0,length*0.10)
 		return [Rect2(0,0,cap,depth),Rect2(length-cap,0,cap,depth)]
+
+	func _paint_end_cap(rect: Rect2, source: Rect2) -> void:
+		draw_texture_rect_region(texture,rect,source,Color(1.08,1.08,1.06))
+		# Readable at gameplay scale, within the cached doorway drawing commands.
+		draw_rect(rect.grow(-0.5),Color("25353d"),false,1.0)
+		draw_line(rect.position+Vector2(1,1),rect.position+Vector2(rect.size.x-1,1),Color("a7b5b9"),1.0,true)
+		var radius := minf(1.6,rect.size.x*0.18)
+		for offset in [0.23,0.77]:
+			var bolt := rect.position+Vector2(rect.size.x*0.5,rect.size.y*offset)
+			draw_circle(bolt,radius+0.5,Color("283035"))
+			draw_circle(bolt,radius,Color("c3a16a"))
+			draw_circle(bolt-Vector2(0.4,0.4),0.45,Color("eee0b4"))
 
 	func _paint_flush_door() -> void:
 		var size := texture.get_size()
 		var source_cap := size.x*0.105
 		var caps := hardware_rects()
-		draw_texture_rect_region(texture,caps[0],Rect2(0,0,source_cap,size.y))
-		draw_texture_rect_region(texture,caps[1],Rect2(size.x-source_cap,0,source_cap,size.y))
+		_paint_end_cap(caps[0],Rect2(0,0,source_cap,size.y))
+		_paint_end_cap(caps[1],Rect2(size.x-source_cap,0,source_cap,size.y))
 		var middle := Rect2(caps[0].end.x,0,length-caps[0].size.x*2,depth)
 		var source := Rect2(source_cap,0,size.x-source_cap*2,size.y)
 		if style == "free" or closed:
