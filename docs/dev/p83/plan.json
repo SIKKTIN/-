@@ -1,0 +1,42 @@
+{
+  "scheduleRevision": "a78a16ace4aa6442566ed8470d9b612ab5c82fe8dfc564505642e52b53fae687",
+  "creates": [
+    {
+      "task": {
+        "id": "p83-visible-wall-boundary-collision-20261008",
+        "title": "P83 固定墙边碰撞与门口通行对齐",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p82-side-door-threshold-and-neighbour-wall-20261008"
+        ],
+        "description": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+        "acceptance": "固定墙顶和侧边阻挡脚底移动，入口缺口可通过，关门阻挡，NPC可自然出入；编辑器能查看相同碰撞；房间显隐不重建几何，实际游戏验证通过。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/world/prison_world.gd",
+            "scripts/core/room_visibility.gd",
+            "scripts/editor/map_canvas.gd",
+            "scripts/editor/architecture_preview.gd",
+            "scripts/presentation/roof_geometry.gd",
+            "scripts/presentation/roof_wall_edges.gd",
+            "scripts/skills/skill_controller.gd",
+            "scripts/core/room_access.gd",
+            "scripts/core/workshop_rules.gd",
+            "scripts/presentation/interaction_prompt.gd",
+            "qa/p83*",
+            "docs/dev/p83/**",
+            "docs/tests/p83*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "以共享墙边几何派生静态碰撞与导航，保持艺术素材和地图不变，按入口投影更新门碰撞和必要交互；保留既有日程与玩法规则。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+  "requestId": "p83-plan-20261008"
+}

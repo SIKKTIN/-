@@ -111,7 +111,7 @@ func _target(actor_id: int, kind: String) -> Vector2:
 	var points: Array = game.room_config.get("routine_points",{}).get(kind,[])
 	if kind in ["work","meal"] or (kind == "free" and slot != 4 and not points.is_empty()):
 		var coords: Array = points[actor_id % points.size()]
-		return Vector2(coords[0],coords[1])
+		return game.world.routine_destination(Vector2(coords[0],coords[1])) if kind=="free" else Vector2(coords[0],coords[1])
 	return game.actors[actor_id].home
 
 func preparing_afternoon() -> bool:

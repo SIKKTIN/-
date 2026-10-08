@@ -1,0 +1,105 @@
+{
+  "task": {
+    "id": "p83-visible-wall-boundary-collision-20261008",
+    "title": "P83 固定墙边碰撞与门口通行对齐",
+    "description": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "固定墙顶和侧边阻挡脚底移动，入口缺口可通过，关门阻挡，NPC可自然出入；编辑器能查看相同碰撞；房间显隐不重建几何，实际游戏验证通过。",
+    "result": "",
+    "dependencyIds": [
+      "p82-side-door-threshold-and-neighbour-wall-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/world/prison_world.gd",
+        "scripts/core/room_visibility.gd",
+        "scripts/editor/map_canvas.gd",
+        "scripts/editor/architecture_preview.gd",
+        "scripts/presentation/roof_geometry.gd",
+        "scripts/presentation/roof_wall_edges.gd",
+        "scripts/skills/skill_controller.gd",
+        "scripts/core/room_access.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/presentation/interaction_prompt.gd",
+        "qa/p83*",
+        "docs/dev/p83/**",
+        "docs/tests/p83*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "以共享墙边几何派生静态碰撞与导航，保持艺术素材和地图不变，按入口投影更新门碰撞和必要交互；保留既有日程与玩法规则。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p83-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T08:33:57.423Z"
+      }
+    ]
+  },
+  "revision": "28d82bb1461826eda768784414d1d87cb5c589fe859a6901d3cd15d35b848f55",
+  "scheduleRevision": "2c0258ce8f37a408fa2d2af0dd3c1f14afc71d8d7fe481852f9aa876f9b65e0c",
+  "planChanges": [
+    {
+      "id": "p83-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T08:33:57.423Z",
+      "reason": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+      "createdTaskIds": [
+        "p83-visible-wall-boundary-collision-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p82-side-door-threshold-and-neighbour-wall-20261008",
+      "title": "P82 侧门草地露底与邻室墙体遮盖修复",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "28d82bb1461826eda768784414d1d87cb5c589fe859a6901d3cd15d35b848f55"
+  },
+  "feedback": []
+}

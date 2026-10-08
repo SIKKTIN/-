@@ -120,6 +120,13 @@ func _refresh_targets() -> void:
 		return
 	_refresh_items(actor)
 	_refresh_npcs(actor)
+	for gate in game.world.access_doors:
+		if gate.get("kind","") != "latch" or not gate.closed or not gate.has("interaction_point"): continue
+		var coords: Array = gate.interaction_point
+		var point: Vector2 = game.world.door_interaction_point(gate)
+		if actor.position.distance_to(point) > 60 or not game.world.line_clear(actor.position,point): continue
+		var b := _extra("latch:"+str(gate.id),"开侧门",point+Vector2(0,-60),"从内侧打开后勤通道。")
+		targets.append({"button":b,"kind":"latch","id":gate.id,"distance":actor.position.distance_to(point)})
 	if game.workshop and game.room_config.has("workshop") and game.workshop.on_duty() and not actor.confined and not game.routines.is_working(actor_id):
 		var point: Vector2 = game.routines._target(actor_id,"work")
 		if actor.position.distance_to(point) <= 85 and game.world.line_clear(actor.position,point):

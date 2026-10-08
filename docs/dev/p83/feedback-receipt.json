@@ -1,0 +1,65 @@
+{
+  "id": "p83-delivery-20261008",
+  "digest": "84e022cff5d0e6edb1929e765bb15fe15cba204197af09c4c835cefebba6f48b",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T09:12:21.318Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p83-delivery-20261008",
+    "taskId": "p83-visible-wall-boundary-collision-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "固定墙边/门口碰撞已对齐，同步编辑器与两套缓存寻路；94项检查通过，NPC两日自动通勤与实体离场通过。新增自由点解析调用避免墙顶占位；90试跑启动争用不作为帧率验收。",
+    "evidence": [
+      "docs/dev/p83/report.md",
+      "docs/dev/p83/delivery.json",
+      "docs/dev/p83/performance.json",
+      "docs/tests/p83-boundaries-native.json",
+      "docs/tests/p83-editor-editor-native.json",
+      "docs/tests/p83-two-day-cycle.json",
+      "docs/tests/p83-staff-traffic.json",
+      "docs/tests/p83-dorm-wall-contact.png",
+      "docs/tests/p83-food-wall-contact.png"
+    ],
+    "at": "2026-10-08T09:12:21.522Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p83-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p83-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p83-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

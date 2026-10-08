@@ -1,0 +1,61 @@
+{
+  "id": "p83-accept-20261008",
+  "digest": "81f28eb8632620adbb4e41b4f8a72970c335170c709e56f4fb5a7082f25553e3",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T09:14:44.435Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p83-delivery-20261008",
+    "taskId": "p83-visible-wall-boundary-collision-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "固定墙边/门口碰撞已对齐，同步编辑器与两套缓存寻路；94项检查通过，NPC两日自动通勤与实体离场通过。新增自由点解析调用避免墙顶占位；90试跑启动争用不作为帧率验收。",
+    "evidence": [
+      "docs/dev/p83/report.md",
+      "docs/dev/p83/delivery.json",
+      "docs/dev/p83/performance.json",
+      "docs/tests/p83-boundaries-native.json",
+      "docs/tests/p83-editor-editor-native.json",
+      "docs/tests/p83-two-day-cycle.json",
+      "docs/tests/p83-staff-traffic.json",
+      "docs/tests/p83-dorm-wall-contact.png",
+      "docs/tests/p83-food-wall-contact.png"
+    ],
+    "at": "2026-10-08T09:12:21.522Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T09:14:44.616Z",
+      "note": "制作人自验收：94项针对性游戏、编辑器、两日免疫通勤及最终监工出入回归通过；固定墙边468片与原材质描边一致，门口开关对齐，NPC实际往返窄门；必要daily_routine调用将墙顶自由标记落到走廊；加载预热与可见性保持缓存，夜间守卫长路线验证消除重复远端射线。保留其它WIP，90试跑争用不作为稳定90证据；新版可玩窗口PID6964正常响应。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p83-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "72fcef9b8393607a39ec4ab4830bd70373a89c66167f261c3dbbdbe739026ccd"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "72fcef9b8393607a39ec4ab4830bd70373a89c66167f261c3dbbdbe739026ccd",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

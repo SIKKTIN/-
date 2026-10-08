@@ -15,6 +15,7 @@ var nodes := {}
 var signatures := {}
 var pending := false
 var doorways
+var boundary_clips: Dictionary = {}
 
 func setup(owner_canvas, render_profile: Dictionary) -> void:
 	canvas = owner_canvas
@@ -45,6 +46,7 @@ func refresh() -> void:
 		for port in room.roof_plan.ports:
 			if port.has("opening") and port.opening not in world.portal_cuts: world.portal_cuts.append(port.opening)
 	world.portal_cuts.append_array(Doorways.Geometry.fixture_cuts(world))
+	boundary_clips = RoofGeometry.wall_edge_clips(world,rooms,world.portal_cuts)
 	if not is_instance_valid(doorways):
 		doorways = Doorways.new()
 		add_child(doorways)

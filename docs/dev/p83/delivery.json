@@ -1,0 +1,58 @@
+{
+  "checks": 94,
+  "reports": [
+    "docs/tests/p83-boundaries-native.json",
+    "docs/tests/p83-editor-editor-native.json",
+    "docs/tests/p83-two-day-cycle.json",
+    "docs/tests/p83-staff-traffic.json"
+  ],
+  "map_sha256": "894b330b1e0cecc95449517ef4b0500cdc7f7b7dabfdd8147e9e3ef5a8c63a81",
+  "sources": {
+    "scripts/core/daily_routine.gd": {
+      "working_sha256": "87ddbb3771406283598551e4db7e99cadf974e0ed083c789928f0a81812b8d62",
+      "index_sha256": "87ddbb3771406283598551e4db7e99cadf974e0ed083c789928f0a81812b8d62"
+    },
+    "scripts/core/room_access.gd": {
+      "working_sha256": "a9a04f5713ec075234569b2d3443b9f68cad40443c92e632a153b7a8d336ffea",
+      "index_sha256": "f2c14060455b0167003eb803eda42b5169163a810bc4cfa7749ab8bc6b11384c"
+    },
+    "scripts/core/room_visibility.gd": {
+      "working_sha256": "4ebb33320bcdc314a492352b64b541fe0e137132b438b9748813e98b8b753c67",
+      "index_sha256": "4ebb33320bcdc314a492352b64b541fe0e137132b438b9748813e98b8b753c67"
+    },
+    "scripts/core/workshop_rules.gd": {
+      "working_sha256": "b6b71865ccb16318bc8ae4cbd59c4a05e18b9f011f094dd77ac9efc3026a2e63",
+      "index_sha256": "b6b71865ccb16318bc8ae4cbd59c4a05e18b9f011f094dd77ac9efc3026a2e63"
+    },
+    "scripts/editor/architecture_preview.gd": {
+      "working_sha256": "0db6b271e7e1cf9afb81909b7d20d73d18097b1f65ec0115dde234862b75b4a9",
+      "index_sha256": "0db6b271e7e1cf9afb81909b7d20d73d18097b1f65ec0115dde234862b75b4a9"
+    },
+    "scripts/editor/map_canvas.gd": {
+      "working_sha256": "9f8319a6c720b036d21ec01d1fdf805565e944561f8603aef7d27ab95b7ef8f1",
+      "index_sha256": "1c8f8f48c41d23d6e4050e497d039c6cbda57bd9edcfd6d8d45703983c66ada4"
+    },
+    "scripts/presentation/interaction_prompt.gd": {
+      "working_sha256": "b8120d93bc7a78f1331ab798ef82791a5c942a34eac682436096de5eccc27c72",
+      "index_sha256": "51a65ec8593a7eefbac34e027583e3f776d3af5c6154f792659182291cbd0ec3"
+    },
+    "scripts/presentation/roof_geometry.gd": {
+      "working_sha256": "5afa07490fe812c20bf57303cd4d3723d774721387249d6d139e3d856b888a2a",
+      "index_sha256": "5afa07490fe812c20bf57303cd4d3723d774721387249d6d139e3d856b888a2a"
+    },
+    "scripts/presentation/roof_wall_edges.gd": {
+      "working_sha256": "3ca46b1e8a703e70f5c271ca0759d213f3d4b50f1f24373f45beea81edd37c8a",
+      "index_sha256": "3ca46b1e8a703e70f5c271ca0759d213f3d4b50f1f24373f45beea81edd37c8a"
+    },
+    "scripts/skills/skill_controller.gd": {
+      "working_sha256": "4d8744020c80fd99eff1c17e05baa356139c60def4e82c9b196ad2876595674d",
+      "index_sha256": "bddcdf93ad374dff858356354cb679e64a2f27bdd7cc9a8648174827b1d24581"
+    },
+    "scripts/world/prison_world.gd": {
+      "working_sha256": "bbe4aff516dae753b66df28cd88d1469080bbee386aaa580a79aa0e456e6c153",
+      "index_sha256": "b56d2e17e7d77e15b961ae8457558aae5ef3ce6c296b8fa22d4282e8fe4d600d"
+    }
+  },
+  "necessary_additional_caller": "scripts/core/daily_routine.gd: invalid free-marker destination resolves against fixed wall boundary",
+  "validation_scope": "Current working workspace; unrelated WIP preserved."
+}

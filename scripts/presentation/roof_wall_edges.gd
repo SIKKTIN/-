@@ -24,23 +24,11 @@ var strips: Array[Rect2] = []
 func configure(rules) -> void:
 	name = "RetainedRoofWallEdges"
 	z_index = 4095
-	# 28 is the existing horizontal stone cap in the 120-high facade; the
-	# longitudinal top is the map's 20-unit wall width. Neither is new art.
-	for room in rules.rooms:
-		var r: Rect2 = room.roof_plan.roof
-		var boundaries: Array[Rect2] = [Rect2(r.position,Vector2(r.size.x,28)),Rect2(r.position,Vector2(20,r.size.y)),Rect2(r.end.x-20,r.position.y,20,r.size.y),Rect2(r.position.x,r.end.y,r.size.x,28)]
-		for boundary in boundaries:
-			for part in Geometry.subtract_all(boundary,room.roof_plan.cutouts):
-				strips.append(part)
+	var by_wall := Geometry.wall_edge_clips(rules.game.world,rules.rooms,rules.portal_cuts)
 	for volume in rules.game.presentation.volumes:
-		if volume.kind != "wall" or not volume.profile.get("render_enabled",true) or not volume.profile.has("grid_tile_asset"): continue
+		if volume.kind != "wall": continue
 		var clips: Array[Rect2] = []
-		for strip in strips:
-			var hit: Rect2 = volume.display_rect.intersection(strip)
-			if hit.has_area(): clips.append_array(Geometry.subtract_all(hit,clips))
-		var trimmed: Array[Rect2] = []
-		for clip in clips: trimmed.append_array(Geometry.subtract_all(clip,rules.portal_cuts))
-		clips = trimmed
+		clips.append_array(by_wall.get(volume.wall_index,[]))
 		if clips.is_empty(): continue
 		var edge := Edge.new()
 		var id := str(volume.profile.grid_tile_asset)

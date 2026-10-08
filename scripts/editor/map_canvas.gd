@@ -213,6 +213,10 @@ func _draw() -> void:
 func paint_foreground(painter: CanvasItem) -> void:
 	if document == null or document.data.is_empty(): return
 	var entries: Array = document.entries()
+	if show_collision and architecture_preview != null and layers.is_visible("walls"):
+		for pieces in architecture_preview.boundary_clips.values():
+			for area in pieces:
+				painter.draw_rect(Rect2(screen(area.position),area.size*zoom),Color(0.9,0.3,0.2,0.3))
 	for ref in entries:
 		if not layers.is_visible(ref.group): continue
 		if ref.group in ["bounds","guard_zone","zones","dormitories","confinement","visibility_rooms"]:
@@ -220,7 +224,14 @@ func paint_foreground(painter: CanvasItem) -> void:
 		var rect: Rect2 = document.geometry(ref)
 		if document.is_rect(ref):
 			if show_collision and ref.group in ["walls","fixtures","door","crate","access_doors","dorm_doors"]:
-				if ref.group == "fixtures" and document.value(ref).get("hidden",false):
+				if ref.group == "walls" and document.wall_surface(int(ref.index)).has("collision_parts"):
+					for part in document.wall_surface(int(ref.index)).collision_parts:
+						var area := Rect2(rect.position+Vector2(part[0],part[1]),Vector2(part[2],part[3]))
+						painter.draw_rect(Rect2(screen(area.position),area.size*zoom),Color(0.9,0.3,0.2,0.22))
+				elif ref.group in ["door","access_doors","dorm_doors"]:
+					var area := collision_geometry(ref,rect)
+					painter.draw_rect(Rect2(screen(area.position),area.size*zoom),Color(0.9,0.3,0.2,0.22))
+				elif ref.group == "fixtures" and document.value(ref).get("hidden",false):
 					paint_rect(ref,Color(0.9,0.3,0.2,0.3),false,painter)
 				else:
 					paint_rect(ref,Color(0.9,0.3,0.2,0.22),false,painter)
@@ -262,3 +273,9 @@ func paint_rect(ref: Dictionary, color: Color, outline := false, painter: Canvas
 			painter.draw_string(font,on_screen.position+Vector2(4,14),text,HORIZONTAL_ALIGNMENT_LEFT,on_screen.size.x,12,Color("243739"))
 	else:
 		painter.draw_rect(on_screen,color)
+
+func collision_geometry(ref: Dictionary, fallback: Rect2) -> Rect2:
+	if architecture_preview == null or architecture_preview.boundary_clips.is_empty(): return fallback
+	var id := "primary" if ref.group=="door" else "dorm-%d" % int(ref.index) if ref.group=="dorm_doors" else str(document.value(ref).get("id","")) if ref.group=="access_doors" else ""
+	var view = architecture_preview.doorways.by_id(id)
+	return fallback if view==null else view.visual_rect

@@ -118,7 +118,7 @@ func update_gate() -> void:
 			if now < float(grace.get(actor.actor_id,0)) and not area.grow(-17).has_point(actor.position): open = true
 			# Only defer closing an already open gate around a crossing body.
 			# Approaching a locked gate must never grant a prisoner access.
-			if not gate.closed and game.world._circle_hits_rect(actor.position,20,gate.rect): open = true
+			if not gate.closed and game.world._circle_hits_rect(actor.position,20,game.world.door_collision_rect(gate.rect)): open = true
 		# The overseer opens the gate with his key to search for absentees.
 		if not wanted.is_empty() and overseer.position.distance_to(gate.rect.get_center()) < 140: open = true
 		elif not wanted.is_empty() and gate.closed and overseer.path.is_empty():

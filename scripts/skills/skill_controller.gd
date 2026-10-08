@@ -85,8 +85,16 @@ func door_id(actor) -> String:
 			var gate: Dictionary = game.world.access_by_id(str(cell.door_id))
 			if gate.is_empty() or not gate.closed: continue
 			var occupied: bool = game.room_access.held.values().any(func(r): return str(game.room_access.cells()[int(r.cell)].door_id) == str(gate.id))
-			var distance: float = actor.position.distance_to(gate.rect.get_center()+Vector2(0,45))
+			var distance: float = actor.position.distance_to(game.world.door_interaction_point(gate))
 			if occupied and distance < best:
+				best = distance
+				nearest = str(gate.id)
+		for gate in game.world.access_doors:
+			if gate.get("kind","") != "locked" or not gate.closed: continue
+			var coords: Array = gate.get("interaction_point",[])
+			if coords.size() != 2: continue
+			var distance: float = actor.position.distance_to(game.world.door_interaction_point(gate))
+			if distance < best:
 				best = distance
 				nearest = str(gate.id)
 		return nearest
@@ -94,11 +102,14 @@ func door_id(actor) -> String:
 
 func door_rect(actor) -> Rect2:
 	var gate: Dictionary = game.world.access_by_id(door_id(actor))
-	return game.world.door if gate.is_empty() else gate.rect
+	return game.world.door_collision_rect(game.world.door if gate.is_empty() else gate.rect)
 
 func door_point(actor) -> Vector2:
 	var gate: Dictionary = game.world.access_by_id(door_id(actor))
-	return game.world.door.position+Vector2(-27,game.world.door.size.y*0.5) if gate.is_empty() else gate.rect.get_center()+Vector2(0,45)
+	if gate.is_empty():
+		var primary: Rect2 = game.world.door_collision_rect(game.world.door)
+		return primary.get_center()+Vector2(0,37) if primary.size.x>primary.size.y else primary.position+Vector2(-27,primary.size.y*0.5)
+	return game.world.door_interaction_point(gate)
 
 func open_target(id: String) -> void:
 	if id.is_empty(): game.world.open_door()

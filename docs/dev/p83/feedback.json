@@ -1,0 +1,19 @@
+{
+  "taskId": "p83-visible-wall-boundary-collision-20261008",
+  "revision": "521a1356dd24c67a0674155b4e5a609bc1927cfc9304da12f8db075041f3392e",
+  "feedbackId": "p83-delivery-20261008",
+  "status": "待验收",
+  "summary": "固定墙边/门口碰撞已对齐，同步编辑器与两套缓存寻路；94项检查通过，NPC两日自动通勤与实体离场通过。新增自由点解析调用避免墙顶占位；90试跑启动争用不作为帧率验收。",
+  "evidence": [
+    "docs/dev/p83/report.md",
+    "docs/dev/p83/delivery.json",
+    "docs/dev/p83/performance.json",
+    "docs/tests/p83-boundaries-native.json",
+    "docs/tests/p83-editor-editor-native.json",
+    "docs/tests/p83-two-day-cycle.json",
+    "docs/tests/p83-staff-traffic.json",
+    "docs/tests/p83-dorm-wall-contact.png",
+    "docs/tests/p83-food-wall-contact.png"
+  ],
+  "requestId": "p83-delivery-20261008"
+}

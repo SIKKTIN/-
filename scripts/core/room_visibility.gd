@@ -71,6 +71,13 @@ func reset() -> void:
 		for port in room.roof_plan.ports:
 			if port.has("opening") and port.opening not in portal_cuts: portal_cuts.append(port.opening)
 	portal_cuts.append_array(Doorways.Geometry.fixture_cuts(game.world))
+	var clips := RoofGeometry.wall_edge_clips(game.world,rooms,portal_cuts)
+	var projected := {}
+	if not clips.is_empty():
+		for gate in game.world.access_doors+game.world.dorm_doors:
+			projected[gate.rect] = Doorways.Geometry.projected_rect(game.world,gate)
+		projected[game.world.door] = Doorways.Geometry.projected_rect(game.world,{"rect":game.world.door})
+	game.world.set_wall_boundaries(clips,projected)
 	game.world.room_visibility = self
 	tick(0,true)
 	doorways = Doorways.new()

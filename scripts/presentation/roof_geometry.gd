@@ -89,3 +89,24 @@ static func subtract_all(area: Rect2, cutouts: Array) -> Array[Rect2]:
 				if piece.size.x > 0.01 and piece.size.y > 0.01: next.append(piece)
 		parts = next
 	return parts
+
+# Shared, permanent edge geometry for rendering, movement and editor overlays.
+# Derive once per map; a roof visibility change never changes these pieces.
+static func wall_edge_clips(world, rooms: Array, portal_cuts: Array) -> Dictionary:
+	var strips: Array[Rect2] = []
+	for room in rooms:
+		var r: Rect2 = room.roof_plan.roof
+		var boundaries: Array[Rect2] = [Rect2(r.position,Vector2(r.size.x,28)),Rect2(r.position,Vector2(20,r.size.y)),Rect2(r.end.x-20,r.position.y,20,r.size.y),Rect2(r.position.x,r.end.y,r.size.x,28)]
+		for boundary in boundaries: strips.append_array(subtract_all(boundary,room.roof_plan.cutouts))
+	var result := {}
+	for index in world.wall_surfaces:
+		var surface: Dictionary = world.wall_surfaces[index]
+		if not surface.has("grid_tile_asset") or not surface.get("render_enabled",true): continue
+		var clips: Array[Rect2] = []
+		for strip in strips:
+			var hit: Rect2 = world.walls[int(index)].intersection(strip)
+			if hit.has_area(): clips.append_array(subtract_all(hit,clips))
+		var trimmed: Array[Rect2] = []
+		for clip in clips: trimmed.append_array(subtract_all(clip,portal_cuts))
+		if not trimmed.is_empty(): result[int(index)] = trimmed
+	return result

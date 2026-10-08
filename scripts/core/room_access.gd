@@ -80,7 +80,7 @@ func tick() -> void:
 		var waiting := false
 		for actor in occupants:
 			if actor.escaped or (actor in game.actors and actor.confined): continue
-			if not room.has_point(actor.position) and not game.world._circle_hits_rect(actor.position,17,gate.rect): continue
+			if not room.has_point(actor.position) and not game.world._circle_hits_rect(actor.position,17,game.world.door_collision_rect(gate.rect)): continue
 			waiting = true
 			if not closed or closing.has(str(gate.id)): continue
 			var exit: Vector2 = _point(gate.get("evacuation",[1010,1100]))
@@ -111,7 +111,7 @@ func exit_goal(actor) -> Variant:
 	for gate in game.world.access_doors:
 		if not closing.has(str(gate.id)): continue
 		var room := _rect(gate.get("room_rect",[0,0,0,0]))
-		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,17,gate.rect):
+		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,17,game.world.door_collision_rect(gate.rect)):
 			return _point(gate.get("evacuation",[1010,1100]))
 	return null
 
@@ -123,8 +123,8 @@ func movement_allowed(actor, point: Vector2, radius: float) -> bool:
 		var minute: float = game.schedule.clock_minutes()
 		if minute >= float(hours[0]) and minute < float(hours[1]): continue
 		var room := _rect(gate.get("room_rect",[0,0,0,0]))
-		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,radius,gate.rect): continue
-		if room.has_point(point) or game.world._circle_hits_rect(point,radius,gate.rect): return false
+		if room.has_point(actor.position) or game.world._circle_hits_rect(actor.position,radius,game.world.door_collision_rect(gate.rect)): continue
+		if room.has_point(point) or game.world._circle_hits_rect(point,radius,game.world.door_collision_rect(gate.rect)): return false
 	return true
 
 func label_for(actor_id: int) -> String:
@@ -134,3 +134,16 @@ func label_for(actor_id: int) -> String:
 
 func snapshot() -> Dictionary:
 	return {"held":held.duplicate(true),"doors":game.world.access_doors.map(func(g): return {"id":g.id,"closed":g.closed,"progress":g.progress})}
+
+func open_latch(actor_id: int, id: String) -> bool:
+	if not game.actor_is_controllable(actor_id) or game.world_input_blocked(): return false
+	var gate: Dictionary = game.world.access_by_id(id)
+	if gate.get("kind","") != "latch" or not gate.get("closed",true) or not gate.has("interaction_point"): return false
+	var actor = game.actors[actor_id]
+	var point: Vector2 = game.world.door_interaction_point(gate)
+	if actor.confined or actor.escaped or actor.position.distance_to(point) > 60 or not game.world.line_clear(actor.position,point): return false
+	game.world.set_access_closed(id,false)
+	for linked in gate.get("opens",[]): game.world.set_access_closed(str(linked),false)
+	if game.routines: game.routines.take_control(actor_id)
+	game.show_status("后勤侧门已从内侧打开，后勤出口与洗衣房捷径可通行。",5)
+	return true

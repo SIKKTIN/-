@@ -1,0 +1,224 @@
+{
+	"checks": {
+		"afternoon_entry_starts_outside": true,
+		"bounded_physical_step": true,
+		"closed_factory_door_blocks_visible_passage": true,
+		"dawn_alarm_clears_without_deletion": true,
+		"evening_walks_out": true,
+		"factory_relocks_after_staff_exit": true,
+		"gate_guards_walk_out": true,
+		"never_hidden_inside": true,
+		"no_noon_hide_or_teleport": true,
+		"noon_retires_outside_map": true,
+		"open_factory_passage_clear": true,
+		"overseer_exits_workshop_then_factory": true,
+		"pause_stops_commute": true,
+		"recall_never_repositions": true,
+		"recall_reuses_same_people": true,
+		"reinforcements_finish_departure": true,
+		"reinforcements_spawn_outside": true,
+		"reinforcements_start_walking_out": true,
+		"reinforcements_walk_in": true,
+		"returns_through_both_gates": true,
+		"staff_does_not_relock_player_door": true
+	},
+	"crossings": {
+		"246557972049factory": true,
+		"246608303695factory": true,
+		"246658635341factory": true,
+		"246708966987factory": true,
+		"246759298647factory": true,
+		"246759298647workshop": true,
+		"246809631041factory": true,
+		"246859962244factory": true
+	},
+	"failed": [],
+	"max_step": 10.7504835128784,
+	"traces": [
+		{
+			"label": "after_noon_exit",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2320.0,
+						330.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2500.0,
+						330.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3310.0,
+						1440.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3873.61010742188,
+						392.809997558594
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2400.0,
+						120.000007629395
+					],
+					"role": "overseer",
+					"status": "offsite",
+					"visible": false
+				}
+			]
+		},
+		{
+			"label": "afternoon_arrival",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2320.0,
+						330.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2500.0,
+						330.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3310.0,
+						1440.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3873.61010742188,
+						392.809997558594
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						1140.51025390625,
+						609.809997558594
+					],
+					"role": "overseer",
+					"status": "duty",
+					"visible": true
+				}
+			]
+		},
+		{
+			"label": "alarm_arrivals",
+			"states": [
+				{
+					"legs": "[]",
+					"position": [
+						2320.0,
+						329.999969482422
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2500.0,
+						330.000030517578
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3310.00024414063,
+						1440.0
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						3873.60986328125,
+						392.809997558594
+					],
+					"role": "gate",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						1140.51025390625,
+						609.809997558594
+					],
+					"role": "overseer",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2310.0,
+						209.999969482422
+					],
+					"role": "reinforcement",
+					"status": "duty",
+					"visible": true
+				},
+				{
+					"legs": "[]",
+					"position": [
+						2310.0,
+						209.999969482422
+					],
+					"role": "reinforcement",
+					"status": "duty",
+					"visible": true
+				}
+			]
+		}
+	]
+}

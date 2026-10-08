@@ -7,6 +7,11 @@ var bounds := Rect2(74,114,922,560)
 var walls: Array[Rect2] = []
 var fixtures: Array = []
 var wall_surfaces: Dictionary = {}
+var boundary_solids: Array[Rect2] = []
+var boundary_doors: Dictionary = {}
+var boundary_interactions: Dictionary = {}
+var boundary_destinations: Dictionary = {}
+var boundary_builds := 0
 var roofed_cells: Array = []
 var room_visibility
 var dorm_doors: Array = []
@@ -48,6 +53,9 @@ var guard_start := Vector2(735,280)
 var guard_zone := bounds
 var grid := AStarGrid2D.new()
 var guard_grid := AStarGrid2D.new()
+var portal_grid := AStarGrid2D.new()
+var portal_guard_grid := AStarGrid2D.new()
+var portal_inspection_grid := AStarGrid2D.new()
 var nav_dirty: bool = true
 var static_nav_dirty: bool = true
 var static_solids: Array[Rect2] = []
@@ -78,6 +86,10 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 	for entry in config.get("dorm_doors",[]):
 		dorm_doors.append({"actor_id":int(entry.actor_id),"rect":_rect(entry.rect),"closed":false})
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
+	boundary_solids.clear()
+	boundary_doors.clear()
+	boundary_interactions.clear()
+	boundary_destinations.clear()
 	walls.clear()
 	for value in config.get("walls", []):
 		walls.append(_rect(value))
@@ -311,7 +323,7 @@ func clip_ray(from: Vector2, direction: Vector2, length: float) -> Vector2:
 
 func _rebuild_navigation() -> void:
 	var area := bounds.merge(exit_area)
-	var layout := [area,guard_zone]
+	var layout := [area,guard_zone,not boundary_solids.is_empty()]
 	var old_solids: Dictionary = {}
 	var new_solids: Dictionary = {}
 	for rect in navigation_solids: old_solids[rect]=true
@@ -335,23 +347,26 @@ func _rebuild_navigation() -> void:
 		return
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
 	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
-	for navigation in [grid,guard_grid,inspection_grid]:
-		navigation.region = Rect2i(low,high-low)
-		navigation.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
-		navigation.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
-		navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
-		# All cells use unit weights. Jump search skips straight intermediate
-		# cells without changing passability or diagonal corner restrictions.
-		navigation.jumping_enabled = true
-		navigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
-		navigation.update()
-	for y in range(grid.region.position.y,grid.region.end.y):
-		for x in range(grid.region.position.x,grid.region.end.x):
-			var point := Vector2(x + 0.5,y + 0.5) * GRID_SIZE
-			var blocked := not inside_room(point)
-			inspection_grid.set_point_solid(Vector2i(x,y),blocked)
-			grid.set_point_solid(Vector2i(x,y),blocked)
-			guard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))
+	var sets := _navigation_sets()
+	for triple in sets:
+		for navigation in triple:
+			navigation.region = Rect2i(low,high-low)
+			navigation.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
+			# Ordinary furniture lanes retain half-cell samples. Narrow wall
+			# portals use a separately cached grid with centres on wall joins.
+			navigation.offset = Vector2.ZERO if navigation in [portal_grid,portal_guard_grid,portal_inspection_grid] else Vector2.ONE*GRID_SIZE*0.5
+			navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+			navigation.jumping_enabled = true
+			navigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+			navigation.update()
+		for y in range(low.y,high.y):
+			for x in range(low.x,high.x):
+				var cell := Vector2i(x,y)
+				var point: Vector2 = triple[0].get_point_position(cell)
+				var blocked := not inside_room(point)
+				triple[0].set_point_solid(cell,blocked)
+				triple[1].set_point_solid(cell,blocked or not guard_zone.grow(-RADIUS).has_point(point))
+				triple[2].set_point_solid(cell,blocked)
 	var inspection_members: Dictionary = {}
 	for rect in inspection_solids: inspection_members[rect]=true
 	for rect in static_solids:
@@ -361,11 +376,11 @@ func _rebuild_navigation() -> void:
 		for y in range(maxi(start.y,low.y),mini(end.y,high.y)):
 			for x in range(maxi(start.x,low.x),mini(end.x,high.x)):
 				var cell := Vector2i(x,y)
-				if _circle_hits_rect(grid.get_point_position(cell),RADIUS,rect):
-					grid.set_point_solid(cell,true)
-					guard_grid.set_point_solid(cell,true)
-					if inspection_members.has(rect):
-						inspection_grid.set_point_solid(cell,true)
+				for triple in sets:
+					if _circle_hits_rect(triple[0].get_point_position(cell),RADIUS,rect):
+						triple[0].set_point_solid(cell,true)
+						triple[1].set_point_solid(cell,true)
+						if inspection_members.has(rect):triple[2].set_point_solid(cell,true)
 	_finish_navigation(layout)
 
 func _finish_navigation(layout: Array) -> void:
@@ -385,16 +400,17 @@ func _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:
 		for y in range(maxi(grid.region.position.y,floori(inflated.position.y/GRID_SIZE)),mini(grid.region.end.y,ceili(inflated.end.y/GRID_SIZE))):
 			for x in range(maxi(grid.region.position.x,floori(inflated.position.x/GRID_SIZE)),mini(grid.region.end.x,ceili(inflated.end.x/GRID_SIZE))): cells[Vector2i(x,y)]=true
 	for cell in cells:
-		var point: Vector2=grid.get_point_position(cell)
-		var blocked := not inside_room(point)
-		for rect in solid_index.nearby(point,RADIUS):
-			if _circle_hits_rect(point,RADIUS,rect): blocked=true;break
-		var inspection_blocked := not inside_room(point)
-		for rect in inspection_index.nearby(point,RADIUS):
-			if _circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break
-		grid.set_point_solid(cell,blocked)
-		guard_grid.set_point_solid(cell,blocked or not guard_zone.grow(-RADIUS).has_point(point))
-		inspection_grid.set_point_solid(cell,inspection_blocked)
+		for triple in _navigation_sets():
+			var point: Vector2 = triple[0].get_point_position(cell)
+			var blocked := not inside_room(point)
+			for rect in solid_index.nearby(point,RADIUS):
+				if _circle_hits_rect(point,RADIUS,rect): blocked=true;break
+			var inspection_blocked := not inside_room(point)
+			for rect in inspection_index.nearby(point,RADIUS):
+				if _circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break
+			triple[0].set_point_solid(cell,blocked)
+			triple[1].set_point_solid(cell,blocked or not guard_zone.grow(-RADIUS).has_point(point))
+			triple[2].set_point_solid(cell,inspection_blocked)
 
 func _segment_hits_circle(from: Vector2, to: Vector2, center: Vector2, radius: float) -> bool:
 	return Geometry2D.get_closest_point_to_segment(center,from,to).distance_squared_to(center) < radius*radius-0.001
@@ -485,54 +501,13 @@ func _find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: b
 		return PackedVector2Array([to])
 	if static_nav_dirty:
 		_rebuild_navigation()
-	var navigation: AStarGrid2D = inspection_grid if planning_guard_doors else guard_grid if ignore_actor != null and ignore_actor.has_method("inspection_allowed") else grid
-	# Overlay just the small footprints of moving bodies and the box. The
-	# cached grids contain static walls/furniture (and the guard's boundary).
-	var changed: Array[Vector2i] = []
-	if not ignore_crate:
-		_overlay_rect(navigation,crate.grow(RADIUS),changed,ignore_actor,avoid_actors,ignore_crate)
-	if avoid_actors:
-		for actor in actors:
-			if actor != ignore_actor and not actor.escaped:
-				_overlay_rect(navigation,Rect2(actor.position-Vector2.ONE*RADIUS*2,Vector2.ONE*RADIUS*4),changed,ignore_actor,avoid_actors,ignore_crate)
-	last_overlay_cells = changed.size()
-	nav_dirty = false
-	var start := _nearest_nav_point(from,ignore_actor,avoid_actors,ignore_crate,navigation)
-	var finish := _nearest_nav_point(to,ignore_actor,avoid_actors,ignore_crate,navigation)
-	var raw := PackedVector2Array()
-	if start.x >= 0 and finish.x >= 0:
-		raw = navigation.get_point_path(start,finish)
-		if not raw.is_empty():
-			raw.append(to)
-	for change in changed:
-		navigation.set_point_solid(change,false)
-	# Grid paths repeat every cell in long straight runs. Retain their turns
-	# before exact smoothing, avoiding hundreds of redundant long ray tests.
-	if raw.size()>2:
-		var turns:=PackedVector2Array([raw[0]])
-		for index in range(1,raw.size()-1):
-			var incoming: Vector2=raw[index]-raw[index-1]
-			var outgoing: Vector2=raw[index+1]-raw[index]
-			if absf(incoming.cross(outgoing))>0.001 or incoming.dot(outgoing)<=0:turns.append(raw[index])
-		turns.append(raw[-1])
-		raw=turns
-	# Start at the furthest safely reachable waypoint, rather than walking back
-	# to the nearest cell center each time a path is recalculated.
-	var result := PackedVector2Array()
-	var cursor := from
-	var next: int = 0
-	while next < raw.size():
-		var reachable: int = -1
-		for index in range(raw.size()-1,next-1,-1):
-			if motion_clear(cursor,raw[index],ignore_actor,avoid_actors,ignore_crate):
-				reachable = index
-				break
-		if reachable < 0:
-			return PackedVector2Array()
-		cursor = raw[reachable]
-		result.append(cursor)
-		next = reachable + 1
-	return result
+	var index := 2 if planning_guard_doors else 1 if ignore_actor!=null and ignore_actor.has_method("inspection_allowed") else 0
+	var sets := _navigation_sets()
+	if sets.size()>1 and _prefer_portal_grid(from,to):sets.reverse()
+	for triple in sets:
+		var result := _path_on_grid(from,to,ignore_actor,avoid_actors,ignore_crate,triple[index])
+		if not result.is_empty():return result
+	return PackedVector2Array()
 
 func _overlay_rect(navigation: AStarGrid2D, area: Rect2, changed: Array[Vector2i], ignore_actor, avoid_actors: bool, ignore_crate: bool) -> void:
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
@@ -548,12 +523,12 @@ func _changed(static_changed: bool = false) -> void:
 	obstacle_revision += 1
 	nav_dirty = true
 	static_nav_dirty = static_nav_dirty or static_changed
-	static_solids = walls.duplicate()
-	cached_sight = walls.duplicate()
+	static_solids = wall_collision_rects()
+	cached_sight = static_solids.duplicate()
 	if not door_open or gate_guarded:
-		static_solids.append(door)
+		static_solids.append(door_collision_rect(door))
 	if not door_open:
-		cached_sight.append(door)
+		cached_sight.append(door_collision_rect(door))
 	for fixture in fixtures:
 		if fixture.get("blocks_movement",true):
 			static_solids.append(fixture.rect)
@@ -561,12 +536,12 @@ func _changed(static_changed: bool = false) -> void:
 			cached_sight.append(fixture.rect)
 	for gate in access_doors:
 		if gate.closed:
-			static_solids.append(gate.rect)
-			if gate.get("blocks_sight",false): cached_sight.append(gate.rect)
+			static_solids.append(door_collision_rect(gate.rect))
+			if gate.get("blocks_sight",false): cached_sight.append(door_collision_rect(gate.rect))
 	inspection_solids = static_solids.duplicate()
 	for gate in dorm_doors:
 		if gate.closed:
-			static_solids.append(gate.rect)
+			static_solids.append(door_collision_rect(gate.rect))
 	cached_solids = static_solids.duplicate()
 	cached_solids.append(crate)
 	cached_sight.append(crate)
@@ -629,3 +604,141 @@ func _draw_wall(rect: Rect2, fill: Color) -> void:
 
 func snapshot() -> Dictionary:
 	return {"dorm_doors":dorm_doors.map(func(g): return {"actor_id":g.actor_id,"closed":g.closed}),"room_id":room_id,"door_open":door_open,"lock_progress":lock_progress,"crate":[crate.position.x,crate.position.y,crate.size.x,crate.size.y],"push_distance":push_distance,"obstacle_revision":obstacle_revision}
+
+func _navigation_sets() -> Array:
+	return [[grid,guard_grid,inspection_grid]] if boundary_solids.is_empty() else [[grid,guard_grid,inspection_grid],[portal_grid,portal_guard_grid,portal_inspection_grid]]
+
+
+func _prefer_portal_grid(from: Vector2, to: Vector2) -> bool:
+	for rect in boundary_doors.values():
+		if rect.size.y<=rect.size.x or rect.size.y>44: continue
+		for point in [from,to]:
+			if point.x<rect.position.x and absf(point.y-rect.get_center().y)<320:return true
+	return false
+
+
+func _path_on_grid(from: Vector2, to: Vector2, ignore_actor, avoid_actors: bool, ignore_crate: bool, navigation: AStarGrid2D) -> PackedVector2Array:
+	# Overlay just the small footprints of moving bodies and the box. The
+	# cached grids contain static walls/furniture (and the guard's boundary).
+	var changed: Array[Vector2i] = []
+	if not ignore_crate:
+		_overlay_rect(navigation,crate.grow(RADIUS),changed,ignore_actor,avoid_actors,ignore_crate)
+	if avoid_actors:
+		for actor in actors:
+			if actor != ignore_actor and not actor.escaped:
+				_overlay_rect(navigation,Rect2(actor.position-Vector2.ONE*RADIUS*2,Vector2.ONE*RADIUS*4),changed,ignore_actor,avoid_actors,ignore_crate)
+	last_overlay_cells = changed.size()
+	nav_dirty = false
+	var start := _nearest_nav_point(from,ignore_actor,avoid_actors,ignore_crate,navigation)
+	var finish := _nearest_nav_point(to,ignore_actor,avoid_actors,ignore_crate,navigation)
+	var raw := PackedVector2Array()
+	if start.x >= 0 and finish.x >= 0:
+		raw = navigation.get_point_path(start,finish)
+		if not raw.is_empty():
+			raw.append(to)
+	for change in changed:
+		navigation.set_point_solid(change,false)
+	# Grid paths repeat every cell in long straight runs. Retain their turns
+	# before exact smoothing, avoiding hundreds of redundant long ray tests.
+	if raw.size()>2:
+		var turns:=PackedVector2Array([raw[0]])
+		for index in range(1,raw.size()-1):
+			var incoming: Vector2=raw[index]-raw[index-1]
+			var outgoing: Vector2=raw[index+1]-raw[index]
+			if absf(incoming.cross(outgoing))>0.001 or incoming.dot(outgoing)<=0:turns.append(raw[index])
+		turns.append(raw[-1])
+		raw=turns
+	# Start at the furthest safely reachable waypoint, rather than walking back
+	# to the nearest cell center each time a path is recalculated.
+	var result := PackedVector2Array()
+	var cursor := from
+	var next: int = 0
+	while next < raw.size():
+		var reachable: int = -1
+		# Advance through visible consecutive turns. Testing the distant
+		# end of a maze at every corner repeats costly map-wide ray casts.
+		var officer: bool = ignore_actor!=null and ignore_actor.has_method("_capture_if_touching")
+		var candidates := range(next,raw.size()) if officer else range(raw.size()-1,next-1,-1)
+		for index in candidates:
+			if motion_clear(cursor,raw[index],ignore_actor,avoid_actors,ignore_crate):
+				reachable = index
+				if not officer:break
+			elif officer:break
+		if reachable < 0:
+			return PackedVector2Array()
+		cursor = raw[reachable]
+		result.append(cursor)
+		next = reachable + 1
+	return result
+
+func set_wall_boundaries(clips: Dictionary, doors: Dictionary) -> void:
+	var next: Array[Rect2] = []
+	for pieces in clips.values(): next.append_array(pieces)
+	if next == boundary_solids and doors == boundary_doors:
+		if static_nav_dirty: _rebuild_navigation()
+		return
+	boundary_solids = next
+	boundary_doors = doors
+	boundary_builds += 1
+	_changed(true)
+	_rebuild_navigation() # Warm both cached lattices before interactive play.
+	boundary_interactions.clear()
+	boundary_destinations.clear()
+	for gate in access_doors:
+		var point := _door_operation_origin(gate)
+		var best := point
+		var distance := INF
+		for y in range(-4,5):
+			for x in range(-4,5):
+				var candidate := point+Vector2(x,y)*10
+				var gap := candidate.distance_squared_to(point)
+				if gap>=distance or not can_place_circle(candidate,RADIUS,null,false,false): continue
+				distance = gap
+				best = candidate
+		boundary_interactions[gate.rect] = best
+
+
+func routine_destination(point: Vector2) -> Vector2:
+	if boundary_destinations.has(point): return boundary_destinations[point]
+	var result := _resolve_routine_destination(point)
+	boundary_destinations[point] = result
+	return result
+
+
+func _resolve_routine_destination(point: Vector2) -> Vector2:
+	# Legacy activity markers sometimes sat in the decorative north coping.
+	# Keep outdoor activities on the corridor side of the new physical wall.
+	for rect in boundary_solids:
+		if not _circle_hits_rect(point,RADIUS,rect): continue
+		var candidate := Vector2(point.x,rect.position.y-RADIUS-1) if rect.size.x>=rect.size.y else Vector2(rect.position.x-RADIUS-1,point.y)
+		if can_place_circle(candidate,RADIUS,null,false,false): return candidate
+	return point
+
+
+func door_collision_rect(rect: Rect2) -> Rect2:
+	return boundary_doors.get(rect,rect)
+
+
+func door_interaction_point(gate: Dictionary) -> Vector2:
+	return boundary_interactions.get(gate.rect,_door_operation_origin(gate))
+
+
+func _door_operation_origin(gate: Dictionary) -> Vector2:
+	var rect := door_collision_rect(gate.rect)
+	if gate.has("interaction_point"):
+		var p: Array = gate.interaction_point
+		return Vector2(p[0],p[1])+rect.position-gate.rect.position
+	return rect.get_center()+Vector2(37,0) if rect.size.y>rect.size.x else rect.get_center()+Vector2(0,45)
+
+
+func wall_collision_rects() -> Array[Rect2]:
+	var result: Array[Rect2] = []
+	for index in range(walls.size()):
+		var surface: Dictionary = wall_surfaces.get(index,{})
+		if not surface.has("collision_parts"):
+			result.append(walls[index])
+			continue
+		for part in surface.collision_parts:
+			result.append(Rect2(walls[index].position+Vector2(part[0],part[1]),Vector2(part[2],part[3])))
+	result.append_array(boundary_solids)
+	return result

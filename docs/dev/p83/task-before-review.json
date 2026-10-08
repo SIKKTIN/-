@@ -1,0 +1,214 @@
+{
+  "task": {
+    "id": "p83-visible-wall-boundary-collision-20261008",
+    "title": "P83 固定墙边碰撞与门口通行对齐",
+    "description": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "固定墙顶和侧边阻挡脚底移动，入口缺口可通过，关门阻挡，NPC可自然出入；编辑器能查看相同碰撞；房间显隐不重建几何，实际游戏验证通过。",
+    "result": "固定墙边/门口碰撞已对齐，同步编辑器与两套缓存寻路；94项检查通过，NPC两日自动通勤与实体离场通过。新增自由点解析调用避免墙顶占位；90试跑启动争用不作为帧率验收。",
+    "dependencyIds": [
+      "p82-side-door-threshold-and-neighbour-wall-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/world/prison_world.gd",
+        "scripts/core/room_visibility.gd",
+        "scripts/editor/map_canvas.gd",
+        "scripts/editor/architecture_preview.gd",
+        "scripts/presentation/roof_geometry.gd",
+        "scripts/presentation/roof_wall_edges.gd",
+        "scripts/skills/skill_controller.gd",
+        "scripts/core/room_access.gd",
+        "scripts/core/workshop_rules.gd",
+        "scripts/presentation/interaction_prompt.gd",
+        "qa/p83*",
+        "docs/dev/p83/**",
+        "docs/tests/p83*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "以共享墙边几何派生静态碰撞与导航，保持艺术素材和地图不变，按入口投影更新门碰撞和必要交互；保留既有日程与玩法规则。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p83-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T08:33:57.423Z"
+      }
+    ]
+  },
+  "revision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997",
+  "scheduleRevision": "8b187836bc7172ab7bec088a226170f9d6d98b96bc6b8cf015eb87835f8db4ff",
+  "planChanges": [
+    {
+      "id": "p83-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T08:33:57.423Z",
+      "reason": "用户同意以固定可见墙边作为实体碰撞，并同步门口与NPC通行。",
+      "createdTaskIds": [
+        "p83-visible-wall-boundary-collision-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p82-side-door-threshold-and-neighbour-wall-20261008",
+      "title": "P82 侧门草地露底与邻室墙体遮盖修复",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p83-delivery-20261008",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p83-delivery-20261008",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p83-delivery-20261008",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997"
+  },
+  "feedback": [
+    {
+      "id": "p83-start-20261008",
+      "taskId": "p83-visible-wall-boundary-collision-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "固定墙边共享几何已接入碰撞/导航与编辑器，验证窄门、实际移动及门禁交互。",
+      "evidence": [
+        "docs/dev/p83/baseline.json"
+      ],
+      "at": "2026-10-08T08:35:31.275Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p83-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p83-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p83-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p83-delivery-20261008",
+      "taskId": "p83-visible-wall-boundary-collision-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "固定墙边/门口碰撞已对齐，同步编辑器与两套缓存寻路；94项检查通过，NPC两日自动通勤与实体离场通过。新增自由点解析调用避免墙顶占位；90试跑启动争用不作为帧率验收。",
+      "evidence": [
+        "docs/dev/p83/report.md",
+        "docs/dev/p83/delivery.json",
+        "docs/dev/p83/performance.json",
+        "docs/tests/p83-boundaries-native.json",
+        "docs/tests/p83-editor-editor-native.json",
+        "docs/tests/p83-two-day-cycle.json",
+        "docs/tests/p83-staff-traffic.json",
+        "docs/tests/p83-dorm-wall-contact.png",
+        "docs/tests/p83-food-wall-contact.png"
+      ],
+      "at": "2026-10-08T09:12:21.522Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p83-delivery-20261008",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p83-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p83-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "2d22dd62927e4194fb72548f91120898adf8823d80016afd67a5c4a67eb8b997",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

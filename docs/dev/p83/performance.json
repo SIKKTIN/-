@@ -1,0 +1,45 @@
+{
+  "scope": "Final targeted night pursuit only; native 1200x720 D3D12 RTX4050. 90 trial overlapped playable-window startup and is not stability evidence. Other diagnostic runs are not final acceptance benchmarks.",
+  "samples": [
+    {
+      "cap": 60,
+      "case": "sustained_night_chase",
+      "fps": 59.8524473937794,
+      "intervals": {
+        "max_ms": 28.773,
+        "mean_ms": 16.7077545454546,
+        "median_ms": 16.664,
+        "p95_ms": 18.907,
+        "p99_ms": 22.875
+      },
+      "paths": {
+        "max_ms": 10.015,
+        "mean_ms": 1.44884615384615,
+        "median_ms": 0.064,
+        "p95_ms": 9.836,
+        "p99_ms": 10.015
+      },
+      "chasing_frames": 202
+    },
+    {
+      "cap": 90,
+      "case": "sustained_night_chase",
+      "fps": 49.21628494491931,
+      "intervals": {
+        "max_ms": 169.215,
+        "mean_ms": 20.3184779411765,
+        "median_ms": 15.824,
+        "p95_ms": 28.302,
+        "p99_ms": 141.95
+      },
+      "paths": {
+        "max_ms": 15.555,
+        "mean_ms": 2.19838095238095,
+        "median_ms": 0.051,
+        "p95_ms": 13.23,
+        "p99_ms": 15.555
+      },
+      "chasing_frames": 202
+    }
+  ]
+}
