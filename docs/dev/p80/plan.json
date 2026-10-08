@@ -1,0 +1,35 @@
+{
+  "scheduleRevision": "52d374c7cc46a71145d235cc124a94e20460f7885dd5002b1e1ca02b4a21f41d",
+  "creates": [
+    {
+      "task": {
+        "id": "p80-consistent-connected-roof-edges-20261008",
+        "title": "P80 连排房间原墙体屋顶边缘统一",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p78-room-transition-hitch-20261008"
+        ],
+        "description": "用户认可连排概念：保留当前遮挡范围，进入前后复用同一石墙边、转角和共墙接缝；每间屋顶独立隐藏。",
+        "acceptance": "连排寝室/禁闭室及厂房边缘昼夜一致，真实侧门连通与碰撞不变；邻室保持遮挡，固定墙边不随过门重绘；原生截图和转场性能检查通过。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/core/room_visibility.gd",
+            "scripts/presentation/room_cover.gd",
+            "scripts/presentation/roof_wall_edges.gd",
+            "qa/p80*",
+            "docs/dev/p80/**",
+            "docs/tests/p80*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "读取现有地图石墙绘制片段，不新增替代墙素材、不改变地图、AI、门禁或遮挡规则。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "按用户已认可连排遮挡概念实施。",
+  "requestId": "p80-plan-20261008"
+}

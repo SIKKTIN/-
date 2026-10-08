@@ -1,0 +1,52 @@
+{
+  "id": "p80-start-20261008",
+  "digest": "1feaa2ed994517efbf7ce97b0bcb2174c4ffb70061abbcd009e4779316f9c732",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T04:52:00.420Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p80-start-20261008",
+    "taskId": "p80-consistent-connected-roof-edges-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "进行中",
+    "summary": "按已认可连排概念接入原墙体片段；屋顶与墙边分层，共墙边缓存且无重复覆盖；正在验证昼夜实际画面、独立遮挡、侧门与性能。",
+    "evidence": [
+      "docs/dev/p80/approved-concept.png",
+      "qa/p80_connected_roofs.gd"
+    ],
+    "at": "2026-10-08T04:52:00.570Z",
+    "evidenceVersion": 1,
+    "state": "recorded",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "进行中",
+      "feedbackId": "p80-start-20261008",
+      "feedbackState": "recorded",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_submit",
+          "cli": "feedback submit",
+          "statuses": [
+            "进行中",
+            "受阻",
+            "待验收"
+          ],
+          "meaning": "报告实际进度或提交验收证据"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1",
+    "delivery": "recorded",
+    "next": "继续当前任务",
+    "received": true
+  }
+}

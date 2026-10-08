@@ -1,0 +1,209 @@
+{
+  "task": {
+    "id": "p80-consistent-connected-roof-edges-20261008",
+    "title": "P80 连排房间原墙体屋顶边缘统一",
+    "description": "用户认可连排概念：保留当前遮挡范围，进入前后复用同一石墙边、转角和共墙接缝；每间屋顶独立隐藏。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "连排寝室/禁闭室及厂房边缘昼夜一致，真实侧门连通与碰撞不变；邻室保持遮挡，固定墙边不随过门重绘；原生截图和转场性能检查通过。",
+    "result": "按认可概念统一连排石墙边缘与共墙T接口；保留遮挡范围/侧门/碰撞，每间独立揭顶。85项检查通过，8组昼夜固定墙边采样像素0差异；120次进出墙边重建0次、同步CPU中位1.888ms；本机60模式六场平均59.68–60FPS，偶发最大32.54ms。",
+    "dependencyIds": [
+      "p78-room-transition-hitch-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/room_visibility.gd",
+        "scripts/presentation/room_cover.gd",
+        "scripts/presentation/roof_wall_edges.gd",
+        "qa/p80*",
+        "docs/dev/p80/**",
+        "docs/tests/p80*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "读取现有地图石墙绘制片段，不新增替代墙素材、不改变地图、AI、门禁或遮挡规则。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p80-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T04:50:09.654Z"
+      }
+    ]
+  },
+  "revision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8",
+  "scheduleRevision": "f4cf1f002f65e6ba02165e8a58678bd41f55b20bf777c83797f2faf6df5a4b78",
+  "planChanges": [
+    {
+      "id": "p80-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T04:50:09.654Z",
+      "reason": "按用户已认可连排遮挡概念实施。",
+      "createdTaskIds": [
+        "p80-consistent-connected-roof-edges-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p78-room-transition-hitch-20261008",
+      "title": "P78 房间揭顶过门单帧卡顿优化",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p80-delivery-20261008",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p80-delivery-20261008",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p80-delivery-20261008",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8"
+  },
+  "feedback": [
+    {
+      "id": "p80-start-20261008",
+      "taskId": "p80-consistent-connected-roof-edges-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按已认可连排概念接入原墙体片段；屋顶与墙边分层，共墙边缓存且无重复覆盖；正在验证昼夜实际画面、独立遮挡、侧门与性能。",
+      "evidence": [
+        "docs/dev/p80/approved-concept.png",
+        "qa/p80_connected_roofs.gd"
+      ],
+      "at": "2026-10-08T04:52:00.570Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p80-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p80-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p80-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p80-delivery-20261008",
+      "taskId": "p80-consistent-connected-roof-edges-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "按认可概念统一连排石墙边缘与共墙T接口；保留遮挡范围/侧门/碰撞，每间独立揭顶。85项检查通过，8组昼夜固定墙边采样像素0差异；120次进出墙边重建0次、同步CPU中位1.888ms；本机60模式六场平均59.68–60FPS，偶发最大32.54ms。",
+      "evidence": [
+        "docs/dev/p80/report.md",
+        "docs/dev/p80/approved-concept.png",
+        "docs/dev/p80/delivery.json",
+        "docs/dev/p80/performance.json",
+        "docs/tests/p80-connected-native.json",
+        "docs/tests/p80-wall-pixel-parity.json",
+        "docs/tests/p80-roofs-headless.json",
+        "docs/tests/p80-stable-60.json",
+        "docs/tests/p80-day-dorm-covered.png",
+        "docs/tests/p80-day-dorm-revealed.png"
+      ],
+      "at": "2026-10-08T04:55:32.046Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p80-delivery-20261008",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p80-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p80-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "f88f44ed3175c425de1fab8ae9cd73b7e4061c76f2a4cb648b68e710e1fc12b8",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

@@ -2,12 +2,14 @@ extends RefCounted
 
 const Cover = preload("res://scripts/presentation/room_cover.gd")
 const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
+const WallEdges = preload("res://scripts/presentation/roof_wall_edges.gd")
 var game
 var rooms: Array = []
 var visited: Dictionary = {}
 var active_id := ""
 var revision := 0
 var covers: Array = []
+var wall_edges
 var _current_area := Rect2()
 var _hidden_areas: Array[Rect2] = []
 
@@ -46,6 +48,7 @@ static func rooms_for(config: Dictionary) -> Array:
 	return result
 
 func reset() -> void:
+	if is_instance_valid(wall_edges): wall_edges.free()
 	for cover in covers: cover.free()
 	covers.clear()
 	rooms.clear()
@@ -62,6 +65,9 @@ func reset() -> void:
 		rooms.append(room)
 	game.world.room_visibility = self
 	tick(0,true)
+	wall_edges = WallEdges.new()
+	game.add_child(wall_edges)
+	wall_edges.configure(self)
 	for room in rooms:
 		var cover = Cover.new()
 		game.add_child(cover)

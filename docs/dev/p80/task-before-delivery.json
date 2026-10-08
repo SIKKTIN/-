@@ -1,0 +1,141 @@
+{
+  "task": {
+    "id": "p80-consistent-connected-roof-edges-20261008",
+    "title": "P80 连排房间原墙体屋顶边缘统一",
+    "description": "用户认可连排概念：保留当前遮挡范围，进入前后复用同一石墙边、转角和共墙接缝；每间屋顶独立隐藏。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "连排寝室/禁闭室及厂房边缘昼夜一致，真实侧门连通与碰撞不变；邻室保持遮挡，固定墙边不随过门重绘；原生截图和转场性能检查通过。",
+    "result": "按已认可连排概念接入原墙体片段；屋顶与墙边分层，共墙边缓存且无重复覆盖；正在验证昼夜实际画面、独立遮挡、侧门与性能。",
+    "dependencyIds": [
+      "p78-room-transition-hitch-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/room_visibility.gd",
+        "scripts/presentation/room_cover.gd",
+        "scripts/presentation/roof_wall_edges.gd",
+        "qa/p80*",
+        "docs/dev/p80/**",
+        "docs/tests/p80*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "读取现有地图石墙绘制片段，不新增替代墙素材、不改变地图、AI、门禁或遮挡规则。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p80-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T04:50:09.654Z"
+      }
+    ]
+  },
+  "revision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1",
+  "scheduleRevision": "8d9961eee8e77d3fcc9c5a0dde7db14b08f9a5fc99f8b6208ce1b4a2e019169d",
+  "planChanges": [
+    {
+      "id": "p80-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T04:50:09.654Z",
+      "reason": "按用户已认可连排遮挡概念实施。",
+      "createdTaskIds": [
+        "p80-consistent-connected-roof-edges-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p78-room-transition-hitch-20261008",
+      "title": "P78 房间揭顶过门单帧卡顿优化",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p80-start-20261008",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1"
+  },
+  "feedback": [
+    {
+      "id": "p80-start-20261008",
+      "taskId": "p80-consistent-connected-roof-edges-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "按已认可连排概念接入原墙体片段；屋顶与墙边分层，共墙边缓存且无重复覆盖；正在验证昼夜实际画面、独立遮挡、侧门与性能。",
+      "evidence": [
+        "docs/dev/p80/approved-concept.png",
+        "qa/p80_connected_roofs.gd"
+      ],
+      "at": "2026-10-08T04:52:00.570Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p80-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -123,6 +123,9 @@ func _draw() -> void:
 			draw_rect(part,Color("7d837a"))
 			draw_line(part.position,Vector2(part.end.x,part.position.y),Color("b0b2a0"),1,true)
 			draw_line(Vector2(part.position.x,part.end.y),part.end,Color("3e4947"),1,true)
+	# The retained shell owns the original stone caps/corners/door returns.
+	# Only the membrane and its attachments fade, never a second roof frame.
+	if room.get("retained_wall_edges",false): return
 	for side in ["north","south","west","east"]:
 		for part in Geometry.subtract_all(_edge(side),cutouts):
 			draw_rect(part,Color("b9b7a1"))

@@ -1,0 +1,20 @@
+{
+  "taskId": "p80-consistent-connected-roof-edges-20261008",
+  "revision": "f31ba6ea3e841e504a80c298c02b10869546b54bad8e1d768e99d2f2d61fd3b1",
+  "feedbackId": "p80-delivery-20261008",
+  "status": "待验收",
+  "summary": "按认可概念统一连排石墙边缘与共墙T接口；保留遮挡范围/侧门/碰撞，每间独立揭顶。85项检查通过，8组昼夜固定墙边采样像素0差异；120次进出墙边重建0次、同步CPU中位1.888ms；本机60模式六场平均59.68–60FPS，偶发最大32.54ms。",
+  "evidence": [
+    "docs/dev/p80/report.md",
+    "docs/dev/p80/approved-concept.png",
+    "docs/dev/p80/delivery.json",
+    "docs/dev/p80/performance.json",
+    "docs/tests/p80-connected-native.json",
+    "docs/tests/p80-wall-pixel-parity.json",
+    "docs/tests/p80-roofs-headless.json",
+    "docs/tests/p80-stable-60.json",
+    "docs/tests/p80-day-dorm-covered.png",
+    "docs/tests/p80-day-dorm-revealed.png"
+  ],
+  "requestId": "p80-delivery-20261008"
+}

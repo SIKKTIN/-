@@ -1,0 +1,70 @@
+{
+  "task": "p80-consistent-connected-roof-edges-20261008",
+  "checks_passed": 85,
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "source_files": {
+    "scripts/core/room_visibility.gd": "bf82c37cfdd0a2c0050c4423fca8aeca2d4f4947348f23f5fc1924c1d2d02238",
+    "scripts/presentation/room_cover.gd": "1dd8c9d63c2ef2798afb08e298cce1e66e8f6f79af8156ca56b39139de7c079e",
+    "scripts/presentation/roof_wall_edges.gd": "74a204588f8d4a52efd04bc9946cec4c04dcb1968545a0482a51dc9456fac5f8"
+  },
+  "performance": [
+    {
+      "case": "day_patrol",
+      "average_fps": 60.0,
+      "p95_ms": 16.728,
+      "p99_ms": 17.289,
+      "max_ms": 22.328,
+      "chasing_frames": 0
+    },
+    {
+      "case": "day_dorm_chase",
+      "average_fps": 60.0,
+      "p95_ms": 16.741,
+      "p99_ms": 18.396,
+      "max_ms": 18.811,
+      "chasing_frames": 421
+    },
+    {
+      "case": "day_corridor_chase",
+      "average_fps": 60.0,
+      "p95_ms": 16.776,
+      "p99_ms": 17.004,
+      "max_ms": 19.974,
+      "chasing_frames": 0
+    },
+    {
+      "case": "night_global_alert",
+      "average_fps": 59.68,
+      "p95_ms": 17.018,
+      "p99_ms": 21.5,
+      "max_ms": 31.964,
+      "chasing_frames": 0
+    },
+    {
+      "case": "sustained_overseer_chase",
+      "average_fps": 59.82,
+      "p95_ms": 16.722,
+      "p99_ms": 19.946,
+      "max_ms": 32.54,
+      "chasing_frames": 405
+    },
+    {
+      "case": "sustained_night_chase",
+      "average_fps": 60.0,
+      "p95_ms": 16.718,
+      "p99_ms": 17.23,
+      "max_ms": 25.99,
+      "chasing_frames": 256
+    }
+  ],
+  "transition_cpu_ms": {
+    "max": 2.398,
+    "median": 1.888,
+    "p95": 2.195
+  },
+  "limits": [
+    "仅本机原生60模式本次实测；偶发最长帧32.54ms",
+    "像素对照只检查固定墙边采样区，不是整图一致",
+    "旧非模块墙地图沿用原修边"
+  ]
+}

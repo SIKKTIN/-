@@ -1,0 +1,62 @@
+{
+  "id": "p80-accept-20261008",
+  "digest": "442ba6842d1eab2d113cf7d4b11dfdee7003e70e7a6d4e017be2675e90d92cfe",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T04:56:47.835Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p80-delivery-20261008",
+    "taskId": "p80-consistent-connected-roof-edges-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "按认可概念统一连排石墙边缘与共墙T接口；保留遮挡范围/侧门/碰撞，每间独立揭顶。85项检查通过，8组昼夜固定墙边采样像素0差异；120次进出墙边重建0次、同步CPU中位1.888ms；本机60模式六场平均59.68–60FPS，偶发最大32.54ms。",
+    "evidence": [
+      "docs/dev/p80/report.md",
+      "docs/dev/p80/approved-concept.png",
+      "docs/dev/p80/delivery.json",
+      "docs/dev/p80/performance.json",
+      "docs/tests/p80-connected-native.json",
+      "docs/tests/p80-wall-pixel-parity.json",
+      "docs/tests/p80-roofs-headless.json",
+      "docs/tests/p80-stable-60.json",
+      "docs/tests/p80-day-dorm-covered.png",
+      "docs/tests/p80-day-dorm-revealed.png"
+    ],
+    "at": "2026-10-08T04:55:32.046Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T04:56:47.977Z",
+      "note": "制作人自验收：85项原生/遮挡/像素检查通过；连排原墙体边缘和共墙接缝进入前后不变，邻室独立遮挡，200碰撞点一致；120次过门固定墙边重画0，本机60模式六场平均59.68–60FPS，最长偶发32.54ms。真实R04地图及外部WIP保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p80-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "b732db5fbfe8bf8025b821da31102af17e3bda0b7c1556251a85a906bfb21230"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "b732db5fbfe8bf8025b821da31102af17e3bda0b7c1556251a85a906bfb21230",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}
