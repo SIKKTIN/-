@@ -123,6 +123,7 @@ var button_layout
 var fps_badge: PanelContainer
 var fps_label: Label
 var fps_sample_time := -1000
+var frame_mode: OptionButton
 var warning_banner: Panel
 var warning_title: Label
 var warning_detail: Label
@@ -246,7 +247,7 @@ func configure(owner_game) -> void:
 	game.status_label.add_theme_font_size_override("font_size",14)
 	menu_blocker = game.schedule._blocker("PauseBlocker",Rect2(),230)
 	menu_blocker.process_mode = Node.PROCESS_MODE_ALWAYS
-	menu = game.schedule._paper_panel("PauseMenu",Vector2.ZERO,Vector2(360,460),231)
+	menu = game.schedule._paper_panel("PauseMenu",Vector2.ZERO,Vector2(360,500),231)
 	menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	game.schedule._label(menu,Vector2(24,20),"这次怎么逃 · 已暂停",22)
 	var resume: Button = game.schedule._button(menu,Vector2(24,66),"继续行动",close_menu)
@@ -273,7 +274,21 @@ func configure(owner_game) -> void:
 	var layout_button: Button = game.schedule._button(menu,Vector2(24,352),"按键布局",func(): button_layout.open())
 	layout_button.name = "EditButtonLayout"
 	layout_button.size = Vector2(312,48)
-	game.schedule._label(menu,Vector2(24,416),"无辜被困 · 合作逃出黑工厂",14)
+	frame_mode=OptionButton.new()
+	frame_mode.name="FrameRatePreset"
+	frame_mode.theme=theme
+	frame_mode.position=Vector2(24,410)
+	frame_mode.size=Vector2(312,42)
+	frame_mode.add_item("帧率：60帧 · 稳定模式",60)
+	frame_mode.add_item("帧率：90帧 · 流畅模式",90)
+	frame_mode.add_item("帧率：不限 · 性能测试",0)
+	frame_mode.select(game.frame_settings.MODES.find(game.frame_settings.target_fps))
+	frame_mode.tooltip_text="自动保存。90帧需要足够的设备性能；显示器刷新率会影响实际观感。"
+	frame_mode.item_selected.connect(func(index):
+		if not game.frame_settings.apply(frame_mode.get_item_id(index)):
+			game.show_status("帧率模式已应用，本地保存失败。"))
+	menu.add_child(frame_mode)
+	game.schedule._label(menu,Vector2(24,466),"无辜被困 · 合作逃出黑工厂",14)
 	menu.hide()
 	menu_blocker.hide()
 	# GUI hit order follows tree order. Shop can still select the floating bag.
@@ -598,6 +613,7 @@ func _process(_delta: float) -> void:
 			fps_sample_time = now
 			var fps := Engine.get_frames_per_second()
 			fps_label.text = "FPS %d" % fps if fps > 0 else "FPS —"
+			fps_badge.tooltip_text="目标：%s；物理与日程速度保持一致。" % ("不限帧" if game.frame_settings.target_fps==0 else "%d帧" % game.frame_settings.target_fps)
 		if last_size != game.get_viewport_rect().size:
 			layout()
 		refresh()

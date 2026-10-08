@@ -1,5 +1,12 @@
 extends Control
 
+class MapBackground extends Node2D:
+	var map
+	func _draw() -> void: map.paint_background(self)
+
+var background: MapBackground
+var background_key: Array=[]
+
 const MAP := Rect2(10,30,190,116)
 var game
 var pointer_id: int = -2
@@ -12,6 +19,10 @@ var _paint_transform := Transform2D.IDENTITY
 
 func configure(owner_game) -> void:
 	game = owner_game
+	background=MapBackground.new()
+	background.map=self
+	background.show_behind_parent=true
+	add_child(background)
 	position = Vector2(774,126)
 	size = Vector2(210,200)
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -68,6 +79,10 @@ func _process(_delta: float) -> void:
 	visible = game != null and not game.world_input_blocked() and (game.fullscreen_ui == null or not game.fullscreen_ui.minimap_collapsed)
 	if blocked():
 		pointer_id = -2
+	var next_background: Array=[game.world.fixtures_revision,size]
+	if next_background!=background_key:
+		background_key=next_background
+		background.queue_redraw()
 	queue_redraw()
 
 func _input(event: InputEvent) -> void:
@@ -101,8 +116,9 @@ func _gui_input(event: InputEvent) -> void:
 		game.map_camera.center_on(to_world(event.position))
 		accept_event()
 
-func draw_world_rect(rect: Rect2, color: Color) -> void:
-	draw_rect(Rect2(to_map(rect.position),to_map(rect.end)-to_map(rect.position)),color)
+func draw_world_rect(rect: Rect2, color: Color, canvas: CanvasItem = null) -> void:
+	var painter: CanvasItem = self if canvas==null else canvas
+	painter.draw_rect(Rect2(to_map(rect.position),to_map(rect.end)-to_map(rect.position)),color)
 
 func _sync_room_cache() -> void:
 	var key: Array = [game.world.fixtures_revision,game.room_visibility.revision if game.room_visibility else -1]
@@ -110,24 +126,32 @@ func _sync_room_cache() -> void:
 	_room_cache_key = key
 	_visible_fixtures = game.world.fixtures.filter(func(fixture): return not game.world.is_under_roof(fixture.rect.get_center()))
 
-func _draw() -> void:
+func paint_background(canvas: CanvasItem) -> void:
 	if not game:
 		return
-	draw_style_box(game.presentation.mute_button.theme.get_stylebox("normal","Button"),Rect2(Vector2.ZERO,size))
+	canvas.draw_style_box(game.presentation.mute_button.theme.get_stylebox("normal","Button"),Rect2(Vector2.ZERO,size))
 	if not game.fullscreen_ui:
-		draw_string(game.presentation.font,Vector2(10,22),"小地图 · 点击 / 拖动",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
-	draw_rect(map_area(),Color("465557"))
+		canvas.draw_string(game.presentation.font,Vector2(10,22),"小地图 · 点击 / 拖动",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("303b46"))
+	canvas.draw_rect(map_area(),Color("465557"))
 	var rect := map_rect()
 	var scale_factor: Vector2 = rect.size/game.world.bounds.size
 	_paint_transform = Transform2D(Vector2(scale_factor.x,0),Vector2(0,scale_factor.y),rect.position-game.world.bounds.position*scale_factor)
 	_painting = true
-	draw_rect(rect,Color("91a190"))
-	draw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color("adab89"))
+	canvas.draw_rect(rect,Color("91a190"))
+	draw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color("adab89"),canvas)
 	for zone in game.room_config.get("zones",[]):
 		var values: Array = zone.rect
-		draw_world_rect(Rect2(values[0],values[1],values[2],values[3]),Color(zone.color))
+		draw_world_rect(Rect2(values[0],values[1],values[2],values[3]),Color(zone.color),canvas)
 	for wall in game.world.walls:
-		draw_world_rect(wall,Color("465557"))
+		draw_world_rect(wall,Color("465557"),canvas)
+	_painting=false
+
+func _draw() -> void:
+	if not game: return
+	var rect := map_rect()
+	var scale_factor: Vector2=rect.size/game.world.bounds.size
+	_paint_transform=Transform2D(Vector2(scale_factor.x,0),Vector2(0,scale_factor.y),rect.position-game.world.bounds.position*scale_factor)
+	_painting=true
 	_sync_room_cache()
 	for fixture in _visible_fixtures:
 		draw_world_rect(fixture.rect,Color("526566") if fixture.get("blocks_sight",false) else Color("897b5d"))

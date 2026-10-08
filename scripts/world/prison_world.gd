@@ -18,6 +18,20 @@ var admission_filter: Callable
 const SolidIndex = preload("res://scripts/core/solid_spatial_index.gd")
 var solid_index = SolidIndex.new()
 var inspection_index = SolidIndex.new()
+var sight_index = SolidIndex.new()
+var navigation_solids: Array[Rect2] = []
+var navigation_inspection_solids: Array[Rect2] = []
+var navigation_layout: Array = []
+var ai_path_budget_active := false
+var ai_path_spent_usec := 0
+var ai_paths_deferred := 0
+
+func begin_ai_paths() -> void:
+	ai_path_budget_active=true
+	ai_path_spent_usec=0
+
+func end_ai_paths() -> void:
+	ai_path_budget_active=false
 var fixtures_revision: int = 0
 var door := Rect2(486,335,22,120)
 var crate := Rect2(467,572,94,92)
@@ -153,6 +167,13 @@ func sight_rects() -> Array[Rect2]:
 	_refresh_box_cache()
 	return cached_sight
 
+func nearby_sight(point: Vector2, radius: float) -> Array[Rect2]:
+	if sight_index.revision != obstacle_revision:
+		sight_index.rebuild(sight_rects().slice(0,-1),obstacle_revision)
+	var result: Array[Rect2] = sight_index.nearby(point,radius)
+	result.append(crate)
+	return result
+
 func _refresh_box_cache() -> void:
 	if cached_crate != crate:
 		cached_crate = crate
@@ -269,7 +290,11 @@ func ray_rect_fraction(from: Vector2, to: Vector2, rect: Rect2) -> float:
 	return near
 
 func line_clear(from: Vector2, to: Vector2, inflate: float = 0.0) -> bool:
-	for rect in sight_rects():
+	if sight_index.revision != obstacle_revision:
+		sight_index.rebuild(sight_rects().slice(0,-1),obstacle_revision)
+	var candidates: Array[Rect2] = sight_index.along_segment(from,to,maxf(0,inflate))
+	candidates.append(crate)
+	for rect in candidates:
 		var fraction := ray_rect_fraction(from, to, rect.grow(inflate))
 		if fraction >= 0 and fraction <= 1:
 			return false
@@ -286,6 +311,28 @@ func clip_ray(from: Vector2, direction: Vector2, length: float) -> Vector2:
 
 func _rebuild_navigation() -> void:
 	var area := bounds.merge(exit_area)
+	var layout := [area,guard_zone]
+	var old_solids: Dictionary = {}
+	var new_solids: Dictionary = {}
+	for rect in navigation_solids: old_solids[rect]=true
+	for rect in static_solids: new_solids[rect]=true
+	var changed_rects: Array[Rect2] = []
+	for rect in old_solids:
+		if not new_solids.has(rect): changed_rects.append(rect)
+	for rect in new_solids:
+		if not old_solids.has(rect): changed_rects.append(rect)
+	var old_inspection: Dictionary = {}
+	var new_inspection: Dictionary = {}
+	for rect in navigation_inspection_solids: old_inspection[rect]=true
+	for rect in inspection_solids: new_inspection[rect]=true
+	for rect in old_inspection:
+		if not new_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)
+	for rect in new_inspection:
+		if not old_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)
+	if layout == navigation_layout and changed_rects.size() < 96:
+		_refresh_navigation_cells(changed_rects)
+		_finish_navigation(layout)
+		return
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
 	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
 	for navigation in [grid,guard_grid,inspection_grid]:
@@ -293,6 +340,10 @@ func _rebuild_navigation() -> void:
 		navigation.cell_size = Vector2(GRID_SIZE,GRID_SIZE)
 		navigation.offset = Vector2(GRID_SIZE,GRID_SIZE) * 0.5
 		navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+		# All cells use unit weights. Jump search skips straight intermediate
+		# cells without changing passability or diagonal corner restrictions.
+		navigation.jumping_enabled = true
+		navigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 		navigation.update()
 	for y in range(grid.region.position.y,grid.region.end.y):
 		for x in range(grid.region.position.x,grid.region.end.x):
@@ -301,6 +352,8 @@ func _rebuild_navigation() -> void:
 			inspection_grid.set_point_solid(Vector2i(x,y),blocked)
 			grid.set_point_solid(Vector2i(x,y),blocked)
 			guard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))
+	var inspection_members: Dictionary = {}
+	for rect in inspection_solids: inspection_members[rect]=true
 	for rect in static_solids:
 		var inflated := rect.grow(RADIUS)
 		var start := Vector2i(floori(inflated.position.x/GRID_SIZE),floori(inflated.position.y/GRID_SIZE))
@@ -311,11 +364,37 @@ func _rebuild_navigation() -> void:
 				if _circle_hits_rect(grid.get_point_position(cell),RADIUS,rect):
 					grid.set_point_solid(cell,true)
 					guard_grid.set_point_solid(cell,true)
-					if inspection_solids.has(rect):
+					if inspection_members.has(rect):
 						inspection_grid.set_point_solid(cell,true)
+	_finish_navigation(layout)
+
+func _finish_navigation(layout: Array) -> void:
+	navigation_layout = layout
+	navigation_solids = static_solids.duplicate()
+	navigation_inspection_solids = inspection_solids.duplicate()
 	navigation_builds += 1
 	static_nav_dirty = false
 	nav_dirty = false
+
+func _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:
+	if solid_index.revision != obstacle_revision: solid_index.rebuild(static_solids,obstacle_revision)
+	if inspection_index.revision != obstacle_revision: inspection_index.rebuild(inspection_solids,obstacle_revision)
+	var cells: Dictionary = {}
+	for rect in changed_rects:
+		var inflated := rect.grow(RADIUS)
+		for y in range(maxi(grid.region.position.y,floori(inflated.position.y/GRID_SIZE)),mini(grid.region.end.y,ceili(inflated.end.y/GRID_SIZE))):
+			for x in range(maxi(grid.region.position.x,floori(inflated.position.x/GRID_SIZE)),mini(grid.region.end.x,ceili(inflated.end.x/GRID_SIZE))): cells[Vector2i(x,y)]=true
+	for cell in cells:
+		var point: Vector2=grid.get_point_position(cell)
+		var blocked := not inside_room(point)
+		for rect in solid_index.nearby(point,RADIUS):
+			if _circle_hits_rect(point,RADIUS,rect): blocked=true;break
+		var inspection_blocked := not inside_room(point)
+		for rect in inspection_index.nearby(point,RADIUS):
+			if _circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break
+		grid.set_point_solid(cell,blocked)
+		guard_grid.set_point_solid(cell,blocked or not guard_zone.grow(-RADIUS).has_point(point))
+		inspection_grid.set_point_solid(cell,inspection_blocked)
 
 func _segment_hits_circle(from: Vector2, to: Vector2, center: Vector2, radius: float) -> bool:
 	return Geometry2D.get_closest_point_to_segment(center,from,to).distance_squared_to(center) < radius*radius-0.001
@@ -345,7 +424,11 @@ func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors:
 		var crossing := from.lerp(to,clampf((bounds.end.x-RADIUS-from.x)/(to.x-from.x),0,1))
 		if crossing.y < exit_area.position.y+RADIUS or crossing.y > exit_area.end.y-RADIUS:
 			return false
-	for rect in solid_rects(not ignore_crate):
+	var index = inspection_index if planning_guard_doors else solid_index
+	if index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)
+	var candidates: Array[Rect2] = index.along_segment(from,to,RADIUS)
+	if not ignore_crate: candidates.append(crate)
+	for rect in candidates:
 		if _segment_hits_rect(from,to,rect):
 			return false
 	if avoid_actors:
@@ -376,7 +459,22 @@ func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool 
 
 func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> PackedVector2Array:
 	planning_guard_doors = ignore_actor != null and ignore_actor.has_method("inspection_allowed") and ignore_actor.inspection_allowed()
+	var officer: bool=ignore_actor!=null and ignore_actor.has_method("_capture_if_touching")
+	if officer:ignore_actor.path_deferred=false
+	# Spend at most one expensive officer search after the frame's allowance.
+	# A clear direct route remains immediate; deferred officers retain their
+	# existing safe path and retry next frame. Detection/capture never defer.
+	if ai_path_budget_active and officer and ai_path_spent_usec>=1000:
+		if can_place_circle(to,RADIUS,ignore_actor,avoid_actors,not ignore_crate) and motion_clear(from,to,ignore_actor,avoid_actors,ignore_crate):
+			planning_guard_doors=false
+			return PackedVector2Array([to])
+		ignore_actor.path_deferred=true
+		ai_paths_deferred+=1
+		planning_guard_doors=false
+		return ignore_actor.path.duplicate()
+	var start:=Time.get_ticks_usec() if ai_path_budget_active and officer else 0
 	var result := _find_path(from,to,ignore_actor,avoid_actors,ignore_crate)
+	if start>0:ai_path_spent_usec+=Time.get_ticks_usec()-start
 	planning_guard_doors = false
 	return result
 
@@ -408,6 +506,16 @@ func _find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: b
 			raw.append(to)
 	for change in changed:
 		navigation.set_point_solid(change,false)
+	# Grid paths repeat every cell in long straight runs. Retain their turns
+	# before exact smoothing, avoiding hundreds of redundant long ray tests.
+	if raw.size()>2:
+		var turns:=PackedVector2Array([raw[0]])
+		for index in range(1,raw.size()-1):
+			var incoming: Vector2=raw[index]-raw[index-1]
+			var outgoing: Vector2=raw[index+1]-raw[index]
+			if absf(incoming.cross(outgoing))>0.001 or incoming.dot(outgoing)<=0:turns.append(raw[index])
+		turns.append(raw[-1])
+		raw=turns
 	# Start at the furthest safely reachable waypoint, rather than walking back
 	# to the nearest cell center each time a path is recalculated.
 	var result := PackedVector2Array()

@@ -7,6 +7,7 @@ var ambient: CanvasModulate
 var sun: DirectionalLight2D
 var lamps: Array[PointLight2D] = []
 var occluders: Array[LightOccluder2D] = []
+var occluder_rects: Array[Rect2] = []
 var lamp_specs: Array = []
 var room_id: String = ""
 var lamp_layout_key := ""
@@ -198,14 +199,18 @@ func _sync_occluders() -> void:
 	var solids: Array = game.world.sight_rects()
 	while occluders.size() > solids.size():
 		occluders.pop_back().free()
+		occluder_rects.pop_back()
 	while occluders.size() < solids.size():
 		var node := LightOccluder2D.new()
 		node.name = "RoomOccluder%d" % occluders.size()
 		node.occluder = OccluderPolygon2D.new()
 		add_child(node)
 		occluders.append(node)
+		occluder_rects.append(Rect2())
 	for index in range(solids.size()):
 		var rect: Rect2 = solids[index]
+		if occluder_rects[index]==rect: continue
+		occluder_rects[index]=rect
 		occluders[index].occluder.polygon = PackedVector2Array([rect.position,Vector2(rect.end.x,rect.position.y),rect.end,Vector2(rect.position.x,rect.end.y)])
 	obstacle_revision = game.world.obstacle_revision
 
@@ -220,7 +225,10 @@ func tick() -> void:
 	if obstacle_revision != game.world.obstacle_revision:
 		_sync_occluders()
 	_tick_guard_light()
-	for index in range(lamps.size()): lamps[index].enabled = period == "night" and not game.world.is_under_roof(lamps[index].position)
+	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
+	for index in range(lamps.size()):
+		var reach: float=float(lamp_specs[index].radius)
+		lamps[index].enabled = period == "night" and not game.world.is_under_roof(lamps[index].position) and Rect2(lamps[index].position-Vector2.ONE*reach,Vector2.ONE*reach*2).intersects(view)
 
 func _draw() -> void:
 	for spec in lamp_specs:

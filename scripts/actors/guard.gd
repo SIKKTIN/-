@@ -26,6 +26,7 @@ var path := PackedVector2Array()
 var path_timer: float = 0.0
 var path_goal := Vector2.ZERO
 var path_revision: int = -1
+var path_deferred := false
 var stalled_time: float = 0
 var path_state: String = ""
 var skipped_waypoints: int = 0
@@ -228,12 +229,16 @@ func tick(delta: float) -> void:
 		goal = route[route_index]
 	path_timer -= delta
 	var invalid: bool = not path.is_empty() and path_revision != world.obstacle_revision and not world.motion_clear(position,path[0])
-	if invalid or path_state != state or path_goal.distance_to(goal) > 10 or ((path.is_empty() or stalled_time >= 0.35) and path_timer <= 0):
+	var state_changed: bool = path_state != state
+	# Reuse a safe route while a target moves. State changes and blocked next
+	# segments react immediately; ordinary goal updates are paced per officer.
+	if invalid or state_changed or (path_timer <= 0 and (path_goal.distance_to(goal) > 25 or path.is_empty() or stalled_time >= 0.35)):
 		path = world.find_path(position,goal,self,state == "patrol")
-		path_goal = goal
-		path_revision = world.obstacle_revision
-		path_state = state
-		path_timer = 0.35
+		if not path_deferred:
+			path_goal = goal
+			path_revision = world.obstacle_revision
+			path_state = state
+			path_timer = 0.25+float(get_instance_id()%7)*0.012
 	while not path.is_empty() and position.distance_to(path[0]) < 4:
 		path.remove_at(0)
 	if not path.is_empty():
@@ -293,7 +298,7 @@ func view_polygon() -> PackedVector2Array:
 	# Distant obstacles cannot intersect these rays. Keep every original angle
 	# and its exact clipping, while testing only the nearby sight blockers.
 	var blockers: Array[Rect2] = []
-	for rect in world.sight_rects():
+	for rect in world.nearby_sight(position,radius):
 		if position.distance_squared_to(position.clamp(rect.position,rect.end)) <= (radius+0.001)*(radius+0.001):
 			blockers.append(rect)
 	var angles: Array[float] = []

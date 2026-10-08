@@ -1,0 +1,368 @@
+{
+  "scripts/actors/guard.gd": [
+    {
+      "op": "insert",
+      "old": "var path_revision: int = -1\n",
+      "new": "var path_revision: int = -1\nvar path_deferred := false\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tif invalid or path_state != state or path_goal.distance_to(goal) > 10 or ((path.is_empty() or stalled_time >= 0.35) and path_timer <= 0):\n",
+      "new": "\tvar state_changed: bool = path_state != state\n\t# Reuse a safe route while a target moves. State changes and blocked next\n\t# segments react immediately; ordinary goal updates are paced per officer.\n\tif invalid or state_changed or (path_timer <= 0 and (path_goal.distance_to(goal) > 25 or path.is_empty() or stalled_time >= 0.35)):\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\tpath_goal = goal\n\t\tpath_revision = world.obstacle_revision\n\t\tpath_state = state\n\t\tpath_timer = 0.35\n",
+      "new": "\t\tif not path_deferred:\n\t\t\tpath_goal = goal\n\t\t\tpath_revision = world.obstacle_revision\n\t\t\tpath_state = state\n\t\t\tpath_timer = 0.25+float(get_instance_id()%7)*0.012\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tfor rect in world.sight_rects():\n",
+      "new": "\tfor rect in world.nearby_sight(position,radius):\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/world/prison_world.gd": [
+    {
+      "op": "insert",
+      "old": "var inspection_index = SolidIndex.new()\n",
+      "new": "var inspection_index = SolidIndex.new()\nvar sight_index = SolidIndex.new()\nvar navigation_solids: Array[Rect2] = []\nvar navigation_inspection_solids: Array[Rect2] = []\nvar navigation_layout: Array = []\nvar ai_path_budget_active := false\nvar ai_path_spent_usec := 0\nvar ai_paths_deferred := 0\n\nfunc begin_ai_paths() -> void:\n\tai_path_budget_active=true\n\tai_path_spent_usec=0\n\nfunc end_ai_paths() -> void:\n\tai_path_budget_active=false\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "func _refresh_box_cache() -> void:\n",
+      "new": "func nearby_sight(point: Vector2, radius: float) -> Array[Rect2]:\n\tif sight_index.revision != obstacle_revision:\n\t\tsight_index.rebuild(sight_rects().slice(0,-1),obstacle_revision)\n\tvar result: Array[Rect2] = sight_index.nearby(point,radius)\n\tresult.append(crate)\n\treturn result\n\nfunc _refresh_box_cache() -> void:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "func line_clear(from: Vector2, to: Vector2, inflate: float = 0.0) -> bool:\n\tfor rect in sight_rects():\n",
+      "new": "func line_clear(from: Vector2, to: Vector2, inflate: float = 0.0) -> bool:\n\tif sight_index.revision != obstacle_revision:\n\t\tsight_index.rebuild(sight_rects().slice(0,-1),obstacle_revision)\n\tvar candidates: Array[Rect2] = sight_index.along_segment(from,to,maxf(0,inflate))\n\tcandidates.append(crate)\n\tfor rect in candidates:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tvar area := bounds.merge(exit_area)\n",
+      "new": "\tvar area := bounds.merge(exit_area)\n\tvar layout := [area,guard_zone]\n\tvar old_solids: Dictionary = {}\n\tvar new_solids: Dictionary = {}\n\tfor rect in navigation_solids: old_solids[rect]=true\n\tfor rect in static_solids: new_solids[rect]=true\n\tvar changed_rects: Array[Rect2] = []\n\tfor rect in old_solids:\n\t\tif not new_solids.has(rect): changed_rects.append(rect)\n\tfor rect in new_solids:\n\t\tif not old_solids.has(rect): changed_rects.append(rect)\n\tvar old_inspection: Dictionary = {}\n\tvar new_inspection: Dictionary = {}\n\tfor rect in navigation_inspection_solids: old_inspection[rect]=true\n\tfor rect in inspection_solids: new_inspection[rect]=true\n\tfor rect in old_inspection:\n\t\tif not new_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)\n\tfor rect in new_inspection:\n\t\tif not old_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)\n\tif layout == navigation_layout and changed_rects.size() < 96:\n\t\t_refresh_navigation_cells(changed_rects)\n\t\t_finish_navigation(layout)\n\t\treturn\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\tnavigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES\n",
+      "new": "\t\tnavigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES\n\t\t# All cells use unit weights. Jump search skips straight intermediate\n\t\t# cells without changing passability or diagonal corner restrictions.\n\t\tnavigation.jumping_enabled = true\n\t\tnavigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\t\tguard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))\n",
+      "new": "\t\t\tguard_grid.set_point_solid(Vector2i(x,y),blocked or not guard_zone.grow(-RADIUS).has_point(point))\n\tvar inspection_members: Dictionary = {}\n\tfor rect in inspection_solids: inspection_members[rect]=true\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\t\t\t\tif inspection_solids.has(rect):\n",
+      "new": "\t\t\t\t\tif inspection_members.has(rect):\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\t\t\t\t\tinspection_grid.set_point_solid(cell,true)\n",
+      "new": "\t\t\t\t\t\tinspection_grid.set_point_solid(cell,true)\n\t_finish_navigation(layout)\n\nfunc _finish_navigation(layout: Array) -> void:\n\tnavigation_layout = layout\n\tnavigation_solids = static_solids.duplicate()\n\tnavigation_inspection_solids = inspection_solids.duplicate()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tstatic_nav_dirty = false\n\tnav_dirty = false\n",
+      "new": "\tstatic_nav_dirty = false\n\tnav_dirty = false\n\nfunc _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:\n\tif solid_index.revision != obstacle_revision: solid_index.rebuild(static_solids,obstacle_revision)\n\tif inspection_index.revision != obstacle_revision: inspection_index.rebuild(inspection_solids,obstacle_revision)\n\tvar cells: Dictionary = {}\n\tfor rect in changed_rects:\n\t\tvar inflated := rect.grow(RADIUS)\n\t\tfor y in range(maxi(grid.region.position.y,floori(inflated.position.y/GRID_SIZE)),mini(grid.region.end.y,ceili(inflated.end.y/GRID_SIZE))):\n\t\t\tfor x in range(maxi(grid.region.position.x,floori(inflated.position.x/GRID_SIZE)),mini(grid.region.end.x,ceili(inflated.end.x/GRID_SIZE))): cells[Vector2i(x,y)]=true\n\tfor cell in cells:\n\t\tvar point: Vector2=grid.get_point_position(cell)\n\t\tvar blocked := not inside_room(point)\n\t\tfor rect in solid_index.nearby(point,RADIUS):\n\t\t\tif _circle_hits_rect(point,RADIUS,rect): blocked=true;break\n\t\tvar inspection_blocked := not inside_room(point)\n\t\tfor rect in inspection_index.nearby(point,RADIUS):\n\t\t\tif _circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break\n\t\tgrid.set_point_solid(cell,blocked)\n\t\tguard_grid.set_point_solid(cell,blocked or not guard_zone.grow(-RADIUS).has_point(point))\n\t\tinspection_grid.set_point_solid(cell,inspection_blocked)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tfor rect in solid_rects(not ignore_crate):\n",
+      "new": "\tvar index = inspection_index if planning_guard_doors else solid_index\n\tif index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)\n\tvar candidates: Array[Rect2] = index.along_segment(from,to,RADIUS)\n\tif not ignore_crate: candidates.append(crate)\n\tfor rect in candidates:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tplanning_guard_doors = ignore_actor != null and ignore_actor.has_method(\"inspection_allowed\") and ignore_actor.inspection_allowed()\n",
+      "new": "\tplanning_guard_doors = ignore_actor != null and ignore_actor.has_method(\"inspection_allowed\") and ignore_actor.inspection_allowed()\n\tvar officer: bool=ignore_actor!=null and ignore_actor.has_method(\"_capture_if_touching\")\n\tif officer:ignore_actor.path_deferred=false\n\t# Spend at most one expensive officer search after the frame's allowance.\n\t# A clear direct route remains immediate; deferred officers retain their\n\t# existing safe path and retry next frame. Detection/capture never defer.\n\tif ai_path_budget_active and officer and ai_path_spent_usec>=1000:\n\t\tif can_place_circle(to,RADIUS,ignore_actor,avoid_actors,not ignore_crate) and motion_clear(from,to,ignore_actor,avoid_actors,ignore_crate):\n\t\t\tplanning_guard_doors=false\n\t\t\treturn PackedVector2Array([to])\n\t\tignore_actor.path_deferred=true\n\t\tai_paths_deferred+=1\n\t\tplanning_guard_doors=false\n\t\treturn ignore_actor.path.duplicate()\n\tvar start:=Time.get_ticks_usec() if ai_path_budget_active and officer else 0\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tvar result := _find_path(from,to,ignore_actor,avoid_actors,ignore_crate)\n",
+      "new": "\tvar result := _find_path(from,to,ignore_actor,avoid_actors,ignore_crate)\n\tif start>0:ai_path_spent_usec+=Time.get_ticks_usec()-start\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\tnavigation.set_point_solid(change,false)\n",
+      "new": "\t\tnavigation.set_point_solid(change,false)\n\t# Grid paths repeat every cell in long straight runs. Retain their turns\n\t# before exact smoothing, avoiding hundreds of redundant long ray tests.\n\tif raw.size()>2:\n\t\tvar turns:=PackedVector2Array([raw[0]])\n\t\tfor index in range(1,raw.size()-1):\n\t\t\tvar incoming: Vector2=raw[index]-raw[index-1]\n\t\t\tvar outgoing: Vector2=raw[index+1]-raw[index]\n\t\t\tif absf(incoming.cross(outgoing))>0.001 or incoming.dot(outgoing)<=0:turns.append(raw[index])\n\t\tturns.append(raw[-1])\n\t\traw=turns\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/core/solid_spatial_index.gd": [
+    {
+      "op": "replace",
+      "old": "\tvar low := Vector2i(floori((point.x-radius)/CELL),floori((point.y-radius)/CELL))\n\tvar high := Vector2i(floori((point.x+radius)/CELL),floori((point.y+radius)/CELL))\n",
+      "new": "\treturn intersecting(Rect2(point-Vector2.ONE*radius,Vector2.ONE*radius*2))\n\nfunc intersecting(area: Rect2) -> Array[Rect2]:\n\tvar low := Vector2i(floori(area.position.x/CELL),floori(area.position.y/CELL))\n\tvar high := Vector2i(floori(area.end.x/CELL),floori(area.end.y/CELL))\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\t\t\tresult.append(rects[id])\n\treturn result\n",
+      "new": "\t\t\t\tresult.append(rects[id])\n\treturn result\n\nfunc along_segment(from: Vector2, to: Vector2, radius: float) -> Array[Rect2]:\n\tvar area := Rect2(from,Vector2.ZERO).expand(to).grow(radius)\n\tif maxf(area.size.x,area.size.y) <= CELL*4: return intersecting(area)\n\t# Samples at most one cell apart; a one-cell margin covers the whole\n\t# swept segment. This only selects candidates, exact tests remain unchanged.\n\tvar steps := maxi(1,ceili(maxf(absf(to.x-from.x),absf(to.y-from.y))/CELL))\n\tvar seen: Dictionary = {}\n\tvar result: Array[Rect2] = []\n\tfor step in range(steps+1):\n\t\tfor rect in nearby(from.lerp(to,float(step)/steps),radius+CELL):\n\t\t\tif not seen.has(rect):\n\t\t\t\tseen[rect] = true\n\t\t\t\tresult.append(rect)\n\treturn result\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/ui/fullscreen_hud.gd": [
+    {
+      "op": "insert",
+      "old": "var fps_sample_time := -1000\n",
+      "new": "var fps_sample_time := -1000\nvar frame_mode: OptionButton\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tmenu = game.schedule._paper_panel(\"PauseMenu\",Vector2.ZERO,Vector2(360,460),231)\n",
+      "new": "\tmenu = game.schedule._paper_panel(\"PauseMenu\",Vector2.ZERO,Vector2(360,500),231)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tgame.schedule._label(menu,Vector2(24,416),\"无辜被困 · 合作逃出黑工厂\",14)\n",
+      "new": "\tframe_mode=OptionButton.new()\n\tframe_mode.name=\"FrameRatePreset\"\n\tframe_mode.theme=theme\n\tframe_mode.position=Vector2(24,410)\n\tframe_mode.size=Vector2(312,42)\n\tframe_mode.add_item(\"帧率：60帧 · 稳定模式\",60)\n\tframe_mode.add_item(\"帧率：90帧 · 流畅模式\",90)\n\tframe_mode.add_item(\"帧率：不限 · 性能测试\",0)\n\tframe_mode.select(game.frame_settings.MODES.find(game.frame_settings.target_fps))\n\tframe_mode.tooltip_text=\"自动保存。90帧需要足够的设备性能；显示器刷新率会影响实际观感。\"\n\tframe_mode.item_selected.connect(func(index):\n\t\tif not game.frame_settings.apply(frame_mode.get_item_id(index)):\n\t\t\tgame.show_status(\"帧率模式已应用，本地保存失败。\"))\n\tmenu.add_child(frame_mode)\n\tgame.schedule._label(menu,Vector2(24,466),\"无辜被困 · 合作逃出黑工厂\",14)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\t\tfps_label.text = \"FPS %d\" % fps if fps > 0 else \"FPS —\"\n",
+      "new": "\t\t\tfps_label.text = \"FPS %d\" % fps if fps > 0 else \"FPS —\"\n\t\t\tfps_badge.tooltip_text=\"目标：%s；物理与日程速度保持一致。\" % (\"不限帧\" if game.frame_settings.target_fps==0 else \"%d帧\" % game.frame_settings.target_fps)\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/core/escape_game.gd": [
+    {
+      "op": "insert",
+      "old": "var editor_preview_mode := false\n",
+      "new": "var editor_preview_mode := false\nvar frame_settings\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "func _ready() -> void:\n",
+      "new": "func _make_world():\n\treturn World.new()\n\nfunc _ready() -> void:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "func _ready() -> void:\n",
+      "new": "func _ready() -> void:\n\tframe_settings=preload(\"res://scripts/core/frame_settings.gd\").new()\n\tframe_settings.configure()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tworld = World.new()\n",
+      "new": "\tworld = _make_world()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tfullscreen_ui.layout()\n",
+      "new": "\tfullscreen_ui.layout()\n\tvar retained_floor=preload(\"res://scripts/presentation/floor_canvas.gd\").new()\n\tadd_child(retained_floor)\n\tretained_floor.configure(self)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\t\t_update_ui()\n\t\t\treturn\n",
+      "new": "\t\t\t_update_ui()\n\t\t\treturn\n\tworld.begin_ai_paths()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\tprison_alert.tick(delta)\n",
+      "new": "\t\tprison_alert.tick(delta)\n\tworld.end_ai_paths()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "func _draw() -> void:\n",
+      "new": "func paint_floor(canvas: CanvasItem, clip: Rect2) -> void:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tvar clip: Rect2 = floor_area\n\tif map_camera:\n\t\tclip = map_camera.world_view_rect()\n\tdraw_rect(clip,Color(\"a6b2a3\"))\n",
+      "new": "\tcanvas.draw_rect(clip,Color(\"a6b2a3\"))\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\tTextureTiles.paint(self,floor_texture,painted,tile,clip)\n",
+      "new": "\t\tTextureTiles.paint(canvas,floor_texture,painted,tile,clip)\n\nfunc _draw() -> void:\n\tvar floor_area: Rect2 = world.bounds if world else ROOM\n",
+      "excluded_terrain_hook": true
+    }
+  ],
+  "scripts/presentation/guard_warning.gd": [
+    {
+      "op": "replace",
+      "old": "\t\tfor rect in officer.world.sight_rects():\n",
+      "new": "\t\tvar sight: Array[Rect2] = officer.world.nearby_sight(officer.position,reach+1.5) if officer.world.has_method(\"nearby_sight\") else officer.world.sight_rects()\n\t\tfor rect in sight:\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/presentation/scene_layers.gd": [
+    {
+      "op": "replace",
+      "old": "\t\tfor r in world.walls+[world.crate,world.door]:\n\t\t\tif r == world.door and world.door_open:\n\t\t\t\tcontinue\n",
+      "new": "\t\tfor r in world.walls:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tif kind == \"ground\":\n",
+      "new": "\tif kind == \"ground\":\n\t\t# Doors and the movable crate have their own tiny dynamic shadow pass.\n\t\t# A gate crossing must not reissue every wall/terrain shadow on the map.\n\t\tfor volume in presentation.volumes.slice(-2):\n\t\t\tif volume.kind==\"door\" and world.door_open: continue\n\t\t\tvar r: Rect2=world.crate if volume.kind==\"crate\" else world.door\n\t\t\tif presentation.profile.get(\"soft_shadows\",false):\n\t\t\t\tif not presentation.asset_definitions.get(volume.prop_id(),{}).get(\"shadow_baked\",false): SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)\n\t\t\telse: draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/presentation/game_presentation.gd": [
+    {
+      "op": "insert",
+      "old": "var visual_world_revision := -1\n",
+      "new": "var visual_world_revision := -1\nvar volume_visibility_revision := -1\nvar volume_obstacle_revision := -1\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "func _refresh_volumes() -> void:\n",
+      "new": "func _refresh_volumes() -> void:\n\tvolume_visibility_revision=-1\n\tvolume_obstacle_revision=-1\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tfor volume in volumes:\n\t\tvolume.tick_visual()\n",
+      "new": "\tvar room_revision: int=game.room_visibility.revision if game.room_visibility else 0\n\tif volume_visibility_revision!=room_revision or volume_obstacle_revision!=game.world.obstacle_revision:\n\t\tvolume_visibility_revision=room_revision\n\t\tvolume_obstacle_revision=game.world.obstacle_revision\n\t\t# Walls are synchronized at map load; only fixtures react to room/gate\n\t\t# changes. Camera motion doesn't alter any of this geometry.\n\t\tfor volume in volumes:\n\t\t\tif volume.kind==\"fixture\": volume.tick_visual()\n\tfor volume in volumes.slice(-2): volume.tick_visual()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\t\tvar key := [game.world.obstacle_revision,game.world.fixtures_revision,game.world.crate,game.world.door_open]\n",
+      "new": "\t\t\tvar key := [game.world.fixtures_revision]\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/presentation/lighting_system.gd": [
+    {
+      "op": "insert",
+      "old": "var occluders: Array[LightOccluder2D] = []\n",
+      "new": "var occluders: Array[LightOccluder2D] = []\nvar occluder_rects: Array[Rect2] = []\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\toccluders.pop_back().free()\n",
+      "new": "\t\toccluders.pop_back().free()\n\t\toccluder_rects.pop_back()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\toccluders.append(node)\n",
+      "new": "\t\toccluders.append(node)\n\t\toccluder_rects.append(Rect2())\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\t\tvar rect: Rect2 = solids[index]\n",
+      "new": "\t\tvar rect: Rect2 = solids[index]\n\t\tif occluder_rects[index]==rect: continue\n\t\toccluder_rects[index]=rect\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tfor index in range(lamps.size()): lamps[index].enabled = period == \"night\" and not game.world.is_under_roof(lamps[index].position)\n",
+      "new": "\tvar view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds\n\tfor index in range(lamps.size()):\n\t\tvar reach: float=float(lamp_specs[index].radius)\n\t\tlamps[index].enabled = period == \"night\" and not game.world.is_under_roof(lamps[index].position) and Rect2(lamps[index].position-Vector2.ONE*reach,Vector2.ONE*reach*2).intersects(view)\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/ui/mini_map.gd": [
+    {
+      "op": "insert",
+      "old": "extends Control\n",
+      "new": "extends Control\n\nclass MapBackground extends Node2D:\n\tvar map\n\tfunc _draw() -> void: map.paint_background(self)\n\nvar background: MapBackground\nvar background_key: Array=[]\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tgame = owner_game\n",
+      "new": "\tgame = owner_game\n\tbackground=MapBackground.new()\n\tbackground.map=self\n\tbackground.show_behind_parent=true\n\tadd_child(background)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "insert",
+      "old": "\tqueue_redraw()\n",
+      "new": "\tvar next_background: Array=[game.world.fixtures_revision,size]\n\tif next_background!=background_key:\n\t\tbackground_key=next_background\n\t\tbackground.queue_redraw()\n\tqueue_redraw()\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "func draw_world_rect(rect: Rect2, color: Color) -> void:\n\tdraw_rect(Rect2(to_map(rect.position),to_map(rect.end)-to_map(rect.position)),color)\n",
+      "new": "func draw_world_rect(rect: Rect2, color: Color, canvas: CanvasItem = null) -> void:\n\tvar painter: CanvasItem = self if canvas==null else canvas\n\tpainter.draw_rect(Rect2(to_map(rect.position),to_map(rect.end)-to_map(rect.position)),color)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "func _draw() -> void:\n",
+      "new": "func paint_background(canvas: CanvasItem) -> void:\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tdraw_style_box(game.presentation.mute_button.theme.get_stylebox(\"normal\",\"Button\"),Rect2(Vector2.ZERO,size))\n",
+      "new": "\tcanvas.draw_style_box(game.presentation.mute_button.theme.get_stylebox(\"normal\",\"Button\"),Rect2(Vector2.ZERO,size))\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\tdraw_string(game.presentation.font,Vector2(10,22),\"小地图 · 点击 / 拖动\",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(\"303b46\"))\n\tdraw_rect(map_area(),Color(\"465557\"))\n",
+      "new": "\t\tcanvas.draw_string(game.presentation.font,Vector2(10,22),\"小地图 · 点击 / 拖动\",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(\"303b46\"))\n\tcanvas.draw_rect(map_area(),Color(\"465557\"))\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\tdraw_rect(rect,Color(\"91a190\"))\n\tdraw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color(\"adab89\"))\n",
+      "new": "\tcanvas.draw_rect(rect,Color(\"91a190\"))\n\tdraw_world_rect(game.world.guard_zone.intersection(game.world.bounds),Color(\"adab89\"),canvas)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\tdraw_world_rect(Rect2(values[0],values[1],values[2],values[3]),Color(zone.color))\n",
+      "new": "\t\tdraw_world_rect(Rect2(values[0],values[1],values[2],values[3]),Color(zone.color),canvas)\n",
+      "excluded_terrain_hook": false
+    },
+    {
+      "op": "replace",
+      "old": "\t\tdraw_world_rect(wall,Color(\"465557\"))\n",
+      "new": "\t\tdraw_world_rect(wall,Color(\"465557\"),canvas)\n\t_painting=false\n\nfunc _draw() -> void:\n\tif not game: return\n\tvar rect := map_rect()\n\tvar scale_factor: Vector2=rect.size/game.world.bounds.size\n\t_paint_transform=Transform2D(Vector2(scale_factor.x,0),Vector2(0,scale_factor.y),rect.position-game.world.bounds.position*scale_factor)\n\t_painting=true\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/core/staff_traffic.gd": [
+    {
+      "op": "replace",
+      "old": "\t\t\tactor.path_revision = game.world.obstacle_revision\n\t\t\trecord.retry = 0.35\n",
+      "new": "\t\t\tif not actor.path_deferred:\n\t\t\t\tactor.path_revision = game.world.obstacle_revision\n\t\t\t\trecord.retry = 0.35\n",
+      "excluded_terrain_hook": false
+    }
+  ],
+  "scripts/actors/workshop_overseer.gd": [
+    {
+      "op": "replace",
+      "old": "\t\tpath_goal = goal\n\t\tpath_revision = world.obstacle_revision\n\t\tpath_timer = 0.3\n",
+      "new": "\t\tif not path_deferred:\n\t\t\tpath_goal = goal\n\t\t\tpath_revision = world.obstacle_revision\n\t\t\tpath_timer = 0.3\n",
+      "excluded_terrain_hook": false
+    }
+  ]
+}

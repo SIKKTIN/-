@@ -41,7 +41,8 @@ func refresh(view: Rect2, enabled: bool, daylight: bool) -> void:
 		blocker_key = key
 		geometry_updates += 1
 		blockers.clear()
-		for rect in officer.world.sight_rects():
+		var sight: Array[Rect2] = officer.world.nearby_sight(officer.position,reach+1.5) if officer.world.has_method("nearby_sight") else officer.world.sight_rects()
+		for rect in sight:
 			if officer.position.distance_squared_to(officer.position.clamp(rect.position,rect.end)) <= (reach+1.5)*(reach+1.5):
 				blockers.append(Vector4(rect.position.x,rect.position.y,rect.size.x,rect.size.y))
 		var fallback: bool = blockers.size() > MAX_BLOCKERS

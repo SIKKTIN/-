@@ -1,0 +1,116 @@
+{
+  "thresholds": {
+    "changed_pixel_fraction": 0.002,
+    "mean_channel_delta": 0.003,
+    "maximum_channel_delta": 12
+  },
+  "checks": {
+    "p79-parity-day0-actual": true,
+    "p79-parity-day1-actual": true,
+    "p79-parity-day2-actual": true,
+    "p79-parity-day3-actual": true,
+    "p79-parity-night0-actual": true,
+    "p79-parity-night1-actual": true,
+    "p79-parity-night2-actual": true,
+    "p79-parity-night3-actual": true
+  },
+  "failed": [],
+  "metrics": {
+    "p79-parity-day0-actual": {
+      "pixels_changed": 888,
+      "fraction": 0.0010277777777777778,
+      "max_delta": 8,
+      "mean_delta": 0.0006319444444444444,
+      "bbox": [
+        0,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-day1-actual": {
+      "pixels_changed": 932,
+      "fraction": 0.0010787037037037037,
+      "max_delta": 8,
+      "mean_delta": 0.001128858024691358,
+      "bbox": [
+        219,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-day2-actual": {
+      "pixels_changed": 212,
+      "fraction": 0.00024537037037037035,
+      "max_delta": 3,
+      "mean_delta": 0.00014699074074074075,
+      "bbox": [
+        551,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-day3-actual": {
+      "pixels_changed": 1096,
+      "fraction": 0.0012685185185185184,
+      "max_delta": 11,
+      "mean_delta": 0.0011585648148148147,
+      "bbox": [
+        0,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-night0-actual": {
+      "pixels_changed": 464,
+      "fraction": 0.000537037037037037,
+      "max_delta": 5,
+      "mean_delta": 0.0002503858024691358,
+      "bbox": [
+        0,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-night1-actual": {
+      "pixels_changed": 537,
+      "fraction": 0.0006215277777777778,
+      "max_delta": 5,
+      "mean_delta": 0.00048765432098765433,
+      "bbox": [
+        219,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-night2-actual": {
+      "pixels_changed": 106,
+      "fraction": 0.00012268518518518517,
+      "max_delta": 1,
+      "mean_delta": 5.015432098765432e-05,
+      "bbox": [
+        553,
+        0,
+        1199,
+        719
+      ]
+    },
+    "p79-parity-night3-actual": {
+      "pixels_changed": 761,
+      "fraction": 0.000880787037037037,
+      "max_delta": 3,
+      "mean_delta": 0.00045987654320987656,
+      "bbox": [
+        0,
+        0,
+        1199,
+        719
+      ]
+    }
+  }
+}

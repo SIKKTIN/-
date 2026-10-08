@@ -143,8 +143,9 @@ func tick_guard(actor, delta: float) -> bool:
 		var goal: Vector2 = record.legs[0]
 		if record.retry <= 0 and (actor.path.is_empty() or actor.path_revision != game.world.obstacle_revision):
 			actor.path = game.world.find_path(actor.position,goal,actor,true)
-			actor.path_revision = game.world.obstacle_revision
-			record.retry = 0.35
+			if not actor.path_deferred:
+				actor.path_revision = game.world.obstacle_revision
+				record.retry = 0.35
 		var budget := 215.0*maxf(delta,0)
 		# Ignore subpixel budget residue. Treating float rounding as a stall
 		# would throw away a valid path and wait for the retry on every frame.

@@ -1,0 +1,303 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"label": "before",
+	"map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+	"samples": [
+		{
+			"captures": 0,
+			"chasing_frames": 0,
+			"fps_cap": 0,
+			"frame_intervals": {
+				"max_ms": 42.604,
+				"mean_ms": 12.9865456674473,
+				"median_ms": 11.723,
+				"p95_ms": 31.387,
+				"p99_ms": 40.195
+			},
+			"frames": 427,
+			"name": "day_patrol",
+			"navigation_builds": 1,
+			"path_calls": 75,
+			"paths": {
+				"max_ms": 28.931,
+				"mean_ms": 7.61101333333333,
+				"median_ms": 0.415,
+				"p95_ms": 27.37,
+				"p99_ms": 28.931
+			},
+			"sections": {
+				"before_guard": {
+					"max_ms": 0.991,
+					"mean_ms": 0.257126463700234,
+					"median_ms": 0.192,
+					"p95_ms": 0.577,
+					"p99_ms": 0.611
+				},
+				"guards": {
+					"max_ms": 29.123,
+					"mean_ms": 1.31275878220141,
+					"median_ms": 0.11,
+					"p95_ms": 0.577,
+					"p99_ms": 27.154
+				},
+				"presentation": {
+					"max_ms": 2.362,
+					"mean_ms": 1.71419203747073,
+					"median_ms": 1.711,
+					"p95_ms": 2.011,
+					"p99_ms": 2.143
+				},
+				"routine": {
+					"max_ms": 23.053,
+					"mean_ms": 1.25229274004684,
+					"median_ms": 1.028,
+					"p95_ms": 1.903,
+					"p99_ms": 2.747
+				},
+				"total": {
+					"max_ms": 32.759,
+					"mean_ms": 4.61374004683841,
+					"median_ms": 3.226,
+					"p95_ms": 23.499,
+					"p99_ms": 30.659
+				},
+				"ui": {
+					"max_ms": 0.244,
+					"mean_ms": 0.074360655737705,
+					"median_ms": 0.072,
+					"p95_ms": 0.099,
+					"p99_ms": 0.125
+				}
+			},
+			"work_frame": {
+				"max_ms": 42.309,
+				"mean_ms": 12.9097611241218,
+				"median_ms": 11.589,
+				"p95_ms": 31.277,
+				"p99_ms": 40.074
+			}
+		},
+		{
+			"captures": 1,
+			"chasing_frames": 11,
+			"fps_cap": 0,
+			"frame_intervals": {
+				"max_ms": 38.615,
+				"mean_ms": 11.9827635574837,
+				"median_ms": 11.849,
+				"p95_ms": 14.022,
+				"p99_ms": 16.27
+			},
+			"frames": 461,
+			"name": "day_dorm_chase",
+			"navigation_builds": 1,
+			"path_calls": 54,
+			"paths": {
+				"max_ms": 14.05,
+				"mean_ms": 1.24662962962963,
+				"median_ms": 0.435,
+				"p95_ms": 10.996,
+				"p99_ms": 14.05
+			},
+			"sections": {
+				"before_guard": {
+					"max_ms": 1.063,
+					"mean_ms": 0.253553145336225,
+					"median_ms": 0.206,
+					"p95_ms": 0.595,
+					"p99_ms": 0.719
+				},
+				"guards": {
+					"max_ms": 0.623,
+					"mean_ms": 0.156277657266812,
+					"median_ms": 0.152,
+					"p95_ms": 0.196,
+					"p99_ms": 0.25
+				},
+				"presentation": {
+					"max_ms": 2.577,
+					"mean_ms": 1.94868980477224,
+					"median_ms": 1.917,
+					"p95_ms": 2.325,
+					"p99_ms": 2.499
+				},
+				"routine": {
+					"max_ms": 27.381,
+					"mean_ms": 1.28573318872017,
+					"median_ms": 1.073,
+					"p95_ms": 1.956,
+					"p99_ms": 2.66
+				},
+				"total": {
+					"max_ms": 30.029,
+					"mean_ms": 3.72445553145336,
+					"median_ms": 3.561,
+					"p95_ms": 4.749,
+					"p99_ms": 5.174
+				},
+				"ui": {
+					"max_ms": 0.213,
+					"mean_ms": 0.0764620390455533,
+					"median_ms": 0.074,
+					"p95_ms": 0.095,
+					"p99_ms": 0.119
+				}
+			},
+			"work_frame": {
+				"max_ms": 38.456,
+				"mean_ms": 11.8274642082429,
+				"median_ms": 11.684,
+				"p95_ms": 13.865,
+				"p99_ms": 15.093
+			}
+		},
+		{
+			"captures": 0,
+			"chasing_frames": 0,
+			"fps_cap": 0,
+			"frame_intervals": {
+				"max_ms": 39.885,
+				"mean_ms": 12.6350183486239,
+				"median_ms": 12.175,
+				"p95_ms": 18.473,
+				"p99_ms": 23.474
+			},
+			"frames": 436,
+			"name": "day_corridor_chase",
+			"navigation_builds": 1,
+			"path_calls": 76,
+			"paths": {
+				"max_ms": 13.833,
+				"mean_ms": 3.04113157894737,
+				"median_ms": 0.463,
+				"p95_ms": 11.596,
+				"p99_ms": 13.833
+			},
+			"sections": {
+				"before_guard": {
+					"max_ms": 1.1,
+					"mean_ms": 0.281928899082568,
+					"median_ms": 0.237,
+					"p95_ms": 0.618,
+					"p99_ms": 0.693
+				},
+				"guards": {
+					"max_ms": 11.877,
+					"mean_ms": 0.549889908256881,
+					"median_ms": 0.168,
+					"p95_ms": 0.406,
+					"p99_ms": 9.477
+				},
+				"presentation": {
+					"max_ms": 4.161,
+					"mean_ms": 2.16206422018349,
+					"median_ms": 2.141,
+					"p95_ms": 2.701,
+					"p99_ms": 2.921
+				},
+				"routine": {
+					"max_ms": 26.933,
+					"mean_ms": 1.34783256880734,
+					"median_ms": 1.128,
+					"p95_ms": 2.071,
+					"p99_ms": 2.787
+				},
+				"total": {
+					"max_ms": 30.619,
+					"mean_ms": 4.48924770642201,
+					"median_ms": 3.931,
+					"p95_ms": 8.888,
+					"p99_ms": 14.219
+				},
+				"ui": {
+					"max_ms": 0.332,
+					"mean_ms": 0.144080275229358,
+					"median_ms": 0.141,
+					"p95_ms": 0.186,
+					"p99_ms": 0.251
+				}
+			},
+			"work_frame": {
+				"max_ms": 39.751,
+				"mean_ms": 12.4832752293578,
+				"median_ms": 12.032,
+				"p95_ms": 18.197,
+				"p99_ms": 23.356
+			}
+		},
+		{
+			"captures": 0,
+			"chasing_frames": 0,
+			"fps_cap": 0,
+			"frame_intervals": {
+				"max_ms": 111.2,
+				"mean_ms": 21.2723667953668,
+				"median_ms": 20.144,
+				"p95_ms": 23.162,
+				"p99_ms": 96.554
+			},
+			"frames": 259,
+			"name": "night_global_alert",
+			"navigation_builds": 3,
+			"path_calls": 5,
+			"paths": {
+				"max_ms": 81.139,
+				"mean_ms": 31.5382,
+				"median_ms": 27.084,
+				"p95_ms": 81.139,
+				"p99_ms": 81.139
+			},
+			"sections": {
+				"before_guard": {
+					"max_ms": 83.432,
+					"mean_ms": 2.6756833976834,
+					"median_ms": 2.344,
+					"p95_ms": 2.888,
+					"p99_ms": 3.076
+				},
+				"guards": {
+					"max_ms": 76.895,
+					"mean_ms": 2.14712355212355,
+					"median_ms": 2.021,
+					"p95_ms": 2.521,
+					"p99_ms": 2.814
+				},
+				"presentation": {
+					"max_ms": 4.946,
+					"mean_ms": 2.4140888030888,
+					"median_ms": 2.351,
+					"p95_ms": 3.099,
+					"p99_ms": 3.368
+				},
+				"routine": {
+					"max_ms": 7.384,
+					"mean_ms": 4.83258301158301,
+					"median_ms": 4.815,
+					"p95_ms": 5.642,
+					"p99_ms": 6.01
+				},
+				"total": {
+					"max_ms": 93.677,
+					"mean_ms": 12.2250077220077,
+					"median_ms": 11.439,
+					"p95_ms": 13.528,
+					"p99_ms": 17.868
+				},
+				"ui": {
+					"max_ms": 0.232,
+					"mean_ms": 0.151293436293436,
+					"median_ms": 0.15,
+					"p95_ms": 0.178,
+					"p99_ms": 0.211
+				}
+			},
+			"work_frame": {
+				"max_ms": 111.07,
+				"mean_ms": 21.1433088803089,
+				"median_ms": 20.111,
+				"p95_ms": 23.027,
+				"p99_ms": 96.348
+			}
+		}
+	]
+}

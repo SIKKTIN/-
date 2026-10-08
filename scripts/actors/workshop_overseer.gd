@@ -53,9 +53,10 @@ func tick(delta: float) -> void:
 	var invalid: bool = path_revision != world.obstacle_revision
 	if path_timer <= 0 and (path.is_empty() or invalid or path_goal.distance_to(goal) > 35 or stalled_time > 0.4):
 		path = world.find_path(position,goal,self,target_id < 0)
-		path_goal = goal
-		path_revision = world.obstacle_revision
-		path_timer = 0.3
+		if not path_deferred:
+			path_goal = goal
+			path_revision = world.obstacle_revision
+			path_timer = 0.3
 	while not path.is_empty() and position.distance_to(path[0]) < 4: path.remove_at(0)
 	if not path.is_empty():
 		var offset: Vector2 = path[0]-position

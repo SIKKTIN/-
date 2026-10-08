@@ -61,6 +61,7 @@ var dialogue
 var confinement_counts: Array[int] = [0,0,0]
 var failure_reason := ""
 var editor_preview_mode := false
+var frame_settings
 
 var actors: Array = []
 var selected_actor_id: int = 0
@@ -87,7 +88,12 @@ var floor_tile_size: int = 40
 var perspective_floor: bool = false
 @export var room_id: String = "r01"
 
+func _make_world():
+	return World.new()
+
 func _ready() -> void:
+	frame_settings=preload("res://scripts/core/frame_settings.gd").new()
+	frame_settings.configure()
 	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % room_id))
 	var args := OS.get_cmdline_user_args()
 	var preview_index := args.find("--editor-room")
@@ -122,7 +128,7 @@ func _ready() -> void:
 		actor.skill_id = ["chat", "lockpick", "strong"][index]
 		add_child(actor)
 		actors.append(actor)
-	world = World.new()
+	world = _make_world()
 	world.name = "World"
 	add_child(world)
 	room_config = config
@@ -202,6 +208,9 @@ func _ready() -> void:
 	room_visibility = preload("res://scripts/core/room_visibility.gd").new(self)
 	room_visibility.reset()
 	fullscreen_ui.layout()
+	var retained_floor=preload("res://scripts/presentation/floor_canvas.gd").new()
+	add_child(retained_floor)
+	retained_floor.configure(self)
 	routines.offer_morning()
 	if editor_preview_mode:
 		room_selector.disabled = true
@@ -304,6 +313,7 @@ func _process(delta: float) -> void:
 		if get_tree().paused:
 			_update_ui()
 			return
+	world.begin_ai_paths()
 	if staff_traffic:
 		staff_traffic.update_gate()
 	if gate_watch:
@@ -321,6 +331,7 @@ func _process(delta: float) -> void:
 		workshop.tick(delta)
 	if prison_alert:
 		prison_alert.tick(delta)
+	world.end_ai_paths()
 	if room_visibility: room_visibility.tick(delta)
 	if dialogue: dialogue.tick()
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
@@ -546,17 +557,17 @@ func _update_ui(refresh_hud := true) -> void:
 	if items_view:
 		items_view.queue_redraw()
 
-func _draw() -> void:
+func paint_floor(canvas: CanvasItem, clip: Rect2) -> void:
 	var floor_area: Rect2 = world.bounds if world else ROOM
-	var clip: Rect2 = floor_area
-	if map_camera:
-		clip = map_camera.world_view_rect()
-	draw_rect(clip,Color("a6b2a3"))
+	canvas.draw_rect(clip,Color("a6b2a3"))
 	if floor_texture:
 		var tile := Vector2(floor_tile_size,floor_tile_size)
 		var origin := floor_area.position+((clip.position-floor_area.position)/tile).floor()*tile
 		var painted := Rect2(origin,((clip.end-origin)/tile).ceil()*tile)
-		TextureTiles.paint(self,floor_texture,painted,tile,clip)
+		TextureTiles.paint(canvas,floor_texture,painted,tile,clip)
+
+func _draw() -> void:
+	var floor_area: Rect2 = world.bounds if world else ROOM
 	if not perspective_floor:
 		for x in range(int(floor_area.position.x+20), int(floor_area.end.x), 40):
 			draw_line(Vector2(x, floor_area.position.y+1), Vector2(x, floor_area.end.y-1), Color(0.2, 0.3, 0.25, 0.04))

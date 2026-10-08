@@ -1,102 +1,4 @@
-extends Node2D
-
-const SoftShadow = preload("res://scripts/presentation/soft_shadow.gd")
-
-var game
-var presentation
-var kind: String
-var fixtures_revision: int = -1
-var ground_key: Array = []
-var fixture_shadow_key: Array = []
-var fixture_shadow_commands: Array = []
-var fixture_shadow_builds := 0
-var shadow_batches: Dictionary = {}
-var shadow_batch_regions: Dictionary = {}
-
-func configure(owner_game, owner_presentation, type: String) -> void:
-	game = owner_game
-	presentation = owner_presentation
-	kind = type
-	z_index = 10 if kind in ["ground_static","ground"] else 11 if kind == "fixture_shadows" else 2000
-	if kind == "information":
-		var unshaded := CanvasItemMaterial.new()
-		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
-		material = unshaded
-	if kind == "fixture_shadows": prepare_fixture_shadows()
-
-func prepare_fixture_shadows() -> void:
-	var world = game.world
-	var key := [world.fixtures_revision,world.bounds]
-	if fixture_shadow_key == key: return
-	fixture_shadow_key = key
-	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
-	shadow_batches.clear()
-	shadow_batch_regions.clear()
-	fixture_shadow_commands.clear()
-	fixture_shadow_builds += 1
-	for fixture in world.fixtures:
-		var commands: Array = []
-		var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
-		var separate_shadow: bool = not fixture.get("hidden",false) and not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall")
-		if definition.has("assembly_patches"):
-			var filled := 0.0
-			for patch in definition.assembly_patches: filled += float(patch.destination[2])*float(patch.destination[3])
-			var dims: Array = definition.render_size
-			separate_shadow = separate_shadow and filled >= float(dims[0])*float(dims[1])*0.99
-		if separate_shadow:
-			# Same polygons/fringes as SoftShadow.contact_rect, prepared once for
-			# all rooms on map load. First entry never runs polygon clipping.
-			var rect: Rect2 = fixture.rect
-			var direction: Array = presentation.profile.get("projection_offset",[11,7.2])
-			var offset := Vector2(direction[0],direction[1])*float(definition.get("elevation_world",20))/20.0
-			var top_right := rect.position+Vector2(rect.size.x,0)
-			var bottom_left := rect.position+Vector2(0,rect.size.y)
-			var points := Geometry2D.convex_hull(PackedVector2Array([rect.position,top_right,rect.end,bottom_left,rect.position+offset,top_right+offset,rect.end+offset,bottom_left+offset]))
-			points.remove_at(points.size()-1)
-			var clip: Rect2 = world.bounds
-			var clip_polygon := PackedVector2Array([clip.position,clip.position+Vector2(clip.size.x,0),clip.end,clip.position+Vector2(0,clip.size.y)])
-			for fringe in range(3,-1,-1):
-				for polygon in Geometry2D.offset_polygon(points,float(fringe)*1.4,Geometry2D.JOIN_ROUND):
-					for clipped in Geometry2D.intersect_polygons(polygon,clip_polygon):
-						commands.append([clipped,Color(0.14,0.16,0.14,float(presentation.profile.get("projection_alpha",0.104))/4)])
-			for spread in range(3,0,-1):
-				var strip := Rect2(rect.position+Vector2(-spread,rect.size.y-1),Vector2(rect.size.x+spread*2,spread+1)).intersection(clip)
-				if strip.has_area(): commands.append([strip,Color(0.12,0.14,0.12,float(presentation.profile.get("contact_alpha",0.16))/5)])
-		fixture_shadow_commands.append(commands)
-	# Populate retained rendering commands at load time, including rooms that
-	# start hidden. No first-entry triangulation or command replay is needed.
-	var regions: Array = preload("res://scripts/core/room_visibility.gd").rooms_for(game.room_config)
-	for index in range(world.fixtures.size()):
-		var commands: Array = fixture_shadow_commands[index]
-		if commands.is_empty(): continue
-		var memberships: Array = []
-		for room in regions:
-			var rect: Array = room.rect
-			if Rect2(rect[0],rect[1],rect[2],rect[3]).has_point(world.fixtures[index].rect.get_center()):
-				memberships.append(str(room.id))
-		var batch := JSON.stringify(memberships)
-		if not shadow_batches.has(batch):
-			var rid := RenderingServer.canvas_item_create()
-			RenderingServer.canvas_item_set_parent(rid,get_canvas_item())
-			RenderingServer.canvas_item_set_use_parent_material(rid,true)
-			shadow_batches[batch] = rid
-			shadow_batch_regions[batch] = memberships
-		var rid: RID = shadow_batches[batch]
-		for command in commands:
-			if command[0] is Rect2: RenderingServer.canvas_item_add_rect(rid,command[0],command[1])
-			else: RenderingServer.canvas_item_add_polygon(rid,command[0],PackedColorArray([command[1]]))
-	sync_shadow_visibility()
-
-func sync_shadow_visibility() -> void:
-	if kind != "fixture_shadows": return
-	var rules = game.room_visibility
-	for id in shadow_batches:
-		var memberships: Array = shadow_batch_regions[id]
-		RenderingServer.canvas_item_set_visible(shadow_batches[id],rules==null or memberships.is_empty() or rules.active_id in memberships)
-
-func _exit_tree() -> void:
-	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
-	shadow_batches.clear()
+extends "res://scripts/presentation/scene_layers.gd"
 
 func _draw() -> void:
 	if not game:
@@ -115,13 +17,16 @@ func _draw() -> void:
 		if presentation.profile.get("soft_shadows",false):
 			for volume in presentation.volumes:
 				if not shadow_sources.has(volume.footprint): shadow_sources[volume.footprint] = volume
+		if ResourceLoader.exists("res://scripts/presentation/site_details.gd"): load("res://scripts/presentation/site_details.gd").paint(self,game.room_config.get("ground_details",[]))
 		for zone in game.room_config.get("zones",[]):
 			var values: Array = zone.rect
 			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
 			var tint := Color(zone.color)
 			tint.a = 0.13
 			draw_rect(area,tint)
-		for r in world.walls:
+		for r in world.walls+[world.crate,world.door]:
+			if r == world.door and world.door_open:
+				continue
 			if presentation.profile.get("soft_shadows",false):
 				var volume = shadow_sources.get(r)
 				if volume == null: continue
@@ -132,14 +37,6 @@ func _draw() -> void:
 				draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
 		return
 	if kind == "ground":
-		# Doors and the movable crate have their own tiny dynamic shadow pass.
-		# A gate crossing must not reissue every wall/terrain shadow on the map.
-		for volume in presentation.volumes.slice(-2):
-			if volume.kind=="door" and world.door_open: continue
-			var r: Rect2=world.crate if volume.kind=="crate" else world.door
-			if presentation.profile.get("soft_shadows",false):
-				if not presentation.asset_definitions.get(volume.prop_id(),{}).get("shadow_baked",false): SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)
-			else: draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
 		for gate in world.dorm_doors:
 			var r: Rect2 = gate.rect
 			if gate.closed:
@@ -160,6 +57,12 @@ func _draw() -> void:
 		if game.dog and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
+		for route in world.get("escape_routes") if world.get("escape_routes")!=null else []:
+			if route.id == "main": continue
+			var marker := Rect2(route.rect.get_center()-Vector2(27,35),Vector2(54,54))
+			var tint := Color("328b82") if world.escape_route_open(route) else Color("b8835d")
+			draw_rect(route.rect,Color(tint,0.12))
+			draw_texture_rect(world.art_textures.exit_v01,marker,false,tint)
 	else:
 		if presentation.dog_visual and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			draw_set_transform(game.dog.position)
@@ -191,6 +94,10 @@ func _draw() -> void:
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
 			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
 			if str(gate.get("kind","")) == "workshop": text = "车间锁门 · 请在工位劳动" if gate.closed else "车间入场" if game.workshop and game.workshop.on_duty() else "车间开放"
+			if str(gate.get("kind","")) == "timed" and str(gate.id) != "cafeteria-entry":
+				var hours: Array = gate.get("hours",[720,840])
+				text = str(gate.get("name","管制门"))+(" · %02d:%02d–%02d:%02d开放" % [int(hours[0])/60,int(hours[0])%60,int(hours[1])/60,int(hours[1])%60] if gate.closed else " · 开放")
+			if str(gate.get("kind","")) in ["locked","latch"]: text = str(gate.get("name","检修门"))+(" · 已锁" if gate.closed else " · 已开")
 			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
 				draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:

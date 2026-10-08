@@ -1,0 +1,33 @@
+{
+  "task": "p79-stable-gameplay-frame-presets-20261008",
+  "passed_checks": 87,
+  "failed": [],
+  "source_sha256": {
+    "scripts/actors/guard.gd": "65edd2d043365eeac5f798a41d2391bff6edc544e8dfb8da3c02dcc4eedbc685",
+    "scripts/actors/workshop_overseer.gd": "a395407007f6c2ac72c2a625b963b977a4fc3cb33988ee253e054393df33cd6d",
+    "scripts/world/prison_world.gd": "8b660bdfc1654312102384d6e0be074ef29e7ca51c66bc9fe638ed2729582c1f",
+    "scripts/core/solid_spatial_index.gd": "e65c44ff0868b05ef890db82f66394ee7b46ea1aa148f0549585266545627071",
+    "scripts/ui/fullscreen_hud.gd": "b8a3792441a5e83a425ada80a15dddd376870b93b97205f727e844190fb80b68",
+    "scripts/core/escape_game.gd": "b3b03efdb051444a9b50bcc9f6ea08867d009403ae744ae36cc8acd1fd78aae5",
+    "scripts/presentation/guard_warning.gd": "ae5d6ecef319ceb03b983a6a3efd59dd5b504f91e0162e17955980dc9cddf7cd",
+    "scripts/presentation/scene_layers.gd": "b4ef2446e3516ae5932b321357be361e2798a3b1b4782da62cec6eea8451fc6e",
+    "scripts/presentation/game_presentation.gd": "99834d0dac897bb8f81201b9c1441674ddd82e253d3575c8e0807643e139fac6",
+    "scripts/presentation/lighting_system.gd": "ab838a28ae8921d0b14d0c60c9b23c54ada5d5368a35157020141e30882fd885",
+    "scripts/ui/mini_map.gd": "d8ab873c416cf28d294337f196436983af75f45965da60498ccb0da732899475",
+    "scripts/core/staff_traffic.gd": "84591ff171fa3a4857fe9d3fd240076dccbac603bd6382d24023e736139b2a55",
+    "scripts/core/frame_settings.gd": "68b7c494ee5648823d7f909c8b3666da618fa3bd850b120b9ff533b615bb2ef0",
+    "scripts/presentation/floor_canvas.gd": "d95e11d3c6f93413ede42acd808311f2ae2be00192dd393108ae47d407761e08"
+  },
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "default_fps_cap": 60,
+  "mode_caps": [
+    60,
+    90,
+    0
+  ],
+  "limitations": [
+    "90 FPS is a target; native heavy scenes measured 82.68–90 FPS. No claim of universally locked 90 FPS.",
+    "Old P75 tests contain obsolete pre-roof visibility registry and wake assumptions; excluded from current-map acceptance."
+  ],
+  "workflow_service": "unavailable (two CLI connection attempts); no remote review or acceptance claimed"
+}

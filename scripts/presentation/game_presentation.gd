@@ -33,6 +33,8 @@ var volumes: Array = []
 var scene_layers: Array = []
 var roof_buildings: Array = []
 var visual_world_revision := -1
+var volume_visibility_revision := -1
+var volume_obstacle_revision := -1
 var asset_definitions: Dictionary = {}
 var lighting
 var interaction
@@ -233,6 +235,8 @@ func reset() -> void:
 		interaction.refresh()
 
 func _refresh_volumes() -> void:
+	volume_visibility_revision=-1
+	volume_obstacle_revision=-1
 	visual_world_revision = game.world.fixtures_revision
 	for volume in volumes:
 		volume.free()
@@ -298,13 +302,20 @@ func _tick_scene() -> void:
 		_refresh_volumes()
 	for visual in visuals:
 		visual.actor.z_index = int(visual.actor.position.y)
-	for volume in volumes:
-		volume.tick_visual()
+	var room_revision: int=game.room_visibility.revision if game.room_visibility else 0
+	if volume_visibility_revision!=room_revision or volume_obstacle_revision!=game.world.obstacle_revision:
+		volume_visibility_revision=room_revision
+		volume_obstacle_revision=game.world.obstacle_revision
+		# Walls are synchronized at map load; only fixtures react to room/gate
+		# changes. Camera motion doesn't alter any of this geometry.
+		for volume in volumes:
+			if volume.kind=="fixture": volume.tick_visual()
+	for volume in volumes.slice(-2): volume.tick_visual()
 	for building in roof_buildings:
 		building.tick_information()
 	for layer in scene_layers:
 		if layer.kind == "ground_static":
-			var key := [game.world.obstacle_revision,game.world.fixtures_revision,game.world.crate,game.world.door_open]
+			var key := [game.world.fixtures_revision]
 			if layer.ground_key != key:
 				layer.ground_key = key
 				layer.queue_redraw()
