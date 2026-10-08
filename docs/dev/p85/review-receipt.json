@@ -1,0 +1,62 @@
+{
+  "id": "p85-accept-20261008",
+  "digest": "0add01c5876ddd878800c848afbe59128ab6cf38da1bde8fa590c9b6166185c6",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T10:30:52.583Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p85-delivery-20261008",
+    "taskId": "p85-flush-door-art-integration-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "自由通行/铁门两套透明v49资源完成，寝室1入口接入平齐自由通行门框；90项原生门、编辑器和两日日程检查通过。",
+    "evidence": [
+      "docs/dev/p85/report.md",
+      "docs/dev/p85/delivery.json",
+      "docs/dev/p85/asset-checks.json",
+      "docs/tests/p85-boundaries-native.json",
+      "docs/tests/p85-editor-editor-native.json",
+      "docs/tests/p85-two-day-cycle.json",
+      "docs/tests/p85-free-door-outside.png",
+      "docs/tests/p85-free-door-inside.png",
+      "docs/tests/p85-iron-door-closed.png",
+      "docs/tests/p85-iron-door-open.png"
+    ],
+    "at": "2026-10-08T10:28:57.991Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T10:30:52.724Z",
+      "note": "两套PNG为原始生成RGBA透明资源；原生门61项、原生编辑器16项、两日日程13项全部通过。寝室1自由入口保持20x40直线墙位，端框未越界、夜间可通行、进入后不重绘，其他门状态有效。原生截图人工检查通过；地图仅kind字段变化，未新增FPS保证。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p85-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "d8cf4ee6d5bbc2e525bcf646cc6887d7194ed69d2e036c6fa491be4e5e31f360"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "d8cf4ee6d5bbc2e525bcf646cc6887d7194ed69d2e036c6fa491be4e5e31f360",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

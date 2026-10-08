@@ -1,0 +1,147 @@
+{
+	"afternoon_arrival": [
+		[
+			934.780029296875,
+			507.919952392578
+		],
+		[
+			1346.24035644531,
+			507.920043945313
+		],
+		[
+			934.779602050781,
+			779.619689941406
+		]
+	],
+	"alarm": {
+		"active": false,
+		"checked_rooms": {},
+		"cleared_minute": -1.0,
+		"missing_ids": [],
+		"officer_count": 5,
+		"reinforcements": [],
+		"triggered_minute": -1.0
+	},
+	"arrival": [
+		[
+			1017.29058837891,
+			550.935424804688
+		],
+		[
+			1346.24047851563,
+			507.920227050781
+		],
+		[
+			934.779968261719,
+			779.619934082031
+		]
+	],
+	"capture_events": [],
+	"captured": 0,
+	"checks": {
+		"afternoon_arrival": true,
+		"meal_exactly_20": true,
+		"natural_npc_lunch": true,
+		"natural_npc_sleep": true,
+		"natural_npc_work": true,
+		"night_beds": true,
+		"no_missing_alarm": true,
+		"no_timed_teleport": true,
+		"no_workshop_false_arrests": true,
+		"npc_depart_1330": true,
+		"npc_lunch_then_free": true,
+		"npc_wages": true,
+		"wallet_is_lead_income_only": true
+	},
+	"clock": 75.1999999999143,
+	"departures": {
+		"1": 810.560000000003,
+		"2": 810.560000000003
+	},
+	"failed": [],
+	"held": {},
+	"max_move": 52.0012969970703,
+	"morning2": [
+		[
+			1045.86962890625,
+			593.802734375
+		],
+		[
+			1346.2392578125,
+			507.919799804688
+		],
+		[
+			934.779968261719,
+			779.619934082031
+		]
+	],
+	"positions": [
+		[
+			427.999908447266,
+			413.970001220703
+		],
+		[
+			427.999969482422,
+			753.969787597656
+		],
+		[
+			428.0,
+			1093.96997070313
+		]
+	],
+	"routines": {
+		"day": 2,
+		"manual": [],
+		"meal_minutes": [
+			20.0,
+			20.0,
+			20.0
+		],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"preparing_afternoon": false,
+		"slot": -1,
+		"states": [
+			"",
+			"",
+			""
+		],
+		"work_earned": [
+			48,
+			52,
+			52
+		],
+		"work_minutes": [
+			58.2164000000193,
+			5.11440000000309,
+			6.00480000000485
+		],
+		"work_rounds": [
+			12,
+			13,
+			13
+		],
+		"working": []
+	}
+}

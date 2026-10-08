@@ -1,0 +1,37 @@
+{
+  "scheduleRevision": "6af66f0fbc8ce61dc7aab3108ad9fab040929fdd7ae1119b209243df9e1706ad",
+  "creates": [
+    {
+      "task": {
+        "id": "p85-flush-door-art-integration-20261008",
+        "title": "P85 平齐自由通行门与铁门素材接入",
+        "kind": "程序",
+        "priority": "高",
+        "selfReviewRole": "producer",
+        "dependencyIds": [
+          "p84-small-foot-collision-20261008"
+        ],
+        "description": "按用户批准的平齐概念图制作两种门资源并接入截图寝室侧门。用户直接授权本助手制作素材与集成。",
+        "acceptance": "自由通行和铁门两套透明素材；寝室1侧门使用自由通行款且始终可通行；端框完全在门洞范围内、不内凹；铁门显示开关状态；过门、夜间状态、遮挡前后和缓存检查通过。",
+        "workScope": {
+          "allowedPaths": [
+            "scripts/presentation/doorway_view.gd",
+            "scripts/presentation/doorway_geometry.gd",
+            "scripts/world/prison_world.gd",
+            "data/rooms/r04.json",
+            "art/architecture/doorways_v49/**",
+            "qa/p85*",
+            "docs/dev/p85/**",
+            "docs/tests/p85*"
+          ],
+          "entry": "res://scenes/main.tscn",
+          "interfaceContract": "只将寝室1侧门kind设为open；其余开关/锁门逻辑、脚底半径8、地图几何不变。新门框保持现有门洞投影及墙线，渲染切片缓存，开关时局部重绘。"
+        }
+      },
+      "assigneeId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    }
+  ],
+  "reason": "用户批准平齐概念图并要求制作两种门素材和自由通行入口接入。",
+  "requestId": "p85-plan-20261008"
+}

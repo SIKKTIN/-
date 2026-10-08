@@ -1,0 +1,66 @@
+{
+  "id": "p85-delivery-20261008",
+  "digest": "2efe4cbb56c1854c9dca54ba917a00b4026da60ca7499d13f8a493567a2d9802",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T10:28:57.831Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p85-delivery-20261008",
+    "taskId": "p85-flush-door-art-integration-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "自由通行/铁门两套透明v49资源完成，寝室1入口接入平齐自由通行门框；90项原生门、编辑器和两日日程检查通过。",
+    "evidence": [
+      "docs/dev/p85/report.md",
+      "docs/dev/p85/delivery.json",
+      "docs/dev/p85/asset-checks.json",
+      "docs/tests/p85-boundaries-native.json",
+      "docs/tests/p85-editor-editor-native.json",
+      "docs/tests/p85-two-day-cycle.json",
+      "docs/tests/p85-free-door-outside.png",
+      "docs/tests/p85-free-door-inside.png",
+      "docs/tests/p85-iron-door-closed.png",
+      "docs/tests/p85-iron-door-open.png"
+    ],
+    "at": "2026-10-08T10:28:57.991Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p85-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p85-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p85-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}

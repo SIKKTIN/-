@@ -1,0 +1,87 @@
+{
+  "version": "p85-doorways-v49",
+  "unique_checks": 90,
+  "report_counts": [
+    61,
+    16,
+    13
+  ],
+  "reports": [
+    "docs/tests/p85-boundaries-native.json",
+    "docs/tests/p85-editor-editor-native.json",
+    "docs/tests/p85-two-day-cycle.json"
+  ],
+  "assets": [
+    {
+      "file": "art\\architecture\\doorways_v49\\free.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_byte_identical": true,
+      "sha256": "9bafa20da6da079baecfce6a0566ac7deb25d5435871a0a3623c37742c4ff28d"
+    },
+    {
+      "file": "art\\architecture\\doorways_v49\\grille.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_byte_identical": true,
+      "sha256": "61e6c869a708c0624e655cf335d79e9f0eda5a9c0cacce3f0a7b26dafd5300d7"
+    }
+  ],
+  "map_semantic_delta": "dorm_doors[0].kind=open only",
+  "files": [
+    {
+      "file": "art/architecture/doorways_v49/README.md",
+      "working_sha256": "55d4d84610818f462a427e13331361bd566b352be62a66c275d6d12f68706c57",
+      "index_sha256": "55d4d84610818f462a427e13331361bd566b352be62a66c275d6d12f68706c57"
+    },
+    {
+      "file": "art/architecture/doorways_v49/free.png",
+      "working_sha256": "9bafa20da6da079baecfce6a0566ac7deb25d5435871a0a3623c37742c4ff28d",
+      "index_sha256": "9bafa20da6da079baecfce6a0566ac7deb25d5435871a0a3623c37742c4ff28d"
+    },
+    {
+      "file": "art/architecture/doorways_v49/generation.json",
+      "working_sha256": "16fd849a2a2023edc1b0dad83cf00b434c29fe7fd105df11c88ab6adb516e851",
+      "index_sha256": "16fd849a2a2023edc1b0dad83cf00b434c29fe7fd105df11c88ab6adb516e851"
+    },
+    {
+      "file": "art/architecture/doorways_v49/grille.png",
+      "working_sha256": "61e6c869a708c0624e655cf335d79e9f0eda5a9c0cacce3f0a7b26dafd5300d7",
+      "index_sha256": "61e6c869a708c0624e655cf335d79e9f0eda5a9c0cacce3f0a7b26dafd5300d7"
+    },
+    {
+      "file": "art/architecture/doorways_v49/manifest.json",
+      "working_sha256": "127171f1d233fb30d962ea197ec8a34d1cb7df56b2c3d981bb7eaa19d3120027",
+      "index_sha256": "5921b9fca66fede10591290f725ce0868e287881f141087db76b03d706d35026"
+    },
+    {
+      "file": "data/rooms/r04.json",
+      "working_sha256": "6a5b7e11494dee1be982c3d5df204d0e2e808bcb1ee846bbdfd9e680803f4c78",
+      "index_sha256": "9a5857c851fd35f3855d7571e3728336e5ea93c5f58b26c1232ffc0d2629c912"
+    },
+    {
+      "file": "scripts/presentation/doorway_view.gd",
+      "working_sha256": "202453b27194e6b4b903a57e4229101409fc5ab6b62285330a86dec72163b2a4",
+      "index_sha256": "202453b27194e6b4b903a57e4229101409fc5ab6b62285330a86dec72163b2a4"
+    },
+    {
+      "file": "scripts/world/prison_world.gd",
+      "working_sha256": "80cbabbeb071786ee808e57350c8ef20679245b29d7be9f27f18ed55e933e0ec",
+      "index_sha256": "b0e1591c63dc01b7a9e07e99338138d6216fe78c62ed78b61e6f737378208f8c"
+    }
+  ]
+}

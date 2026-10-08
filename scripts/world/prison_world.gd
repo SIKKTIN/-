@@ -84,7 +84,11 @@ func configure(config: Dictionary, friendlies: Array) -> void:
 		gate.progress = 0.0
 		access_doors.append(gate)
 	for entry in config.get("dorm_doors",[]):
-		dorm_doors.append({"actor_id":int(entry.actor_id),"rect":_rect(entry.rect),"closed":false})
+		var gate: Dictionary = entry.duplicate(true)
+		gate.actor_id = int(entry.actor_id)
+		gate.rect = _rect(entry.rect)
+		gate.closed = false
+		dorm_doors.append(gate)
 	bounds = _rect(config.get("bounds", [74,114,922,560]))
 	boundary_solids.clear()
 	boundary_doors.clear()
@@ -159,7 +163,7 @@ func update_dorm_doors(locked: bool, keyholders: Variant) -> void:
 	var changed := false
 	for gate in dorm_doors:
 		# The guard uses a key and opens the gate before crossing its collider.
-		var closed: bool = locked and not points.any(func(point): return gate.rect.get_center().distance_to(point) <= 85)
+		var closed: bool = str(gate.get("kind","dorm")) != "open" and locked and not points.any(func(point): return gate.rect.get_center().distance_to(point) <= 85)
 		if bool(gate.closed) != closed:
 			gate.closed = closed
 			changed = true

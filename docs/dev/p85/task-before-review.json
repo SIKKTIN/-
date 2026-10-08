@@ -1,0 +1,211 @@
+{
+  "task": {
+    "id": "p85-flush-door-art-integration-20261008",
+    "title": "P85 平齐自由通行门与铁门素材接入",
+    "description": "按用户批准的平齐概念图制作两种门资源并接入截图寝室侧门。用户直接授权本助手制作素材与集成。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "自由通行和铁门两套透明素材；寝室1侧门使用自由通行款且始终可通行；端框完全在门洞范围内、不内凹；铁门显示开关状态；过门、夜间状态、遮挡前后和缓存检查通过。",
+    "result": "自由通行/铁门两套透明v49资源完成，寝室1入口接入平齐自由通行门框；90项原生门、编辑器和两日日程检查通过。",
+    "dependencyIds": [
+      "p84-small-foot-collision-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/doorway_view.gd",
+        "scripts/presentation/doorway_geometry.gd",
+        "scripts/world/prison_world.gd",
+        "data/rooms/r04.json",
+        "art/architecture/doorways_v49/**",
+        "qa/p85*",
+        "docs/dev/p85/**",
+        "docs/tests/p85*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只将寝室1侧门kind设为open；其余开关/锁门逻辑、脚底半径8、地图几何不变。新门框保持现有门洞投影及墙线，渲染切片缓存，开关时局部重绘。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p85-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T10:16:05.054Z"
+      }
+    ]
+  },
+  "revision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13",
+  "scheduleRevision": "145f0d93345f7739deeb1100842c29251c6fa10f0164e444c6407bc2c4b38d96",
+  "planChanges": [
+    {
+      "id": "p85-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T10:16:05.054Z",
+      "reason": "用户批准平齐概念图并要求制作两种门素材和自由通行入口接入。",
+      "createdTaskIds": [
+        "p85-flush-door-art-integration-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p84-small-foot-collision-20261008",
+      "title": "P84 角色脚底小范围碰撞",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p85-delivery-20261008",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p85-delivery-20261008",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p85-delivery-20261008",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13"
+  },
+  "feedback": [
+    {
+      "id": "p85-start-20261008",
+      "taskId": "p85-flush-door-art-integration-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "两套透明PNG已通过imagegen生成，按已批准概念图接入平齐门框和寝室1自由通行入口；准备原生截图与通行检查。",
+      "evidence": [
+        "docs/dev/p85/baseline.json",
+        "art/architecture/doorways_v49/manifest.json"
+      ],
+      "at": "2026-10-08T10:18:01.710Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p85-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p85-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p85-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p85-delivery-20261008",
+      "taskId": "p85-flush-door-art-integration-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "自由通行/铁门两套透明v49资源完成，寝室1入口接入平齐自由通行门框；90项原生门、编辑器和两日日程检查通过。",
+      "evidence": [
+        "docs/dev/p85/report.md",
+        "docs/dev/p85/delivery.json",
+        "docs/dev/p85/asset-checks.json",
+        "docs/tests/p85-boundaries-native.json",
+        "docs/tests/p85-editor-editor-native.json",
+        "docs/tests/p85-two-day-cycle.json",
+        "docs/tests/p85-free-door-outside.png",
+        "docs/tests/p85-free-door-inside.png",
+        "docs/tests/p85-iron-door-closed.png",
+        "docs/tests/p85-iron-door-open.png"
+      ],
+      "at": "2026-10-08T10:28:57.991Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p85-delivery-20261008",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p85-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p85-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "fdfa484a90d5180011c0975772088763ce6249ba2a25c72b0c47f4d9835e2f13",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

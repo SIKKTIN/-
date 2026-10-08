@@ -2,7 +2,8 @@ extends Node2D
 
 const Geometry = preload("res://scripts/presentation/doorway_geometry.gd")
 const TextureLoader = preload("res://scripts/presentation/world_texture.gd")
-const MANIFEST := "res://art/architecture/doorways_v48/manifest.json"
+const MANIFEST := "res://art/architecture/doorways_v49/manifest.json"
+const LOCKED_MANIFEST := "res://art/architecture/doorways_v48/manifest.json"
 static var textures: Dictionary = {}
 static var floor_definitions: Dictionary = {}
 var world
@@ -79,6 +80,9 @@ class Door extends Node2D:
 	func _draw() -> void:
 		draw_builds += 1
 		_paint_threshold()
+		if style != "locked":
+			_paint_flush_door()
+			return
 		var size := texture.get_size()
 		var cap := size.x*0.057
 		# Keep the leading cap in the stone; a side-door trailing cap stays
@@ -91,19 +95,34 @@ class Door extends Node2D:
 		elif style == "locked":
 			# The exposed latch remains at the jamb after the leaf retracts.
 			draw_texture_rect_region(texture,Rect2(trailing,depth*0.23,minf(6,end_cap),depth*0.54),Rect2(size.x*0.87,size.y*0.2,size.x*0.047,size.y*0.6))
-		if style == "grille":
-			var box := Rect2(-13,2,11,depth-4)
-			draw_rect(box,Color("25383c"))
-			draw_rect(box.grow(-1.5),Color("596666"))
-			draw_rect(Rect2(box.position+Vector2(3,4),Vector2(4,5)),Color("aa5b49") if closed else Color("72a981"))
-		elif style == "free":
-			draw_line(Vector2(0,depth-2),Vector2(length,depth-2),Color(0.43,0.47,0.42,0.35),1,true)
+	func hardware_rects() -> Array[Rect2]:
+		# End hardware stays in the original aperture, never the neighbour's wall.
+		var cap := minf(3.0,length*0.075) if vertical else minf(7.0,length*0.08)
+		return [Rect2(0,0,cap,depth),Rect2(length-cap,0,cap,depth)]
+
+	func _paint_flush_door() -> void:
+		var size := texture.get_size()
+		var source_cap := size.x*0.105
+		var caps := hardware_rects()
+		draw_texture_rect_region(texture,caps[0],Rect2(0,0,source_cap,size.y))
+		draw_texture_rect_region(texture,caps[1],Rect2(size.x-source_cap,0,source_cap,size.y))
+		var middle := Rect2(caps[0].end.x,0,length-caps[0].size.x*2,depth)
+		var source := Rect2(source_cap,0,size.x-source_cap*2,size.y)
+		if style == "free" or closed:
+			draw_texture_rect_region(texture,middle,source)
+		else:
+			# Keep a visible compact leaf at one end, with a clear crossing path.
+			middle.size.x = minf(5.0,middle.size.x*0.15)
+			draw_texture_rect_region(texture,middle,source)
 
 static func load_textures() -> Dictionary:
 	if textures.is_empty():
+		var legacy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(LOCKED_MANIFEST))
+		for asset in legacy.assets:
+			if str(asset.id)=="door_locked_v48": textures.locked = TextureLoader.load_asset(asset)
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
 		for asset in manifest.assets:
-			textures["locked" if str(asset.id)=="door_locked_v48" else "grille"] = TextureLoader.load_asset(asset)
+			textures[str(asset.style)] = TextureLoader.load_asset(asset)
 	return textures
 
 func configure(source_world, rooms: Array, config: Dictionary = {}) -> void:
@@ -129,7 +148,7 @@ func configure(source_world, rooms: Array, config: Dictionary = {}) -> void:
 		var gate: Dictionary = world.dorm_doors[index]
 		# Own dictionary reference for state, stable for the current map lifetime.
 		gate.id = "dorm-%d" % index
-		gate.kind = "dorm"
+		gate.kind = str(gate.get("kind","dorm"))
 		_add(gate,projected.get(str(gate.id),Geometry.projected_rect(world,gate)),art)
 	_add({"id":"primary","kind":"primary","rect":world.door},Geometry.projected_rect(world,{"rect":world.door}),art)
 	# Earlier maps painted ungated entrances with a permanently open gate
