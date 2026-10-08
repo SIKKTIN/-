@@ -2,6 +2,8 @@ extends Node2D
 
 const Tiles = preload("res://scripts/presentation/texture_tiles.gd")
 const Components = preload("res://scripts/presentation/wall_components.gd")
+const DoorGeometry = preload("res://scripts/presentation/doorway_geometry.gd")
+const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
 var world
 var kind: String
 var wall_index: int = 0
@@ -88,6 +90,9 @@ func _sync_visibility() -> void:
 		var inner: bool = not world.is_under_roof(fixture.rect.get_center())
 		var shell_part: bool = world.roofed_cells.any(func(cell): return cell.rect.grow(20).has_point(fixture.rect.get_center()))
 		visible = (not fixture.get("hidden",false) or inner and shell_part) and (inner or fixture.has("access_id"))
+	# The retained door layer owns both orientations and all physical states.
+	if world.room_visibility != null and is_instance_valid(world.room_visibility.doorways):
+		if kind=="door" or kind=="fixture" and DoorGeometry.managed_fixture(world.fixtures[wall_index]): visible = false
 func tick_visual() -> void:
 	var rules = world.get("room_visibility")
 	var revision: int = rules.revision if rules != null else 0
@@ -232,6 +237,12 @@ func _draw() -> void:
 		return
 	var r := footprint
 	if kind == "wall":
+		if profile.has("grid_tile_asset"):
+			var id := str(profile.grid_tile_asset)
+			var cuts: Array = world.room_visibility.portal_cuts if world.room_visibility != null else world.get("portal_cuts") if world.get("portal_cuts") != null else []
+			for clip in RoofGeometry.subtract_all(display_rect,cuts):
+				Components.paint(self,world.art_textures[id],definitions[id],display_rect,false,clip,Vector2.ZERO)
+			return
 		var height := elevation
 		if profile.has("painted_facade"):
 			var area := Rect2(r.position-Vector2(0,height),r.size+Vector2(0,height))

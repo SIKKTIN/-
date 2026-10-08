@@ -1,0 +1,31 @@
+{
+  "taskId": "p81-door-family-and-cafeteria-notch-20261008",
+  "entry": "res://scenes/main.tscn",
+  "checks": 105,
+  "screenshots": [
+    "res://docs/tests/p81-cafeteria-closed.png",
+    "res://docs/tests/p81-cafeteria-open.png",
+    "res://docs/tests/p81-cafeteria-inside.png",
+    "res://docs/tests/p81-workshop-closed.png",
+    "res://docs/tests/p81-confinement-locked.png",
+    "res://docs/tests/p81-confinement-open.png",
+    "res://docs/tests/p81-maintenance-unlocked.png",
+    "res://docs/tests/p81-free-passage.png",
+    "res://docs/tests/p81-cafeteria-night.png"
+  ],
+  "sources": {
+    "scripts/presentation/doorway_geometry.gd": "cc3b0ef84c48e328ca47cd6a65aed790838d653411cb6297d6990e5209439f4f",
+    "scripts/presentation/doorway_view.gd": "e2ddb56f09b170f87923bcfd86de2881f406381fb7c01c39a113ba5e4ea4f059",
+    "scripts/core/room_visibility.gd": "56fe49389c4f9956439f118215e3d609ed9acbab6c34284a3e43da3035bc4e21",
+    "scripts/presentation/roof_geometry.gd": "cb1c0d03276436f5781d3fa4046d71d6549d6d5da9681c344ff801c8698b2f26",
+    "scripts/presentation/roof_wall_edges.gd": "50669531c177bf3a64ccabdd8d12488e1ea458f0e960f3d3e3bff77197f2be6a",
+    "scripts/presentation/world_volume.gd": "eb1928797118a836a249c9a7449da88bde556ce94dc65177cc9af19141707d4a",
+    "scripts/presentation/scene_layers.gd": "f5276425c96038952dd897d110016d5c77e76efb7392c1e74671800b7514ae0e",
+    "scripts/editor/architecture_preview.gd": "00d82fa1785f430ef4819f75aee28889368e8299c8150657d8cb9e77fa4e4304",
+    "scripts/editor/preview_geometry.gd": "cc055c71f354a956f75f497a1af9e9237ca0e12557d563ae8647deeee6d4d6eb",
+    "art/architecture/doorways_v48/door_family.png": "c42e2165c990fb6e9dfc8485486a0664c64c8c3a97222526bfb0ccca091c6a0c",
+    "art/architecture/doorways_v48/manifest.json": "92e917bc50475524ff80eb43d03026a8483f8f448f4f3bd1f34414a3b58e2f68"
+  },
+  "map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+  "working_tree_note": "R04 expanded map and modular wall art are pre-existing external WIP; tests ran the current actual working project. Only this task code delta, new door atlas and evidence are staged. Other map/art/gameplay WIP preserved."
+}

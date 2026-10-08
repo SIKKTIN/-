@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "reference": "docs/dev/p81/approved-concept.png",
+  "output": "art/architecture/doorways_v48/door_family.png",
+  "source_size": [
+    2172,
+    724
+  ],
+  "regions": {
+    "grille": [
+      108,
+      139,
+      1957,
+      184
+    ],
+    "locked": [
+      108,
+      405,
+      1957,
+      186
+    ]
+  },
+  "prompt": "ONE production transparent sprite atlas based on approved thin top-down door family; two separated horizontal equal-width rows: dark blue-gray riveted grille strip with transparent slots and tiny latch; matching solid reinforced steel strip with small brass keyhole lock.8:1 thin overhead silhouette, shared terminal jambs, subdued hand-painted materials, no floor/walls/text/shadows. Open states retract central leaves and reuse the terminal caps.",
+  "edit_note": "Original generated PNG is copied unchanged. Alpha bounding regions were inspected, not edited. Cropping and hardware assembly occur in Godot retained canvas commands."
+}

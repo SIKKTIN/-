@@ -1,0 +1,142 @@
+{
+  "task": {
+    "id": "p81-door-family-and-cafeteria-notch-20261008",
+    "title": "P81 三类俯视门型与食堂浅入口实装",
+    "description": "用户认可自由通行口、开关铁栅门、上锁铁门概念并授权全部实装，包括食堂入口浅缺口与薄门体。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "三类入口统一俯视比例、横纵方向一致；食堂屋顶浅缺口、门与墙边自然衔接；开关及上锁状态由原逻辑驱动，原日程/解锁/碰撞规则不变；运行与编辑预览一致；真实原生截图、门禁回归和60模式性能检查通过。",
+    "result": "将已认可三类入口接入保留渲染，食堂改浅缺口、门随原逻辑状态切换；运行与编辑器使用同一门型绘制。",
+    "dependencyIds": [
+      "p80-consistent-connected-roof-edges-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/**",
+        "scripts/core/room_visibility.gd",
+        "scripts/editor/architecture_preview.gd",
+        "art/architecture/doorways_v48/**",
+        "qa/p81*",
+        "docs/dev/p81/**",
+        "docs/tests/p81*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "保留真实门碰撞与日程/钥匙/撬锁规则，表现消费逻辑状态；仅改变入口遮挡缺口与门型渲染，复用已有地图连接尺寸。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p81-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T06:38:15.775Z"
+      }
+    ]
+  },
+  "revision": "1c82b30d50a9ebc69d4ebd7f66cfad54538371685bb602feb98619e4d5c71d6a",
+  "scheduleRevision": "63e3227a5990c870172eb0b2352ef4c0dbb6916035d06f93c77730342408be0e",
+  "planChanges": [
+    {
+      "id": "p81-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T06:38:15.775Z",
+      "reason": "用户已认可三类门概念并明确授权实装。",
+      "createdTaskIds": [
+        "p81-door-family-and-cafeteria-notch-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p80-consistent-connected-roof-edges-20261008",
+      "title": "P80 连排房间原墙体屋顶边缘统一",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p81-start-20261008",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "1c82b30d50a9ebc69d4ebd7f66cfad54538371685bb602feb98619e4d5c71d6a"
+  },
+  "feedback": [
+    {
+      "id": "p81-start-20261008",
+      "taskId": "p81-door-family-and-cafeteria-notch-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "将已认可三类入口接入保留渲染，食堂改浅缺口、门随原逻辑状态切换；运行与编辑器使用同一门型绘制。",
+      "evidence": [
+        "docs/dev/p81/approved-concept.png",
+        "art/architecture/doorways_v48/door_family.png"
+      ],
+      "at": "2026-10-08T06:41:36.266Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p81-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "1c82b30d50a9ebc69d4ebd7f66cfad54538371685bb602feb98619e4d5c71d6a"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "1c82b30d50a9ebc69d4ebd7f66cfad54538371685bb602feb98619e4d5c71d6a",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

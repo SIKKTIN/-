@@ -38,6 +38,9 @@ func configure(rules) -> void:
 		for strip in strips:
 			var hit: Rect2 = volume.display_rect.intersection(strip)
 			if hit.has_area(): clips.append_array(Geometry.subtract_all(hit,clips))
+		var trimmed: Array[Rect2] = []
+		for clip in clips: trimmed.append_array(Geometry.subtract_all(clip,rules.portal_cuts))
+		clips = trimmed
 		if clips.is_empty(): continue
 		var edge := Edge.new()
 		var id := str(volume.profile.grid_tile_asset)

@@ -1,0 +1,57 @@
+{
+  "functional_checks": 105,
+  "failed": [],
+  "door_count": 26,
+  "transition_test": {
+    "entries": 120,
+    "door_node_rebuilds": 0,
+    "door_draw_rebuilds": 0,
+    "collision_points": 200
+  },
+  "performance": [
+    {
+      "case": "day_patrol",
+      "average_fps": 60.00266114521344,
+      "p95_ms": 16.79,
+      "max_ms": 19.973,
+      "chasing_frames": 0
+    },
+    {
+      "case": "day_dorm_chase",
+      "average_fps": 60.00237834200548,
+      "p95_ms": 16.875,
+      "max_ms": 22.225,
+      "chasing_frames": 421
+    },
+    {
+      "case": "day_corridor_chase",
+      "average_fps": 59.96612459107198,
+      "p95_ms": 16.769,
+      "max_ms": 36.625,
+      "chasing_frames": 0
+    },
+    {
+      "case": "night_global_alert",
+      "average_fps": 60.03095493470761,
+      "p95_ms": 16.88,
+      "max_ms": 21.183,
+      "chasing_frames": 0
+    },
+    {
+      "case": "sustained_overseer_chase",
+      "average_fps": 59.90042371381548,
+      "p95_ms": 16.81,
+      "max_ms": 23.771,
+      "chasing_frames": 406
+    },
+    {
+      "case": "sustained_night_chase",
+      "average_fps": 60.03747717079448,
+      "p95_ms": 17.318,
+      "max_ms": 20.834,
+      "chasing_frames": 254
+    }
+  ],
+  "adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "limits": "Native 1200x720 D3D12, RTX4050. Six 7-second scenarios, first1.5 seconds excluded. Average FPS is not a guarantee of every-frame60; occasional36.625ms interval.90 and other devices not retested. Only three chase-labelled cases had sustained active chase frames; do not claim all six were active pursuit throughout."
+}

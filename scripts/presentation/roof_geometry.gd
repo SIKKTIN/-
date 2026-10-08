@@ -1,5 +1,7 @@
 extends RefCounted
 
+const DoorGeometry = preload("res://scripts/presentation/doorway_geometry.gd")
+
 # Roofs follow the existing wall envelope; the walkable region and every
 # collision/door remain owned by the map. No south-facing building prefab.
 static func plan(world, room: Dictionary) -> Dictionary:
@@ -50,12 +52,8 @@ static func plan(world, room: Dictionary) -> Dictionary:
 			if absf(point.y-area.position.y) <= 44: side = "north"
 			elif absf(point.y-area.end.y) <= 44: side = "south"
 		if side.is_empty(): continue
-		ports.append({"side":side,"rect":rect,"id":str(gate.get("id","dorm"))})
-		var opening := rect
-		if side in ["north","south"]:
-			opening = Rect2(rect.position.x-2,rect.end.y-100,rect.size.x+4,100)
-		else:
-			opening = rect.grow(3)
+		var opening := DoorGeometry.opening(world,gate)
+		ports.append({"side":side,"rect":rect,"visual_rect":DoorGeometry.projected_rect(world,gate),"opening":opening,"id":str(gate.get("id","dorm-%d" % int(gate.get("actor_id",0))))})
 		var clipped := opening.intersection(roof)
 		if clipped.has_area(): cutouts.append(clipped)
 	# Ungated connecting passages also remain open: a shared wall's missing

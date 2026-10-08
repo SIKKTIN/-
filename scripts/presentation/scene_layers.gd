@@ -1,6 +1,7 @@
 extends Node2D
 
 const SoftShadow = preload("res://scripts/presentation/soft_shadow.gd")
+const DoorGeometry = preload("res://scripts/presentation/doorway_geometry.gd")
 
 var game
 var presentation
@@ -38,6 +39,7 @@ func prepare_fixture_shadows() -> void:
 		var commands: Array = []
 		var definition: Dictionary = presentation.asset_definitions.get(str(fixture.asset_id),{})
 		var separate_shadow: bool = not fixture.get("hidden",false) and not definition.get("shadow_baked",false) and not str(definition.get("render_mode","")).begins_with("wall")
+		if DoorGeometry.managed_fixture(fixture): separate_shadow = false
 		if definition.has("assembly_patches"):
 			var filled := 0.0
 			for patch in definition.assembly_patches: filled += float(patch.destination[2])*float(patch.destination[3])
@@ -135,12 +137,14 @@ func _draw() -> void:
 		# Doors and the movable crate have their own tiny dynamic shadow pass.
 		# A gate crossing must not reissue every wall/terrain shadow on the map.
 		for volume in presentation.volumes.slice(-2):
+			if volume.kind=="door" and game.room_visibility != null: continue
 			if volume.kind=="door" and world.door_open: continue
 			var r: Rect2=world.crate if volume.kind=="crate" else world.door
 			if presentation.profile.get("soft_shadows",false):
 				if not presentation.asset_definitions.get(volume.prop_id(),{}).get("shadow_baked",false): SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)
 			else: draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
 		for gate in world.dorm_doors:
+			if game.room_visibility != null: continue
 			var r: Rect2 = gate.rect
 			if gate.closed:
 				var rail := Rect2(r.position-Vector2(0,34),Vector2(r.size.x,38))
@@ -188,13 +192,17 @@ func _draw() -> void:
 				draw_rect(dorm,Color("328b82"),false,1.5,true)
 		var point: Vector2 = world.door.position+Vector2(-27,world.door.size.y*0.5)
 		for gate in world.access_doors:
+			var center: Vector2 = gate.rect.get_center()
+			if game.room_visibility != null:
+				var doorway = game.room_visibility.doorways.by_id(str(gate.id))
+				if doorway != null: center = doorway.visual_rect.get_center()
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
 			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
 			if str(gate.get("kind","")) == "workshop": text = "车间锁门 · 请在工位劳动" if gate.closed else "车间入场" if game.workshop and game.workshop.on_duty() else "车间开放"
 			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
-				draw_string(presentation.font,gate.rect.get_center()+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+				draw_string(presentation.font,center+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:
-				var bar := Rect2(gate.rect.get_center()+Vector2(-35,50),Vector2(70,5))
+				var bar := Rect2(center+Vector2(-35,50),Vector2(70,5))
 				draw_rect(bar,Color("536052"))
 				draw_rect(Rect2(bar.position,Vector2(bar.size.x*float(gate.progress),bar.size.y)),Color("9a8fb9"))
 		if world.lock_progress > 0 and not world.door_open:

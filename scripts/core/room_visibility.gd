@@ -3,6 +3,7 @@ extends RefCounted
 const Cover = preload("res://scripts/presentation/room_cover.gd")
 const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
 const WallEdges = preload("res://scripts/presentation/roof_wall_edges.gd")
+const Doorways = preload("res://scripts/presentation/doorway_view.gd")
 var game
 var rooms: Array = []
 var visited: Dictionary = {}
@@ -10,6 +11,8 @@ var active_id := ""
 var revision := 0
 var covers: Array = []
 var wall_edges
+var doorways
+var portal_cuts: Array[Rect2] = []
 var _current_area := Rect2()
 var _hidden_areas: Array[Rect2] = []
 
@@ -48,10 +51,12 @@ static func rooms_for(config: Dictionary) -> Array:
 	return result
 
 func reset() -> void:
+	if is_instance_valid(doorways): doorways.free()
 	if is_instance_valid(wall_edges): wall_edges.free()
 	for cover in covers: cover.free()
 	covers.clear()
 	rooms.clear()
+	portal_cuts.clear()
 	visited.clear()
 	active_id = ""
 	_current_area = Rect2()
@@ -63,8 +68,18 @@ func reset() -> void:
 		room.enter_area = room.area.grow(-4)
 		room.roof_plan = RoofGeometry.plan(game.world,room)
 		rooms.append(room)
+		for port in room.roof_plan.ports:
+			if port.has("opening") and port.opening not in portal_cuts: portal_cuts.append(port.opening)
+	portal_cuts.append_array(Doorways.Geometry.fixture_cuts(game.world))
 	game.world.room_visibility = self
 	tick(0,true)
+	doorways = Doorways.new()
+	game.add_child(doorways)
+	doorways.configure(game.world,rooms)
+	# Remove only the old non-blocking painted lintels inside real entrances.
+	# This is prepared once at map load, never on a visibility transition.
+	for volume in game.presentation.volumes:
+		if volume.kind=="wall" and portal_cuts.any(func(c):return c.intersects(volume.display_rect)): volume.queue_redraw()
 	wall_edges = WallEdges.new()
 	game.add_child(wall_edges)
 	wall_edges.configure(self)
@@ -89,6 +104,7 @@ func visible_at(point: Vector2) -> bool:
 func tick(delta: float, force := false) -> void:
 	if not force and game.get_tree().paused: return
 	if game.actors.is_empty(): return
+	if is_instance_valid(doorways): doorways.tick(force)
 	var point: Vector2 = game.actors[game.PLAYER_ACTOR_ID].position
 	var next := active_id
 	if not _current_area.has_area() or not _current_area.grow(6).has_point(point):

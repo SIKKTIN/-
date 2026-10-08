@@ -1,0 +1,62 @@
+{
+  "id": "p81-accept-20261008",
+  "digest": "2fb20918e5f11c0fd98501b1eca83e7f8ecc2ddcb9521e053e612d4cd3e1e256",
+  "operation": "feedback_review",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T07:20:50.985Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p81-delivery-20261008",
+    "taskId": "p81-door-family-and-cafeteria-notch-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "三类俯视入口与食堂浅缺口已实装；真实门禁驱动26处入口，105项检查通过，60模式六场平均59.90–60.04FPS，偶发36.625ms；其余工作区WIP保留。",
+    "evidence": [
+      "docs/dev/p81/report.md",
+      "docs/dev/p81/performance.json",
+      "docs/dev/p81/delivery.json",
+      "docs/tests/p81-doorways-native.json",
+      "docs/tests/p81-roofs-headless.json",
+      "docs/tests/p81-editor-native.json",
+      "docs/tests/p81-legacy-smoke.json",
+      "docs/tests/p81-cafeteria-open.png",
+      "docs/tests/p81-cafeteria-closed.png",
+      "art/architecture/doorways_v48/door_family.png"
+    ],
+    "at": "2026-10-08T07:17:53.214Z",
+    "evidenceVersion": 1,
+    "state": "accepted",
+    "review": {
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "at": "2026-10-08T07:20:51.121Z",
+      "note": "制作人自验收：105项检查通过；26处入口包含自由通行、开关铁栅和锁门；食堂浅入口与原墙体衔接、12–14点门禁和钥匙/撬锁消费验证通过；120次过房门绘制重建0，60模式平均59.90–60.04FPS，偶发36.625ms；基于实际工作区的地图及美术WIP保留。",
+      "mode": "producer-self",
+      "evidenceVersion": 1
+    },
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "已完成",
+      "feedbackId": "p81-delivery-20261008",
+      "feedbackState": "accepted",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_correct",
+          "cli": "feedback correct",
+          "meaning": "仅追加说明更正，保留原验收；交付内容改变需要后续任务"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "8178828718726ac76359fcdc37a96d53ed577b838cfdba475bd16c6c2e9298ac"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "8178828718726ac76359fcdc37a96d53ed577b838cfdba475bd16c6c2e9298ac",
+    "delivery": "recorded",
+    "next": "当前任务已完成；说明更正使用 feedback correct，交付内容改变需要后续任务",
+    "received": true
+  }
+}

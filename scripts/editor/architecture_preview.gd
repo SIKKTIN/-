@@ -2,6 +2,9 @@ extends Node2D
 
 const Volume = preload("res://scripts/presentation/world_volume.gd")
 const Building = preload("res://scripts/presentation/roof_building.gd")
+const Doorways = preload("res://scripts/presentation/doorway_view.gd")
+const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
+const RoomRules = preload("res://scripts/core/room_visibility.gd")
 var world = preload("res://scripts/editor/preview_geometry.gd").new()
 var canvas
 var profile := {}
@@ -11,6 +14,7 @@ var room_access = null
 var nodes := {}
 var signatures := {}
 var pending := false
+var doorways
 
 func setup(owner_canvas, render_profile: Dictionary) -> void:
 	canvas = owner_canvas
@@ -31,6 +35,21 @@ func refresh() -> void:
 	pending = false
 	if canvas.document.data.is_empty(): return
 	world.update(canvas.document.data,canvas.layers.is_visible("architecture"))
+	var rooms: Array = []
+	world.portal_cuts.clear()
+	for spec in RoomRules.rooms_for(canvas.document.data):
+		var room: Dictionary = spec.duplicate(true)
+		room.area = world.rect(room.rect)
+		room.roof_plan = RoofGeometry.plan(world,room)
+		rooms.append(room)
+		for port in room.roof_plan.ports:
+			if port.has("opening") and port.opening not in world.portal_cuts: world.portal_cuts.append(port.opening)
+	world.portal_cuts.append_array(Doorways.Geometry.fixture_cuts(world))
+	if not is_instance_valid(doorways):
+		doorways = Doorways.new()
+		add_child(doorways)
+	doorways.configure(world,rooms)
+	doorways.visible = canvas.layers.is_visible("walls") or canvas.layers.is_visible("fixtures")
 	var live := {}
 	for kind in ["wall","fixture","door","crate"]:
 		var count: int = world.walls.size() if kind == "wall" else world.fixtures.size() if kind == "fixture" else 1
@@ -58,6 +77,8 @@ func refresh() -> void:
 			if kind == "wall": node.visible = node.visible and not world.wall_is_roofed(index) and node.profile.get("render_enabled",true)
 			if kind == "fixture": node.visible = node.visible and not world.fixtures[index].get("hidden",false)
 			if kind == "fixture" and canvas.beneath_roof(world.fixtures[index].rect.get_center()): node.visible = false
+			if kind=="door" or kind=="fixture" and Doorways.Geometry.managed_fixture(world.fixtures[index]): node.visible = false
+			if kind=="wall" and world.portal_cuts.any(func(c):return c.intersects(node.display_rect)): node.queue_redraw()
 	for index in range(world.roofed_cells.size()):
 		var key: String = "roof:%d" % index
 		live[key] = true
@@ -78,6 +99,11 @@ func refresh() -> void:
 		signatures.erase(key)
 
 func visual_hit(ref: Dictionary, point: Vector2) -> bool:
+	if ref.group=="fixtures" and Doorways.Geometry.managed_fixture(world.fixtures[int(ref.index)]):
+		var fixture: Dictionary = world.fixtures[int(ref.index)]
+		var id := str(fixture.get("access_id","primary" if fixture.get("primary_gate",false) else "dorm-%d" % int(fixture.dorm_actor_id) if fixture.has("dorm_actor_id") else "fixture:"+str(fixture.get("id",fixture.rect))))
+		var door = doorways.by_id(id)
+		return doorways.visible and door != null and door.visual_rect.grow(7).has_point(point)
 	var kind: String = "wall" if ref.group == "walls" else "fixture" if ref.group == "fixtures" else str(ref.group)
 	var key: String = "%s:%d" % [kind,maxi(0,int(ref.index))]
 	if not nodes.has(key) or not nodes[key].visible: return false

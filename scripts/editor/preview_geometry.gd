@@ -3,18 +3,23 @@ extends RefCounted
 # Geometry-only adapter for the runtime painters. No actors, clock or navigation.
 var walls: Array[Rect2] = []
 var fixtures: Array = []
+var fixtures_revision: int = 0
 var wall_surfaces := {}
 var roofed_cells: Array = []
+var room_visibility = null
 var access_doors: Array = []
+var dorm_doors: Array = []
 var art_textures := {}
 var bounds := Rect2()
 var door := Rect2()
 var crate := Rect2()
 var door_open := false
+var portal_cuts: Array[Rect2] = []
 
 func rect(values: Array) -> Rect2: return Rect2(values[0],values[1],values[2],values[3])
 
 func update(data: Dictionary, show_roofs: bool) -> void:
+	fixtures_revision += 1
 	bounds = rect(data.get("bounds",[0,0,100,100]))
 	walls.clear()
 	for values in data.get("walls",[]): walls.append(rect(values))
@@ -26,6 +31,12 @@ func update(data: Dictionary, show_roofs: bool) -> void:
 	wall_surfaces.clear()
 	for surface in data.get("architecture",{}).get("wall_surfaces",[]): wall_surfaces[int(surface.wall_index)] = surface
 	access_doors.clear()
+	dorm_doors.clear()
+	for gate in data.get("dorm_doors",[]):
+		var copy: Dictionary = gate.duplicate(true)
+		copy.rect = rect(gate.rect)
+		copy.closed = false
+		dorm_doors.append(copy)
 	for gate in data.get("access_doors",[]):
 		var copy: Dictionary = gate.duplicate(true)
 		copy.rect = rect(gate.rect)

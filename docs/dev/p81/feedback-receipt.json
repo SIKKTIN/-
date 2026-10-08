@@ -1,0 +1,66 @@
+{
+  "id": "p81-delivery-20261008",
+  "digest": "c3fe027109253b30cd6061124627cb5c49e679c1bd086ca1c7f1f9d04572de83",
+  "operation": "feedback_submit",
+  "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "memberName": "制作人",
+  "at": "2026-10-08T07:17:53.070Z",
+  "status": "succeeded",
+  "result": {
+    "id": "p81-delivery-20261008",
+    "taskId": "p81-door-family-and-cafeteria-notch-20261008",
+    "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+    "status": "待验收",
+    "summary": "三类俯视入口与食堂浅缺口已实装；真实门禁驱动26处入口，105项检查通过，60模式六场平均59.90–60.04FPS，偶发36.625ms；其余工作区WIP保留。",
+    "evidence": [
+      "docs/dev/p81/report.md",
+      "docs/dev/p81/performance.json",
+      "docs/dev/p81/delivery.json",
+      "docs/tests/p81-doorways-native.json",
+      "docs/tests/p81-roofs-headless.json",
+      "docs/tests/p81-editor-native.json",
+      "docs/tests/p81-legacy-smoke.json",
+      "docs/tests/p81-cafeteria-open.png",
+      "docs/tests/p81-cafeteria-closed.png",
+      "art/architecture/doorways_v48/door_family.png"
+    ],
+    "at": "2026-10-08T07:17:53.214Z",
+    "evidenceVersion": 1,
+    "state": "pending",
+    "correctionVersion": 0,
+    "guidance": {
+      "taskStatus": "待验收",
+      "feedbackId": "p81-delivery-20261008",
+      "feedbackState": "pending",
+      "evidenceVersion": 1,
+      "correctionVersion": 0,
+      "actions": [
+        {
+          "operation": "feedback_append",
+          "cli": "feedback append",
+          "feedbackId": "p81-delivery-20261008",
+          "meaning": "同一交付补充证据，更新 evidenceVersion"
+        },
+        {
+          "operation": "feedback_review",
+          "cli": "reviews submit",
+          "feedbackId": "p81-delivery-20261008",
+          "decisions": [
+            "accepted",
+            "returned"
+          ],
+          "meaning": "核对最新证据后单独验收"
+        }
+      ],
+      "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+      "taskRevision": "5560f6e6cfc453bde1d016edb2fab340218ed01cf7bad1f13e6996f976e9f949"
+    },
+    "reviewMode": "producer-self",
+    "reviewerName": "制作人",
+    "taskRevision": "5560f6e6cfc453bde1d016edb2fab340218ed01cf7bad1f13e6996f976e9f949",
+    "delivery": "review_inbox",
+    "next": "核对证据后，读取最新任务版本并单独提交自验收结论",
+    "received": true
+  }
+}
