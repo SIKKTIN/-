@@ -4,6 +4,8 @@ var tutorial
 var target_button: BaseButton
 var card: Panel
 var words: Label
+var heading: Label
+var detail: Label
 var outline: StyleBoxFlat
 var target_rect := Rect2()
 var direction := Vector2.DOWN
@@ -21,26 +23,41 @@ func configure(owner_tutorial):
 	card = Panel.new()
 	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var paper := StyleBoxFlat.new()
-	paper.bg_color = Color("f2ebdd")
-	paper.border_color = Color("b89659")
-	paper.set_border_width_all(1)
-	paper.set_corner_radius_all(7)
-	paper.shadow_color = Color(0,0,0,0.15)
-	paper.shadow_size = 3
+	paper.bg_color = Color("263d42")
+	paper.border_color = Color("ffcf70")
+	paper.set_border_width_all(2)
+	paper.set_corner_radius_all(9)
+	paper.shadow_color = Color(0,0,0,0.3)
+	paper.shadow_size = 6
 	card.add_theme_stylebox_override("panel",paper)
 	add_child(card)
 	words = Label.new()
 	words.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	words.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	words.add_theme_font_override("font",tutorial.game.presentation.font)
-	words.add_theme_font_size_override("font_size",14)
-	words.add_theme_color_override("font_color",Color("303b46"))
+	words.add_theme_font_size_override("font_size",22)
+	words.add_theme_color_override("font_color",Color("fff9ed"))
 	card.add_child(words)
+	heading = Label.new()
+	heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	heading.text = "下一步"
+	heading.add_theme_font_override("font",tutorial.game.presentation.font)
+	heading.add_theme_font_size_override("font_size",14)
+	heading.add_theme_color_override("font_color",Color("ffcf70"))
+	card.add_child(heading)
+	detail = Label.new()
+	detail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	detail.add_theme_font_override("font",tutorial.game.presentation.font)
+	detail.add_theme_font_size_override("font_size",16)
+	detail.add_theme_color_override("font_color",Color("e2e9df"))
+	card.add_child(detail)
 	outline = StyleBoxFlat.new()
-	outline.bg_color = Color(0,0,0,0)
-	outline.border_color = Color("d5b16b")
-	outline.set_border_width_all(2)
+	outline.border_color = Color("ffcf70")
+	outline.set_border_width_all(4)
 	outline.set_corner_radius_all(11)
+	outline.shadow_color = Color(1,0.72,0.25,0.28)
+	outline.shadow_size = 8
 	hide()
 
 func refresh(prompt: Dictionary):
@@ -64,20 +81,31 @@ func refresh(prompt: Dictionary):
 	var key := [safe,target_rect,text,blocked]
 	if key==layout_key: return
 	layout_key = key
-	words.text = text
-	var width := minf(220,safe.size.x-36)
-	var text_height := maxf(22,ceilf(words.get_theme_font("font").get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,width-24,14,-1,TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE).y))
-	card.size = Vector2(width,text_height+20)
-	words.position = Vector2(12,10)
-	words.size = Vector2(width-24,text_height)
+	var lines := text.split("\n",true,1)
+	words.text = lines[0]
+	detail.text = lines[1] if lines.size()>1 else ""
+	var width := minf(264,safe.size.x-36)
+	var text_width := width-32
+	var flags := TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE
+	var font := words.get_theme_font("font")
+	var text_height := maxf(30,ceilf(font.get_multiline_string_size(words.text,HORIZONTAL_ALIGNMENT_LEFT,text_width,22,-1,flags).y))
+	var detail_height := maxf(22,ceilf(font.get_multiline_string_size(detail.text,HORIZONTAL_ALIGNMENT_LEFT,text_width,16,-1,flags).y))
+	card.size = Vector2(width,36+text_height+6+detail_height+14)
+	heading.position = Vector2(16,10)
+	heading.size = Vector2(text_width,20)
+	words.position = Vector2(16,36)
+	words.size = Vector2(text_width,text_height)
+	detail.position = Vector2(16,words.position.y+text_height+6)
+	detail.size = Vector2(text_width,detail_height)
 	var low := safe.position+Vector2(8,128)
 	var high := (safe.end-card.size-Vector2(8,8)).max(low)
 	var center := target_rect.get_center()
-	var above := target_rect.position.y-card.size.y-28
+	var gap := 56.0
+	var above := target_rect.position.y-card.size.y-gap
 	for obstacle in blocked:
 		if obstacle.position.y<target_rect.position.y and obstacle.end.y>=above and obstacle.end.x>center.x-width/2 and obstacle.position.x<center.x+width/2:
-			above = minf(above,obstacle.position.y-card.size.y-28)
-	var candidates := [Vector2(center.x-width/2,above),Vector2(target_rect.position.x-width-28,center.y-card.size.y/2),Vector2(center.x-width/2,target_rect.end.y+28),Vector2(target_rect.end.x+28,center.y-card.size.y/2)]
+			above = minf(above,obstacle.position.y-card.size.y-gap)
+	var candidates := [Vector2(center.x-width/2,above),Vector2(target_rect.position.x-width-gap,center.y-card.size.y/2),Vector2(center.x-width/2,target_rect.end.y+gap),Vector2(target_rect.end.x+gap,center.y-card.size.y/2)]
 	var best := INF
 	for candidate in candidates:
 		var point: Vector2 = candidate.clamp(low,high)
@@ -97,7 +125,7 @@ func refresh(prompt: Dictionary):
 		tip = Vector2(center.x,target_rect.position.y-8 if direction.y>0 else target_rect.end.y+8)
 		for x in [center.x,target_rect.end.x-10,target_rect.position.x+10]:
 			var point := Vector2(x,tip.y)
-			var stem := Rect2(point.min(point-direction*26),Vector2(0,26)).grow(4)
+			var stem := Rect2(point.min(point-direction*42),Vector2(0,42)).grow(12)
 			if not controls.any(func(rect):return rect.intersects(stem)):
 				tip = point
 				break
@@ -115,12 +143,43 @@ func _process(delta: float):
 func _draw():
 	if not visible: return
 	var pulse := (sin(phase)+1)/2
-	var color := Color(Color("d5b16b"),0.6+0.4*pulse)
-	outline.border_color = color
+	var gold := Color("ffcf70")
+	outline.bg_color = Color(gold,0.12+0.08*pulse)
 	draw_style_box(outline,target_rect.grow(4+2*pulse))
-	var length := 20+4*pulse
-	var start := tip-direction*length
-	draw_line(start,tip,color,3,true)
-	var wing := direction.orthogonal()*6
-	draw_line(tip-direction*7+wing,tip,color,3,true)
-	draw_line(tip-direction*7-wing,tip,color,3,true)
+	var arrow_tip := tip-direction*(2+5*(1-pulse))
+	var start := arrow_tip-direction*38
+	var source: Vector2
+	if direction.y!=0:
+		source = Vector2(clampf(start.x,card.position.x+12,card.position.x+card.size.x-12),card.position.y+card.size.y if direction.y>0 else card.position.y)
+		var corner := Vector2(start.x,source.y)
+		_dashes(source,corner,gold)
+		_dashes(corner,start,gold)
+	else:
+		source = Vector2(card.position.x+card.size.x if direction.x>0 else card.position.x,clampf(start.y,card.position.y+12,card.position.y+card.size.y-12))
+		var corner := Vector2(source.x,start.y)
+		_dashes(source,corner,gold)
+		_dashes(corner,start,gold)
+	var side := direction.orthogonal()
+	var arrow := PackedVector2Array([start-side*5,start+side*5,arrow_tip-direction*16+side*5,arrow_tip-direction*16+side*13,arrow_tip,arrow_tip-direction*16-side*13,arrow_tip-direction*16-side*5])
+	draw_colored_polygon(arrow,gold)
+	var edge := PackedVector2Array(arrow)
+	edge.append(arrow[0])
+	draw_polyline(edge,Color("263d42"),2,true)
+	if target_rect.size.x>=70 and target_rect.size.y>=60:
+		var finger := Vector2(target_rect.end.x-27,target_rect.position.y+17+3*(1-pulse))
+		var ripple := phase/TAU
+		draw_arc(finger,8+16*ripple,0,TAU,24,Color(gold,0.85*(1-ripple)),3,true)
+		var hand := PackedVector2Array([Vector2(0,0),Vector2(-3,2),Vector2(-3,17),Vector2(-8,13),Vector2(-11,14),Vector2(-12,18),Vector2(-4,29),Vector2(0,31),Vector2(12,31),Vector2(16,26),Vector2(16,14),Vector2(13,11),Vector2(10,11),Vector2(7,9),Vector2(4,10),Vector2(4,2),Vector2(2,0)])
+		for i in hand.size(): hand[i] += finger
+		draw_colored_polygon(hand,Color("fff9ed"))
+		hand.append(hand[0])
+		draw_polyline(hand,Color("263d42"),2,true)
+
+func _dashes(start: Vector2, end: Vector2, color: Color):
+	var length := start.distance_to(end)
+	if length<1: return
+	var tangent := (end-start)/length
+	var offset := 0.0
+	while offset<length:
+		draw_line(start+tangent*offset,start+tangent*minf(offset+6,length),color,2,true)
+		offset += 11
