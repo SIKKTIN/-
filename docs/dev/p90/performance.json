@@ -1,0 +1,75 @@
+{
+  "moving-after60": {
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "frame": {
+      "max_ms": 17.167,
+      "mean_ms": 16.6072888888889,
+      "p95_ms": 16.74,
+      "p99_ms": 17.162
+    },
+    "cpu": {
+      "max_ms": 5.394,
+      "mean_ms": 2.86809444444444,
+      "p95_ms": 3.82,
+      "p99_ms": 4.682
+    },
+    "warning": {
+      "max_ms": 0.285,
+      "mean_ms": 0.134716666666667,
+      "p95_ms": 0.179,
+      "p99_ms": 0.26
+    },
+    "moving_frames": 180,
+    "saw_chase": true,
+    "fps_from_intervals": 60.21452427849615
+  },
+  "moving-after90": {
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "frame": {
+      "max_ms": 23.607,
+      "mean_ms": 12.3066259259259,
+      "p95_ms": 19.48,
+      "p99_ms": 21.859
+    },
+    "cpu": {
+      "max_ms": 6.747,
+      "mean_ms": 3.44776296296296,
+      "p95_ms": 5.131,
+      "p99_ms": 6.418
+    },
+    "warning": {
+      "max_ms": 0.341,
+      "mean_ms": 0.159396296296296,
+      "p95_ms": 0.243,
+      "p99_ms": 0.297
+    },
+    "moving_frames": 270,
+    "saw_chase": true,
+    "fps_from_intervals": 81.25704039588447
+  },
+  "indoor-after60": {
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "frame": {
+      "max_ms": 18.543,
+      "mean_ms": 16.6061888888889,
+      "p95_ms": 17.129,
+      "p99_ms": 17.973
+    },
+    "cpu": {
+      "max_ms": 4.735,
+      "mean_ms": 2.66929444444445,
+      "p95_ms": 3.276,
+      "p99_ms": 4.558
+    },
+    "warning": {
+      "max_ms": 0.169,
+      "mean_ms": 0.0597500000000001,
+      "p95_ms": 0.099,
+      "p99_ms": 0.14
+    },
+    "moving_frames": 174,
+    "saw_chase": true,
+    "fps_from_intervals": 60.218512910514576
+  },
+  "limitations": "RTX4050 Laptop D3D12 short samples. Another ARPG editor was playing during the 90fps run; no other user project was stopped. UI screenshots freeze simulation for layout review and are not FPS evidence."
+}

@@ -1,0 +1,1142 @@
+{
+	"gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"map_sha256": "627f08f0fec7fa9041c667cf41e326e08447e4aed2906aed3f63ee7f5cd6dff3",
+	"samples": [
+		{
+			"frame": {
+				"max_ms": 18.543,
+				"mean_ms": 16.6061888888889,
+				"p95_ms": 17.129,
+				"p99_ms": 17.973
+			},
+			"moving_frames": 174,
+			"name": "indoor_warning_to_chase",
+			"nav_events": [],
+			"path_calls": 63,
+			"paths": {
+				"max_ms": 2.04,
+				"mean_ms": 0.0797619047619048,
+				"p95_ms": 0.163,
+				"p99_ms": 2.04
+			},
+			"saw_chase": true,
+			"slow_paths": [
+				{
+					"budget": true,
+					"from": "(750.0, 1300.0)",
+					"ms": 2.04,
+					"points": 4,
+					"role": "res://scripts/actors/guard.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(2400.0, 1260.0)"
+				}
+			],
+			"supervisor_position": "(1084.579, 341.2024)",
+			"transition": {
+				"max_ms": 4.735,
+				"mean_ms": 2.87713333333333,
+				"p95_ms": 3.265,
+				"p99_ms": 4.735
+			},
+			"warning": {
+				"max_ms": 0.169,
+				"mean_ms": 0.0597500000000001,
+				"p95_ms": 0.099,
+				"p99_ms": 0.14
+			},
+			"warning_states": [
+				{
+					"blockers": 22,
+					"dense_path": false,
+					"ms": 0.088,
+					"visible": true
+				},
+				{
+					"blockers": 22,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.08,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.088,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.095,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.087,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.081,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.084,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.083,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.081,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.086,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.081,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.129,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.09,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.084,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.075,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.09,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.084,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.099,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.07,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.07,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.075,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 16,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 15,
+					"dense_path": false,
+					"ms": 0.088,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.089,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.082,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.091,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.092,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.086,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.101,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.097,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.089,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.074,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.08,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.086,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.088,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.069,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.088,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.075,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.08,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.086,
+					"visible": true
+				},
+				{
+					"blockers": 10,
+					"dense_path": false,
+					"ms": 0.074,
+					"visible": true
+				},
+				{
+					"blockers": 9,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 11,
+					"dense_path": false,
+					"ms": 0.115,
+					"visible": true
+				},
+				{
+					"blockers": 13,
+					"dense_path": false,
+					"ms": 0.068,
+					"visible": true
+				},
+				{
+					"blockers": 13,
+					"dense_path": false,
+					"ms": 0.068,
+					"visible": true
+				},
+				{
+					"blockers": 13,
+					"dense_path": false,
+					"ms": 0.082,
+					"visible": true
+				},
+				{
+					"blockers": 15,
+					"dense_path": false,
+					"ms": 0.094,
+					"visible": true
+				},
+				{
+					"blockers": 16,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.083,
+					"visible": true
+				},
+				{
+					"blockers": 16,
+					"dense_path": false,
+					"ms": 0.074,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 20,
+					"dense_path": false,
+					"ms": 0.08,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.079,
+					"visible": true
+				},
+				{
+					"blockers": 15,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 15,
+					"dense_path": false,
+					"ms": 0.074,
+					"visible": true
+				},
+				{
+					"blockers": 15,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 16,
+					"dense_path": false,
+					"ms": 0.087,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.067,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.068,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.065,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.068,
+					"visible": true
+				},
+				{
+					"blockers": 17,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.089,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.092,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.084,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.09,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.09,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.091,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.092,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.081,
+					"visible": true
+				},
+				{
+					"blockers": 18,
+					"dense_path": false,
+					"ms": 0.067,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.066,
+					"visible": true
+				},
+				{
+					"blockers": 19,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.075,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.078,
+					"visible": true
+				},
+				{
+					"blockers": 21,
+					"dense_path": false,
+					"ms": 0.079,
+					"visible": true
+				},
+				{
+					"blockers": 23,
+					"dense_path": false,
+					"ms": 0.067,
+					"visible": true
+				},
+				{
+					"blockers": 25,
+					"dense_path": false,
+					"ms": 0.073,
+					"visible": true
+				},
+				{
+					"blockers": 25,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 26,
+					"dense_path": false,
+					"ms": 0.073,
+					"visible": true
+				},
+				{
+					"blockers": 28,
+					"dense_path": false,
+					"ms": 0.074,
+					"visible": true
+				},
+				{
+					"blockers": 28,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 28,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 29,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 30,
+					"dense_path": false,
+					"ms": 0.076,
+					"visible": true
+				},
+				{
+					"blockers": 30,
+					"dense_path": false,
+					"ms": 0.08,
+					"visible": true
+				},
+				{
+					"blockers": 31,
+					"dense_path": false,
+					"ms": 0.079,
+					"visible": true
+				},
+				{
+					"blockers": 31,
+					"dense_path": false,
+					"ms": 0.096,
+					"visible": true
+				},
+				{
+					"blockers": 31,
+					"dense_path": false,
+					"ms": 0.079,
+					"visible": true
+				},
+				{
+					"blockers": 31,
+					"dense_path": false,
+					"ms": 0.117,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.14,
+					"visible": true
+				},
+				{
+					"blockers": 30,
+					"dense_path": false,
+					"ms": 0.108,
+					"visible": true
+				},
+				{
+					"blockers": 31,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.169,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.072,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 32,
+					"dense_path": false,
+					"ms": 0.129,
+					"visible": true
+				},
+				{
+					"blockers": 33,
+					"dense_path": false,
+					"ms": 0.071,
+					"visible": true
+				},
+				{
+					"blockers": 33,
+					"dense_path": false,
+					"ms": 0.069,
+					"visible": true
+				},
+				{
+					"blockers": 33,
+					"dense_path": false,
+					"ms": 0.077,
+					"visible": true
+				},
+				{
+					"blockers": 33,
+					"dense_path": false,
+					"ms": 0.089,
+					"visible": true
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.082,
+					"visible": true
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.085,
+					"visible": true
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.094,
+					"visible": true
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.003,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.003,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.003,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.003,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.004,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.003,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.001,
+					"visible": false
+				},
+				{
+					"blockers": 34,
+					"dense_path": false,
+					"ms": 0.002,
+					"visible": false
+				}
+			],
+			"work": {
+				"max_ms": 4.735,
+				"mean_ms": 2.66929444444445,
+				"p95_ms": 3.276,
+				"p99_ms": 4.558
+			}
+		}
+	]
+}

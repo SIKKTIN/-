@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-09",
+  "entry": "res://scenes/main.tscn",
+  "changes": [
+    "scripts/core/workshop_rules.gd",
+    "scripts/ui/fullscreen_hud.gd",
+    "data/rooms/r04.json",
+    "qa/p90_warning_recovery.gd",
+    "qa/p90_moving_chase.gd",
+    "qa/p90_indoor_chase.gd",
+    "qa/p90_npc_two_day_cycle.gd"
+  ],
+  "warning_seconds": 3,
+  "recovery_per_actual_work_second": 0.5,
+  "full_recovery_work_seconds": 6,
+  "tests": {
+    "warning_unique_checks": 30,
+    "warning_headless_passed": 30,
+    "warning_native_passed": 30,
+    "legacy_capture_preset_checks": 11,
+    "npc_two_day_actual_enforcement_checks": 13
+  },
+  "management_status": "GameCreator service disconnected; delivery prepared locally, not submitted or accepted",
+  "map_staging": "Only warning_seconds 8 -> 3 onto HEAD map blob; existing map WIP retained in working tree."
+}

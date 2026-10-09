@@ -1,6 +1,7 @@
 extends RefCounted
 
 const Overseer = preload("res://scripts/actors/workshop_overseer.gd")
+const WARNING_RECOVERY_RATE := 0.5
 var game
 var config: Dictionary = {}
 var area := Rect2()
@@ -141,34 +142,63 @@ func tick(delta: float) -> void:
 	if not on_duty():
 		overseer.tick(delta)
 		return
-	if overseer.escaped or game.staff_traffic.transiting(overseer):
-		overseer.tick(delta)
-		return
+	var observing: bool = not overseer.escaped and not game.staff_traffic.transiting(overseer) and overseer.state != "talking"
 	for actor in game.actors:
 		var id: int = actor.actor_id
-		if actor.escaped or actor.confined or game.elapsed < actor.immune_until or game.routines.is_working(id):
+		if actor.escaped or actor.confined or game.elapsed < actor.immune_until:
 			warnings.erase(id)
 			wanted.erase(id)
 			continue
-		if outside_violation(id) and overseer.state != "talking" and overseer.sees(actor.position): report_escape_seen(id)
-		if commuting(id) and not outside_violation(id): continue
-		# The opening roll call detects absent workers; within the room,
-		# slacking is only counted while actually seen by the overseer.
+		if game.routines.is_working(id):
+			# Only actual work cools suspicion. Starting a work order, walking
+			# toward a station or briefly toggling it must not reset a warning.
+			if warnings.has(id) or wanted.has(id):
+				var heat: float = minf(warning_seconds(),float(warnings.get(id,warning_seconds())))
+				heat = maxf(0,heat-maxf(delta,0)*WARNING_RECOVERY_RATE)
+				if heat <= 0.00001:
+					warnings.erase(id)
+					wanted.erase(id)
+				else:
+					warnings[id] = heat
+			continue
+		if observing and outside_violation(id) and overseer.sees(actor.position): report_escape_seen(id)
 		var absent := outside_violation(id)
-		if not absent and (overseer.state == "talking" or not overseer.sees(actor.position)): continue
+		if commuting(id) and not absent and not warnings.has(id) and not wanted.has(id): continue
 		if not warnings.has(id):
-			warnings[id] = 0.0
-			game.show_status("监工警告囚徒%d：%s！靠近自己的工位点击“工作”。" % [id+1,"点名未到岗" if absent else "回工位干活"],5)
-		warnings[id] += maxf(delta,0)
-		if warnings[id] >= float(config.get("warning_seconds",8)) and not wanted.has(id):
+			if wanted.has(id):
+				warnings[id] = warning_seconds()
+			else:
+				# Sight starts indoor warnings; after detection, the countdown
+				# continues even behind cover or while the officer is commuting.
+				if not observing or (not absent and not overseer.sees(actor.position)): continue
+				warnings[id] = 0.0
+				game.show_status("监工警告囚徒%d：%s！%.0f秒后追捕，持续工作可消退警戒。" % [id+1,"点名未到岗" if absent else "回工位干活",warning_seconds()],5)
+		if not wanted.has(id): warnings[id] = minf(warning_seconds(),float(warnings[id])+maxf(delta,0))
+		if warnings[id] >= warning_seconds()-0.00001 and not wanted.has(id):
 			wanted[id] = true
 			game.show_status("监工正在追捕偷懒的囚徒%d，抓到将关禁闭2小时！" % (id+1),5)
 	update_gate()
 	overseer.tick(delta)
 
+func warning_seconds() -> float:
+	return maxf(0.1,float(config.get("warning_seconds",3)))
+
+func warning_level(id: int) -> float:
+	return clampf(float(warnings.get(id,warning_seconds() if wanted.has(id) else 0)),0,warning_seconds())
+
+func warning_remaining(id: int) -> float:
+	return warning_seconds()-warning_level(id)
+
+func recovery_seconds(id: int) -> float:
+	return warning_level(id)/WARNING_RECOVERY_RATE
+
+func warning_recovering(id: int) -> bool:
+	return (warnings.has(id) or wanted.has(id)) and game.routines.is_working(id)
+
 func warning_label(id: int) -> String:
 	if wanted.has(id): return "监工追捕！"
-	if warnings.has(id): return "监工警告 · 回工位"
+	if warnings.has(id):
+		return "警戒消退 · %.1f秒" % recovery_seconds(id) if warning_recovering(id) else "监工警告 · %.1f秒" % warning_remaining(id)
 	return ""
 
 func on_release(id: int) -> void:

@@ -127,6 +127,8 @@ var frame_mode: OptionButton
 var warning_banner: Panel
 var warning_title: Label
 var warning_detail: Label
+var warning_meter: ProgressBar
+var warning_fill: StyleBoxFlat
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -192,6 +194,19 @@ func configure(owner_game) -> void:
 		warning_banner.add_child(label)
 		if line == 0: warning_title = label
 		else: warning_detail = label
+	warning_meter = ProgressBar.new()
+	warning_meter.name = "Suspicion"
+	warning_meter.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	warning_meter.show_percentage = false
+	var warning_track := StyleBoxFlat.new()
+	warning_track.bg_color = Color("d7c3b6")
+	warning_track.set_corner_radius_all(2)
+	warning_fill = StyleBoxFlat.new()
+	warning_fill.bg_color = Color("bc5348")
+	warning_fill.set_corner_radius_all(2)
+	warning_meter.add_theme_stylebox_override("background",warning_track)
+	warning_meter.add_theme_stylebox_override("fill",warning_fill)
+	warning_banner.add_child(warning_meter)
 	hud.add_child(warning_banner)
 	menu_button = _button("",toggle_menu,"pause")
 	menu_button.z_index = 240
@@ -420,6 +435,8 @@ func layout() -> void:
 		warning_banner.size = Vector2(minf(400,safe.size.x-380),68)
 		warning_banner.position = Vector2(safe.get_center().x-warning_banner.size.x/2,clock.position.y+clock.size.y+12)
 	for label in [warning_title,warning_detail]: label.size = Vector2(warning_banner.size.x-24,28)
+	warning_meter.position = Vector2(12,60)
+	warning_meter.size = Vector2(warning_banner.size.x-24,4)
 	action_button.size = Vector2(104,104)
 	action_button.position = safe.end-action_button.size-Vector2(40,32)
 	ability_button.size = Vector2(72,64)
@@ -564,18 +581,27 @@ func refresh() -> void:
 func refresh_warning(blocked: bool) -> void:
 	var title := ""
 	var detail := ""
+	var recovering := false
+	warning_meter.hide()
 	var id: int = game.PLAYER_ACTOR_ID
 	if game.workshop and game.workshop.on_duty() and not game.actors[id].confined and not game.actors[id].escaped:
 		var count: int = game.workshop.chase_count(id)
+		recovering = game.workshop.warning_recovering(id)
+		if game.workshop.warnings.has(id) or game.workshop.wanted.has(id):
+			warning_meter.max_value = game.workshop.warning_seconds()
+			warning_meter.value = game.workshop.warning_level(id)
+			warning_meter.show()
 		if count > 0 or game.workshop.wanted.has(id):
 			title = "！正在被追捕"
 			detail = "%d名看守正在追捕 · 被抓关禁闭2小时" % count if count > 0 else "监工搜捕中 · 回工位继续劳动"
+			if recovering: detail = "持续工作 %.1f秒后解除监管 · 警戒消退中" % game.workshop.recovery_seconds(id)
 		elif game.workshop.outside_violation(id):
 			title = "！脱离劳动监管"
 			detail = "劳动时间禁止外出 · 看守发现会立即抓捕"
 		elif game.workshop.warnings.has(id):
-			title = "！监工警告"
-			detail = "请回自己的工位，点击“工作”继续劳动"
+			title = "监管恢复中 · 还需%.1f秒" % game.workshop.recovery_seconds(id) if recovering else "！监工警告 · %.1f秒后追捕" % game.workshop.warning_remaining(id)
+			detail = "保持工作，警戒缓慢消退 · 停工继续倒计时" if recovering else "回自己的工位工作 · 躲开视线不会停止倒计时"
+	warning_fill.bg_color = Color("318f83") if recovering else Color("bc5348")
 	warning_title.text = title
 	warning_detail.text = detail
 	warning_banner.visible = not title.is_empty() and not blocked and game.phase == "playing"
