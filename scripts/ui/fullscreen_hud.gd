@@ -280,7 +280,12 @@ func configure(owner_game) -> void:
 	restart.reparent(menu,false)
 	restart.text = "重新开始"
 	restart.position = Vector2(24,238)
-	restart.size = Vector2(312,48)
+	restart.size = Vector2(148,48)
+	var replay_tutorial: Button = game.schedule._button(menu,Vector2(184,238),"重玩教程",func():
+		if game.tutorial and game.tutorial.eligible(): game.tutorial.replay()
+		else: game.show_status("入监教程在工厂地图中提供。",3))
+	replay_tutorial.name = "ReplayTutorial"
+	replay_tutorial.size = Vector2(152,48)
 	game.developer_settings.button.reparent(menu,false)
 	game.developer_settings.button.position = Vector2(24,296)
 	game.developer_settings.button.size = Vector2(312,48)
@@ -530,7 +535,7 @@ func refresh() -> void:
 	# z_index alone does not determine Control input order; hide the covered
 	# global entry as well, so the last HUD child cannot intercept planner taps.
 	menu_button.z_index = 120 if planning else 240
-	menu_button.visible = not blocked or menu.visible
+	menu_button.visible = not blocked or menu.visible or (game.tutorial and game.tutorial.active and not game.tutorial.transition)
 	clock.queue_redraw()
 	clock.disabled = blocked
 	routine_button.disabled = game.phase != "playing"
@@ -540,6 +545,7 @@ func refresh() -> void:
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text
 	goal.text = "逃脱 %d/1" % game.escape_count()
+	if game.tutorial and game.tutorial.active: goal.text = "入监日 %d/6" % int(game.tutorial.step().get("chapter",1))
 	wallet.text = str(game.inventory.wallet)
 	for face in faces:
 		face.queue_redraw()

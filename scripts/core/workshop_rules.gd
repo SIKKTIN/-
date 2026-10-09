@@ -139,6 +139,11 @@ func update_gate() -> void:
 func tick(delta: float) -> void:
 	if config.is_empty() or game.phase != "playing" or game.get_tree().paused: return
 	update_gate()
+	if game.tutorial and game.tutorial.active and not game.tutorial.supervision_enabled():
+		warnings.clear()
+		wanted.clear()
+		overseer.tick(delta)
+		return
 	if not on_duty():
 		overseer.tick(delta)
 		return

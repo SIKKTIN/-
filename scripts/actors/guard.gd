@@ -71,6 +71,7 @@ func labor_enforcement() -> bool:
 	return game.workshop != null and game.workshop.on_duty()
 
 func pursuit_allowed(actor) -> bool:
+	if game.tutorial and game.tutorial.active: return false
 	if actor.escaped or actor.confined or game.elapsed < actor.immune_until: return false
 	if game.workshop != null and game.workshop.outside_violation(actor.actor_id): return true
 	return curfew_alert() and not (game.routines != null and game.routines.is_lawful(actor.actor_id)) and actor.actor_id != chat_partner_id and not (game.schedule != null and game.schedule.is_sleeping(actor.actor_id))
@@ -177,6 +178,7 @@ func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing" or game.get_tree().paused:
 		return
+	if game.tutorial and game.tutorial.controls_guard(self,delta): return
 	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
 	if not curfew_alert() and not labor_enforcement() and state in ["chasing", "searching"]:
 		release_target()

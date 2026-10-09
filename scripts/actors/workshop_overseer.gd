@@ -27,6 +27,7 @@ func curfew_alert() -> bool:
 func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing" or game.get_tree().paused or rules == null: return
+	if game.tutorial and game.tutorial.controls_guard(self,delta): return
 	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
 	if not rules.on_duty():
 		if global_alert(): super.tick(delta)

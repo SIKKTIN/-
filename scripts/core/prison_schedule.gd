@@ -6,6 +6,7 @@ var limit_seconds: float = 900
 var day_seconds: float = 300
 var escape_days: int = 3
 var stage_day: int = -1
+var calendar_day_offset := 0
 var skip_button: Button
 var schedule_note: Label
 var clock_elapsed: float = 0
@@ -95,6 +96,7 @@ func _make_ui() -> void:
 	result_blocker.hide()
 
 func reset() -> void:
+	calendar_day_offset = 0
 	day_seconds = float(config.room_seconds.get(game.room_id,300))
 	escape_days = int(config.get("escape_days",3)) if escape_days < 1 else escape_days
 	limit_seconds = day_seconds*escape_days
@@ -108,9 +110,11 @@ func reset() -> void:
 	tick(false)
 
 func remaining() -> float:
+	if game.tutorial and game.tutorial.active: return limit_seconds
 	return maxf(0,limit_seconds-clock_elapsed)
 
 func real_remaining() -> float:
+	if game.tutorial and game.tutorial.active: return INF
 	return remaining()/time_speed if time_speed > 0 else INF
 
 func advance(real_delta: float) -> void:
@@ -142,9 +146,11 @@ func clock_minutes() -> float:
 	return fposmod(absolute_minutes(),1440.0)
 
 func day_number() -> int:
-	return 1+floori(absolute_minutes()/1440.0)
+	if game.tutorial and game.tutorial.active: return 1
+	return 1+floori(absolute_minutes()/1440.0)+calendar_day_offset
 
 func time_left_text() -> String:
+	if game.tutorial and game.tutorial.active: return "教程日 · 期限未开始"
 	var minutes := ceili(remaining()/day_seconds*1440)
 	return "余 %d天 %02d:%02d" % [minutes/1440,(minutes%1440)/60,minutes%60]
 
@@ -175,6 +181,7 @@ func is_sleeping(actor_id: int) -> bool:
 	return is_sleep_time() and not actor.escaped and in_dormitory(actor_id) and actor.position.distance_to(actor.home) <= 28 and not game.orders.active.has(actor_id) and actor.action_state == "idle"
 
 func can_skip_night() -> bool:
+	if game.tutorial and game.tutorial.active: return false
 	return game.phase == "playing" and is_sleep_time() and not (game.prison_alert != null and game.prison_alert.active) and game.actors.all(func(a): return not a.escaped and is_sleeping(a.actor_id))
 
 func skip_night() -> void:
@@ -282,8 +289,11 @@ func tick(announce: bool = true) -> void:
 	if game.prison_alert != null and game.prison_alert.active:
 		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到07:20起床点名结束，期间无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
-	var seconds := ceili(real_remaining()) if time_speed > 0 else 0
+	var seconds := ceili(real_remaining()) if time_speed > 0 and is_finite(real_remaining()) else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
+	if game.tutorial and game.tutorial.active:
+		left = "教程日 · 期限未开始"
+		schedule_note.text = "第1天为入监教程，不占正式三天期限。\n讲解暂停作息，完成任务后进入下一时段。"
 	clock_label.text = "%02d:%02d · %s · %s" % [floori(minute/60),floori(minute)%60,stage.name,left]
 	clock_label.add_theme_color_override("font_color",Color("bc5348") if is_curfew() or real_remaining() <= 30 else Color("303b46"))
 	stage_button.text = "日程 · %s" % stage.name

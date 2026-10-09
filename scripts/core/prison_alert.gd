@@ -118,6 +118,7 @@ func search_route(officer) -> Array[Vector2]:
 	return routes.get(officer.get_instance_id(),game.world.patrol)
 
 func tick(delta: float) -> void:
+	if game.tutorial and game.tutorial.active: return
 	check_rollcall()
 	if game.phase == "playing" and not game.get_tree().paused:
 		for officer in reinforcements:

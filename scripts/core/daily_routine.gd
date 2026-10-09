@@ -251,6 +251,9 @@ func tick() -> void:
 	offer_morning()
 
 func offer_morning() -> void:
+	if game.tutorial and game.tutorial.active:
+		morning_pending = false
+		return
 	# The first routine tick precedes the UI's construction. Keep the request
 	# pending until both panels exist; each new arrangement day gets one offer.
 	if not morning_pending or game.phase != "playing" or game.schedule.remaining() <= 0 or current_slot() < 0:

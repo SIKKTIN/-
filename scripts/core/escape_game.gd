@@ -28,6 +28,7 @@ const MobileControls = preload("res://scripts/core/mobile_controls.gd")
 const RoomAccess = preload("res://scripts/core/room_access.gd")
 const WorkshopRules = preload("res://scripts/core/workshop_rules.gd")
 const NpcDialogue = preload("res://scripts/ui/npc_dialogue.gd")
+const TutorialDay = preload("res://scripts/core/tutorial_day.gd")
 const ROOM := Rect2(74, 114, 922, 560)
 const STARTS := [Vector2(180, 235), Vector2(235, 375), Vector2(185, 510)]
 const ACTOR_RADIUS := preload("res://scripts/core/actor_footprint.gd").RADIUS
@@ -58,6 +59,7 @@ var room_visibility
 var room_access
 var workshop
 var dialogue
+var tutorial
 var confinement_counts: Array[int] = [0,0,0]
 var failure_reason := ""
 var editor_preview_mode := false
@@ -211,6 +213,10 @@ func _ready() -> void:
 	var retained_floor=preload("res://scripts/presentation/floor_canvas.gd").new()
 	add_child(retained_floor)
 	retained_floor.configure(self)
+	tutorial = TutorialDay.new()
+	tutorial.name = "TutorialDay"
+	add_child(tutorial)
+	tutorial.configure(self)
 	routines.offer_morning()
 	if editor_preview_mode:
 		room_selector.disabled = true
@@ -282,6 +288,11 @@ func _build_ui() -> void:
 func _process(delta: float) -> void:
 	if get_tree().paused:
 		return
+	if tutorial and tutorial.speaking():
+		tutorial.tick(delta)
+		presentation.tick(delta)
+		fullscreen_ui.refresh()
+		return
 	if phase != "playing":
 		if map_camera:
 			map_camera.tick(delta)
@@ -293,8 +304,9 @@ func _process(delta: float) -> void:
 	var behaviors_before: Array = attributes.behaviors() if attributes else []
 	var previous_clock: float = schedule.clock_elapsed if schedule else 0.0
 	if schedule:
-		schedule.advance(delta)
-		if schedule.time_speed > 0:
+		if tutorial and tutorial.active: tutorial.advance_clock(delta)
+		else: schedule.advance(delta)
+		if schedule.time_speed > 0 and not (tutorial and tutorial.active):
 			delta = minf(delta,(schedule.clock_elapsed-previous_clock)/schedule.time_speed)
 	elapsed += delta
 	if room_access:
@@ -334,6 +346,7 @@ func _process(delta: float) -> void:
 	world.end_ai_paths()
 	if room_visibility: room_visibility.tick(delta)
 	if dialogue: dialogue.tick()
+	if tutorial: tutorial.tick(delta)
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
 		finish_timeout()
 	guard_position = guard.position
@@ -416,6 +429,11 @@ func stop_selected() -> void:
 	_update_ui()
 
 func on_actor_escaped(actor_id: int) -> void:
+	if tutorial and tutorial.active:
+		actors[actor_id].escaped = false
+		orders.issue(actor_id,actors[actor_id].home,"tutorial_return")
+		show_status("入监日先熟悉作息；正式三天开始后再寻找逃脱机会。",4)
+		return
 	inventory.carry_out(actor_id)
 	if actors[PLAYER_ACTOR_ID].escaped:
 		phase = "complete"
@@ -450,6 +468,7 @@ func select_actor(index: int) -> void:
 	_update_ui()
 
 func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
+	if tutorial: tutorial.cancel()
 	if fullscreen_ui:
 		fullscreen_ui.close_menu()
 		fullscreen_ui.bag_open = false
@@ -501,6 +520,9 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routines.reset()
 	if schedule:
 		schedule.reset()
+		if tutorial and tutorial.completed and tutorial.eligible():
+			schedule.calendar_day_offset = 1
+			schedule.tick(false)
 	if room_visibility: room_visibility.reset()
 	if gate_watch:
 		gate_watch.reset(room_config)
@@ -520,6 +542,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		routine_panel.reload()
 	if map_camera:
 		map_camera.reset()
+	if tutorial: tutorial.on_round_reset()
 	_update_ui()
 	queue_redraw()
 
@@ -597,6 +620,7 @@ func snapshot() -> Dictionary:
 	return {"room_access":room_access.snapshot() if room_access else {},"prison_alert":alarm,"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"confinement_counts":confinement_counts.duplicate(),"failure_reason":failure_reason,"dialogue":dialogue.snapshot() if dialogue else {},"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"routines":routines.snapshot() if routines else {},"dog":dog.snapshot() if dog else {}}
 
 func world_input_blocked() -> bool:
+	if tutorial and tutorial.blocks_input(): return true
 	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible) or (routine_panel != null and routine_panel.panel.visible) or (dialogue != null and dialogue.panel.visible)
 
 func finish_timeout() -> void:
@@ -617,6 +641,9 @@ func finish_failure(reason: String) -> void:
 	schedule.show_result(false)
 
 func capture_actor(actor_id: int) -> void:
+	if tutorial and tutorial.active:
+		tutorial.on_capture(actor_id)
+		return
 	if phase != "playing" or actor_id < 0 or actor_id >= actors.size() or actors[actor_id].escaped or actors[actor_id].confined: return
 	if dialogue: dialogue.close()
 	if mobile_controls and selected_actor_id == actor_id:

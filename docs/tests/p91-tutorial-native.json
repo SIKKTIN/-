@@ -1,0 +1,369 @@
+{
+	"checks": {
+		"actual_meal_twenty_minutes": true,
+		"actual_work_paid_wage": true,
+		"all_six_chapters_played": true,
+		"eight_oclock_gate_really_closed": true,
+		"formal_calendar_day_two": true,
+		"formal_clock_runs": true,
+		"formal_deadline_not_started": true,
+		"formal_morning_planner": true,
+		"formal_third_confinement_still_fails": true,
+		"full_day_completes": true,
+		"full_three_days_remain": true,
+		"guide_really_walked": true,
+		"lecture_holds_clock": true,
+		"overlay_and_marker_hidden": true,
+		"player_never_teleported_between_lessons": true,
+		"real_warning_and_recovery_exercised": true,
+		"replay_restarts_intake": true,
+		"skip_starts_clean_formal_day": true,
+		"tutorial_capture_not_failure_or_teleport": true,
+		"tutorial_default_first_day": true,
+		"tutorial_penalties_and_alert_cleared": true,
+		"tutorial_wallet_cleared": true,
+		"welcome_blocks_world_input": true
+	},
+	"events": [
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "welcome"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "guide_arrive"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "dorm_brief"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "follow_work"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(1340.0, 1145.0)",
+			"step": "enter_brief"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(1340.0, 1145.0)",
+			"step": "enter_work"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "work_brief"
+		},
+		{
+			"minute": 480.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "work_practice"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "monitor_arrive"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "warning_brief"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "warning_practice"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "lunch_brief"
+		},
+		{
+			"minute": 720.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "meal_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1018.021, 1787.167)",
+			"step": "chat_brief"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1018.021, 1787.167)",
+			"step": "chat_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1408.422, 1273.505)",
+			"step": "merchant_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(800.3796, 1216.92)",
+			"step": "tools_brief"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(800.3796, 1216.92)",
+			"step": "return_brief"
+		},
+		{
+			"minute": 810.0,
+			"player_position": "(800.3796, 1216.92)",
+			"step": "return_work"
+		},
+		{
+			"minute": 810.0,
+			"player_position": "(1010.467, 538.6611)",
+			"step": "afternoon_brief"
+		},
+		{
+			"minute": 840.0,
+			"player_position": "(1010.467, 538.6611)",
+			"step": "afternoon_work"
+		},
+		{
+			"minute": 854.640000000001,
+			"player_position": "(938.201, 509.3094)",
+			"step": "cell_brief"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(938.201, 509.3094)",
+			"step": "cell_tour"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "doors_brief"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "night_brief"
+		},
+		{
+			"minute": 1200.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "return_bed"
+		},
+		{
+			"minute": 1200.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "inspection_brief"
+		},
+		{
+			"minute": 1440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "inspection"
+		},
+		{
+			"minute": 1440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "complete"
+		}
+	],
+	"failed": [],
+	"max_guide_move": 5.00009441375732,
+	"max_player_move": 13.0003900527954,
+	"ticks": 2224,
+	"trace": [
+		{
+			"guide": "(750.0, 1300.0)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "welcome"
+		},
+		{
+			"guide": "(750.0, 1295.0)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "guide_arrive"
+		},
+		{
+			"guide": "(750.0, 445.0)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "dorm_brief"
+		},
+		{
+			"guide": "(750.0, 445.0)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "follow_work"
+		},
+		{
+			"guide": "(1289.701, 1115.971)",
+			"minute": 440.0,
+			"player": "(1340.0, 1145.0)",
+			"step": "enter_brief"
+		},
+		{
+			"guide": "(1291.192, 1111.198)",
+			"minute": 440.0,
+			"player": "(1340.0, 1145.0)",
+			"step": "enter_work"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 480.0,
+			"player": "(934.78, 507.92)",
+			"step": "work_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 480.0,
+			"player": "(934.78, 507.92)",
+			"step": "work_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "monitor_arrive"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "warning_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "warning_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 720.0,
+			"player": "(934.78, 507.92)",
+			"step": "lunch_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 720.0,
+			"player": "(934.78, 507.92)",
+			"step": "meal_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 740.160000000001,
+			"player": "(1018.021, 1787.167)",
+			"step": "chat_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 740.160000000001,
+			"player": "(1018.021, 1787.167)",
+			"step": "chat_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 740.160000000001,
+			"player": "(1408.422, 1273.505)",
+			"step": "merchant_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 740.160000000001,
+			"player": "(800.3796, 1216.92)",
+			"step": "tools_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 810.0,
+			"player": "(800.3796, 1216.92)",
+			"step": "return_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 810.0,
+			"player": "(800.3796, 1216.92)",
+			"step": "return_work"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 840.0,
+			"player": "(1010.467, 538.6611)",
+			"step": "afternoon_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 840.0,
+			"player": "(1010.467, 538.6611)",
+			"step": "afternoon_work"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 1080.0,
+			"player": "(938.201, 509.3094)",
+			"step": "cell_brief"
+		},
+		{
+			"guide": "(1053.272, 537.0905)",
+			"minute": 1080.0,
+			"player": "(938.201, 509.3094)",
+			"step": "cell_tour"
+		},
+		{
+			"guide": "(753.0449, 1428.99)",
+			"minute": 1080.0,
+			"player": "(750.0, 1480.0)",
+			"step": "doors_brief"
+		},
+		{
+			"guide": "(753.0449, 1428.99)",
+			"minute": 1200.0,
+			"player": "(750.0, 1480.0)",
+			"step": "night_brief"
+		},
+		{
+			"guide": "(753.0449, 1428.99)",
+			"minute": 1200.0,
+			"player": "(750.0, 1480.0)",
+			"step": "return_bed"
+		},
+		{
+			"guide": "(762.5441, 782.3513)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "inspection_brief"
+		},
+		{
+			"guide": "(761.9611, 777.3854)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "inspection"
+		},
+		{
+			"guide": "(520.0684, 414.6891)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "complete"
+		}
+	],
+	"tutorial": {
+		"active": false,
+		"captures_demo": 0,
+		"chapter": 1.0,
+		"completed": true,
+		"events": [
+			{
+				"minute": 440.0,
+				"player_position": "(428.0, 413.97)",
+				"step": "welcome"
+			}
+		],
+		"step": "welcome",
+		"target": ""
+	}
+}
