@@ -65,6 +65,7 @@ func view_radius() -> float:
 	return NIGHT_VIEW_RADIUS if night else DAY_VIEW_RADIUS
 
 func inspection_allowed() -> bool:
+	if game.tutorial and game.tutorial.active and self == game.guard: return true
 	return labor_enforcement() or global_alert() or returning_from_inspection or (game.schedule != null and game.schedule.is_sleep_time())
 
 func labor_enforcement() -> bool:

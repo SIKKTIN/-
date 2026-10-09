@@ -152,6 +152,8 @@ func paint_information(canvas: CanvasItem) -> void:
 			if game.staff_traffic:
 				var commute: String = game.staff_traffic.label(actor)
 				if not commute.is_empty(): label = commute
+			if game.tutorial and game.tutorial.active and actor == game.guard:
+				label = "陈教官 · 讲解" if game.tutorial.speaking() and game.tutorial.presenter()==actor else "陈教官 · 带队"
 			canvas.draw_string(font,Vector2(-22,top),label,HORIZONTAL_ALIGNMENT_LEFT,-1,14,direction_color)
 		if actor.state == "chasing" and not fx.is_empty():
 			var symbol := "searching" if actor.lost_time > 0 else "detected"

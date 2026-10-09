@@ -40,6 +40,14 @@ var transition := false
 var transition_age := 0.0
 var transition_reset := false
 var transition_cover: ColorRect
+var speech
+var dialogue_ready := false
+var lines: Array = []
+var line_index := 0
+var rendezvous := Vector2.ZERO
+var rendezvous_retry := 0.0
+var conversations: Array = []
+var rendezvous_choice := 0
 
 func configure(owner_game):
 	game = owner_game
@@ -47,6 +55,9 @@ func configure(owner_game):
 	for step in JSON.parse_string(FileAccess.get_file_as_string("res://data/tutorial_day.json")).steps:
 		steps[str(step.id)] = step
 	_make_ui()
+	speech = preload("res://scripts/ui/tutorial_speech.gd").new()
+	game.get_node("HUD").add_child(speech)
+	speech.configure(self)
 	marker = TargetMarker.new()
 	marker.name = "TutorialDestination"
 	marker.hide()
@@ -110,25 +121,25 @@ func layout():
 	var left: float = game.mobile_controls.pad.position.x+game.mobile_controls.pad.size.x+8
 	var right: float = game.fullscreen_ui.action_button.position.x-12
 	var width := minf(650,maxf(400,right-left))
-	panel.size = Vector2(width,250)
+	panel.size = Vector2(width,164)
 	panel.position = Vector2(clampf(safe.get_center().x-width/2,left,maxf(left,right-width)),safe.end.y-panel.size.y-8)
 	title.position = Vector2(16,10)
 	title.size = Vector2(panel.size.x-32,29)
-	speaker.position = Vector2(16,41)
-	speaker.size = Vector2(panel.size.x-32,20)
-	body.position = Vector2(16,66)
-	body.size = Vector2(panel.size.x-32,98)
-	note.position = Vector2(16,168)
+	speaker.hide()
+	body.position = Vector2(16,43)
+	body.size = Vector2(panel.size.x-32,42)
+	note.position = Vector2(16,88)
 	note.size = Vector2(panel.size.x-32,20)
-	primary.position = Vector2(16,196)
+	primary.position = Vector2(16,112)
 	primary.size = Vector2(panel.size.x-156,32)
-	skip_button.position = Vector2(panel.size.x-126,196)
+	skip_button.position = Vector2(panel.size.x-126,112)
 	skip_button.size = Vector2(110,32)
 
 func cancel():
 	active = false
 	panel.hide()
 	marker.hide()
+	if speech: speech.hide()
 	game.guard.path.clear()
 	if is_instance_valid(game.workshop.overseer): game.workshop.overseer.path.clear()
 
@@ -142,6 +153,7 @@ func begin():
 	active = true
 	completed = false
 	events.clear()
+	conversations.clear()
 	demonstration_captures = 0
 	warning_seen = false
 	chat_seen = false
@@ -201,7 +213,54 @@ func blocks_input() -> bool:
 	return transition or (active and step().get("kind","") in ["brief","cinematic"])
 
 func speaking() -> bool:
-	return transition or (active and step().get("kind","") == "brief")
+	return transition or (active and step().get("kind","") == "brief" and dialogue_ready)
+
+func presenter():
+	match str(step().get("presenter","instructor")):
+		"overseer": return game.workshop.overseer
+		"merchant": return game.trade.actors.values()[0] if not game.trade.actors.is_empty() else game.guard
+	return game.guard
+
+func presenter_name() -> String:
+	match str(step().get("presenter","instructor")):
+		"overseer": return "监工 · 老周"
+		"merchant": return "商人"
+	return "陈教官"
+
+func current_line() -> String:
+	return str(lines[line_index]) if not lines.is_empty() else ""
+
+func _conversation_ready() -> bool:
+	var actor = presenter()
+	if not is_instance_valid(actor): return false
+	var player = game.actors[0]
+	if step_id in ["work_brief","afternoon_brief"] and not game.workshop.area.has_point(game.guard.position): return false
+	return actor.position.distance_to(player.position)<145 and game.world.line_clear(actor.position,player.position) and not game.world.is_under_roof(actor.position)
+
+func _beside_player(actor) -> Vector2:
+	var player = game.actors[0]
+	if actor.position.distance_to(player.position)>52 and actor.position.distance_to(player.position)<125 and game.world.line_clear(actor.position,player.position): return actor.position
+	var offsets := [Vector2(82,0),Vector2(-82,0),Vector2(0,82),Vector2(0,-82),Vector2(65,65),Vector2(-65,65),Vector2(100,-60),Vector2(-100,-60)]
+	for i in range(offsets.size()):
+		var offset: Vector2 = offsets[(i+rendezvous_choice)%offsets.size()]
+		var goal: Vector2 = player.position+offset
+		if game.world.can_place_circle(goal,8,actor,true) and game.world.line_clear(goal,player.position): return goal
+	return player.position
+
+func _begin_dialogue():
+	# Let the presenter and escort actually enter before the bell locks the
+	# workshop. Advancing the period on arrival avoids stranding a slower NPC.
+	if step_id in ["work_brief","afternoon_brief"]: _clock(float(step().clock))
+	dialogue_ready = true
+	text_revealed = 0
+	var actor = presenter()
+	# The world is held while listening. Clear the previous movement sample,
+	# otherwise a companion that just arrived keeps walking in place.
+	for person in game.actors+game.guard.warning_officers()+game.trade.actors.values():
+		person.moved_this_frame = false
+	actor.facing = actor.position.direction_to(game.actors[0].position)
+	game.actors[0].facing = game.actors[0].position.direction_to(actor.position)
+	conversations.append({"step":step_id,"speaker":presenter_name(),"distance":actor.position.distance_to(game.actors[0].position),"line_clear":game.world.line_clear(actor.position,game.actors[0].position)})
 
 func supervision_enabled() -> bool:
 	return not active or step_id == "warning_practice"
@@ -231,10 +290,18 @@ func _enter(id: String):
 	age = 0
 	work_seconds = 0
 	text_revealed = 0
+	dialogue_ready = false
+	line_index = 0
+	lines = step().get("lines",[str(step().text)]).duplicate()
+	rendezvous_retry = 0
+	rendezvous_choice = 0
 	guide_retry = 0
 	game.guard.path.clear()
 	events.append({"step":id,"minute":game.schedule.absolute_minutes(),"player_position":str(game.actors[0].position)})
-	if step().has("clock"): _clock(float(step().clock))
+	if step().has("clock") and step_id not in ["work_brief","afternoon_brief"]: _clock(float(step().clock))
+	if step().kind == "brief":
+		game.routines.take_control(0)
+		rendezvous = _beside_player(presenter())
 	if speaking() or blocks_input():
 		game.mobile_controls.cancel_input()
 		game.orders.stop(0)
@@ -263,9 +330,12 @@ func _enter(id: String):
 func continue_lesson():
 	if not active: return
 	if speaking():
-		if body.visible_characters >= 0 and body.visible_characters < body.text.length():
-			text_revealed = body.text.length()
-			body.visible_characters = -1
+		if text_revealed < current_line().length():
+			text_revealed = current_line().length()
+			return
+		if line_index+1<lines.size():
+			line_index += 1
+			text_revealed = 0
 			return
 		_enter(str(step().next))
 	elif step().get("kind","") == "objective":
@@ -294,6 +364,12 @@ func _target(symbol: String) -> Vector2:
 
 func controls_guard(actor, delta: float) -> bool:
 	if not active: return false
+	if step().kind == "brief" and actor == presenter():
+		if not dialogue_ready: _walk_guard(actor,rendezvous,delta,false)
+		else:
+			actor.moved_this_frame = false
+			actor.facing = actor.position.direction_to(game.actors[0].position)
+		return true
 	if actor == game.workshop.overseer and step_id in ["monitor_arrive","warning_brief"]:
 		_walk_guard(actor,monitor_goal,delta,false)
 		return true
@@ -301,7 +377,12 @@ func controls_guard(actor, delta: float) -> bool:
 	if speaking(): return true
 	var move_steps := ["guide_arrive","follow_work","enter_work","cell_tour","return_bed","inspection"]
 	if step_id not in move_steps:
-		actor.moved_this_frame = false
+		rendezvous_retry -= maxf(delta,0)
+		if rendezvous_retry<=0:
+			if actor.path.is_empty() and actor.position.distance_to(rendezvous)>40: rendezvous_choice += 1
+			rendezvous = _beside_player(actor)
+			rendezvous_retry = 0.65
+		_walk_guard(actor,rendezvous,delta,false)
 		return true
 	var destination := guide_goal
 	if step_id == "enter_work": destination = _visible_approach(game.routines._target(0,"work"))
@@ -362,12 +443,18 @@ func on_capture(actor_id: int):
 		caught_message_until = age+5
 		game.show_status("这是教程示范：不计禁闭次数。请实际工作，让警戒缓慢消退。",5)
 
-func _focus(point: Vector2, delta: float):
+func _focus(point: Vector2, delta: float, conversation := false):
 	game.map_camera.following = false
 	var limits: Array = game.map_camera.camera_limits()
-	var desired: Vector2 = (point-game.map_camera.view_rect().size/2).clamp(limits[0],limits[1])
+	var anchor: Vector2 = Vector2(game.map_camera.view_rect().size.x/2,panel.position.y-14) if conversation else game.map_camera.view_rect().size/2
+	var desired: Vector2 = (point-anchor).clamp(limits[0],limits[1])
 	game.map_camera.position = game.map_camera.position.lerp(desired,1-exp(-maxf(delta,0)*3))
 	game.map_camera.force_update_scroll()
+
+func _conversation_focus(delta: float):
+	var player: Vector2 = game.actors[0].position
+	var host: Vector2 = presenter().position
+	_focus(Vector2((player.x+host.x)/2,maxf(player.y,host.y)),delta,true)
 
 func tick(delta: float):
 	if not active or game.get_tree().paused: return
@@ -377,10 +464,19 @@ func tick(delta: float):
 		capture_pending = false
 		game.workshop.warnings[0] = 2.5
 	age += maxf(delta,0)
+	if step().kind == "brief" and not dialogue_ready:
+		if _conversation_ready(): _begin_dialogue()
+		elif presenter()==game.guard or presenter()==game.workshop.overseer:
+			rendezvous_retry -= maxf(delta,0)
+			if rendezvous_retry<=0:
+				if presenter().path.is_empty() and presenter().position.distance_to(rendezvous)>40: rendezvous_choice += 1
+				rendezvous = _beside_player(presenter())
+				rendezvous_retry = 0.8
+		_conversation_focus(delta)
 	if speaking():
 		text_revealed += maxf(delta,0)*45
-		body.visible_characters = mini(body.text.length(),floori(text_revealed))
-		_focus(_target(str(step().get("focus","bed" if step_id in ["welcome","dorm_brief"] else "station" if step().chapter in [2,3] else "cell" if step_id == "cell_brief" else "bed" if step_id in ["night_brief","inspection_brief","complete"] else "npc"))),delta)
+		text_revealed = minf(text_revealed,current_line().length())
+		_conversation_focus(delta)
 	elif step().get("kind","") == "cinematic":
 		_focus(game.workshop.overseer.position if step_id == "monitor_arrive" else game.guard.position,delta)
 	var done := false
@@ -425,16 +521,20 @@ func _refresh():
 	panel.visible = not game.fullscreen_ui.menu.visible and not game.dialogue.panel.visible and not game.shop_panel.panel.visible and not game.routine_panel.panel.visible and not game.schedule.panel.visible
 	title.text = "入监日 %d/6 · %s" % [int(step().chapter),str(step().title)]
 	speaker.text = str(step().get("speaker","你的任务"))
-	if body.text != str(step().text): body.text = str(step().text)
-	if not speaking(): body.visible_characters = -1
-	note.text = "教程演出 · 输入暂时交给看守" if step().kind == "cinematic" else "讲解暂停作息 · 教程不占正式三天期限" if speaking() else "亲自完成任务后继续 · 教程示范不计失败次数"
+	var task: String = str(step().get("task",step().title))
+	if step().kind == "brief": task = "与%s交谈，听完再继续。" % presenter_name() if dialogue_ready else "%s正在走来，请稍等。" % presenter_name()
+	if body.text != task: body.text = task
+	body.visible_characters = -1
+	note.text = "现场演示 · 观察角色行动" if step().kind == "cinematic" else "交谈时暂停作息 · 不占正式期限" if step().kind == "brief" else "完成任务后继续 · 演练不计禁闭次数"
 	if step_id == "warning_practice" and age<caught_message_until: note.text = "教程示范被抓，不记禁闭次数；请继续工作。"
 	primary.visible = step().kind != "cinematic"
-	primary.text = str(step().get("button","继续")) if speaking() else "指向目标"
+	primary.disabled = step().kind == "brief" and not dialogue_ready
+	primary.text = ("继续听" if line_index+1<lines.size() else str(step().get("button","继续"))) if speaking() else "等待教官" if step().kind == "brief" else "指向目标"
 	marker.visible = step().kind == "objective"
 	marker.position = _target(str(step().get("target","")))
 	marker.z_index = mini(4094,maxi(0,int(marker.position.y)-1))
 	game.fullscreen_ui.clock.queue_redraw()
+	if speech: speech.refresh()
 
 func snapshot() -> Dictionary:
-	return {"active":active,"completed":completed,"step":step_id,"chapter":step().get("chapter",0),"captures_demo":demonstration_captures,"events":events.duplicate(true),"target":str(_target(str(step().get("target","")))) if active else ""}
+	return {"active":active,"completed":completed,"step":step_id,"chapter":step().get("chapter",0),"captures_demo":demonstration_captures,"events":events.duplicate(true),"conversations":conversations.duplicate(true),"dialogue_ready":dialogue_ready,"speaker":presenter_name() if active else "","line":line_index,"target":str(_target(str(step().get("target","")))) if active else ""}
