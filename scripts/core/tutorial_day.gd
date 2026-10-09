@@ -7,6 +7,12 @@ class TargetMarker extends Node2D:
 		draw_line(Vector2(0,-28),Vector2(-6,-34),Color("f2ebdd"),3,true)
 		draw_line(Vector2(0,-28),Vector2(6,-34),Color("f2ebdd"),3,true)
 
+class TaskIcon extends Control:
+	func _draw():
+		for point in [Vector2(6,8),Vector2(16,17)]:
+			draw_circle(point,3.5,Color("526b71"),true,-1,true)
+			draw_line(point+Vector2(0,4),point+Vector2(0,8),Color("526b71"),4,true)
+
 var game
 var active := false
 var completed := false
@@ -68,15 +74,17 @@ func eligible() -> bool:
 	return game.room_id == "r04" and not game.editor_preview_mode and OS.get_environment("ESCAPE_TUTORIAL_MODE") != "off"
 
 func _make_ui():
-	panel = preload("res://scripts/ui/hud_skin.gd").Plate.new()
+	panel = Panel.new()
 	panel.name = "IntakeDay"
 	panel.z_index = 150
 	panel.theme = game.fullscreen_ui.theme
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color("f2ebdd")
+	style.bg_color = Color(0.95,0.92,0.86,0.95)
 	style.border_color = Color("7b8877")
-	style.set_border_width_all(2)
-	style.set_corner_radius_all(10)
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(7)
+	style.shadow_color = Color(0,0,0,0.12)
+	style.shadow_size = 2
 	panel.add_theme_stylebox_override("panel",style)
 	game.get_node("HUD").add_child(panel)
 	for size in [20,14,16,12]:
@@ -91,18 +99,35 @@ func _make_ui():
 			14: speaker = label
 			16: body = label
 			12: note = label
-	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	body.clip_text = true
+	body.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	var route := TaskIcon.new()
+	route.position = Vector2(12,10)
+	route.size = Vector2(22,28)
+	route.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.add_child(route)
 	primary = Button.new()
 	primary.focus_mode = Control.FOCUS_NONE
 	primary.pressed.connect(continue_lesson)
 	panel.add_child(primary)
 	skip_button = Button.new()
-	skip_button.text = "跳过"
+	skip_button.name = "SkipTutorial"
+	skip_button.text = "跳过教程"
 	skip_button.focus_mode = Control.FOCUS_NONE
-	skip_button.pressed.connect(finish)
+	skip_button.pressed.connect(func(): game.fullscreen_ui.close_menu(); finish())
 	preload("res://scripts/ui/hud_skin.gd").button(primary)
 	preload("res://scripts/ui/hud_skin.gd").button(skip_button)
-	panel.add_child(skip_button)
+	for state in ["normal","hover","pressed","disabled"]:
+		var button_style: StyleBoxFlat = primary.get_theme_stylebox(state).duplicate()
+		button_style.set_content_margin_all(4)
+		primary.add_theme_stylebox_override(state,button_style)
+	primary.icon = load("res://art/ui/fullscreen/locate.svg")
+	primary.add_theme_constant_override("icon_max_width",18)
+	primary.expand_icon = true
+	game.fullscreen_ui.menu.add_child(skip_button)
+	skip_button.position = Vector2(184,238)
+	skip_button.size = Vector2(152,48)
+	skip_button.hide()
 	panel.hide()
 	transition_cover = ColorRect.new()
 	transition_cover.name = "TutorialOvernight"
@@ -122,32 +147,41 @@ func layout():
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
 	var left: float = game.mobile_controls.pad.position.x+game.mobile_controls.pad.size.x+8
 	var right: float = minf(game.fullscreen_ui.bag_button.position.x,game.fullscreen_ui.action_button.position.x)-12
-	var width := minf(640,maxf(400,right-left))
-	panel.size = Vector2(width,92)
-	panel.position = Vector2(clampf(safe.get_center().x-width/2,left,maxf(left,right-width)),safe.end.y-panel.size.y-8)
-	title.add_theme_font_size_override("font_size",17)
-	title.position = Vector2(14,10)
-	title.size = Vector2(panel.size.x-202,26)
-	title.clip_text = true
+	var width := minf(400,maxf(280,right-left))
+	panel.size = Vector2(width,48)
+	panel.position = Vector2(clampf(safe.get_center().x-width/2,left,maxf(left,right-width)),safe.end.y-panel.size.y-12)
+	title.hide()
 	speaker.hide()
-	body.add_theme_font_size_override("font_size",13)
-	body.position = Vector2(14,38)
-	body.size = Vector2(panel.size.x-202,40)
+	body.add_theme_font_size_override("font_size",14)
+	body.position = Vector2(42,12)
+	body.size = Vector2(panel.size.x-126,26)
 	note.hide()
-	note.position = Vector2(14,84)
+	note.position = Vector2(14,50)
 	note.size = Vector2(panel.size.x-32,20)
-	primary.position = Vector2(panel.size.x-182,24)
-	primary.size = Vector2(104,44)
-	primary.add_theme_font_size_override("font_size",15)
-	skip_button.position = Vector2(panel.size.x-70,24)
-	skip_button.size = Vector2(56,44)
-	skip_button.add_theme_font_size_override("font_size",15)
+	primary.position = Vector2(panel.size.x-78,6)
+	primary.size = Vector2(70,36)
+	primary.add_theme_font_size_override("font_size",14)
+	if not primary.visible: body.size.x = panel.size.x-56
+
+func ui_visible() -> bool:
+	return active and not transition and not game.get_tree().paused and game.phase=="playing" and not game.fullscreen_ui.menu.visible and not game.dialogue.panel.visible and not game.shop_panel.panel.visible and not game.routine_panel.panel.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible
+
+func sync_visibility():
+	panel.visible = ui_visible() and not speaking()
+	skip_button.visible = active
+	skip_button.disabled = transition
+	if speech: speech.refresh()
+
+func task_caption() -> String:
+	if step().kind=="brief": return "%s正在走来，请稍等" % presenter_name()
+	return {"follow_work":"跟随陈教官到车间入口","enter_work":"进入车间，找到自己的工位","work_practice":"完成一轮工作，领取工资","warning_practice":"持续工作，让警戒消退","meal_practice":"取餐并用餐20分钟","chat_practice":"和伙伴聊天，聊完关闭面板","merchant_practice":"走到商人身边，认识工具","return_work":"回到工位，等待伙伴返工","afternoon_work":"完成一段下午劳动","cell_tour":"跟随教官参观禁闭室","return_bed":"回到床位，等待伙伴归寝","guide_arrive":"观察教官走向寝室门口","monitor_arrive":"等待监工走来查岗","inspection":"留在床位，观看教官点名"}.get(step_id,str(step().get("text","")))
 
 func cancel():
 	active = false
 	panel.hide()
 	marker.hide()
 	if speech: speech.hide()
+	skip_button.hide()
 	game.guard.path.clear()
 	if is_instance_valid(game.workshop.overseer): game.workshop.overseer.path.clear()
 
@@ -525,26 +559,24 @@ func tick(delta: float):
 
 func _refresh():
 	if not active: return
+	primary.visible = step().kind == "objective"
 	layout()
-	panel.visible = not game.fullscreen_ui.menu.visible and not game.dialogue.panel.visible and not game.shop_panel.panel.visible and not game.routine_panel.panel.visible and not game.schedule.panel.visible
 	title.text = "入监日 %d/6 · %s" % [int(step().chapter),str(step().title)]
 	speaker.text = str(step().get("speaker","你的任务"))
 	var task: String = str(step().get("task",step().title))
 	body.tooltip_text = task
-	if panel.size.x<520 and step().kind != "brief": task = str(step().get("text",task))
-	if step().kind == "brief": task = "与%s交谈，听完再继续。" % presenter_name() if dialogue_ready else "%s正在走来，请稍等。" % presenter_name()
+	task = task_caption()
 	if body.text != task: body.text = task
 	body.visible_characters = -1
 	note.text = "现场演示 · 观察角色行动" if step().kind == "cinematic" else "交谈时暂停作息 · 不占正式期限" if step().kind == "brief" else "完成任务后继续 · 演练不计禁闭次数"
 	if step_id == "warning_practice" and age<caught_message_until: note.text = "教程示范被抓，不记禁闭次数；请继续工作。"
-	primary.visible = step().kind != "cinematic"
-	primary.disabled = step().kind == "brief" and not dialogue_ready
-	primary.text = ("继续听" if line_index+1<lines.size() else "正式开始" if step_id=="complete" else "开始练习" if step_id=="warning_brief" else "跟上教官" if step_id=="welcome" else "继续") if speaking() else "等待教官" if step().kind == "brief" else "指向目标"
+	primary.disabled = step().kind != "objective"
+	primary.text = "定位"
 	marker.visible = step().kind == "objective"
 	marker.position = _target(str(step().get("target","")))
 	marker.z_index = mini(4094,maxi(0,int(marker.position.y)-1))
 	game.fullscreen_ui.clock.queue_redraw()
-	if speech: speech.refresh()
+	sync_visibility()
 
 func snapshot() -> Dictionary:
 	return {"active":active,"completed":completed,"step":step_id,"chapter":step().get("chapter",0),"captures_demo":demonstration_captures,"events":events.duplicate(true),"conversations":conversations.duplicate(true),"dialogue_ready":dialogue_ready,"speaker":presenter_name() if active else "","line":line_index,"target":str(_target(str(step().get("target","")))) if active else ""}

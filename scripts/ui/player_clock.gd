@@ -3,6 +3,10 @@ extends Button
 const HudArt = preload("res://scripts/ui/hud_skin.gd")
 var ui
 
+func calendar_text() -> String:
+	var tutorial = ui.game.tutorial
+	return "第%d天 · 入监日 %d/6" % [ui.game.schedule.day_number(),int(tutorial.step().get("chapter",1))] if tutorial and tutorial.active else "第%d天 · 正式逃脱" % ui.game.schedule.day_number()
+
 func _draw():
 	if not ui: return
 	var schedule = ui.game.schedule
@@ -20,7 +24,7 @@ func _draw():
 	var stage_size := 16
 	while ui.font.get_string_size(stage,HORIZONTAL_ALIGNMENT_LEFT,-1,stage_size).x>split-155 and stage.length()>3: stage = stage.left(stage.length()-2)+"…"
 	draw_string(ui.font,Vector2(144,38),stage,HORIZONTAL_ALIGNMENT_LEFT,-1,stage_size,ink)
-	draw_string(ui.font,Vector2(20,83),"第%d天 · %s" % [schedule.day_number(),"入监日" if tutorial else "正式逃脱"],HORIZONTAL_ALIGNMENT_LEFT,-1,16,ink)
+	draw_string(ui.font,Vector2(20,83),calendar_text(),HORIZONTAL_ALIGNMENT_LEFT,split-32,16,ink)
 	draw_line(Vector2(split,17),Vector2(split,size.y-17),Color("b9b4a4"),1,true)
 	var start := Vector2(split+20,30)
 	var length := size.x-split-40

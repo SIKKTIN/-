@@ -29,6 +29,7 @@ var routine_button: Button
 var sleep_button: Button
 var menu_button: Button
 var menu: Panel
+var replay_tutorial: Button
 var menu_blocker: ColorRect
 var inventory_paper: Panel
 var inventory_drawer
@@ -204,7 +205,7 @@ func configure(owner_game) -> void:
 	restart.text = "重新开始"
 	restart.position = Vector2(24,238)
 	restart.size = Vector2(148,48)
-	var replay_tutorial: Button = game.schedule._button(menu,Vector2(184,238),"重玩教程",func():
+	replay_tutorial = game.schedule._button(menu,Vector2(184,238),"重玩教程",func():
 		if game.tutorial and game.tutorial.eligible(): game.tutorial.replay()
 		else: game.show_status("入监教程在工厂地图中提供。",3))
 	replay_tutorial.name = "ReplayTutorial"
@@ -411,6 +412,8 @@ func position_toast() -> void:
 	for control in [game.mobile_controls.pad,action_button,ability_button,bag_button,target_button]:
 		if toast.get_global_rect().intersects(control.get_global_rect()):
 			toast.position.y = minf(toast.position.y,control.position.y-toast.size.y-8)
+	if game.tutorial and game.tutorial.panel.visible and toast.get_global_rect().intersects(game.tutorial.panel.get_global_rect()):
+		toast.position.y = minf(toast.position.y,game.tutorial.panel.position.y-toast.size.y-8)
 	game.status_label.size = toast.size-Vector2(24,14)
 
 func refresh() -> void:
@@ -478,6 +481,9 @@ func refresh() -> void:
 	toast.visible = game.elapsed < game.status_until and not game.world_input_blocked()
 	game.status_label.visible = toast.visible
 	refresh_warning(blocked)
+	if game.tutorial:
+		replay_tutorial.visible = not game.tutorial.active
+		game.tutorial.sync_visibility()
 
 func refresh_warning(blocked: bool) -> void:
 	var title := ""
