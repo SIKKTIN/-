@@ -1,0 +1,31 @@
+{
+	"checks": {
+		"arrival_hides_line": true,
+		"blocked_stationary_route_does_not_repeat_searches": true,
+		"closed_room_never_draws_through_locked_doors": true,
+		"conversation_hides_line": true,
+		"door_revision_invalidates_cache": true,
+		"every_route_segment_is_walkable": true,
+		"fixture_requires_a_turn_around_furniture": true,
+		"guide_button_fits_1200": true,
+		"guide_button_fits_960": true,
+		"leaving_target_restores_line": true,
+		"lecture_hides_navigation": true,
+		"meal_guides_to_table_after_pickup": true,
+		"movement_trims_or_replans_safe_route": true,
+		"moving_npc_updates_destination": true,
+		"navigation_replaces_destination_circle": true,
+		"npc_conversation_opens": true,
+		"opening_door_restores_safe_route": true,
+		"pause_hides_navigation": true,
+		"reset_clears_old_route": true,
+		"resume_restores_navigation": true,
+		"route_below_people_and_props": true,
+		"route_reaches_work_station": true,
+		"stationary_five_seconds_does_not_repath": true
+	},
+	"failed": [],
+	"max_search_ms": 11.417,
+	"path_searches": 8,
+	"total": 23
+}

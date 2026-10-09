@@ -1,11 +1,7 @@
 extends Node
 
-class TargetMarker extends Node2D:
-	func _draw():
-		draw_arc(Vector2.ZERO,22,0,TAU,32,Color("cfac65"),3,true)
-		draw_line(Vector2(0,-42),Vector2(0,-28),Color("f2ebdd"),3,true)
-		draw_line(Vector2(0,-28),Vector2(-6,-34),Color("f2ebdd"),3,true)
-		draw_line(Vector2(0,-28),Vector2(6,-34),Color("f2ebdd"),3,true)
+const NavigationGuide = preload("res://scripts/presentation/tutorial_navigation.gd")
+const NAVIGATION_RADII := {"follow_work":90.0,"chat_practice":95.0,"merchant_practice":100.0,"cell_tour":85.0,"return_work":60.0,"return_bed":20.0}
 
 class TaskIcon extends Control:
 	func _draw():
@@ -26,7 +22,7 @@ var body: Label
 var note: Label
 var primary: Button
 var skip_button: Button
-var marker: TargetMarker
+var marker
 var age := 0.0
 var work_seconds := 0.0
 var wage_baseline := 0
@@ -66,10 +62,9 @@ func configure(owner_game):
 	speech = preload("res://scripts/ui/tutorial_speech.gd").new()
 	game.get_node("HUD").add_child(speech)
 	speech.configure(self)
-	marker = TargetMarker.new()
-	marker.name = "TutorialDestination"
-	marker.hide()
+	marker = NavigationGuide.new()
 	game.add_child(marker)
+	marker.configure(self)
 	if eligible(): begin()
 
 func eligible() -> bool:
@@ -176,6 +171,17 @@ func sync_visibility():
 	skip_button.visible = active
 	skip_button.disabled = transition
 	if speech: speech.refresh()
+	if marker:
+		marker.set_guidance(ui_visible() and step().get("kind","")=="objective",navigation_target(),step_id,navigation_radius())
+
+func navigation_target() -> Vector2:
+	if step_id=="meal_practice":
+		var record: Dictionary = game.routines.records.get(0,{})
+		if record.get("kind","")=="meal" and record.get("meal_stage","")=="dine": return record.goal
+	return _target(str(step().get("target","")))
+
+func navigation_radius() -> float:
+	return NAVIGATION_RADII.get(step_id,24.0)
 
 func task_caption() -> String:
 	if step().kind=="brief": return "%s正在走来，请稍等" % presenter_name()
@@ -184,7 +190,7 @@ func task_caption() -> String:
 func cancel():
 	active = false
 	panel.hide()
-	marker.hide()
+	marker.reset()
 	if speech: speech.hide()
 	skip_button.hide()
 	game.guard.path.clear()
@@ -386,7 +392,8 @@ func continue_lesson():
 			return
 		_enter(str(step().next))
 	elif step().get("kind","") == "objective":
-		game.map_camera.center_on(_target(str(step().get("target",""))))
+		marker.request_refresh()
+		game.map_camera.locate_selected()
 
 func _visible_approach(point: Vector2) -> Vector2:
 	for offset in [Vector2(100,0),Vector2(0,100),Vector2(-100,0),Vector2(0,-100),Vector2(140,80)]:
@@ -576,10 +583,8 @@ func _refresh():
 	note.text = "现场演示 · 观察角色行动" if step().kind == "cinematic" else "交谈时暂停作息 · 不占正式期限" if step().kind == "brief" else "完成任务后继续 · 演练不计禁闭次数"
 	if step_id == "warning_practice" and age<caught_message_until: note.text = "教程示范被抓，不记禁闭次数；请继续工作。"
 	primary.disabled = step().kind != "objective"
-	primary.text = "定位"
-	marker.visible = step().kind == "objective"
-	marker.position = _target(str(step().get("target","")))
-	marker.z_index = mini(4094,maxi(0,int(marker.position.y)-1))
+	primary.text = "引导"
+	primary.tooltip_text = "刷新通行路线，回到角色视角"
 	game.fullscreen_ui.refresh_clock()
 	sync_visibility()
 
