@@ -1,83 +1,6 @@
 extends Node
 
-class ClockFace extends Button:
-	var ui
-	func _draw() -> void:
-		if not ui or not ui.game.schedule:
-			return
-		var schedule = ui.game.schedule
-		var minute: float = schedule.clock_minutes()
-		var ink := Color("303b46")
-		var alarm: bool = ui.game.prison_alert != null and ui.game.prison_alert.active
-		var danger: bool = alarm or schedule.is_curfew() or schedule.real_remaining() <= 30
-		var accent := Color("bc5348") if danger else ink
-		draw_circle(Vector2(32,28),14,ink,false,2,true)
-		draw_line(Vector2(32,28),Vector2(32,18),ink,2,true)
-		draw_line(Vector2(32,28),Vector2(40,33),ink,2,true)
-		var stage: String = schedule.config.stages[schedule.stage_index].name
-		if alarm:
-			stage = "全员警戒"
-		draw_string(ui.font,Vector2(58,36),"%02d:%02d" % [floori(minute/60),floori(minute)%60],HORIZONTAL_ALIGNMENT_LEFT,-1,25,accent)
-		draw_string(ui.font,Vector2(154,34),stage,HORIZONTAL_ALIGNMENT_LEFT,-1,18,accent)
-		var start := Vector2(24,54)
-		var length: float = size.x-48
-		var fraction := minute/1440.0
-		draw_line(start,start+Vector2(length,0),Color("a6ac9a"),4,true)
-		draw_line(start,start+Vector2(length*fraction,0),Color("c69c5e"),4,true)
-		for hour in [0,8,12,18,20,24]:
-			var point := start+Vector2(length*hour/24.0,0)
-			draw_circle(point,3,Color("68776e"),true,-1,true)
-			draw_string(ui.font,point+Vector2(-9,21),"%02d" % hour,HORIZONTAL_ALIGNMENT_LEFT,-1,12,ink)
-		draw_circle(start+Vector2(length*fraction,0),6,Color("f2ebdd"),true,-1,true)
-		draw_circle(start+Vector2(length*fraction,0),6,Color("c69c5e"),false,2,true)
-		draw_string(ui.font,Vector2(24,92),"第%d天 · %s" % [schedule.day_number(),schedule.time_left_text()],HORIZONTAL_ALIGNMENT_LEFT,-1,14,accent)
-
-class PartnerFace extends Control:
-	var ui
-	var index: int
-	func _draw() -> void:
-		var actor = ui.game.actors[index]
-		var portrait: Texture2D = ui.portraits[index]
-		if portrait:
-			var area := Rect2(8,6,38,48)
-			var fitted := portrait.get_size()*minf(area.size.x/portrait.get_width(),area.size.y/portrait.get_height())
-			draw_texture_rect(portrait,Rect2(area.position+(area.size-fitted)/2,fitted),false)
-		var ink := Color("303b46")
-		draw_string(ui.font,Vector2(53,22),str(index+1),HORIZONTAL_ALIGNMENT_LEFT,-1,18,ink)
-		if ui.game.actor_is_controllable(index):
-			draw_string(ui.font,Vector2(80,21),"禁闭%d/3" % ui.game.confinement_counts[index],HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("bc5348") if ui.game.confinement_counts[index] >= 2 else Color("727d70"))
-		var icon: Texture2D = ui.game.presentation.skill_icons.get(actor.skill_id)
-		if actor.skill_id == "backpack":
-			icon = ui.game.items_view.icon_for("backpack")
-		if icon and ui.game.actor_is_controllable(index):
-			draw_texture_rect(icon,Rect2(size.x-26,29,16,16),false)
-		draw_string(ui.font,Vector2(53,39),ui.game.SKILL_NAMES[actor.skill_id] if ui.game.actor_is_controllable(index) else "自动日程",HORIZONTAL_ALIGNMENT_LEFT,size.x-61,13,ink)
-		var state: String = "已逃脱" if actor.escaped else "移动中" if ui.game.orders.active.has(index) else {"idle":"待命","chatting":"交谈中","lockpicking":"撬锁中"}.get(actor.action_state,"待命")
-		if ui.game.routines and ui.game.routines.status_for(index) != "" and not actor.escaped:
-			state = ui.game.routines.status_for(index)
-		if ui.game.schedule.is_curfew() and not actor.escaped:
-			state = ui.game.schedule.actor_status(index)
-		if ui.game.dialogue and ui.game.dialogue.panel.visible: state = "交谈中"
-		if actor.selected and not actor.escaped and ui.game.mobile_controls.is_moving():
-			state = "移动中"
-		draw_string(ui.font,Vector2(53,56),state,HORIZONTAL_ALIGNMENT_LEFT,size.x-61,13,Color("536052"))
-		if ui.game.attributes:
-			var values: Dictionary = ui.game.attributes.values[index]
-			for row in range(2):
-				var value: float = values.stamina if row == 0 else values.fullness
-				var y: float = 63+row*12-minf(8,82-size.y)
-				var tint := Color("c9534b") if value < 25 else Color("328b82") if row == 0 else Color("c69c5e")
-				draw_string(ui.font,Vector2(8,y+4),"体力" if row == 0 else "饱腹",HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("536052"))
-				draw_rect(Rect2(38,y-3,size.x-78,5),Color("d3d7c8"))
-				draw_rect(Rect2(38,y-3,(size.x-78)*clampf(value/100.0,0,1),5),tint)
-				draw_string(ui.font,Vector2(size.x-34,y+4),str(roundi(value)),HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("536052"))
-		elif ui.game.routines and ui.game.routines.is_working(index):
-			draw_rect(Rect2(8,72,size.x-16,3),Color("d3d7c8"))
-			draw_rect(Rect2(8,72,(size.x-16)*ui.game.routines.work_progress(index),3),Color("c69c5e"))
-		if actor.selected and not actor.escaped:
-			draw_circle(Vector2(size.x-17,14),9,Color("328b82"),true,-1,true)
-			draw_line(Vector2(size.x-21,14),Vector2(size.x-17,18),Color.WHITE,2,true)
-			draw_line(Vector2(size.x-17,18),Vector2(size.x-11,10),Color.WHITE,2,true)
+const HudArt = preload("res://scripts/ui/hud_skin.gd")
 
 class MobileButton extends Button:
 	var ui
@@ -85,20 +8,21 @@ class MobileButton extends Button:
 	var primary := false
 	func _draw() -> void:
 		var ink := Color("303b46") if not disabled else Color("788176")
-		var icon_size := 30.0 if primary else 18.0
+		var icon_size := 30.0
 		if display_icon:
-			draw_texture_rect(display_icon,Rect2((size.x-icon_size)/2,18 if primary else 6,icon_size,icon_size),false,Color(1,1,1,0.45) if disabled else Color.WHITE)
-		var font_size := 17 if primary else 14
+			draw_texture_rect(display_icon,Rect2((size.x-icon_size)/2,10,icon_size,icon_size),false,Color(1,1,1,0.45) if disabled else Color.WHITE)
+		var font_size := 17
 		var lines := text.split("\n")
 		for row in range(lines.size()):
 			var text_width: float = ui.font.get_string_size(lines[row],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
 			var baseline := size.y-10-(lines.size()-1-row)*16
 			draw_string(ui.font,Vector2((size.x-text_width)/2,baseline),lines[row],HORIZONTAL_ALIGNMENT_LEFT,size.x-12,font_size,ink)
+		HudArt.rivets(self,size)
 
 var game
 var font: Font
 var theme: Theme
-var clock: ClockFace
+var clock
 var goal: Button
 var wallet: Button
 var routine_button: Button
@@ -107,10 +31,11 @@ var menu_button: Button
 var menu: Panel
 var menu_blocker: ColorRect
 var inventory_paper: Panel
+var inventory_drawer
 var toast: Panel
 var faces: Array = []
 var portraits: Array = []
-var minimap_collapsed := false
+var minimap_collapsed := true
 var map_toggle: Button
 var map_collapse: Button
 var last_size := Vector2.ZERO
@@ -143,11 +68,12 @@ func configure(owner_game) -> void:
 			if control is Label or control.name == "UseSkill":
 				control.hide()
 	game.presentation.lighting.toggle_button.hide()
-	clock = ClockFace.new()
+	clock = preload("res://scripts/ui/player_clock.gd").new()
 	clock.ui = self
 	clock.theme = theme
 	clock.focus_mode = Control.FOCUS_NONE
 	clock.pressed.connect(func(): game.schedule.toggle())
+	HudArt.button(clock)
 	hud.add_child(clock)
 	# Retain a hidden handle for older HUD consumers, without a menu entry.
 	routine_button = _button("",Callable())
@@ -219,33 +145,28 @@ func configure(owner_game) -> void:
 		var card: Button = game.cards[index]
 		card.text = ""
 		card.icon = null
-		card.theme_type_variation = "PartnerCard"
-		card.set_meta("base_style",theme.get_stylebox("normal","PartnerCard"))
-		card.set_meta("selected_style",theme.get_stylebox("normal","SelectedPartnerCard"))
+		HudArt.button(card)
+		card.set_meta("base_style",HudArt.box("paper"))
+		card.set_meta("selected_style",HudArt.box("paper"))
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		card.focus_mode = Control.FOCUS_NONE
-		var face := PartnerFace.new()
+		var face = preload("res://scripts/ui/player_status.gd").new()
 		face.ui = self
 		face.index = index
 		face.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		card.add_child(face)
 		faces.append(face)
-	inventory_paper = _paper("CurrentInventory")
-	inventory_paper.z_index = 105 # Above shop, below schedule/developer/result.
-	game.inventory_panel.label.reparent(inventory_paper,false)
-	game.inventory_panel.label.show()
-	for node in game.inventory_panel.slots+[game.inventory_panel.use_button,game.inventory_panel.drop_button]+game.inventory_panel.transfer_buttons:
-		node.reparent(inventory_paper,false)
-		node.theme = theme
-	game.mini_map.stop_button.reparent(inventory_paper,false)
-	game.mini_map.stop_button.icon = null
-	game.mini_map.stop_button.text = "停止"
+	inventory_drawer = preload("res://scripts/ui/inventory_drawer.gd").new()
+	add_child(inventory_drawer)
+	inventory_drawer.configure(self)
+	inventory_paper = inventory_drawer.paper
 	action_button = _mobile_button("互动",func(): game.presentation.interaction.activate_mobile(),true)
 	action_button.name = "MobileInteraction"
 	ability_button = _mobile_button("技能",game.use_selected_skill)
 	ability_button.name = "MobileAbility"
 	bag_button = _mobile_button("背包",toggle_bag)
 	bag_button.name = "MobileBag"
-	bag_button.display_icon = game.items_view.icon_for("backpack")
+	bag_button.display_icon = inventory_drawer.icon_for("backpack")
 	target_button = _button("切换",func(): game.presentation.interaction.cycle_mobile_target())
 	target_button.name = "MobileTargetCycle"
 	target_button.add_theme_font_size_override("font_size",14)
@@ -336,6 +257,7 @@ func _button(text: String, callback: Callable, icon: String = "") -> Button:
 	b.expand_icon = true
 	b.add_theme_constant_override("icon_max_width",24)
 	b.focus_mode = Control.FOCUS_NONE
+	HudArt.button(b)
 	if callback.is_valid():
 		b.pressed.connect(callback)
 	game.get_node("HUD").add_child(b)
@@ -359,6 +281,9 @@ func _mobile_button(text: String, callback: Callable, primary := false) -> Mobil
 			style.border_color = Color("328b82")
 			style.set_border_width_all(3)
 		b.add_theme_stylebox_override(state,style)
+	HudArt.button(b)
+	for color in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:
+		b.add_theme_color_override(color,Color.TRANSPARENT)
 	b.pressed.connect(callback)
 	game.get_node("HUD").add_child(b)
 	return b
@@ -395,11 +320,12 @@ func layout() -> void:
 	if button_layout and button_layout.editing and last_size != game.get_viewport_rect().size:
 		button_layout.end_drag()
 	last_size = game.get_viewport_rect().size
-	clock.position = safe.position
-	clock.size = Vector2(300,100)
+	var status_width := 246.0 if safe.size.x<1040 else 280.0
+	clock.position = safe.position+Vector2(status_width+12,0)
+	clock.size = Vector2(minf(500,safe.size.x-status_width-180),104)
 	routine_button.position = safe.position+Vector2(308,0)
 	routine_button.size = Vector2(124,48)
-	sleep_button.position = safe.position+Vector2(308,56)
+	sleep_button.position = safe.position+Vector2(status_width+12,112)
 	sleep_button.size = Vector2(148,48)
 	menu_button.position = Vector2(safe.end.x-52,safe.position.y)
 	menu_button.size = Vector2(52,52)
@@ -407,7 +333,7 @@ func layout() -> void:
 	wallet.size = Vector2(98,52)
 	goal.position = wallet.position-Vector2(142,0)
 	goal.size = Vector2(134,52)
-	fps_badge.position = Vector2(goal.position.x,goal.position.y+goal.size.y+8)
+	fps_badge.position = safe.position+Vector2(0,112)
 	fps_badge.size = Vector2(76,28)
 	var map_width := 200.0 if safe.size.x < 1040 else 220.0
 	var map_height := 160.0 if safe.size.x < 1040 else 174.0
@@ -426,17 +352,15 @@ func layout() -> void:
 	var pad: Control = game.mobile_controls.pad
 	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size-12)
 	pad.size = Vector2(pad_size,pad_size)
-	var card_top: float = clock.position.y+clock.size.y+12
-	var card_height: float = minf(82,maxf(64,pad.position.y-12-card_top))
 	for index in range(3):
-		game.cards[index].visible = game.actor_is_controllable(index)
-		game.cards[index].position = Vector2(safe.position.x,card_top+index*(card_height+8))
-		game.cards[index].size = Vector2(164,card_height)
+		game.cards[index].visible = index==0
+		game.cards[index].position = safe.position
+		game.cards[index].size = Vector2(status_width,104)
 		faces[index].size = game.cards[index].size
-	var warning_left: float = clock.position.x+clock.size.x+12
-	var warning_width: float = goal.position.x-12-warning_left
+	var warning_left: float = safe.position.x+status_width+12
+	var warning_width: float = safe.end.x-warning_left-230
 	if warning_width >= 320:
-		warning_banner.position = Vector2(warning_left,safe.position.y)
+		warning_banner.position = Vector2(warning_left,safe.position.y+112)
 		warning_banner.size = Vector2(minf(440,warning_width),68)
 	else:
 		warning_banner.size = Vector2(minf(400,safe.size.x-380),68)
@@ -444,14 +368,14 @@ func layout() -> void:
 	for label in [warning_title,warning_detail]: label.size = Vector2(warning_banner.size.x-24,28)
 	warning_meter.position = Vector2(12,60)
 	warning_meter.size = Vector2(warning_banner.size.x-24,4)
-	action_button.size = Vector2(104,104)
-	action_button.position = safe.end-action_button.size-Vector2(40,32)
-	ability_button.size = Vector2(72,64)
-	bag_button.size = Vector2(72,64)
-	bag_button.position = Vector2(action_button.position.x+32,action_button.position.y-76)
-	ability_button.position = bag_button.position-Vector2(84,0)
+	action_button.size = Vector2(104,76)
+	action_button.position = safe.end-action_button.size-Vector2(0,12)
+	ability_button.size = Vector2(76,76)
+	bag_button.size = Vector2(76,76)
+	ability_button.position = action_button.position-Vector2(88,0)
+	bag_button.position = ability_button.position-Vector2(88,0)
 	target_button.size = Vector2(56,48)
-	target_button.position = Vector2(action_button.position.x-68,action_button.position.y+28)
+	target_button.position = action_button.position-Vector2(0,60)
 	if button_layout:
 		button_layout.remember_defaults()
 		button_layout.apply_positions()
@@ -473,47 +397,9 @@ func layout() -> void:
 	refresh_inventory()
 
 func refresh_inventory() -> void:
-	if not inventory_paper:
-		return
-	var inv = game.inventory_panel
-	var capacity: int = game.inventory.capacity(game.selected_actor_id)
-	var has_item: bool = game.inventory.owns(game.selected_actor_id,inv.selected_item)
-	var actions: bool = has_item and not game.world_input_blocked()
-	var shop_open: bool = game.shop_panel.panel.visible
-	var width := 212 if shop_open or not actions else 284
-	var safe := safe_area()
-	inventory_paper.size = Vector2(width,132+(112 if actions else 0))
-	var bottom: float = safe.end.y if shop_open else bag_button.position.y-12
-	inventory_paper.position = Vector2(safe.end.x-width,maxf(safe.position.y+112,bottom-inventory_paper.size.y))
-	inv.label.position = Vector2(14,18)
-	inv.label.size = Vector2(width-82,32)
-	inv.label.text = "伙伴 %d · %d/%d" % [game.selected_actor_id+1,game.inventory.items(game.selected_actor_id).size(),capacity]
-	for index in range(inv.slots.size()):
-		var slot: Button = inv.slots[index]
-		slot.position = Vector2(14+index*64,62)
-		slot.size = Vector2(56,56)
-		slot.visible = index < capacity
-		slot.disabled = game.phase != "playing" or game.actors[game.selected_actor_id].escaped or (game.world_input_blocked() and not shop_open)
-		slot.theme = theme
-		slot.theme_type_variation = "InventorySlot"
-		if slot.get_theme_constant("icon_max_width") != 38:
-			slot.add_theme_constant_override("icon_max_width",38)
-	game.mini_map.stop_button.position = Vector2(width-62,8)
-	game.mini_map.stop_button.size = Vector2(48,48)
-	game.mini_map.stop_button.disabled = game.world_input_blocked() or game.actors[game.selected_actor_id].escaped
-	var buttons: Array = [inv.use_button,inv.drop_button]
-	for receiver in range(inv.transfer_buttons.size()):
-		var transfer: Button = inv.transfer_buttons[receiver]
-		transfer.visible = actions and receiver != game.selected_actor_id
-		if receiver != game.selected_actor_id:
-			buttons.append(transfer)
-	for index in range(buttons.size()):
-		var b: Button = buttons[index]
-		b.visible = actions
-		b.position = Vector2(14+(index%2)*(width-28)/2,132+floori(index/2.0)*56)
-		b.size = Vector2((width-36)/2,48)
-	position_toast()
-	inventory_paper.visible = (bag_open or shop_open) and not game.routine_panel.panel.visible and not menu.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible and game.phase == "playing"
+	if inventory_drawer:
+		inventory_drawer.refresh()
+		position_toast()
 
 func position_toast() -> void:
 	var safe := safe_area()
@@ -545,6 +431,7 @@ func refresh() -> void:
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text
 	goal.text = "逃脱 %d/1" % game.escape_count()
+	goal.hide()
 	if game.tutorial and game.tutorial.active: goal.text = "入监日 %d/6" % int(game.tutorial.step().get("chapter",1))
 	wallet.text = str(game.inventory.wallet)
 	for face in faces:
@@ -559,19 +446,22 @@ func refresh() -> void:
 	var interaction = game.presentation.interaction
 	action_button.text = interaction.mobile_label()
 	action_button.display_icon = interaction.mobile_icon()
+	if action_button.display_icon==null: action_button.display_icon = preload("res://art/ui/fullscreen/interaction.svg")
 	action_button.disabled = not active or not interaction.mobile_available()
 	action_button.visible = not blocked
 	action_button.queue_redraw()
-	ability_button.text = "停止技能" if game.skill_button.text.begins_with("停止") else game.SKILL_NAMES[actor.skill_id]
+	ability_button.text = "停止" if game.skill_button.text.begins_with("停止") else "能力"
 	ability_button.tooltip_text = game.skill_button.text
-	ability_button.display_icon = game.items_view.icon_for("backpack") if actor.skill_id == "backpack" else game.presentation.skill_icons.get(actor.skill_id)
+	ability_button.display_icon = inventory_drawer.icon_for("backpack") if actor.skill_id == "backpack" else game.presentation.skill_icons.get(actor.skill_id)
 	ability_button.disabled = not active or game.skill_button.disabled
 	ability_button.visible = not blocked
 	ability_button.queue_redraw()
-	bag_button.text = "背包\n%d/%d" % [game.inventory.items(game.selected_actor_id).size(),game.inventory.capacity(game.selected_actor_id)]
+	bag_button.text = "背包"
+	bag_button.tooltip_text = "随身背包 %d/%d" % [game.inventory.items(0).size(),game.inventory.capacity(0)]
 	bag_button.disabled = not active
 	bag_button.visible = not blocked
 	bag_button.queue_redraw()
+	bag_button.add_theme_stylebox_override("normal",HudArt.box("selected" if bag_open else "paper"))
 	target_button.visible = active and interaction.mobile_target_count() > 1
 	target_button.disabled = not active
 	game.skill_button.hide()
@@ -579,7 +469,12 @@ func refresh() -> void:
 	if not active:
 		game.mobile_controls.cancel_input()
 	refresh_inventory()
+	if inventory_paper.visible: minimap_collapsed = true
+	game.mini_map.set_process_input(not minimap_collapsed and not inventory_paper.visible)
 	map_toggle.visible = minimap_collapsed and not game.world_input_blocked()
+	if inventory_paper.visible:
+		game.mini_map.hide()
+		map_toggle.visible = map_toggle.visible and not map_toggle.get_rect().intersects(inventory_paper.get_rect())
 	toast.visible = game.elapsed < game.status_until and not game.world_input_blocked()
 	game.status_label.visible = toast.visible
 	refresh_warning(blocked)

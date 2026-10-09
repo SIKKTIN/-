@@ -110,6 +110,7 @@ func valid_position(id: String, point: Vector2) -> bool:
 	if not ui.minimap_collapsed:
 		fixed.append(game.mini_map)
 	for control in fixed:
+		if not control.visible: continue
 		if rect.grow(6).intersects(control.get_global_rect()):
 			return false
 	for other in controls:

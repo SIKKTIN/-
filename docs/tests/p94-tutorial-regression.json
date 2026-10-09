@@ -1,0 +1,559 @@
+{
+	"checks": {
+		"actual_meal_twenty_minutes": true,
+		"actual_work_paid_wage": true,
+		"all_fifteen_lectures_have_real_presenter": true,
+		"all_six_chapters_played": true,
+		"eight_oclock_gate_really_closed": true,
+		"every_dialogue_page_fits_both_sizes": true,
+		"every_presenter_near_and_in_sight": true,
+		"formal_calendar_day_two": true,
+		"formal_clock_runs": true,
+		"formal_deadline_not_started": true,
+		"formal_morning_starts_without_planner": true,
+		"formal_third_confinement_still_fails": true,
+		"full_day_completes": true,
+		"full_three_days_remain": true,
+		"guide_really_walked": true,
+		"lecture_holds_clock": true,
+		"no_dialogue_before_presenter_arrives": true,
+		"no_walking_in_place_while_listening": true,
+		"overlay_and_marker_hidden": true,
+		"player_never_teleported_between_lessons": true,
+		"real_warning_and_recovery_exercised": true,
+		"replay_restarts_intake": true,
+		"skip_starts_clean_formal_day": true,
+		"three_real_roles_present": true,
+		"tutorial_capture_not_failure_or_teleport": true,
+		"tutorial_default_first_day": true,
+		"tutorial_penalties_and_alert_cleared": true,
+		"tutorial_wallet_cleared": true,
+		"welcome_blocks_world_input": true
+	},
+	"conversations": [
+		{
+			"distance": 142.102447509766,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "welcome"
+		},
+		{
+			"distance": 142.103454589844,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "dorm_brief"
+		},
+		{
+			"distance": 58.0748596191406,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "enter_brief"
+		},
+		{
+			"distance": 118.344116210938,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "work_brief"
+		},
+		{
+			"distance": 129.114822387695,
+			"line_clear": true,
+			"speaker": "监工 · 老周",
+			"step": "warning_brief"
+		},
+		{
+			"distance": 118.344116210938,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "lunch_brief"
+		},
+		{
+			"distance": 142.613967895508,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "chat_brief"
+		},
+		{
+			"distance": 116.206977844238,
+			"line_clear": true,
+			"speaker": "商人",
+			"step": "tools_brief"
+		},
+		{
+			"distance": 141.426605224609,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "return_brief"
+		},
+		{
+			"distance": 141.673080444336,
+			"line_clear": true,
+			"speaker": "监工 · 老周",
+			"step": "afternoon_brief"
+		},
+		{
+			"distance": 97.4547348022461,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "cell_brief"
+		},
+		{
+			"distance": 51.2576103210449,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "doors_brief"
+		},
+		{
+			"distance": 51.2576103210449,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "night_brief"
+		},
+		{
+			"distance": 142.297485351563,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "inspection_brief"
+		},
+		{
+			"distance": 92.3039627075195,
+			"line_clear": true,
+			"speaker": "陈教官",
+			"step": "complete"
+		}
+	],
+	"events": [
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "welcome"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "guide_arrive"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "dorm_brief"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "follow_work"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(1340.0, 1145.0)",
+			"step": "enter_brief"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(1340.0, 1145.0)",
+			"step": "enter_work"
+		},
+		{
+			"minute": 440.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "work_brief"
+		},
+		{
+			"minute": 480.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "work_practice"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "monitor_arrive"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "warning_brief"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "warning_practice"
+		},
+		{
+			"minute": 540.000000000002,
+			"player_position": "(934.78, 507.92)",
+			"step": "lunch_brief"
+		},
+		{
+			"minute": 720.0,
+			"player_position": "(934.78, 507.92)",
+			"step": "meal_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1018.021, 1787.167)",
+			"step": "chat_brief"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1018.021, 1787.167)",
+			"step": "chat_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(1410.753, 1272.292)",
+			"step": "merchant_practice"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(802.5778, 1217.085)",
+			"step": "tools_brief"
+		},
+		{
+			"minute": 740.160000000001,
+			"player_position": "(802.5778, 1217.085)",
+			"step": "return_brief"
+		},
+		{
+			"minute": 810.0,
+			"player_position": "(802.5778, 1217.085)",
+			"step": "return_work"
+		},
+		{
+			"minute": 810.0,
+			"player_position": "(1008.105, 535.3465)",
+			"step": "afternoon_brief"
+		},
+		{
+			"minute": 840.0,
+			"player_position": "(1008.105, 535.3465)",
+			"step": "afternoon_work"
+		},
+		{
+			"minute": 854.640000000001,
+			"player_position": "(935.0474, 508.02)",
+			"step": "cell_brief"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(935.0474, 508.02)",
+			"step": "cell_tour"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "doors_brief"
+		},
+		{
+			"minute": 1080.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "night_brief"
+		},
+		{
+			"minute": 1200.0,
+			"player_position": "(750.0, 1480.0)",
+			"step": "return_bed"
+		},
+		{
+			"minute": 1200.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "inspection_brief"
+		},
+		{
+			"minute": 1440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "inspection"
+		},
+		{
+			"minute": 1440.0,
+			"player_position": "(428.0, 413.97)",
+			"step": "complete"
+		}
+	],
+	"failed": [],
+	"layout_checks": {
+		"afternoon_brief_1200_line1": true,
+		"afternoon_brief_1200_line2": true,
+		"afternoon_brief_960_line1": true,
+		"afternoon_brief_960_line2": true,
+		"cell_brief_1200_line1": true,
+		"cell_brief_1200_line2": true,
+		"cell_brief_1200_line3": true,
+		"cell_brief_960_line1": true,
+		"cell_brief_960_line2": true,
+		"cell_brief_960_line3": true,
+		"chat_brief_1200_line1": true,
+		"chat_brief_1200_line2": true,
+		"chat_brief_1200_line3": true,
+		"chat_brief_960_line1": true,
+		"chat_brief_960_line2": true,
+		"chat_brief_960_line3": true,
+		"complete_1200_line1": true,
+		"complete_1200_line2": true,
+		"complete_1200_line3": true,
+		"complete_960_line1": true,
+		"complete_960_line2": true,
+		"complete_960_line3": true,
+		"doors_brief_1200_line1": true,
+		"doors_brief_1200_line2": true,
+		"doors_brief_1200_line3": true,
+		"doors_brief_960_line1": true,
+		"doors_brief_960_line2": true,
+		"doors_brief_960_line3": true,
+		"dorm_brief_1200_line1": true,
+		"dorm_brief_1200_line2": true,
+		"dorm_brief_1200_line3": true,
+		"dorm_brief_960_line1": true,
+		"dorm_brief_960_line2": true,
+		"dorm_brief_960_line3": true,
+		"enter_brief_1200_line1": true,
+		"enter_brief_1200_line2": true,
+		"enter_brief_1200_line3": true,
+		"enter_brief_960_line1": true,
+		"enter_brief_960_line2": true,
+		"enter_brief_960_line3": true,
+		"inspection_brief_1200_line1": true,
+		"inspection_brief_1200_line2": true,
+		"inspection_brief_1200_line3": true,
+		"inspection_brief_960_line1": true,
+		"inspection_brief_960_line2": true,
+		"inspection_brief_960_line3": true,
+		"lunch_brief_1200_line1": true,
+		"lunch_brief_1200_line2": true,
+		"lunch_brief_1200_line3": true,
+		"lunch_brief_960_line1": true,
+		"lunch_brief_960_line2": true,
+		"lunch_brief_960_line3": true,
+		"night_brief_1200_line1": true,
+		"night_brief_1200_line2": true,
+		"night_brief_960_line1": true,
+		"night_brief_960_line2": true,
+		"return_brief_1200_line1": true,
+		"return_brief_1200_line2": true,
+		"return_brief_960_line1": true,
+		"return_brief_960_line2": true,
+		"tools_brief_1200_line1": true,
+		"tools_brief_1200_line2": true,
+		"tools_brief_1200_line3": true,
+		"tools_brief_960_line1": true,
+		"tools_brief_960_line2": true,
+		"tools_brief_960_line3": true,
+		"warning_brief_1200_line1": true,
+		"warning_brief_1200_line2": true,
+		"warning_brief_1200_line3": true,
+		"warning_brief_1200_line4": true,
+		"warning_brief_960_line1": true,
+		"warning_brief_960_line2": true,
+		"warning_brief_960_line3": true,
+		"warning_brief_960_line4": true,
+		"welcome_1200_line1": true,
+		"welcome_1200_line2": true,
+		"welcome_1200_line3": true,
+		"welcome_960_line1": true,
+		"welcome_960_line2": true,
+		"welcome_960_line3": true,
+		"work_brief_1200_line1": true,
+		"work_brief_1200_line2": true,
+		"work_brief_1200_line3": true,
+		"work_brief_960_line1": true,
+		"work_brief_960_line2": true,
+		"work_brief_960_line3": true
+	},
+	"max_guide_move": 5.00011682510376,
+	"max_player_move": 13.0003366470337,
+	"ticks": 2708,
+	"trace": [
+		{
+			"guide": "(733.1788, 810.2819)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "welcome"
+		},
+		{
+			"guide": "(575.09, 415.8711)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "guide_arrive"
+		},
+		{
+			"guide": "(720.0865, 416.807)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "dorm_brief"
+		},
+		{
+			"guide": "(575.0981, 414.9558)",
+			"minute": 440.0,
+			"player": "(428.0, 413.97)",
+			"step": "follow_work"
+		},
+		{
+			"guide": "(1289.701, 1115.971)",
+			"minute": 440.0,
+			"player": "(1340.0, 1145.0)",
+			"step": "enter_brief"
+		},
+		{
+			"guide": "(1291.192, 1111.198)",
+			"minute": 440.0,
+			"player": "(1340.0, 1145.0)",
+			"step": "enter_work"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 440.0,
+			"player": "(934.78, 507.92)",
+			"step": "work_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 480.0,
+			"player": "(934.78, 507.92)",
+			"step": "work_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "monitor_arrive"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "warning_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 540.000000000002,
+			"player": "(934.78, 507.92)",
+			"step": "warning_practice"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 720.0,
+			"player": "(934.78, 507.92)",
+			"step": "lunch_brief"
+		},
+		{
+			"guide": "(1050.443, 532.9675)",
+			"minute": 720.0,
+			"player": "(934.78, 507.92)",
+			"step": "meal_practice"
+		},
+		{
+			"guide": "(1046.832, 1472.096)",
+			"minute": 740.160000000001,
+			"player": "(1018.021, 1787.167)",
+			"step": "chat_brief"
+		},
+		{
+			"guide": "(903.1912, 1709.525)",
+			"minute": 740.160000000001,
+			"player": "(1018.021, 1787.167)",
+			"step": "chat_practice"
+		},
+		{
+			"guide": "(940.8123, 1553.011)",
+			"minute": 740.160000000001,
+			"player": "(1410.753, 1272.292)",
+			"step": "merchant_practice"
+		},
+		{
+			"guide": "(1010.0, 1385.0)",
+			"minute": 740.160000000001,
+			"player": "(802.5778, 1217.085)",
+			"step": "tools_brief"
+		},
+		{
+			"guide": "(1010.0, 1385.0)",
+			"minute": 810.0,
+			"player": "(802.5778, 1217.085)",
+			"step": "return_brief"
+		},
+		{
+			"guide": "(926.4739, 1274.349)",
+			"minute": 810.0,
+			"player": "(802.5778, 1217.085)",
+			"step": "return_work"
+		},
+		{
+			"guide": "(1163.24, 1085.252)",
+			"minute": 810.0,
+			"player": "(1008.105, 535.3465)",
+			"step": "afternoon_brief"
+		},
+		{
+			"guide": "(1095.387, 615.7246)",
+			"minute": 840.0,
+			"player": "(1008.105, 535.3465)",
+			"step": "afternoon_work"
+		},
+		{
+			"guide": "(1030.682, 526.7661)",
+			"minute": 1080.0,
+			"player": "(935.0474, 508.02)",
+			"step": "cell_brief"
+		},
+		{
+			"guide": "(1033.61, 530.8193)",
+			"minute": 1080.0,
+			"player": "(935.0474, 508.02)",
+			"step": "cell_tour"
+		},
+		{
+			"guide": "(753.3174, 1428.85)",
+			"minute": 1080.0,
+			"player": "(750.0, 1480.0)",
+			"step": "doors_brief"
+		},
+		{
+			"guide": "(753.3174, 1428.85)",
+			"minute": 1200.0,
+			"player": "(750.0, 1480.0)",
+			"step": "night_brief"
+		},
+		{
+			"guide": "(753.3174, 1428.85)",
+			"minute": 1200.0,
+			"player": "(750.0, 1480.0)",
+			"step": "return_bed"
+		},
+		{
+			"guide": "(756.6895, 789.9811)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "inspection_brief"
+		},
+		{
+			"guide": "(565.2819, 416.0671)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "inspection"
+		},
+		{
+			"guide": "(520.3005, 414.762)",
+			"minute": 1440.0,
+			"player": "(428.0, 413.97)",
+			"step": "complete"
+		}
+	],
+	"tutorial": {
+		"active": false,
+		"captures_demo": 0,
+		"chapter": 1.0,
+		"completed": true,
+		"conversations": [],
+		"dialogue_ready": false,
+		"events": [
+			{
+				"minute": 440.0,
+				"player_position": "(428.0, 413.97)",
+				"step": "welcome"
+			}
+		],
+		"line": 0,
+		"speaker": "",
+		"step": "welcome",
+		"target": ""
+	}
+}

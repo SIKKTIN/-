@@ -68,7 +68,7 @@ func eligible() -> bool:
 	return game.room_id == "r04" and not game.editor_preview_mode and OS.get_environment("ESCAPE_TUTORIAL_MODE") != "off"
 
 func _make_ui():
-	panel = Panel.new()
+	panel = preload("res://scripts/ui/hud_skin.gd").Plate.new()
 	panel.name = "IntakeDay"
 	panel.z_index = 150
 	panel.theme = game.fullscreen_ui.theme
@@ -97,9 +97,11 @@ func _make_ui():
 	primary.pressed.connect(continue_lesson)
 	panel.add_child(primary)
 	skip_button = Button.new()
-	skip_button.text = "跳过教程"
+	skip_button.text = "跳过"
 	skip_button.focus_mode = Control.FOCUS_NONE
 	skip_button.pressed.connect(finish)
+	preload("res://scripts/ui/hud_skin.gd").button(primary)
+	preload("res://scripts/ui/hud_skin.gd").button(skip_button)
 	panel.add_child(skip_button)
 	panel.hide()
 	transition_cover = ColorRect.new()
@@ -119,21 +121,27 @@ func _make_ui():
 func layout():
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
 	var left: float = game.mobile_controls.pad.position.x+game.mobile_controls.pad.size.x+8
-	var right: float = game.fullscreen_ui.action_button.position.x-12
-	var width := minf(650,maxf(400,right-left))
-	panel.size = Vector2(width,164)
+	var right: float = minf(game.fullscreen_ui.bag_button.position.x,game.fullscreen_ui.action_button.position.x)-12
+	var width := minf(640,maxf(400,right-left))
+	panel.size = Vector2(width,92)
 	panel.position = Vector2(clampf(safe.get_center().x-width/2,left,maxf(left,right-width)),safe.end.y-panel.size.y-8)
-	title.position = Vector2(16,10)
-	title.size = Vector2(panel.size.x-32,29)
+	title.add_theme_font_size_override("font_size",17)
+	title.position = Vector2(14,10)
+	title.size = Vector2(panel.size.x-202,26)
+	title.clip_text = true
 	speaker.hide()
-	body.position = Vector2(16,43)
-	body.size = Vector2(panel.size.x-32,42)
-	note.position = Vector2(16,88)
+	body.add_theme_font_size_override("font_size",13)
+	body.position = Vector2(14,38)
+	body.size = Vector2(panel.size.x-202,40)
+	note.hide()
+	note.position = Vector2(14,84)
 	note.size = Vector2(panel.size.x-32,20)
-	primary.position = Vector2(16,112)
-	primary.size = Vector2(panel.size.x-156,32)
-	skip_button.position = Vector2(panel.size.x-126,112)
-	skip_button.size = Vector2(110,32)
+	primary.position = Vector2(panel.size.x-182,24)
+	primary.size = Vector2(104,44)
+	primary.add_theme_font_size_override("font_size",15)
+	skip_button.position = Vector2(panel.size.x-70,24)
+	skip_button.size = Vector2(56,44)
+	skip_button.add_theme_font_size_override("font_size",15)
 
 func cancel():
 	active = false
@@ -522,6 +530,8 @@ func _refresh():
 	title.text = "入监日 %d/6 · %s" % [int(step().chapter),str(step().title)]
 	speaker.text = str(step().get("speaker","你的任务"))
 	var task: String = str(step().get("task",step().title))
+	body.tooltip_text = task
+	if panel.size.x<520 and step().kind != "brief": task = str(step().get("text",task))
 	if step().kind == "brief": task = "与%s交谈，听完再继续。" % presenter_name() if dialogue_ready else "%s正在走来，请稍等。" % presenter_name()
 	if body.text != task: body.text = task
 	body.visible_characters = -1
@@ -529,7 +539,7 @@ func _refresh():
 	if step_id == "warning_practice" and age<caught_message_until: note.text = "教程示范被抓，不记禁闭次数；请继续工作。"
 	primary.visible = step().kind != "cinematic"
 	primary.disabled = step().kind == "brief" and not dialogue_ready
-	primary.text = ("继续听" if line_index+1<lines.size() else str(step().get("button","继续"))) if speaking() else "等待教官" if step().kind == "brief" else "指向目标"
+	primary.text = ("继续听" if line_index+1<lines.size() else "正式开始" if step_id=="complete" else "开始练习" if step_id=="warning_brief" else "跟上教官" if step_id=="welcome" else "继续") if speaking() else "等待教官" if step().kind == "brief" else "指向目标"
 	marker.visible = step().kind == "objective"
 	marker.position = _target(str(step().get("target","")))
 	marker.z_index = mini(4094,maxi(0,int(marker.position.y)-1))

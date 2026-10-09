@@ -97,7 +97,7 @@ func refresh() -> void:
 	if game.selected_actor_id != actor_id or game.trade.reason(actor_id, merchant_id) != "":
 		close()
 		return
-	title.text = "商人 · 伙伴%d · 钱 %d" % [actor_id + 1, game.inventory.wallet]
+	title.text = "商人 · 钱 %d" % game.inventory.wallet
 	var stock: Array = game.trade.merchants[merchant_id].stock
 	if listed_ids != stock:
 		listed_ids = stock.duplicate()
