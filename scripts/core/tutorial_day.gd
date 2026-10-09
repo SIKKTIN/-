@@ -43,6 +43,7 @@ var transition_age := 0.0
 var transition_reset := false
 var transition_cover: ColorRect
 var speech
+var button_guide
 var dialogue_ready := false
 var lines: Array = []
 var line_index := 0
@@ -65,6 +66,9 @@ func configure(owner_game):
 	marker = NavigationGuide.new()
 	game.add_child(marker)
 	marker.configure(self)
+	button_guide = preload("res://scripts/ui/tutorial_button_guide.gd").new()
+	game.get_node("HUD").add_child(button_guide)
+	button_guide.configure(self)
 	if eligible(): begin()
 
 func eligible() -> bool:
@@ -171,8 +175,46 @@ func sync_visibility():
 	skip_button.visible = active
 	skip_button.disabled = transition
 	if speech: speech.refresh()
+	var prompt := button_prompt()
+	if button_guide: button_guide.refresh(prompt)
 	if marker:
-		marker.set_guidance(ui_visible() and step().get("kind","")=="objective",navigation_target(),step_id,navigation_radius())
+		marker.set_guidance(ui_visible() and step().get("kind","")=="objective" and prompt.is_empty(),navigation_target(),step_id,navigation_radius())
+
+func work_requested() -> bool:
+	return not game.routines.manual.has(0) and game.routines.records.get(0,{}).get("kind","")=="work"
+
+func button_prompt() -> Dictionary:
+	if not active or transition or game.phase!="playing" or game.get_tree().paused or game.fullscreen_ui.menu.visible or game.fullscreen_ui.inventory_paper.visible: return {}
+	if step_id=="chat_practice" and game.dialogue.panel.visible and game.dialogue.current_target.get("role","")=="prisoner":
+		return {"button":game.dialogue.end_button,"text":"聊完后点击「×」\n结束交谈，继续教程"}
+	if not ui_visible() or step().get("kind","")!="objective": return {}
+	var desired := ""
+	var label := ""
+	match step_id:
+		"work_practice","warning_practice","afternoon_work":
+			if work_requested(): return {}
+			desired = "work"
+			label = "工作"
+		"meal_practice":
+			if game.routines.records.get(0,{}).get("kind","")=="meal": return {}
+			desired = "meal"
+			label = "取餐"
+		"chat_practice":
+			desired = "talk"
+			label = "聊天"
+		_: return {}
+	var interaction = game.presentation.interaction
+	var candidates: Array = interaction._mobile_targets.filter(func(t):return t.kind==desired and (desired!="talk" or str(t.id).begins_with("prisoner:")))
+	if candidates.is_empty(): return {}
+	var selected: Dictionary = interaction._mobile_target()
+	if selected.get("kind","")!=desired or (desired=="talk" and not str(selected.get("id","")).begins_with("prisoner:")):
+		return {"button":game.fullscreen_ui.target_button,"text":"点击「切换」\n选到「%s」操作" % label}
+	var action = game.fullscreen_ui.action_button
+	if action.disabled or not action.is_visible_in_tree() or not action.text.contains(label): return {}
+	var instruction := "开始劳动，完成这一轮" if desired=="work" else "领取午餐，前往餐桌" if desired=="meal" else "与身边的伙伴交谈"
+	if step_id=="warning_practice": instruction = "持续工作，让警戒消退"
+	if step_id=="afternoon_work": instruction = "持续工作，完成下午练习"
+	return {"button":action,"text":"点击「%s」\n%s" % [label,instruction]}
 
 func navigation_target() -> Vector2:
 	if step_id=="meal_practice":
@@ -185,6 +227,11 @@ func navigation_radius() -> float:
 
 func task_caption() -> String:
 	if step().kind=="brief": return "%s正在走来，请稍等" % presenter_name()
+	if step_id in ["work_practice","warning_practice","afternoon_work"] and work_requested():
+		if not game.routines.is_working(0): return "正在就位，随后开始劳动"
+		return "保持劳动，等待工资到账" if step_id=="work_practice" else "保持劳动，等待警戒消退" if step_id=="warning_practice" else "保持劳动，完成下午练习"
+	if step_id=="meal_practice" and game.routines.records.get(0,{}).get("kind","")=="meal":
+		return "正在用餐，吃满20分钟" if game.routines.is_eating(0) else "已取餐，前往自己的餐桌"
 	return TASK_CAPTIONS.get(step_id,str(step().get("text","")))
 
 func cancel():
@@ -192,6 +239,7 @@ func cancel():
 	panel.hide()
 	marker.reset()
 	if speech: speech.hide()
+	if button_guide: button_guide.hide()
 	skip_button.hide()
 	game.guard.path.clear()
 	if is_instance_valid(game.workshop.overseer): game.workshop.overseer.path.clear()
