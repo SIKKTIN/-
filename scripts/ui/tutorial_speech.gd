@@ -107,8 +107,10 @@ func refresh():
 	if mouth.x<bubble.position.x or mouth.x>bubble.get_rect().end.x:
 		edge = Vector2(bubble.position.x+1 if mouth.x<bubble.position.x else bubble.get_rect().end.x-1,clampf(mouth.y,bubble.position.y+20,bubble.get_rect().end.y-20))
 		side = Vector2(0,8)
-	tail = PackedVector2Array([edge-side,edge+side,mouth])
-	queue_redraw()
+	var next_tail := PackedVector2Array([edge-side,edge+side,mouth])
+	if tail!=next_tail:
+		tail = next_tail
+		queue_redraw()
 
 func _draw():
 	if visible and tail.size()==3:

@@ -54,6 +54,8 @@ var rendezvous := Vector2.ZERO
 var rendezvous_retry := 0.0
 var conversations: Array = []
 var rendezvous_choice := 0
+var layout_key: Array = []
+const TASK_CAPTIONS := {"follow_work":"跟随陈教官到车间入口","enter_work":"进入车间，找到自己的工位","work_practice":"完成一轮工作，领取工资","warning_practice":"持续工作，让警戒消退","meal_practice":"取餐并用餐20分钟","chat_practice":"和伙伴聊天，聊完关闭面板","merchant_practice":"走到商人身边，认识工具","return_work":"回到工位，等待伙伴返工","afternoon_work":"完成一段下午劳动","cell_tour":"跟随教官参观禁闭室","return_bed":"回到床位，等待伙伴归寝","guide_arrive":"观察教官走向寝室门口","monitor_arrive":"等待监工走来查岗","inspection":"留在床位，观看教官点名"}
 
 func configure(owner_game):
 	game = owner_game
@@ -145,6 +147,9 @@ func _make_ui():
 
 func layout():
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
+	var next_layout: Array = [safe,game.mobile_controls.pad.position,game.mobile_controls.pad.size,game.fullscreen_ui.bag_button.position,game.fullscreen_ui.action_button.position,primary.visible]
+	if layout_key==next_layout: return
+	layout_key = next_layout
 	var left: float = game.mobile_controls.pad.position.x+game.mobile_controls.pad.size.x+8
 	var right: float = minf(game.fullscreen_ui.bag_button.position.x,game.fullscreen_ui.action_button.position.x)-12
 	var width := minf(400,maxf(280,right-left))
@@ -174,7 +179,7 @@ func sync_visibility():
 
 func task_caption() -> String:
 	if step().kind=="brief": return "%s正在走来，请稍等" % presenter_name()
-	return {"follow_work":"跟随陈教官到车间入口","enter_work":"进入车间，找到自己的工位","work_practice":"完成一轮工作，领取工资","warning_practice":"持续工作，让警戒消退","meal_practice":"取餐并用餐20分钟","chat_practice":"和伙伴聊天，聊完关闭面板","merchant_practice":"走到商人身边，认识工具","return_work":"回到工位，等待伙伴返工","afternoon_work":"完成一段下午劳动","cell_tour":"跟随教官参观禁闭室","return_bed":"回到床位，等待伙伴归寝","guide_arrive":"观察教官走向寝室门口","monitor_arrive":"等待监工走来查岗","inspection":"留在床位，观看教官点名"}.get(step_id,str(step().get("text","")))
+	return TASK_CAPTIONS.get(step_id,str(step().get("text","")))
 
 func cancel():
 	active = false
@@ -575,7 +580,7 @@ func _refresh():
 	marker.visible = step().kind == "objective"
 	marker.position = _target(str(step().get("target","")))
 	marker.z_index = mini(4094,maxi(0,int(marker.position.y)-1))
-	game.fullscreen_ui.clock.queue_redraw()
+	game.fullscreen_ui.refresh_clock()
 	sync_visibility()
 
 func snapshot() -> Dictionary:

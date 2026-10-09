@@ -1,0 +1,245 @@
+{
+	"gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"map_sha256": "627f08f0fec7fa9041c667cf41e326e08447e4aed2906aed3f63ee7f5cd6dff3",
+	"samples": [
+		{
+			"frame": {
+				"max_ms": 16.84,
+				"mean_ms": 16.6351972222222,
+				"p95_ms": 16.714,
+				"p99_ms": 16.774
+			},
+			"name": "follow_wait",
+			"navigation_rebuilds": [],
+			"path_calls": 4,
+			"paths": {
+				"max_ms": 2.311,
+				"mean_ms": 0.62825,
+				"p95_ms": 0.076,
+				"p99_ms": 0.076
+			},
+			"process": {
+				"max_ms": 6.049,
+				"mean_ms": 2.4682,
+				"p95_ms": 3.209,
+				"p99_ms": 3.711
+			},
+			"sections": {
+				"guards": {
+					"max_ms": 0.221,
+					"mean_ms": 0.103233333333333,
+					"p95_ms": 0.154,
+					"p99_ms": 0.199
+				},
+				"movement": {
+					"max_ms": 3.341,
+					"mean_ms": 0.482905555555555,
+					"p95_ms": 0.762,
+					"p99_ms": 0.964
+				},
+				"routine": {
+					"max_ms": 1.219,
+					"mean_ms": 0.699836111111111,
+					"p95_ms": 0.976,
+					"p99_ms": 1.127
+				},
+				"total": {
+					"max_ms": 6.041,
+					"mean_ms": 2.46196111111111,
+					"p95_ms": 3.203,
+					"p99_ms": 3.701
+				},
+				"tutorial_camera": {
+					"max_ms": 0.281,
+					"mean_ms": 0.149102777777778,
+					"p95_ms": 0.209,
+					"p99_ms": 0.244
+				},
+				"ui_prepare": {
+					"max_ms": 0.024,
+					"mean_ms": 0.00468611111111111,
+					"p95_ms": 0.011,
+					"p99_ms": 0.015
+				},
+				"ui_presentation": {
+					"max_ms": 2.098,
+					"mean_ms": 0.981658333333333,
+					"p95_ms": 1.26,
+					"p99_ms": 1.506
+				},
+				"visibility": {
+					"max_ms": 0.113,
+					"mean_ms": 0.0363194444444444,
+					"p95_ms": 0.05,
+					"p99_ms": 0.061
+				}
+			},
+			"slow_frames": [],
+			"slow_paths": [
+				{
+					"budget": true,
+					"from": "(730.9491, 854.45)",
+					"ms": 2.311,
+					"points": 9,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"sample"
+					],
+					"to": "(1346.24, 507.92)"
+				}
+			],
+			"steps": [
+				"follow_work"
+			]
+		},
+		{
+			"frame": {
+				"max_ms": 36.946,
+				"mean_ms": 16.6527111111111,
+				"p95_ms": 16.704,
+				"p99_ms": 16.773
+			},
+			"name": "follow_walk",
+			"navigation_rebuilds": [],
+			"path_calls": 13,
+			"paths": {
+				"max_ms": 4.67,
+				"mean_ms": 1.78807692307692,
+				"p95_ms": 2.935,
+				"p99_ms": 2.935
+			},
+			"process": {
+				"max_ms": 8.546,
+				"mean_ms": 3.22596944444444,
+				"p95_ms": 4.188,
+				"p99_ms": 4.888
+			},
+			"sections": {
+				"guards": {
+					"max_ms": 1.04,
+					"mean_ms": 0.364583333333333,
+					"p95_ms": 0.617,
+					"p99_ms": 0.77
+				},
+				"movement": {
+					"max_ms": 5.885,
+					"mean_ms": 0.756547222222222,
+					"p95_ms": 1.176,
+					"p99_ms": 1.531
+				},
+				"routine": {
+					"max_ms": 1.369,
+					"mean_ms": 0.679405555555555,
+					"p95_ms": 0.903,
+					"p99_ms": 1.033
+				},
+				"total": {
+					"max_ms": 8.54,
+					"mean_ms": 3.22085277777778,
+					"p95_ms": 4.182,
+					"p99_ms": 4.883
+				},
+				"tutorial_camera": {
+					"max_ms": 0.447,
+					"mean_ms": 0.151597222222222,
+					"p95_ms": 0.202,
+					"p99_ms": 0.235
+				},
+				"ui_prepare": {
+					"max_ms": 0.001,
+					"mean_ms": 0.000497222222222223,
+					"p95_ms": 0.001,
+					"p99_ms": 0.001
+				},
+				"ui_presentation": {
+					"max_ms": 2.499,
+					"mean_ms": 1.219325,
+					"p95_ms": 1.64,
+					"p99_ms": 1.811
+				},
+				"visibility": {
+					"max_ms": 0.117,
+					"mean_ms": 0.0442194444444444,
+					"p95_ms": 0.057,
+					"p99_ms": 0.07
+				}
+			},
+			"slow_frames": [],
+			"slow_paths": [
+				{
+					"budget": true,
+					"from": "(730.9491, 854.45)",
+					"ms": 2.671,
+					"points": 9,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"sample"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": false,
+					"from": "(622.9579, 417.9965)",
+					"ms": 2.073,
+					"points": 4,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"sample"
+					],
+					"to": "(1340.0, 1145.0)"
+				},
+				{
+					"budget": false,
+					"from": "(725.7529, 519.3499)",
+					"ms": 2.31,
+					"points": 4,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"sample"
+					],
+					"to": "(1340.0, 1145.0)"
+				},
+				{
+					"budget": true,
+					"from": "(732.7544, 631.7986)",
+					"ms": 4.67,
+					"points": 6,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"sample"
+					],
+					"to": "(1340.0, 1145.0)"
+				},
+				{
+					"budget": false,
+					"from": "(739.3459, 713.8683)",
+					"ms": 2.935,
+					"points": 4,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"sample"
+					],
+					"to": "(1340.0, 1145.0)"
+				}
+			],
+			"steps": [
+				"follow_work"
+			]
+		}
+	]
+}

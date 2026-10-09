@@ -55,6 +55,18 @@ var warning_title: Label
 var warning_detail: Label
 var warning_meter: ProgressBar
 var warning_fill: StyleBoxFlat
+var redraw_keys := {}
+
+func redraw_changed(control: CanvasItem, key: Array):
+	var id := control.get_instance_id()
+	if redraw_keys.get(id,[])==key: return
+	redraw_keys[id] = key
+	control.queue_redraw()
+
+func refresh_clock():
+	if not clock or not game.prison_alert: return
+	var schedule = game.schedule
+	redraw_changed(clock,[floori(schedule.clock_minutes()),schedule.stage_index,clock.calendar_text(),schedule.time_left_text(),game.prison_alert.active,schedule.is_curfew(),schedule.real_remaining()<=30,clock.size])
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -417,7 +429,7 @@ func position_toast() -> void:
 	game.status_label.size = toast.size-Vector2(24,14)
 
 func refresh() -> void:
-	if not clock:
+	if not clock or not game.attributes or not game.prison_alert:
 		return
 	var planning: bool = game.routine_panel.panel.visible
 	var blocked: bool = game.world_input_blocked()
@@ -427,7 +439,7 @@ func refresh() -> void:
 	# global entry as well, so the last HUD child cannot intercept planner taps.
 	menu_button.z_index = 120 if planning else 240
 	menu_button.visible = not blocked or menu.visible or (game.tutorial and game.tutorial.active and not game.tutorial.transition)
-	clock.queue_redraw()
+	refresh_clock()
 	clock.disabled = blocked
 	routine_button.hide()
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
@@ -437,8 +449,8 @@ func refresh() -> void:
 	goal.hide()
 	if game.tutorial and game.tutorial.active: goal.text = "入监日 %d/6" % int(game.tutorial.step().get("chapter",1))
 	wallet.text = str(game.inventory.wallet)
-	for face in faces:
-		face.queue_redraw()
+	var values: Dictionary = game.attributes.values[game.PLAYER_ACTOR_ID]
+	redraw_changed(faces[0],[roundi(values.stamina),roundi(values.fullness),actor.skill_id,game.confinement_counts[0],faces[0].size])
 	for index in range(game.cards.size()):
 		var card = game.cards[index]
 		card.visible = game.actor_is_controllable(index)
@@ -452,19 +464,20 @@ func refresh() -> void:
 	if action_button.display_icon==null: action_button.display_icon = preload("res://art/ui/fullscreen/interaction.svg")
 	action_button.disabled = not active or not interaction.mobile_available()
 	action_button.visible = not blocked
-	action_button.queue_redraw()
+	redraw_changed(action_button,[action_button.text,action_button.display_icon,action_button.disabled,action_button.size])
 	ability_button.text = "停止" if game.skill_button.text.begins_with("停止") else "能力"
 	ability_button.tooltip_text = game.skill_button.text
 	ability_button.display_icon = inventory_drawer.icon_for("backpack") if actor.skill_id == "backpack" else game.presentation.skill_icons.get(actor.skill_id)
 	ability_button.disabled = not active or game.skill_button.disabled
 	ability_button.visible = not blocked
-	ability_button.queue_redraw()
+	redraw_changed(ability_button,[ability_button.text,ability_button.display_icon,ability_button.disabled,ability_button.size])
 	bag_button.text = "背包"
 	bag_button.tooltip_text = "随身背包 %d/%d" % [game.inventory.items(0).size(),game.inventory.capacity(0)]
 	bag_button.disabled = not active
 	bag_button.visible = not blocked
-	bag_button.queue_redraw()
-	bag_button.add_theme_stylebox_override("normal",HudArt.box("selected" if bag_open else "paper"))
+	redraw_changed(bag_button,[bag_button.text,bag_button.display_icon,bag_button.disabled,bag_button.size])
+	var bag_style: StyleBoxFlat = HudArt.box("selected" if bag_open else "paper")
+	if bag_button.get_theme_stylebox("normal")!=bag_style: bag_button.add_theme_stylebox_override("normal",bag_style)
 	target_button.visible = active and interaction.mobile_target_count() > 1
 	target_button.disabled = not active
 	game.skill_button.hide()

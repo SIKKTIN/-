@@ -519,6 +519,13 @@ func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors:
 func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false, navigation: AStarGrid2D = null) -> Vector2i:
 	if navigation == null:
 		navigation = grid
+	# The closest lattice point is usually already free. Validate it once
+	# before scanning the whole neighbourhood through repeated collision rays.
+	# Closed doors, moving bodies and blocked cells still use the exact fallback.
+	var relative: Vector2 = (point-navigation.offset)/navigation.cell_size
+	var nearest := Vector2i(ceili(relative.x-0.5),ceili(relative.y-0.5))
+	if navigation.region.has_point(nearest) and not navigation.is_point_solid(nearest) and motion_clear(point,navigation.get_point_position(nearest),ignore_actor,avoid_actors,ignore_crate):
+		return nearest
 	var cell := Vector2i(floor(point.x / GRID_SIZE), floor(point.y / GRID_SIZE))
 	var best := Vector2i(-1,-1)
 	var best_distance: float = INF
@@ -763,13 +770,10 @@ func _path_on_grid(from: Vector2, to: Vector2, ignore_actor, avoid_actors: bool,
 		var reachable: int = -1
 		# Advance through visible consecutive turns. Testing the distant
 		# end of a maze at every corner repeats costly map-wide ray casts.
-		var officer: bool = ignore_actor!=null and ignore_actor.has_method("_capture_if_touching")
-		var candidates := range(next,raw.size()) if officer else range(raw.size()-1,next-1,-1)
-		for index in candidates:
+		for index in range(next,raw.size()):
 			if motion_clear(cursor,raw[index],ignore_actor,avoid_actors,ignore_crate):
 				reachable = index
-				if not officer:break
-			elif officer:break
+			else: break
 		if reachable < 0:
 			return PackedVector2Array()
 		cursor = raw[reachable]
