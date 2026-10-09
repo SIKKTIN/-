@@ -13,6 +13,7 @@ var tip := Vector2.ZERO
 var phase := 0.0
 var redraw_timer := 0.0
 var layout_key: Array = []
+var close_hint := false
 
 func configure(owner_tutorial):
 	tutorial = owner_tutorial
@@ -64,6 +65,7 @@ func refresh(prompt: Dictionary):
 	target_button = prompt.get("button")
 	visible = is_instance_valid(target_button) and target_button.is_visible_in_tree() and not target_button.disabled
 	if not visible: return
+	close_hint = target_button==tutorial.game.dialogue.end_button
 	var safe: Rect2 = tutorial.game.fullscreen_ui.safe_area()
 	target_rect = target_button.get_global_rect()
 	var text: String = str(prompt.get("text",""))
@@ -75,6 +77,9 @@ func refresh(prompt: Dictionary):
 			blocked.append(control.get_global_rect())
 	if tutorial.game.dialogue.panel.visible:
 		blocked.append(tutorial.game.dialogue.panel.get_global_rect())
+		blocked.append(tutorial.game.dialogue.responses.get_global_rect())
+		for control in [tutorial.game.dialogue.casual_button,tutorial.game.dialogue.rules_button,tutorial.game.dialogue.special_button]:
+			controls.append(control.get_global_rect())
 		var transform: Transform2D = tutorial.game.get_global_transform_with_canvas()
 		for actor in [tutorial.game.actors[0],tutorial.game.dialogue.current_target.get("node")]:
 			if is_instance_valid(actor): blocked.append(Rect2(transform*actor.position-Vector2(22,64),Vector2(44,64)))
@@ -84,7 +89,7 @@ func refresh(prompt: Dictionary):
 	var lines := text.split("\n",true,1)
 	words.text = lines[0]
 	detail.text = lines[1] if lines.size()>1 else ""
-	var width := minf(264,safe.size.x-36)
+	var width := minf(240 if close_hint else 264,safe.size.x-36)
 	var text_width := width-32
 	var flags := TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE
 	var font := words.get_theme_font("font")
@@ -106,6 +111,13 @@ func refresh(prompt: Dictionary):
 		if obstacle.position.y<target_rect.position.y and obstacle.end.y>=above and obstacle.end.x>center.x-width/2 and obstacle.position.x<center.x+width/2:
 			above = minf(above,obstacle.position.y-card.size.y-gap)
 	var candidates := [Vector2(center.x-width/2,above),Vector2(target_rect.position.x-width-gap,center.y-card.size.y/2),Vector2(center.x-width/2,target_rect.end.y+gap),Vector2(target_rect.end.x+gap,center.y-card.size.y/2)]
+	if close_hint:
+		var speech: Rect2 = tutorial.game.dialogue.panel.get_global_rect()
+		var near := low.x if speech.get_center().x<safe.get_center().x else high.x
+		var far := high.x if near==low.x else low.x
+		candidates.append(Vector2(near,speech.end.y+28))
+		candidates.append(Vector2(far,speech.end.y+28))
+		candidates.append(low)
 	var best := INF
 	for candidate in candidates:
 		var point: Vector2 = candidate.clamp(low,high)
@@ -129,6 +141,15 @@ func refresh(prompt: Dictionary):
 			if not controls.any(func(rect):return rect.intersects(stem)):
 				tip = point
 				break
+	if close_hint:
+		# Approach the speech header from outside, keeping the arrow off the words.
+		var speech: Rect2 = tutorial.game.dialogue.panel.get_global_rect()
+		if speech.end.x+54<=safe.end.x:
+			direction = Vector2.LEFT
+			tip = Vector2(speech.end.x+8,center.y)
+		else:
+			direction = Vector2.DOWN
+			tip = Vector2(center.x,target_rect.position.y-8)
 	queue_redraw()
 
 func _process(delta: float):
@@ -149,12 +170,12 @@ func _draw():
 	var arrow_tip := tip-direction*(2+5*(1-pulse))
 	var start := arrow_tip-direction*38
 	var source: Vector2
-	if direction.y!=0:
+	if not close_hint and direction.y!=0:
 		source = Vector2(clampf(start.x,card.position.x+12,card.position.x+card.size.x-12),card.position.y+card.size.y if direction.y>0 else card.position.y)
 		var corner := Vector2(start.x,source.y)
 		_dashes(source,corner,gold)
 		_dashes(corner,start,gold)
-	else:
+	elif not close_hint:
 		source = Vector2(card.position.x+card.size.x if direction.x>0 else card.position.x,clampf(start.y,card.position.y+12,card.position.y+card.size.y-12))
 		var corner := Vector2(source.x,start.y)
 		_dashes(source,corner,gold)

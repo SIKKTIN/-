@@ -5,7 +5,7 @@ var config: Dictionary
 var panel: Panel
 var speaker: Label
 var body: Label
-var note: Label
+var responses: Control
 var casual_button: Button
 var rules_button: Button
 var special_button: Button
@@ -15,6 +15,8 @@ var line_index := 0
 var last_size := Vector2.ZERO
 var text_layout_key: Array = []
 var anchor_key: Array = []
+var response_layout_key: Array = []
+var last_choice := 0
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -36,12 +38,12 @@ func configure(owner_game) -> void:
 	speaker = make_label(16)
 	body = make_label(17)
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	note = make_label(12)
-	note.text = "交谈中时间继续 · 看守照常执法"
-	note.add_theme_color_override("font_color",Color("727d70"))
-	casual_button = make_button("聊两句",casual)
-	rules_button = make_button("问作息",rules)
-	special_button = make_button("问近况",special)
+	responses = preload("res://scripts/ui/npc_response_choices.gd").new()
+	game.get_node("HUD").add_child(responses)
+	responses.configure(game.fullscreen_ui)
+	casual_button = make_response("先聊两句吧。",casual)
+	rules_button = make_response("这里每天怎么安排？",rules)
+	special_button = make_response("你最近怎么样？",special)
 	end_button = make_button("×",close)
 	end_button.tooltip_text = "结束聊天，继续行动（Esc）"
 	panel.hide()
@@ -81,6 +83,12 @@ func make_button(text: String, callback: Callable) -> Button:
 	button.add_theme_stylebox_override("disabled",disabled)
 	button.pressed.connect(callback)
 	panel.add_child(button)
+	return button
+
+func make_response(text: String, callback: Callable) -> Button:
+	var button = preload("res://scripts/ui/npc_response_choice.gd").new()
+	responses.add_child(button)
+	button.configure(game.presentation.font,text,callback)
 	return button
 
 func targets() -> Array:
@@ -137,11 +145,14 @@ func open(id: String) -> bool:
 	actor.action_state = "chatting"
 	actor.facing = actor.position.direction_to(current_target.node.position)
 	line_index = 0
+	last_choice = 0
 	speaker.text = current_target.name
 	var guard: bool = current_target.role in ["patrol","gate","overseer","reinforcement"]
-	special_button.text = "分散注意" if guard else "购买" if current_target.role == "merchant" else "问近况"
+	special_button.text = "帮我分散一下注意。" if guard else "我想买些东西。" if current_target.role == "merchant" else "你最近怎么样？"
 	special_button.tooltip_text = "只有会聊天技能可以使看守分心；普通交谈不影响巡逻与抓捕。" if guard else ""
 	panel.show()
+	responses.show()
+	refresh_choices()
 	layout()
 	casual()
 	tick()
@@ -150,18 +161,23 @@ func open(id: String) -> bool:
 
 func casual() -> void:
 	if current_target.is_empty(): return
+	last_choice = 0
 	var lines: Array = config.roles[current_target.role].greeting
 	body.text = str(lines[line_index%lines.size()])
 	line_index += 1
+	refresh_choices()
 	layout()
 
 func rules() -> void:
 	if current_target.is_empty(): return
+	last_choice = 1
 	body.text = str(config.roles[current_target.role].rules)
+	refresh_choices()
 	layout()
 
 func special() -> void:
 	if current_target.is_empty(): return
+	last_choice = 2
 	if current_target.role in ["patrol","gate","overseer","reinforcement"]:
 		var target = current_target.node
 		var error: String = game.skills.chat_reason(game.actors[game.selected_actor_id],target)
@@ -184,6 +200,7 @@ func special() -> void:
 		game.shop_panel.open(id)
 	else:
 		body.text = str(config.roles[current_target.role].daily).replace("{activity}",game.routines.status_for(current_target.node.actor_id))
+		refresh_choices()
 		layout()
 
 func holds_movement(actor) -> bool:
@@ -191,6 +208,7 @@ func holds_movement(actor) -> bool:
 
 func close() -> void:
 	if panel: panel.hide()
+	if responses: responses.hide()
 	if game and not current_target.is_empty():
 		var actor = game.actors[game.PLAYER_ACTOR_ID]
 		if actor.action_state == "chatting" and not game.skills.actions.has(actor.actor_id): actor.action_state = "idle"
@@ -208,38 +226,64 @@ func tick() -> void:
 		game.show_status(error)
 		return
 	current_target = next
-	var guard: bool = current_target.role in ["patrol","gate","overseer","reinforcement"]
-	special_button.disabled = guard and (game.actors[0].skill_id != "chat" or not game.skills.chat_reason(game.actors[0],current_target.node).is_empty())
+	refresh_choices()
+
+func refresh_choices() -> void:
+	if current_target.is_empty(): return
+	var reason := ""
+	if current_target.role in ["patrol","gate","overseer","reinforcement"]:
+		reason = "需要「会聊天」能力" if game.actors[0].skill_id!="chat" else game.skills.chat_reason(game.actors[0],current_target.node)
 	if current_target.role == "merchant":
 		var id: String = str(current_target.id).trim_prefix("merchant:")
-		special_button.disabled = not game.trade.reason(0,id).is_empty()
-		special_button.tooltip_text = game.trade.reason(0,id)
+		reason = game.trade.reason(0,id)
+	for index in range(3):
+		var button = [casual_button,rules_button,special_button][index]
+		button.set_state(index==2 and not reason.is_empty(),reason if index==2 else "",last_choice==index)
+	special_button.tooltip_text = reason if not reason.is_empty() else "只有会聊天能力可以使看守分心；普通交谈不影响巡逻与抓捕。" if current_target.role in ["patrol","gate","overseer","reinforcement"] else ""
+	layout_responses()
+	position_speech()
+
+func layout_responses() -> void:
+	var safe: Rect2 = game.fullscreen_ui.safe_area()
+	var compact: bool = game.get_viewport_rect().size.y<620
+	var width := minf(408,safe.size.x-36)
+	var key := [safe,compact,width,special_button.requirement.visible]
+	if key==response_layout_key: return
+	response_layout_key = key
+	responses.compact = compact
+	var y := 46.0 if compact else 54.0
+	var buttons := [casual_button,rules_button,special_button]
+	for button in buttons:
+		button.add_theme_font_size_override("font_size",18 if compact else 20)
+		var height := 44.0 if compact else 48.0
+		if button.requirement.visible: height = 62.0 if compact else 64.0
+		button.position = Vector2(0,y)
+		button.size = Vector2(width,height)
+		y += height+(8 if compact else 10)
+	responses.size = Vector2(width,y-(8 if compact else 10))
+	responses.position = Vector2(safe.get_center().x-width/2,safe.end.y-responses.size.y)
+	responses.queue_redraw()
+	anchor_key.clear()
 
 func layout() -> void:
 	if not panel: return
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
-	var width := minf(384,safe.size.x-36)
+	var width := minf(350 if game.get_viewport_rect().size.y<620 else 384,safe.size.x-36)
 	var key := [body.text,width]
 	if key!=text_layout_key:
 		text_layout_key = key
-		var text_height := body.get_theme_font("font").get_multiline_string_size(body.text,HORIZONTAL_ALIGNMENT_LEFT,width-28,17,-1,TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE).y
-		text_height = maxf(27,ceilf(text_height))
-		panel.size = Vector2(width,text_height+120)
+		body.position = Vector2(14,42)
+		body.size = Vector2(width-28,0)
+		var text_height := maxf(27,ceilf(body.get_minimum_size().y))
+		panel.size = Vector2(width,text_height+58)
 		speaker.position = Vector2(26,9)
 		speaker.size = Vector2(width-70,25)
 		end_button.position = Vector2(width-37,7)
 		end_button.size = Vector2(30,28)
-		body.position = Vector2(14,42)
 		body.size = Vector2(width-28,text_height)
-		var buttons: Array = [casual_button,rules_button,special_button]
-		var button_width := (width-40)/3
-		for index in range(3):
-			buttons[index].position = Vector2(14+index*(button_width+6),54+text_height)
-			buttons[index].size = Vector2(button_width,36)
-		note.position = Vector2(14,panel.size.y-25)
-		note.size = Vector2(width-28,18)
 		anchor_key.clear()
 	last_size = game.get_viewport_rect().size
+	layout_responses()
 	position_speech()
 
 func position_speech() -> void:
@@ -248,14 +292,17 @@ func position_speech() -> void:
 	var mouth: Vector2 = transform*current_target.node.position+Vector2(0,-48)
 	var player_foot: Vector2 = transform*game.actors[0].position
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
-	var next_key := [mouth,player_foot,safe,panel.size,game.mini_map.visible]
+	var next_key := [mouth,player_foot,safe,panel.size,responses.get_global_rect(),game.mini_map.visible]
 	if next_key==anchor_key: return
 	anchor_key = next_key
 	var low := safe.position+Vector2(18,128)
 	var high := (safe.end-panel.size-Vector2(18,18)).max(low)
 	var bodies := [Rect2(player_foot-Vector2(22,64),Vector2(44,64)),Rect2(mouth-Vector2(22,16),Vector2(44,64)),game.mobile_controls.pad.get_global_rect()]
+	if responses.visible: bodies.append(responses.get_global_rect().grow(8))
 	if game.mini_map.visible: bodies.append(game.mini_map.get_global_rect())
 	var candidates := [mouth-Vector2(panel.size.x/2,panel.size.y+22),mouth+Vector2(42,-92),mouth-Vector2(panel.size.x+42,92),mouth+Vector2(-panel.size.x/2,70)]
+	candidates.append(Vector2(low.x,low.y))
+	candidates.append(Vector2(high.x,low.y))
 	var best_score := INF
 	for candidate in candidates:
 		var location: Vector2 = candidate.clamp(low,high)
@@ -263,6 +310,10 @@ func position_speech() -> void:
 		var score: float = location.distance_to(candidate)
 		for obstacle in bodies:
 			if obstacle.intersects(rect): score += 10000+rect.intersection(obstacle).get_area()
+		var edge := mouth.clamp(rect.position,rect.end)
+		var player_body: Rect2 = bodies[0]
+		var corners := [player_body.position,Vector2(player_body.end.x,player_body.position.y),player_body.end,Vector2(player_body.position.x,player_body.end.y)]
+		if range(4).any(func(i):return Geometry2D.segment_intersects_segment(edge,mouth,corners[i],corners[(i+1)%4])!=null): score += 10000
 		if score<best_score:
 			best_score = score
 			panel.position = location
@@ -273,4 +324,4 @@ func _process(_delta: float) -> void:
 	if panel and panel.visible: position_speech()
 
 func snapshot() -> Dictionary:
-	return {"visible":panel.visible,"target_id":current_target.get("id",""),"role":current_target.get("role",""),"speaker":speaker.text,"text":body.text}
+	return {"visible":panel.visible,"responses_visible":responses.visible,"target_id":current_target.get("id",""),"role":current_target.get("role",""),"speaker":speaker.text,"text":body.text}
