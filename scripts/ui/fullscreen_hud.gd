@@ -149,8 +149,10 @@ func configure(owner_game) -> void:
 	clock.focus_mode = Control.FOCUS_NONE
 	clock.pressed.connect(func(): game.schedule.toggle())
 	hud.add_child(clock)
-	routine_button = _button("日常表",func(): game.routine_panel.toggle())
-	routine_button.tooltip_text = "查看三名囚徒日程；可以调整主角的安排。"
+	# Retain a hidden handle for older HUD consumers, without a menu entry.
+	routine_button = _button("",Callable())
+	routine_button.hide()
+	routine_button.disabled = true
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
 	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日07:20。"
 	goal = _button("逃脱 0/1",Callable())
@@ -431,7 +433,7 @@ func layout() -> void:
 		game.cards[index].position = Vector2(safe.position.x,card_top+index*(card_height+8))
 		game.cards[index].size = Vector2(164,card_height)
 		faces[index].size = game.cards[index].size
-	var warning_left: float = routine_button.position.x+routine_button.size.x+12
+	var warning_left: float = clock.position.x+clock.size.x+12
 	var warning_width: float = goal.position.x-12-warning_left
 	if warning_width >= 320:
 		warning_banner.position = Vector2(warning_left,safe.position.y)
@@ -538,9 +540,7 @@ func refresh() -> void:
 	menu_button.visible = not blocked or menu.visible or (game.tutorial and game.tutorial.active and not game.tutorial.transition)
 	clock.queue_redraw()
 	clock.disabled = blocked
-	routine_button.disabled = game.phase != "playing"
-	routine_button.visible = not game.world_input_blocked()
-	routine_button.text = "日常表"
+	routine_button.hide()
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text

@@ -106,7 +106,7 @@ func valid_position(id: String, point: Vector2) -> bool:
 	var rect := Rect2(point,controls[id].size)
 	if not bounds().encloses(rect):
 		return false
-	var fixed: Array = game.cards + [ui.clock,ui.routine_button,ui.menu_button,ui.wallet,ui.goal]
+	var fixed: Array = game.cards + [ui.clock,ui.menu_button,ui.wallet,ui.goal]
 	if not ui.minimap_collapsed:
 		fixed.append(game.mini_map)
 	for control in fixed:

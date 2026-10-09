@@ -251,22 +251,8 @@ func tick() -> void:
 	offer_morning()
 
 func offer_morning() -> void:
-	if game.tutorial and game.tutorial.active:
-		morning_pending = false
-		return
-	# The first routine tick precedes the UI's construction. Keep the request
-	# pending until both panels exist; each new arrangement day gets one offer.
-	if not morning_pending or game.phase != "playing" or game.schedule.remaining() <= 0 or current_slot() < 0:
-		return
-	if game.routine_panel == null or game.fullscreen_ui == null:
-		return
-	if game.dialogue: game.dialogue.close()
-	if game.routine_panel.panel.visible:
-		game.routine_panel.reload()
-	else:
-		game.routine_panel.open()
-	if game.routine_panel.panel.visible:
-		morning_pending = false
+	# Daily plans keep running, but the retired planner must not pause a day.
+	morning_pending = false
 
 func is_lawful(actor_id: int) -> bool:
 	if game.prison_alert != null and game.prison_alert.active:

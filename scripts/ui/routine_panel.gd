@@ -339,24 +339,8 @@ func toggle() -> void:
 		open()
 
 func open() -> void:
-	if game.phase != "playing" or panel.visible:
-		return
-	if game.fullscreen_ui.menu.visible:
-		game.fullscreen_ui.close_menu()
-	game.shop_panel.close()
-	game.schedule.close()
-	game.developer_settings.close()
-	paused_before_open = game.get_tree().paused
-	pause_active = true
-	layout(game.fullscreen_ui.safe_area())
-	panel.show()
-	blocker.show()
-	# Its normal visibility tick is pausable, so hide it before freezing.
-	game.mini_map.hide()
-	game.get_tree().paused = true
-	reload()
-	game.presentation.interaction.refresh()
-	game.fullscreen_ui.refresh()
+	# Compatibility entry point for old callers; daily planning is retired.
+	close()
 
 func close() -> void:
 	close_picker()

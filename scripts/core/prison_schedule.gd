@@ -123,7 +123,7 @@ func advance(real_delta: float) -> void:
 	var target := minf(limit_seconds,clock_elapsed+maxf(0,real_delta)*time_speed)
 	if game.routines and game.routine_panel and game.fullscreen_ui:
 		# Land exactly on the next wake-up, including at high developer speeds.
-		# Routine.tick opens its paused planner before this frame's AI runs.
+		# This preserves the daily transition before the frame's AI runs.
 		var morning := floorf(absolute_minutes()/1440.0)*1440.0+wake_minutes()
 		if morning <= absolute_minutes()+0.00001:
 			morning += 1440.0
@@ -285,7 +285,7 @@ func tick(announce: bool = true) -> void:
 		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
-	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日07:20。" if is_sleep_time() else "作息每日循环；人员日常表打开时暂停游戏。")
+	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日07:20。" if is_sleep_time() else "作息每日循环；起床后可直接行动。")
 	if game.prison_alert != null and game.prison_alert.active:
 		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到07:20起床点名结束，期间无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
@@ -297,7 +297,7 @@ func tick(announce: bool = true) -> void:
 	clock_label.text = "%02d:%02d · %s · %s" % [floori(minute/60),floori(minute)%60,stage.name,left]
 	clock_label.add_theme_color_override("font_color",Color("bc5348") if is_curfew() or real_remaining() <= 30 else Color("303b46"))
 	stage_button.text = "日程 · %s" % stage.name
-	stage_button.tooltip_text = "%d天内逃脱；人员日常表暂停，作息说明与交易继续计时。" % escape_days
+	stage_button.tooltip_text = "%d天内逃脱；作息说明与交易继续计时。" % escape_days
 	if remaining() <= 0:
 		clock_label.text = "逃脱期限已到"
 		stage_button.text = "日程 · 已封监"
