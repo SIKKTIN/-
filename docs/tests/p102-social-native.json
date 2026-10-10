@@ -1,0 +1,555 @@
+{
+	"checks": {
+		"bad_relationship_changes_a_generous_person_to_refusal": true,
+		"bounded_memory_retains_significant_gifts": true,
+		"cautious_self_interested_person_refuses": true,
+		"chat_cannot_farm_relationships_per_click": true,
+		"day_schedule_changes_do_not_erase_memory": true,
+		"decision_has_auditable_consequence_and_cost_terms": true,
+		"decisions_are_throttled_instead_of_per_frame": true,
+		"distinct_personalities_and_relationships": true,
+		"emotions_recover_gradually": true,
+		"every_person_has_unique_named_identity": true,
+		"failed_purchase_cannot_farm_merchant_trust": true,
+		"fear_can_override_a_generous_persons_help": true,
+		"food_has_a_real_donor_cost": true,
+		"friend_autonomously_helps_a_nearby_hungry_player": true,
+		"generous_person_gives_actual_food": true,
+		"guard_cannot_receive_remote_report": true,
+		"inaccessible_requests_have_no_effect": true,
+		"information_is_shared_and_remembered": true,
+		"loan_transfers_real_money_from_npc": true,
+		"named_dialogue_exposes_mood_and_relationships": true,
+		"npc_income_consumes_each_work_interval_once": true,
+		"npc_wages_fund_own_help_instead_of_player_wallet": true,
+		"npcs_build_relationships_with_each_other": true,
+		"only_actual_witnesses_remember_capture": true,
+		"pause_stops_social_time": true,
+		"peer_conversation_releases_people_after_two_seconds": true,
+		"real_gift_changes_relationship_and_memory": true,
+		"real_gift_pickup": true,
+		"repayment_does_not_reopen_daily_resource_reward": true,
+		"repayment_moves_money_and_builds_trust": true,
+		"repeated_requests_do_not_duplicate_food": true,
+		"report_fixture_is_a_real_visible_violation": true,
+		"report_starts_investigation_without_teleport_capture": true,
+		"round_reset_clears_social_state_and_rebinds_new_people": true,
+		"social_dialogue_fits_1200": true,
+		"social_dialogue_fits_960": true,
+		"successful_purchase_leaves_merchant_memory": true,
+		"touch_request_uses_real_decision_and_changes_attributes": true,
+		"tutorial_keeps_its_authored_performance": true,
+		"wall_blocks_perception_and_help": true,
+		"witness_reports_to_a_nearby_guard": true
+	},
+	"failed": [],
+	"total": 41,
+	"world": {
+		"evaluations": 1,
+		"knowledge": {},
+		"now": 0.0,
+		"people": {
+			"guard:gate-watch-1": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:gate-watch-1",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "罗志强",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "gate",
+				"role_name": "门岗看守",
+				"traits": {
+					"ambition": 0.4,
+					"caution": 0.9,
+					"generosity": 0.2,
+					"greeting": "罗志强。这道门我看着，别打门锁的主意。",
+					"history": "长年守门，最讨厌有人偷偷碰门锁。",
+					"like": -5.0,
+					"loyalty": 0.95,
+					"name": "罗志强",
+					"role_name": "门岗看守",
+					"trait_label": "警觉",
+					"trust": 15.0
+				}
+			},
+			"guard:gate-watch-2": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:gate-watch-2",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "唐海",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "gate",
+				"role_name": "门岗看守",
+				"traits": {
+					"ambition": 0.35,
+					"caution": 0.85,
+					"generosity": 0.35,
+					"greeting": "叫我唐海就行。口头保证没用，我得亲眼确认。",
+					"history": "习惯把风险挡在门外，很少轻信口头保证。",
+					"like": 0.0,
+					"loyalty": 0.8,
+					"name": "唐海",
+					"role_name": "门岗看守",
+					"trait_label": "谨慎",
+					"trust": 20.0
+				}
+			},
+			"guard:loading-watch": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:loading-watch",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "蔡守义",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "gate",
+				"role_name": "货场看守",
+				"traits": {
+					"ambition": 0.6,
+					"caution": 0.65,
+					"generosity": 0.4,
+					"greeting": "我叫蔡守义。货物和出入口归我管，做事可靠比说得好听有用。",
+					"history": "看管货物和出入口，做事讲究可靠和效率。",
+					"like": 0.0,
+					"loyalty": 0.85,
+					"name": "蔡守义",
+					"role_name": "货场看守",
+					"trait_label": "务实",
+					"trust": 25.0
+				}
+			},
+			"guard:overseer": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:overseer",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "杜成",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "overseer",
+				"role_name": "监工",
+				"traits": {
+					"ambition": 0.7,
+					"caution": 0.55,
+					"generosity": 0.1,
+					"greeting": "杜成，负责查岗。先把你工位上的活干完，有话再说。",
+					"history": "负责查岗，最在意工位上的活有没有按时做完。",
+					"like": -10.0,
+					"loyalty": 1.0,
+					"name": "杜成",
+					"role_name": "监工",
+					"trait_label": "严厉",
+					"trust": 15.0
+				}
+			},
+			"guard:patrol": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:patrol",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "陈志远",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "patrol",
+				"role_name": "巡逻教官",
+				"traits": {
+					"ambition": 0.3,
+					"caution": 0.65,
+					"generosity": 0.4,
+					"greeting": "我是陈志远，巡逻和新人的指导归我管。交情归交情，规矩不能坏。",
+					"history": "负责巡逻和新人的入监指导，交情不能代替纪律。",
+					"like": 0.0,
+					"loyalty": 0.95,
+					"name": "陈志远",
+					"role_name": "巡逻教官",
+					"trait_label": "重规矩",
+					"trust": 25.0
+				}
+			},
+			"guard:warehouse-watch": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:warehouse-watch",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "韩立安",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "gate",
+				"role_name": "看守",
+				"traits": {
+					"ambition": 0.5,
+					"caution": 0.8,
+					"generosity": 0.3,
+					"history": "在这里生活和工作，习惯先判断风险。",
+					"like": 0,
+					"loyalty": 0.8,
+					"name": "韩立安",
+					"role_name": "看守",
+					"trait_label": "谨慎",
+					"trust": 20
+				}
+			},
+			"merchant:prison_dealer": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "merchant:prison_dealer",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "赵四海",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "merchant",
+				"role_name": "生活区商人",
+				"traits": {
+					"ambition": 0.95,
+					"caution": 0.6,
+					"generosity": 0.3,
+					"greeting": "赵四海，卖些用得上的工具。守信用的熟客，我都记着。",
+					"history": "靠卖工具挣钱，记得守信用的熟客，也记得欠账的人。",
+					"like": 0.0,
+					"loyalty": 0.3,
+					"name": "赵四海",
+					"role_name": "生活区商人",
+					"trait_label": "精打细算",
+					"trust": 30.0
+				}
+			},
+			"prisoner:0": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "prisoner:0",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "林川",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "player",
+				"role_name": "新来的囚徒",
+				"traits": {
+					"ambition": 0.5,
+					"caution": 0.5,
+					"generosity": 0.5,
+					"greeting": "先熟悉这里，再找机会。",
+					"history": "刚来到这里，正在寻找逃离的机会。",
+					"like": 0.0,
+					"loyalty": 0.2,
+					"name": "林川",
+					"role_name": "新来的囚徒",
+					"trait_label": "寻找出路",
+					"trust": 30.0
+				}
+			},
+			"prisoner:1": {
+				"activity": "帮了你",
+				"busy_until": 0.0,
+				"cooldowns": {
+					"help": 30.0
+				},
+				"debt": 1,
+				"help_count": 1,
+				"help_day": 0,
+				"id": "prisoner:1",
+				"last_decision": {
+					"action": "help",
+					"candidates": [
+						{
+							"action": "help",
+							"impact": {
+								"body": 0.5,
+								"relationships": 0.2,
+								"resources": 0.0
+							},
+							"score": 15.98575,
+							"terms": {
+								"cost": -2.8,
+								"emotion": 1.2,
+								"personality": 22.0,
+								"player": 0.33075,
+								"risk": -0.245,
+								"routine": 0.0,
+								"self": -4.5
+							}
+						},
+						{
+							"action": "share",
+							"impact": {
+								"information": 0.8,
+								"safety": 0.4
+							},
+							"score": 12.312,
+							"terms": {
+								"cost": -0.8,
+								"emotion": 0.0,
+								"personality": 11.22,
+								"player": 0.392,
+								"risk": 0.0,
+								"routine": 0.0,
+								"self": 1.5
+							}
+						},
+						{
+							"action": "refuse",
+							"impact": {},
+							"score": 7.77,
+							"terms": {
+								"cost": 0.0,
+								"emotion": 0.0,
+								"personality": 2.97,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 1.2,
+								"self": 3.6
+							}
+						}
+					],
+					"context": "request_help",
+					"impact": {
+						"body": 0.5,
+						"relationships": 0.2,
+						"resources": 0.0
+					},
+					"score": 15.98575,
+					"terms": {
+						"cost": -2.8,
+						"emotion": 1.2,
+						"personality": 22.0,
+						"player": 0.33075,
+						"risk": -0.245,
+						"routine": 0.0,
+						"self": -4.5
+					},
+					"until": 8.0
+				},
+				"line": "我分你半份口粮，先把肚子填上。",
+				"line_until": 5.0,
+				"memories": [
+					{
+						"impact": {
+							"body": 0.5,
+							"relationships": 0.2,
+							"resources": 0.0
+						},
+						"kind": "help",
+						"other": "prisoner:0",
+						"text": "我分你半份口粮，先把肚子填上。",
+						"time": 740.0
+					}
+				],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 5.0
+				},
+				"name": "周大勇",
+				"needs": {
+					"fatigue": 0.0,
+					"hunger": 20.0
+				},
+				"rations": 0,
+				"relations": {
+					"prisoner:0": {
+						"fear": 0.0,
+						"like": 14.0,
+						"trust": 44.0
+					}
+				},
+				"role": "prisoner",
+				"role_name": "囚徒",
+				"traits": {
+					"ambition": 0.2,
+					"caution": 0.35,
+					"generosity": 0.9,
+					"greeting": "以前我干搬运。认定了的朋友，有难我会搭把手。",
+					"history": "以前做过搬运工，认定的朋友有难时会搭把手。",
+					"like": 15.0,
+					"loyalty": 0.1,
+					"name": "周大勇",
+					"role_name": "囚徒",
+					"trait_label": "重情义",
+					"trust": 45.0
+				}
+			},
+			"prisoner:2": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "prisoner:2",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "许文斌",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "prisoner",
+				"role_name": "囚徒",
+				"traits": {
+					"ambition": 0.85,
+					"caution": 0.9,
+					"generosity": 0.15,
+					"greeting": "我吃过受牵连的亏。做什么事，都得先算清自己的得失。",
+					"history": "吃过受牵连的亏，做事总要先盘算自己的得失。",
+					"like": -5.0,
+					"loyalty": 0.75,
+					"name": "许文斌",
+					"role_name": "囚徒",
+					"trait_label": "谨慎逐利",
+					"trust": 20.0
+				}
+			}
+		},
+		"thought_cycles": 0
+	}
+}

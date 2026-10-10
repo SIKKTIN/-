@@ -60,6 +60,7 @@ var room_access
 var workshop
 var dialogue
 var tutorial
+var social
 var confinement_counts: Array[int] = [0,0,0]
 var failure_reason := ""
 var editor_preview_mode := false
@@ -204,11 +205,15 @@ func _ready() -> void:
 	room_access.tick()
 	workshop = WorkshopRules.new(self)
 	workshop.reset()
+	social = preload("res://scripts/core/social_world.gd").new(self)
 	dialogue = NpcDialogue.new()
 	add_child(dialogue)
 	dialogue.configure(self)
 	room_visibility = preload("res://scripts/core/room_visibility.gd").new(self)
 	room_visibility.reset()
+	var social_labels = preload("res://scripts/presentation/social_labels.gd").new()
+	add_child(social_labels)
+	social_labels.configure(self)
 	fullscreen_ui.layout()
 	var retained_floor=preload("res://scripts/presentation/floor_canvas.gd").new()
 	add_child(retained_floor)
@@ -346,6 +351,7 @@ func _process(delta: float) -> void:
 	world.end_ai_paths()
 	if room_visibility: room_visibility.tick(delta)
 	if dialogue: dialogue.tick()
+	if social: social.tick(delta)
 	if tutorial: tutorial.tick(delta)
 	if schedule and phase == "playing" and schedule.remaining() <= 0:
 		finish_timeout()
@@ -530,6 +536,7 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		attributes.reset()
 	if workshop:
 		workshop.reset()
+	if social: social.reset()
 	if room_access:
 		room_access.tick()
 	if routines:
@@ -653,6 +660,7 @@ func capture_actor(actor_id: int) -> void:
 	if shop_panel and shop_panel.actor_id == actor_id:
 		shop_panel.close()
 	var actor = actors[actor_id]
+	if social and actor_id==PLAYER_ACTOR_ID: social.player_captured(actor.position)
 	if skills:
 		skills.cancel(actor_id)
 	actor.position = actor.home
@@ -671,7 +679,7 @@ func capture_actor(actor_id: int) -> void:
 		show_status("伙伴%d被送回起点；门、箱子、技能和已逃脱伙伴保留。" % (actor_id+1))
 
 func show_status(text: String, duration: float = 2.5) -> void:
-	status_text = text
+	status_text = social.localize(text) if social else text
 	status_until = elapsed + duration
 
 func use_selected_skill() -> void:

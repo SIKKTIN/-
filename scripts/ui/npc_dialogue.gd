@@ -17,6 +17,7 @@ var text_layout_key: Array = []
 var anchor_key: Array = []
 var response_layout_key: Array = []
 var last_choice := 0
+var social_note: Label
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -38,6 +39,9 @@ func configure(owner_game) -> void:
 	speaker = make_label(16)
 	body = make_label(17)
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	social_note = make_label(12)
+	social_note.add_theme_color_override("font_color",Color("667e70"))
+	social_note.clip_text = true
 	responses = preload("res://scripts/ui/npc_response_choices.gd").new()
 	game.get_node("HUD").add_child(responses)
 	responses.configure(game.fullscreen_ui)
@@ -108,6 +112,10 @@ func targets() -> Array:
 	if game.trade:
 		for id in game.trade.actors:
 			result.append({"id":"merchant:"+str(id),"name":str(game.trade.merchants[id].name),"role":"merchant","node":game.trade.actors[id]})
+	if game.social:
+		for target in result:
+			var p: Dictionary = game.social.person(str(target.id))
+			if not p.is_empty(): target.name = p.name+" · "+p.role_name
 	return result.filter(func(t): return is_instance_valid(t.node) and t.node.visible and not t.node.escaped and not game.world.is_under_roof(t.node.position))
 
 func find_target(id: String) -> Dictionary:
@@ -148,22 +156,23 @@ func open(id: String) -> bool:
 	last_choice = 0
 	speaker.text = current_target.name
 	var guard: bool = current_target.role in ["patrol","gate","overseer","reinforcement"]
-	special_button.text = "帮我分散一下注意。" if guard else "我想买些东西。" if current_target.role == "merchant" else "你最近怎么样？"
+	special_button.text = "帮我分散一下注意。" if guard else "我想买些东西。" if current_target.role == "merchant" else "你能帮我一下吗？"
 	special_button.tooltip_text = "只有会聊天技能可以使看守分心；普通交谈不影响巡逻与抓捕。" if guard else ""
 	panel.show()
 	responses.show()
 	refresh_choices()
 	layout()
-	casual()
+	casual(false)
 	tick()
 	game._update_ui()
 	return true
 
-func casual() -> void:
+func casual(clicked := true) -> void:
 	if current_target.is_empty(): return
 	last_choice = 0
 	var lines: Array = config.roles[current_target.role].greeting
 	body.text = str(lines[line_index%lines.size()])
+	if game.social: body.text = game.social.chat(str(current_target.id),clicked)
 	line_index += 1
 	refresh_choices()
 	layout()
@@ -172,6 +181,9 @@ func rules() -> void:
 	if current_target.is_empty(): return
 	last_choice = 1
 	body.text = str(config.roles[current_target.role].rules)
+	if game.social and game.social.knowledge.get("workshop_warning",{}).get("source","")==str(current_target.id):
+		body.text = str(game.social.knowledge.workshop_warning.text)
+	if game.social: body.text = game.social.answer(str(current_target.id),body.text)
 	refresh_choices()
 	layout()
 
@@ -199,7 +211,7 @@ func special() -> void:
 		close()
 		game.shop_panel.open(id)
 	else:
-		body.text = str(config.roles[current_target.role].daily).replace("{activity}",game.routines.status_for(current_target.node.actor_id))
+		body.text = game.social.request_help(str(current_target.id)) if game.social else str(config.roles[current_target.role].daily).replace("{activity}",game.routines.status_for(current_target.node.actor_id))
 		refresh_choices()
 		layout()
 
@@ -230,6 +242,12 @@ func tick() -> void:
 
 func refresh_choices() -> void:
 	if current_target.is_empty(): return
+	if game.social:
+		social_note.text = game.social.summary(str(current_target.id))
+		var p: Dictionary = game.social.person(str(current_target.id))
+		panel.tooltip_text = p.traits.trait_label+" · "+p.traits.history
+		casual_button.text = "给你2块钱，谢谢你。" if p.debt>0 and game.inventory.wallet>=2 else "先聊两句吧。"
+		rules_button.text = "再说说你上次的消息。" if game.social.knowledge.get("workshop_warning",{}).get("source","")==str(current_target.id) else "这里每天怎么安排？"
 	var reason := ""
 	if current_target.role in ["patrol","gate","overseer","reinforcement"]:
 		reason = "需要「会聊天」能力" if game.actors[0].skill_id!="chat" else game.skills.chat_reason(game.actors[0],current_target.node)
@@ -272,10 +290,13 @@ func layout() -> void:
 	var key := [body.text,width]
 	if key!=text_layout_key:
 		text_layout_key = key
-		body.position = Vector2(14,42)
 		body.size = Vector2(width-28,0)
 		var text_height := maxf(27,ceilf(body.get_minimum_size().y))
-		panel.size = Vector2(width,text_height+58)
+		social_note.visible = game.social!=null and not (game.get_viewport_rect().size.y<620 and text_height>80)
+		body.position = Vector2(14,64 if social_note.visible else 42)
+		panel.size = Vector2(width,text_height+80 if social_note.visible else text_height+58)
+		social_note.position = Vector2(14,39)
+		social_note.size = Vector2(width-28,20)
 		speaker.position = Vector2(26,9)
 		speaker.size = Vector2(width-70,25)
 		end_button.position = Vector2(width-37,7)

@@ -232,7 +232,8 @@ func task_caption() -> String:
 		return "保持劳动，等待工资到账" if step_id=="work_practice" else "保持劳动，等待警戒消退" if step_id=="warning_practice" else "保持劳动，完成下午练习"
 	if step_id=="meal_practice" and game.routines.records.get(0,{}).get("kind","")=="meal":
 		return "正在用餐，吃满20分钟" if game.routines.is_eating(0) else "已取餐，前往自己的餐桌"
-	return TASK_CAPTIONS.get(step_id,str(step().get("text","")))
+	var caption: String = TASK_CAPTIONS.get(step_id,str(step().get("text","")))
+	return game.social.localize(caption) if game.social else caption
 
 func cancel():
 	active = false
@@ -323,13 +324,18 @@ func presenter():
 	return game.guard
 
 func presenter_name() -> String:
+	var actor = presenter()
+	if game.social and is_instance_valid(actor):
+		var p: Dictionary = game.social.person(str(actor.get_meta("social_id","")))
+		if not p.is_empty(): return p.name+" · "+p.role_name
 	match str(step().get("presenter","instructor")):
 		"overseer": return "监工 · 老周"
 		"merchant": return "商人"
 	return "陈教官"
 
 func current_line() -> String:
-	return str(lines[line_index]) if not lines.is_empty() else ""
+	var line: String = str(lines[line_index]) if not lines.is_empty() else ""
+	return game.social.localize(line) if game.social else line
 
 func _conversation_ready() -> bool:
 	var actor = presenter()
@@ -624,7 +630,7 @@ func _refresh():
 	title.text = "入监日 %d/6 · %s" % [int(step().chapter),str(step().title)]
 	speaker.text = str(step().get("speaker","你的任务"))
 	var task: String = str(step().get("task",step().title))
-	body.tooltip_text = task
+	body.tooltip_text = game.social.localize(task) if game.social else task
 	task = task_caption()
 	if body.text != task: body.text = task
 	body.visible_characters = -1

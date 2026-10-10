@@ -12,6 +12,9 @@ func _draw():
 	if portrait:
 		var fitted: Vector2 = portrait.get_size()*minf((area.size.x-8)/portrait.get_width(),(area.size.y-8)/portrait.get_height())
 		draw_texture_rect(portrait,Rect2(area.get_center()-fitted/2,fitted),false)
+	if ui.game.social:
+		draw_rect(Rect2(13,76,62,16),Color("eee6d5"))
+		draw_string(ui.font,Vector2(31,89),ui.game.social.person("prisoner:0").name,HORIZONTAL_ALIGNMENT_LEFT,-1,12,HudArt.INK)
 	var values: Dictionary = ui.game.attributes.values[0]
 	for row in range(2):
 		var value: float = values.stamina if row==0 else values.fullness

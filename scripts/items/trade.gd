@@ -75,6 +75,7 @@ func try_buy(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
 	inv.bags[actor_id].append(item_id)
 	inv.instances[item_id].location = "bag"
 	inv.instances[item_id].actor_id = actor_id
+	if game.social: game.social.record_purchase("merchant:"+merchant_id)
 	return {"ok": true, "reason": "购买成功，交给当前伙伴。"}
 
 func try_sell(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:

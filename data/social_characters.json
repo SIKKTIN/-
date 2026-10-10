@@ -1,0 +1,129 @@
+{
+  "player_weights": {
+    "body": 0.25,
+    "resources": 0.2,
+    "freedom": 0.2,
+    "safety": 0.2,
+    "information": 0.1,
+    "relationships": 0.05
+  },
+  "roster": {
+    "prisoner:0": {
+      "name": "林川",
+      "role_name": "新来的囚徒",
+      "trait_label": "寻找出路",
+      "history": "刚来到这里，正在寻找逃离的机会。",
+      "generosity": 0.5,
+      "caution": 0.5,
+      "loyalty": 0.2,
+      "ambition": 0.5,
+      "like": 0,
+      "trust": 30,
+      "greeting": "先熟悉这里，再找机会。"
+    },
+    "prisoner:1": {
+      "name": "周大勇",
+      "role_name": "囚徒",
+      "trait_label": "重情义",
+      "history": "以前做过搬运工，认定的朋友有难时会搭把手。",
+      "generosity": 0.9,
+      "caution": 0.35,
+      "loyalty": 0.1,
+      "ambition": 0.2,
+      "like": 15,
+      "trust": 45,
+      "greeting": "以前我干搬运。认定了的朋友，有难我会搭把手。"
+    },
+    "prisoner:2": {
+      "name": "许文斌",
+      "role_name": "囚徒",
+      "trait_label": "谨慎逐利",
+      "history": "吃过受牵连的亏，做事总要先盘算自己的得失。",
+      "generosity": 0.15,
+      "caution": 0.9,
+      "loyalty": 0.75,
+      "ambition": 0.85,
+      "like": -5,
+      "trust": 20,
+      "greeting": "我吃过受牵连的亏。做什么事，都得先算清自己的得失。"
+    },
+    "guard:patrol": {
+      "name": "陈志远",
+      "role_name": "巡逻教官",
+      "trait_label": "重规矩",
+      "history": "负责巡逻和新人的入监指导，交情不能代替纪律。",
+      "generosity": 0.4,
+      "caution": 0.65,
+      "loyalty": 0.95,
+      "ambition": 0.3,
+      "like": 0,
+      "trust": 25,
+      "greeting": "我是陈志远，巡逻和新人的指导归我管。交情归交情，规矩不能坏。"
+    },
+    "guard:gate-watch-1": {
+      "name": "罗志强",
+      "role_name": "门岗看守",
+      "trait_label": "警觉",
+      "history": "长年守门，最讨厌有人偷偷碰门锁。",
+      "generosity": 0.2,
+      "caution": 0.9,
+      "loyalty": 0.95,
+      "ambition": 0.4,
+      "like": -5,
+      "trust": 15,
+      "greeting": "罗志强。这道门我看着，别打门锁的主意。"
+    },
+    "guard:gate-watch-2": {
+      "name": "唐海",
+      "role_name": "门岗看守",
+      "trait_label": "谨慎",
+      "history": "习惯把风险挡在门外，很少轻信口头保证。",
+      "generosity": 0.35,
+      "caution": 0.85,
+      "loyalty": 0.8,
+      "ambition": 0.35,
+      "like": 0,
+      "trust": 20,
+      "greeting": "叫我唐海就行。口头保证没用，我得亲眼确认。"
+    },
+    "guard:loading-watch": {
+      "name": "蔡守义",
+      "role_name": "货场看守",
+      "trait_label": "务实",
+      "history": "看管货物和出入口，做事讲究可靠和效率。",
+      "generosity": 0.4,
+      "caution": 0.65,
+      "loyalty": 0.85,
+      "ambition": 0.6,
+      "like": 0,
+      "trust": 25,
+      "greeting": "我叫蔡守义。货物和出入口归我管，做事可靠比说得好听有用。"
+    },
+    "guard:overseer": {
+      "name": "杜成",
+      "role_name": "监工",
+      "trait_label": "严厉",
+      "history": "负责查岗，最在意工位上的活有没有按时做完。",
+      "generosity": 0.1,
+      "caution": 0.55,
+      "loyalty": 1.0,
+      "ambition": 0.7,
+      "like": -10,
+      "trust": 15,
+      "greeting": "杜成，负责查岗。先把你工位上的活干完，有话再说。"
+    },
+    "merchant:prison_dealer": {
+      "name": "赵四海",
+      "role_name": "生活区商人",
+      "trait_label": "精打细算",
+      "history": "靠卖工具挣钱，记得守信用的熟客，也记得欠账的人。",
+      "generosity": 0.3,
+      "caution": 0.6,
+      "loyalty": 0.3,
+      "ambition": 0.95,
+      "like": 0,
+      "trust": 30,
+      "greeting": "赵四海，卖些用得上的工具。守信用的熟客，我都记着。"
+    }
+  }
+}

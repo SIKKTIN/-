@@ -90,6 +90,7 @@ func try_transfer(actor_id: int, receiver_id: int, id: String) -> Dictionary:
 	bags[actor_id].erase(id)
 	bags[receiver_id].append(id)
 	instances[id].actor_id = receiver_id
+	if game.social: game.social.record_gift(receiver_id,str(definitions[instances[id].definition_id].name))
 	return _result(true)
 
 func carry_out(actor_id: int) -> void:

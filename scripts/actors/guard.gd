@@ -175,6 +175,18 @@ func sees(point: Vector2) -> bool:
 		return false
 	return world.line_clear(position,point)
 
+func receive_tip(reporter, point: Vector2) -> bool:
+	if not is_instance_valid(reporter) or game.phase!="playing" or game.get_tree().paused or state in ["chasing","talking"] or not visible or escaped: return false
+	if not game.actors.slice(1).has(reporter) or not reporter.visible or reporter.escaped or reporter.confined: return false
+	if not pursuit_allowed(game.actors[0]) or reporter.position.distance_to(position)>240 or not world.line_clear(reporter.position,position): return false
+	if reporter.position.distance_to(point)>180 or not world.line_clear(reporter.position,point) or not search_zone().has_point(point): return false
+	state = "searching"
+	target_id = -1
+	last_seen = point
+	investigate_until = game.elapsed+8
+	path.clear()
+	return true
+
 func tick(delta: float) -> void:
 	moved_this_frame = false
 	if game.phase != "playing" or game.get_tree().paused:

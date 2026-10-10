@@ -321,7 +321,11 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_cred
 		work_rounds[id] += rounds
 		work_earned[id] += amount
 		# NPC income stays in its personal ledger, never the player wallet.
-		if not game.actor_is_controllable(id): continue
+		if not game.actor_is_controllable(id):
+			if game.social:
+				var p: Dictionary = game.social.person("prisoner:%d" % id)
+				if not p.is_empty(): p.money += amount
+			continue
 		game.inventory.wallet += amount
 		recent_wages[id] = {"amount": amount, "until": game.elapsed+2.4}
 		paid += amount
