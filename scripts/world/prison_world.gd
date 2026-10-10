@@ -844,8 +844,18 @@ func _door_operation_origin(gate: Dictionary) -> Vector2:
 
 func wall_collision_rects() -> Array[Rect2]:
 	var result: Array[Rect2] = []
+	var cuts: Array[Rect2] = []
+	for port in door_passage.portals:
+		cuts.append(port.rect)
+	var geometry = preload("res://scripts/presentation/roof_geometry.gd")
 	for index in range(walls.size()):
 		var surface: Dictionary = wall_surfaces.get(index,{})
+		if surface.has("grid_tile_asset") and surface.get("render_enabled",true) and not surface.get("collision_parts",[]).is_empty():
+			# A painted modular wall occupies its complete visible footprint.
+			# Subtract the same aperture used by the door art and body clearance,
+			# including where the taller opening cuts an older side-wall tile.
+			result.append_array(geometry.subtract_all(walls[index],cuts))
+			continue
 		if not surface.has("collision_parts"):
 			result.append(walls[index])
 			continue
