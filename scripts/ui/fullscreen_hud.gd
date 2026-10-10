@@ -200,7 +200,7 @@ func configure(owner_game) -> void:
 	menu_blocker.process_mode = Node.PROCESS_MODE_ALWAYS
 	menu = game.schedule._paper_panel("PauseMenu",Vector2.ZERO,Vector2(360,500),231)
 	menu.process_mode = Node.PROCESS_MODE_ALWAYS
-	game.schedule._label(menu,Vector2(24,20),"这次怎么逃 · 已暂停",22)
+	game.schedule._label(menu,Vector2(24,20),"监狱风云 · 已暂停",22)
 	var resume: Button = game.schedule._button(menu,Vector2(24,66),"继续行动",close_menu)
 	resume.size = Vector2(312,48)
 	game.room_selector.reparent(menu,false)

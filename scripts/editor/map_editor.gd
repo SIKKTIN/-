@@ -72,7 +72,7 @@ func _ready() -> void:
 	request_open("res://data/rooms/r04.json")
 	get_window().focus_exited.connect(func(): canvas.finish_gesture())
 	if not Engine.is_editor_hint():
-		get_window().title = "这次怎么逃 · 关卡编辑器 · 统一建筑素材"
+		get_window().title = "监狱风云 · 关卡编辑器 · 统一建筑素材"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
 

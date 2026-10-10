@@ -229,7 +229,7 @@ func _build_ui() -> void:
 	layer.name = "HUD"
 	add_child(layer)
 	var title := Label.new()
-	title.text = "这次怎么逃"
+	title.text = "监狱风云"
 	title.position = Vector2(32, 25)
 	title.add_theme_font_size_override("font_size", 30)
 	title.add_theme_color_override("font_color", Color("303b46"))
