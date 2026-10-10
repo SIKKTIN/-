@@ -93,7 +93,7 @@ func configure(owner_game) -> void:
 	routine_button.hide()
 	routine_button.disabled = true
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
-	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日07:20。"
+	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日08:00。"
 	goal = _button("逃脱 0/1",Callable())
 	goal.mouse_filter = Control.MOUSE_FILTER_STOP
 	wallet = _button("0",Callable(),"coin")

@@ -608,7 +608,7 @@ func refresh_inspector() -> void:
 			inspector.add_child(doors)
 			label(inspector,"试跑时：主角进入揭顶，离开重盖；编辑视图完整显示。",13)
 		if ref.group == "access_doors":
-			label(inspector,"劳动门禁 · 08–12 / 14–18锁门" if item.get("kind","") == "workshop" else "定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
+			label(inspector,"劳动门禁 · 09–12 / 14–17锁门" if item.get("kind","") == "workshop" else "定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
 			if item.get("kind","") == "timed":
 				for index in range(2):
 					label(inspector,"开放 / 关闭分钟（12:00 = 720）" if index == 0 else "关闭分钟（14:00 = 840）",13)

@@ -58,7 +58,7 @@ func accrue(begin_clock: float, end_clock: float, states: Array) -> Dictionary:
 	var begin: float = float(game.schedule.config.start_minutes)+start/game.schedule.day_seconds*1440.0
 	var end: float = float(game.schedule.config.start_minutes)+end_clock/game.schedule.day_seconds*1440.0
 	var initial_minute := fposmod(begin,1440.0)
-	var work_end: float = 720.0 if initial_minute >= 480 and initial_minute < 720 else 1080.0 if initial_minute >= 840 and initial_minute < 1080 else -1.0
+	var work_end: float = game.schedule.work_window(initial_minute).y
 	work_end = floorf(begin/1440.0)*1440.0+work_end if work_end >= 0 else -1.0
 	# Integrate at game-minute boundaries so a long frame cannot work beyond
 	# exhaustion or credit a whole interval at its starting efficiency.

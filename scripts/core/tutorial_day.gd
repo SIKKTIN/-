@@ -136,7 +136,7 @@ func _make_ui():
 	transition_cover.z_index = 300
 	transition_cover.hide()
 	var morning := Label.new()
-	morning.text = "入监日结束\n第2天 · 07:20"
+	morning.text = "入监日结束\n第2天 · 08:00"
 	morning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	morning.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	morning.add_theme_font_size_override("font_size",28)
@@ -301,7 +301,7 @@ func _process(delta: float):
 		completed = true
 		cancel()
 		game.reset_round()
-		game.show_status("入监日结束：第2天07:20，正式三天逃脱期限开始。",6)
+		game.show_status("入监日结束：第2天08:00，正式三天逃脱期限开始。",6)
 	else:
 		transition_cover.modulate.a = maxf(0,1-(transition_age-0.4)/0.6)
 		if transition_age >= 1:

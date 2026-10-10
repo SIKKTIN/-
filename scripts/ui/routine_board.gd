@@ -1,6 +1,6 @@
 extends Control
 
-const TIMES := ["08:00–12:00", "12:00–14:00", "14:00–18:00", "18:00–20:00", "20:00–24:00"]
+const TIMES := ["09:00–12:00", "12:00–14:00", "14:00–17:00", "17:00–20:00", "20:00–24:00"]
 const PHASES := ["劳动", "吃饭与自由", "劳动", "自由活动", "寝室区自由"]
 var ui
 
@@ -92,7 +92,7 @@ func _draw() -> void:
 		draw_activity_icon(self,kind,Vector2(x,ui.legend_y+12),ink)
 		draw_string(font,Vector2(x+22,ui.legend_y+18),ui.game.routines.NAMES[kind],HORIZONTAL_ALIGNMENT_LEFT,-1,15,ink)
 		x += 105 if ui.game.routines.has_cafeteria() else 130 if kind != "free" else 140
-	var night := "00:00–07:20  自动睡觉与查寝"
+	var night := "00:00–08:00  自动睡觉与查寝"
 	var width := font.get_string_size(night,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
 	draw_string(font,Vector2(size.x-pad-width,ui.legend_y+18),night,HORIZONTAL_ALIGNMENT_LEFT,-1,14,muted)
 	draw_line(Vector2(pad,ui.note.position.y-8),Vector2(size.x-pad,ui.note.position.y-8),Color("d3cdbc"),1,true)

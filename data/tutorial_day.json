@@ -1,12 +1,12 @@
 {
   "steps": [
-    {"id":"welcome","chapter":1,"title":"第一天 · 入监日","speaker":"陈教官","presenter":"instructor","text":"今天由陈教官带你熟悉这里。","lines":["新来的，先别急。我是陈教官，今天由我带你熟悉这里。","今天先把规矩走一遍。明早七点二十，才开始你的正式三天。","路要自己走，活也要自己干。听明白了？那就跟上我。"],"kind":"brief","button":"跟上教官","next":"guide_arrive"},
+    {"id":"welcome","chapter":1,"title":"第一天 · 入监日","speaker":"陈教官","presenter":"instructor","text":"今天由陈教官带你熟悉这里。","lines":["新来的，先别急。我是陈教官，今天由我带你熟悉这里。","今天先把规矩走一遍。明早八点，才开始你的正式三天。","路要自己走，活也要自己干。听明白了？那就跟上我。"],"kind":"brief","button":"跟上教官","next":"guide_arrive"},
     {"id":"guide_arrive","chapter":1,"title":"教官走向寝室门口","text":"观察教官走向门口。","task":"教官先到门口等你。留意他走过的通道。","kind":"cinematic","target":"dorm_gate","next":"dorm_brief"},
     {"id":"dorm_brief","chapter":1,"title":"你的寝室与伙伴","speaker":"陈教官","presenter":"instructor","text":"教官介绍床位和寝室门。","lines":["这是你的床位，旁边两位是你的伙伴。他们有自己的作息，你管好自己就行。","看这侧面的门框。这里一直能走，不用找钥匙，也不用按开关。","别的房间进去才能看清里面。今天先跟我走，认识一下路。"],"kind":"brief","next":"follow_work"},
-    {"id":"follow_work","chapter":2,"title":"07:20 · 跟随教官去车间","text":"跟随教官去车间。","task":"自己走出寝室，跟随陈教官到车间入口。他会等你。","kind":"objective","target":"work_gate","next":"enter_brief"},
-    {"id":"enter_brief","chapter":2,"title":"车间入口","speaker":"陈教官","presenter":"instructor","text":"教官在车间门口讲解。","lines":["记住：七点二十起床，八点开工，这道门也在八点关上。","劳动时留在车间。跑到外面，被任何看守看见，都会来抓你。","趁门还开着，进去找你自己的工位。我陪你走进去。"],"kind":"brief","next":"enter_work"},
+    {"id":"follow_work","chapter":2,"title":"08:00 · 跟随教官去车间","text":"跟随教官去车间。","task":"自己走出寝室，跟随陈教官到车间入口。他会等你。","kind":"objective","target":"work_gate","next":"enter_brief"},
+    {"id":"enter_brief","chapter":2,"title":"车间入口","speaker":"陈教官","presenter":"instructor","text":"教官在车间门口讲解。","lines":["记住：八点起床，九点开工，这道门也在九点关上。","劳动时留在车间。跑到外面，被任何看守看见，都会来抓你。","趁门还开着，进去找你自己的工位。我陪你走进去。"],"kind":"brief","next":"enter_work"},
     {"id":"enter_work","chapter":2,"title":"进入车间，找到工位","text":"走到自己的工位。","task":"穿过车间入口，找到囚徒1的工位。教官也会一起进入。","kind":"objective","target":"station","next":"work_brief"},
-    {"id":"work_brief","chapter":2,"title":"08:00 · 第一次劳动","speaker":"陈教官","presenter":"instructor","text":"教官在工位旁示范。","lines":["这张是你的工作台。站到这里，再按右下角“工作”，才算正式劳动。","光是走过来可不算。你动手做一轮，让我看看。","完成一轮就有工资。旁边的人各自挣钱，你的钱包只收你自己的。"],"kind":"brief","clock":480,"next":"work_practice"},
+    {"id":"work_brief","chapter":2,"title":"09:00 · 第一次劳动","speaker":"陈教官","presenter":"instructor","text":"教官在工位旁示范。","lines":["这张是你的工作台。站到这里，再按右下角“工作”，才算正式劳动。","光是走过来可不算。你动手做一轮，让我看看。","完成一轮就有工资。旁边的人各自挣钱，你的钱包只收你自己的。"],"kind":"brief","clock":540,"next":"work_practice"},
     {"id":"work_practice","chapter":2,"title":"亲自完成一轮工作","text":"完成一轮工作。","task":"在自己的工位点击“工作”，保持劳动，拿到第一笔工资。","kind":"objective","target":"station","next":"monitor_arrive"},
     {"id":"monitor_arrive","chapter":3,"title":"监工走来查岗","text":"监工走向工位。","task":"先停下听听。监工老周正走到你的工位旁边。","kind":"cinematic","target":"overseer","next":"warning_brief"},
     {"id":"warning_brief","chapter":3,"title":"监工说明停工警告","speaker":"监工 · 老周","presenter":"overseer","text":"监工当面说明监管规则。","lines":["我负责查岗。让我看到你停工，先给三秒警告，红色倒计时就在上面。","这三秒里，躲开我的眼睛也没用。回到工位，马上干活。","干活后警戒会一点点退下去，停一下又干一下，不能把警告抹掉。","今天先练一次。就算练习时被我抓住，也不记禁闭；接着干活，直到警告解除。"],"kind":"brief","button":"开始监管练习","next":"warning_practice"},
@@ -19,15 +19,15 @@
     {"id":"tools_brief","chapter":4,"title":"商人介绍工具","speaker":"商人","presenter":"merchant","text":"商人当面介绍物品。","lines":["第一次来？我这里有些工具。劳动挣的钱，可以拿来买东西。","东西装在背包里。会撬锁、能推重物，或者多装东西，都有各自的用处。","也别光顾着找工具。看看左上角的体力和饱腹，饭要吃，累了也得休息。"],"kind":"brief","next":"return_brief"},
     {"id":"return_brief","chapter":5,"title":"13:30 · 准备返工","speaker":"陈教官","presenter":"instructor","text":"教官提醒提前返工。","lines":["一点半了。看，你的伙伴已经开始往车间走，两点要正式开工。","咱们也走回去。别等到关门才跑，路程要自己留时间。"],"kind":"brief","clock":810,"next":"return_work"},
     {"id":"return_work","chapter":5,"title":"与伙伴一起回工位","text":"返回工位。","task":"自己走回囚徒1工位附近，等待伙伴实际走进车间。","kind":"objective","target":"station","next":"afternoon_brief"},
-    {"id":"afternoon_brief","chapter":5,"title":"14:00 · 下午开工","speaker":"监工 · 老周","presenter":"overseer","text":"监工在工位旁安排下午劳动。","lines":["人到齐了，下午开工。两点到六点，还是在你自己的工位干。","再做一小段。我检查一下，待会儿让陈教官带你认识禁闭室。"],"kind":"brief","clock":840,"next":"afternoon_work"},
+    {"id":"afternoon_brief","chapter":5,"title":"14:00 · 下午开工","speaker":"监工 · 老周","presenter":"overseer","text":"监工在工位旁安排下午劳动。","lines":["人到齐了，下午开工。两点到五点，还是在你自己的工位干。","再做一小段。我检查一下，待会儿让陈教官带你认识禁闭室。"],"kind":"brief","clock":840,"next":"afternoon_work"},
     {"id":"afternoon_work","chapter":5,"title":"实际工作3秒","text":"完成下午练习。","task":"点击“工作”，在自己的工位持续劳动3秒。","kind":"objective","target":"station","next":"cell_brief"},
-    {"id":"cell_brief","chapter":6,"title":"18:00 · 教官带你参观禁闭室","speaker":"陈教官","presenter":"instructor","text":"教官介绍禁闭规则。","lines":["六点收工。跟我去看看禁闭室，这地方最好只来参观一次。","正式开始后，被抓会关两小时。你第三次被关进去，就算失败。","今天是参观，不记次数。我到门口给你开一下，你看清楚再走。"],"kind":"brief","clock":1080,"next":"cell_tour"},
+    {"id":"cell_brief","chapter":6,"title":"17:00 · 教官带你参观禁闭室","speaker":"陈教官","presenter":"instructor","text":"教官介绍禁闭规则。","lines":["五点收工。跟我去看看禁闭室，这地方最好只来参观一次。","正式开始后，被抓会关两小时。你第三次被关进去，就算失败。","今天是参观，不记次数。我到门口给你开一下，你看清楚再走。"],"kind":"brief","clock":1020,"next":"cell_tour"},
     {"id":"cell_tour","chapter":6,"title":"跟随教官到禁闭室","text":"参观禁闭室。","task":"跟随陈教官到禁闭室门口，观察他开门、再关门。","kind":"objective","target":"cell","next":"doors_brief"},
     {"id":"doors_brief","chapter":6,"title":"教官说明不同门的规矩","speaker":"陈教官","presenter":"instructor","text":"教官说明门禁。","lines":["门也要认清。寝室那种自由门直接走，车间和食堂的门要看作息。","上锁的铁门则要有钥匙，或会撬锁。关着的门，不能硬穿过去。","看守有自己的钥匙。你要找工具，也要找准时机。"],"kind":"brief","next":"night_brief"},
     {"id":"night_brief","chapter":6,"title":"20:00 · 回寝室","speaker":"陈教官","presenter":"instructor","text":"教官提醒回寝。","lines":["八点了，回寝室区。那里还能自由活动，外面已经进入警戒。","午夜会锁寝、查房。现在先自己走回床位，停下来等伙伴。"],"kind":"brief","clock":1200,"next":"return_bed"},
     {"id":"return_bed","chapter":6,"title":"回床位等伙伴归寝","text":"回床位。","task":"走回自己的床位并停止移动，等待两位伙伴实际归寝。","kind":"objective","target":"bed","next":"inspection_brief"},
-    {"id":"inspection_brief","chapter":6,"title":"午夜 · 查寝点名","speaker":"陈教官","presenter":"instructor","text":"教官在寝室门口说明查寝。","lines":["午夜了，准备点名。查出缺员，就会开始全厂区搜查。","警报要到明早七点二十，起床点名结束后才解除。","你已经归床，放心。我再走进去检查一下，让你看看查房是怎么回事。"],"kind":"brief","clock":1440,"next":"inspection"},
+    {"id":"inspection_brief","chapter":6,"title":"午夜 · 查寝点名","speaker":"陈教官","presenter":"instructor","text":"教官在寝室门口说明查寝。","lines":["午夜了，准备点名。查出缺员，就会开始全厂区搜查。","警报要到明早八点，起床点名结束后才解除。","你已经归床，放心。我再走进去检查一下，让你看看查房是怎么回事。"],"kind":"brief","clock":1440,"next":"inspection"},
     {"id":"inspection","chapter":6,"title":"教官进行床位检查","text":"观看查寝。","task":"保持归床，观察陈教官沿通道走到床位点名。","kind":"cinematic","target":"inspection","next":"complete"},
-    {"id":"complete","chapter":6,"title":"入监日结束","speaker":"陈教官","presenter":"instructor","text":"教官结束入监指导。","lines":["好了，今天就到这里。作息、劳动、吃饭、门禁和查寝，你都亲自走过了。","明早七点二十，正式三天才开始。今天练习挣的钱、处罚和警戒都会清掉。","之后怎么安排，由你自己决定。休息吧，明天见。"],"kind":"brief","button":"开始第2天 · 正式逃脱","next":"formal"}
+    {"id":"complete","chapter":6,"title":"入监日结束","speaker":"陈教官","presenter":"instructor","text":"教官结束入监指导。","lines":["好了，今天就到这里。作息、劳动、吃饭、门禁和查寝，你都亲自走过了。","明早八点，正式三天才开始。今天练习挣的钱、处罚和警戒都会清掉。","之后怎么安排，由你自己决定。休息吧，明天见。"],"kind":"brief","button":"开始第2天 · 正式逃脱","next":"formal"}
   ]
 }

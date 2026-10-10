@@ -2,8 +2,8 @@ extends Node
 
 var game
 var config: Dictionary
-var limit_seconds: float = 900
-var day_seconds: float = 300
+var limit_seconds: float = 2700
+var day_seconds: float = 900
 var escape_days: int = 3
 var stage_day: int = -1
 var calendar_day_offset := 0
@@ -82,7 +82,7 @@ func _make_ui() -> void:
 	blocker = _blocker("ScheduleMapBlocker",Rect2(74,114,922,560),110)
 	panel = _paper_panel("DailySchedule",Vector2(295,185),Vector2(530,400),111)
 	_label(panel,Vector2(20,16),"今日工厂日程",22)
-	var lines := "07:20–08:00  起床 · 前往车间\n08:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–18:00  劳动\n18:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–07:20  锁寝睡觉 · 看守进房查寝"
+	var lines := "08:00–09:00  起床 · 自由准备\n09:00–12:00  劳动\n12:00–14:00  吃饭与休息\n14:00–17:00  劳动\n17:00–20:00  自由活动\n20:00–24:00  寝室区自由活动\n00:00–08:00  锁寝睡觉 · 看守进房查寝"
 	_label(panel,Vector2(20,60),lines,17)
 	schedule_note = _label(panel,Vector2(20,263),"",15)
 	skip_button = _button(panel,Vector2(20,340),"跳过夜晚",skip_night)
@@ -97,7 +97,7 @@ func _make_ui() -> void:
 
 func reset() -> void:
 	calendar_day_offset = 0
-	day_seconds = float(config.room_seconds.get(game.room_id,300))
+	day_seconds = float(config.room_seconds.get(game.room_id,900))
 	escape_days = int(config.get("escape_days",3)) if escape_days < 1 else escape_days
 	limit_seconds = day_seconds*escape_days
 	clock_elapsed = 0
@@ -163,10 +163,24 @@ func set_escape_days(value: int) -> bool:
 	return true
 
 func wake_minutes() -> float:
-	return float(config.get("wake_minutes",440))
+	return float(config.get("wake_minutes",480))
+
+func stage_minute(id: String) -> float:
+	for stage in config.stages:
+		if stage.id==id: return float(stage.minute)
+	return -1
+
+func work_window(minute := -1.0) -> Vector2:
+	if minute<0: minute = clock_minutes()
+	for index in range(config.stages.size()):
+		var stage: Dictionary = config.stages[index]
+		if stage.id not in ["morning_work","afternoon_work"]: continue
+		var end: float = float(config.stages[index+1].minute) if index+1<config.stages.size() else 1440.0
+		if minute>=float(stage.minute) and minute<end: return Vector2(float(stage.minute),end)
+	return Vector2(-1,-1)
 
 func preparing_for_work() -> bool:
-	return clock_minutes() >= wake_minutes() and clock_minutes() < 480
+	return clock_minutes() >= wake_minutes() and clock_minutes() < stage_minute("morning_work")
 
 func is_sleep_time() -> bool:
 	return stage_index >= 0 and str(config.stages[stage_index].id) == "sleep"
@@ -200,7 +214,7 @@ func skip_night() -> void:
 	if remaining() <= 0:
 		game.finish_timeout()
 	else:
-		game.show_status("第%d天 07:20，寝室开门；8点车间关门，请提前到岗。" % day_number(),5)
+		game.show_status("第%d天 08:00，寝室开门；9点车间关门，请提前到岗。" % day_number(),5)
 
 func actor_status(actor_id: int) -> String:
 	if game.room_access and game.room_access.is_held(actor_id):
@@ -285,9 +299,9 @@ func tick(announce: bool = true) -> void:
 		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"
-	schedule_note.text = "%d天内逃出（共%d秒，流速可调）。\n" % [escape_days,int(limit_seconds)]+("回各自床位并停止行动后，可跳到次日07:20。" if is_sleep_time() else "作息每日循环；起床后可直接行动。")
+	schedule_note.text = "%d天内逃出（共%d分钟，流速可调）。\n" % [escape_days,int(limit_seconds/60)]+("回各自床位并停止行动后，可跳到次日08:00。" if is_sleep_time() else "作息每日循环；起床后可直接行动。")
 	if game.prison_alert != null and game.prison_alert.active:
-		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到07:20起床点名结束，期间无法跳过夜晚。"
+		schedule_note.text = "查寝发现缺员：全厂区警戒，增派2名混混。\n警报持续到08:00起床点名结束，期间无法跳过夜晚。"
 	var stage: Dictionary = config.stages[stage_index]
 	var seconds := ceili(real_remaining()) if time_speed > 0 and is_finite(real_remaining()) else 0
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"

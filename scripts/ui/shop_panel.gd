@@ -38,7 +38,7 @@ func configure(owner_game) -> void:
 	panel.add_child(title)
 	var notice := Label.new()
 	notice.position = Vector2(18, 47)
-	notice.text = "仅可购买 · 营业：12–14 / 18–20，交易时钟继续。"
+	notice.text = "仅可购买 · 营业：12–14 / 17–20，交易时钟继续。"
 	notice.add_theme_font_size_override("font_size", 14)
 	panel.add_child(notice)
 	offers = ItemList.new()

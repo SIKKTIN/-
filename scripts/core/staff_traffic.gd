@@ -37,8 +37,8 @@ func wanted(record: Dictionary) -> bool:
 	var minute: float = game.schedule.clock_minutes()
 	match record.role:
 		"reinforcement": return false
-		"overseer": return (minute >= 420 and minute < 720) or (minute >= 780 and minute < 1080)
-		_: return minute >= 420 and minute < 1200
+		"overseer": return (minute >= game.schedule.stage_minute("morning_work")-60 and minute < game.schedule.stage_minute("meal_rest")) or (minute >= game.schedule.stage_minute("afternoon_work")-60 and minute < game.schedule.stage_minute("free_time"))
+		_: return minute >= game.schedule.wake_minutes()-20 and minute < 1200
 
 func label(actor) -> String:
 	var record: Dictionary = records.get(actor.get_instance_id(),{})

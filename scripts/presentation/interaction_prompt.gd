@@ -217,7 +217,7 @@ func _refresh_items(actor) -> void:
 			continue
 		var pos: Array = game.trade.merchants[id].position
 		var point := Vector2(pos[0], pos[1])
-		var b := _extra("trade:"+id, "购买", point+Vector2(0,-86), "商人营业中（12–14 / 18–20）；购买（E），时间继续运行。")
+		var b := _extra("trade:"+id, "购买", point+Vector2(0,-86), "商人营业中（12–14 / 17–20）；购买（E），时间继续运行。")
 		targets.append({"button": b, "kind": "trade", "id": id, "distance": actor.position.distance_to(point)})
 	if game.routines and game.routines.meal_reason(actor.actor_id).is_empty():
 		var point: Vector2 = game.routines._target(actor.actor_id,"meal")

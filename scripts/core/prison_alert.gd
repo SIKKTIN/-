@@ -53,7 +53,7 @@ func release_at_dawn() -> void:
 	if game.workshop:
 		game.workshop.wanted.clear()
 		game.workshop.warnings.clear()
-	game.show_status("07:20晨间点名结束：全员警戒解除，增援撤回。",5)
+	game.show_status("08:00晨间点名结束：全员警戒解除，增援撤回。",5)
 
 func officers() -> Array:
 	var result: Array = [game.guard]

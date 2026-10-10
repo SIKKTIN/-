@@ -49,10 +49,7 @@ func point(coords: Array) -> Vector2:
 
 func current_shift() -> int:
 	if config.is_empty() or game.schedule == null: return -1
-	var minute: float = game.schedule.clock_minutes()
-	for start in [480,840]:
-		if minute >= start and minute < start+240: return start
-	return -1
+	return int(game.schedule.work_window().x)
 
 func on_duty() -> bool:
 	return current_shift() >= 0
@@ -100,7 +97,7 @@ func update_gate() -> void:
 		if shift >= 0:
 			var start: float = floorf(now/1440.0)*1440.0+shift
 			for actor in game.actors: grace[actor.actor_id] = start
-			game.show_status("08:00车间锁门，外围警戒；请在工位劳动。" if shift == 480 else "14:00车间锁门开始劳动；请13:30出发提前到岗。",5)
+			game.show_status("09:00车间锁门，外围警戒；请在工位劳动。" if shift == 540 else "14:00车间锁门开始劳动；请13:30出发提前到岗。",5)
 		else:
 			game.show_status("劳动结束，车间开门，可前往吃饭或自由活动。",4)
 	for actor in game.actors:

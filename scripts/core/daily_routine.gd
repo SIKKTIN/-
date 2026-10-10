@@ -1,10 +1,10 @@
 extends RefCounted
 
 const SLOTS := [
-	{"id":"morning_work","label":"08–12","start":480,"end":720},
+	{"id":"morning_work","label":"09–12","start":540,"end":720},
 	{"id":"meal_rest","label":"12–14","start":720,"end":840},
-	{"id":"afternoon_work","label":"14–18","start":840,"end":1080},
-	{"id":"free_time","label":"18–20","start":1080,"end":1200},
+	{"id":"afternoon_work","label":"14–17","start":840,"end":1020},
+	{"id":"free_time","label":"17–20","start":1020,"end":1200},
 	{"id":"dorm_free","label":"20–24","start":1200,"end":1440}
 ]
 const NAMES := {"idle":"待命","work":"工作","rest":"休息","free":"自由活动","meal":"吃饭"}
@@ -301,7 +301,7 @@ func accrue_work(begin_clock: float, end_clock: float, workers: Array, work_cred
 	var begin: float = float(game.schedule.config.start_minutes)+start/game.schedule.day_seconds*1440.0
 	var end: float = float(game.schedule.config.start_minutes)+end_clock/game.schedule.day_seconds*1440.0
 	var minute: float = fposmod(begin, 1440)
-	var shift_end: float = 720.0 if minute >= 480 and minute < 720 else 1080.0 if minute >= 840 and minute < 1080 else -1.0
+	var shift_end: float = game.schedule.work_window(minute).y
 	if shift_end < 0:
 		return
 	var actual_minutes: float = maxf(0, minf(end, floorf(begin/1440)*1440+shift_end)-begin)

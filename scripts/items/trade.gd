@@ -35,7 +35,7 @@ func tick(delta: float) -> void:
 	# Close an already-open shop before UI processing or a late purchase click.
 	if game.shop_panel and game.shop_panel.panel.visible and not is_open(game.shop_panel.merchant_id):
 		game.shop_panel.close()
-		game.show_status("商人已收摊。营业时间：12:00–14:00、18:00–20:00。")
+		game.show_status("商人已收摊。营业时间：12:00–14:00、17:00–20:00。")
 
 func is_open(id: String) -> bool:
 	if not actors.has(id):
@@ -47,7 +47,7 @@ func reason(actor_id: int, merchant_id: String) -> String:
 	if not game.inventory.available(actor_id) or not merchants.has(merchant_id):
 		return "当前伙伴不能交易。"
 	if not is_open(merchant_id):
-		return "商人%s；12:00–14:00、18:00–20:00到摊位营业。" % actors[merchant_id].activity_text()
+		return "商人%s；12:00–14:00、17:00–20:00到摊位营业。" % actors[merchant_id].activity_text()
 	var actor = game.actors[actor_id]
 	var pos: Array = merchants[merchant_id].position
 	var point := Vector2(pos[0], pos[1])
