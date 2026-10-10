@@ -20,6 +20,7 @@ func _draw():
 		var p: Dictionary = game.social.people[id]
 		if p.role=="player" or not is_instance_valid(p.node) or not p.node.visible or p.node.escaped or not view.has_point(p.node.position) or game.world.is_under_roof(p.node.position): continue
 		var text: String = p.name+" · "+game.social.mood_name(id)
+		if game.npc_life: text = p.name+" · "+game.npc_life.label(id)
 		if game.social.now<p.line_until: text = p.name+" · "+str(p.get("activity","与你交谈"))
 		var font: Font = game.presentation.font
 		var width := font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x

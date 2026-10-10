@@ -61,6 +61,7 @@ var workshop
 var dialogue
 var tutorial
 var social
+var npc_life
 var confinement_counts: Array[int] = [0,0,0]
 var failure_reason := ""
 var editor_preview_mode := false
@@ -214,6 +215,7 @@ func _ready() -> void:
 	var social_labels = preload("res://scripts/presentation/social_labels.gd").new()
 	add_child(social_labels)
 	social_labels.configure(self)
+	npc_life = preload("res://scripts/core/npc_life.gd").new(self)
 	fullscreen_ui.layout()
 	var retained_floor=preload("res://scripts/presentation/floor_canvas.gd").new()
 	add_child(retained_floor)
@@ -330,6 +332,7 @@ func _process(delta: float) -> void:
 		if get_tree().paused:
 			_update_ui()
 			return
+	if npc_life: npc_life.tick(delta)
 	world.begin_ai_paths()
 	if staff_traffic:
 		staff_traffic.update_gate()
@@ -437,7 +440,7 @@ func stop_selected() -> void:
 func on_actor_escaped(actor_id: int) -> void:
 	if tutorial and tutorial.active:
 		actors[actor_id].escaped = false
-		orders.issue(actor_id,actors[actor_id].home,"tutorial_return")
+		orders.stop(actor_id)
 		show_status("入监日先熟悉作息；正式三天开始后再寻找逃脱机会。",4)
 		return
 	inventory.carry_out(actor_id)
@@ -537,13 +540,14 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	if workshop:
 		workshop.reset()
 	if social: social.reset()
+	if npc_life: npc_life.reset()
 	if room_access:
 		room_access.tick()
 	if routines:
 		routines.tick()
 	if developer_settings:
 		developer_settings.close()
-	show_status("你控制囚徒1寻找逃脱机会；囚徒2、3按默认日程自动生活。",4)
+	show_status("你的移动、工作、吃饭和归寝都由你决定；NPC 按各自状态生活。",4)
 	select_actor(0)
 	if routine_panel and routine_panel.panel.visible:
 		routine_panel.reload()

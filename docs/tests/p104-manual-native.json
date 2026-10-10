@@ -1,0 +1,282 @@
+{
+	"checks": {
+		"afternoon_preparation_does_not_move_player": true,
+		"closing_room_requires_player_to_leave_manually": true,
+		"curfew_does_not_replace_or_stop_players_route": true,
+		"every_human_npc_has_its_own_life_state": true,
+		"explicit_meal_command_is_tagged_as_player_action": true,
+		"explicit_work_command_starts_only_one_action": true,
+		"fear_changes_a_social_persons_leisure_decision": true,
+		"life_decisions_are_throttled": true,
+		"manual_route_is_valid": true,
+		"manual_work_still_earns_real_wages": true,
+		"meal_completion_does_not_send_player_to_free_time": true,
+		"midnight_does_not_auto_return_player": true,
+		"no_automatic_player_lunch": true,
+		"no_player_schedule_at_1020": true,
+		"no_player_schedule_at_1200": true,
+		"no_player_schedule_at_1440": true,
+		"no_player_schedule_at_1920": true,
+		"no_player_schedule_at_540": true,
+		"no_player_schedule_at_720": true,
+		"no_player_schedule_at_810": true,
+		"no_player_schedule_at_840": true,
+		"npc_rest_has_a_real_destination": true,
+		"npcs_choose_independently_from_needs_and_personality": true,
+		"old_planner_cannot_reenable_autoplay": true,
+		"pause_stops_npc_life": true,
+		"player_starts_without_any_automatic_plan": true,
+		"standing_at_workstation_does_not_start_work": true,
+		"stopping_work_does_not_resume_it": true
+	},
+	"failed": [],
+	"life": {
+		"decisions": 7,
+		"people": {
+			"guard:gate-watch-1": {
+				"decision": {},
+				"goal": "(0.0, 0.0)",
+				"id": "guard:gate-watch-1",
+				"intent": "守门",
+				"label": "守门",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "gate"
+			},
+			"guard:gate-watch-2": {
+				"decision": {},
+				"goal": "(0.0, 0.0)",
+				"id": "guard:gate-watch-2",
+				"intent": "守门",
+				"label": "守门",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "gate"
+			},
+			"guard:loading-watch": {
+				"decision": {},
+				"goal": "(0.0, 0.0)",
+				"id": "guard:loading-watch",
+				"intent": "守门",
+				"label": "守门",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "gate"
+			},
+			"guard:overseer": {
+				"decision": {},
+				"goal": "(0.0, 0.0)",
+				"id": "guard:overseer",
+				"intent": "离岗 · 前往正门",
+				"label": "离岗 · 前往正门",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "overseer"
+			},
+			"guard:patrol": {
+				"decision": {},
+				"goal": "(2400.0, 1260.0)",
+				"id": "guard:patrol",
+				"intent": "巡逻",
+				"label": "巡逻",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "patrol"
+			},
+			"guard:warehouse-watch": {
+				"decision": {},
+				"goal": "(3310.0, 1580.0)",
+				"id": "guard:warehouse-watch",
+				"intent": "守门",
+				"label": "守门",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "gate"
+			},
+			"merchant:prison_dealer": {
+				"decision": {},
+				"goal": "(750.0, 1108.4)",
+				"id": "merchant:prison_dealer",
+				"intent": "营业中",
+				"label": "营业中",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "merchant"
+			},
+			"prisoner:1": {
+				"decision": {
+					"action": "rest",
+					"candidates": [
+						{
+							"action": "rest",
+							"impact": {},
+							"score": 18.19,
+							"terms": {
+								"cost": -0.8,
+								"emotion": 12.0,
+								"personality": 5.39,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 1.6,
+								"self": 0.0
+							}
+						},
+						{
+							"action": "socialize",
+							"impact": {},
+							"score": 17.955,
+							"terms": {
+								"cost": -0.8,
+								"emotion": -10.6,
+								"personality": 17.655,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 1.2,
+								"self": 10.5
+							}
+						},
+						{
+							"action": "walk",
+							"impact": {},
+							"score": 7.74,
+							"terms": {
+								"cost": -1.2,
+								"emotion": -7.98,
+								"personality": 7.92,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 0.0,
+								"self": 9.0
+							}
+						}
+					],
+					"context": "life:leisure",
+					"impact": {},
+					"score": 18.19,
+					"terms": {
+						"cost": -0.8,
+						"emotion": 12.0,
+						"personality": 5.39,
+						"player": 0.0,
+						"risk": 0.0,
+						"routine": 1.6,
+						"self": 0.0
+					},
+					"until": 17.0
+				},
+				"goal": "(428.0, 753.97)",
+				"id": "prisoner:1",
+				"intent": "rest",
+				"label": "休息",
+				"needs": {
+					"fatigue": 0,
+					"hunger": 20.0
+				},
+				"next_think": 770.0,
+				"phase": "leisure",
+				"role": "prisoner"
+			},
+			"prisoner:2": {
+				"decision": {
+					"action": "rest",
+					"candidates": [
+						{
+							"action": "rest",
+							"impact": {},
+							"score": 35.27,
+							"terms": {
+								"cost": -0.8,
+								"emotion": 1.11,
+								"personality": 13.86,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 1.6,
+								"self": 19.5
+							}
+						},
+						{
+							"action": "walk",
+							"impact": {},
+							"score": 18.03,
+							"terms": {
+								"cost": -1.2,
+								"emotion": 0.0,
+								"personality": 10.23,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 0.0,
+								"self": 9.0
+							}
+						},
+						{
+							"action": "socialize",
+							"impact": {},
+							"score": 11.865,
+							"terms": {
+								"cost": -0.8,
+								"emotion": 0.8,
+								"personality": 0.165,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 1.2,
+								"self": 10.5
+							}
+						}
+					],
+					"context": "life:leisure",
+					"impact": {},
+					"score": 35.27,
+					"terms": {
+						"cost": -0.8,
+						"emotion": 1.11,
+						"personality": 13.86,
+						"player": 0.0,
+						"risk": 0.0,
+						"routine": 1.6,
+						"self": 19.5
+					},
+					"until": 8.0
+				},
+				"goal": "(428.0, 1093.97)",
+				"id": "prisoner:2",
+				"intent": "rest",
+				"label": "回寝休息",
+				"needs": {
+					"fatigue": 65,
+					"hunger": 20.0
+				},
+				"next_think": 775.0,
+				"phase": "leisure",
+				"role": "prisoner"
+			}
+		}
+	}
+}

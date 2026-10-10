@@ -244,13 +244,16 @@ func inspection_point(actor_id: int) -> Vector2:
 	return (home+Vector2(65,0)).clamp(interior.position,interior.end-Vector2(0.01,0.01))
 
 func enter_curfew() -> void:
-	game.skills.clear_all()
-	game.orders.clear()
 	if game.shop_panel:
 		game.shop_panel.close()
 	for actor in game.actors:
 		if actor.escaped or actor.confined:
 			continue
+		if game.actor_is_controllable(actor.actor_id):
+			curfew_returns[actor.actor_id] = "由你决定"
+			continue
+		game.skills.cancel(actor.actor_id)
+		game.orders.stop(actor.actor_id)
 		var at_home: bool = in_dormitory(actor.actor_id) and actor.position.distance_to(actor.home) <= 28 if is_sleep_time() else in_dorm_zone(actor.actor_id)
 		if at_home:
 			curfew_returns[actor.actor_id] = "home"

@@ -40,6 +40,7 @@ func reset() -> void:
 	plans = default_plans()
 	records.clear()
 	manual.clear()
+	manual[0] = true
 	if game.get("routine_panel"):
 		game.routine_panel.close()
 
@@ -47,7 +48,7 @@ func default_plans() -> Array:
 	var labor := "work" if allowed(0,"work") else "rest"
 	var lunch := "meal" if has_cafeteria() else "rest"
 	var result := []
-	for id in range(3): result.append([labor,lunch,labor,"free","free"])
+	for id in range(3): result.append(["idle","idle","idle","idle","idle"] if game.actor_is_controllable(id) else [labor,lunch,labor,"free","free"])
 	return result
 
 func current_slot() -> int:
@@ -67,26 +68,9 @@ func has_cafeteria() -> bool:
 	var points: Dictionary = game.room_config.get("routine_points",{})
 	return points.get("meal",[]).size() >= 3 and points.get("dine",[]).size() >= 3
 
-func apply_today(value: Array) -> bool:
-	if value.size() != 3 or game.schedule.is_sleep_time():
-		return false
-	for id in range(value.size()):
-		var row: Array = value[id]
-		if not game.actor_is_controllable(id) and row != plans[id]: return false
-		if row.size() != SLOTS.size():
-			return false
-		for index in range(SLOTS.size()):
-			if not allowed(index,str(row[index])):
-				return false
-	var changed := []
-	for id in range(3):
-		if slot >= 0 and plans[id][slot] != value[id][slot]:
-			changed.append(id)
-	plans = value.duplicate(true)
-	for id in changed:
-		resume(id)
-	game.show_status("第%d天主角日常已安排；其他囚徒按默认日程生活。" % day,4)
-	return true
+func apply_today(_value: Array) -> bool:
+	game.show_status("玩家活动由你操作，NPC 会按自己的状态生活。")
+	return false
 
 func take_control(actor_id: int) -> void:
 	if not game.actor_is_controllable(actor_id): return
@@ -100,12 +84,18 @@ func suspend(actor_id: int) -> void:
 		game.orders.stop(actor_id)
 
 func resume(actor_id: int) -> void:
+	if game.actor_is_controllable(actor_id):
+		take_control(actor_id)
+		return
 	manual.erase(actor_id)
 	records.erase(actor_id)
 	if game.phase == "playing" and slot >= 0:
 		_start(actor_id)
 
 func _target(actor_id: int, kind: String) -> Vector2:
+	if game.npc_life and not game.actor_is_controllable(actor_id):
+		var destination: Variant = game.npc_life.destination(actor_id,kind)
+		if destination is Vector2: return destination
 	if kind == "free" and slot == 3 and game.schedule.clock_minutes() >= 1160:
 		return game.actors[actor_id].home
 	var points: Array = game.room_config.get("routine_points",{}).get(kind,[])
@@ -124,11 +114,13 @@ func consume_meal(actor_id: int, minutes: float) -> float:
 	meal_minutes[actor_id] += credit
 	return credit
 
-func _start(actor_id: int, override_kind: String = "") -> void:
+func _start(actor_id: int, override_kind: String = "", player_action := false) -> void:
 	var actor = game.actors[actor_id]
+	if game.actor_is_controllable(actor_id) and not player_action: return
 	if actor.escaped or actor.confined or slot < 0 or manual.has(actor_id):
 		return
 	var kind: String = str(plans[actor_id][slot]) if override_kind.is_empty() else override_kind
+	if game.npc_life and not game.actor_is_controllable(actor_id) and (override_kind.is_empty() or (override_kind=="free" and not (game.tutorial and game.tutorial.active))): kind = game.npc_life.routine_for(actor_id)
 	if slot == 1 and preparing_afternoon() and plans[actor_id][2] == "work" and override_kind.is_empty():
 		kind = "work"
 	elif kind == "meal" and float(meal_minutes[actor_id]) >= MEAL_MINUTES-0.000001:
@@ -138,7 +130,7 @@ func _start(actor_id: int, override_kind: String = "") -> void:
 	game.orders.stop(actor_id)
 	game.skills.cancel(actor_id)
 	var goal := _target(actor_id,kind)
-	var record := {"kind":kind,"goal":goal,"status":"moving","retry":game.elapsed+3.0}
+	var record := {"kind":kind,"goal":goal,"status":"moving","retry":game.elapsed+3.0,"player_action":player_action}
 	if kind == "meal":
 		record["meal_stage"] = "pickup"
 	records[actor_id] = record
@@ -153,7 +145,7 @@ func _send(actor_id: int, record: Dictionary) -> void:
 	else:
 		# Leave a closing room first, even when the next destination is locked.
 		var exit: Variant = game.room_access.exit_goal(actor) if game.room_access else null
-		if game.orders.issue(actor_id,exit if exit is Vector2 else goal,"routine"):
+		if game.orders.issue(actor_id,exit if exit is Vector2 else goal,"interaction" if record.get("player_action",false) else "routine"):
 			record.status = "moving"
 			return
 		record.status = "blocked"
@@ -191,16 +183,26 @@ func start_meal(actor_id: int) -> bool:
 		game.show_status(reason)
 		return false
 	manual.erase(actor_id)
-	_start(actor_id,"meal")
+	_start(actor_id,"meal",true)
 	if records.has(actor_id): records[actor_id]["player_meal"] = true
 	game.show_status("伙伴%d领取午餐，前往饭桌用餐。" % (actor_id+1),3)
 	return true
+
+func start_work(actor_id: int) -> void:
+	manual.erase(actor_id)
+	_start(actor_id,"work",true)
+
+func finish_player_action(actor_id: int) -> void:
+	if game.orders.active.has(actor_id) and game.orders.active[actor_id].source=="interaction": game.orders.stop(actor_id)
+	records.erase(actor_id)
+	manual[actor_id] = true
 
 func tick() -> void:
 	if game.phase != "playing" or game.schedule.remaining() <= 0:
 		return
 	var next_slot := current_slot()
 	if next_slot >= 0 and game.schedule.day_number() != day:
+		if records.has(0): finish_player_action(0)
 		for id in records.keys():
 			if game.orders.active.has(id) and game.orders.active[id].get("source","") == "routine":
 				game.orders.stop(id)
@@ -210,14 +212,17 @@ func tick() -> void:
 		plans = default_plans()
 		records.clear()
 		manual.clear()
+		manual[0] = true
 		slot = -1
-		game.show_status("第%d天开始：安排今天的工作与活动。" % day,5)
+		game.show_status("第%d天开始：你的行动由你决定，NPC 开始各自的生活。" % day,5)
 	if slot != next_slot:
+		if records.has(0): finish_player_action(0)
 		for id in records.keys():
 			if game.orders.active.has(id) and game.orders.active[id].get("source","") == "routine":
 				game.orders.stop(id)
 		records.clear()
 		manual.clear()
+		manual[0] = true
 		slot = next_slot
 		for id in range(3):
 			_start(id)
@@ -227,6 +232,9 @@ func tick() -> void:
 			_start(id,"work")
 			record = records[id]
 		elif record.kind == "meal" and float(meal_minutes[id]) >= MEAL_MINUTES-0.000001:
+			if game.actor_is_controllable(id):
+				finish_player_action(id)
+				continue
 			_start(id,"free")
 			record = records[id]
 		# Default free routines leave enough travel time to obey 20:00 curfew.
@@ -282,7 +290,7 @@ func is_working(actor_id: int) -> bool:
 	var record: Dictionary = records[actor_id]
 	if game.attributes and game.attributes.values[actor_id].stamina <= 0.000001:
 		return false
-	return record.kind == "work" and plans[actor_id][slot] == "work" and allowed(slot, "work") and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
+	return record.kind == "work" and (record.get("player_action",false) if game.actor_is_controllable(actor_id) else plans[actor_id][slot] == "work") and allowed(slot, "work") and not actor.escaped and actor.action_state == "idle" and not game.orders.active.has(actor_id) and actor.position.distance_to(record.goal) <= 12
 
 func working_ids() -> Array:
 	return range(3).filter(func(id): return is_working(id))
@@ -339,7 +347,7 @@ func status_for(actor_id: int) -> String:
 	if manual.has(actor_id) and slot >= 0 and plans[actor_id][slot] != "idle":
 		return "手动接管"
 	if not records.has(actor_id):
-		return ""
+		return "自由操作" if game.actor_is_controllable(actor_id) else ""
 	var r: Dictionary = records[actor_id]
 	if r.kind == "meal":
 		return "路线受阻" if r.status == "blocked" else "用餐 %d/20分" % floori(float(meal_minutes[actor_id])) if is_eating(actor_id) else "前往饭桌" if carries_meal(actor_id) else "前往取餐"

@@ -85,6 +85,7 @@ func tick() -> void:
 			if not closed or closing.has(str(gate.id)): continue
 			var exit: Vector2 = _point(gate.get("evacuation",[1010,1100]))
 			if actor in game.actors:
+				if game.actor_is_controllable(actor.actor_id): continue
 				if game.mobile_controls and actor.actor_id == game.selected_actor_id: game.mobile_controls.cancel_input()
 				game.skills.cancel(actor.actor_id)
 				game.orders.issue(actor.actor_id,exit,"room_exit")

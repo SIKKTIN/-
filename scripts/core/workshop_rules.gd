@@ -213,7 +213,6 @@ func start_work(id: int) -> bool:
 	if not game.actor_is_controllable(id) or not on_duty() or game.actors[id].confined: return false
 	var goal: Vector2 = game.routines._target(id,"work")
 	if game.actors[id].position.distance_to(goal) > 85 or not game.world.line_clear(game.actors[id].position,goal): return false
-	game.routines.plans[id][game.routines.current_slot()] = "work"
-	game.routines.resume(id)
+	game.routines.start_work(id)
 	game.show_status("已回工位，继续工作。",3)
 	return true
