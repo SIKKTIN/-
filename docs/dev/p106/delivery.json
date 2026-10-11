@@ -1,0 +1,59 @@
+{
+  "change": "approved-single-campus-expansion",
+  "map": "data/rooms/r04.json",
+  "bounds": [
+    0,
+    0,
+    6000,
+    4500
+  ],
+  "previous_bounds": [
+    0,
+    0,
+    4240,
+    3040
+  ],
+  "area_ratio": 2.095,
+  "escape_days": 7,
+  "day_seconds": 900,
+  "new_original_art_assets": 12,
+  "native_validation": {
+    "map": {
+      "checks": 83,
+      "failed": []
+    },
+    "npc_two_day": {
+      "checks": 15,
+      "failed": []
+    },
+    "tutorial": {
+      "checks": 29,
+      "failed": []
+    }
+  },
+  "runtime_sample": {
+    "fps": 60,
+    "context": "first-day tutorial welcome on this machine; not a whole-game FPS guarantee",
+    "fps_samples": [
+      60,
+      58
+    ]
+  },
+  "limits": [
+    "Added clinic, shower, office, monitor, yard and repair locations are accessible and furnished; dedicated healing, sabotage, quest and other new interactions are not implemented by this map expansion."
+  ],
+  "preserved": [
+    "original relative living layout and fixture IDs",
+    "manual main character",
+    "independent NPC life",
+    "real doors and full-body doorway model",
+    "three escape routes",
+    "existing uncommitted project work"
+  ],
+  "art_prompt": "docs/art/campus-expansion-v47/generation-prompt.txt",
+  "art_tool": "built-in image_gen",
+  "native_overview": "docs/art/campus-expansion-v47/campus-overview.png",
+  "new_areas_have_native_gameplay_captures": true,
+  "native_game_log_errors": 0,
+  "runtime_captures_clean_after_resource_import": true
+}

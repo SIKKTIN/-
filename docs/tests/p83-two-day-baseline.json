@@ -1,0 +1,234 @@
+{
+	"afternoon_arrival": [
+		[
+			934.780334472656,
+			507.920013427734
+		],
+		[
+			1346.23950195313,
+			507.920104980469
+		],
+		[
+			934.780029296875,
+			779.619995117188
+		]
+	],
+	"alarm": {
+		"active": false,
+		"checked_rooms": {},
+		"cleared_minute": -1.0,
+		"missing_ids": [],
+		"officer_count": 5,
+		"reinforcements": [],
+		"triggered_minute": -1.0
+	},
+	"arrival": [
+		[
+			1112.29833984375,
+			689.02392578125
+		],
+		[
+			1345.5869140625,
+			508.765075683594
+		],
+		[
+			934.779907226563,
+			779.620239257813
+		]
+	],
+	"capture_events": [
+		{
+			"held": {
+				"0": {
+					"cell": 0,
+					"until": 2064.31999999996
+				}
+			},
+			"minute": 504.319999999956,
+			"positions": [
+				[
+					400.0,
+					1440.0
+				],
+				[
+					1346.23974609375,
+					507.919860839844
+				],
+				[
+					934.780029296875,
+					779.619995117188
+				]
+			],
+			"routines": {
+				"day": 2,
+				"manual": [
+					0
+				],
+				"meal_minutes": [
+					0.0,
+					0.0,
+					0.0
+				],
+				"plans": [
+					[
+						"work",
+						"meal",
+						"work",
+						"free",
+						"free"
+					],
+					[
+						"work",
+						"meal",
+						"work",
+						"free",
+						"free"
+					],
+					[
+						"work",
+						"meal",
+						"work",
+						"free",
+						"free"
+					]
+				],
+				"preparing_afternoon": false,
+				"slot": 0,
+				"states": [
+					"禁闭 02:01",
+					"工作中 21%",
+					"工作中 20%"
+				],
+				"work_earned": [
+					28,
+					32,
+					32
+				],
+				"work_minutes": [
+					42.9439999999515,
+					13.0879999999502,
+					12.2239999999502
+				],
+				"work_rounds": [
+					7,
+					8,
+					8
+				],
+				"working": [
+					1,
+					2
+				]
+			}
+		}
+	],
+	"captured": 1,
+	"checks": {
+		"afternoon_arrival": true,
+		"meal_exactly_20": true,
+		"natural_npc_lunch": true,
+		"natural_npc_sleep": true,
+		"natural_npc_work": true,
+		"night_beds": true,
+		"no_missing_alarm": true,
+		"no_timed_teleport": false,
+		"no_workshop_false_arrests": false,
+		"npc_depart_1330": true,
+		"npc_lunch_then_free": true,
+		"npc_wages": true,
+		"wallet_is_lead_income_only": true
+	},
+	"clock": 75.1999999999143,
+	"departures": {
+		"1": 810.560000000003,
+		"2": 810.560000000003
+	},
+	"failed": [
+		"no_workshop_false_arrests",
+		"no_timed_teleport"
+	],
+	"held": {},
+	"max_move": 939.039794921875,
+	"morning2": [
+		[
+			1271.47839355469,
+			1090.25549316406
+		],
+		[
+			1346.23974609375,
+			507.919860839844
+		],
+		[
+			934.780029296875,
+			779.619995117188
+		]
+	],
+	"positions": [
+		[
+			427.999908447266,
+			413.969940185547
+		],
+		[
+			428.0,
+			753.969848632813
+		],
+		[
+			428.000061035156,
+			1093.9697265625
+		]
+	],
+	"routines": {
+		"day": 2,
+		"manual": [],
+		"meal_minutes": [
+			20.0,
+			20.0,
+			20.0
+		],
+		"plans": [
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			],
+			[
+				"work",
+				"meal",
+				"work",
+				"free",
+				"free"
+			]
+		],
+		"preparing_afternoon": false,
+		"slot": -1,
+		"states": [
+			"",
+			"",
+			""
+		],
+		"work_earned": [
+			40,
+			52,
+			52
+		],
+		"work_minutes": [
+			48.9759999999906,
+			5.34240000000491,
+			4.6656000000049
+		],
+		"work_rounds": [
+			10,
+			13,
+			13
+		],
+		"working": []
+	}
+}

@@ -19,6 +19,10 @@ func reset(config: Dictionary) -> void:
 		var actor = GateGuard.new()
 		actor.guard_id = str(spec.id)
 		actor.post = Vector2(spec.position[0],spec.position[1])
+		actor.blocks_primary = bool(spec.get("blocks_primary",true))
+		actor.post_label = str(spec.get("name","门岗看守"))
+		actor.post_activity = str(spec.get("post_activity","守门"))
+		for point in spec.get("patrol",[]): actor.regional_patrol.append(Vector2(point[0],point[1]))
 		game.add_child(actor)
 		actor.configure(game.world,game)
 		attach_visual(actor,base)
@@ -33,7 +37,7 @@ func attach_visual(actor, base = null) -> void:
 	actor.presentation_layers = game.perspective_floor
 	var visual = ActorVisual.new()
 	actor.add_child(visual)
-	visual.configure(actor,game,base.definition.duplicate(true),game.presentation.skill_icons,game.presentation.font)
+	visual.configure(actor,game,base.base_definition.duplicate(true),game.presentation.skill_icons,game.presentation.font)
 	visual.separate_information = game.perspective_floor
 	visual.light_mask = 2
 	game.presentation.visuals.append(visual)
@@ -46,7 +50,7 @@ func by_id(id: String):
 
 func blocking() -> bool:
 	if game.staff_traffic and game.staff_traffic.factory_passage(): return false
-	return guards.any(func(actor): return actor.blocking_gate())
+	return guards.any(func(actor): return actor.blocks_primary and actor.blocking_gate())
 
 func tick(delta: float) -> void:
 	for actor in guards:

@@ -46,7 +46,7 @@ func configure(rules, spec: Dictionary) -> void:
 	cap_texture = rules.game.world.art_textures.get("cafeteria_coping_v23")
 	# Doors/facades on the lower boundary keep their actual depth. Side/north
 	# openings are removed from the mesh at their existing display footprint.
-	z_index = mini(4094,int(area.end.y)-1)
+	z_index = preload("res://scripts/presentation/world_depth.gd").for_y(area.end.y,visibility_rules.game.world.bounds.end.y)-1
 	var unshaded := CanvasItemMaterial.new()
 	unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 	material = unshaded

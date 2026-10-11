@@ -124,7 +124,7 @@ func tick(delta: float, force := false) -> void:
 	if not _current_area.has_area() or not _current_area.grow(6).intersects(body):
 		next = ""
 		for room in rooms:
-			# Reveal on a valid doorway crossing by the whole player body.
+			# Reveal on a valid doorway crossing by the torso and shoes.
 			# A head overlapping an ordinary wall cannot reveal its room.
 			if room.enter_area.has_point(point) or entering_portal(room,body,point):
 				next = str(room.id)

@@ -1,0 +1,102 @@
+{
+	"checks": {
+		"NPC_appearances_and_frame_rates_unchanged": true,
+		"all_other_people_keep_legacy_direction_handling": true,
+		"down_actual_transparent_background": true,
+		"down_all_frames_use_registered_cropped_texture": true,
+		"down_feet_do_not_jump": true,
+		"down_full_eight_frame_loop": false,
+		"down_idle_matches_correct_direction": true,
+		"down_mirror_is_only_for_left": true,
+		"down_original_RGBA_bytes_preserved": true,
+		"down_projected_height_stays_in_current_human_range": true,
+		"ground_and_door_collision_source_unchanged": true,
+		"left_all_frames_use_registered_cropped_texture": true,
+		"left_feet_do_not_jump": true,
+		"left_full_eight_frame_loop": false,
+		"left_idle_matches_correct_direction": true,
+		"left_mirror_is_only_for_left": true,
+		"left_projected_height_stays_in_current_human_range": true,
+		"main_uses_approved_overhead_appearance": true,
+		"only_main_player_assigned_new_appearance": true,
+		"refresh_does_not_reset_direction_or_gait": true,
+		"right_actual_transparent_background": true,
+		"right_all_frames_use_registered_cropped_texture": true,
+		"right_feet_do_not_jump": true,
+		"right_full_eight_frame_loop": false,
+		"right_idle_matches_correct_direction": true,
+		"right_mirror_is_only_for_left": true,
+		"right_original_RGBA_bytes_preserved": true,
+		"right_projected_height_stays_in_current_human_range": true,
+		"turn_preserves_gait_phase": true,
+		"turning_reuses_preloaded_texture_cache": true,
+		"up_actual_transparent_background": true,
+		"up_all_frames_use_registered_cropped_texture": true,
+		"up_feet_do_not_jump": true,
+		"up_full_eight_frame_loop": false,
+		"up_idle_matches_correct_direction": true,
+		"up_mirror_is_only_for_left": true,
+		"up_original_RGBA_bytes_preserved": true,
+		"up_projected_height_stays_in_current_human_range": true
+	},
+	"failed": [
+		"down_full_eight_frame_loop",
+		"up_full_eight_frame_loop",
+		"right_full_eight_frame_loop",
+		"left_full_eight_frame_loop"
+	],
+	"frame_audit": {
+		"down": {
+			"frames": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"max_height": 101.62963104248,
+			"min_height": 97.7777786254883
+		},
+		"left": {
+			"frames": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"max_height": 100.740737915039,
+			"min_height": 95.7037048339844
+		},
+		"right": {
+			"frames": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"max_height": 100.740737915039,
+			"min_height": 95.7037048339844
+		},
+		"up": {
+			"frames": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"max_height": 97.7777786254883,
+			"min_height": 93.6296310424805
+		}
+	}
+}

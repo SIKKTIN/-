@@ -1,0 +1,46 @@
+{
+  "resources": {
+    "production_text_files": 122,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "feet",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 12.81,
+      "checks": 20,
+      "failed": [
+        "head_overlap_does_not_block_direct_exit"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.5,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 14.06,
+      "checks": 100,
+      "failed": [
+        "door_laundry-equipment"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 134,
+  "passed": false
+}

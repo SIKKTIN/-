@@ -1,0 +1,1340 @@
+{
+  "schema": 1,
+  "version": "factory-cast-v47",
+  "characters": [
+    {
+      "id": "young_worker",
+      "name": "年轻工人",
+      "texture": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 60,
+      "scale_height": 387,
+      "frames": {
+        "idle": [
+          101,
+          32,
+          225,
+          387
+        ],
+        "walk_a": [
+          494,
+          32,
+          244,
+          389
+        ],
+        "walk_b": [
+          908,
+          438,
+          257,
+          390
+        ]
+      },
+      "anchor": {
+        "idle": [
+          118.5,
+          384
+        ],
+        "walk_a": [
+          125.0,
+          386
+        ],
+        "walk_b": [
+          134.0,
+          387
+        ]
+      },
+      "portrait_region": [
+        101,
+        32,
+        225,
+        213
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 387,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              494,
+              32,
+              244,
+              389
+            ],
+            "anchor": [
+              125.0,
+              386
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              933,
+              32,
+              222,
+              386
+            ],
+            "anchor": [
+              109.5,
+              383
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              84,
+              437,
+              245,
+              388
+            ],
+            "anchor": [
+              137.5,
+              385
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              511,
+              437,
+              218,
+              386
+            ],
+            "anchor": [
+              109.0,
+              383
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              908,
+              438,
+              257,
+              390
+            ],
+            "anchor": [
+              134.0,
+              387
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              112,
+              833,
+              232,
+              386
+            ],
+            "anchor": [
+              108.0,
+              383
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              493,
+              834,
+              239,
+              392
+            ],
+            "anchor": [
+              125.5,
+              389
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              926,
+              833,
+              217,
+              389
+            ],
+            "anchor": [
+              108.5,
+              386
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "4e99c47d47d3dce1af06e08a11c585bdc15c038ccdc49476557e48c94d881c92"
+    },
+    {
+      "id": "stocky_worker",
+      "name": "壮实工人",
+      "texture": "res://art/characters/factory_cast_v47/stocky_worker_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 372,
+      "frames": {
+        "idle": [
+          78,
+          47,
+          262,
+          372
+        ],
+        "walk_a": [
+          476,
+          47,
+          301,
+          370
+        ],
+        "walk_b": [
+          882,
+          445,
+          308,
+          369
+        ]
+      },
+      "anchor": {
+        "idle": [
+          136.5,
+          369
+        ],
+        "walk_a": [
+          159.5,
+          367
+        ],
+        "walk_b": [
+          164.5,
+          366
+        ]
+      },
+      "portrait_region": [
+        78,
+        47,
+        262,
+        205
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/stocky_worker_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 372,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              476,
+              47,
+              301,
+              370
+            ],
+            "anchor": [
+              159.5,
+              367
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              912,
+              46,
+              251,
+              369
+            ],
+            "anchor": [
+              133.0,
+              366
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              97,
+              445,
+              239,
+              369
+            ],
+            "anchor": [
+              128.5,
+              366
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              505,
+              446,
+              256,
+              365
+            ],
+            "anchor": [
+              126.0,
+              362
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              882,
+              445,
+              308,
+              369
+            ],
+            "anchor": [
+              164.5,
+              366
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              77,
+              842,
+              291,
+              369
+            ],
+            "anchor": [
+              149.5,
+              366
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              511,
+              842,
+              248,
+              365
+            ],
+            "anchor": [
+              123.0,
+              362
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              899,
+              842,
+              282,
+              369
+            ],
+            "anchor": [
+              137.0,
+              366
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "e41d47fa10ae672b9936b54bbb0b59de5bbe763fde94d7a6f6fa24340d60950b"
+    },
+    {
+      "id": "older_worker",
+      "name": "年长工人",
+      "texture": "res://art/characters/factory_cast_v47/older_worker_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 58,
+      "scale_height": 380,
+      "frames": {
+        "idle": [
+          106,
+          31,
+          217,
+          380
+        ],
+        "walk_a": [
+          505,
+          31,
+          248,
+          383
+        ],
+        "walk_b": [
+          919,
+          428,
+          258,
+          380
+        ]
+      },
+      "anchor": {
+        "idle": [
+          122.5,
+          377
+        ],
+        "walk_a": [
+          140.0,
+          380
+        ],
+        "walk_b": [
+          149.0,
+          377
+        ]
+      },
+      "portrait_region": [
+        106,
+        31,
+        217,
+        209
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/older_worker_walk_v2.png",
+        "texture_size": [
+          1774,
+          887
+        ],
+        "fps": 8,
+        "scale_height": 413,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              92,
+              26,
+              253,
+              413
+            ],
+            "anchor": [
+              149.5,
+              410
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              548,
+              26,
+              239,
+              404
+            ],
+            "anchor": [
+              135.0,
+              401
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              1019,
+              26,
+              208,
+              413
+            ],
+            "anchor": [
+              104.0,
+              410
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              1431,
+              26,
+              246,
+              411
+            ],
+            "anchor": [
+              134.5,
+              408
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              93,
+              451,
+              269,
+              409
+            ],
+            "anchor": [
+              145.5,
+              406
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              560,
+              450,
+              229,
+              413
+            ],
+            "anchor": [
+              117.5,
+              410
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              1016,
+              452,
+              208,
+              416
+            ],
+            "anchor": [
+              104.0,
+              413
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              1438,
+              451,
+              241,
+              414
+            ],
+            "anchor": [
+              124.5,
+              411
+            ]
+          }
+        ],
+        "sha256": "a84fa9ab1b0ea711affd3827a19691e3e6b76f6436bab98304b48b2f8c383d4d",
+        "source_kind": "built-in-imagegen-original-png"
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "9be7b2d0f6ad8f2fce58a9693559c315da0b482fb6f9f4707925d50f6cf10302"
+    },
+    {
+      "id": "female_worker",
+      "name": "女工",
+      "texture": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 60,
+      "scale_height": 374,
+      "frames": {
+        "idle": [
+          82,
+          53,
+          269,
+          374
+        ],
+        "walk_a": [
+          480,
+          54,
+          287,
+          371
+        ],
+        "walk_b": [
+          900,
+          453,
+          292,
+          368
+        ]
+      },
+      "anchor": {
+        "idle": [
+          142.5,
+          371
+        ],
+        "walk_a": [
+          146.5,
+          368
+        ],
+        "walk_b": [
+          144.5,
+          365
+        ]
+      },
+      "portrait_region": [
+        82,
+        53,
+        269,
+        206
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 374,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              480,
+              54,
+              287,
+              371
+            ],
+            "anchor": [
+              146.5,
+              368
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              906,
+              54,
+              267,
+              370
+            ],
+            "anchor": [
+              141.0,
+              367
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              79,
+              455,
+              289,
+              365
+            ],
+            "anchor": [
+              146.0,
+              362
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              483,
+              454,
+              272,
+              367
+            ],
+            "anchor": [
+              144.5,
+              364
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              900,
+              453,
+              292,
+              368
+            ],
+            "anchor": [
+              144.5,
+              365
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              80,
+              848,
+              274,
+              362
+            ],
+            "anchor": [
+              145.0,
+              359
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              482,
+              846,
+              275,
+              364
+            ],
+            "anchor": [
+              145.5,
+              361
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              899,
+              845,
+              276,
+              368
+            ],
+            "anchor": [
+              145.0,
+              365
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "38bf99cf35175e926f6bd33ba338bdbc18df04a50276af40a9bece7144a0a4b4"
+    },
+    {
+      "id": "porter",
+      "name": "搬运工",
+      "texture": "res://art/characters/factory_cast_v47/porter_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 393,
+      "frames": {
+        "idle": [
+          90,
+          21,
+          271,
+          393
+        ],
+        "walk_a": [
+          476,
+          21,
+          312,
+          394
+        ],
+        "walk_b": [
+          889,
+          432,
+          319,
+          392
+        ]
+      },
+      "anchor": {
+        "idle": [
+          139.5,
+          390
+        ],
+        "walk_a": [
+          159.5,
+          391
+        ],
+        "walk_b": [
+          165.0,
+          389
+        ]
+      },
+      "portrait_region": [
+        90,
+        21,
+        271,
+        216
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/porter_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 393,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              476,
+              21,
+              312,
+              394
+            ],
+            "anchor": [
+              159.5,
+              391
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              916,
+              21,
+              265,
+              392
+            ],
+            "anchor": [
+              136.0,
+              389
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              78,
+              430,
+              306,
+              393
+            ],
+            "anchor": [
+              152.0,
+              390
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              512,
+              429,
+              248,
+              398
+            ],
+            "anchor": [
+              123.0,
+              395
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              889,
+              432,
+              319,
+              392
+            ],
+            "anchor": [
+              165.0,
+              389
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              80,
+              838,
+              295,
+              398
+            ],
+            "anchor": [
+              147.5,
+              395
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              487,
+              838,
+              299,
+              394
+            ],
+            "anchor": [
+              150.5,
+              391
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              929,
+              837,
+              246,
+              396
+            ],
+            "anchor": [
+              122.5,
+              393
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "f349dd1eba2f78aa8614f6684c7136d782ec3a1117b2171e8def119f2933a1fa"
+    },
+    {
+      "id": "patrol_guard",
+      "name": "巡逻看守",
+      "texture": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 391,
+      "frames": {
+        "idle": [
+          91,
+          28,
+          248,
+          391
+        ],
+        "walk_a": [
+          489,
+          30,
+          278,
+          388
+        ],
+        "walk_b": [
+          906,
+          430,
+          274,
+          387
+        ]
+      },
+      "anchor": {
+        "idle": [
+          138.0,
+          388
+        ],
+        "walk_a": [
+          150.0,
+          385
+        ],
+        "walk_b": [
+          148.0,
+          384
+        ]
+      },
+      "portrait_region": [
+        91,
+        28,
+        248,
+        215
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 391,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              489,
+              30,
+              278,
+              388
+            ],
+            "anchor": [
+              150.0,
+              385
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              907,
+              29,
+              272,
+              390
+            ],
+            "anchor": [
+              145.5,
+              387
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              119,
+              431,
+              220,
+              387
+            ],
+            "anchor": [
+              112.0,
+              384
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              516,
+              430,
+              229,
+              388
+            ],
+            "anchor": [
+              121.0,
+              385
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              906,
+              430,
+              274,
+              387
+            ],
+            "anchor": [
+              148.0,
+              384
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              81,
+              827,
+              285,
+              390
+            ],
+            "anchor": [
+              152.0,
+              387
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              528,
+              825,
+              217,
+              392
+            ],
+            "anchor": [
+              109.0,
+              389
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              939,
+              822,
+              221,
+              398
+            ],
+            "anchor": [
+              113.0,
+              395
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "cdff18cf8f2c9785b8abdea4c7d9a3007d8e32e54ba845c7de14df64ba001a4b"
+    },
+    {
+      "id": "overseer",
+      "name": "车间监工",
+      "texture": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 366,
+      "frames": {
+        "idle": [
+          50,
+          39,
+          283,
+          366
+        ],
+        "walk_a": [
+          470,
+          39,
+          316,
+          369
+        ],
+        "walk_b": [
+          899,
+          439,
+          309,
+          371
+        ]
+      },
+      "anchor": {
+        "idle": [
+          146.0,
+          363
+        ],
+        "walk_a": [
+          159.5,
+          366
+        ],
+        "walk_b": [
+          157.5,
+          368
+        ]
+      },
+      "portrait_region": [
+        50,
+        39,
+        283,
+        201
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 366,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              470,
+              39,
+              316,
+              369
+            ],
+            "anchor": [
+              159.5,
+              366
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              905,
+              38,
+              297,
+              372
+            ],
+            "anchor": [
+              146.0,
+              369
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              84,
+              438,
+              247,
+              367
+            ],
+            "anchor": [
+              119.5,
+              364
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              499,
+              435,
+              262,
+              376
+            ],
+            "anchor": [
+              130.0,
+              373
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              899,
+              439,
+              309,
+              371
+            ],
+            "anchor": [
+              157.5,
+              368
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              54,
+              842,
+              298,
+              376
+            ],
+            "anchor": [
+              152.0,
+              373
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              474,
+              842,
+              310,
+              377
+            ],
+            "anchor": [
+              159.5,
+              374
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              902,
+              840,
+              304,
+              380
+            ],
+            "anchor": [
+              146.0,
+              377
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "361967101bc7c85f8d9e35b660b962ea32af14753d17627699b8d91ca83c2d34"
+    },
+    {
+      "id": "attendant",
+      "name": "后勤人员",
+      "texture": "res://art/characters/factory_cast_v47/attendant_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 60,
+      "scale_height": 372,
+      "frames": {
+        "idle": [
+          106,
+          45,
+          229,
+          372
+        ],
+        "walk_a": [
+          503,
+          45,
+          254,
+          371
+        ],
+        "walk_b": [
+          914,
+          448,
+          248,
+          368
+        ]
+      },
+      "anchor": {
+        "idle": [
+          111.0,
+          369
+        ],
+        "walk_a": [
+          114.0,
+          368
+        ],
+        "walk_b": [
+          112.0,
+          365
+        ]
+      },
+      "portrait_region": [
+        106,
+        45,
+        229,
+        205
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_cast_v47/attendant_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 372,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              503,
+              45,
+              254,
+              371
+            ],
+            "anchor": [
+              114.0,
+              368
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              914,
+              47,
+              258,
+              370
+            ],
+            "anchor": [
+              111.5,
+              367
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              107,
+              451,
+              255,
+              370
+            ],
+            "anchor": [
+              114.0,
+              367
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              505,
+              449,
+              233,
+              367
+            ],
+            "anchor": [
+              113.0,
+              364
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              914,
+              448,
+              248,
+              368
+            ],
+            "anchor": [
+              112.0,
+              365
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              108,
+              847,
+              259,
+              368
+            ],
+            "anchor": [
+              113.0,
+              365
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              503,
+              844,
+              250,
+              371
+            ],
+            "anchor": [
+              114.0,
+              368
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              914,
+              841,
+              253,
+              373
+            ],
+            "anchor": [
+              114.5,
+              370
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "83337467586a2caf99b5452f05fe66980ed19a4202e0516c3a0ff0cddd8bb394"
+    }
+  ]
+}

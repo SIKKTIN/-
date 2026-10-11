@@ -19,7 +19,11 @@ func configure(owner_game) -> void:
 		var value = saved.get_value("clock","speed",1.0)
 		if typeof(value) in [TYPE_INT,TYPE_FLOAT]:
 			game.schedule.set_time_speed(float(value))
-		game.schedule.set_escape_days(int(saved.get_value("clock","days",3)))
+		var saved_days := int(saved.get_value("clock","days",game.schedule.escape_days))
+		# Older versions saved the former default alongside every speed change.
+		# Adopt the campus default once; explicitly saved/custom limits remain valid.
+		if saved.has_section_key("clock","map_days_default") or saved_days != 3 or not game.room_config.get("demo_single_map",false):
+			game.schedule.set_escape_days(saved_days)
 	button = Button.new()
 	button.name = "DeveloperSettingsButton"
 	button.text = "开发者设置"
@@ -82,6 +86,7 @@ func change_speed(value: float) -> void:
 func _save_preferences() -> void:
 	var saved := ConfigFile.new()
 	saved.set_value("clock","days",game.schedule.escape_days)
+	saved.set_value("clock","map_days_default",game.room_config.get("escape_days",3))
 	saved.set_value("clock","speed",game.schedule.time_speed)
 	var error := saved.save(preference_path)
 	if error != OK:
@@ -99,8 +104,6 @@ func toggle() -> void:
 	if panel.visible:
 		close()
 	else:
-		if game.routine_panel:
-			game.routine_panel.close()
 		game.schedule.close()
 		game.shop_panel.close()
 		_refresh()

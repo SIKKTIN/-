@@ -1,0 +1,101 @@
+{
+  "task": {
+    "id": "p88-moving-outdoor-chase-fps-20261008",
+    "title": "P88 室外移动监工追捕30帧复现和修复",
+    "description": "用户截图08:39监工已走出车间，在寝室门旁追捕时FPS30。补上真实室外移动且可见警戒区域的性能覆盖，按记录的热点修复。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "原生渲染下记录移动追逐真实帧间隔和CPU热点，降低室外追捕耗时；保持警戒遮挡、范围、检测及抓捕规则，验证60/90预设并明确测试限制。",
+    "result": "",
+    "dependencyIds": [
+      "p87-door-layer-supervision-chase-performance-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/guard_warning.gd",
+        "scripts/presentation/guard_warning.gdshader",
+        "scripts/presentation/visibility_geometry.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/workshop_overseer.gd",
+        "scripts/core/workshop_rules.gd",
+        "qa/p88*",
+        "docs/dev/p88/**",
+        "docs/tests/p88*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p88-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T15:26:28.029Z"
+      }
+    ]
+  },
+  "revision": "0a4af5e1e3adbdbef520818718456f89b9580476c9edc97a0244d018375b5501",
+  "scheduleRevision": "24819fb8567cf207ec55c1a274ae255d3d5c4ed3720a5a5fc589df3ce4a1f44f",
+  "planChanges": [
+    {
+      "id": "p88-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T15:26:28.029Z",
+      "reason": "按用户新截图修复监工实际室外移动时的30fps。",
+      "createdTaskIds": [
+        "p88-moving-outdoor-chase-fps-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p87-door-layer-supervision-chase-performance-20261008",
+      "title": "P87 门框位于角色下方及监管追击耗时修复",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "0a4af5e1e3adbdbef520818718456f89b9580476c9edc97a0244d018375b5501"
+  },
+  "feedback": []
+}

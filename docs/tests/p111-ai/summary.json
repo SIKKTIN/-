@@ -1,0 +1,42 @@
+{
+  "resources": {
+    "production_text_files": 122,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 62.25,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "legacy_maps",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.61,
+      "checks": 9,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "chase",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.95,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 54,
+  "passed": true
+}

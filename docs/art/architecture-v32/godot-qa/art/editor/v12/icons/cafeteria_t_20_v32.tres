@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v32/rounded_wall_master_v32.png" id="1_4oueo"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_77ddl"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 30.060604, 0, 112, 67.878784, 0),
+"attribute_data": PackedByteArray("/////wAA6D1VVQk+/////wAA1T5VVQk+/////wAA1T6rqj4+/////wAA6D2rqj4+/////wAA1T5VVQk+/////wAA6z5VVQk+/////wAA6z6rqj4+/////wAA1T6rqj4+/////wAA6z5VVQk+/////wCACz9VVQk+/////wCACz+rqj4+/////wAA6z6rqj4+/////wCACz9VVQk+/////wCAFj9VVQk+/////wCAFj+rqj4+/////wCACz+rqj4+/////wCAFj9VVQk+/////wCAYz9VVQk+/////wCAYz+rqj4+/////wCAFj+rqj4+/////wAA1T6rqj4+/////wAA6z6rqj4+/////wAA6z6rqkY+/////wAA1T6rqkY+/////wAA6z6rqj4+/////wCACz+rqj4+/////wCACz+rqkY+/////wAA6z6rqkY+/////wCACz+rqj4+/////wCAFj+rqj4+/////wCAFj+rqkY+/////wCACz+rqkY+/////wAA6z6rqkY+/////wCACz+rqkY+/////wCACz8dx6c+/////wAA6z4dx6c+"),
+"format": 34393296921,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAAQR588EG66EJCHnzwQbroQkLggz9CAAAAQeCDP0K66EJCHnzwQYQPXkIefPBBhA9eQuCDP0K66EJC4IM/QoQPXkIefPBBPviQQh588EE++JBC4IM/QoQPXkLggz9CPviQQh588EGji55CHnzwQaOLnkLggz9CPviQQuCDP0Kji55CHnzwQQAA8EIefPBBAADwQuCDP0Kji55C4IM/QrroQkLggz9ChA9eQuCDP0KED15CbLJJQrroQkJssklChA9eQuCDP0I++JBC4IM/Qj74kEJssklChA9eQmyySUI++JBC4IM/QqOLnkLggz9Co4ueQmyySUI++JBCbLJJQoQPXkJssklCPviQQmyySUI++JBC+ODDQoQPXkL44MNC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_77ddl")
+base_texture = ExtResource("1_4oueo")
+image_size = Vector2(128, 128)

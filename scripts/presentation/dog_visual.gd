@@ -38,11 +38,11 @@ func tick_visual(delta: float) -> void:
 	var entry: Dictionary = animation.frames[frame_index] if frame_index >= 0 else definition.idle
 	texture = frames[frame_index] if frame_index >= 0 else idle
 	var scale_height: float = float(animation.scale_height) if frame_index >= 0 else float(entry.get("scale_height",definition.get("scale_height",entry.region[3])))
-	var ratio := float(definition.get("world_height",44))/scale_height
+	var ratio := float(definition.get("world_height",44))*preload("res://scripts/core/world_scale.gd").DOG/scale_height
 	destination = Rect2(-Vector2(entry.anchor[0],entry.anchor[1])*ratio,Vector2(entry.region[2],entry.region[3])*ratio)
 	if absf(dog.facing.x) > 0.08:
 		flip_h = dog.facing.x < 0
-	dog.z_index = int(dog.position.y)
+	dog.z_index = preload("res://scripts/presentation/world_depth.gd").for_y(dog.position.y,game.world.bounds.end.y)
 	queue_redraw()
 
 func _draw() -> void:
@@ -56,7 +56,7 @@ func paint_information(canvas: CanvasItem, font: Font) -> void:
 	var barking: bool = game.elapsed < dog.bark_until
 	var color := Color("efb269") if game.presentation.lighting.period == "night" else Color("715037")
 	var text := "犬吠示警！" if barking else "看门犬 · 休息" if dog.state == "resting" else "看门犬 · 嗅探" if dog.state == "tracking" else "看门犬 · 巡逻"
-	canvas.draw_string(font,Vector2(-36,-52),text,HORIZONTAL_ALIGNMENT_LEFT,-1,13,color)
+	canvas.draw_string(font,Vector2(-36,-float(definition.get("world_height",44))*preload("res://scripts/core/world_scale.gd").DOG-8),text,HORIZONTAL_ALIGNMENT_LEFT,-1,13,color)
 	if barking:
 		canvas.draw_arc(Vector2(0,-20),37,0,TAU,32,Color("db8643"),2,true)
 	elif dog.state == "tracking":

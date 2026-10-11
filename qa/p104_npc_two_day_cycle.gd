@@ -11,7 +11,6 @@ func run() -> void:
 	await process_frame
 	game.set_process(false)
 	game.load_room("r04",["lockpick","chat","backpack"],70)
-	game.routine_panel.close()
 	game.schedule.set_time_speed(1)
 	game.actors[0].immune_until=INF
 	for actor in game.actors.slice(1): actor.immune_until=0
@@ -25,7 +24,6 @@ func run() -> void:
 	var saw_free := {}
 	var max_move := 0.0
 	for step in range(7800):
-		if paused: game.routine_panel.close()
 		var before: Array = game.actors.map(func(a): return a.position)
 		game._process(0.2)
 		for id in range(3): max_move = maxf(max_move,before[id].distance_to(game.actors[id].position))

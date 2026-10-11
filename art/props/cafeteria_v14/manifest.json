@@ -39,41 +39,6 @@
       "registration_note": "South counter-base projected ground; rear kitchenette rises north and needs separate hidden map collision."
     },
     {
-      "id": "cafeteria_return",
-      "texture": "res://art/props/cafeteria_v14/cafeteria_return_v14.png",
-      "texture_size": [
-        1322,
-        1190
-      ],
-      "region": [
-        284,
-        294,
-        756,
-        717
-      ],
-      "ground_rect": [
-        6,
-        237.545455,
-        744,
-        473.454545
-      ],
-      "footprint_world_size": [
-        110,
-        70
-      ],
-      "world_size": [
-        111.774194,
-        106.008065
-      ],
-      "elevation_world": 35.120968,
-      "shadow_baked": false,
-      "blocking": true,
-      "interactive": false,
-      "source_kind": "built-in-imagegen-original-png",
-      "sha256": "0a35b6091aec7be14d335ee69863633b7af27d9f83c3e8b12abf7c59b6a770e9",
-      "registration_note": "South rack-base projected ground; upper tray stacks rise north. Original short-rack proportions preserved."
-    },
-    {
       "id": "cafeteria_tray",
       "texture": "res://art/props/cafeteria_v14/cafeteria_tray_v14.png",
       "texture_size": [
@@ -144,8 +109,6 @@
       "registration_note": "Three post bases share a south baseline; narrow projected ground strip preserves uniform scale."
     }
   ],
-  "reuse": [
-    "res://art/props/prison_v08/communal_table_v08.png"
-  ],
+  "reuse": [],
   "pixel_policy": "source PNG byte-identical; crop/registration metadata only"
 }

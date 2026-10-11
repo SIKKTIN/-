@@ -71,7 +71,6 @@ func configure(owner_ui):
 		if game.shop_panel.panel.visible: game.shop_panel.close()
 		ui.refresh())
 	header.add_child(close_button)
-	game.inventory_panel.label.hide()
 	for index in range(game.inventory_panel.slots.size()):
 		var slot: Button = game.inventory_panel.slots[index]
 		slot.reparent(paper,false)
@@ -107,8 +106,6 @@ func configure(owner_ui):
 		HudArt.button(button,button==game.inventory_panel.use_button)
 	game.inventory_panel.drop_button.text = "丢弃"
 	game.inventory_panel.drop_button.icon = null
-	for button in game.inventory_panel.transfer_buttons: button.hide()
-	game.mini_map.stop_button.hide()
 	paper.hide()
 
 func label(parent: Control, size: int) -> Label:
@@ -209,8 +206,6 @@ func refresh():
 	var count: int = game.inventory.capacity(0)
 	var shop_open: bool = game.shop_panel.panel.visible
 	var blocked: bool = game.world_input_blocked()
-	for button in inv.transfer_buttons: button.hide()
-	game.mini_map.stop_button.hide()
 	paper.visible = (ui.bag_open or shop_open) and not ui.menu.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible and not game.dialogue.panel.visible and game.phase=="playing" and not (game.tutorial and game.tutorial.blocks_input())
 	if not paper.visible: return
 	var arrangement := [ui.last_size,ui.bag_button.position,ui.ability_button.position,ui.action_button.position,count,shop_open]

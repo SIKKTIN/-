@@ -1,0 +1,69 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"failed": [],
+	"guard_count": 13,
+	"label": "before",
+	"map_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+	"microbench": {
+		"view_mesh_cold_ms": 0.308883333333333,
+		"view_polygon_cold_ms": 0.255116666666667
+	},
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"draw_calls": 1171.66131907308,
+			"extra_ai_ms": 0.00032620320855615,
+			"extra_count": 0,
+			"fps": 140.203907965256,
+			"game_ms": 1.94932442067736,
+			"name": "day_4_guards",
+			"p95_ms": 8.268
+		},
+		{
+			"draw_calls": 1324.44039735099,
+			"extra_ai_ms": 1.45270198675497,
+			"extra_count": 12,
+			"fps": 75.4717735566898,
+			"game_ms": 2.37637086092715,
+			"name": "day_16_guards",
+			"p95_ms": 14.97
+		},
+		{
+			"draw_calls": 1150.18636363636,
+			"extra_ai_ms": 1.372375,
+			"extra_count": 12,
+			"fps": 109.7379731546,
+			"game_ms": 2.38560454545455,
+			"name": "day_16_without_information",
+			"p95_ms": 10.627
+		},
+		{
+			"draw_calls": 1323.83160621762,
+			"extra_ai_ms": 0.000134715025906736,
+			"extra_count": 12,
+			"fps": 96.3116144820731,
+			"game_ms": 2.33873834196891,
+			"name": "day_16_without_extra_ai",
+			"p95_ms": 11.881
+		},
+		{
+			"draw_calls": 1323.44311377246,
+			"extra_ai_ms": 2.427125748503,
+			"extra_count": 12,
+			"fps": 83.4103130608813,
+			"game_ms": 1.4980628742515,
+			"name": "night_16_guards",
+			"p95_ms": 14.129
+		},
+		{
+			"draw_calls": 1213.27247956403,
+			"extra_ai_ms": 1.87264305177112,
+			"extra_count": 12,
+			"fps": 91.6045320031789,
+			"game_ms": 1.49934877384196,
+			"name": "night_16_without_lighting",
+			"p95_ms": 12.855
+		}
+	],
+	"source_guard_sha256": "1681d8339e085c9998044032518359f5f3726071c446c33d7c86afcbfdd76384"
+}

@@ -5,6 +5,7 @@ var config: Dictionary
 var limit_seconds: float = 2700
 var day_seconds: float = 900
 var escape_days: int = 3
+var escape_days_overridden := false
 var stage_day: int = -1
 var calendar_day_offset := 0
 var skip_button: Button
@@ -98,7 +99,8 @@ func _make_ui() -> void:
 func reset() -> void:
 	calendar_day_offset = 0
 	day_seconds = float(config.room_seconds.get(game.room_id,900))
-	escape_days = int(config.get("escape_days",3)) if escape_days < 1 else escape_days
+	if not escape_days_overridden:
+		escape_days = int(game.room_config.get("escape_days",config.get("escape_days",3)))
 	limit_seconds = day_seconds*escape_days
 	clock_elapsed = 0
 	curfew_returns.clear()
@@ -121,7 +123,7 @@ func advance(real_delta: float) -> void:
 	if game.get_tree().paused:
 		return
 	var target := minf(limit_seconds,clock_elapsed+maxf(0,real_delta)*time_speed)
-	if game.routines and game.routine_panel and game.fullscreen_ui:
+	if game.routines and game.fullscreen_ui:
 		# Land exactly on the next wake-up, including at high developer speeds.
 		# This preserves the daily transition before the frame's AI runs.
 		var morning := floorf(absolute_minutes()/1440.0)*1440.0+wake_minutes()
@@ -158,6 +160,7 @@ func set_escape_days(value: int) -> bool:
 	if value < 1 or value > 10:
 		return false
 	escape_days = value
+	escape_days_overridden = true
 	limit_seconds = day_seconds*escape_days
 	tick(false)
 	return true
@@ -310,7 +313,7 @@ func tick(announce: bool = true) -> void:
 	var left := "剩余 %02d:%02d" % [seconds/60,seconds%60] if time_speed > 0 else "时钟暂停"
 	if game.tutorial and game.tutorial.active:
 		left = "教程日 · 期限未开始"
-		schedule_note.text = "第1天为入监教程，不占正式三天期限。\n讲解暂停作息，完成任务后进入下一时段。"
+		schedule_note.text = "第1天为入监教程，不占正式%d天期限。\n讲解暂停作息，完成任务后进入下一时段。" % escape_days
 	clock_label.text = "%02d:%02d · %s · %s" % [floori(minute/60),floori(minute)%60,stage.name,left]
 	clock_label.add_theme_color_override("font_color",Color("bc5348") if is_curfew() or real_remaining() <= 30 else Color("303b46"))
 	stage_button.text = "日程 · %s" % stage.name
@@ -329,8 +332,6 @@ func toggle() -> void:
 			game.shop_panel.close()
 		if game.developer_settings:
 			game.developer_settings.close()
-		if game.routine_panel:
-			game.routine_panel.close()
 		panel.show()
 		blocker.show()
 		game.presentation.interaction.refresh()
@@ -344,8 +345,6 @@ func close() -> void:
 func show_result(success: bool) -> void:
 	if game.dialogue: game.dialogue.close()
 	close()
-	if game.routine_panel:
-		game.routine_panel.close()
 	if game.developer_settings:
 		game.developer_settings.close()
 	if game.shop_panel:

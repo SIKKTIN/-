@@ -1,0 +1,15 @@
+{
+  "approved_concept": "docs/dev/p65/approved-concept-c.png",
+  "construction": "same-height integrated coping with two restrained concave round inside corners; vertical top overlaps central horizontal brick; no horizontal lower shadow crossing its root",
+  "source_strategy": "builtin imagegen extraction/reconstruction of approved coping only as one transparent master containing T and a long matching vertical top. T and entire long V share this source, sampling perspective, side shadow and stone pitch.",
+  "default_T_size20": [132,80],
+  "default_T_size24": [136,80],
+  "default_stem_x": 56,
+  "default_bar_depth": 24,
+  "default_bottom_y": 80,
+  "inside_arc_radius_world": "6 to 8, source measured before registration",
+  "integration": "replace only relevant H coping interval with complete cap+round junction, remove original H lower edge there; retain original wall facade outside nominal stem. Do not use old reuse_cap stem-only filtering.",
+  "long_V": "new same-source definitions for both20/24 and left/right; tile period/source phase measured and registered explicitly, same phase at T80 continuation, no resetting or reconnecting V27 bitmap",
+  "old_assets": "frozen V24–31 unchanged, shared/data/Git producer-owned",
+  "state": "draft until source and native trial"
+}

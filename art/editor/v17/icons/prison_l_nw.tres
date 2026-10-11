@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v38/four_corner_master.png" id="1_a6wlc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ghkgj"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(48, 8, 0, 32, 112, 0),
+"attribute_data": PackedByteArray("/////1XVYz8AgDk//////6sqdT8AgDk//////6sqdT8AQEA//////1XVYz8AQEA//////1XVYz8AQEA//////6sqdT8AQEA//////6sqdT8AwEw//////1XVYz8AwEw//////1XVYz8AwEw//////6sqdT8AwEw//////6sqdT8AgGE//////1XVYz8AgGE//////1XVYz8AgGE//////6sqdT8AgGE//////6sqdT8AgG0//////1XVYz8AgG0/"),
+"format": 34393296921,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AABAQgAAAEEAAKBCAAAAQQAAoEIAAMBBAABAQgAAwEEAAEBCAADAQQAAoEIAAMBBAACgQpqZOUIAAEBCmpk5QgAAQEKamTlCAACgQpqZOUIAAKBCzcy8QgAAQELNzLxCAABAQs3MvEIAAKBCzcy8QgAAoEIAAPBCAABAQgAA8EI=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_ghkgj")
+base_texture = ExtResource("1_a6wlc")
+image_size = Vector2(128, 128)

@@ -1,0 +1,1002 @@
+{
+  "schema": 1,
+  "version": "factory-occupations-v48",
+  "characters": [
+    {
+      "id": "canteen_cook",
+      "name": "食堂师傅",
+      "texture": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 362,
+      "frames": {
+        "idle": [
+          118,
+          40,
+          230,
+          362
+        ],
+        "walk_a": [
+          490,
+          42,
+          269,
+          359
+        ],
+        "walk_b": [
+          920,
+          444,
+          211,
+          359
+        ]
+      },
+      "anchor": {
+        "idle": [
+          121.0,
+          359
+        ],
+        "walk_a": [
+          136.5,
+          356
+        ],
+        "walk_b": [
+          105.0,
+          356
+        ]
+      },
+      "portrait_region": [
+        118,
+        40,
+        230,
+        199
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 362,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              490,
+              42,
+              269,
+              359
+            ],
+            "anchor": [
+              136.5,
+              356
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              895,
+              41,
+              248,
+              361
+            ],
+            "anchor": [
+              121.5,
+              358
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              119,
+              442,
+              245,
+              361
+            ],
+            "anchor": [
+              120.5,
+              358
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              508,
+              444,
+              240,
+              353
+            ],
+            "anchor": [
+              125.0,
+              350
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              920,
+              444,
+              211,
+              359
+            ],
+            "anchor": [
+              105.0,
+              356
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              126,
+              843,
+              234,
+              353
+            ],
+            "anchor": [
+              113.5,
+              350
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              508,
+              842,
+              250,
+              361
+            ],
+            "anchor": [
+              126.5,
+              358
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              909,
+              840,
+              229,
+              359
+            ],
+            "anchor": [
+              115.5,
+              356
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "543f6fd991a8e13e9b16a4efe3ebaa1912b326398b95810b0fbf19290baed909"
+    },
+    {
+      "id": "clinic_medic",
+      "name": "医务人员",
+      "texture": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 60,
+      "scale_height": 373,
+      "frames": {
+        "idle": [
+          109,
+          40,
+          209,
+          373
+        ],
+        "walk_a": [
+          503,
+          40,
+          235,
+          372
+        ],
+        "walk_b": [
+          908,
+          440,
+          241,
+          376
+        ]
+      },
+      "anchor": {
+        "idle": [
+          101.0,
+          370
+        ],
+        "walk_a": [
+          109.5,
+          369
+        ],
+        "walk_b": [
+          114.0,
+          373
+        ]
+      },
+      "portrait_region": [
+        109,
+        40,
+        209,
+        205
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 373,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              503,
+              40,
+              235,
+              372
+            ],
+            "anchor": [
+              109.5,
+              369
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              929,
+              39,
+              212,
+              373
+            ],
+            "anchor": [
+              101.0,
+              370
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              108,
+              440,
+              232,
+              374
+            ],
+            "anchor": [
+              101.5,
+              371
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              504,
+              441,
+              228,
+              375
+            ],
+            "anchor": [
+              111.0,
+              372
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              908,
+              440,
+              241,
+              376
+            ],
+            "anchor": [
+              114.0,
+              373
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              108,
+              837,
+              206,
+              372
+            ],
+            "anchor": [
+              102.5,
+              369
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              513,
+              837,
+              203,
+              375
+            ],
+            "anchor": [
+              101.0,
+              372
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              924,
+              837,
+              229,
+              375
+            ],
+            "anchor": [
+              102.0,
+              372
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "ded8d6d5d9df5c8baa7d5331814bd575f94407a4fbe54303d565602ff2bbd44d"
+    },
+    {
+      "id": "maintenance_technician",
+      "name": "维修师傅",
+      "texture": "res://art/characters/factory_occupations_v48/maintenance_technician_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 60,
+      "scale_height": 349,
+      "frames": {
+        "idle": [
+          94,
+          44,
+          224,
+          349
+        ],
+        "walk_a": [
+          502,
+          41,
+          257,
+          352
+        ],
+        "walk_b": [
+          908,
+          447,
+          259,
+          354
+        ]
+      },
+      "anchor": {
+        "idle": [
+          124.0,
+          346
+        ],
+        "walk_a": [
+          130.0,
+          349
+        ],
+        "walk_b": [
+          130.5,
+          351
+        ]
+      },
+      "portrait_region": [
+        94,
+        44,
+        224,
+        192
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/maintenance_technician_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 349,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              502,
+              41,
+              257,
+              352
+            ],
+            "anchor": [
+              130.0,
+              349
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              928,
+              42,
+              208,
+              351
+            ],
+            "anchor": [
+              109.5,
+              348
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              114,
+              447,
+              227,
+              355
+            ],
+            "anchor": [
+              107.5,
+              352
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              505,
+              448,
+              249,
+              356
+            ],
+            "anchor": [
+              128.0,
+              353
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              908,
+              447,
+              259,
+              354
+            ],
+            "anchor": [
+              130.5,
+              351
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              122,
+              853,
+              226,
+              360
+            ],
+            "anchor": [
+              101.0,
+              357
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              511,
+              852,
+              229,
+              362
+            ],
+            "anchor": [
+              126.5,
+              359
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              908,
+              852,
+              240,
+              360
+            ],
+            "anchor": [
+              129.5,
+              357
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "7e4c100458a9b9f8a8d05b6cff18447040233049f284c91f628469419a74ccfb"
+    },
+    {
+      "id": "warehouse_clerk",
+      "name": "仓库管理员",
+      "texture": "res://art/characters/factory_occupations_v48/warehouse_clerk_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 61,
+      "scale_height": 382,
+      "frames": {
+        "idle": [
+          97,
+          27,
+          239,
+          382
+        ],
+        "walk_a": [
+          505,
+          28,
+          266,
+          381
+        ],
+        "walk_b": [
+          906,
+          435,
+          271,
+          378
+        ]
+      },
+      "anchor": {
+        "idle": [
+          112.0,
+          379
+        ],
+        "walk_a": [
+          125.0,
+          378
+        ],
+        "walk_b": [
+          132.5,
+          375
+        ]
+      },
+      "portrait_region": [
+        97,
+        27,
+        239,
+        210
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/warehouse_clerk_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 382,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              505,
+              28,
+              266,
+              381
+            ],
+            "anchor": [
+              125.0,
+              378
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              935,
+              28,
+              218,
+              381
+            ],
+            "anchor": [
+              102.5,
+              378
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              105,
+              436,
+              245,
+              378
+            ],
+            "anchor": [
+              105.5,
+              375
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              499,
+              436,
+              278,
+              377
+            ],
+            "anchor": [
+              131.0,
+              374
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              906,
+              435,
+              271,
+              378
+            ],
+            "anchor": [
+              132.5,
+              375
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              109,
+              848,
+              243,
+              372
+            ],
+            "anchor": [
+              104.0,
+              369
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              508,
+              848,
+              263,
+              374
+            ],
+            "anchor": [
+              118.5,
+              371
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              924,
+              848,
+              257,
+              375
+            ],
+            "anchor": [
+              117.0,
+              372
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "84eb50b420111934c338379f28b95d147d215aa445c8bb09a7bb27db1eaacce1"
+    },
+    {
+      "id": "truck_driver",
+      "name": "货车司机",
+      "texture": "res://art/characters/factory_occupations_v48/truck_driver_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 62,
+      "scale_height": 384,
+      "frames": {
+        "idle": [
+          103,
+          32,
+          220,
+          384
+        ],
+        "walk_a": [
+          489,
+          32,
+          265,
+          383
+        ],
+        "walk_b": [
+          912,
+          435,
+          251,
+          386
+        ]
+      },
+      "anchor": {
+        "idle": [
+          124.5,
+          381
+        ],
+        "walk_a": [
+          138.5,
+          380
+        ],
+        "walk_b": [
+          134.5,
+          383
+        ]
+      },
+      "portrait_region": [
+        103,
+        32,
+        220,
+        211
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/truck_driver_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 384,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              489,
+              32,
+              265,
+              383
+            ],
+            "anchor": [
+              138.5,
+              380
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              915,
+              29,
+              226,
+              387
+            ],
+            "anchor": [
+              124.0,
+              384
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              117,
+              434,
+              205,
+              387
+            ],
+            "anchor": [
+              109.0,
+              384
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              491,
+              436,
+              259,
+              384
+            ],
+            "anchor": [
+              139.5,
+              381
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              912,
+              435,
+              251,
+              386
+            ],
+            "anchor": [
+              134.5,
+              383
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              131,
+              838,
+              195,
+              386
+            ],
+            "anchor": [
+              100.5,
+              383
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              498,
+              838,
+              253,
+              386
+            ],
+            "anchor": [
+              130.5,
+              383
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              936,
+              840,
+              206,
+              383
+            ],
+            "anchor": [
+              110.5,
+              380
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "7465ef569274b3c3df91b28bfdcddff78728df4161c4bad98c0c794fbd5a79c0"
+    },
+    {
+      "id": "cleaner",
+      "name": "清洁人员",
+      "texture": "res://art/characters/factory_occupations_v48/cleaner_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "world_height": 58,
+      "scale_height": 389,
+      "frames": {
+        "idle": [
+          96,
+          35,
+          241,
+          389
+        ],
+        "walk_a": [
+          500,
+          35,
+          271,
+          391
+        ],
+        "walk_b": [
+          919,
+          444,
+          279,
+          389
+        ]
+      },
+      "anchor": {
+        "idle": [
+          109.5,
+          386
+        ],
+        "walk_a": [
+          115.0,
+          388
+        ],
+        "walk_b": [
+          119.0,
+          386
+        ]
+      },
+      "portrait_region": [
+        96,
+        35,
+        241,
+        214
+      ],
+      "initial_walk_frame_seconds": 0.15,
+      "shadow_baked": false,
+      "walk_animation": {
+        "texture": "res://art/characters/factory_occupations_v48/cleaner_idle_walk8.png",
+        "fps": 12,
+        "scale_height": 389,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              500,
+              35,
+              271,
+              391
+            ],
+            "anchor": [
+              115.0,
+              388
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              932,
+              38,
+              236,
+              387
+            ],
+            "anchor": [
+              115.5,
+              384
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              97,
+              444,
+              236,
+              388
+            ],
+            "anchor": [
+              110.5,
+              385
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              506,
+              445,
+              243,
+              388
+            ],
+            "anchor": [
+              108.5,
+              385
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              919,
+              444,
+              279,
+              389
+            ],
+            "anchor": [
+              119.0,
+              386
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              97,
+              842,
+              223,
+              385
+            ],
+            "anchor": [
+              110.5,
+              382
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              500,
+              844,
+              260,
+              384
+            ],
+            "anchor": [
+              112.0,
+              381
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              934,
+              846,
+              259,
+              386
+            ],
+            "anchor": [
+              110.5,
+              383
+            ]
+          }
+        ]
+      },
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "4d9309036e8d8cc48210e36917b674e5256e2a1a169ff4c2b61a7dd4b716e405"
+    }
+  ]
+}

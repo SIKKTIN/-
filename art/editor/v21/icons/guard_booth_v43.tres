@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/factory_v43/expansion_atlas.png" id="1_luq7h"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_46krc"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(20.292683, 8, 0, 87.41464, 112, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 171, 170, 71, 63, 0, 128, 14, 63, 255, 255, 255, 255, 171, 170, 119, 63, 0, 128, 14, 63, 255, 255, 255, 255, 171, 170, 119, 63, 0, 192, 106, 63, 255, 255, 255, 255, 171, 170, 71, 63, 0, 192, 106, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(106, 87, 162, 65, 0, 0, 0, 65, 38, 106, 215, 66, 0, 0, 0, 65, 38, 106, 215, 66, 0, 0, 240, 66, 106, 87, 162, 65, 0, 0, 240, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_46krc")
+base_texture = ExtResource("1_luq7h")
+image_size = Vector2(128, 128)

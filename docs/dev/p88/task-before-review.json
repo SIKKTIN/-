@@ -1,0 +1,210 @@
+{
+  "task": {
+    "id": "p88-moving-outdoor-chase-fps-20261008",
+    "title": "P88 室外移动监工追捕30帧复现和修复",
+    "description": "用户截图08:39监工已走出车间，在寝室门旁追捕时FPS30。补上真实室外移动且可见警戒区域的性能覆盖，按记录的热点修复。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "待验收",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "原生渲染下记录移动追逐真实帧间隔和CPU热点，降低室外追捕耗时；保持警戒遮挡、范围、检测及抓捕规则，验证60/90预设并明确测试限制。",
+    "result": "复现实际室外移动监工约26–30fps：密集警戒区域CPU每帧约29ms。改为完整浮点遮挡数据GPU裁剪，CPU平均0.12ms；同路线60/90档约60/90fps，D3D12/OpenGL各16项绘制和11项实际规则检查通过，原编辑器游戏已启动无新增错误。",
+    "dependencyIds": [
+      "p87-door-layer-supervision-chase-performance-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/presentation/guard_warning.gd",
+        "scripts/presentation/guard_warning.gdshader",
+        "scripts/presentation/visibility_geometry.gd",
+        "scripts/actors/guard.gd",
+        "scripts/actors/workshop_overseer.gd",
+        "scripts/core/workshop_rules.gd",
+        "qa/p88*",
+        "docs/dev/p88/**",
+        "docs/tests/p88*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "只调整门绘制排序及实际性能瓶颈，保持检测/抓捕、物理通路和地图；测试基准通过QA类持续追捕，不改变游戏抓捕逻辑。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p88-plan-20261008",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T15:26:28.029Z"
+      }
+    ]
+  },
+  "revision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409",
+  "scheduleRevision": "b89a564248cd6652ed2fbf960e6d1a563342ae2f51bb3bf41e181b4b6fb46c60",
+  "planChanges": [
+    {
+      "id": "p88-plan-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T15:26:28.029Z",
+      "reason": "按用户新截图修复监工实际室外移动时的30fps。",
+      "createdTaskIds": [
+        "p88-moving-outdoor-chase-fps-20261008"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p87-door-layer-supervision-chase-performance-20261008",
+      "title": "P87 门框位于角色下方及监管追击耗时修复",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待验收",
+    "feedbackId": "p88-delivery-20261008",
+    "feedbackState": "pending",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_append",
+        "cli": "feedback append",
+        "feedbackId": "p88-delivery-20261008",
+        "meaning": "同一交付补充证据，更新 evidenceVersion"
+      },
+      {
+        "operation": "feedback_review",
+        "cli": "reviews submit",
+        "feedbackId": "p88-delivery-20261008",
+        "decisions": [
+          "accepted",
+          "returned"
+        ],
+        "meaning": "核对最新证据后单独验收"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409"
+  },
+  "feedback": [
+    {
+      "id": "p88-start-20261008",
+      "taskId": "p88-moving-outdoor-chase-fps-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "记录室外移动监工、实际显示警戒区域的帧间隔与警戒绘制CPU耗时，按测量热点修复。",
+      "evidence": [
+        "qa/p88_moving_chase.gd"
+      ],
+      "at": "2026-10-08T15:27:58.743Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p88-start-20261008",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p88-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p88-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    },
+    {
+      "id": "p88-delivery-20261008",
+      "taskId": "p88-moving-outdoor-chase-fps-20261008",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "待验收",
+      "summary": "复现实际室外移动监工约26–30fps：密集警戒区域CPU每帧约29ms。改为完整浮点遮挡数据GPU裁剪，CPU平均0.12ms；同路线60/90档约60/90fps，D3D12/OpenGL各16项绘制和11项实际规则检查通过，原编辑器游戏已启动无新增错误。",
+      "evidence": [
+        "docs/dev/p88/report.md",
+        "docs/dev/p88/performance.json",
+        "docs/dev/p88/restart.json",
+        "docs/tests/p88-moving-before.json",
+        "docs/tests/p88-moving-after60.json",
+        "docs/tests/p88-moving-after90.json",
+        "docs/tests/p88-warning-d3d12.json",
+        "docs/tests/p88-warning-opengl.json",
+        "docs/tests/p88-gameplay-regression.json"
+      ],
+      "at": "2026-10-08T15:46:56.390Z",
+      "evidenceVersion": 1,
+      "state": "pending",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "待验收",
+        "feedbackId": "p88-delivery-20261008",
+        "feedbackState": "pending",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_append",
+            "cli": "feedback append",
+            "feedbackId": "p88-delivery-20261008",
+            "meaning": "同一交付补充证据，更新 evidenceVersion"
+          },
+          {
+            "operation": "feedback_review",
+            "cli": "reviews submit",
+            "feedbackId": "p88-delivery-20261008",
+            "decisions": [
+              "accepted",
+              "returned"
+            ],
+            "meaning": "核对最新证据后单独验收"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "69ae6756d0235c2078918996e40d3d367cbe41550aa8d08c7791728165f70409",
+      "delivery": "review_inbox",
+      "next": "核对证据后，读取最新任务版本并单独提交自验收结论"
+    }
+  ]
+}

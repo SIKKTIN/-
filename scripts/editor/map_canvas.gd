@@ -10,6 +10,7 @@ var document
 var layers
 var selection: Dictionary = {}
 var tool := "select"
+var placement_asset := ""
 var zoom := 0.35
 var origin := Vector2(24,24)
 var drag_ref: Dictionary = {}
@@ -17,6 +18,9 @@ var drag_offset := Vector2.ZERO
 var panning := false
 var draw_start := Vector2.ZERO
 var drawing_wall := false
+var stroke_wall_count := 0
+var stroke_surface_count := 0
+var stroke_variant: Callable
 var last_pointer := Vector2.ZERO
 var textures: Dictionary = {}
 var definitions: Dictionary = {}
@@ -122,6 +126,33 @@ func finish_gesture(cancel := false) -> void:
 	panning = false
 	queue_redraw()
 
+func update_tile_stroke(end: Vector2) -> void:
+	document.data.walls.resize(stroke_wall_count)
+	if document.data.get("architecture",{}).has("wall_surfaces"):
+		document.data.architecture.wall_surfaces.resize(stroke_surface_count)
+	var delta: Vector2=end-draw_start
+	if absf(delta.x)>=absf(delta.y):
+		var x := minf(draw_start.x,end.x)
+		var limit := x+maxf(20,absf(delta.x))
+		while x<limit:
+			var id := "prison_h_a" if limit-x>=40 else "prison_h_short_a"
+			var p := Vector2(x,draw_start.y)
+			if stroke_variant.is_valid(): id=stroke_variant.call(id,p)
+			document.append_wall_tile(id,p)
+			x+=float(definitions[id].render_size[0])
+	else:
+		var y := minf(draw_start.y,end.y)
+		var limit := y+maxf(20,absf(delta.y))
+		while y<limit:
+			var id := "prison_v_long" if limit-y>=120 else "prison_v_a" if limit-y>=60 else "prison_v_short"
+			var p := Vector2(draw_start.x,y)
+			if stroke_variant.is_valid(): id=stroke_variant.call(id,p)
+			document.append_wall_tile(id,p)
+			y+=float(definitions[id].render_size[1])
+	selection={"group":"walls","index":stroke_wall_count}
+	document.changed.emit()
+	queue_redraw()
+
 func handle_input(event: InputEvent) -> void:
 	if document == null or document.data.is_empty():
 		return
@@ -153,13 +184,16 @@ func handle_input(event: InputEvent) -> void:
 					blocked.emit("墙门 / 机关图层已隐藏或锁定，请先显示并解锁。")
 					accept_event()
 					return
-				draw_start = document.snap_point(world(event.position))
-				selection = document.add("walls",draw_start)
-				# Add+resize are one undo transaction.
-				document.undo()
+				if placement_asset != "":
+					placed.emit("walls",world(event.position))
+					accept_event()
+					return
+				draw_start = world(event.position).snapped(Vector2(20,20))
+				stroke_wall_count=document.data.walls.size()
+				stroke_surface_count=document.data.get("architecture",{}).get("wall_surfaces",[]).size()
 				document.begin()
-				document.data.walls.append([draw_start.x,draw_start.y,20,20])
 				drawing_wall = true
+				update_tile_stroke(draw_start)
 				choose(selection)
 			else:
 				if layers.is_editable(tool): placed.emit(tool,document.snap_point(world(event.position)))
@@ -172,10 +206,7 @@ func handle_input(event: InputEvent) -> void:
 			queue_redraw()
 			accept_event()
 		elif drawing_wall:
-			var end: Vector2 = document.snap_point(world(event.position))
-			var begin: Vector2 = draw_start.min(end)
-			var dims: Vector2 = (end-draw_start).abs().max(Vector2(20,20))
-			document.set_geometry(selection,Rect2(begin,dims))
+			update_tile_stroke(world(event.position).snapped(Vector2(20,20)))
 			accept_event()
 		elif not drag_ref.is_empty():
 			document.move(drag_ref,world(event.position)-drag_offset)
@@ -192,16 +223,27 @@ func _draw() -> void:
 	if floor_texture != null:
 		var tile := Vector2.ONE*float(render_profile.floor_tile_size)*zoom
 		load("res://scripts/presentation/texture_tiles.gd").paint(self,floor_texture,floor_rect,tile,floor_rect)
+	if layers.is_visible("fixtures"):
+		preload("res://scripts/presentation/region_terrain.gd").paint(self,document.data,Rect2(world(Vector2.ZERO),size/zoom),origin,zoom)
+		preload("res://scripts/presentation/site_details.gd").paint(self,document.data.get("ground_details",[]),origin,zoom)
 	architecture_preview.position = origin
 	architecture_preview.scale = Vector2.ONE*zoom
 	foreground.queue_redraw()
 	var step: float = maxf(20,document.grid)
 	if step*zoom < 12: step = 100
 	if step*zoom >= 6:
-		for x in range(floori(bounds.position.x/step),ceili(bounds.end.x/step)+1):
-			draw_line(screen(Vector2(x*step,bounds.position.y)),screen(Vector2(x*step,bounds.end.y)),Color(0.18,0.26,0.24,0.10),1)
-		for y in range(floori(bounds.position.y/step),ceili(bounds.end.y/step)+1):
-			draw_line(screen(Vector2(bounds.position.x,y*step)),screen(Vector2(bounds.end.x,y*step)),Color(0.18,0.26,0.24,0.10),1)
+		var grid_areas: Array[Rect2]=[bounds]
+		if document.data.has("floor_regions"):
+			grid_areas.clear()
+			for region in document.data.floor_regions:
+				if bool(region.get("natural_ground",false)) or str(region.asset_id)=="earth_v45":continue
+				var r: Array=region.rect
+				grid_areas.append(Rect2(r[0],r[1],r[2],r[3]))
+		for area in grid_areas:
+			for x in range(ceili(area.position.x/step),floori(area.end.x/step)+1):
+				draw_line(screen(Vector2(x*step,area.position.y)),screen(Vector2(x*step,area.end.y)),Color(0.18,0.26,0.24,0.10),1)
+			for y in range(ceili(area.position.y/step),floori(area.end.y/step)+1):
+				draw_line(screen(Vector2(area.position.x,y*step)),screen(Vector2(area.end.x,y*step)),Color(0.18,0.26,0.24,0.10),1)
 	var entries: Array = document.entries()
 	# Enclosing regions are painted before furniture and points.
 	for ref in entries:
@@ -209,6 +251,12 @@ func _draw() -> void:
 		if ref.group in ["guard_zone","zones","dormitories","confinement","visibility_rooms"]:
 			var tint := Color("cf9975") if ref.group == "guard_zone" else Color("75c0b5") if ref.group == "dormitories" else Color("e0d29e")
 			paint_rect(ref,tint,true)
+
+func collision_geometry(ref: Dictionary, fallback: Rect2) -> Rect2:
+	if architecture_preview == null or architecture_preview.boundary_clips.is_empty(): return fallback
+	var id := "primary" if ref.group=="door" else "dorm-%d" % int(ref.index) if ref.group=="dorm_doors" else str(document.value(ref).get("id","")) if ref.group=="access_doors" else ""
+	var view = architecture_preview.doorways.by_id(id)
+	return fallback if view==null else view.visual_rect
 
 func paint_foreground(painter: CanvasItem) -> void:
 	if document == null or document.data.is_empty(): return
@@ -235,8 +283,8 @@ func paint_foreground(painter: CanvasItem) -> void:
 					paint_rect(ref,Color(0.9,0.3,0.2,0.3),false,painter)
 				else:
 					paint_rect(ref,Color(0.9,0.3,0.2,0.22),false,painter)
-			elif ref.group == "exit": paint_rect(ref,Color("318c82"),false,painter)
-			elif ref.group == "dorm_doors": paint_rect(ref,Color("a17b4b"),false,painter)
+			elif ref.group in ["exit","escape_routes"]: paint_rect(ref,Color(0.19,0.55,0.51,0.35),true,painter)
+			elif ref.group == "dorm_doors" and not document.data.has("concept_plan"): paint_rect(ref,Color("a17b4b"),false,painter)
 		else:
 			var p := screen(rect.position)
 			var color := Color("328b82") if ref.group in ["starts","work","meal","dine","free"] else Color("d5846a") if ref.group in ["patrol","gate_guards","guard_start"] else Color("efd69f")
@@ -273,9 +321,3 @@ func paint_rect(ref: Dictionary, color: Color, outline := false, painter: Canvas
 			painter.draw_string(font,on_screen.position+Vector2(4,14),text,HORIZONTAL_ALIGNMENT_LEFT,on_screen.size.x,12,Color("243739"))
 	else:
 		painter.draw_rect(on_screen,color)
-
-func collision_geometry(ref: Dictionary, fallback: Rect2) -> Rect2:
-	if architecture_preview == null or architecture_preview.boundary_clips.is_empty(): return fallback
-	var id := "primary" if ref.group=="door" else "dorm-%d" % int(ref.index) if ref.group=="dorm_doors" else str(document.value(ref).get("id","")) if ref.group=="access_doors" else ""
-	var view = architecture_preview.doorways.by_id(id)
-	return fallback if view==null else view.visual_rect

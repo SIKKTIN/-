@@ -39,7 +39,6 @@ func clock(minute: float):
 	game.routines.tick()
 func reset(skill := "strong", minute := 600):
 	game.reset_round([skill,"chat","backpack"],72)
-	game.routine_panel.close()
 	game.schedule.set_time_speed(0)
 	clock(minute)
 	game.orders.clear()

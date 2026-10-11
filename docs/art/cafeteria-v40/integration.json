@@ -1,0 +1,51 @@
+{
+  "front": {
+    "id": "canteen-counter",
+    "asset_id": "cafeteria_counter_front_v40",
+    "rect": [
+      1300,
+      1540,
+      600,
+      20
+    ],
+    "blocks_movement": true,
+    "blocks_sight": true,
+    "name": "食堂取餐台"
+  },
+  "rear": {
+    "id": "canteen-kitchen-collision",
+    "asset_id": "cafeteria_backline_v40",
+    "rect": [
+      1300,
+      1260,
+      580,
+      60
+    ],
+    "blocks_movement": true,
+    "blocks_sight": true,
+    "name": "食堂靠墙设备"
+  },
+  "lamp": {
+    "id": "expansion-7",
+    "asset_id": "caged_wall_lamp",
+    "rect": [
+      1670,
+      1200,
+      36,
+      1.5
+    ],
+    "blocks_movement": false,
+    "blocks_sight": false,
+    "draw_depth": 1330
+  },
+  "work_aisle": [
+    1300,
+    1320,
+    580,
+    220
+  ],
+  "front_baseline": 1560,
+  "front_baseline_offset": 20,
+  "entry_clearance": 60,
+  "layout_only": true
+}

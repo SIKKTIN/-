@@ -35,15 +35,15 @@ func run():
 	var ui = game.fullscreen_ui
 	var inv = game.inventory_panel
 	var drawer = ui.inventory_drawer
-	check("one_player_status",game.cards[0].visible and not game.cards[1].visible and not game.cards[2].visible)
+	check("one_player_status",game.cards.size()==1 and game.cards[0].visible)
 	check("status_has_no_selection_number",game.cards[0].mouse_filter==Control.MOUSE_FILTER_IGNORE)
-	check("daily_planner_removed",not ui.routine_button.visible and not game.routine_panel.panel.visible)
+	check("daily_planner_removed",ui.get("routine_button")==null and game.get("routine_panel")==null)
 	check("map_starts_collapsed",ui.minimap_collapsed)
 	check("collapsed_map_does_not_consume_touch",not game.mini_map.is_processing_input())
 	ui.minimap_collapsed = false
 	ui.refresh()
 	check("expanded_map_accepts_touch",game.mini_map.is_processing_input())
-	check("legacy_transfer_buttons_hidden",inv.transfer_buttons.all(func(button):return not button.visible))
+	check("legacy_transfer_buttons_hidden",inv.get("transfer_buttons")==null)
 	var key := add_item("door_key")
 	var tool := add_item("lock_tool")
 	var scrap := add_item("scrap")
@@ -83,7 +83,7 @@ func run():
 		ui.bag_open = false
 		ui.refresh()
 		check("drawer_closes_"+str(size.x),not drawer.paper.visible)
-		check("closed_bag_hides_transfer_buttons_"+str(size.x),inv.transfer_buttons.all(func(button):return not button.visible))
+		check("closed_bag_hides_transfer_buttons_"+str(size.x),inv.get("transfer_buttons")==null)
 		await image("hud-"+str(size.x))
 		ui.bag_open = true
 	ui.refresh()
@@ -145,7 +145,7 @@ func run():
 			ui.refresh()
 			await process_frame
 			task_layout_ok = task_layout_ok and game.tutorial.body.get_minimum_size().y<=game.tutorial.body.size.y+1
-		check("tutorial_hides_legacy_transfer_buttons_"+str(size.x),inv.transfer_buttons.all(func(button):return not button.visible))
+		check("tutorial_hides_legacy_transfer_buttons_"+str(size.x),inv.get("transfer_buttons")==null)
 	check("all_tutorial_task_text_fits",task_layout_ok)
 	var failed: Array = checks.keys().filter(func(k):return not checks[k])
 	FileAccess.open("res://docs/tests/p94-single-player-ui.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failed":failed,"layouts":layouts},"\t"))

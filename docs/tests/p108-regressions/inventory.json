@@ -1,0 +1,68 @@
+{
+	"checks": {
+		"all_tutorial_task_text_fits": true,
+		"atlas_has_transparent_bounds": true,
+		"bag_collapses_map_and_disables_map_input": true,
+		"close_dismisses_bag_and_shop": true,
+		"closed_bag_hides_transfer_buttons_1200": true,
+		"closed_bag_hides_transfer_buttons_1440": true,
+		"closed_bag_hides_transfer_buttons_960": true,
+		"collapsed_map_does_not_consume_touch": true,
+		"daily_planner_removed": true,
+		"drawer_closes_1200": true,
+		"drawer_closes_1440": true,
+		"drawer_closes_960": true,
+		"drawer_layout_1200": true,
+		"drawer_layout_1440": true,
+		"drawer_layout_960": true,
+		"drop_returns_item_to_ground": true,
+		"empty_bag_buttons_disabled": true,
+		"expanded_map_accepts_touch": true,
+		"key_opens_door_and_consumes": true,
+		"legacy_transfer_buttons_hidden": true,
+		"lockpick_opens_real_door": true,
+		"map_starts_collapsed": true,
+		"one_capacity_shows_one_slot": true,
+		"one_player_status": true,
+		"pause_hides_inventory": true,
+		"pickup_door_key": true,
+		"pickup_lock_tool": true,
+		"pickup_scrap": true,
+		"resume_restores_inventory": true,
+		"shop_and_inventory_do_not_overlap": true,
+		"status_has_no_selection_number": true,
+		"tool_selection_details": true,
+		"tool_starts_real_six_second_lockpick": true,
+		"tutorial_hides_legacy_transfer_buttons_1200": true,
+		"tutorial_hides_legacy_transfer_buttons_960": true,
+		"use_disabled_away_from_door": true,
+		"use_enabled_near_locked_door": true
+	},
+	"failed": [],
+	"layouts": [
+		{
+			"description_height": 70.0,
+			"description_min_height": 51.0,
+			"footer_bottom": 426.0,
+			"hint_top": 434.0,
+			"paper": "[P: (775.2, 134.0), S: (408.8, 466.0)]",
+			"size": "(1200, 720)"
+		},
+		{
+			"description_height": 42.0,
+			"description_min_height": 20.0,
+			"footer_bottom": 284.0,
+			"hint_top": 277.0,
+			"paper": "[P: (584.0, 120.0), S: (359.9999, 300.0)]",
+			"size": "(960, 540)"
+		},
+		{
+			"description_height": 104.0,
+			"description_min_height": 51.0,
+			"footer_bottom": 460.0,
+			"hint_top": 468.0,
+			"paper": "[P: (984.0, 280.0), S: (440.0, 500.0)]",
+			"size": "(1440, 900)"
+		}
+	]
+}

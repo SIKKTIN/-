@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/prison_v42/wash_basin_v42.png" id="1_2im80"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c3kgp"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 33.27842, 0, 112, 61.44316, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 0, 0, 216, 61, 0, 0, 68, 62, 255, 255, 255, 255, 85, 85, 101, 63, 0, 0, 68, 62, 255, 255, 255, 255, 85, 85, 101, 63, 0, 128, 87, 63, 255, 255, 255, 255, 0, 0, 216, 61, 0, 128, 87, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 26, 29, 5, 66, 0, 0, 240, 66, 26, 29, 5, 66, 0, 0, 240, 66, 115, 113, 189, 66, 0, 0, 0, 65, 115, 113, 189, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_c3kgp")
+base_texture = ExtResource("1_2im80")
+image_size = Vector2(128, 128)

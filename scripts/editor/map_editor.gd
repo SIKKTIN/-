@@ -15,6 +15,7 @@ var category_picker: OptionButton
 var subcategory_picker: OptionButton
 var resource_search: LineEdit
 var resource_count: Label
+var random_wall_variants: CheckButton
 var subcategory_ids: Array[String] = []
 var remembered_subcategories: Dictionary = {}
 var object_filter: OptionButton
@@ -43,6 +44,7 @@ var preview_button: Button
 var undo_button: Button
 var redo_button: Button
 var workspace_root := ""
+var character_preview_window: Window
 
 func has_pending_changes() -> bool:
 	if document.dirty(): return true
@@ -75,6 +77,28 @@ func _ready() -> void:
 		get_window().title = "监狱风云 · 关卡编辑器 · 统一建筑素材"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
+
+func open_character_previewer() -> void:
+	if not is_instance_valid(character_preview_window):
+		character_preview_window = Window.new()
+		character_preview_window.title = "角色与动画预览器"
+		character_preview_window.min_size = Vector2i(960,640)
+		character_preview_window.size = Vector2i(1200,760)
+		add_child(character_preview_window)
+		var viewer = load("res://scenes/editor/character_previewer.tscn").instantiate()
+		character_preview_window.add_child(viewer)
+		character_preview_window.close_requested.connect(func(): character_preview_window.hide())
+	character_preview_window.popup_centered()
+	# Opening the viewer never commits or saves the current map.
+	if not selection.is_empty():
+		var item = document.value(selection)
+		if item is Dictionary:
+			var id: String = str(item.get("appearance_id",""))
+			if id.is_empty():
+				var library = preload("res://scripts/presentation/character_library.gd")
+				var key: String = library.key_for(selection,document.data)
+				id = str(document.data.get("character_appearances",{}).get(key,""))
+			if not id.is_empty(): character_preview_window.get_child(0).select_character(id)
 
 func button(parent: Node, label: String, callback: Callable, width := 80) -> Button:
 	var b := Button.new()
@@ -159,6 +183,7 @@ func build_ui() -> void:
 	collision.add_theme_font_size_override("font_size",13)
 	collision.toggled.connect(func(on): canvas.show_collision = on; canvas.queue_redraw())
 	operation_bar.add_child(collision)
+	button(operation_bar,"角色预览",open_character_previewer,86).name = "CharacterPreview"
 	active_tool = label(operation_bar,"选择对象",13)
 	var split := HSplitContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -210,6 +235,11 @@ func build_ui() -> void:
 	resource_count = label(resources,"",12)
 	resource_count.name = "ResourceCount"
 	resource_count.modulate = Color("52615e")
+	random_wall_variants = CheckButton.new()
+	random_wall_variants.name = "RandomWallVariants"
+	random_wall_variants.text = "墙体随机款式"
+	random_wall_variants.tooltip_text = "仅在同尺寸、同连接方向的墙体款式中选择；关闭后使用指定款式。"
+	resources.add_child(random_wall_variants)
 	palette = ItemList.new()
 	palette.name = "ResourceCards"
 	palette.max_columns = 2
@@ -253,6 +283,7 @@ func build_ui() -> void:
 	canvas.custom_minimum_size = Vector2(280,240)
 	canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	canvas.setup(document,layers)
+	canvas.stroke_variant = func(id,point):return catalog.stable_variant(id,str(document.data.id),point) if random_wall_variants.button_pressed else id
 	canvas.selected.connect(select_object)
 	canvas.placed.connect(place_object)
 	canvas.edited.connect(refresh_inspector)
@@ -387,6 +418,7 @@ func set_tool(mode: String) -> void:
 	commit_fields()
 	placement.clear()
 	if is_instance_valid(canvas):
+		canvas.placement_asset = ""
 		if mode == "walls" and layers.locked.architecture:
 			show_status("墙门 / 机关图层已锁定，请先解锁。")
 			mode = "select"
@@ -406,6 +438,7 @@ func activate_resource(entry: Dictionary) -> void:
 	if not layers.visible[key]: layers.set_visible(key,true)
 	placement = entry.duplicate()
 	canvas.tool = str(entry.group)
+	canvas.placement_asset = str(entry.get("asset_id",""))
 	for index in range(palette_entries.size()):
 		if palette_entries[index].id == entry.id: palette.select(index)
 	for control in operation_buttons.values(): control.set_pressed_no_signal(false)
@@ -536,6 +569,13 @@ func refresh_inspector() -> void:
 		spin.min_value = 1 if field in ["w","h"] else -10000
 		spin.max_value = 20000
 		spin.step = 1
+		var grid_wall: bool = ref.group == "walls" and document.wall_surface(int(ref.index)).has("grid_tile_asset")
+		var grid_door: bool = ref.group == "fixtures" and document.asset_definition(str(document.value(ref).get("asset_id",""))).has("grid_door")
+		if grid_wall or grid_door:
+			spin.step = 20
+			if field in ["w","h"]:
+				spin.min_value = 20
+				spin.editable = false
 		spin.value = {"x":rect.position.x,"y":rect.position.y,"w":rect.size.x,"h":rect.size.y}[field]
 		spin.value_changed.connect(func(value):
 			if refreshing or not can_edit_selection(): return
@@ -550,7 +590,31 @@ func refresh_inspector() -> void:
 			document.commit())
 		row.add_child(spin)
 	var item = document.value(ref)
-	if ref.group == "walls":
+	if ref.group in ["starts","guard_start","gate_guards","merchants"]:
+		var library=preload("res://scripts/presentation/character_library.gd")
+		label(inspector,"人物形象",13)
+		var selector:=OptionButton.new()
+		selector.name="CharacterAppearance"
+		selector.add_item("默认形象")
+		selector.add_theme_constant_override("icon_max_width",40)
+		var ids: Array[String]=[""]
+		for id in library.all():
+			ids.append(id)
+			selector.add_icon_item(library.idle(id),str(library.all()[id].name))
+		selector.select(maxi(0,ids.find(document.character_appearance(ref))))
+		selector.item_selected.connect(func(index):document.set_character_appearance(ref,ids[index]))
+		inspector.add_child(selector)
+	if ref.group == "walls" and document.wall_surface(int(ref.index)).has("grid_tile_asset"):
+		var current := str(document.wall_surface(int(ref.index)).grid_tile_asset)
+		var choices: Array[String] = catalog.compatible_wall_ids(current)
+		label(inspector,"墙体款式",13)
+		var appearance := OptionButton.new()
+		appearance.name = "WallAppearance"
+		for id in choices: appearance.add_item(catalog.display_name(id))
+		appearance.select(choices.find(current))
+		appearance.item_selected.connect(func(index): document.set_wall_asset(int(ref.index),choices[index]))
+		inspector.add_child(appearance)
+	if ref.group == "walls" and not document.wall_surface(int(ref.index)).has("grid_tile_asset"):
 		label(inspector,"建筑显示高度",13)
 		var height := SpinBox.new()
 		height.name = "WallElevation"
@@ -736,7 +800,9 @@ func place_object(group: String, point: Vector2) -> void:
 	if not layers.is_editable(group):
 		show_status(Layers.NAMES[layers.key_for(group)]+"已隐藏或锁定，请先显示并解锁。")
 		return
-	var asset: String = str(placement.get("asset_id","")) if group == "fixtures" else str(placement.get("definition_id","scrap"))
+	var asset: String = str(placement.get("asset_id","")) if group in ["fixtures","walls"] else str(placement.get("definition_id","scrap"))
+	if group == "walls" and random_wall_variants.button_pressed:
+		asset = catalog.stable_variant(asset,str(document.data.id),point.snapped(Vector2(20,20)))
 	if group == "fixtures" and asset == "":
 		show_status("请先在素材卡片中选择摆设。")
 		return

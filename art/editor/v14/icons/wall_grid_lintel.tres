@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v34/grid_wall_master.png" id="1_elbyj"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f4ebh"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 50, 0, 112, 28, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 85, 85, 133, 62, 0, 0, 4, 62, 255, 255, 255, 255, 85, 85, 211, 62, 0, 0, 4, 62, 255, 255, 255, 255, 85, 85, 211, 62, 0, 0, 88, 62, 255, 255, 255, 255, 85, 85, 133, 62, 0, 0, 88, 62),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 0, 0, 72, 66, 0, 0, 240, 66, 0, 0, 72, 66, 0, 0, 240, 66, 0, 0, 156, 66, 0, 0, 0, 65, 0, 0, 156, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_f4ebh")
+base_texture = ExtResource("1_elbyj")
+image_size = Vector2(128, 128)

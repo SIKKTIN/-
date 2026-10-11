@@ -1,0 +1,32 @@
+{
+  "resources": {
+    "production_text_files": 122,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.83,
+      "checks": 21,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.31,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 121,
+  "passed": true
+}

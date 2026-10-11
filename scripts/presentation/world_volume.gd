@@ -39,6 +39,10 @@ func configure(owner_world, type: String, index: int = 0, render_profile: Dictio
 		profile.material_slots.wall_top = surface.get("top","cafeteria_coping_v23")
 		profile.material_slots.wall_front = surface.get("front","cafeteria_wall_front_v23")
 		profile.render_enabled = surface.get("render_enabled",true)
+		if surface.has("grid_tile_asset"):
+			profile.grid_tile_asset = surface.grid_tile_asset
+			profile.grid_parameters = surface.get("grid_parameters",{})
+			material = painted_material(str(assets.get(str(surface.grid_tile_asset),{}).get("alpha_core_shader","res://art/architecture/v34/grid_ports.gdshader")))
 		if surface.has("render_top_start"): profile.render_top_start = surface.render_top_start
 		if surface.has("painted_facade"):
 			profile.painted_facade = surface.painted_facade
@@ -76,6 +80,10 @@ func asset_id(slot: String, fallback: String) -> String:
 func prop_id() -> String:
 	if kind == "fixture":
 		var fixture: Dictionary = world.fixtures[wall_index]
+		if fixture.get("primary_gate",false):return "prison_gate_open_v37" if world.door_open else "prison_gate_closed_v37"
+		if fixture.has("dorm_actor_id"):
+			var locked: bool = world.dorm_doors[int(fixture.dorm_actor_id)].get("closed",false)
+			return "prison_gate_closed_v37" if locked else "prison_gate_open_v37"
 		if fixture.has("access_id"):
 			var gate: Dictionary = world.access_by_id(str(fixture.access_id))
 			return str(fixture.get("closed_asset",fixture.asset_id) if gate.get("closed",true) else fixture.get("open_asset",fixture.asset_id))
@@ -90,6 +98,8 @@ func _sync_visibility() -> void:
 		var inner: bool = not world.is_under_roof(fixture.rect.get_center())
 		var shell_part: bool = world.roofed_cells.any(func(cell): return cell.rect.grow(20).has_point(fixture.rect.get_center()))
 		visible = (not fixture.get("hidden",false) or inner and shell_part) and (inner or fixture.has("access_id"))
+	elif kind == "door":
+		visible = not world.fixtures.any(func(f):return f.get("primary_gate",false))
 	# The retained door layer owns both orientations and all physical states.
 	if world.room_visibility != null and is_instance_valid(world.room_visibility.doorways):
 		if kind=="door" or kind=="fixture" and DoorGeometry.managed_fixture(world.fixtures[wall_index]): visible = false
@@ -126,6 +136,8 @@ func tick_visual() -> void:
 		if definition.has("render_size"):
 			var visual_height := float(definition.render_size[1])
 			display_rect = Rect2(footprint.position.x,footprint.end.y-visual_height,footprint.size.x,visual_height)
+	if kind == "wall" and profile.has("grid_tile_asset"):
+		display_rect = footprint
 	if kind == "fixture":
 		var fixture: Dictionary = world.fixtures[wall_index]
 		var definition: Dictionary = definitions.get(prop_id(),{})
@@ -136,7 +148,23 @@ func tick_visual() -> void:
 		elif fixture.has("render_size"):
 			var dims: Array = fixture.render_size
 			display_rect = Rect2(Vector2(footprint.get_center().x-dims[0]/2.0,footprint.end.y-dims[1]),Vector2(dims[0],dims[1]))
-	z_index = int(world.fixtures[wall_index].get("draw_depth",footprint.end.y)) if kind == "fixture" else int(footprint.end.y)
+	var depth: float = float(world.fixtures[wall_index].get("draw_depth",footprint.end.y)) if kind == "fixture" else footprint.end.y
+	z_index = preload("res://scripts/presentation/world_depth.gd").for_y(depth,world.bounds.end.y)
+	var grid_id := str(profile.grid_tile_asset) if kind == "wall" and profile.has("grid_tile_asset") else prop_id() if kind == "fixture" else ""
+	if definitions.get(grid_id,{}).has("grid_tile") and (definitions[grid_id].grid_tile.get("parameterized_shader",false) or material.shader.resource_path == "res://art/architecture/v34/grid_ports.gdshader"):
+		var grid: Dictionary = definitions[grid_id].grid_tile.duplicate(true)
+		grid.merge(profile.get("grid_parameters",{}),true)
+		material.set_shader_parameter("tile_size",display_rect.size)
+		material.set_shader_parameter("draw_origin",display_rect.position)
+		if grid.has("port_reference_texture"):
+			material.set_shader_parameter("port_reference_texture",load(str(grid.port_reference_texture)))
+			material.set_shader_parameter("horizontal_offset",float(grid.get("horizontal_offset",0)))
+			material.set_shader_parameter("horizontal_extent",float(grid.get("horizontal_extent",display_rect.size.y)))
+		for parameter in ["horizontal_ports","horizontal_left","horizontal_right","vertical_ports","north_port","south_port","north_stem","south_stem","stem_x"]:
+			if grid.has(parameter): material.set_shader_parameter(parameter,grid[parameter])
+		for parameter in ["horizontal_profile","vertical_profile"]:
+			var values: Array = grid[parameter]
+			material.set_shader_parameter(parameter,Vector4(values[0],values[1],values[2],values[3]))
 	if lintel_visual != null and lintel_visual.texture != null:
 		var height := float(world.fixtures[wall_index].get("lintel_height",31.5))
 		lintel_visual.position = Vector2(display_rect.get_center().x,display_rect.position.y-height/2)
@@ -321,7 +349,11 @@ func _draw() -> void:
 			if definitions.get(prop_id(),{}).has("assembly_patches"):
 				paint_junction(prop_id(),display_rect,false)
 			else:
-				draw_texture_rect(world.art_textures[prop_id()],display_rect,false)
+				var turns: int = int(world.fixtures[wall_index].get("rotation_quarters",0)) if kind=="fixture" else 0
+				if turns!=0:
+					var texture: Texture2D = world.art_textures[prop_id()]
+					Tiles.paint_region(self,texture,display_rect,Rect2(Vector2.ZERO,texture.get_size()),Color.WHITE,false,turns)
+				else:draw_texture_rect(world.art_textures[prop_id()],display_rect,false)
 		if kind == "fixture" and world.fixtures[wall_index].has("lintel_asset"):
 			var fixture: Dictionary = world.fixtures[wall_index]
 			var id := str(fixture.lintel_asset)

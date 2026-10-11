@@ -15,7 +15,6 @@ func clock(minute: float):
 	game.schedule.tick(false)
 	game.workshop.update_gate()
 	game.routines.tick()
-	game.routine_panel.close()
 
 func idle():
 	game.routines.take_control(0)
@@ -27,8 +26,12 @@ func working():
 	game.workshop.start_work(0)
 	game.orders.stop(0)
 
+func living_point(x: float,y: float) -> Vector2:
+	var shift: Array = game.room_config.get("expansion",{}).get("living_translation",[0,0])
+	return Vector2(x+shift[0],y+shift[1])
+
 func tick(seconds: float, hide_officer := true):
-	if hide_officer: officer.position = Vector2(2050,600)
+	if hide_officer: officer.position = living_point(2050,600)
 	game.world.begin_ai_paths()
 	game.workshop.tick(seconds)
 	game.world.end_ai_paths()
@@ -47,6 +50,7 @@ func capture_screen(label: String):
 	root.get_texture().get_image().save_png("res://docs/tests/p90-"+label+".png")
 
 func run():
+	OS.set_environment("ESCAPE_TUTORIAL_MODE","off")
 	OS.set_environment("ESCAPE_FRAME_SETTINGS_PATH","user://p90-warning-qa.cfg")
 	OS.set_environment("ESCAPE_FRAME_MODE","60")
 	root.size = Vector2i(1200,720)
@@ -54,7 +58,6 @@ func run():
 	root.add_child(game)
 	await process_frame
 	game.set_process(false)
-	game.routine_panel.close()
 	game.schedule.set_time_speed(0)
 	clock(557)
 	officer = game.workshop.overseer
@@ -64,12 +67,12 @@ func run():
 		actor.position = game.routines._target(actor.actor_id,"work")
 		game.routines.resume(actor.actor_id)
 		game.orders.stop(actor.actor_id)
-	game.actors[0].position = Vector2(1080,540)
+	game.actors[0].position = living_point(1080,540)
 	idle()
 	check("three_second_setting",is_equal_approx(game.workshop.warning_seconds(),3))
 	tick(1)
 	check("unseen_without_prior_warning_is_safe",not game.workshop.warnings.has(0))
-	officer.position = Vector2(1220,788)
+	officer.position = living_point(1220,788)
 	check("visible_detection_fixture",officer.sees(game.actors[0].position))
 	tick(0.5,false)
 	check("detection_starts_countdown",is_equal_approx(game.workshop.warning_remaining(0),2.5) and not game.workshop.wanted.has(0))
@@ -105,8 +108,8 @@ func run():
 	check("six_seconds_actual_work_clears",not game.workshop.wanted.has(0) and not game.workshop.warnings.has(0) and officer.state == "patrol")
 	# Reach a genuine warning again, then briefly resume work and stop.
 	idle()
-	game.actors[0].position = Vector2(1080,540)
-	officer.position = Vector2(1220,788)
+	game.actors[0].position = living_point(1080,540)
+	officer.position = living_point(1220,788)
 	tick(2,false)
 	working()
 	tick(0.2)
@@ -150,10 +153,10 @@ func run():
 	check("next_shift_starts_clean",not game.workshop.warnings.has(0))
 	clock(2000)
 	check("next_day_starts_clean",game.workshop.warnings.is_empty() and game.workshop.wanted.is_empty())
-	game.actors[0].position = Vector2(740,600)
+	game.actors[0].position = living_point(740,600)
 	idle()
 	game.workshop.grace[0] = 0
-	officer.position = Vector2(740,700)
+	officer.position = living_point(740,700)
 	tick(0.01,false)
 	check("outside_seen_still_immediate_chase",game.workshop.wanted.has(0) and officer.state == "chasing")
 	for i in range(300):

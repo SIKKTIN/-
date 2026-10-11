@@ -1,0 +1,47 @@
+{
+  "resources": {
+    "production_text_files": 122,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "overhead",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 12.17,
+      "checks": 38,
+      "failed": [
+        "down_full_eight_frame_loop",
+        "up_full_eight_frame_loop",
+        "right_full_eight_frame_loop",
+        "left_full_eight_frame_loop"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 16.62,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 43.38,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 167,
+  "passed": false
+}

@@ -34,7 +34,7 @@ func configure(owner_game, owner_presentation, index: int) -> void:
 	# measured overhangs and a registered door anchor; both hide interiors by
 	# the same logical room bounds, including at the door's open state.
 	roof = Rect2(footprint.position,Vector2(footprint.size.x,front.position.y-footprint.position.y))
-	z_index = int(base)
+	z_index = preload("res://scripts/presentation/world_depth.gd").for_y(base,game.world.bounds.end.y)
 	var shell_id := str(spec.get("shell_closed",""))
 	if not shell_id.is_empty():
 		var painted_material := ShaderMaterial.new()

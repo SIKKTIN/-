@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/cafeteria_v41/food_tray_v41.png" id="1_3q2n2"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f5jcw"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 41.171448, 0, 112, 45.657104, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 201, 248, 238, 61, 216, 69, 98, 62, 255, 255, 255, 255, 246, 251, 97, 63, 216, 69, 98, 62, 255, 255, 255, 255, 246, 251, 97, 63, 193, 117, 88, 63, 255, 255, 255, 255, 201, 248, 238, 61, 193, 117, 88, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 144, 175, 36, 66, 0, 0, 240, 66, 144, 175, 36, 66, 0, 0, 240, 66, 56, 168, 173, 66, 0, 0, 0, 65, 56, 168, 173, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_f5jcw")
+base_texture = ExtResource("1_3q2n2")
+image_size = Vector2(128, 128)

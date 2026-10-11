@@ -1,0 +1,1184 @@
+{
+	"access_doors": [
+		{
+			"blocks_sight": false,
+			"evacuation": [
+				1010.0,
+				1100.0
+			],
+			"hours": [
+				720.0,
+				840.0
+			],
+			"id": "cafeteria-entry",
+			"initial_closed": true,
+			"kind": "timed",
+			"name": "食堂定时门",
+			"rect": [
+				920.0,
+				1230.0,
+				180.0,
+				31.5
+			],
+			"room_rect": [
+				720.0,
+				1230.0,
+				1304.0,
+				1000.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-0",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室1",
+			"rect": [
+				355.0,
+				1370.0,
+				90.0,
+				28.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-1",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室2",
+			"rect": [
+				355.0,
+				1730.0,
+				90.0,
+				28.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-2",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室3",
+			"rect": [
+				355.0,
+				2090.0,
+				90.0,
+				28.0
+			]
+		}
+	],
+	"architecture": {
+		"wall_surfaces": [
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 1
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 2
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						60.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_t",
+				"height": 20,
+				"wall_index": 3
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 4
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 5
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 6
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 7
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 8
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 9
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 10
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_h",
+				"height": 20,
+				"wall_index": 11
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_v",
+				"height": 20,
+				"wall_index": 12
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						100.0
+					]
+				],
+				"grid_tile_asset": "wall_grid_end",
+				"height": 20,
+				"wall_index": 13
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_left_0",
+				"height": 20,
+				"wall_index": 14
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_left_1",
+				"height": 20,
+				"wall_index": 15
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_left_2",
+				"height": 20,
+				"wall_index": 16
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						60.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_t",
+				"height": 20,
+				"wall_index": 17
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_0",
+				"height": 20,
+				"wall_index": 18
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_1",
+				"height": 20,
+				"wall_index": 19
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_2",
+				"height": 20,
+				"wall_index": 20
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_2_mirror",
+				"height": 20,
+				"wall_index": 21
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_1_mirror",
+				"height": 20,
+				"wall_index": 22
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_0_mirror",
+				"height": 20,
+				"wall_index": 23
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_0",
+				"height": 20,
+				"wall_index": 24
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "study_h_right_1",
+				"height": 20,
+				"wall_index": 25
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						60.0
+					]
+				],
+				"grid_tile_asset": "study_v",
+				"height": 20,
+				"wall_index": 26
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						100.0
+					]
+				],
+				"grid_tile_asset": "study_end",
+				"height": 20,
+				"wall_index": 27
+			}
+		]
+	},
+	"bounds": [
+		80.0,
+		100.0,
+		2800.0,
+		2200.0
+	],
+	"cafeteria": {
+		"access_id": "cafeteria-entry",
+		"discipline_sign": [
+			755.0,
+			1940.0,
+			104.0,
+			64.0
+		],
+		"enclosed": true,
+		"entrance": [
+			920.0,
+			1230.0,
+			180.0,
+			31.5
+		],
+		"painted_frontage": true,
+		"pickup_label": [
+			790.0,
+			1600.0
+		],
+		"return_label": [
+			1800.0,
+			1920.0
+		],
+		"room_rect": [
+			720.0,
+			1230.0,
+			1304.0,
+			1000.0
+		],
+		"service_hours": [
+			720.0,
+			840.0
+		],
+		"wall_sign": [
+			1170.0,
+			1184.0,
+			90.0,
+			42.0
+		]
+	},
+	"confinement": {
+		"cells": [],
+		"duration_minutes": 120.0
+	},
+	"crate": [
+		-2000,
+		-2000,
+		20,
+		20
+	],
+	"door": [
+		-2000,
+		-2000,
+		20,
+		20
+	],
+	"dorm_doors": [
+		{
+			"actor_id": 0.0,
+			"rect": [
+				266.0,
+				350.0,
+				120.0,
+				12.0
+			]
+		},
+		{
+			"actor_id": 1.0,
+			"rect": [
+				266.0,
+				640.0,
+				120.0,
+				12.0
+			]
+		},
+		{
+			"actor_id": 2.0,
+			"rect": [
+				266.0,
+				930.0,
+				120.0,
+				12.0
+			]
+		}
+	],
+	"dormitories": [
+		[
+			100.0,
+			130.0,
+			400.0,
+			232.0
+		],
+		[
+			100.0,
+			420.0,
+			400.0,
+			232.0
+		],
+		[
+			100.0,
+			710.0,
+			400.0,
+			232.0
+		]
+	],
+	"exit": [
+		2800.0,
+		760.0,
+		80.0,
+		180.0
+	],
+	"fixtures": [],
+	"gate_guards": [
+		{
+			"id": "gate-watch-1",
+			"position": [
+				2070.0,
+				750.0
+			]
+		},
+		{
+			"id": "gate-watch-2",
+			"position": [
+				2070.0,
+				915.0
+			]
+		}
+	],
+	"guard_start": [
+		680.0,
+		960.0
+	],
+	"guard_zone": [
+		624.0,
+		100.0,
+		1516.0,
+		2200.0
+	],
+	"id": "wall_style_study",
+	"items": [
+		{
+			"definition_id": "scrap",
+			"position": [
+				1020.0,
+				310.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1410.0,
+				310.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1020.0,
+				550.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1410.0,
+				570.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				790.0,
+				1080.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1800.0,
+				1080.0
+			]
+		}
+	],
+	"lamps": [
+		{
+			"position": [
+				330.0,
+				170.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				330.0,
+				460.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				330.0,
+				750.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				880.0,
+				180.0
+			],
+			"radius": 340.0
+		},
+		{
+			"position": [
+				1630.0,
+				180.0
+			],
+			"radius": 370.0
+		},
+		{
+			"position": [
+				1170.0,
+				580.0
+			],
+			"radius": 330.0
+		},
+		{
+			"position": [
+				800.0,
+				1050.0
+			],
+			"radius": 350.0
+		},
+		{
+			"position": [
+				1900.0,
+				1050.0
+			],
+			"radius": 350.0
+		},
+		{
+			"position": [
+				950.0,
+				1380.0
+			],
+			"radius": 340.0
+		},
+		{
+			"position": [
+				1670.0,
+				1330.0
+			],
+			"radius": 390.0
+		},
+		{
+			"position": [
+				900.0,
+				1930.0
+			],
+			"radius": 380.0
+		},
+		{
+			"position": [
+				1650.0,
+				1980.0
+			],
+			"radius": 400.0
+		},
+		{
+			"position": [
+				148.0,
+				1334.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				148.0,
+				1694.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				148.0,
+				2054.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				2500.0,
+				680.0
+			],
+			"radius": 360.0
+		},
+		{
+			"position": [
+				2750.0,
+				1300.0
+			],
+			"radius": 360.0
+		}
+	],
+	"merchants": [
+		{
+			"id": "prison_dealer",
+			"name": "生活区商人",
+			"position": [
+				550.0,
+				990.0
+			],
+			"routine": [
+				{
+					"kind": "rest",
+					"minute": 0.0,
+					"position": [
+						550.0,
+						1050.0
+					]
+				},
+				{
+					"kind": "work",
+					"minute": 480.0,
+					"position": [
+						1560.0,
+						670.0
+					]
+				},
+				{
+					"kind": "commute",
+					"minute": 660.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "shop",
+					"minute": 720.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "work",
+					"minute": 840.0,
+					"position": [
+						1560.0,
+						670.0
+					]
+				},
+				{
+					"kind": "commute",
+					"minute": 960.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "shop",
+					"minute": 1080.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "rest",
+					"minute": 1200.0,
+					"position": [
+						550.0,
+						1050.0
+					]
+				}
+			],
+			"stock": [
+				{
+					"count": 1.0,
+					"definition_id": "door_key"
+				},
+				{
+					"count": 2.0,
+					"definition_id": "lock_tool"
+				}
+			]
+		}
+	],
+	"patrol": [
+		[
+			680.0,
+			960.0
+		],
+		[
+			1900.0,
+			960.0
+		],
+		[
+			2070.0,
+			1100.0
+		],
+		[
+			2070.0,
+			2100.0
+		],
+		[
+			680.0,
+			2150.0
+		],
+		[
+			680.0,
+			1450.0
+		]
+	],
+	"routine_points": {
+		"dine": [
+			[
+				920.0,
+				1885.0
+			],
+			[
+				1460.0,
+				1885.0
+			],
+			[
+				1040.0,
+				1885.0
+			]
+		],
+		"free": [
+			[
+				860.0,
+				1080.0
+			],
+			[
+				1400.0,
+				1080.0
+			],
+			[
+				1800.0,
+				1080.0
+			]
+		],
+		"meal": [
+			[
+				1390.0,
+				1590.0
+			],
+			[
+				1590.0,
+				1590.0
+			],
+			[
+				1790.0,
+				1590.0
+			]
+		],
+		"work": [
+			[
+				850.0,
+				330.0
+			],
+			[
+				1230.0,
+				330.0
+			],
+			[
+				850.0,
+				570.0
+			]
+		]
+	},
+	"skill_pool": [
+		"chat",
+		"lockpick",
+		"strong",
+		"backpack"
+	],
+	"starts": [
+		[
+			320.0,
+			280.0
+		],
+		[
+			320.0,
+			570.0
+		],
+		[
+			320.0,
+			860.0
+		]
+	],
+	"title": "墙体样段 · 原材质 / 连续砖缝 · 待审评",
+	"walls": [
+		[
+			600.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			640.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			680.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			720.0,
+			600.0,
+			60.0,
+			120.0
+		],
+		[
+			780.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			820.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			860.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			900.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			940.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			980.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			1020.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			1060.0,
+			600.0,
+			40.0,
+			120.0
+		],
+		[
+			740.0,
+			720.0,
+			20.0,
+			120.0
+		],
+		[
+			740.0,
+			840.0,
+			20.0,
+			100.0
+		],
+		[
+			600.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			640.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			680.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			720.0,
+			1100.0,
+			60.0,
+			120.0
+		],
+		[
+			780.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			820.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			860.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			900.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			940.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			980.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			1020.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			1060.0,
+			1100.0,
+			40.0,
+			120.0
+		],
+		[
+			740.0,
+			1220.0,
+			20.0,
+			60.0
+		],
+		[
+			740.0,
+			1280.0,
+			20.0,
+			100.0
+		]
+	],
+	"work_pay": {
+		"minutes_per_round": 60.0,
+		"wage": 4.0
+	},
+	"zones": [
+		{
+			"color": "#a5b19a",
+			"id": "cells",
+			"name": "寝室区",
+			"rect": [
+				100.0,
+				130.0,
+				400.0,
+				840.0
+			]
+		},
+		{
+			"color": "#b4a27e",
+			"id": "workshop",
+			"name": "加工车间",
+			"rect": [
+				720.0,
+				140.0,
+				1304.0,
+				660.0
+			]
+		},
+		{
+			"color": "#a5b19a",
+			"id": "hall",
+			"name": "活动走廊",
+			"rect": [
+				720.0,
+				850.0,
+				1304.0,
+				290.0
+			]
+		},
+		{
+			"color": "#b6af8c",
+			"hide_label": true,
+			"id": "canteen",
+			"name": "食堂",
+			"rect": [
+				720.0,
+				1230.0,
+				1304.0,
+				1000.0
+			]
+		},
+		{
+			"color": "#8a9694",
+			"hide_label": true,
+			"id": "confinement",
+			"name": "禁闭区",
+			"rect": [
+				100.0,
+				1100.0,
+				440.0,
+				1004.0
+			]
+		},
+		{
+			"color": "#92a5a0",
+			"id": "escape",
+			"name": "门岗 / 逃生通道",
+			"rect": [
+				2164.0,
+				100.0,
+				716.0,
+				2200.0
+			]
+		}
+	]
+}

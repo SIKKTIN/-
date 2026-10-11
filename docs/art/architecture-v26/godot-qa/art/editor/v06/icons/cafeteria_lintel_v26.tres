@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v26/wall_tiles_master_v26.png" id="1_r2bon"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_anxql"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(7.999996, 54.2, 0, 112, 19.600002, 0),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAA/////wAAgD8AAAAA/////wAAgD8AAEQ+/////wAAAAAAAEQ+/////wAAAAAAAAAA/////wAA0D4AAAAA/////wAA0D4AAEQ+/////wAAAAAAAEQ+xsbG/wAAAAAAAAAAxsbG/wAAgD8AAAAAxsbG/wAAgD8AAEQ+xsbG/wAAAAAAAEQ+xsbG/wAAAAAAAAAAxsbG/wAA0D4AAAAAxsbG/wAA0D4AAEQ+xsbG/wAAAAAAAEQ+"),
+"format": 34393296921,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+P//QM3MWEL0Sa9CzcxYQvRJr0L1SYVC+P//QPVJhUL0Sa9CzcxYQgAA8ELNzFhCAADwQvVJhUL0Sa9C9UmFQvj//0D1SYVC9EmvQvVJhUL0Sa9CmpmTQvj//0CamZNC9EmvQvVJhUIAAPBC9UmFQgAA8EKamZNC9EmvQpqZk0I=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_anxql")
+base_texture = ExtResource("1_r2bon")
+image_size = Vector2(128, 128)

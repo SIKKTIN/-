@@ -1,0 +1,1217 @@
+{
+  "schema": 2,
+  "version": "architecture-v33-20261007",
+  "style": "COMPLETE-OPEN-SHORT-ARM-WALL",
+  "master_texture": "res://art/architecture/v33/full_wall_master_v33.png",
+  "master_sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+  "assets": [
+    {
+      "id": "cafeteria_t_20_v33",
+      "name": "完整短臂圆弧T·20厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        68,
+        121.5
+      ],
+      "render_size": [
+        68,
+        121.5
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            24,
+            121.5
+          ],
+          "role": "complete_wall_left",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            24,
+            0,
+            20,
+            121.5
+          ],
+          "role": "complete_wall_root",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            44,
+            0,
+            24,
+            121.5
+          ],
+          "role": "complete_wall_right",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_t_20_v33.tres",
+      "stem_rect": [
+        24,
+        0,
+        20,
+        121.5
+      ],
+      "return_start_world": 121.5,
+      "full_body": true,
+      "open_left": true,
+      "open_right": true
+    },
+    {
+      "id": "cafeteria_wall_v_l_20_v33",
+      "name": "同源l纵墙·20厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        189.14594594594593
+      ],
+      "render_size": [
+        20,
+        189.14594594594593
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            0.0,
+            20,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            94.57297297297296,
+            20,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_v_l_20_v33.tres",
+      "cross_width_world": 20,
+      "tile_period_world": 94.57297297297296,
+      "source_repeat_window": [
+        710,
+        382,
+        120,
+        288
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_r_20_v33",
+      "name": "同源r纵墙·20厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        189.14594594594593
+      ],
+      "render_size": [
+        20,
+        189.14594594594593
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            0.0,
+            20,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            94.57297297297296,
+            20,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_v_r_20_v33.tres",
+      "cross_width_world": 20,
+      "tile_period_world": 94.57297297297296,
+      "source_repeat_window": [
+        710,
+        382,
+        120,
+        288
+      ]
+    },
+    {
+      "id": "cafeteria_end_20_v33",
+      "name": "同源完整端面·20厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        90
+      ],
+      "render_size": [
+        20,
+        90
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            301
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            90
+          ],
+          "role": "complete_same_source_endface",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_end_20_v33.tres",
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_t_v33",
+      "name": "完整短臂圆弧T·24厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        72,
+        121.5
+      ],
+      "render_size": [
+        72,
+        121.5
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            24,
+            121.5
+          ],
+          "role": "complete_wall_left",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            24,
+            0,
+            24,
+            121.5
+          ],
+          "role": "complete_wall_root",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            48,
+            0,
+            24,
+            121.5
+          ],
+          "role": "complete_wall_right",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_t_v33.tres",
+      "stem_rect": [
+        24,
+        0,
+        24,
+        121.5
+      ],
+      "return_start_world": 121.5,
+      "full_body": true,
+      "open_left": true,
+      "open_right": true
+    },
+    {
+      "id": "cafeteria_wall_v_l_v33",
+      "name": "同源l纵墙·24厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24,
+        189.14594594594593
+      ],
+      "render_size": [
+        24,
+        189.14594594594593
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            0.0,
+            24,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            94.57297297297296,
+            24,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_v_l_v33.tres",
+      "cross_width_world": 24,
+      "tile_period_world": 94.57297297297296,
+      "source_repeat_window": [
+        710,
+        382,
+        120,
+        288
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_r_v33",
+      "name": "同源r纵墙·24厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24,
+        189.14594594594593
+      ],
+      "render_size": [
+        24,
+        189.14594594594593
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            0.0,
+            24,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            94.57297297297296,
+            24,
+            94.57297297297296
+          ],
+          "role": "same_source_vertical_repeat",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_v_r_v33.tres",
+      "cross_width_world": 24,
+      "tile_period_world": 94.57297297297296,
+      "source_repeat_window": [
+        710,
+        382,
+        120,
+        288
+      ]
+    },
+    {
+      "id": "cafeteria_end_v33",
+      "name": "同源完整端面·24厚",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        24,
+        90
+      ],
+      "render_size": [
+        24,
+        90
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            301
+          ],
+          "destination": [
+            0,
+            0,
+            24,
+            90
+          ],
+          "role": "complete_same_source_endface",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_end_v33.tres",
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_wall_mid_v33",
+      "name": "完整可续接横墙",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        76,
+        121.5
+      ],
+      "render_size": [
+        76,
+        121.5
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            400,
+            130,
+            190,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            38,
+            121.5
+          ],
+          "role": "complete_horizontal_repeat",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "source": [
+            400,
+            130,
+            190,
+            370
+          ],
+          "destination": [
+            38,
+            0,
+            38,
+            121.5
+          ],
+          "role": "complete_horizontal_repeat",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_mid_v33.tres",
+      "full_body": true,
+      "open_left": true,
+      "open_right": true
+    },
+    {
+      "id": "cafeteria_wall_join_l_v33",
+      "name": "T横墙续接·l",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        38.0,
+        121.5
+      ],
+      "render_size": [
+        38.0,
+        121.5
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            400,
+            130,
+            190,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            38.0,
+            121.5
+          ],
+          "role": "full_body_T_join",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_join_l_v33.tres",
+      "full_body": true,
+      "open_left": true,
+      "open_right": true
+    },
+    {
+      "id": "cafeteria_wall_join_r_v33",
+      "name": "T横墙续接·r",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        37.2,
+        121.5
+      ],
+      "render_size": [
+        37.2,
+        121.5
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            950,
+            130,
+            186,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            37.2,
+            121.5
+          ],
+          "role": "full_body_T_join",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_wall_join_r_v33.tres",
+      "full_body": true,
+      "open_left": true,
+      "open_right": true
+    },
+    {
+      "id": "cafeteria_turn_l_v33",
+      "name": "完整同源L角·l",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        48,
+        121.5
+      ],
+      "render_size": [
+        48,
+        121.5
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            130,
+            240,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            48,
+            121.5
+          ],
+          "role": "complete_L_wall",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_turn_l_v33.tres",
+      "return_start_world": 121.5,
+      "stem_x": 0,
+      "cross_width_world": 24,
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_turn_r_v33",
+      "name": "完整同源L角·r",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        48,
+        121.5
+      ],
+      "render_size": [
+        48,
+        121.5
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            240,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            48,
+            121.5
+          ],
+          "role": "complete_L_wall",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_turn_r_v33.tres",
+      "return_start_world": 121.5,
+      "stem_x": 24,
+      "cross_width_world": 24,
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_jamb_left_v33",
+      "name": "同源完整门柱·left",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        32,
+        121.5
+      ],
+      "render_size": [
+        32,
+        121.5
+      ],
+      "render_mode": "architecture_pillar",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            301
+          ],
+          "destination": [
+            0,
+            0,
+            32,
+            121.5
+          ],
+          "role": "complete_same_source_jamb",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_jamb_left_v33.tres",
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_jamb_right_v33",
+      "name": "同源完整门柱·right",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        32,
+        121.5
+      ],
+      "render_size": [
+        32,
+        121.5
+      ],
+      "render_mode": "architecture_pillar",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            301
+          ],
+          "destination": [
+            0,
+            0,
+            32,
+            121.5
+          ],
+          "role": "complete_same_source_jamb",
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_jamb_right_v33.tres",
+      "full_body": true
+    },
+    {
+      "id": "cafeteria_lintel_v33",
+      "name": "同源门楣",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        180,
+        31.5
+      ],
+      "render_size": [
+        180,
+        31.5
+      ],
+      "render_mode": "architecture_lintel",
+      "assembly_patches": [
+        {
+          "source": [
+            400,
+            130,
+            234,
+            87
+          ],
+          "destination": [
+            0,
+            0,
+            180,
+            31.5
+          ],
+          "role": "same_source_lintel",
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v13/icons/cafeteria_lintel_v33.tres"
+    }
+  ],
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  }
+}

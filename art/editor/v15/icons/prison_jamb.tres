@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v33/full_wall_master_v33.png" id="1_8p47m"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fdfvm"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(54.666668, 8, 0, 18.666668, 112, 0),
+"attribute_data": PackedByteArray("/////6uq7D4AgCc//////1VVCj8AgCc//////1VVCj8AgDw//////6uq7D4AgDw//////6uq7D4AgDw//////1VVCj8AgDw//////1VVCj8AgFw//////6uq7D4AgFw//////6uq7D4AgFw//////1VVCj8AgFw//////1VVCj8AgHI//////6uq7D4AgHI/"),
+"format": 34393296921,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("q6paQgAAAEGrqpJCAAAAQauqkkKIiAhCq6paQoiICEKrqlpCiIgIQquqkkKIiAhCq6qSQkREtEKrqlpCRES0QquqWkJERLRCq6qSQkREtEKrqpJCAADwQquqWkIAAPBC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_fdfvm")
+base_texture = ExtResource("1_8p47m")
+image_size = Vector2(128, 128)

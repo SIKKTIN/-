@@ -1,0 +1,29 @@
+{
+	"checks": {
+		"closed_door_still_blocks": false,
+		"diagonal_move_cannot_drill_wall": true,
+		"door_jamb_still_checks_head": true,
+		"five_more_pixels_of_visible_floor_are_walkable": true,
+		"large_downward_move_cannot_tunnel": true,
+		"manual_movement_reaches_sole_contact": true,
+		"open_door_still_walks_both_directions": true,
+		"parallel_swept_feet_are_clear": true,
+		"parallel_swept_overlap_is_blocked": true,
+		"rounded_corner_allows_diagonal_margin": true,
+		"rounded_corner_blocks_real_overlap": true,
+		"route_uses_same_near_wall_clearance": true,
+		"side_wall_keeps_eight_pixel_width": true,
+		"sole_cannot_enter_wall": true,
+		"swept_edge_allows_exact_sole_contact": true,
+		"swept_edge_blocks_without_endpoint_overlap": true,
+		"wall_south_face_remains_solid": true
+	},
+	"failed": [
+		"closed_door_still_blocks"
+	],
+	"foot_radii": [
+		8,
+		3
+	],
+	"sole_contact_y": 1537
+}

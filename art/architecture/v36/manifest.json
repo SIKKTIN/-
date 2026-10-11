@@ -1,0 +1,3281 @@
+{
+  "schema": 2,
+  "version": "universal-prison-v36",
+  "master_texture": "res://art/architecture/v33/full_wall_master_v33.png",
+  "source_sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+  "assets": [
+    {
+      "id": "prison_h_a",
+      "name": "横墙 A · 素面",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            425,
+            130,
+            190.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            40,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_a.tres",
+      "variant_family": "horizontal"
+    },
+    {
+      "id": "prison_h_b",
+      "name": "横墙 B · 石纹",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            1035,
+            130,
+            190.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            40,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_b.tres",
+      "variant_family": "horizontal"
+    },
+    {
+      "id": "prison_h_c",
+      "name": "横墙 C · 旧痕",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            1210,
+            130,
+            190.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            40,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_c.tres",
+      "variant_family": "horizontal"
+    },
+    {
+      "id": "prison_h_d",
+      "name": "横墙 D · 轻裂",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            90,
+            130,
+            190.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            40,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_d.tres",
+      "variant_family": "horizontal"
+    },
+    {
+      "id": "prison_h_e",
+      "name": "横墙 E · 潮痕",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            265,
+            130,
+            190.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            40,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_e.tres",
+      "variant_family": "horizontal"
+    },
+    {
+      "id": "prison_h_short_a",
+      "name": "短横墙 A · 1×6格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        120
+      ],
+      "render_size": [
+        20,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            425,
+            130,
+            95.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          20,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/20x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_short_a.tres",
+      "variant_family": "horizontal_short"
+    },
+    {
+      "id": "prison_h_short_b",
+      "name": "短横墙 B · 1×6格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        120
+      ],
+      "render_size": [
+        20,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            1035,
+            130,
+            95.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          20,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/20x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_short_b.tres",
+      "variant_family": "horizontal_short"
+    },
+    {
+      "id": "prison_h_short_c",
+      "name": "短横墙 C · 1×6格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        120
+      ],
+      "render_size": [
+        20,
+        120
+      ],
+      "render_mode": "architecture_tiled_facade",
+      "assembly_patches": [
+        {
+          "source": [
+            1210,
+            130,
+            95.0,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          20,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/20x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_h_short_c.tres",
+      "variant_family": "horizontal_short"
+    },
+    {
+      "id": "prison_v_a",
+      "name": "纵墙 A · 1×3格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        60
+      ],
+      "render_size": [
+        20,
+        60
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            250,
+            120,
+            144
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 3,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": true,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          60
+        ]
+      ],
+      "connections": [
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south/20x60",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_v_a.tres",
+      "variant_family": "vertical"
+    },
+    {
+      "id": "prison_v_b",
+      "name": "纵墙 B · 1×3格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        60
+      ],
+      "render_size": [
+        20,
+        60
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            400,
+            120,
+            144
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 3,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": true,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          60
+        ]
+      ],
+      "connections": [
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south/20x60",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_v_b.tres",
+      "variant_family": "vertical"
+    },
+    {
+      "id": "prison_v_c",
+      "name": "纵墙 C · 1×3格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        60
+      ],
+      "render_size": [
+        20,
+        60
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            520,
+            120,
+            144
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 3,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": true,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          60
+        ]
+      ],
+      "connections": [
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south/20x60",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_v_c.tres",
+      "variant_family": "vertical"
+    },
+    {
+      "id": "prison_v_long",
+      "name": "长纵墙 · 1×6格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        120
+      ],
+      "render_size": [
+        20,
+        120
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            382,
+            120,
+            288
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": true,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south/20x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_v_long.tres"
+    },
+    {
+      "id": "prison_v_short",
+      "name": "短纵墙 · 1×1格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        20
+      ],
+      "render_size": [
+        20,
+        20
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            540,
+            120,
+            48
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            20
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 1,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": true,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          20
+        ]
+      ],
+      "connections": [
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south/20x20",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_v_short.tres"
+    },
+    {
+      "id": "prison_corner_se",
+      "name": "左上转角 · 向右 / 向下",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": false,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": true,
+        "stem_x": 0,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "east",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,south/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_corner_se.tres"
+    },
+    {
+      "id": "prison_corner_sw",
+      "name": "右上转角 · 向左 / 向下",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": true,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "south,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_corner_sw.tres"
+    },
+    {
+      "id": "prison_corner_ne",
+      "name": "左下转角 · 向右 / 向上",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            0,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            0,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": false,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": false,
+        "stem_x": 0,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ],
+        [
+          0,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "east",
+        "north"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,north/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_corner_ne.tres"
+    },
+    {
+      "id": "prison_corner_nw",
+      "name": "右下转角 · 向左 / 向上",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_l",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            20,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            20,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": false,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ],
+        [
+          20,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "west",
+        "north"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_corner_nw.tres"
+    },
+    {
+      "id": "prison_t_s",
+      "name": "T形 · 向下分叉",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        60,
+        120
+      ],
+      "render_size": [
+        60,
+        120
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            40,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 3,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": true,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          60,
+          20
+        ]
+      ],
+      "connections": [
+        "west",
+        "east",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,south,west/60x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_t_s.tres"
+    },
+    {
+      "id": "prison_t_n",
+      "name": "T形 · 向上分叉",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        60,
+        120
+      ],
+      "render_size": [
+        60,
+        120
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            20,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            20,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            40,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 3,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": false,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          60,
+          20
+        ],
+        [
+          20,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "west",
+        "east",
+        "north"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,north,west/60x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_t_n.tres"
+    },
+    {
+      "id": "prison_t_cross",
+      "name": "十字连接",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        60,
+        120
+      ],
+      "render_size": [
+        60,
+        120
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            40,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 3,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": true,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          60,
+          20
+        ],
+        [
+          20,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "west",
+        "east",
+        "north",
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,north,south,west/60x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_t_cross.tres"
+    },
+    {
+      "id": "prison_t_e",
+      "name": "T形 · 向右分叉",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            830,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": false,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": true,
+        "stem_x": 0,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ],
+        [
+          0,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "north",
+        "south",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,north,south/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_t_e.tres"
+    },
+    {
+      "id": "prison_t_w",
+      "name": "T形 · 向左分叉",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            590,
+            130,
+            120,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": true,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ],
+        [
+          20,
+          0,
+          20,
+          120
+        ]
+      ],
+      "connections": [
+        "north",
+        "south",
+        "west"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north,south,west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_t_w.tres"
+    },
+    {
+      "id": "prison_end_s",
+      "name": "纵墙收口 · 南端",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        100
+      ],
+      "render_size": [
+        20,
+        100
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            300
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            100
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 5,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": true,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          100
+        ]
+      ],
+      "connections": [
+        "north"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "north/20x100",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_end_s.tres"
+    },
+    {
+      "id": "prison_end_n",
+      "name": "纵墙收口 · 北端",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        20
+      ],
+      "render_size": [
+        20,
+        20
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            236,
+            120,
+            60
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            20
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 1,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ],
+        "south_port": true
+      },
+      "collision_parts": [
+        [
+          0,
+          0,
+          20,
+          20
+        ]
+      ],
+      "connections": [
+        "south"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "south/20x20",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_end_n.tres"
+    },
+    {
+      "id": "prison_end_w",
+      "name": "横墙收口 · 左端",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            0,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            0,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            950,
+            130,
+            95,
+            370
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": false,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_end_w.tres"
+    },
+    {
+      "id": "prison_end_e",
+      "name": "横墙收口 · 右端",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        40,
+        120
+      ],
+      "render_size": [
+        40,
+        120
+      ],
+      "render_mode": "architecture_endface",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            20,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            20,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            400,
+            130,
+            95,
+            370
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            120
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          40,
+          20
+        ]
+      ],
+      "connections": [
+        "west"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "west/40x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_end_e.tres"
+    },
+    {
+      "id": "prison_jamb",
+      "name": "门柱 · 1×6格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        120
+      ],
+      "render_size": [
+        20,
+        120
+      ],
+      "render_mode": "architecture_jamb",
+      "assembly_patches": [
+        {
+          "source": [
+            710,
+            670,
+            120,
+            84
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            754,
+            120,
+            128
+          ],
+          "destination": [
+            0,
+            28,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            710,
+            882,
+            120,
+            88
+          ],
+          "destination": [
+            0,
+            88,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 6,
+        "parameterized_shader": true,
+        "horizontal_ports": false,
+        "horizontal_left": false,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [
+        [
+          0,
+          100,
+          20,
+          20
+        ]
+      ],
+      "connections": [],
+      "authoring_set": "universal-v36",
+      "connection_tag": "/20x120",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_jamb.tres"
+    },
+    {
+      "id": "prison_lintel_80",
+      "name": "门楣 · 4×1格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        80,
+        20
+      ],
+      "render_size": [
+        80,
+        20
+      ],
+      "render_mode": "architecture_lintel",
+      "assembly_patches": [
+        {
+          "source": [
+            950,
+            130,
+            380.0,
+            84
+          ],
+          "destination": [
+            0,
+            0,
+            80,
+            20
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 4,
+        "rows": 1,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          84
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/80x20",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_lintel_80.tres"
+    },
+    {
+      "id": "prison_lintel_20",
+      "name": "门楣 · 1×1格",
+      "texture": "res://art/architecture/v33/full_wall_master_v33.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "world_size": [
+        20,
+        20
+      ],
+      "render_size": [
+        20,
+        20
+      ],
+      "render_mode": "architecture_lintel",
+      "assembly_patches": [
+        {
+          "source": [
+            950,
+            130,
+            95.0,
+            84
+          ],
+          "destination": [
+            0,
+            0,
+            20,
+            20
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v36/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 1,
+        "rows": 1,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": true,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": false,
+        "south_stem": false,
+        "stem_x": -1,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          84
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ]
+      },
+      "collision_parts": [],
+      "connections": [
+        "west",
+        "east"
+      ],
+      "authoring_set": "universal-v36",
+      "connection_tag": "east,west/20x20",
+      "sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+      "editor_icon": "res://art/editor/v15/icons/prison_lintel_20.tres"
+    }
+  ]
+}

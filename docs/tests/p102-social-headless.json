@@ -42,10 +42,50 @@
 	"failed": [],
 	"total": 38,
 	"world": {
-		"evaluations": 0,
+		"evaluations": 4,
 		"knowledge": {},
 		"now": 0.0,
 		"people": {
+			"guard:campus-watch": {
+				"busy_until": 0.0,
+				"cooldowns": {},
+				"debt": 0,
+				"help_count": 0,
+				"help_day": -1,
+				"id": "guard:campus-watch",
+				"last_decision": {},
+				"line": "",
+				"line_until": 0.0,
+				"memories": [],
+				"money": 4,
+				"mood": {
+					"anger": 0.0,
+					"fear": 0.0,
+					"joy": 10.0,
+					"pressure": 0.0
+				},
+				"name": "刘文平",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"rations": 1,
+				"relations": {},
+				"role": "gate",
+				"role_name": "看守",
+				"traits": {
+					"ambition": 0.5,
+					"caution": 0.8,
+					"generosity": 0.3,
+					"history": "在这里生活和工作，习惯先判断风险。",
+					"like": 0,
+					"loyalty": 0.8,
+					"name": "刘文平",
+					"role_name": "看守",
+					"trait_label": "谨慎",
+					"trust": 20
+				}
+			},
 			"guard:gate-watch-1": {
 				"busy_until": 0.0,
 				"cooldowns": {},
@@ -380,7 +420,38 @@
 				"help_count": 0,
 				"help_day": -1,
 				"id": "prisoner:1",
-				"last_decision": {},
+				"last_decision": {
+					"action": "meal",
+					"candidates": [
+						{
+							"action": "meal",
+							"impact": {},
+							"score": 30.71,
+							"terms": {
+								"cost": 0.0,
+								"emotion": 0.0,
+								"personality": 2.31,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 8.0,
+								"self": 20.4
+							}
+						}
+					],
+					"context": "life:lunch",
+					"impact": {},
+					"score": 30.71,
+					"terms": {
+						"cost": 0.0,
+						"emotion": 0.0,
+						"personality": 2.31,
+						"player": 0.0,
+						"risk": 0.0,
+						"routine": 8.0,
+						"self": 20.4
+					},
+					"until": 8.0
+				},
 				"line": "",
 				"line_until": 0.0,
 				"memories": [],
@@ -389,11 +460,11 @@
 					"anger": 0.0,
 					"fear": 0.0,
 					"joy": 10.0,
-					"pressure": 0.0
+					"pressure": 5.0
 				},
 				"name": "周大勇",
 				"needs": {
-					"fatigue": 15.0,
+					"fatigue": 0.0,
 					"hunger": 20.0
 				},
 				"rations": 1,
@@ -427,7 +498,38 @@
 				"help_count": 0,
 				"help_day": -1,
 				"id": "prisoner:2",
-				"last_decision": {},
+				"last_decision": {
+					"action": "meal",
+					"candidates": [
+						{
+							"action": "meal",
+							"impact": {},
+							"score": 34.34,
+							"terms": {
+								"cost": 0.0,
+								"emotion": 0.0,
+								"personality": 5.94,
+								"player": 0.0,
+								"risk": 0.0,
+								"routine": 8.0,
+								"self": 20.4
+							}
+						}
+					],
+					"context": "life:lunch",
+					"impact": {},
+					"score": 34.34,
+					"terms": {
+						"cost": 0.0,
+						"emotion": 0.0,
+						"personality": 5.94,
+						"player": 0.0,
+						"risk": 0.0,
+						"routine": 8.0,
+						"self": 20.4
+					},
+					"until": 8.0
+				},
 				"line": "",
 				"line_until": 0.0,
 				"memories": [],
@@ -436,15 +538,21 @@
 					"anger": 0.0,
 					"fear": 0.0,
 					"joy": 10.0,
-					"pressure": 0.0
+					"pressure": 5.0
 				},
 				"name": "许文斌",
 				"needs": {
-					"fatigue": 15.0,
+					"fatigue": 0.0,
 					"hunger": 20.0
 				},
 				"rations": 1,
-				"relations": {},
+				"relations": {
+					"prisoner:0": {
+						"fear": 0.0,
+						"like": -5.0,
+						"trust": 20.0
+					}
+				},
 				"role": "prisoner",
 				"role_name": "囚徒",
 				"traits": {

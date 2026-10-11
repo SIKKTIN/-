@@ -1,0 +1,32 @@
+--- a/scripts/presentation/world_volume.gd
++++ b/scripts/presentation/world_volume.gd
+@@ -2,6 +2,8 @@
+ 
+ const Tiles = preload("res://scripts/presentation/texture_tiles.gd")
+ const Components = preload("res://scripts/presentation/wall_components.gd")
++const DoorGeometry = preload("res://scripts/presentation/doorway_geometry.gd")
++const RoofGeometry = preload("res://scripts/presentation/roof_geometry.gd")
+ var world
+ var kind: String
+ var wall_index: int = 0
+@@ -98,6 +100,9 @@
+ 		visible = (not fixture.get("hidden",false) or inner and shell_part) and (inner or fixture.has("access_id"))
+ 	elif kind == "door":
+ 		visible = not world.fixtures.any(func(f):return f.get("primary_gate",false))
++	# The retained door layer owns both orientations and all physical states.
++	if world.room_visibility != null and is_instance_valid(world.room_visibility.doorways):
++		if kind=="door" or kind=="fixture" and DoorGeometry.managed_fixture(world.fixtures[wall_index]): visible = false
+ func tick_visual() -> void:
+ 	var rules = world.get("room_visibility")
+ 	var revision: int = rules.revision if rules != null else 0
+@@ -261,7 +266,9 @@
+ 	if kind == "wall":
+ 		if profile.has("grid_tile_asset"):
+ 			var id := str(profile.grid_tile_asset)
+-			Components.paint(self,world.art_textures[id],definitions[id],display_rect,false,Rect2(),Vector2.ZERO)
++			var cuts: Array = world.room_visibility.portal_cuts if world.room_visibility != null else world.get("portal_cuts") if world.get("portal_cuts") != null else []
++			for clip in RoofGeometry.subtract_all(display_rect,cuts):
++				Components.paint(self,world.art_textures[id],definitions[id],display_rect,false,clip,Vector2.ZERO)
+ 			return
+ 		var height := elevation
+ 		if profile.has("painted_facade"):

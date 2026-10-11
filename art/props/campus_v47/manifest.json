@@ -1,0 +1,534 @@
+{
+  "schema": 2,
+  "version": "campus-v47",
+  "assets": [
+    {
+      "id": "medical_cot_v47",
+      "name": "医务室单人床",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        104,
+        49,
+        174,
+        309
+      ],
+      "ground_rect": [
+        0,
+        48.0,
+        174,
+        261.0
+      ],
+      "footprint_world_size": [
+        140,
+        210
+      ],
+      "world_size": [
+        140,
+        248.621
+      ],
+      "render_size": [
+        140,
+        248.621
+      ],
+      "elevation_world": 38.621,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/medical_cot_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "medical_cabinet_v47",
+      "name": "医药柜",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        451,
+        43,
+        185,
+        290
+      ],
+      "ground_rect": [
+        0,
+        197.5,
+        185,
+        92.5
+      ],
+      "footprint_world_size": [
+        130,
+        65
+      ],
+      "world_size": [
+        130,
+        203.784
+      ],
+      "render_size": [
+        130,
+        203.784
+      ],
+      "elevation_world": 138.784,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/medical_cabinet_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "medical_trolley_v47",
+      "name": "医疗推车",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        812,
+        85,
+        214,
+        235
+      ],
+      "ground_rect": [
+        0,
+        56.667,
+        214,
+        178.333
+      ],
+      "footprint_world_size": [
+        90,
+        75
+      ],
+      "world_size": [
+        90,
+        98.832
+      ],
+      "render_size": [
+        90,
+        98.832
+      ],
+      "elevation_world": 23.832,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/medical_trolley_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "shower_bank_v47",
+      "name": "公共淋浴设施",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        37,
+        424,
+        314,
+        276
+      ],
+      "ground_rect": [
+        0,
+        139.933,
+        314,
+        136.067
+      ],
+      "footprint_world_size": [
+        300,
+        130
+      ],
+      "world_size": [
+        300,
+        263.694
+      ],
+      "render_size": [
+        300,
+        263.694
+      ],
+      "elevation_world": 133.694,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/shower_bank_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "changing_lockers_v47",
+      "name": "更衣柜",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        416,
+        414,
+        256,
+        284
+      ],
+      "ground_rect": [
+        0,
+        202.545,
+        256,
+        81.455
+      ],
+      "footprint_world_size": [
+        220,
+        70
+      ],
+      "world_size": [
+        220,
+        244.062
+      ],
+      "render_size": [
+        220,
+        244.062
+      ],
+      "elevation_world": 174.062,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/changing_lockers_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "changing_bench_v47",
+      "name": "浴室长凳",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        744,
+        506,
+        318,
+        141
+      ],
+      "ground_rect": [
+        0,
+        23.842,
+        318,
+        117.158
+      ],
+      "footprint_world_size": [
+        190,
+        70
+      ],
+      "world_size": [
+        190,
+        84.245
+      ],
+      "render_size": [
+        190,
+        84.245
+      ],
+      "elevation_world": 14.245,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/changing_bench_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "office_desk_v47",
+      "name": "值班办公桌",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        36,
+        768,
+        308,
+        318
+      ],
+      "ground_rect": [
+        0,
+        151.514,
+        308,
+        166.486
+      ],
+      "footprint_world_size": [
+        185,
+        100
+      ],
+      "world_size": [
+        185,
+        191.006
+      ],
+      "render_size": [
+        185,
+        191.006
+      ],
+      "elevation_world": 91.006,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/office_desk_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "monitor_console_v47",
+      "name": "监控台",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        388,
+        780,
+        317,
+        227
+      ],
+      "ground_rect": [
+        0,
+        100.2,
+        317,
+        126.8
+      ],
+      "footprint_world_size": [
+        250,
+        100
+      ],
+      "world_size": [
+        250,
+        179.022
+      ],
+      "render_size": [
+        250,
+        179.022
+      ],
+      "elevation_world": 79.022,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/monitor_console_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "filing_cabinet_v47",
+      "name": "档案柜",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        810,
+        733,
+        196,
+        353
+      ],
+      "ground_rect": [
+        0,
+        262.0,
+        196,
+        91.0
+      ],
+      "footprint_world_size": [
+        140,
+        65
+      ],
+      "world_size": [
+        140,
+        252.143
+      ],
+      "render_size": [
+        140,
+        252.143
+      ],
+      "elevation_world": 187.143,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/filing_cabinet_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "basketball_hoop_v47",
+      "name": "篮球架",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        76,
+        1086,
+        220,
+        307
+      ],
+      "ground_rect": [
+        0,
+        224.5,
+        220,
+        82.5
+      ],
+      "footprint_world_size": [
+        120,
+        45
+      ],
+      "world_size": [
+        120,
+        167.455
+      ],
+      "render_size": [
+        120,
+        167.455
+      ],
+      "elevation_world": 122.455,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/basketball_hoop_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "park_bench_v47",
+      "name": "庭院长椅",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        383,
+        1160,
+        316,
+        162
+      ],
+      "ground_rect": [
+        0,
+        53.895,
+        316,
+        108.105
+      ],
+      "footprint_world_size": [
+        190,
+        65
+      ],
+      "world_size": [
+        190,
+        97.405
+      ],
+      "render_size": [
+        190,
+        97.405
+      ],
+      "elevation_world": 32.405,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/park_bench_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    },
+    {
+      "id": "yard_lamp_v47",
+      "name": "园区照明灯",
+      "texture": "res://art/props/campus_v47/campus_atlas.png",
+      "texture_size": [
+        1086,
+        1448
+      ],
+      "region": [
+        852,
+        1086,
+        115,
+        300
+      ],
+      "ground_rect": [
+        0,
+        242.5,
+        115,
+        57.5
+      ],
+      "footprint_world_size": [
+        70,
+        35
+      ],
+      "world_size": [
+        70,
+        182.609
+      ],
+      "render_size": [
+        70,
+        182.609
+      ],
+      "elevation_world": 147.609,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "campus-v47",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v23/icons/yard_lamp_v47.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/factory_v44/detail_atlas.png" id="1_ldjpp"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o64pb"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(7.999996, 16.90459, 0, 112, 94.19083, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 171, 42, 71, 63, 0, 0, 212, 62, 255, 255, 255, 255, 85, 85, 118, 63, 0, 0, 212, 62, 255, 255, 255, 255, 85, 85, 118, 63, 0, 128, 37, 63, 255, 255, 255, 255, 171, 42, 71, 63, 0, 128, 37, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(248, 255, 255, 64, 154, 60, 135, 65, 0, 0, 240, 66, 154, 60, 135, 65, 0, 0, 240, 66, 218, 48, 222, 66, 248, 255, 255, 64, 218, 48, 222, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_o64pb")
+base_texture = ExtResource("1_ldjpp")
+image_size = Vector2(128, 128)

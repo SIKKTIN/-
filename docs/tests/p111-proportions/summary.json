@@ -1,0 +1,56 @@
+{
+  "resources": {
+    "production_text_files": 122,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 16.84,
+      "checks": 17,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.86,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 18.59,
+      "checks": 100,
+      "failed": [
+        "door_laundry-equipment"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 49.41,
+      "checks": 29,
+      "failed": [
+        "every_dialogue_page_fits_both_sizes"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 160,
+  "passed": false
+}

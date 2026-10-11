@@ -23,9 +23,7 @@ var game
 var font: Font
 var theme: Theme
 var clock
-var goal: Button
 var wallet: Button
-var routine_button: Button
 var sleep_button: Button
 var menu_button: Button
 var menu: Panel
@@ -88,14 +86,8 @@ func configure(owner_game) -> void:
 	clock.pressed.connect(func(): game.schedule.toggle())
 	HudArt.button(clock)
 	hud.add_child(clock)
-	# Retain a hidden handle for older HUD consumers, without a menu entry.
-	routine_button = _button("",Callable())
-	routine_button.hide()
-	routine_button.disabled = true
 	sleep_button = _button("跳过夜晚",func(): game.schedule.skip_night())
 	sleep_button.tooltip_text = "伙伴回各自床位并停止行动后，跳至次日08:00。"
-	goal = _button("逃脱 0/1",Callable())
-	goal.mouse_filter = Control.MOUSE_FILTER_STOP
 	wallet = _button("0",Callable(),"coin")
 	fps_badge = PanelContainer.new()
 	fps_badge.name = "RuntimeFPS"
@@ -152,7 +144,7 @@ func configure(owner_game) -> void:
 	menu_button = _button("",toggle_menu,"pause")
 	menu_button.z_index = 240
 	menu_button.tooltip_text = "暂停 / 菜单"
-	for index in range(3):
+	for index in range(game.cards.size()):
 		var portrait: Texture2D = load("res://art/ui/fullscreen/portrait_%d.tres" % (index+1)) if ResourceLoader.exists("res://art/ui/fullscreen/portrait_%d.tres" % (index+1)) else null
 		portraits.append(portrait)
 		var card: Button = game.cards[index]
@@ -207,6 +199,7 @@ func configure(owner_game) -> void:
 	game.room_selector.z_index = 0
 	game.room_selector.position = Vector2(24,122)
 	game.room_selector.size = Vector2(312,48)
+	game.room_selector.visible = not game.room_config.get("demo_single_map",false)
 	game.presentation.mute_button.reparent(menu,false)
 	game.presentation.mute_button.position = Vector2(24,180)
 	game.presentation.mute_button.size = Vector2(148,48)
@@ -336,16 +329,12 @@ func layout() -> void:
 	var status_width := 246.0 if safe.size.x<1040 else 280.0
 	clock.position = safe.position+Vector2(status_width+12,0)
 	clock.size = Vector2(minf(500,safe.size.x-status_width-180),104)
-	routine_button.position = safe.position+Vector2(308,0)
-	routine_button.size = Vector2(124,48)
 	sleep_button.position = safe.position+Vector2(status_width+12,112)
 	sleep_button.size = Vector2(148,48)
 	menu_button.position = Vector2(safe.end.x-52,safe.position.y)
 	menu_button.size = Vector2(52,52)
 	wallet.position = menu_button.position-Vector2(106,0)
 	wallet.size = Vector2(98,52)
-	goal.position = wallet.position-Vector2(142,0)
-	goal.size = Vector2(134,52)
 	fps_badge.position = safe.position+Vector2(0,112)
 	fps_badge.size = Vector2(76,28)
 	var map_width := 200.0 if safe.size.x < 1040 else 220.0
@@ -365,7 +354,7 @@ func layout() -> void:
 	var pad: Control = game.mobile_controls.pad
 	pad.position = Vector2(safe.position.x+8,safe.end.y-pad_size-12)
 	pad.size = Vector2(pad_size,pad_size)
-	for index in range(3):
+	for index in range(game.cards.size()):
 		game.cards[index].visible = index==0
 		game.cards[index].position = safe.position
 		game.cards[index].size = Vector2(status_width,104)
@@ -393,15 +382,14 @@ func layout() -> void:
 		button_layout.remember_defaults()
 		button_layout.apply_positions()
 	menu.position = safe.get_center()-menu.size/2
-	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker,game.routine_panel.blocker]:
+	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker]:
 		blocker.position = Vector2.ZERO
 		blocker.size = last_size
-	for p in [game.shop_panel.panel,game.schedule.panel,game.schedule.result_panel,game.developer_settings.panel,game.routine_panel.panel]:
+	for p in [game.shop_panel.panel,game.schedule.panel,game.schedule.result_panel,game.developer_settings.panel]:
 		p.position = safe.get_center()-p.size/2
 		for child in p.get_children():
 			if child is Button:
 				child.size.y = maxf(48,child.size.y)
-	game.routine_panel.layout(safe)
 	toast.size = Vector2(360,56)
 	toast.position = Vector2(safe.get_center().x-toast.size.x/2,safe.end.y-toast.size.y)
 	game.status_label.position = Vector2(12,7)
@@ -431,23 +419,15 @@ func position_toast() -> void:
 func refresh() -> void:
 	if not clock or not game.attributes or not game.prison_alert:
 		return
-	var planning: bool = game.routine_panel.panel.visible
 	var blocked: bool = game.world_input_blocked()
 	var actor = game.actors[game.selected_actor_id]
 	var active: bool = not blocked and not actor.escaped
-	# z_index alone does not determine Control input order; hide the covered
-	# global entry as well, so the last HUD child cannot intercept planner taps.
-	menu_button.z_index = 120 if planning else 240
 	menu_button.visible = not blocked or menu.visible or (game.tutorial and game.tutorial.active and not game.tutorial.transition)
 	refresh_clock()
 	clock.disabled = blocked
-	routine_button.hide()
 	sleep_button.visible = game.schedule.is_sleep_time() and game.phase == "playing" and not game.world_input_blocked()
 	sleep_button.disabled = not game.schedule.can_skip_night()
 	sleep_button.tooltip_text = game.schedule.skip_button.tooltip_text
-	goal.text = "逃脱 %d/1" % game.escape_count()
-	goal.hide()
-	if game.tutorial and game.tutorial.active: goal.text = "入监日 %d/6" % int(game.tutorial.step().get("chapter",1))
 	wallet.text = str(game.inventory.wallet)
 	var values: Dictionary = game.attributes.values[game.PLAYER_ACTOR_ID]
 	redraw_changed(faces[0],[roundi(values.stamina),roundi(values.fullness),actor.skill_id,game.confinement_counts[0],faces[0].size])
@@ -465,10 +445,11 @@ func refresh() -> void:
 	action_button.disabled = not active or not interaction.mobile_available()
 	action_button.visible = not blocked
 	redraw_changed(action_button,[action_button.text,action_button.display_icon,action_button.disabled,action_button.size])
-	ability_button.text = "停止" if game.skill_button.text.begins_with("停止") else "能力"
-	ability_button.tooltip_text = game.skill_button.text
+	var ability: Dictionary = game.skills.button_state(actor)
+	ability_button.text = "停止" if ability.active else "能力"
+	ability_button.tooltip_text = ability.label
 	ability_button.display_icon = inventory_drawer.icon_for("backpack") if actor.skill_id == "backpack" else game.presentation.skill_icons.get(actor.skill_id)
-	ability_button.disabled = not active or game.skill_button.disabled
+	ability_button.disabled = not active or ability.disabled
 	ability_button.visible = not blocked
 	redraw_changed(ability_button,[ability_button.text,ability_button.display_icon,ability_button.disabled,ability_button.size])
 	bag_button.text = "背包"
@@ -480,7 +461,6 @@ func refresh() -> void:
 	if bag_button.get_theme_stylebox("normal")!=bag_style: bag_button.add_theme_stylebox_override("normal",bag_style)
 	target_button.visible = active and interaction.mobile_target_count() > 1
 	target_button.disabled = not active
-	game.skill_button.hide()
 	game.mobile_controls.pad.visible = active
 	if not active:
 		game.mobile_controls.cancel_input()
@@ -532,7 +512,6 @@ func toggle_menu() -> void:
 	if menu.visible:
 		close_menu()
 	else:
-		game.routine_panel.close()
 		game.shop_panel.close()
 		game.schedule.close()
 		game.developer_settings.close()
@@ -547,13 +526,13 @@ func close_menu() -> void:
 		menu.hide()
 		menu_blocker.hide()
 	if game:
-		game.get_tree().paused = game.routine_panel != null and game.routine_panel.panel.visible
+		game.get_tree().paused = false
 		refresh()
 
 func _process(_delta: float) -> void:
 	if game:
 		# Wall-clock sampling keeps debug FPS independent of simulation speed
-		# and running when the daily planner or pause menu stops gameplay.
+		# and running while the pause menu stops gameplay.
 		var now := Time.get_ticks_msec()
 		if now-fps_sample_time >= 250:
 			fps_sample_time = now
@@ -568,11 +547,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
 		if game.dialogue and game.dialogue.panel.visible:
 			game.dialogue.close()
-		elif game.routine_panel.panel.visible:
-			if game.routine_panel.picker.visible:
-				game.routine_panel.close_picker()
-			else:
-				game.routine_panel.close()
 		elif game.shop_panel.panel.visible:
 			game.shop_panel.close()
 		elif game.schedule.panel.visible:

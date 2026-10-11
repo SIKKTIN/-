@@ -1,0 +1,3429 @@
+{
+	"access_doors": [
+		{
+			"blocks_sight": false,
+			"evacuation": [
+				1010.0,
+				1100.0
+			],
+			"hours": [
+				720.0,
+				840.0
+			],
+			"id": "cafeteria-entry",
+			"initial_closed": true,
+			"kind": "timed",
+			"name": "食堂定时门",
+			"rect": [
+				920.0,
+				1230.0,
+				180.0,
+				31.5
+			],
+			"room_rect": [
+				720.0,
+				1230.0,
+				1304.0,
+				1000.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-0",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室1",
+			"rect": [
+				355.0,
+				1370.0,
+				90.0,
+				28.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-1",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室2",
+			"rect": [
+				355.0,
+				1730.0,
+				90.0,
+				28.0
+			]
+		},
+		{
+			"blocks_sight": true,
+			"id": "solitary-2",
+			"initial_closed": true,
+			"kind": "confinement",
+			"name": "禁闭室3",
+			"rect": [
+				355.0,
+				2090.0,
+				90.0,
+				28.0
+			]
+		}
+	],
+	"architecture": {
+		"wall_surfaces": [
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_corner_se",
+				"height": 20.0,
+				"wall_index": 31.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 32.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 33.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 34.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_short_c",
+				"height": 20.0,
+				"wall_index": 35.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_jamb",
+				"height": 20.0,
+				"wall_index": 36.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_jamb",
+				"height": 20.0,
+				"wall_index": 37.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 38.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 39.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 40.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_short_c",
+				"height": 20.0,
+				"wall_index": 41.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						60.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_t_s",
+				"height": 20.0,
+				"wall_index": 42.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 43.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 44.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 45.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 46.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 47.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 48.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 49.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 50.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 51.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 52.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 53.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 54.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 55.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_d",
+				"height": 20.0,
+				"wall_index": 56.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						60.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_t_s",
+				"height": 20.0,
+				"wall_index": 57.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 58.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_corner_sw",
+				"height": 20.0,
+				"wall_index": 59.0
+			},
+			{
+				"collision_parts": [],
+				"grid_tile_asset": "prison_lintel_80",
+				"height": 20.0,
+				"wall_index": 60.0
+			},
+			{
+				"collision_parts": [],
+				"grid_tile_asset": "prison_lintel_80",
+				"height": 20.0,
+				"wall_index": 61.0
+			},
+			{
+				"collision_parts": [],
+				"grid_tile_asset": "prison_lintel_20",
+				"height": 20.0,
+				"wall_index": 62.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 63.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 64.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 65.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 66.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 67.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 68.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 69.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_v_short",
+				"height": 20.0,
+				"wall_index": 70.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 71.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 72.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 73.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 74.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 75.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 76.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 77.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_v_short",
+				"height": 20.0,
+				"wall_index": 78.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					],
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_corner_ne",
+				"height": 20.0,
+				"wall_index": 79.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 80.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_d",
+				"height": 20.0,
+				"wall_index": 81.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 82.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 83.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 84.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 85.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 86.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 87.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 88.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 89.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 90.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 91.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 92.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 93.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 94.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 95.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 96.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 97.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 98.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20.0,
+				"wall_index": 99.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 100.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 101.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_e",
+				"height": 20.0,
+				"wall_index": 102.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 103.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 104.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 105.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20.0,
+				"wall_index": 106.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 107.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_d",
+				"height": 20.0,
+				"wall_index": 108.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_b",
+				"height": 20.0,
+				"wall_index": 109.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						20.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_short_b",
+				"height": 20.0,
+				"wall_index": 110.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					],
+					[
+						20.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_corner_nw",
+				"height": 20.0,
+				"wall_index": 111.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 112.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						100.0
+					]
+				],
+				"grid_tile_asset": "prison_end_s",
+				"height": 20.0,
+				"wall_index": 113.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						120.0
+					]
+				],
+				"grid_tile_asset": "prison_v_long",
+				"height": 20.0,
+				"wall_index": 114.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						0.0,
+						20.0,
+						100.0
+					]
+				],
+				"grid_tile_asset": "prison_end_s",
+				"height": 20.0,
+				"wall_index": 115.0
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_a",
+				"height": 20,
+				"wall_index": 116
+			},
+			{
+				"collision_parts": [
+					[
+						0.0,
+						100.0,
+						40.0,
+						20.0
+					]
+				],
+				"grid_tile_asset": "prison_h_c",
+				"height": 20,
+				"wall_index": 117
+			}
+		]
+	},
+	"bounds": [
+		80.0,
+		100.0,
+		2800.0,
+		2200.0
+	],
+	"cafeteria": {
+		"access_id": "cafeteria-entry",
+		"discipline_sign": [
+			755.0,
+			1940.0,
+			104.0,
+			64.0
+		],
+		"enclosed": true,
+		"entrance": [
+			920.0,
+			1230.0,
+			180.0,
+			31.5
+		],
+		"painted_frontage": true,
+		"pickup_label": [
+			790.0,
+			1600.0
+		],
+		"return_label": [
+			1800.0,
+			1920.0
+		],
+		"room_rect": [
+			720.0,
+			1230.0,
+			1304.0,
+			1000.0
+		],
+		"service_hours": [
+			720.0,
+			840.0
+		],
+		"wall_sign": [
+			1170.0,
+			1184.0,
+			90.0,
+			42.0
+		]
+	},
+	"confinement": {
+		"cells": [
+			{
+				"building": {
+					"door_patch": [
+						257.655944,
+						199.169096,
+						88.33007,
+						96.924198
+					],
+					"door_patch_source": [
+						808.0,
+						467.0,
+						277.0,
+						305.0
+					],
+					"facade_render_rect": [
+						0.0,
+						189.0,
+						456.0,
+						109.0
+					],
+					"facade_source_region": [
+						60.0,
+						530.0,
+						1430.0,
+						343.0
+					],
+					"front": "solitary_wall_front_v23",
+					"height": 110.0,
+					"render_offset": [
+						-1.342657,
+						1.9067055393586
+					],
+					"render_size": [
+						456.0,
+						298.0
+					],
+					"roof": "solitary_roof_v23",
+					"roof_overlay": "solitary_roof_axis_v24",
+					"roof_overlay_rect": [
+						-1.913287,
+						0.0,
+						459.188811,
+						189.0
+					],
+					"roof_tile_size": [
+						320.0,
+						240.0
+					],
+					"roofed": true,
+					"shell_closed": "solitary_shell_closed_v24",
+					"shell_open": "solitary_shell_open_v24",
+					"top": "solitary_coping_v23"
+				},
+				"door_id": "solitary-0",
+				"id": "cell-0",
+				"name": "禁闭室1",
+				"rect": [
+					100.0,
+					1100.0,
+					440.0,
+					284.0
+				],
+				"release": [
+					400.0,
+					1430.0
+				],
+				"spawn": [
+					285.0,
+					1280.0
+				]
+			},
+			{
+				"building": {
+					"door_patch": [
+						257.655944,
+						199.169096,
+						88.33007,
+						96.924198
+					],
+					"door_patch_source": [
+						808.0,
+						467.0,
+						277.0,
+						305.0
+					],
+					"facade_render_rect": [
+						0.0,
+						189.0,
+						456.0,
+						109.0
+					],
+					"facade_source_region": [
+						60.0,
+						530.0,
+						1430.0,
+						343.0
+					],
+					"front": "solitary_wall_front_v23",
+					"height": 110.0,
+					"render_offset": [
+						-1.342657,
+						1.9067055393586
+					],
+					"render_size": [
+						456.0,
+						298.0
+					],
+					"roof": "solitary_roof_v23",
+					"roof_overlay": "solitary_roof_axis_v24",
+					"roof_overlay_rect": [
+						-1.913287,
+						0.0,
+						459.188811,
+						189.0
+					],
+					"roof_tile_size": [
+						320.0,
+						240.0
+					],
+					"roofed": true,
+					"shell_closed": "solitary_shell_closed_v24",
+					"shell_open": "solitary_shell_open_v24",
+					"top": "solitary_coping_v23"
+				},
+				"door_id": "solitary-1",
+				"id": "cell-1",
+				"name": "禁闭室2",
+				"rect": [
+					100.0,
+					1460.0,
+					440.0,
+					284.0
+				],
+				"release": [
+					400.0,
+					1790.0
+				],
+				"spawn": [
+					285.0,
+					1640.0
+				]
+			},
+			{
+				"building": {
+					"door_patch": [
+						257.655944,
+						199.169096,
+						88.33007,
+						96.924198
+					],
+					"door_patch_source": [
+						808.0,
+						467.0,
+						277.0,
+						305.0
+					],
+					"facade_render_rect": [
+						0.0,
+						189.0,
+						456.0,
+						109.0
+					],
+					"facade_source_region": [
+						60.0,
+						530.0,
+						1430.0,
+						343.0
+					],
+					"front": "solitary_wall_front_v23",
+					"height": 110.0,
+					"render_offset": [
+						-1.342657,
+						1.9067055393586
+					],
+					"render_size": [
+						456.0,
+						298.0
+					],
+					"roof": "solitary_roof_v23",
+					"roof_overlay": "solitary_roof_axis_v24",
+					"roof_overlay_rect": [
+						-1.913287,
+						0.0,
+						459.188811,
+						189.0
+					],
+					"roof_tile_size": [
+						320.0,
+						240.0
+					],
+					"roofed": true,
+					"shell_closed": "solitary_shell_closed_v24",
+					"shell_open": "solitary_shell_open_v24",
+					"top": "solitary_coping_v23"
+				},
+				"door_id": "solitary-2",
+				"id": "cell-2",
+				"name": "禁闭室3",
+				"rect": [
+					100.0,
+					1820.0,
+					440.0,
+					284.0
+				],
+				"release": [
+					400.0,
+					2150.0
+				],
+				"spawn": [
+					285.0,
+					2000.0
+				]
+			}
+		],
+		"duration_minutes": 120.0
+	},
+	"crate": [
+		2164.0,
+		1980.0,
+		100.0,
+		100.0
+	],
+	"door": [
+		2140.0,
+		760.0,
+		24.0,
+		180.0
+	],
+	"dorm_doors": [
+		{
+			"actor_id": 0.0,
+			"rect": [
+				266.0,
+				350.0,
+				120.0,
+				12.0
+			]
+		},
+		{
+			"actor_id": 1.0,
+			"rect": [
+				266.0,
+				640.0,
+				120.0,
+				12.0
+			]
+		},
+		{
+			"actor_id": 2.0,
+			"rect": [
+				266.0,
+				930.0,
+				120.0,
+				12.0
+			]
+		}
+	],
+	"dormitories": [
+		[
+			100.0,
+			130.0,
+			400.0,
+			232.0
+		],
+		[
+			100.0,
+			420.0,
+			400.0,
+			232.0
+		],
+		[
+			100.0,
+			710.0,
+			400.0,
+			232.0
+		]
+	],
+	"exit": [
+		2800.0,
+		760.0,
+		80.0,
+		180.0
+	],
+	"fixtures": [
+		{
+			"asset_id": "bunk_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bed_0",
+			"rect": [
+				125.0,
+				180.0,
+				110.0,
+				150.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "wash_0",
+			"rect": [
+				430.0,
+				180.0,
+				50.0,
+				55.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_left_0",
+			"rect": [
+				116.0,
+				350.0,
+				150.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_right_0",
+			"rect": [
+				386.0,
+				350.0,
+				98.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "bunk_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bed_1",
+			"rect": [
+				125.0,
+				470.0,
+				110.0,
+				150.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "wash_1",
+			"rect": [
+				430.0,
+				470.0,
+				50.0,
+				55.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_left_1",
+			"rect": [
+				116.0,
+				640.0,
+				150.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_right_1",
+			"rect": [
+				386.0,
+				640.0,
+				98.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "bunk_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bed_2",
+			"rect": [
+				125.0,
+				760.0,
+				110.0,
+				150.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "wash_2",
+			"rect": [
+				430.0,
+				760.0,
+				50.0,
+				55.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_left_2",
+			"rect": [
+				116.0,
+				930.0,
+				150.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "cell_bars",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bars_right_2",
+			"rect": [
+				386.0,
+				930.0,
+				98.0,
+				12.0
+			]
+		},
+		{
+			"asset_id": "workbench",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bench_0",
+			"rect": [
+				780.0,
+				220.0,
+				180.0,
+				70.0
+			]
+		},
+		{
+			"asset_id": "workbench",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bench_1",
+			"rect": [
+				1170.0,
+				220.0,
+				180.0,
+				70.0
+			]
+		},
+		{
+			"asset_id": "workbench",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bench_2",
+			"rect": [
+				780.0,
+				460.0,
+				180.0,
+				70.0
+			]
+		},
+		{
+			"asset_id": "workbench",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "bench_3",
+			"rect": [
+				1170.0,
+				460.0,
+				180.0,
+				70.0
+			]
+		},
+		{
+			"asset_id": "tool_locker",
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"id": "locker_0",
+			"rect": [
+				1550.0,
+				190.0,
+				90.0,
+				40.0
+			]
+		},
+		{
+			"asset_id": "tool_locker",
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"id": "locker_1",
+			"rect": [
+				1550.0,
+				350.0,
+				90.0,
+				40.0
+			]
+		},
+		{
+			"asset_id": "tool_locker",
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"id": "locker_2",
+			"rect": [
+				1550.0,
+				510.0,
+				90.0,
+				40.0
+			]
+		},
+		{
+			"asset_id": "notice_board",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "workshop_notice",
+			"rect": [
+				980.0,
+				140.0,
+				120.0,
+				16.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_counter",
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"id": "canteen-counter",
+			"rect": [
+				1290.0,
+				1460.0,
+				620.0,
+				80.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_kitchen_collision",
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"hidden": true,
+			"id": "canteen-kitchen-collision",
+			"rect": [
+				1290.0,
+				1260.0,
+				620.0,
+				200.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_queue",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "canteen-queue",
+			"rect": [
+				780.0,
+				1530.0,
+				230.0,
+				14.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_return",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "canteen-return",
+			"rect": [
+				1840.0,
+				1970.0,
+				110.0,
+				70.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "dine-table-0",
+			"rect": [
+				830.0,
+				1740.0,
+				210.0,
+				105.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_tray",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 1846.0,
+			"id": "dine-tray-0",
+			"rect": [
+				930.0,
+				1763.0,
+				36.0,
+				20.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "dine-table-1",
+			"rect": [
+				1370.0,
+				1740.0,
+				210.0,
+				105.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_tray",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 1846.0,
+			"id": "dine-tray-1",
+			"rect": [
+				1470.0,
+				1763.0,
+				36.0,
+				20.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "dine-table-2",
+			"rect": [
+				830.0,
+				2050.0,
+				210.0,
+				105.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_tray",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 2156.0,
+			"id": "dine-tray-2",
+			"rect": [
+				930.0,
+				2073.0,
+				36.0,
+				20.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "dine-table-3",
+			"rect": [
+				1370.0,
+				2050.0,
+				210.0,
+				105.0
+			]
+		},
+		{
+			"asset_id": "cafeteria_tray",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 2156.0,
+			"id": "dine-tray-3",
+			"rect": [
+				1470.0,
+				2073.0,
+				36.0,
+				20.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "activity-table-0",
+			"rect": [
+				900.0,
+				910.0,
+				190.0,
+				100.0
+			]
+		},
+		{
+			"asset_id": "communal_table",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "activity-table-1",
+			"rect": [
+				1530.0,
+				910.0,
+				190.0,
+				100.0
+			]
+		},
+		{
+			"asset_id": "solitary_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-bed-0",
+			"rect": [
+				135.0,
+				1190.0,
+				72.0,
+				112.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-toilet-0",
+			"rect": [
+				465.0,
+				1160.0,
+				45.0,
+				50.0
+			]
+		},
+		{
+			"asset_id": "wall_vent",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 1399.0,
+			"hidden": true,
+			"id": "solitary-vent-0",
+			"rect": [
+				175.0,
+				1335.0,
+				64.0,
+				2.0
+			],
+			"render_size": [
+				64.0,
+				33.0
+			]
+		},
+		{
+			"access_id": "solitary-0",
+			"asset_id": "solitary_door_closed_v23",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"closed_asset": "solitary_door_closed_v23",
+			"hidden": true,
+			"id": "solitary-door-visual-0",
+			"open_asset": "solitary_door_open_v23",
+			"rect": [
+				355.0,
+				1370.0,
+				90.0,
+				28.0
+			],
+			"render_size": [
+				90.0,
+				110.0
+			]
+		},
+		{
+			"asset_id": "solitary_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-bed-1",
+			"rect": [
+				135.0,
+				1550.0,
+				72.0,
+				112.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-toilet-1",
+			"rect": [
+				465.0,
+				1520.0,
+				45.0,
+				50.0
+			]
+		},
+		{
+			"asset_id": "wall_vent",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 1759.0,
+			"hidden": true,
+			"id": "solitary-vent-1",
+			"rect": [
+				175.0,
+				1695.0,
+				64.0,
+				2.0
+			],
+			"render_size": [
+				64.0,
+				33.0
+			]
+		},
+		{
+			"access_id": "solitary-1",
+			"asset_id": "solitary_door_closed_v23",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"closed_asset": "solitary_door_closed_v23",
+			"hidden": true,
+			"id": "solitary-door-visual-1",
+			"open_asset": "solitary_door_open_v23",
+			"rect": [
+				355.0,
+				1730.0,
+				90.0,
+				28.0
+			],
+			"render_size": [
+				90.0,
+				110.0
+			]
+		},
+		{
+			"asset_id": "solitary_bed",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-bed-2",
+			"rect": [
+				135.0,
+				1910.0,
+				72.0,
+				112.0
+			]
+		},
+		{
+			"asset_id": "toilet_sink",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "solitary-toilet-2",
+			"rect": [
+				465.0,
+				1880.0,
+				45.0,
+				50.0
+			]
+		},
+		{
+			"asset_id": "wall_vent",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 2119.0,
+			"hidden": true,
+			"id": "solitary-vent-2",
+			"rect": [
+				175.0,
+				2055.0,
+				64.0,
+				2.0
+			],
+			"render_size": [
+				64.0,
+				33.0
+			]
+		},
+		{
+			"access_id": "solitary-2",
+			"asset_id": "solitary_door_closed_v23",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"closed_asset": "solitary_door_closed_v23",
+			"hidden": true,
+			"id": "solitary-door-visual-2",
+			"open_asset": "solitary_door_open_v23",
+			"rect": [
+				355.0,
+				2090.0,
+				90.0,
+				28.0
+			],
+			"render_size": [
+				90.0,
+				110.0
+			]
+		},
+		{
+			"access_id": "cafeteria-entry",
+			"alpha_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"asset_id": "cafeteria_gate_closed_v23",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"closed_asset": "cafeteria_gate_closed_v23",
+			"id": "cafeteria-door-visual",
+			"open_asset": "cafeteria_gate_open_v23",
+			"rect": [
+				920.0,
+				1240.0,
+				180.0,
+				20.0
+			],
+			"render_size": [
+				180.0,
+				90.0
+			]
+		},
+		{
+			"asset_id": "access_reader",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"draw_depth": 1262.0,
+			"id": "cafeteria-reader",
+			"rect": [
+				1130.0,
+				1215.0,
+				24.0,
+				1.333333
+			],
+			"render_size": [
+				24.0,
+				34.0
+			]
+		},
+		{
+			"asset_id": "prison_notice_board",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-0",
+			"rect": [
+				1540.0,
+				168.0,
+				140.0,
+				1.6
+			]
+		},
+		{
+			"asset_id": "caged_wall_lamp",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-1",
+			"rect": [
+				880.0,
+				172.0,
+				36.0,
+				1.5
+			]
+		},
+		{
+			"asset_id": "wall_vent",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-2",
+			"rect": [
+				1740.0,
+				172.0,
+				100.0,
+				2.1
+			]
+		},
+		{
+			"asset_id": "pipe_valve",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-3",
+			"rect": [
+				1900.0,
+				210.0,
+				82.0,
+				1.0
+			]
+		},
+		{
+			"asset_id": "wash_basin",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "expansion-4",
+			"rect": [
+				1570.0,
+				670.0,
+				160.0,
+				67.2
+			]
+		},
+		{
+			"asset_id": "fire_extinguisher",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-5",
+			"rect": [
+				1950.0,
+				780.0,
+				25.0,
+				1.14
+			]
+		},
+		{
+			"asset_id": "laundry_cart",
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"id": "expansion-6",
+			"rect": [
+				455.0,
+				1000.0,
+				68.0,
+				48.0
+			]
+		},
+		{
+			"asset_id": "caged_wall_lamp",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "expansion-7",
+			"rect": [
+				1670.0,
+				1285.0,
+				36.0,
+				1.5
+			]
+		}
+	],
+	"gate_guards": [
+		{
+			"id": "gate-watch-1",
+			"position": [
+				2070.0,
+				750.0
+			]
+		},
+		{
+			"id": "gate-watch-2",
+			"position": [
+				2070.0,
+				915.0
+			]
+		}
+	],
+	"guard_start": [
+		680.0,
+		960.0
+	],
+	"guard_zone": [
+		624.0,
+		100.0,
+		1516.0,
+		2200.0
+	],
+	"id": "r04",
+	"items": [
+		{
+			"definition_id": "scrap",
+			"position": [
+				1020.0,
+				310.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1410.0,
+				310.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1020.0,
+				550.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1410.0,
+				570.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				790.0,
+				1080.0
+			]
+		},
+		{
+			"definition_id": "scrap",
+			"position": [
+				1800.0,
+				1080.0
+			]
+		}
+	],
+	"lamps": [
+		{
+			"position": [
+				330.0,
+				170.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				330.0,
+				460.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				330.0,
+				750.0
+			],
+			"radius": 280.0
+		},
+		{
+			"position": [
+				880.0,
+				180.0
+			],
+			"radius": 340.0
+		},
+		{
+			"position": [
+				1630.0,
+				180.0
+			],
+			"radius": 370.0
+		},
+		{
+			"position": [
+				1170.0,
+				580.0
+			],
+			"radius": 330.0
+		},
+		{
+			"position": [
+				800.0,
+				1050.0
+			],
+			"radius": 350.0
+		},
+		{
+			"position": [
+				1900.0,
+				1050.0
+			],
+			"radius": 350.0
+		},
+		{
+			"position": [
+				950.0,
+				1380.0
+			],
+			"radius": 340.0
+		},
+		{
+			"position": [
+				1670.0,
+				1330.0
+			],
+			"radius": 390.0
+		},
+		{
+			"position": [
+				900.0,
+				1930.0
+			],
+			"radius": 380.0
+		},
+		{
+			"position": [
+				1650.0,
+				1980.0
+			],
+			"radius": 400.0
+		},
+		{
+			"position": [
+				148.0,
+				1334.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				148.0,
+				1694.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				148.0,
+				2054.0
+			],
+			"radius": 220.0
+		},
+		{
+			"position": [
+				2500.0,
+				680.0
+			],
+			"radius": 360.0
+		},
+		{
+			"position": [
+				2750.0,
+				1300.0
+			],
+			"radius": 360.0
+		}
+	],
+	"merchants": [
+		{
+			"id": "prison_dealer",
+			"name": "生活区商人",
+			"position": [
+				550.0,
+				990.0
+			],
+			"routine": [
+				{
+					"kind": "rest",
+					"minute": 0.0,
+					"position": [
+						550.0,
+						1050.0
+					]
+				},
+				{
+					"kind": "work",
+					"minute": 480.0,
+					"position": [
+						1560.0,
+						670.0
+					]
+				},
+				{
+					"kind": "commute",
+					"minute": 660.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "shop",
+					"minute": 720.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "work",
+					"minute": 840.0,
+					"position": [
+						1560.0,
+						670.0
+					]
+				},
+				{
+					"kind": "commute",
+					"minute": 960.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "shop",
+					"minute": 1080.0,
+					"position": [
+						550.0,
+						990.0
+					]
+				},
+				{
+					"kind": "rest",
+					"minute": 1200.0,
+					"position": [
+						550.0,
+						1050.0
+					]
+				}
+			],
+			"stock": [
+				{
+					"count": 1.0,
+					"definition_id": "door_key"
+				},
+				{
+					"count": 2.0,
+					"definition_id": "lock_tool"
+				}
+			]
+		}
+	],
+	"patrol": [
+		[
+			680.0,
+			960.0
+		],
+		[
+			1900.0,
+			960.0
+		],
+		[
+			2070.0,
+			1100.0
+		],
+		[
+			2070.0,
+			2100.0
+		],
+		[
+			680.0,
+			2150.0
+		],
+		[
+			680.0,
+			1450.0
+		]
+	],
+	"routine_points": {
+		"dine": [
+			[
+				920.0,
+				1885.0
+			],
+			[
+				1460.0,
+				1885.0
+			],
+			[
+				1040.0,
+				1885.0
+			]
+		],
+		"free": [
+			[
+				860.0,
+				1080.0
+			],
+			[
+				1400.0,
+				1080.0
+			],
+			[
+				1800.0,
+				1080.0
+			]
+		],
+		"meal": [
+			[
+				1390.0,
+				1590.0
+			],
+			[
+				1590.0,
+				1590.0
+			],
+			[
+				1790.0,
+				1590.0
+			]
+		],
+		"work": [
+			[
+				850.0,
+				330.0
+			],
+			[
+				1230.0,
+				330.0
+			],
+			[
+				850.0,
+				570.0
+			]
+		]
+	},
+	"skill_pool": [
+		"chat",
+		"lockpick",
+		"strong",
+		"backpack"
+	],
+	"starts": [
+		[
+			320.0,
+			280.0
+		],
+		[
+			320.0,
+			570.0
+		],
+		[
+			320.0,
+			860.0
+		]
+	],
+	"title": "黑工厂 · 管制生活区",
+	"walls": [
+		[
+			600.0,
+			100.0,
+			24.0,
+			740.0
+		],
+		[
+			600.0,
+			1040.0,
+			24.0,
+			1260.0
+		],
+		[
+			2140.0,
+			100.0,
+			24.0,
+			660.0
+		],
+		[
+			2140.0,
+			940.0,
+			24.0,
+			1360.0
+		],
+		[
+			720.0,
+			140.0,
+			1304.0,
+			24.0
+		],
+		[
+			720.0,
+			140.0,
+			24.0,
+			440.0
+		],
+		[
+			2000.0,
+			140.0,
+			24.0,
+			660.0
+		],
+		[
+			100.0,
+			130.0,
+			400.0,
+			16.0
+		],
+		[
+			100.0,
+			130.0,
+			16.0,
+			230.0
+		],
+		[
+			484.0,
+			130.0,
+			16.0,
+			230.0
+		],
+		[
+			100.0,
+			420.0,
+			400.0,
+			16.0
+		],
+		[
+			100.0,
+			420.0,
+			16.0,
+			230.0
+		],
+		[
+			484.0,
+			420.0,
+			16.0,
+			230.0
+		],
+		[
+			100.0,
+			710.0,
+			400.0,
+			16.0
+		],
+		[
+			100.0,
+			710.0,
+			16.0,
+			230.0
+		],
+		[
+			484.0,
+			710.0,
+			16.0,
+			230.0
+		],
+		[
+			100.0,
+			1100.0,
+			440.0,
+			18.0
+		],
+		[
+			100.0,
+			1100.0,
+			18.0,
+			284.0
+		],
+		[
+			522.0,
+			1100.0,
+			18.0,
+			284.0
+		],
+		[
+			100.0,
+			1370.0,
+			255.0,
+			14.0
+		],
+		[
+			445.0,
+			1370.0,
+			95.0,
+			14.0
+		],
+		[
+			100.0,
+			1460.0,
+			440.0,
+			18.0
+		],
+		[
+			100.0,
+			1460.0,
+			18.0,
+			284.0
+		],
+		[
+			522.0,
+			1460.0,
+			18.0,
+			284.0
+		],
+		[
+			100.0,
+			1730.0,
+			255.0,
+			14.0
+		],
+		[
+			445.0,
+			1730.0,
+			95.0,
+			14.0
+		],
+		[
+			100.0,
+			1820.0,
+			440.0,
+			18.0
+		],
+		[
+			100.0,
+			1820.0,
+			18.0,
+			284.0
+		],
+		[
+			522.0,
+			1820.0,
+			18.0,
+			284.0
+		],
+		[
+			100.0,
+			2090.0,
+			255.0,
+			14.0
+		],
+		[
+			445.0,
+			2090.0,
+			95.0,
+			14.0
+		],
+		[
+			720.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			760.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			800.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			840.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			880.0,
+			1140.0,
+			20.0,
+			120.0
+		],
+		[
+			900.0,
+			1140.0,
+			20.0,
+			120.0
+		],
+		[
+			1100.0,
+			1140.0,
+			20.0,
+			120.0
+		],
+		[
+			1120.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1160.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1200.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1240.0,
+			1140.0,
+			20.0,
+			120.0
+		],
+		[
+			1260.0,
+			1140.0,
+			60.0,
+			120.0
+		],
+		[
+			1320.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1360.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1400.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1440.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1480.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1520.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1560.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1600.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1640.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1680.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1720.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1760.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1800.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1840.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1880.0,
+			1140.0,
+			60.0,
+			120.0
+		],
+		[
+			1940.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			1980.0,
+			1140.0,
+			40.0,
+			120.0
+		],
+		[
+			920.0,
+			1140.0,
+			80.0,
+			20.0
+		],
+		[
+			1000.0,
+			1140.0,
+			80.0,
+			20.0
+		],
+		[
+			1080.0,
+			1140.0,
+			20.0,
+			20.0
+		],
+		[
+			720.0,
+			1260.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1380.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1500.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1620.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1740.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1860.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			1980.0,
+			20.0,
+			120.0
+		],
+		[
+			720.0,
+			2100.0,
+			20.0,
+			20.0
+		],
+		[
+			2000.0,
+			1260.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1380.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1500.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1620.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1740.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1860.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			1980.0,
+			20.0,
+			120.0
+		],
+		[
+			2000.0,
+			2100.0,
+			20.0,
+			20.0
+		],
+		[
+			720.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			760.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			800.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			840.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			880.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			920.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			960.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1000.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1040.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1080.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1120.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1160.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1200.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1240.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1280.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1320.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1360.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1400.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1440.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1480.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1520.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1560.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1600.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1640.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1680.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1720.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1760.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1800.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1840.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1880.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1920.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1960.0,
+			2120.0,
+			20.0,
+			120.0
+		],
+		[
+			1980.0,
+			2120.0,
+			40.0,
+			120.0
+		],
+		[
+			1280.0,
+			1260.0,
+			20.0,
+			120.0
+		],
+		[
+			1280.0,
+			1380.0,
+			20.0,
+			100.0
+		],
+		[
+			1900.0,
+			1260.0,
+			20.0,
+			120.0
+		],
+		[
+			1900.0,
+			1380.0,
+			20.0,
+			100.0
+		],
+		[
+			1500.0,
+			1060.0,
+			40.0,
+			120.0
+		],
+		[
+			1540.0,
+			1060.0,
+			40.0,
+			120.0
+		]
+	],
+	"work_pay": {
+		"minutes_per_round": 60.0,
+		"wage": 4.0
+	},
+	"zones": [
+		{
+			"color": "#a5b19a",
+			"id": "cells",
+			"name": "寝室区",
+			"rect": [
+				100.0,
+				130.0,
+				400.0,
+				840.0
+			]
+		},
+		{
+			"color": "#b4a27e",
+			"id": "workshop",
+			"name": "加工车间",
+			"rect": [
+				720.0,
+				140.0,
+				1304.0,
+				660.0
+			]
+		},
+		{
+			"color": "#a5b19a",
+			"id": "hall",
+			"name": "活动走廊",
+			"rect": [
+				720.0,
+				850.0,
+				1304.0,
+				290.0
+			]
+		},
+		{
+			"color": "#b6af8c",
+			"hide_label": true,
+			"id": "canteen",
+			"name": "食堂",
+			"rect": [
+				720.0,
+				1230.0,
+				1304.0,
+				1000.0
+			]
+		},
+		{
+			"color": "#8a9694",
+			"hide_label": true,
+			"id": "confinement",
+			"name": "禁闭区",
+			"rect": [
+				100.0,
+				1100.0,
+				440.0,
+				1004.0
+			]
+		},
+		{
+			"color": "#92a5a0",
+			"id": "escape",
+			"name": "门岗 / 逃生通道",
+			"rect": [
+				2164.0,
+				100.0,
+				716.0,
+				2200.0
+			]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/prison_v42/cafeteria_return_v42.png" id="1_adhqk"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_inua0"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 11.802929, 0, 112, 104.394135, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 19, 93, 93, 62, 208, 50, 132, 62, 255, 255, 255, 255, 187, 168, 72, 63, 208, 50, 132, 62, 255, 255, 255, 255, 187, 168, 72, 63, 107, 208, 88, 63, 255, 255, 255, 255, 19, 93, 93, 62, 107, 208, 88, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 204, 216, 60, 65, 0, 0, 240, 66, 204, 216, 60, 65, 0, 0, 240, 66, 230, 100, 232, 66, 0, 0, 0, 65, 230, 100, 232, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_inua0")
+base_texture = ExtResource("1_adhqk")
+image_size = Vector2(128, 128)

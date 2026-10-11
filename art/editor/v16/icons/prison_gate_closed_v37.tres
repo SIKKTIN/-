@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v23/cafeteria_gate_pair_v23.png" id="1_w0uji"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cbc84"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(7.999996, 32.888885, 0, 112, 62.22223, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 155, 180, 230, 60, 232, 40, 248, 61, 255, 255, 255, 255, 5, 157, 245, 62, 232, 40, 248, 61, 255, 255, 255, 255, 5, 157, 245, 62, 218, 128, 90, 63, 255, 255, 255, 255, 155, 180, 230, 60, 218, 128, 90, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(248, 255, 255, 64, 56, 142, 3, 66, 0, 0, 240, 66, 56, 142, 3, 66, 0, 0, 240, 66, 228, 56, 190, 66, 248, 255, 255, 64, 228, 56, 190, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_cbc84")
+base_texture = ExtResource("1_w0uji")
+image_size = Vector2(128, 128)

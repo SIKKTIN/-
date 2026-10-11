@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v38/four_corner_master.png" id="1_m57qh"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ql5xq"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(45.333336, 8, 0, 37.333336, 112, 0),
+"attribute_data": PackedByteArray("/////1XVYz8AAGw9/////6sqdT8AAGw9/////6sqdT8AAOA9/////1XVYz8AAOA9/////1XVYz8AAOA9/////6sqdT8AAOA9/////6sqdT8AAEE+/////1XVYz8AAEE+/////1XVYz8AAEE+/////6sqdT8AAEE+/////6sqdT8AAG8+/////1XVYz8AAG8+"),
+"format": 34393296921,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("VlU1QgAAAEFWVaVCAAAAQVZVpUKIiAhCVlU1QoiICEJWVTVCiIgIQlZVpUKIiAhCVlWlQkREtEJWVTVCRES0QlZVNUJERLRCVlWlQkREtEJWVaVCAADwQlZVNUIAAPBC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_ql5xq")
+base_texture = ExtResource("1_m57qh")
+image_size = Vector2(128, 128)

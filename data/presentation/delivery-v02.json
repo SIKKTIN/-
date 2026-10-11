@@ -1,0 +1,300 @@
+{
+  "schema": 2,
+  "version": "art-v02-perspective-20261004-54a7161c7820",
+  "base_asset_version": "art-v01-20261004-a8676014f0d4",
+  "user_authorized_replacement": true,
+  "scope": "scene art and character display size; original characters/UI/FX/font/audio reused",
+  "reference": "docs/art/r02-perspective-study-v01.png",
+  "assets": [
+    {
+      "folder": "art/environment",
+      "id": "floor_tile_v02",
+      "w": 256,
+      "h": 256,
+      "shadow_baked": false,
+      "world_size": [
+        128,
+        128
+      ],
+      "opaque": true,
+      "tileable": true,
+      "purpose": "quiet floor; repeat at 128 world units, not old 40",
+      "source": "res://art/environment/floor_tile_v02.svg",
+      "texture": "res://art/environment/floor_tile_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "low_wall_top_v02",
+      "w": 128,
+      "h": 128,
+      "shadow_baked": false,
+      "world_size": [
+        64,
+        64
+      ],
+      "opaque": true,
+      "tileable": true,
+      "purpose": "tile over elevated wall/obstacle top; renderer draws outer outline",
+      "source": "res://art/environment/low_wall_top_v02.svg",
+      "texture": "res://art/environment/low_wall_top_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "low_wall_front_v02",
+      "w": 128,
+      "h": 36,
+      "shadow_baked": false,
+      "world_size": [
+        64,
+        18
+      ],
+      "opaque": true,
+      "tileable_x": true,
+      "purpose": "front face at ground south edge; crop/repeat horizontally, height 18",
+      "source": "res://art/environment/low_wall_front_v02.svg",
+      "texture": "res://art/environment/low_wall_front_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/environment",
+      "id": "block_top_v02",
+      "w": 256,
+      "h": 224,
+      "shadow_baked": false,
+      "world_size": [
+        128,
+        112
+      ],
+      "opaque": false,
+      "fit_to_elevated_top": true,
+      "purpose": "single broad central obstacle top, avoids tiny repeated tiles",
+      "source": "res://art/environment/block_top_v02.svg",
+      "texture": "res://art/environment/block_top_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/props",
+      "id": "heavy_crate_v02",
+      "w": 188,
+      "h": 224,
+      "shadow_baked": false,
+      "world_size": [
+        94,
+        112
+      ],
+      "ground_rect": [
+        0,
+        40,
+        188,
+        184
+      ],
+      "anchor": [
+        94,
+        132
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        94,
+        92
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "purpose": "draw at crate.position+(0,-20), size (94,112), ground footprint unchanged",
+      "source": "res://art/props/heavy_crate_v02.svg",
+      "texture": "res://art/props/heavy_crate_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/props",
+      "id": "locked_door_closed_v02",
+      "w": 44,
+      "h": 280,
+      "shadow_baked": false,
+      "world_size": [
+        22,
+        140
+      ],
+      "ground_rect": [
+        0,
+        40,
+        44,
+        240
+      ],
+      "anchor": [
+        22,
+        160
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        22,
+        120
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "state": "closed",
+      "source": "res://art/props/locked_door_closed_v02.svg",
+      "texture": "res://art/props/locked_door_closed_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    },
+    {
+      "folder": "art/props",
+      "id": "locked_door_open_v02",
+      "w": 44,
+      "h": 280,
+      "shadow_baked": false,
+      "world_size": [
+        22,
+        140
+      ],
+      "ground_rect": [
+        0,
+        40,
+        44,
+        240
+      ],
+      "anchor": [
+        22,
+        160
+      ],
+      "visual_offset_from_ground_rect": [
+        0,
+        -20
+      ],
+      "footprint_world_size": [
+        22,
+        120
+      ],
+      "elevation_world": 20,
+      "fit_to_logic_rect": false,
+      "state": "open",
+      "purpose": "empty passage; do not draw a top crossbar across opened door",
+      "source": "res://art/props/locked_door_open_v02.svg",
+      "texture": "res://art/props/locked_door_open_v02.png",
+      "source_kind": "original-vector-authored",
+      "license": "Project-owned original artwork; no external art"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/environment/floor_tile_v02.svg",
+      "sha256": "ddb758c28d0bc534f25cec691b102d5d197d82a247c037bdd198c8bddaf45ce5",
+      "bytes": 15900
+    },
+    {
+      "path": "art/environment/floor_tile_v02.png",
+      "sha256": "1dfc6dcf116261adf280f41c46925e0ce1259ed14b903b50994b9412270998d3",
+      "bytes": 3388
+    },
+    {
+      "path": "art/environment/low_wall_top_v02.svg",
+      "sha256": "fa5ce59a289564ee7412063eda5c957e0230cc6285351aeb5f33a68ff3ee77b4",
+      "bytes": 5552
+    },
+    {
+      "path": "art/environment/low_wall_top_v02.png",
+      "sha256": "f4549cc4c444488a4c977d7dbe4c7f482f4585a82c6dd3813eb15445576eacba",
+      "bytes": 1579
+    },
+    {
+      "path": "art/environment/low_wall_front_v02.svg",
+      "sha256": "8c4355da3dc6b72c5e623c658bc81df06693df9a9d23569891dbfb1460fd330d",
+      "bytes": 2700
+    },
+    {
+      "path": "art/environment/low_wall_front_v02.png",
+      "sha256": "7510cb0176bcbfa432dc9ece2d5fa06d5ebb403a6d578f6b127dcb038d5173df",
+      "bytes": 1054
+    },
+    {
+      "path": "art/environment/block_top_v02.svg",
+      "sha256": "5873ab104da15a9e346f1f06d38db27af5445c56318025f47bbd7fd21d7c9564",
+      "bytes": 6961
+    },
+    {
+      "path": "art/environment/block_top_v02.png",
+      "sha256": "83d34b6441f5e68e2ecc8841238fa45ab2261cb282cc86837b6c549ffb46da42",
+      "bytes": 3713
+    },
+    {
+      "path": "art/props/heavy_crate_v02.svg",
+      "sha256": "b4dc738941ee33102c88734f0d711d025670d2855988d7e23dbefb29f39e7b37",
+      "bytes": 1306
+    },
+    {
+      "path": "art/props/heavy_crate_v02.png",
+      "sha256": "c155f66eef7c7fffd2025e7605f5a0b3ef7cd7dca7e265abab68622504572403",
+      "bytes": 7544
+    },
+    {
+      "path": "art/props/locked_door_closed_v02.svg",
+      "sha256": "b3d7736c5d98abfa1149203239bc7515523b2945347f324a883030aa6fb3d721",
+      "bytes": 847
+    },
+    {
+      "path": "art/props/locked_door_closed_v02.png",
+      "sha256": "aa07b86831cd9ccc0db23581fbf458142dc7600eab51853435f78a4dc54cba17",
+      "bytes": 1527
+    },
+    {
+      "path": "art/props/locked_door_open_v02.svg",
+      "sha256": "7447cc779cbf703ccf1a43438481d9ded1fbf77d6e6d78d044edabef88d977b1",
+      "bytes": 325
+    },
+    {
+      "path": "art/props/locked_door_open_v02.png",
+      "sha256": "f440d2dcfbca10bcb0608234f87a69814aa1e5d0df76cf1f07e3dded27206378",
+      "bytes": 664
+    },
+    {
+      "path": "art/environment/manifest-v02.json",
+      "sha256": "bcde137672f88528088f8d6c1be34e22136bbfae99e006d2136b491d0c739c4f",
+      "bytes": 2300
+    },
+    {
+      "path": "art/props/manifest-v02.json",
+      "sha256": "e3325cb50af7573cde97b2262e13d16fbf649aa969db9a8b61e5f6cb818739b8",
+      "bytes": 2536
+    },
+    {
+      "path": "art/characters/manifest-v02.json",
+      "sha256": "e019a8ec107c4d033f323e9e6f4f43731c2199168cd63c0246b7a2552c8e343d",
+      "bytes": 8434
+    }
+  ],
+  "rendering": {
+    "projection_offset": [
+      0,
+      -18
+    ],
+    "wall_elevation": 18,
+    "block_elevation": 24,
+    "crate_elevation": 20,
+    "door_elevation": 20,
+    "floor_tile_world_size": [
+      128,
+      128
+    ],
+    "draw_outline_color": "#303b46",
+    "draw_outline_world_width": 2,
+    "shadow_offset": [
+      5,
+      4
+    ],
+    "shadow_alpha": 0.12,
+    "collision_unchanged": true
+  }
+}

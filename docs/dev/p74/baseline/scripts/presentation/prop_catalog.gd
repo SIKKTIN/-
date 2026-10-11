@@ -1,0 +1,30 @@
+@tool
+extends RefCounted
+
+const FILES := ["res://art/props/prison_v08/manifest.json","res://art/props/cafeteria_v14/manifest.json","res://art/props/manifest-v03.json","res://art/props/prison_v17/manifest.json","res://art/props/security_v19/manifest.json","res://art/architecture/v23/manifest.json","res://art/architecture/v24/manifest.json","res://art/architecture/v25/manifest.json","res://art/architecture/v26/manifest.json","res://art/architecture/v27/manifest.json","res://art/architecture/v28/manifest.json","res://art/architecture/v29/manifest.json","res://art/architecture/v30/manifest.json","res://art/architecture/v31/manifest.json","res://art/architecture/v32/manifest.json","res://art/architecture/v33/manifest.json"]
+
+static func assets() -> Dictionary:
+	var result := {}
+	for file in FILES + ["res://art/architecture/v34/manifest.json","res://art/architecture/v36/manifest.json","res://art/architecture/v37/manifest.json","res://art/architecture/v38/manifest.json","res://art/props/cafeteria_v41/manifest.json","res://art/props/prison_v42/manifest.json"]:
+		if not FileAccess.file_exists(file): continue
+		var manifest = JSON.parse_string(FileAccess.get_file_as_string(file))
+		if not manifest is Dictionary: continue
+		for entry in manifest.get("assets",[]):
+			var asset: Dictionary = entry.duplicate(true)
+			if manifest.has("edge_shader") and not asset.has("alpha_core_shader"):
+				asset.alpha_core_shader = manifest.edge_shader
+			if file.contains("prison_v17") and str(asset.id) == "notice_board": asset.id = "prison_notice_board"
+			result[str(asset.id)] = asset
+	# Legacy map IDs reuse current art after their retired source files are archived.
+	var aliases = JSON.parse_string(FileAccess.get_file_as_string("res://art/props/legacy-aliases.json"))
+	if aliases is Dictionary:
+		for id in aliases.get("aliases",{}):
+			var target: String = str(aliases.aliases[id])
+			if not result.has(target):
+				push_error("Missing replacement prop: "+target)
+				continue
+			var asset: Dictionary = result[target].duplicate(true)
+			asset.id = str(id)
+			asset.replacement_asset = target
+			result[str(id)] = asset
+	return result

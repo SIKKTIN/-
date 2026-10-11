@@ -117,6 +117,7 @@ func _draw() -> void:
 		if presentation.profile.get("soft_shadows",false):
 			for volume in presentation.volumes:
 				if not shadow_sources.has(volume.footprint): shadow_sources[volume.footprint] = volume
+		preload("res://scripts/presentation/site_details.gd").paint(self,game.room_config.get("ground_details",[]))
 		for zone in game.room_config.get("zones",[]):
 			var values: Array = zone.rect
 			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
@@ -164,6 +165,12 @@ func _draw() -> void:
 		if game.dog and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
+		for route in world.escape_routes:
+			if route.id == "main": continue
+			var marker := Rect2(route.rect.get_center()-Vector2(27,35),Vector2(54,54))
+			var tint := Color("328b82") if world.escape_route_open(route) else Color("b8835d")
+			draw_rect(route.rect,Color(tint,0.12))
+			draw_texture_rect(world.art_textures.exit_v01,marker,false,tint)
 	else:
 		if presentation.dog_visual and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
 			draw_set_transform(game.dog.position)
@@ -199,6 +206,10 @@ func _draw() -> void:
 			var text: String = "食堂已关 · 12–14开放" if gate.closed else "食堂开放"
 			if str(gate.get("kind","")) == "confinement": text = str(gate.get("name","禁闭室"))+(" · 已锁" if gate.closed else " · 已开")
 			if str(gate.get("kind","")) == "workshop": text = "车间锁门 · 请在工位劳动" if gate.closed else "车间入场" if game.workshop and game.workshop.on_duty() else "车间开放"
+			if str(gate.get("kind","")) == "timed" and str(gate.id) != "cafeteria-entry":
+				var hours: Array = gate.get("hours",[720,840])
+				text = str(gate.get("name","管制门"))+(" · %02d:%02d–%02d:%02d开放" % [int(hours[0])/60,int(hours[0])%60,int(hours[1])/60,int(hours[1])%60] if gate.closed else " · 开放")
+			if str(gate.get("kind","")) in ["locked","latch"]: text = str(gate.get("name","检修门"))+(" · 已锁" if gate.closed else " · 已开")
 			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
 				draw_string(presentation.font,center+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:
@@ -206,7 +217,7 @@ func _draw() -> void:
 				draw_rect(bar,Color("536052"))
 				draw_rect(Rect2(bar.position,Vector2(bar.size.x*float(gate.progress),bar.size.y)),Color("9a8fb9"))
 		if world.lock_progress > 0 and not world.door_open:
-			var progress_offset := Vector2(-28,-float(presentation.visuals[0].definition.world_height)-48)
+			var progress_offset := Vector2(-28,-presentation.visuals[0].world_height()-48)
 			draw_rect(Rect2(point+progress_offset,Vector2(56,6)),Color("536052"))
 			draw_rect(Rect2(point+progress_offset,Vector2(56*world.lock_progress,6)),Color("9a8fb9"))
 		for visual in presentation.visuals:

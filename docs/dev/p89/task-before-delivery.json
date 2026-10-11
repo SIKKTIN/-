@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "p89-full-body-door-passages-20261009",
+    "title": "P89 全身门洞通行框与脚部移动框分离",
+    "description": "用户批准两种碰撞用途：日常移动仍脚部，门洞通行检查全身；门洞高于人物避免头部覆盖墙体。",
+    "kind": "程序",
+    "owner": "制作人",
+    "status": "进行中",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "2026-10-08",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "侧门可见口大于人物完整投影；保留8px脚部圈，门洞全身框阻止头肩蹭门框和关闭门；玩家、NPC及警卫寻路和实际移动一致，门开关/遮挡正确且追捕60/90性能无回退。",
+    "result": "确认门可见投影仅40px而人物约60px。保持墙底接缝向上扩到96px，并新增全身门框/门扇约束及共享寻路缓存。",
+    "dependencyIds": [
+      "p88-moving-outdoor-chase-fps-20261008"
+    ],
+    "references": [],
+    "selfReviewRole": "producer",
+    "workScope": {
+      "allowedPaths": [
+        "scripts/core/actor_footprint.gd",
+        "scripts/core/door_passage.gd",
+        "scripts/core/room_visibility.gd",
+        "scripts/core/room_access.gd",
+        "scripts/world/prison_world.gd",
+        "scripts/presentation/doorway_geometry.gd",
+        "scripts/presentation/doorway_view.gd",
+        "qa/p89*",
+        "docs/dev/p89/**",
+        "docs/tests/p89*"
+      ],
+      "entry": "res://scenes/main.tscn",
+      "interfaceContract": "脚部碰撞保持；门通行和寻路新增相同全身门框约束；复用现有门美术、保留相邻墙体接缝，不修改其他资产WIP。"
+    },
+    "assignment": {
+      "primaryId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "producer"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p89-plan-20261009",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "at": "2026-10-08T16:15:28.907Z"
+      }
+    ]
+  },
+  "revision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92",
+  "scheduleRevision": "ed36f44cd7ee7890ddb51f28c483c6375cece14245fceb3c3562985c77cbde0f",
+  "planChanges": [
+    {
+      "id": "p89-plan-20261009",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-08T16:15:28.907Z",
+      "reason": "用户确认实施两种碰撞框和较高门洞。",
+      "createdTaskIds": [
+        "p89-full-body-door-passages-20261009"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p88-moving-outdoor-chase-fps-20261008",
+      "title": "P88 室外移动监工追捕30帧复现和修复",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "进行中",
+    "feedbackId": "p89-start-20261009",
+    "feedbackState": "recorded",
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92"
+  },
+  "feedback": [
+    {
+      "id": "p89-start-20261009",
+      "taskId": "p89-full-body-door-passages-20261009",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "status": "进行中",
+      "summary": "确认门可见投影仅40px而人物约60px。保持墙底接缝向上扩到96px，并新增全身门框/门扇约束及共享寻路缓存。",
+      "evidence": [
+        "docs/dev/p89/baseline.json"
+      ],
+      "at": "2026-10-08T16:15:32.567Z",
+      "evidenceVersion": 1,
+      "state": "recorded",
+      "correctionVersion": 0,
+      "guidance": {
+        "taskStatus": "进行中",
+        "feedbackId": "p89-start-20261009",
+        "feedbackState": "recorded",
+        "evidenceVersion": 1,
+        "correctionVersion": 0,
+        "actions": [
+          {
+            "operation": "feedback_submit",
+            "cli": "feedback submit",
+            "statuses": [
+              "进行中",
+              "受阻",
+              "待验收"
+            ],
+            "meaning": "报告实际进度或提交验收证据"
+          }
+        ],
+        "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+        "taskRevision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92"
+      },
+      "reviewMode": "producer-self",
+      "reviewerName": "制作人",
+      "taskRevision": "52c221dce67b378f0b7d7d95fabf79378e575e29e3aa168de1fe5fa44afb9e92",
+      "delivery": "recorded",
+      "next": "继续当前任务"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "body renderer inherits actor depth": true,
+    "front body visibly clears foreground wall": true,
+    "front landing is walkable": true,
+    "ground items retain independent layer": true,
+    "legacy flat mode retains depth": true,
+    "map change removes old merchant body": true,
+    "merchant appears when room revealed": true,
+    "merchant behind wall keeps lower depth": true,
+    "merchant hidden under closed room cover": true,
+    "merchant uses same foot depth as other actors": true,
+    "new map has one correct merchant body": true,
+    "one body attached to merchant actor": true,
+    "round reset does not duplicate merchant": true,
+    "shop stock unaffected": true,
+    "walking frames preserved": true
+  },
+  "failed": [],
+  "front_face_changed_pixels": 695,
+  "passed": 15
+}

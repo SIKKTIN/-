@@ -1,0 +1,143 @@
+{
+  "activated_only": "r04.actor:0",
+  "asset": "res://art/characters/player_overhead_v50/manifest.json",
+  "animation": {
+    "directions": 4,
+    "authored_sheets": 3,
+    "idle_per_sheet": 1,
+    "walk_frames_per_direction": 8,
+    "fps": 10
+  },
+  "unchanged_sources": {
+    "art/characters/factory_cast_v47/manifest.json": true,
+    "art/characters/factory_occupations_v48/manifest.json": true,
+    "art/characters/manifest-v03.json": true,
+    "art/characters/manifest-v09.json": true,
+    "art/characters/thug_v17/manifest.json": true,
+    "scripts/core/actor_footprint.gd": true
+  },
+  "checks": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.33,
+      "checks": 17,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "source": "docs\\tests\\p112-player-overhead\\feet.json"
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.26,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "source": "docs\\tests\\p112-player-overhead\\structure.json"
+    },
+    {
+      "id": "overhead",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.06,
+      "checks": 38,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "source": "docs\\tests\\p112-overhead-confirmed\\overhead.json"
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 16.62,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "source": "docs\\tests\\p112-overhead-motion\\map.json"
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 43.38,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "source": "docs\\tests\\p112-overhead-motion\\tutorial.json"
+    }
+  ],
+  "total_checks": 198,
+  "passed": true,
+  "legacy_NPC_walk_report": "docs/dev/older-worker-walk/checks.json",
+  "prompts": "docs/art/player-overhead-v50/prompts.txt",
+  "native_checks_passed": true,
+  "native_frame_audit": {
+    "down": {
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "max_height": 101.925926208496,
+      "min_height": 97.7777786254883
+    },
+    "left": {
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "max_height": 101.037040710449,
+      "min_height": 95.7037048339844
+    },
+    "right": {
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "max_height": 101.037040710449,
+      "min_height": 95.7037048339844
+    },
+    "up": {
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "max_height": 98.0740737915039,
+      "min_height": 93.6296310424805
+    }
+  },
+  "live_demo_started": false,
+  "trial_state": "Prototype reverted at user request; original protagonist restored, prior proportions and foot collision retained.",
+  "status": "reverted",
+  "runtime_active": false
+}

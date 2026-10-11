@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v33/full_wall_master_v33.png" id="1_nnal1"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3lgv3"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(45.333336, 8, 0, 37.33333, 112, 0),
+"attribute_data": PackedByteArray("/////6uq7D4AgCc//////1VVCj8AgCc//////1VVCj8AgDw//////6uq7D4AgDw//////6uq7D4AgDw//////1VVCj8AgDw//////1VVCj8AgFw//////6uq7D4AgFw//////6uq7D4AgFw//////1VVCj8AgFw//////1VVCj8AgHI//////6uq7D4AgHI//////1VVCj8AAAI+/////1VVHj8AAAI+/////1VVHj8AAPo+/////1VVCj8AAPo+"),
+"format": 34393296921,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("VlU1QgAAAEEAAIBCAAAAQQAAgEKIiAhCVlU1QoiICEJWVTVCiIgIQgAAgEKIiAhCAACAQkREtEJWVTVCRES0QlZVNUJERLRCAACAQkREtEIAAIBCAADwQlZVNUIAAPBCAACAQgAAAEFVVaVCAAAAQVVVpUIAAPBCAACAQgAA8EI=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_3lgv3")
+base_texture = ExtResource("1_nnal1")
+image_size = Vector2(128, 128)

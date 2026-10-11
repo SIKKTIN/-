@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/cafeteria_v41/communal_table_v41.png" id="1_m2n77"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yfv7x"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(7.999996, 32.988556, 0, 112, 62.02289, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 85, 85, 149, 61, 0, 0, 9, 62, 255, 255, 255, 255, 171, 42, 109, 63, 0, 0, 9, 62, 255, 255, 255, 255, 171, 42, 109, 63, 0, 192, 87, 63, 255, 255, 255, 255, 85, 85, 149, 61, 0, 192, 87, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(248, 255, 255, 64, 72, 244, 3, 66, 0, 0, 240, 66, 72, 244, 3, 66, 0, 0, 240, 66, 220, 5, 190, 66, 248, 255, 255, 64, 220, 5, 190, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_yfv7x")
+base_texture = ExtResource("1_m2n77")
+image_size = Vector2(128, 128)

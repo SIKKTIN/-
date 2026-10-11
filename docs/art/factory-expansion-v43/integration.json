@@ -1,0 +1,65 @@
+{
+  "bounds": [
+    80,
+    100,
+    4000,
+    3000
+  ],
+  "new_assets": 8,
+  "fixtures_before": 57,
+  "fixtures_after": 92,
+  "walls_before": 116,
+  "walls_after": 510,
+  "core_fixture_rectangles_preserved": true,
+  "before_sha256": "bcb1e3108f897840aa77749de95030bf4c1d52c3fafd3bde630f63192bbeb211",
+  "escape_routes": [
+    {
+      "id": "main",
+      "name": "正门",
+      "rect": [
+        2220,
+        100,
+        180,
+        100
+      ],
+      "approach": [
+        2230,
+        850
+      ]
+    },
+    {
+      "id": "logistics",
+      "name": "物流出口",
+      "rect": [
+        3800,
+        100,
+        180,
+        100
+      ],
+      "gate_id": "loading-exit",
+      "hours": [
+        960,
+        1020
+      ],
+      "approach": [
+        3890,
+        320
+      ]
+    },
+    {
+      "id": "service",
+      "name": "后勤出口",
+      "rect": [
+        3760,
+        2980,
+        180,
+        100
+      ],
+      "gate_id": "rear-exit",
+      "approach": [
+        3850,
+        2880
+      ]
+    }
+  ]
+}

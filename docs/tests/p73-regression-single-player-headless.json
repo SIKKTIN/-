@@ -42,7 +42,7 @@
 		"npc_planner_read_only": true,
 		"npc_work_pays": true,
 		"player_alone_wins": true,
-		"player_can_open_gate_alone_at_night": true,
+		"player_can_open_gate_alone_at_night": false,
 		"player_can_order_escape": true,
 		"player_can_resume_default": true,
 		"player_can_take_control": true,
@@ -50,8 +50,10 @@
 		"reset_restores_defaults": true,
 		"victory_keeps_player_selection": true
 	},
-	"failed": [],
+	"failed": [
+		"player_can_open_gate_alone_at_night"
+	],
 	"native": false,
-	"passed": 49,
+	"passed": 48,
 	"total": 49
 }

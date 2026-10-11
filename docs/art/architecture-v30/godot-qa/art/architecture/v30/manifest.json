@@ -1,0 +1,306 @@
+{
+  "schema": 2,
+  "version": "architecture-v30-20261007",
+  "style": "APPROVED-NATURAL-MASONRY-JUNCTION",
+  "master_texture": "res://art/architecture/v30/cafeteria_t_master_v30.png",
+  "master_sha256": "0224fee6772744a6035c92e9cadf87ba31c2d8e8afe2b91aad449794dad549f9",
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  },
+  "assets": [
+    {
+      "id": "cafeteria_t_20_v30",
+      "name": "自然石墙向下接口·20厚",
+      "texture": "res://art/architecture/v30/cafeteria_t_master_v30.png",
+      "texture_size": [
+        1631,
+        964
+      ],
+      "region": [
+        0,
+        0,
+        1631,
+        964
+      ],
+      "world_size": [
+        132,
+        80
+      ],
+      "render_size": [
+        132,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            60,
+            278,
+            684,
+            160
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            744,
+            278,
+            144,
+            160
+          ],
+          "destination": [
+            56,
+            0,
+            20,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            888,
+            278,
+            684,
+            160
+          ],
+          "destination": [
+            76,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            740,
+            438,
+            152,
+            362
+          ],
+          "destination": [
+            56,
+            24,
+            20,
+            56
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        }
+      ],
+      "cross_width_world": 20,
+      "stem_rect": [
+        56,
+        24,
+        20,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        132,
+        24
+      ],
+      "inner_chamfer_bounds": [],
+      "return_start_world": 80,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "0224fee6772744a6035c92e9cadf87ba31c2d8e8afe2b91aad449794dad549f9",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v10/icons/cafeteria_t_20_v30.tres"
+    },
+    {
+      "id": "cafeteria_t_v30",
+      "name": "自然石墙向下接口·24厚",
+      "texture": "res://art/architecture/v30/cafeteria_t_master_v30.png",
+      "texture_size": [
+        1631,
+        964
+      ],
+      "region": [
+        0,
+        0,
+        1631,
+        964
+      ],
+      "world_size": [
+        136,
+        80
+      ],
+      "render_size": [
+        136,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            60,
+            278,
+            684,
+            160
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            744,
+            278,
+            144,
+            160
+          ],
+          "destination": [
+            56,
+            0,
+            24,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            888,
+            278,
+            684,
+            160
+          ],
+          "destination": [
+            80,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        },
+        {
+          "source": [
+            740,
+            438,
+            152,
+            362
+          ],
+          "destination": [
+            56,
+            24,
+            24,
+            56
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "ordinary individual masonry blocks; small header and two normal stem stones; no raised T plaque"
+        }
+      ],
+      "cross_width_world": 24,
+      "stem_rect": [
+        56,
+        24,
+        24,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        136,
+        24
+      ],
+      "inner_chamfer_bounds": [],
+      "return_start_world": 80,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "0224fee6772744a6035c92e9cadf87ba31c2d8e8afe2b91aad449794dad549f9",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v10/icons/cafeteria_t_v30.tres"
+    }
+  ]
+}

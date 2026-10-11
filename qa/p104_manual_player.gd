@@ -24,9 +24,7 @@ func run():
 		game.npc_life.tick(1)
 		check("no_player_schedule_at_"+str(minute),game.actors[0].position==home and not game.orders.active.has(0) and not game.routines.records.has(0))
 	game.routines.resume(0)
-	var plan: Array = game.routines.plans.duplicate(true)
-	plan[0] = ["work","meal","work","free","free"]
-	check("old_planner_cannot_reenable_autoplay",not game.routines.apply_today(plan) and not game.routines.records.has(0) and not game.orders.active.has(0))
+	check("old_planner_cannot_reenable_autoplay",not game.routines.has_method("apply_today") and not game.routines.records.has(0) and not game.orders.active.has(0))
 	reset("backpack",600)
 	game.actors[0].immune_until = INF
 	check("standing_at_workstation_does_not_start_work",not game.routines.is_working(0) and not game.routines.records.has(0))
@@ -71,9 +69,9 @@ func run():
 	reset("backpack",740)
 	game.routines.meal_minutes[1] = 20
 	game.routines.meal_minutes[2] = 20
-	game.actors[1].position = Vector2(1120,1300)
-	game.actors[2].position = Vector2(1050,1300)
-	game.actors[0].position = Vector2(750,1300)
+	game.actors[1].position = living_point(1120,1300)
+	game.actors[2].position = living_point(1050,1300)
+	game.actors[0].position = living_point(750,1300)
 	game.orders.clear()
 	game.attributes.values[1].stamina = 100
 	game.attributes.values[2].stamina = 35
@@ -95,8 +93,8 @@ func run():
 	paused = false
 	check("pause_stops_npc_life",game.npc_life.decisions==decisions)
 	if DisplayServer.get_name()!="headless":
-		game.actors[0].position = Vector2(1120,1400)
-		game.map_camera.center_on(Vector2(1150,1300))
+		game.actors[0].position = living_point(1120,1400)
+		game.map_camera.center_on(living_point(1150,1300))
 		game.room_visibility.tick(1,true)
 		game.presentation.tick(0)
 		game.fullscreen_ui.layout()

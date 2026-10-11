@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v33/full_wall_master_v33.png" id="1_lyncu"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2c7k0"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(28.971195, 8, 0, 70.05762, 112, 0),
+"attribute_data": PackedByteArray("/////1VVhT4AAAI+/////6uqxD4AAAI+/////6uqxD4AAPo+/////1VVhT4AAPo+/////6uqxD4AAAI+/////1VVhT4AAAI+/////1VVhT4AAPo+/////6uqxD4AAPo+"),
+"format": 34393296921,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AsXnQQAAAEEAAIBCAAAAQQAAgEIAAPBCAsXnQQAA8EIAAIBCAAAAQcAOxkIAAABBwA7GQgAA8EIAAIBCAADwQg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_2c7k0")
+base_texture = ExtResource("1_lyncu")
+image_size = Vector2(128, 128)

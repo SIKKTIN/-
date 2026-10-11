@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/prison_v42/bunk_bed_v42.png" id="1_80ktl"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2gyg5"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(37.48553, 8, 0, 53.028934, 112, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 220, 173, 115, 62, 149, 29, 91, 61, 255, 255, 255, 255, 242, 78, 67, 63, 149, 29, 91, 61, 255, 255, 255, 255, 242, 78, 67, 63, 50, 216, 112, 63, 255, 255, 255, 255, 220, 173, 115, 62, 50, 216, 112, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(47, 241, 21, 66, 0, 0, 0, 65, 104, 7, 181, 66, 0, 0, 0, 65, 104, 7, 181, 66, 0, 0, 240, 66, 47, 241, 21, 66, 0, 0, 240, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_2gyg5")
+base_texture = ExtResource("1_80ktl")
+image_size = Vector2(128, 128)

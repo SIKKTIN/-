@@ -1,0 +1,57 @@
+{
+  "mode": "built-in image_gen",
+  "camera_reference": "docs/art/cafeteria-tables-v41/concept-overhead-v4.png",
+  "sources": {
+    "cafeteria_counter_v42": "exec-2b5ab592-d2a7-4350-b330-e800e0d79e61.png",
+    "cafeteria_backline_v42": "exec-762fe14f-4c3f-41b8-bb52-7bc86a382848.png",
+    "workbench_v42": "exec-4f998784-a104-4b16-b1a1-ff8130b7c0d3.png",
+    "tool_locker_v42": "exec-b3806170-3ada-447e-ad1b-cea3b438b292.png",
+    "laundry_cart_v42": "exec-1bb65cee-38cb-425f-9c00-1fbf112061b9.png",
+    "wash_basin_v42": "exec-776fabe0-6edb-4403-aa9c-ae8cce6dc45d.png",
+    "bunk_bed_v42": "exec-2564b3d2-ae53-40d0-bc82-062433fa2b5e.png",
+    "toilet_sink_v42": "exec-7635ed4d-6b99-416a-8fe3-965cc442e5bb.png",
+    "cafeteria_return_v42": "exec-e70e8d2c-d5ec-4ec8-be5b-1e6116bd94c7.png"
+  },
+  "prompts": [
+    {
+      "id": "cafeteria_counter_v42",
+      "prompt": "Production game sprite, image1 approved camera reference. Extract and faithfully redraw ONLY the FRONT SERVING COUNTER from the approved cafeteria concept. Elevated orthographic top-down RPG view, visible rectangular top plane with clear depth, modest shallow front cabinet band, straight vertical end edges, no trapezoid/perspective convergence. Exact approved arrangement left-to-right: rice pan, vegetable/potato pan, two closed rectangular pans, soup pot with ladle, two stacked tray piles. Complete long muted gray steel counter with thin front rim, modest panel front and short feet. Keep painted worn texture, soft restrained dark outlines, same muted kitchen materials and camera as reference. No rear appliances. One isolated sprite centered on TRUE TRANSPARENT RGBA, plenty margin, clear alpha around feet and below, no floor/wall/backdrop/glow/text/huge shadow. Wide landscape about3:1 canvas. Food openings broad top-visible rectangles, pots show ellipse tops from above. Do not convert to flat frontal elevation."
+    },
+    {
+      "id": "cafeteria_backline_v42",
+      "prompt": "Production transparent game sprite. Reference image1 approved cafeteria camera/style. Extract and redraw ONLY the REAR KITCHEN EQUIPMENT ROW exactly as seen against the wall: small cupboard at far left, tray storage shelf, two covered worktop pans and pot on lower shelf, four cup containers shelf above rectangular wash sink, tall fridge at far right. Unified elevated orthographic top-down RPG projection: visible rectangular tops on fridge/cupboard and broad worktop/sink openings, equal-width front/back edges, vertical ends, no trapezoid/convergence or angled sides. Keep restrained fronts, short straight supports, correct tier occlusion, top-visible pot ellipses, muted warm gray steel handpainted worn surfaces/dark outlines. Same camera as wood tables of reference. One COMPLETE backline assembly isolated on genuinely transparent RGBA, no wall or floor or lightfixture, no foreground serving counter, no UI/text/glow/heavy baked shadow. Clear transparent spaces under shelves and between feet, full uncropped margin. Wide landscape3:1canvas."
+    },
+    {
+      "id": "workbench_v42",
+      "prompt": "Production transparent RPG game sprite. Image1 is the OLD workbench design/material to retain; image2 is the approved CAMERA target. Redraw one complete prison wood workbench with a steel vice mounted on the RIGHT side, warm worn honey wood three plank top and muted green-gray steel frame. Match elevated top-down orthographic camera of dining tables in image2: tabletop is a BROAD rectangle with horizontal board seams, vertical end edges and front/back EQUAL width; no trapezoid taper, no isometric side. Thin front apron, short restrained vertical steel legs and modest lower brace naturally behind, not large frontal cavity. Vice visible from above, jaws axis-aligned, knob clear. Same handpainted prison materials, no change identity. Single complete sprite centered transparent RGBA with margin, alpha between legs, no floor/wall/background/glow/heavy shadow, no additional tools/labels/people."
+    },
+    {
+      "id": "tool_locker_v42",
+      "prompt": "Redraw OLD double tool locker (image1) as one production sprite in approved elevated orthographic camera of image2. Same two dark green-gray steel doors, vents and inset handles, worn chipped prison surfaces. Clearly visible RECTANGULAR top cap with meaningful top depth about20-25% total silhouette height, modest upright fronts, short feet. Front/back widths equal, left/right end edges vertical, no taper or visible diagonal side panel. NOT frontal elevation, NOT isometric. Keep overall complete tall two-door cabinet, mute surfaces and restrained dark contours consistent with approved gray fridge. Isolated complete centered object transparent RGBA, clear margins, no scene/floor/wall/glow/baked shadow/text/additional objects."
+    },
+    {
+      "id": "tool_locker_v42_correction",
+      "prompt": "Correct ONLY the geometry of this green steel two-door locker. Its current top cap is a trapezoid, unacceptable. Redraw the entire top plane as a TRUE SCREEN-SPACE RECTANGLE: top-left x must EXACTLY equal bottom-left x of the cap; top-right x must EXACTLY equal bottom-right x. Left/right cap boundaries perfectly VERTICAL, top/bottom perfectly HORIZONTAL, equal widths at rear/front. Increase top plane height modestly. Keep two doors, vents, handles, feet, chipped paint, all other design intact. Top-down orthographic RPG sprite with no perspective convergence or visible side faces. Original front doors read slightly shortened, whole cabinet a unified shape. Genuine transparent alpha background, full object margin, no floor, glow, shadow or labels. The rectangular cap correction must be clearly visible."
+    },
+    {
+      "id": "laundry_cart_v42",
+      "prompt": "Production game object edit: image1 old laundry cart design, image2 approved CAMERA. Redraw cart from elevated orthographic top-down RPG projection, DIRECTLY aligned to grid with NO angled side panel and NO perspective convergence. A rectangular open green-gray steel cart, broad true RECTANGULAR top opening, left/right top edges screen-vertical and front/rear equal width. Stack cream towels inside, visible from above. U-shaped handle along REAR horizontal edge, upright small front face and short wheels below, rear wheels occluded. FRONT FACE centered, do not show right side panel. Same muted handpainted worn material, restrained outlines, readable forms. One complete isolated object transparent RGBA centered with margin, alpha around handle and wheels, no scene/floor/backdrop/glow/heavy shadow/text. No rotated isometric basket, no trapezoid."
+    },
+    {
+      "id": "wash_basin_v42",
+      "prompt": "Production game sprite edit, image1 old two-tap wash basin MATERIAL/construction, image2 camera target. Redraw complete cream concrete trough with TWO faucets and gray-green supports using elevated orthographic top-down RPG camera. Basin outer top is a TRUE RECTANGLE with vertical left/right edges and equal width front/back, broad visible top and inner basin floor with two drains, restrained thin front face and short legs. No trapezoid, no narrowing toward back, no isometric side faces. Both taps readable upright, placed along rear edge; lower pipe behind occluded naturally. Muted aged cream, handpainted chips and dark steel, moderate dark outline. One complete isolated sprite genuinely transparent RGBA, clear margin and alpha under supports, no floor/wall/glow/baked shadow/text/scene. Same top-to-front balance as approved cafeteria sink."
+    },
+    {
+      "id": "bunk_bed_v42",
+      "prompt": "Production object camera correction. Image1 old prison BUNK BED, image2 camera reference. Redraw one complete two-tier dark green-gray steel bunk with cream mattress/pillow and folded muted olive blanket on both bunks, right-front ladder. Bed LENGTH runs screen VERTICALLY (north-south), not horizontal or diagonal. Elevated orthographic top-down tile-game projection: upper mattress broad true rectangle, vertical sides parallel and EQUAL width at head and foot, clearly visible bed top and restrained front rail. Four straight steel posts, lower bunk naturally partially occluded by upper bunk, compact readable ladder, no exaggerated huge frontal space. No convergence, no tapered mattress, no side vanishing point or diagonal isometric. Same worn handpainted muted prison finish and outline, full object preserved. One isolated complete centered transparent RGBA sprite, all bed parts uncropped with margins, alpha between frameposts, no floor/walls/glow/background/text/shadow. Portrait canvas appropriate for north-south bed."
+    },
+    {
+      "id": "toilet_sink_v42",
+      "prompt": "Production game sprite camera correction. Image1 old combined prison toilet and washbasin, image2 target camera. Redraw SAME compact cream ceramic prison toilet with an integrated small rectangular washbasin ABOVE/BEHIND cistern. Elevated orthographic top-down tile RPG view: basin top opening broad true rectangle, equal front/back width, vertical left/right edges, clear drain and ONE faucet at upper right; short upright tank face with side flush knob; toilet open oval bowl visibly viewed from above, restrained front pedestal and bolts. No narrowing rectilinear shapes, no huge frontal cistern, no angled side planes or isometric. Preserve recognizable worn cream ceramic, gray metal faucet, handpainted muted outline/texture. Complete isolated object centered genuinely transparent RGBA, clear margins, no floor/walls/backdrop/glow/heavy shadow/text. Do not add lid, bathtub, second faucet, furniture or contents. Portrait/square sprite, north-south orientation."
+    },
+    {
+      "id": "cafeteria_return_v42",
+      "prompt": "Production sprite image edit. Image1 old cafeteria tray return rack design, image2 target camera. Redraw entire small gray steel two-level rack with two stacks of empty metal trays on TOP and two collecting bins below (left scraps of rice/vegetables, right spoons). Unified elevated orthographic top-down tile RPG camera: broad overhead TRUE RECTANGULAR tray top surfaces with vertical end edges and horizontal front/back edges equal width, visible bin openings viewed from above, modest front faces and short straight rack supports. Tier occlusion correct, no trapezoid/narrowing/angled side or frontal showroom projection. Preserve restrained muted warm gray kitchen steel and handpainted worn finish; clean readable silhouette compatible with current kitchen and dining table reference. One complete isolated sprite centered genuine transparent RGBA, clear margin and alpha below legs, no floor/wall/background/glow/heavy shadow/text/additional items."
+    }
+  ]
+}

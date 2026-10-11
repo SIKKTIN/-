@@ -12,7 +12,7 @@ var confined := false
 var confinement_rect := Rect2()
 
 func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
-	return not confined or confinement_rect.grow(-radius).has_point(point)
+	return not confined or Footprint.inset(confinement_rect,radius).has_point(point)
 var selected: bool = false
 var immune_until: float = 0.0
 var moved_this_frame: bool = false
@@ -25,14 +25,10 @@ func _draw() -> void:
 	if presentation_layers:
 		return
 	if art_body:
-		if selected:
-			draw_arc(Vector2.ZERO,23,0,TAU,40,Color("328b82"),3,true)
 		draw_line(facing*17,facing*25,Color("328b82"),3,true)
 		return
 	var outline := Color("303b46")
 	_draw_shadow_ellipse(Vector2(0, 2), Vector2(16, 5), Color(0, 0, 0, 0.14))
-	if selected:
-		draw_arc(Vector2.ZERO, 23, 0, TAU, 40, Color("328b82"), 3, true)
 	draw_line(Vector2(-5, -8), Vector2(-7, 1), outline, 7, true)
 	draw_line(Vector2(5, -8), Vector2(7, 1), outline, 7, true)
 	draw_style_box(_body_style(), Rect2(-13, -28, 26, 22))
@@ -42,7 +38,6 @@ func _draw() -> void:
 	draw_circle(Vector2(4, -35), 1.5, outline)
 	draw_line(Vector2(-3, -28), Vector2(3, -28), outline, 1.5)
 	draw_line(Vector2.ZERO, facing * 11, Color("328b82"), 2)
-	draw_string(ThemeDB.fallback_font, Vector2(-4, -12), str(actor_id + 1), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, outline)
 	if action_state != "idle":
 		draw_circle(Vector2(18, -40), 6, Color("9a8fb9"))
 

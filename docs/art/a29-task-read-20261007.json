@@ -1,0 +1,95 @@
+{
+  "task": {
+    "id": "a29-stone-t-junction-20261007",
+    "title": "A29 同套石墙T形连接瓦片与编辑图标",
+    "description": "厨房隔墙接横墙处应为T接口，原L造成横压顶多余弯头。制作向下支墙20/24两规格完整T压顶，共同V24/V27/V28材质，非两个L拼合。",
+    "kind": "美术",
+    "owner": "主美",
+    "status": "待开始",
+    "priority": "高",
+    "start": "",
+    "end": "",
+    "actualStart": "",
+    "actualEnd": "",
+    "milestoneId": "",
+    "acceptance": "连续左右横臂+中间向下纵臂，两内凹倒角真实透明；色/墙厚/光向同现套，20/24本体+配套图标+manifest+拼接证据；旧资源SHA不变。",
+    "result": "",
+    "dependencyIds": [
+      "p61-editor-runtime-architecture-preview-20261007"
+    ],
+    "references": [],
+    "workScope": {
+      "allowedPaths": [
+        "art/architecture/v29/**",
+        "art/editor/v09/**",
+        "docs/art/architecture-v29/**"
+      ],
+      "entry": "art/architecture/v29/manifest.json",
+      "interfaceContract": "主美本人凭证；独立向下T主纹理（imagegen）保留alpha，主体可用assembly_patches重排同源生成图的坐标，标准20尺寸132×80 stem x56,width20，24尺寸136×80 stem x56,width24；横臂深24，纵臂至y80，下端接V27。若需调整接口先反馈。代码/data/Git由制作人负责。先交候选供实际接入，再最终冻结。"
+    },
+    "assignment": {
+      "primaryId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+      "collaboratorIds": [],
+      "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4"
+    },
+    "positionIds": [
+      "art-director"
+    ],
+    "dispatchHistory": [
+      {
+        "id": "p62-t-junction-plan-20261007",
+        "fromId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+        "toId": "20df60dc-6f5f-40ca-930a-a606b45a0dac",
+        "at": "2026-10-06T17:45:05.159Z"
+      }
+    ]
+  },
+  "revision": "42d0d066288c7da5512549793d7db3cf98f7d5d7cfdd5571f451cdfa2e490d1b",
+  "scheduleRevision": "9b9be374aa3beaeafae2056f845c4d73a9dc89533170ed711856dbc266e488d4",
+  "planChanges": [
+    {
+      "id": "p62-t-junction-plan-20261007",
+      "memberId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+      "memberName": "制作人",
+      "at": "2026-10-06T17:45:05.159Z",
+      "reason": "用户截图明确缺T形石墙接口，补同套素材并修正厨房两个接点。",
+      "createdTaskIds": [
+        "a29-stone-t-junction-20261007",
+        "p62-t-junction-integration-20261007"
+      ],
+      "dependencyChanges": [],
+      "milestoneChanges": []
+    }
+  ],
+  "supervisorId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "reviewerId": "adc303e1-b1e9-4a6f-8b44-de27cc83cca4",
+  "dependencies": [
+    {
+      "id": "p61-editor-runtime-architecture-preview-20261007",
+      "title": "P61 编辑器画布同步游戏建筑表现",
+      "status": "已完成"
+    }
+  ],
+  "guidance": {
+    "taskStatus": "待开始",
+    "feedbackId": null,
+    "feedbackState": null,
+    "evidenceVersion": 1,
+    "correctionVersion": 0,
+    "actions": [
+      {
+        "operation": "feedback_submit",
+        "cli": "feedback submit",
+        "statuses": [
+          "进行中",
+          "受阻",
+          "待验收"
+        ],
+        "meaning": "报告实际进度或提交验收证据"
+      }
+    ],
+    "note": "提示不代替权限、版本、输入与验收检查；更改证据文件不会自动更新已登记的反馈。",
+    "taskRevision": "42d0d066288c7da5512549793d7db3cf98f7d5d7cfdd5571f451cdfa2e490d1b"
+  },
+  "feedback": []
+}

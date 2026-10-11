@@ -65,7 +65,7 @@ func mobile_label() -> String:
 	if target.kind == "talk": return str(target.get("name","NPC"))+"\n聊天"
 	if target.kind == "skill":
 		return "停止操作" if game.skills.actions.has(game.selected_actor_id) else {"chat":"分散注意","lockpick":"撬锁","strong":"推箱"}.get(kind,"互动")
-	return {"pickup":"拾取","trade":"购买","meal":"取餐","work":"工作"}.get(target.kind,"互动")
+	return {"pickup":"拾取","trade":"购买","meal":"取餐","work":"工作","latch":"开侧门"}.get(target.kind,"互动")
 
 func mobile_icon() -> Texture2D:
 	var target := _mobile_target()
@@ -241,6 +241,8 @@ func _activate_extra(key: String) -> void:
 		game.routines.start_meal(game.selected_actor_id)
 	elif key.begins_with("work:"):
 		game.workshop.start_work(game.selected_actor_id)
+	elif key.begins_with("latch:"):
+		game.room_access.open_latch(game.selected_actor_id,key.substr(6))
 	else:
 		game.shop_panel.open(key.substr(6))
 	game._update_ui()

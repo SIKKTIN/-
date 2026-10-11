@@ -1,0 +1,96 @@
+{
+  "schema": 2,
+  "version": "cafeteria-tables-v41",
+  "assets": [
+    {
+      "id": "cafeteria_table_v41",
+      "name": "食堂餐桌 · 斜俯视",
+      "texture": "res://art/props/cafeteria_v41/communal_table_v41.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        112,
+        137,
+        1311,
+        726
+      ],
+      "ground_rect": [
+        0,
+        70.5,
+        1311,
+        655.5
+      ],
+      "footprint_world_size": [
+        210,
+        105
+      ],
+      "world_size": [
+        210,
+        116.29290617848972
+      ],
+      "render_size": [
+        210,
+        116.29290617848972
+      ],
+      "elevation_world": 11.292906178489716,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "cafeteria-v41",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v19/icons/cafeteria_table_v41.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a85f82b0e34a7e5e5cf997d4bc9d3b2c3daf866aee66fe0914849561d5270aa4",
+      "registration_note": "Uniform native source scaling; PNG pixels untouched. Tray independent of table."
+    },
+    {
+      "id": "cafeteria_tray_v41",
+      "name": "就餐餐盘 · 斜俯视",
+      "texture": "res://art/props/cafeteria_v41/food_tray_v41.png",
+      "texture_size": [
+        1774,
+        887
+      ],
+      "region": [
+        207,
+        196,
+        1359,
+        554
+      ],
+      "ground_rect": [
+        0,
+        0.0,
+        1359,
+        554.0
+      ],
+      "footprint_world_size": [
+        60,
+        24.459161147902872
+      ],
+      "world_size": [
+        60,
+        24.459161147902872
+      ],
+      "render_size": [
+        60,
+        24.459161147902872
+      ],
+      "elevation_world": 0.0,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "cafeteria-v41",
+      "editor_subcategory": "tableware",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v19/icons/cafeteria_tray_v41.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "775121c2f04fc59b025986acd0b5a8b5270eb6f545a5a9789974dd70a91da8eb",
+      "registration_note": "Uniform native source scaling; PNG pixels untouched. Tray independent of table."
+    }
+  ]
+}

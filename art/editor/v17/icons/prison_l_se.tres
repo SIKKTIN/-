@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v38/four_corner_master.png" id="1_xr3q2"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r30sl"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(45.333336, 8, 0, 37.333336, 112, 0),
+"attribute_data": PackedByteArray("/////1VVLT0AAGw9/////1VV4T0AAGw9/////1VV4T0AAOA9/////1VVLT0AAOA9/////1VVLT0AAOA9/////1VV4T0AAOA9/////1VV4T0AAEE+/////1VVLT0AAEE+/////1VVLT0AAEE+/////1VV4T0AAEE+/////1VV4T0AAG8+/////1VVLT0AAG8+"),
+"format": 34393296921,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("VlU1QgAAAEFWVaVCAAAAQVZVpUKIiAhCVlU1QoiICEJWVTVCiIgIQlZVpUKIiAhCVlWlQkREtEJWVTVCRES0QlZVNUJERLRCVlWlQkREtEJWVaVCAADwQlZVNUIAAPBC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_r30sl")
+base_texture = ExtResource("1_xr3q2")
+image_size = Vector2(128, 128)

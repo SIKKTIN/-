@@ -1,0 +1,456 @@
+{
+  "schema": 2,
+  "version": "prison-perspective-v42",
+  "assets": [
+    {
+      "id": "cafeteria_counter_v42",
+      "name": "食堂取餐台 · 斜俯视",
+      "texture": "res://art/props/prison_v42/cafeteria_counter_v42.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "region": [
+        166,
+        236,
+        1841,
+        333
+      ],
+      "ground_rect": [
+        0,
+        271.6333333333333,
+        1841,
+        61.36666666666667
+      ],
+      "footprint_world_size": [
+        600,
+        20
+      ],
+      "world_size": [
+        600,
+        108.52797392721347
+      ],
+      "render_size": [
+        600,
+        108.52797392721347
+      ],
+      "elevation_world": 88.52797392721347,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "serving",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/cafeteria_counter_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "146a53633f94a9ef817155bfc9ac0b8ba61b5b7c8c7cb9f09255e94f83c6738e",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "cafeteria_backline_v42",
+      "name": "食堂后排设备 · 斜俯视",
+      "texture": "res://art/props/prison_v42/cafeteria_backline_v42.png",
+      "texture_size": [
+        2172,
+        724
+      ],
+      "region": [
+        90,
+        144,
+        1995,
+        385
+      ],
+      "ground_rect": [
+        0,
+        178.6206896551724,
+        1995,
+        206.3793103448276
+      ],
+      "footprint_world_size": [
+        580,
+        60
+      ],
+      "world_size": [
+        580,
+        111.9298245614035
+      ],
+      "render_size": [
+        580,
+        111.9298245614035
+      ],
+      "elevation_world": 51.92982456140351,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "serving",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/cafeteria_backline_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "965a717c474e88f3ae845ce1500ecf629a8cd5f10dcb00e164799c3d5a2e828e",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "cafeteria_return_v42",
+      "name": "餐盘回收架 · 斜俯视",
+      "texture": "res://art/props/prison_v42/cafeteria_return_v42.png",
+      "texture_size": [
+        1323,
+        1189
+      ],
+      "region": [
+        286,
+        307,
+        751,
+        700
+      ],
+      "ground_rect": [
+        0,
+        222.09090909090907,
+        751,
+        477.90909090909093
+      ],
+      "footprint_world_size": [
+        110,
+        70
+      ],
+      "world_size": [
+        110,
+        102.52996005326231
+      ],
+      "render_size": [
+        110,
+        102.52996005326231
+      ],
+      "elevation_world": 32.529960053262315,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "serving",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/cafeteria_return_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "4fc908eec345a6f881fecf45a364d7637a227c19a8aad3989c186007f88d06ea",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "workbench_v42",
+      "name": "工作台 · 斜俯视",
+      "texture": "res://art/props/prison_v42/workbench_v42.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        135,
+        191,
+        1348,
+        658
+      ],
+      "ground_rect": [
+        0,
+        133.77777777777783,
+        1348,
+        524.2222222222222
+      ],
+      "footprint_world_size": [
+        180,
+        70
+      ],
+      "world_size": [
+        180,
+        87.86350148367953
+      ],
+      "render_size": [
+        180,
+        87.86350148367953
+      ],
+      "elevation_world": 17.863501483679528,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/workbench_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "4b17f72dbc250d3ee65d1f469560bf753776ba18bdeea74a1a8eeb46cdc6ab74",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "tool_locker_v42",
+      "name": "工具柜 · 斜俯视",
+      "texture": "res://art/props/prison_v42/tool_locker_v42.png",
+      "texture_size": [
+        1221,
+        1289
+      ],
+      "region": [
+        241,
+        99,
+        739,
+        1100
+      ],
+      "ground_rect": [
+        0,
+        771.5555555555557,
+        739,
+        328.4444444444444
+      ],
+      "footprint_world_size": [
+        90,
+        40
+      ],
+      "world_size": [
+        90,
+        133.96481732070367
+      ],
+      "render_size": [
+        90,
+        133.96481732070367
+      ],
+      "elevation_world": 93.96481732070367,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/tool_locker_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "2379175baa1853b84fa9219b15dacd0ae4e7cc93581a9f652171a2f0025bb57f",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "laundry_cart_v42",
+      "name": "洗衣推车 · 斜俯视",
+      "texture": "res://art/props/prison_v42/laundry_cart_v42.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        438,
+        140,
+        662,
+        748
+      ],
+      "ground_rect": [
+        0,
+        280.7058823529412,
+        662,
+        467.2941176470588
+      ],
+      "footprint_world_size": [
+        68,
+        48
+      ],
+      "world_size": [
+        68,
+        76.83383685800605
+      ],
+      "render_size": [
+        68,
+        76.83383685800605
+      ],
+      "elevation_world": 28.833836858006052,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/laundry_cart_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "2e8fc83d5f4246402822df72b07b5a57f3351d9e4da98cbb0283ed3c44d5d1aa",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "wash_basin_v42",
+      "name": "双位洗手池 · 斜俯视",
+      "texture": "res://art/props/prison_v42/wash_basin_v42.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        162,
+        196,
+        1214,
+        666
+      ],
+      "ground_rect": [
+        0,
+        156.11999999999995,
+        1214,
+        509.88000000000005
+      ],
+      "footprint_world_size": [
+        160,
+        67.2
+      ],
+      "world_size": [
+        160,
+        87.77594728171334
+      ],
+      "render_size": [
+        160,
+        87.77594728171334
+      ],
+      "elevation_world": 20.57594728171334,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/wash_basin_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "79ceca9a12fc19b52ed9f156ff2b70ce8854abe4b1727ba12a23bc93a478af90",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "bunk_bed_v42",
+      "name": "双层床 · 斜俯视",
+      "texture": "res://art/props/prison_v42/bunk_bed_v42.png",
+      "texture_size": [
+        1122,
+        1402
+      ],
+      "region": [
+        267,
+        75,
+        589,
+        1244
+      ],
+      "ground_rect": [
+        0,
+        440.81818181818187,
+        589,
+        803.1818181818181
+      ],
+      "footprint_world_size": [
+        110,
+        150
+      ],
+      "world_size": [
+        110,
+        232.32597623089984
+      ],
+      "render_size": [
+        110,
+        232.32597623089984
+      ],
+      "elevation_world": 82.32597623089984,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/bunk_bed_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "cbe92fd7d919d8db8be00dad61be91717f2b2681192dde580fb7f5c9f28f0089",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "toilet_sink_v42",
+      "name": "马桶洗手池 · 斜俯视",
+      "texture": "res://art/props/prison_v42/toilet_sink_v42.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "region": [
+        364,
+        86,
+        533,
+        1080
+      ],
+      "ground_rect": [
+        0,
+        493.69999999999993,
+        533,
+        586.3000000000001
+      ],
+      "footprint_world_size": [
+        50,
+        55
+      ],
+      "world_size": [
+        50,
+        101.31332082551594
+      ],
+      "render_size": [
+        50,
+        101.31332082551594
+      ],
+      "elevation_world": 46.313320825515945,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/toilet_sink_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "71ad8bb4115d3246bf7f3a534f28e8d70d4780b0b2e689cb17ac9fcb847405f4",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    },
+    {
+      "id": "communal_table_v42",
+      "name": "活动餐桌 · 斜俯视",
+      "texture": "res://art/props/cafeteria_v41/communal_table_v41.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        112,
+        137,
+        1311,
+        726
+      ],
+      "ground_rect": [
+        0,
+        36.0,
+        1311,
+        690.0
+      ],
+      "footprint_world_size": [
+        190,
+        100
+      ],
+      "world_size": [
+        190,
+        105.21739130434783
+      ],
+      "render_size": [
+        190,
+        105.21739130434783
+      ],
+      "elevation_world": 5.217391304347828,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "prison-perspective-v42",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v20/icons/communal_table_v42.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a85f82b0e34a7e5e5cf997d4bc9d3b2c3daf866aee66fe0914849561d5270aa4",
+      "registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained."
+    }
+  ]
+}

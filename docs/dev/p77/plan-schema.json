@@ -1,0 +1,234 @@
+{
+  "type": "object",
+  "properties": {
+    "scheduleRevision": {
+      "type": "string"
+    },
+    "creates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "task": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "selfReviewRole": {
+                "type": "string",
+                "enum": [
+                  "producer",
+                  "art-director"
+                ],
+                "description": "明确允许对应管理者本人独立执行的任务自验收；不与旧 producerSelfReview 同时设置。"
+              },
+              "producerSelfReview": {
+                "type": "boolean",
+                "description": "明确允许制作人本人承担的程序或主干集成任务自验收；仍需 progress/review 权限与两次操作。"
+              },
+              "integrationTaskIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "主干集成来源任务，须同时列入 dependencyIds；空数组表示初始主干集成。"
+              },
+              "workScope": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "allowedPaths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "interfaceContract": {
+                    "type": "string"
+                  },
+                  "entry": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "allowedPaths",
+                  "interfaceContract",
+                  "entry"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "设计",
+                  "程序",
+                  "美术",
+                  "关卡",
+                  "测试",
+                  "其他"
+                ]
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "低",
+                  "普通",
+                  "高",
+                  "紧急"
+                ]
+              },
+              "milestoneId": {
+                "type": "string"
+              },
+              "dependencyIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "acceptance": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              },
+              "positionIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "references": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "gameplay",
+                        "capability",
+                        "tool",
+                        "requirement",
+                        "asset",
+                        "map",
+                        "prototype"
+                      ]
+                    },
+                    "targetId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "targetId"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "description",
+              "kind",
+              "acceptance"
+            ]
+          },
+          "assigneeId": {
+            "type": "string"
+          },
+          "reviewerId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "task",
+          "assigneeId"
+        ]
+      },
+      "maxItems": 50
+    },
+    "dependencyUpdates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taskId": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "dependencyIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptImpact": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "taskId",
+          "revision",
+          "dependencyIds"
+        ]
+      },
+      "maxItems": 50
+    },
+    "milestoneUpdates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taskId": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "milestoneId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "taskId",
+          "revision",
+          "milestoneId"
+        ]
+      },
+      "maxItems": 50
+    },
+    "reason": {
+      "type": "string"
+    },
+    "requestId": {
+      "type": "string"
+    },
+    "timing": {
+      "type": "boolean",
+      "description": "返回本次调用的耗时统计，不保存请求正文或凭证。"
+    }
+  },
+  "required": [
+    "scheduleRevision",
+    "reason",
+    "requestId"
+  ],
+  "additionalProperties": false
+}

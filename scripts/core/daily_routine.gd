@@ -14,7 +14,6 @@ var slot := -1
 var plans: Array = []
 var records: Dictionary = {}
 var manual: Dictionary = {}
-var morning_pending := true
 var work_minutes: Array = [0.0, 0.0, 0.0]
 var work_rounds: Array = [0, 0, 0]
 var work_earned: Array = [0, 0, 0]
@@ -29,7 +28,6 @@ func _init(owner_game) -> void:
 
 func reset() -> void:
 	day = 1
-	morning_pending = true
 	work_minutes = [0.0, 0.0, 0.0]
 	work_rounds = [0, 0, 0]
 	work_earned = [0, 0, 0]
@@ -41,8 +39,6 @@ func reset() -> void:
 	records.clear()
 	manual.clear()
 	manual[0] = true
-	if game.get("routine_panel"):
-		game.routine_panel.close()
 
 func default_plans() -> Array:
 	var labor := "work" if allowed(0,"work") else "rest"
@@ -67,10 +63,6 @@ func allowed(index: int, kind: String) -> bool:
 func has_cafeteria() -> bool:
 	var points: Dictionary = game.room_config.get("routine_points",{})
 	return points.get("meal",[]).size() >= 3 and points.get("dine",[]).size() >= 3
-
-func apply_today(_value: Array) -> bool:
-	game.show_status("玩家活动由你操作，NPC 会按自己的状态生活。")
-	return false
 
 func take_control(actor_id: int) -> void:
 	if not game.actor_is_controllable(actor_id): return
@@ -207,7 +199,6 @@ func tick() -> void:
 			if game.orders.active.has(id) and game.orders.active[id].get("source","") == "routine":
 				game.orders.stop(id)
 		day = game.schedule.day_number()
-		morning_pending = true
 		meal_minutes = [0.0, 0.0, 0.0]
 		plans = default_plans()
 		records.clear()
@@ -256,11 +247,6 @@ func tick() -> void:
 				game.actors[id].facing = Vector2.UP
 		elif not game.orders.active.has(id) and game.elapsed >= record.retry:
 			_send(id,record) # Retain the already collected meal when a route retries.
-	offer_morning()
-
-func offer_morning() -> void:
-	# Daily plans keep running, but the retired planner must not pause a day.
-	morning_pending = false
 
 func is_lawful(actor_id: int) -> bool:
 	if game.prison_alert != null and game.prison_alert.active:

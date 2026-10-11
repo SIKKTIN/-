@@ -1,0 +1,40 @@
+{
+	"checks": {
+		"all_rooms_use_original_wall_edges": true,
+		"clipped_geometry_not_doubled": true,
+		"collision_unchanged": true,
+		"door_cutouts_preserved": true,
+		"independent_reveal_cafeteria-entry-room": true,
+		"independent_reveal_cell-0": true,
+		"independent_reveal_cell-1": true,
+		"independent_reveal_cell-2": true,
+		"independent_reveal_dorm-0": true,
+		"independent_reveal_dorm-1": true,
+		"independent_reveal_dorm-2": true,
+		"independent_reveal_equipment": true,
+		"independent_reveal_laundry": true,
+		"independent_reveal_warehouse": true,
+		"independent_reveal_workshop": true,
+		"map_reload_replaces_single_shell": true,
+		"one_edge_node_per_wall": true,
+		"original_map_unchanged": true,
+		"retained_edges_above_roofs": true,
+		"retained_edges_survive_volume_rebuild": true,
+		"roof_commands_retained_across_transitions": false,
+		"roof_coverage_unchanged": true,
+		"wall_edge_commands_retained_across_transitions": true,
+		"wall_paint_and_material_reused": true
+	},
+	"failed": [
+		"roof_commands_retained_across_transitions"
+	],
+	"images": [],
+	"map_sha256": "437b86cdc6e05cdb26f11a7b2dd633af90e0b8d425f0b64a0ea665dde5c04298",
+	"total": 24,
+	"transition_cpu_ms": {
+		"max": 7.212,
+		"median": 4.66,
+		"p95": 6.661
+	},
+	"wall_edges": 450
+}

@@ -1,0 +1,90 @@
+{
+  "request": "脚部碰撞贴近墙；移除多角色选中圈和编号",
+  "ground_footprint": [
+    16,
+    6
+  ],
+  "door_body_unchanged": [
+    -18,
+    -64,
+    36,
+    68
+  ],
+  "results": [
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.75,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-regressions/structure.json"
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.53,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-regressions/map.json"
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 17.67,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-regressions/player.json"
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 65.8,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-regressions/npc.json"
+    },
+    {
+      "id": "chase",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.73,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-regressions/chase.json"
+    },
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.97,
+      "checks": 17,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs/tests/p110-feet-confirmed/feet.json"
+    }
+  ],
+  "total_checks": 204,
+  "passed": true,
+  "resources": {
+    "production_text_files": 121,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "native_capture": "docs/dev/p110/sole-at-wall.png"
+}

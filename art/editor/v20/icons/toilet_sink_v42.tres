@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/prison_v42/toilet_sink_v42.png" id="1_6kc8u"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ivigr"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(36.36296, 7.999996, 0, 55.27408, 112, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 107, 158, 148, 62, 245, 115, 140, 61, 255, 255, 255, 255, 159, 30, 55, 63, 245, 115, 140, 61, 255, 255, 255, 255, 159, 30, 55, 63, 252, 8, 110, 63, 255, 255, 255, 255, 107, 158, 148, 62, 252, 8, 110, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(172, 115, 17, 66, 248, 255, 255, 64, 42, 70, 183, 66, 248, 255, 255, 64, 42, 70, 183, 66, 0, 0, 240, 66, 172, 115, 17, 66, 0, 0, 240, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_ivigr")
+base_texture = ExtResource("1_6kc8u")
+image_size = Vector2(128, 128)

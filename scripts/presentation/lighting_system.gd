@@ -37,6 +37,7 @@ func configure(owner_game, theme: Theme) -> void:
 	sun.shadow_enabled = false
 	sun.range_layer_min = 0
 	sun.range_layer_max = 0
+	sun.range_z_max = RenderingServer.CANVAS_ITEM_Z_MAX
 	sun.range_item_cull_mask = 3
 	add_child(sun)
 	toggle_button = Button.new()
@@ -58,6 +59,7 @@ func configure(owner_game, theme: Theme) -> void:
 	guard_light.shadow_filter_smooth = 0.8
 	guard_light.range_layer_min = 0
 	guard_light.range_layer_max = 0
+	guard_light.range_z_max = RenderingServer.CANVAS_ITEM_Z_MAX
 	add_child(guard_light)
 	tick()
 	set_period(period)
@@ -186,6 +188,7 @@ func _rebuild_lamps() -> void:
 		lamp.energy = settings.lamp_energy
 		lamp.range_layer_min = 0
 		lamp.range_layer_max = 0
+		lamp.range_z_max = RenderingServer.CANVAS_ITEM_Z_MAX
 		lamp.range_item_cull_mask = 3
 		lamp.shadow_enabled = true
 		lamp.shadow_filter = Light2D.SHADOW_FILTER_PCF5

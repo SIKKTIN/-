@@ -11,7 +11,6 @@ const MAP := Rect2(10,30,190,116)
 var game
 var pointer_id: int = -2
 var locate_button: Button
-var stop_button: Button
 var _painting := false
 var _room_cache_key: Array = []
 var _visible_fixtures: Array = []
@@ -37,16 +36,6 @@ func configure(owner_game) -> void:
 	locate_button.focus_mode = Control.FOCUS_NONE
 	locate_button.pressed.connect(game.map_camera.locate_selected)
 	add_child(locate_button)
-	stop_button = Button.new()
-	stop_button.name = "StopActor"
-	stop_button.text = "停止行动"
-	stop_button.position = Vector2(108,150)
-	stop_button.size = Vector2(92,44)
-	stop_button.theme = locate_button.theme
-	stop_button.add_theme_font_size_override("font_size",14)
-	stop_button.focus_mode = Control.FOCUS_NONE
-	stop_button.pressed.connect(game.stop_selected)
-	add_child(stop_button)
 
 func map_area() -> Rect2:
 	return Rect2(10,10,size.x-20,size.y-70) if game.fullscreen_ui else MAP
@@ -161,6 +150,8 @@ func _draw() -> void:
 	for gate in game.world.access_doors:
 		draw_world_rect(gate.rect,Color("b36e59") if gate.closed else Color("36ab92"))
 	draw_world_rect(game.world.exit_area.intersection(game.world.bounds),Color("36ab92"))
+	for route in game.world.escape_routes:
+		draw_world_rect(route.rect.intersection(game.world.bounds),Color("36ab92") if game.world.escape_route_open(route) else Color("b8835d"))
 	if game.room_visibility:
 		for room in game.room_visibility.rooms:
 			if str(room.id) != game.room_visibility.active_id: draw_world_rect(room.area,Color("697365") if game.room_visibility.visited.has(str(room.id)) else Color("566052"))

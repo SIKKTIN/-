@@ -1,0 +1,886 @@
+{
+  "schema": 2,
+  "version": "factory-detail-v44",
+  "assets": [
+    {
+      "id": "drill_press_v44",
+      "name": "立式钻床",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        114,
+        55,
+        182,
+        290
+      ],
+      "ground_rect": [
+        0,
+        108.00000000000003,
+        182,
+        181.99999999999997
+      ],
+      "footprint_world_size": [
+        100,
+        100
+      ],
+      "world_size": [
+        100,
+        159.34065934065936
+      ],
+      "render_size": [
+        100,
+        159.34065934065936
+      ],
+      "elevation_world": 59.34065934065936,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/drill_press_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "parts_cabinet_v44",
+      "name": "零件抽屉柜",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        439,
+        81,
+        290,
+        241
+      ],
+      "ground_rect": [
+        0,
+        114.125,
+        290,
+        126.875
+      ],
+      "footprint_world_size": [
+        160,
+        70
+      ],
+      "world_size": [
+        160,
+        132.9655172413793
+      ],
+      "render_size": [
+        160,
+        132.9655172413793
+      ],
+      "elevation_world": 62.9655172413793,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/parts_cabinet_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "bench_tools_v44",
+      "name": "台面工具与虎钳",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        814,
+        105,
+        298,
+        249
+      ],
+      "ground_rect": [
+        0,
+        85.1,
+        298,
+        163.9
+      ],
+      "footprint_world_size": [
+        100,
+        55
+      ],
+      "world_size": [
+        100,
+        83.55704697986577
+      ],
+      "render_size": [
+        100,
+        83.55704697986577
+      ],
+      "elevation_world": 28.557046979865774,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/bench_tools_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "shipping_crates_v44",
+      "name": "绑带木箱货堆",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1182,
+        46,
+        286,
+        299
+      ],
+      "ground_rect": [
+        0,
+        53.85714285714286,
+        286,
+        245.14285714285714
+      ],
+      "footprint_world_size": [
+        140,
+        120
+      ],
+      "world_size": [
+        140,
+        146.36363636363637
+      ],
+      "render_size": [
+        140,
+        146.36363636363637
+      ],
+      "elevation_world": 26.363636363636374,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/shipping_crates_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "oil_drums_v44",
+      "name": "油桶围堰",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        46,
+        405,
+        349,
+        248
+      ],
+      "ground_rect": [
+        0,
+        29.875,
+        349,
+        218.125
+      ],
+      "footprint_world_size": [
+        160,
+        100
+      ],
+      "world_size": [
+        160,
+        113.69627507163324
+      ],
+      "render_size": [
+        160,
+        113.69627507163324
+      ],
+      "elevation_world": 13.696275071633238,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/oil_drums_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "pallet_jack_v44",
+      "name": "手动搬运叉车",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        519,
+        372,
+        155,
+        296
+      ],
+      "ground_rect": [
+        0,
+        -36.14285714285717,
+        155,
+        332.14285714285717
+      ],
+      "footprint_world_size": [
+        70,
+        150
+      ],
+      "world_size": [
+        70,
+        133.67741935483872
+      ],
+      "render_size": [
+        70,
+        133.67741935483872
+      ],
+      "elevation_world": 0,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/pallet_jack_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "parcel_trolley_v44",
+      "name": "纸箱推车",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        859,
+        383,
+        192,
+        278
+      ],
+      "ground_rect": [
+        0,
+        64.66666666666666,
+        192,
+        213.33333333333334
+      ],
+      "footprint_world_size": [
+        90,
+        100
+      ],
+      "world_size": [
+        90,
+        130.3125
+      ],
+      "render_size": [
+        90,
+        130.3125
+      ],
+      "elevation_world": 30.3125,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/parcel_trolley_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "linen_basket_v44",
+      "name": "待洗布草篮",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1195,
+        424,
+        283,
+        238
+      ],
+      "ground_rect": [
+        0,
+        17.888888888888886,
+        283,
+        220.11111111111111
+      ],
+      "footprint_world_size": [
+        90,
+        70
+      ],
+      "world_size": [
+        90,
+        75.68904593639576
+      ],
+      "render_size": [
+        90,
+        75.68904593639576
+      ],
+      "elevation_world": 5.6890459363957575,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/linen_basket_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "folded_linen_v44",
+      "name": "叠放布草与洗涤桶",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        54,
+        749,
+        316,
+        188
+      ],
+      "ground_rect": [
+        0,
+        30.0,
+        316,
+        158.0
+      ],
+      "footprint_world_size": [
+        100,
+        50
+      ],
+      "world_size": [
+        100,
+        59.493670886075954
+      ],
+      "render_size": [
+        100,
+        59.493670886075954
+      ],
+      "elevation_world": 9.493670886075954,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/folded_linen_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "pipe_junction_v44",
+      "name": "阀门管线组合",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        408,
+        726,
+        381,
+        233
+      ],
+      "ground_rect": [
+        0,
+        118.7,
+        381,
+        114.3
+      ],
+      "footprint_world_size": [
+        200,
+        60
+      ],
+      "world_size": [
+        200,
+        122.30971128608924
+      ],
+      "render_size": [
+        200,
+        122.30971128608924
+      ],
+      "elevation_world": 62.30971128608924,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/pipe_junction_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "weed_planter_v44",
+      "name": "旧铁盆灌木",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        841,
+        697,
+        235,
+        265
+      ],
+      "ground_rect": [
+        0,
+        59.375,
+        235,
+        205.625
+      ],
+      "footprint_world_size": [
+        80,
+        70
+      ],
+      "world_size": [
+        80,
+        90.2127659574468
+      ],
+      "render_size": [
+        80,
+        90.2127659574468
+      ],
+      "elevation_world": 20.212765957446805,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/weed_planter_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "edge_weeds_v44",
+      "name": "碎石砖屑与杂草",
+      "texture": "res://art/props/factory_v44/detail_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1171,
+        722,
+        312,
+        252
+      ],
+      "ground_rect": [
+        0,
+        44.0,
+        312,
+        208.0
+      ],
+      "footprint_world_size": [
+        150,
+        100
+      ],
+      "world_size": [
+        150,
+        121.15384615384616
+      ],
+      "render_size": [
+        150,
+        121.15384615384616
+      ],
+      "elevation_world": 21.15384615384616,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/edge_weeds_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7"
+    },
+    {
+      "id": "metal_shelf_v44",
+      "name": "电机与料箱矮架",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        35,
+        170,
+        368,
+        265
+      ],
+      "ground_rect": [
+        0,
+        101.44444444444446,
+        368,
+        163.55555555555554
+      ],
+      "footprint_world_size": [
+        180,
+        80
+      ],
+      "world_size": [
+        180,
+        129.6195652173913
+      ],
+      "render_size": [
+        180,
+        129.6195652173913
+      ],
+      "elevation_world": 49.61956521739131,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/metal_shelf_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "social_items_v44",
+      "name": "茶杯报纸与纸牌",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        452,
+        159,
+        273,
+        308
+      ],
+      "ground_rect": [
+        0,
+        171.5,
+        273,
+        136.5
+      ],
+      "footprint_world_size": [
+        90,
+        45
+      ],
+      "world_size": [
+        90,
+        101.53846153846153
+      ],
+      "render_size": [
+        90,
+        101.53846153846153
+      ],
+      "elevation_world": 56.53846153846153,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/social_items_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "scrap_pile_v44",
+      "name": "废缆轮胎与金属边角料",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        784,
+        169,
+        349,
+        306
+      ],
+      "ground_rect": [
+        0,
+        50.06666666666666,
+        349,
+        255.93333333333334
+      ],
+      "footprint_world_size": [
+        150,
+        110
+      ],
+      "world_size": [
+        150,
+        131.5186246418338
+      ],
+      "render_size": [
+        150,
+        131.5186246418338
+      ],
+      "elevation_world": 21.51862464183381,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/scrap_pile_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "sack_pallet_v44",
+      "name": "麻袋与工具箱托盘",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1186,
+        135,
+        313,
+        329
+      ],
+      "ground_rect": [
+        0,
+        88.23076923076923,
+        313,
+        240.76923076923077
+      ],
+      "footprint_world_size": [
+        130,
+        100
+      ],
+      "world_size": [
+        130,
+        136.6453674121406
+      ],
+      "render_size": [
+        130,
+        136.6453674121406
+      ],
+      "elevation_world": 36.64536741214059,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/sack_pallet_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "hedge_v44",
+      "name": "边缘灌木丛",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        30,
+        641,
+        561,
+        263
+      ],
+      "ground_rect": [
+        0,
+        25.653846153846132,
+        561,
+        237.34615384615387
+      ],
+      "footprint_world_size": [
+        260,
+        110
+      ],
+      "world_size": [
+        260,
+        121.88948306595366
+      ],
+      "render_size": [
+        260,
+        121.88948306595366
+      ],
+      "elevation_world": 11.889483065953655,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/hedge_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "shallow_weeds_v44",
+      "name": "稀疏杂草与碎石",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        614,
+        631,
+        249,
+        266
+      ],
+      "ground_rect": [
+        0,
+        89.625,
+        249,
+        176.375
+      ],
+      "footprint_world_size": [
+        120,
+        85
+      ],
+      "world_size": [
+        120,
+        128.19277108433735
+      ],
+      "render_size": [
+        120,
+        128.19277108433735
+      ],
+      "elevation_world": 43.19277108433735,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/shallow_weeds_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "bedside_cabinet_v44",
+      "name": "床边私人物品柜",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        912,
+        615,
+        175,
+        275
+      ],
+      "ground_rect": [
+        0,
+        158.33333333333331,
+        175,
+        116.66666666666667
+      ],
+      "footprint_world_size": [
+        60,
+        40
+      ],
+      "world_size": [
+        60,
+        94.28571428571429
+      ],
+      "render_size": [
+        60,
+        94.28571428571429
+      ],
+      "elevation_world": 54.28571428571429,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/bedside_cabinet_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    },
+    {
+      "id": "motor_parts_v44",
+      "name": "拆解电机与油壶",
+      "texture": "res://art/props/factory_v44/variation_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1170,
+        595,
+        333,
+        302
+      ],
+      "ground_rect": [
+        0,
+        105.22727272727272,
+        333,
+        196.77272727272728
+      ],
+      "footprint_world_size": [
+        110,
+        65
+      ],
+      "world_size": [
+        110,
+        99.75975975975976
+      ],
+      "render_size": [
+        110,
+        99.75975975975976
+      ],
+      "elevation_world": 34.75975975975976,
+      "render_mode": "projected_prop",
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": true,
+      "authoring_set": "factory-detail-v44",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v22/icons/motor_parts_v44.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+    }
+  ]
+}

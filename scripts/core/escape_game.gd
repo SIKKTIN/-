@@ -15,7 +15,6 @@ const ShopPanel = preload("res://scripts/ui/shop_panel.gd")
 const MapCamera = preload("res://scripts/core/map_camera.gd")
 const MiniMap = preload("res://scripts/ui/mini_map.gd")
 const DailyRoutine = preload("res://scripts/core/daily_routine.gd")
-const RoutinePanel = preload("res://scripts/ui/routine_panel.gd")
 const PrisonSchedule = preload("res://scripts/core/prison_schedule.gd")
 const PoliceDog = preload("res://scripts/actors/police_dog.gd")
 const FullscreenHUD = preload("res://scripts/ui/fullscreen_hud.gd")
@@ -48,7 +47,6 @@ var schedule
 var dog
 var developer_settings
 var routines
-var routine_panel
 var fullscreen_ui
 var staff_traffic
 var gate_watch
@@ -80,8 +78,6 @@ var world
 var guard
 var captures: int = 0
 var skills
-var skill_button: Button
-var hint_label: Label
 var status_until: float = 0.0
 var deal_seed: int = 0
 var deal_number: int = 0
@@ -96,201 +92,10 @@ func _make_world():
 	return World.new()
 
 func _ready() -> void:
-	frame_settings=preload("res://scripts/core/frame_settings.gd").new()
-	frame_settings.configure()
-	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % room_id))
-	var args := OS.get_cmdline_user_args()
-	var preview_index := args.find("--editor-room")
-	if preview_index >= 0:
-		if preview_index+1 >= args.size():
-			push_error("Editor preview needs a map JSON path.")
-			get_tree().quit(1)
-			return
-		var parsed = JSON.parse_string(FileAccess.get_file_as_string(args[preview_index+1]))
-		if not parsed is Dictionary:
-			push_error("Editor preview map JSON is invalid.")
-			get_tree().quit(1)
-			return
-		var document = load("res://scripts/editor/map_document.gd").new()
-		if not document.open_file(args[preview_index+1]) or not document.validate().errors.is_empty():
-			push_error("Editor preview map failed validation.")
-			get_tree().quit(1)
-			return
-		config = document.data
-		room_id = str(config.id)
-		editor_preview_mode = true
-		OS.set_environment("ESCAPE_DEV_SETTINGS_PATH","user://map-editor-playtest-developer.cfg")
-		OS.set_environment("ESCAPE_BUTTON_LAYOUT_PATH","user://map-editor-playtest-buttons.cfg")
-	# The floor shares the prefiltered static-world textures; character sheets
-	# retain their existing linear sampling (they have no mipmap chain).
-	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	for index in range(3):
-		var actor = Prisoner.new()
-		actor.name = "Prisoner%d" % (index + 1)
-		actor.actor_id = index
-		actor.home = STARTS[index]
-		actor.skill_id = ["chat", "lockpick", "strong"][index]
-		add_child(actor)
-		actors.append(actor)
-	world = _make_world()
-	world.name = "World"
-	add_child(world)
-	room_config = config
-	world.configure(config,actors)
-	for index in range(actors.size()):
-		var start: Array = config.starts[index]
-		actors[index].home = Vector2(start[0],start[1])
-	guard = Guard.new()
-	guard.name = "Guard"
-	add_child(guard)
-	guard.configure(world,self)
-	dog = PoliceDog.new()
-	dog.name = "PoliceDog"
-	add_child(dog)
-	dog.configure(self)
-	skills = Skills.new(self)
-	orders = MoveOrders.new(self)
-	inventory = Inventory.new(self)
-	trade = Trade.new(self)
-	_build_ui()
-	reset_round()
-	presentation = Presentation.new()
-	presentation.name = "Presentation"
-	add_child(presentation)
-	presentation.configure(self)
-	items_view = ItemsView.new()
-	items_view.name = "ItemsView"
-	add_child(items_view)
-	items_view.configure(self)
-	inventory_panel = InventoryPanel.new()
-	inventory_panel.name = "InventoryPanel"
-	add_child(inventory_panel)
-	inventory_panel.configure(self)
-	shop_panel = ShopPanel.new()
-	shop_panel.name = "ShopPanel"
-	add_child(shop_panel)
-	shop_panel.configure(self)
-	map_camera = MapCamera.new()
-	map_camera.name = "MapCamera"
-	add_child(map_camera)
-	map_camera.configure(self)
-	mini_map = MiniMap.new()
-	mini_map.name = "MiniMap"
-	get_node("HUD").add_child(mini_map)
-	mini_map.configure(self)
-	schedule = PrisonSchedule.new()
-	schedule.name = "Schedule"
-	add_child(schedule)
-	schedule.configure(self)
-	developer_settings = DeveloperSettings.new()
-	developer_settings.name = "DeveloperSettings"
-	add_child(developer_settings)
-	developer_settings.configure(self)
-	routines = DailyRoutine.new(self)
-	routines.tick()
-	routine_panel = RoutinePanel.new()
-	add_child(routine_panel)
-	routine_panel.configure(self)
-	mobile_controls = MobileControls.new()
-	add_child(mobile_controls)
-	mobile_controls.configure(self)
-	fullscreen_ui = FullscreenHUD.new()
-	add_child(fullscreen_ui)
-	fullscreen_ui.configure(self)
-	staff_traffic = StaffTraffic.new(self)
-	gate_watch = GateWatch.new(self)
-	gate_watch.reset(room_config)
-	prison_alert = PrisonAlert.new(self)
-	attributes = ActorAttributes.new(self)
-	room_access = RoomAccess.new(self)
-	room_access.tick()
-	workshop = WorkshopRules.new(self)
-	workshop.reset()
-	social = preload("res://scripts/core/social_world.gd").new(self)
-	dialogue = NpcDialogue.new()
-	add_child(dialogue)
-	dialogue.configure(self)
-	room_visibility = preload("res://scripts/core/room_visibility.gd").new(self)
-	room_visibility.reset()
-	var social_labels = preload("res://scripts/presentation/social_labels.gd").new()
-	add_child(social_labels)
-	social_labels.configure(self)
-	npc_life = preload("res://scripts/core/npc_life.gd").new(self)
-	fullscreen_ui.layout()
-	var retained_floor=preload("res://scripts/presentation/floor_canvas.gd").new()
-	add_child(retained_floor)
-	retained_floor.configure(self)
-	tutorial = TutorialDay.new()
-	tutorial.name = "TutorialDay"
-	add_child(tutorial)
-	tutorial.configure(self)
-	routines.offer_morning()
-	if editor_preview_mode:
-		room_selector.disabled = true
-		var return_bar = load("res://scripts/editor/preview_return.gd").new()
-		get_node("HUD").add_child(return_bar)
-		return_bar.configure(self)
+	preload("res://scripts/core/game_bootstrap.gd").configure(self)
 
 func _build_ui() -> void:
-	var layer := CanvasLayer.new()
-	layer.name = "HUD"
-	add_child(layer)
-	var title := Label.new()
-	title.text = "监狱风云"
-	title.position = Vector2(32, 25)
-	title.add_theme_font_size_override("font_size", 30)
-	title.add_theme_color_override("font_color", Color("303b46"))
-	layer.add_child(title)
-	var subtitle := Label.new()
-	subtitle.text = "随机技能 · 独立背包 · 搬货交易，配合逃脱"
-	subtitle.position = Vector2(34, 70)
-	subtitle.add_theme_color_override("font_color", Color("536052"))
-	layer.add_child(subtitle)
-	room_selector = OptionButton.new()
-	room_selector.name = "RoomSelector"
-	room_selector.z_index = 210 # Remains usable above a terminal result overlay.
-	room_selector.position = Vector2(566,35)
-	room_selector.size = Vector2(230,42)
-	for index in range(ROOM_IDS.size()):
-		room_selector.add_item(["R01 · 双通路", "R02 · 门边掩护", "R03 · 仓库交易所", "R04 · 黑工厂生活区"][index])
-		room_selector.set_item_disabled(index,not FileAccess.file_exists("res://data/rooms/%s.json" % ROOM_IDS[index]))
-	room_selector.select(ROOM_IDS.find(room_id))
-	room_selector.item_selected.connect(func(index): load_room(ROOM_IDS[index]))
-	layer.add_child(room_selector)
-	for index in range(3):
-		var card := Button.new()
-		card.name = "ActorCard%d" % (index + 1)
-		card.position = Vector2(1025, 154 + index * 102)
-		card.size = Vector2(155, 84)
-		card.pressed.connect(select_actor.bind(index))
-		layer.add_child(card)
-		cards.append(card)
-	var reset_button := Button.new()
-	reset_button.name = "ResetRound"
-	reset_button.text = "重新开始  R"
-	reset_button.position = Vector2(1025, 62)
-	reset_button.size = Vector2(155, 42)
-	reset_button.pressed.connect(reset_round)
-	layer.add_child(reset_button)
-	status_label = Label.new()
-	status_label.name = "Status"
-	status_label.position = Vector2(34, 686)
-	status_label.add_theme_color_override("font_color", Color("303b46"))
-	layer.add_child(status_label)
-	skill_button = Button.new()
-	skill_button.name = "UseSkill"
-	skill_button.position = Vector2(1025,474)
-	skill_button.size = Vector2(155,48)
-	skill_button.pressed.connect(use_selected_skill)
-	layer.add_child(skill_button)
-	hint_label = Label.new()
-	hint_label.name = "SkillHint"
-	hint_label.position = Vector2(1029,536)
-	hint_label.size = Vector2(151,88)
-	hint_label.max_lines_visible = 4
-	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	hint_label.add_theme_color_override("font_color", Color("536052"))
-	layer.add_child(hint_label)
+	preload("res://scripts/ui/hud_shell.gd").configure(self)
 
 func _process(delta: float) -> void:
 	if get_tree().paused:
@@ -422,6 +227,9 @@ func command_move(actor_id: int, target: Vector2) -> bool:
 	return accepted
 
 func command_at(point: Vector2) -> bool:
+	var expanded_exit: Variant = world.escape_target(point)
+	if expanded_exit is Vector2:
+		return command_move(selected_actor_id,expanded_exit)
 	if world.exit_area.has_point(point) or world.exit_icon_rect().has_point(point):
 		point = world.exit_area.get_center() if world.bounds.encloses(world.exit_area) else Vector2(maxf(point.x,world.bounds.end.x+ACTOR_RADIUS+4),clampf(point.y,world.exit_area.position.y+ACTOR_RADIUS+1,world.exit_area.end.y-ACTOR_RADIUS-1))
 	return command_move(selected_actor_id,point)
@@ -441,7 +249,7 @@ func on_actor_escaped(actor_id: int) -> void:
 	if tutorial and tutorial.active:
 		actors[actor_id].escaped = false
 		orders.stop(actor_id)
-		show_status("入监日先熟悉作息；正式三天开始后再寻找逃脱机会。",4)
+		show_status("入监日先熟悉作息；正式%d天开始后再寻找逃脱机会。" % schedule.escape_days,4)
 		return
 	inventory.carry_out(actor_id)
 	if actors[PLAYER_ACTOR_ID].escaped:
@@ -549,8 +357,6 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 		developer_settings.close()
 	show_status("你的移动、工作、吃饭和归寝都由你决定；NPC 按各自状态生活。",4)
 	select_actor(0)
-	if routine_panel and routine_panel.panel.visible:
-		routine_panel.reload()
 	if map_camera:
 		map_camera.reset()
 	if tutorial: tutorial.on_round_reset()
@@ -558,34 +364,12 @@ func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
 	queue_redraw()
 
 func _update_ui(refresh_hud := true) -> void:
-	if cards.is_empty():
-		return
-	for index in range(actors.size()):
-		var actor = actors[index]
-		if not fullscreen_ui:
-			var action_labels := {"idle":"待命","chatting":"交谈中","lockpicking":"撬锁中"}
-			cards[index].text = "%s伙伴 %d\n%s\n%s" % ["● " if actor.selected else "", index + 1, SKILL_NAMES[actor.skill_id], "已逃脱" if actor.escaped else ("移动中" if orders and orders.active.has(index) else action_labels.get(actor.action_state,"待命"))]
-			if schedule and schedule.is_curfew() and not actor.escaped and phase == "playing":
-				var label: String = "寝室内" if schedule.in_dormitory(index) else "归寝中" if orders.active.has(index) and schedule.dormitory(index).has_point(orders.active[index].goal) else "宵禁外出！"
-				cards[index].text = "%s伙伴 %d\n%s\n%s" % ["● " if actor.selected else "",index+1,SKILL_NAMES[actor.skill_id],label]
-		cards[index].disabled = actor.escaped or not actor_is_controllable(index)
-	status_label.text = status_text
-	if skill_button and skills:
-		var actor = actors[selected_actor_id]
-		var active: bool = skills.actions.has(selected_actor_id)
-		var reason: String = "被动能力：背包增加至3格。" if actor.skill_id == "backpack" else skills.target_reason(actor)
-		skill_button.text = "停止技能  E" if active else ("接触重箱自动推" if actor.skill_id == "strong" else "使用%s  E" % SKILL_NAMES[actor.skill_id])
-		skill_button.disabled = phase != "playing" or actor.escaped or actor.skill_id == "strong" or (not active and reason != "")
-		var no_opener: bool = actors.all(func(a): return a.skill_id == "chat") and trade.merchants.is_empty()
-		hint_label.text = "全聊天：缺少开路技能，可按R重抽。" if no_opener else ("主角正在操作；移动会中断，进度保留。" if active else (reason if reason != "" else skills.library[actor.skill_id].description))
-		if phase != "playing":
-			hint_label.text = "已封监，点击重新开始。" if phase == "failed" else "主角已逃脱，点击重新开始。"
+	if status_label:
+		status_label.text = status_text
 	if inventory_panel:
 		inventory_panel.refresh()
 	if shop_panel:
 		shop_panel.refresh()
-	if routine_panel:
-		routine_panel.refresh()
 	if fullscreen_ui and refresh_hud:
 		fullscreen_ui.refresh()
 	if items_view:
@@ -599,6 +383,7 @@ func paint_floor(canvas: CanvasItem, clip: Rect2) -> void:
 		var origin := floor_area.position+((clip.position-floor_area.position)/tile).floor()*tile
 		var painted := Rect2(origin,((clip.end-origin)/tile).ceil()*tile)
 		TextureTiles.paint(canvas,floor_texture,painted,tile,clip)
+	preload("res://scripts/presentation/region_terrain.gd").paint(canvas,room_config,clip)
 
 func _draw() -> void:
 	var floor_area: Rect2 = world.bounds if world else ROOM
@@ -615,13 +400,6 @@ func _draw() -> void:
 			draw_line(goal-Vector2(14,0),goal+Vector2(14,0),color,1,true)
 			draw_line(goal-Vector2(0,14),goal+Vector2(0,14),color,1,true)
 
-func _floor_style() -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color("a6b2a3")
-	style.border_color = Color("536052")
-	style.set_border_width_all(5)
-	return style
-
 func inspection_positions() -> Array:
 	var team: Array = prison_alert.officers() if prison_alert else [guard]
 	return team.filter(func(g): return g.inspection_allowed() and not g.escaped).map(func(g): return g.position)
@@ -632,7 +410,7 @@ func snapshot() -> Dictionary:
 
 func world_input_blocked() -> bool:
 	if tutorial and tutorial.blocks_input(): return true
-	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible) or (routine_panel != null and routine_panel.panel.visible) or (dialogue != null and dialogue.panel.visible)
+	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible) or (dialogue != null and dialogue.panel.visible)
 
 func finish_timeout() -> void:
 	finish_failure("逃脱期限已到 · 时间耗尽")

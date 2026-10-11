@@ -2,6 +2,10 @@ extends "res://scripts/actors/guard.gd"
 
 var guard_id := ""
 var post := Vector2.ZERO
+var blocks_primary := true
+var regional_patrol: Array[Vector2] = []
+var post_label := "门岗看守"
+var post_activity := "守门"
 
 func is_gate_guard() -> bool:
 	return true
@@ -20,12 +24,13 @@ func blocking_gate() -> bool:
 
 func patrol_route() -> Array[Vector2]:
 	if global_alert(): return super.patrol_route()
+	if not regional_patrol.is_empty(): return regional_patrol
 	var result: Array[Vector2] = [post]
 	return result
 
 func tick(delta: float) -> void:
 	if game.staff_traffic and game.staff_traffic.tick_guard(self,delta): return
-	if global_alert() or labor_enforcement() or state == "chasing" or position.distance_to(post) > 4:
+	if global_alert() or labor_enforcement() or not regional_patrol.is_empty() or state == "chasing" or position.distance_to(post) > 4:
 		super.tick(delta)
 		return
 	moved_this_frame = false

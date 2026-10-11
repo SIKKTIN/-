@@ -7,6 +7,9 @@ var index := 0
 func _draw():
 	if index!=0: return
 	var portrait: Texture2D = ui.portraits[0]
+	var library=preload("res://scripts/presentation/character_library.gd")
+	var appearance: String=library.id_for(ui.game,ui.game.actors[0])
+	if not appearance.is_empty():portrait=library.portrait(appearance)
 	var area := Rect2(12,10,64,82)
 	draw_style_box(HudArt.box("inset"),area)
 	if portrait:

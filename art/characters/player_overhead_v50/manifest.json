@@ -1,0 +1,635 @@
+{
+  "schema": 1,
+  "characters": [
+    {
+      "id": "player_overhead_v50",
+      "name": "林川 · 俯视试用",
+      "world_height": 60,
+      "initial_walk_frame_seconds": 0.1,
+      "shadow_baked": false,
+      "source_kind": "built-in-imagegen-original-RGBA",
+      "directional_variants": {
+        "down": {
+          "texture": "res://art/characters/player_overhead_v50/down_idle_walk8.png",
+          "texture_size": [
+            1254,
+            1254
+          ],
+          "sha256": "949011ada2bdd79cb6342de103e88ec471fbafcc165d2403599141c548a363dd",
+          "scale_height": 324,
+          "frames": {
+            "idle": [
+              109,
+              48,
+              206,
+              325
+            ],
+            "walk_a": [
+              518,
+              48,
+              215,
+              344
+            ],
+            "walk_b": [
+              944,
+              446,
+              214,
+              330
+            ]
+          },
+          "anchor": {
+            "idle": [
+              105.5,
+              322
+            ],
+            "walk_a": [
+              106.0,
+              341
+            ],
+            "walk_b": [
+              105.5,
+              327
+            ]
+          },
+          "walk_animation": {
+            "texture": "res://art/characters/player_overhead_v50/down_idle_walk8.png",
+            "fps": 10,
+            "scale_height": 324,
+            "frames": [
+              {
+                "id": "walk_0",
+                "region": [
+                  518,
+                  48,
+                  215,
+                  344
+                ],
+                "anchor": [
+                  106.0,
+                  341
+                ]
+              },
+              {
+                "id": "walk_1",
+                "region": [
+                  948,
+                  52,
+                  207,
+                  343
+                ],
+                "anchor": [
+                  101.5,
+                  340
+                ]
+              },
+              {
+                "id": "walk_2",
+                "region": [
+                  107,
+                  447,
+                  210,
+                  336
+                ],
+                "anchor": [
+                  105.0,
+                  333
+                ]
+              },
+              {
+                "id": "walk_3",
+                "region": [
+                  519,
+                  447,
+                  213,
+                  338
+                ],
+                "anchor": [
+                  108.0,
+                  335
+                ]
+              },
+              {
+                "id": "walk_4",
+                "region": [
+                  944,
+                  446,
+                  214,
+                  330
+                ],
+                "anchor": [
+                  105.5,
+                  327
+                ]
+              },
+              {
+                "id": "walk_5",
+                "region": [
+                  110,
+                  835,
+                  206,
+                  336
+                ],
+                "anchor": [
+                  102.5,
+                  333
+                ]
+              },
+              {
+                "id": "walk_6",
+                "region": [
+                  518,
+                  838,
+                  215,
+                  334
+                ],
+                "anchor": [
+                  107.0,
+                  331
+                ]
+              },
+              {
+                "id": "walk_7",
+                "region": [
+                  944,
+                  838,
+                  210,
+                  330
+                ],
+                "anchor": [
+                  104.0,
+                  327
+                ]
+              }
+            ]
+          }
+        },
+        "up": {
+          "texture": "res://art/characters/player_overhead_v50/up_idle_walk8.png",
+          "texture_size": [
+            1254,
+            1254
+          ],
+          "sha256": "d9afa8f1ad2d67cd2b5612904d22883bb44d6c14c152581b55b9280aeadc2aec",
+          "scale_height": 324,
+          "frames": {
+            "idle": [
+              123,
+              56,
+              195,
+              313
+            ],
+            "walk_a": [
+              531,
+              55,
+              194,
+              331
+            ],
+            "walk_b": [
+              945,
+              469,
+              189,
+              326
+            ]
+          },
+          "anchor": {
+            "idle": [
+              93.5,
+              310
+            ],
+            "walk_a": [
+              94.5,
+              328
+            ],
+            "walk_b": [
+              94.0,
+              323
+            ]
+          },
+          "walk_animation": {
+            "texture": "res://art/characters/player_overhead_v50/up_idle_walk8.png",
+            "fps": 10,
+            "scale_height": 324,
+            "frames": [
+              {
+                "id": "walk_0",
+                "region": [
+                  531,
+                  55,
+                  194,
+                  331
+                ],
+                "anchor": [
+                  94.5,
+                  328
+                ]
+              },
+              {
+                "id": "walk_1",
+                "region": [
+                  943,
+                  56,
+                  195,
+                  330
+                ],
+                "anchor": [
+                  95.0,
+                  327
+                ]
+              },
+              {
+                "id": "walk_2",
+                "region": [
+                  123,
+                  467,
+                  191,
+                  317
+                ],
+                "anchor": [
+                  95.5,
+                  314
+                ]
+              },
+              {
+                "id": "walk_3",
+                "region": [
+                  529,
+                  471,
+                  197,
+                  324
+                ],
+                "anchor": [
+                  98.5,
+                  321
+                ]
+              },
+              {
+                "id": "walk_4",
+                "region": [
+                  945,
+                  469,
+                  189,
+                  326
+                ],
+                "anchor": [
+                  94.0,
+                  323
+                ]
+              },
+              {
+                "id": "walk_5",
+                "region": [
+                  122,
+                  876,
+                  196,
+                  316
+                ],
+                "anchor": [
+                  97.5,
+                  313
+                ]
+              },
+              {
+                "id": "walk_6",
+                "region": [
+                  533,
+                  874,
+                  192,
+                  317
+                ],
+                "anchor": [
+                  94.0,
+                  314
+                ]
+              },
+              {
+                "id": "walk_7",
+                "region": [
+                  946,
+                  875,
+                  195,
+                  324
+                ],
+                "anchor": [
+                  92.5,
+                  321
+                ]
+              }
+            ]
+          }
+        },
+        "right": {
+          "texture": "res://art/characters/player_overhead_v50/right_idle_walk8.png",
+          "texture_size": [
+            1254,
+            1254
+          ],
+          "sha256": "8ab574865486deeff8d55461c6553027c2438078dfff6105ef943064fa3175e2",
+          "scale_height": 324,
+          "frames": {
+            "idle": [
+              121,
+              50,
+              197,
+              337
+            ],
+            "walk_a": [
+              533,
+              53,
+              208,
+              341
+            ],
+            "walk_b": [
+              959,
+              468,
+              201,
+              323
+            ]
+          },
+          "anchor": {
+            "idle": [
+              98.0,
+              334
+            ],
+            "walk_a": [
+              110.0,
+              338
+            ],
+            "walk_b": [
+              100.0,
+              320
+            ]
+          },
+          "walk_animation": {
+            "texture": "res://art/characters/player_overhead_v50/right_idle_walk8.png",
+            "fps": 10,
+            "scale_height": 324,
+            "frames": [
+              {
+                "id": "walk_0",
+                "region": [
+                  533,
+                  53,
+                  208,
+                  341
+                ],
+                "anchor": [
+                  110.0,
+                  338
+                ]
+              },
+              {
+                "id": "walk_1",
+                "region": [
+                  963,
+                  54,
+                  200,
+                  340
+                ],
+                "anchor": [
+                  100.0,
+                  337
+                ]
+              },
+              {
+                "id": "walk_2",
+                "region": [
+                  126,
+                  467,
+                  204,
+                  327
+                ],
+                "anchor": [
+                  101.0,
+                  324
+                ]
+              },
+              {
+                "id": "walk_3",
+                "region": [
+                  533,
+                  469,
+                  212,
+                  328
+                ],
+                "anchor": [
+                  111.0,
+                  325
+                ]
+              },
+              {
+                "id": "walk_4",
+                "region": [
+                  959,
+                  468,
+                  201,
+                  323
+                ],
+                "anchor": [
+                  100.0,
+                  320
+                ]
+              },
+              {
+                "id": "walk_5",
+                "region": [
+                  125,
+                  869,
+                  201,
+                  337
+                ],
+                "anchor": [
+                  100.5,
+                  334
+                ]
+              },
+              {
+                "id": "walk_6",
+                "region": [
+                  544,
+                  870,
+                  198,
+                  335
+                ],
+                "anchor": [
+                  99.0,
+                  332
+                ]
+              },
+              {
+                "id": "walk_7",
+                "region": [
+                  960,
+                  869,
+                  200,
+                  336
+                ],
+                "anchor": [
+                  100.0,
+                  333
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "texture": "res://art/characters/player_overhead_v50/down_idle_walk8.png",
+      "texture_size": [
+        1254,
+        1254
+      ],
+      "sha256": "949011ada2bdd79cb6342de103e88ec471fbafcc165d2403599141c548a363dd",
+      "scale_height": 324,
+      "frames": {
+        "idle": [
+          109,
+          48,
+          206,
+          325
+        ],
+        "walk_a": [
+          518,
+          48,
+          215,
+          344
+        ],
+        "walk_b": [
+          944,
+          446,
+          214,
+          330
+        ]
+      },
+      "anchor": {
+        "idle": [
+          105.5,
+          322
+        ],
+        "walk_a": [
+          106.0,
+          341
+        ],
+        "walk_b": [
+          105.5,
+          327
+        ]
+      },
+      "walk_animation": {
+        "texture": "res://art/characters/player_overhead_v50/down_idle_walk8.png",
+        "fps": 10,
+        "scale_height": 324,
+        "frames": [
+          {
+            "id": "walk_0",
+            "region": [
+              518,
+              48,
+              215,
+              344
+            ],
+            "anchor": [
+              106.0,
+              341
+            ]
+          },
+          {
+            "id": "walk_1",
+            "region": [
+              948,
+              52,
+              207,
+              343
+            ],
+            "anchor": [
+              101.5,
+              340
+            ]
+          },
+          {
+            "id": "walk_2",
+            "region": [
+              107,
+              447,
+              210,
+              336
+            ],
+            "anchor": [
+              105.0,
+              333
+            ]
+          },
+          {
+            "id": "walk_3",
+            "region": [
+              519,
+              447,
+              213,
+              338
+            ],
+            "anchor": [
+              108.0,
+              335
+            ]
+          },
+          {
+            "id": "walk_4",
+            "region": [
+              944,
+              446,
+              214,
+              330
+            ],
+            "anchor": [
+              105.5,
+              327
+            ]
+          },
+          {
+            "id": "walk_5",
+            "region": [
+              110,
+              835,
+              206,
+              336
+            ],
+            "anchor": [
+              102.5,
+              333
+            ]
+          },
+          {
+            "id": "walk_6",
+            "region": [
+              518,
+              838,
+              215,
+              334
+            ],
+            "anchor": [
+              107.0,
+              331
+            ]
+          },
+          {
+            "id": "walk_7",
+            "region": [
+              944,
+              838,
+              210,
+              330
+            ],
+            "anchor": [
+              104.0,
+              327
+            ]
+          }
+        ]
+      },
+      "portrait_region": [
+        109,
+        48,
+        206,
+        205
+      ]
+    }
+  ]
+}

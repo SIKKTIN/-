@@ -1,0 +1,1017 @@
+{
+	"schema": 2,
+	"version": "grid-wall-review-v34",
+	"master_texture": "res://art/architecture/v34/grid_wall_master.png",
+	"master_sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+	"assets": [
+		{
+			"id": "wall_grid_h",
+			"name": "横墙 · 2×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"assembly_patches": [
+				{
+					"source": [
+						420,
+						132,
+						150,
+						366
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2,
+				"rows": 6,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_h.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_t",
+			"name": "T接口 · 3×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				60,
+				120
+			],
+			"render_size": [
+				60,
+				120
+			],
+			"render_mode": "architecture_junction_t",
+			"assembly_patches": [
+				{
+					"source": [
+						590,
+						132,
+						122,
+						366
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				},
+				{
+					"source": [
+						712,
+						132,
+						114,
+						366
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				},
+				{
+					"source": [
+						826,
+						132,
+						124,
+						366
+					],
+					"destination": [
+						40,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 3,
+				"rows": 6,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": 20,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_t.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					60,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_l_left",
+			"name": "左转角 · 2×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_junction_l",
+			"assembly_patches": [
+				{
+					"source": [
+						712,
+						132,
+						114,
+						366
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				},
+				{
+					"source": [
+						826,
+						132,
+						124,
+						366
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2,
+				"rows": 6,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": 0,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				],
+				"horizontal_left": false
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_l_left.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_l_right",
+			"name": "右转角 · 2×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_junction_l",
+			"assembly_patches": [
+				{
+					"source": [
+						590,
+						132,
+						122,
+						366
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				},
+				{
+					"source": [
+						712,
+						132,
+						114,
+						366
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2,
+				"rows": 6,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": 20,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				],
+				"horizontal_right": false
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_l_right.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_v",
+			"name": "纵墙 · 1×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				120
+			],
+			"render_size": [
+				20,
+				120
+			],
+			"render_mode": "architecture_tiled_top",
+			"assembly_patches": [
+				{
+					"source": [
+						712,
+						382,
+						114,
+						288
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 6,
+				"horizontal_ports": false,
+				"vertical_ports": true,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_v.tres",
+			"collision_parts": [
+				[
+					0,
+					0,
+					20,
+					120
+				]
+			]
+		},
+		{
+			"id": "wall_grid_end",
+			"name": "端面 · 1×5格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				100
+			],
+			"render_size": [
+				20,
+				100
+			],
+			"render_mode": "architecture_endface",
+			"assembly_patches": [
+				{
+					"source": [
+						712,
+						670,
+						114,
+						299
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						100
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 5,
+				"horizontal_ports": false,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				],
+				"north_port": true
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_end.tres",
+			"collision_parts": [
+				[
+					0,
+					0,
+					20,
+					100
+				]
+			]
+		},
+		{
+			"id": "wall_grid_jamb",
+			"name": "门柱 · 1×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				120
+			],
+			"render_size": [
+				20,
+				120
+			],
+			"render_mode": "architecture_jamb",
+			"assembly_patches": [
+				{
+					"source": [
+						712,
+						670,
+						114,
+						299
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 6,
+				"horizontal_ports": false,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_jamb.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					20,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_lintel",
+			"name": "门楣 · 4×1格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				80,
+				20
+			],
+			"render_size": [
+				80,
+				20
+			],
+			"render_mode": "architecture_lintel",
+			"assembly_patches": [
+				{
+					"source": [
+						400,
+						132,
+						234,
+						84
+					],
+					"destination": [
+						0,
+						0,
+						80,
+						20
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 4,
+				"rows": 1,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					84
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_lintel.tres",
+			"collision_parts": []
+		},
+		{
+			"id": "wall_grid_h_short",
+			"name": "横墙短块 · 1×6格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				120
+			],
+			"render_size": [
+				20,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"assembly_patches": [
+				{
+					"source": [
+						420,
+						132,
+						75,
+						366
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 6,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_h_short.tres",
+			"collision_parts": [
+				[
+					0,
+					100,
+					20,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_v_short",
+			"name": "纵墙短块 · 1×1格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				20
+			],
+			"render_size": [
+				20,
+				20
+			],
+			"render_mode": "architecture_tiled_top",
+			"assembly_patches": [
+				{
+					"source": [
+						712,
+						382,
+						114,
+						48
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 1,
+				"horizontal_ports": false,
+				"vertical_ports": true,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					366
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_v_short.tres",
+			"collision_parts": [
+				[
+					0,
+					0,
+					20,
+					20
+				]
+			]
+		},
+		{
+			"id": "wall_grid_lintel_short",
+			"name": "门楣短块 · 1×1格",
+			"texture": "res://art/architecture/v34/grid_wall_master.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				20,
+				20
+			],
+			"render_size": [
+				20,
+				20
+			],
+			"render_mode": "architecture_lintel",
+			"assembly_patches": [
+				{
+					"source": [
+						400,
+						132,
+						58.5,
+						84
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"modulate": [
+						1,
+						1,
+						1,
+						1
+					],
+					"transpose": false,
+					"mirror_x": false,
+					"rotation_quarters": 0,
+					"role": "complete_grid_wall"
+				}
+			],
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"sha256": "ffd4bb98964a2f4197b10e2b7f3706efb9e921bd0abbfe36f8a58f7c9cf19840",
+			"alpha_core_shader": "res://art/architecture/v34/grid_ports.gdshader",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1,
+				"rows": 1,
+				"horizontal_ports": true,
+				"vertical_ports": false,
+				"stem_x": -1,
+				"horizontal_profile": [
+					397,
+					132,
+					0,
+					84
+				],
+				"vertical_profile": [
+					712,
+					600,
+					114,
+					0
+				]
+			},
+			"editor_icon": "res://art/editor/v14/icons/wall_grid_lintel_short.tres",
+			"collision_parts": []
+		}
+	]
+}

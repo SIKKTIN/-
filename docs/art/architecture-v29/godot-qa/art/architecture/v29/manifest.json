@@ -1,0 +1,476 @@
+{
+  "schema": 2,
+  "version": "architecture-v29-20261007",
+  "style": "FIRST-VERSION-STONE-T",
+  "master_texture": "res://art/architecture/v29/cafeteria_t_master_v29.png",
+  "master_sha256": "c61e00b01c3d0a0b22a04cb14198b88e898a21593729161ffd5f1999b1ab08a3",
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  },
+  "assets": [
+    {
+      "id": "cafeteria_t_20_v29",
+      "name": "石墙完整向下T·20厚",
+      "texture": "res://art/architecture/v29/cafeteria_t_master_v29.png",
+      "texture_size": [
+        1635,
+        962
+      ],
+      "region": [
+        0,
+        0,
+        1635,
+        962
+      ],
+      "world_size": [
+        132,
+        80
+      ],
+      "render_size": [
+        132,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            88,
+            117,
+            612,
+            221
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            117,
+            236,
+            221
+          ],
+          "destination": [
+            56,
+            0,
+            20,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            936,
+            117,
+            612,
+            221
+          ],
+          "destination": [
+            76,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            658,
+            338,
+            42,
+            44
+          ],
+          "destination": [
+            52,
+            24,
+            4,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            338,
+            236,
+            44
+          ],
+          "destination": [
+            56,
+            24,
+            20,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            936,
+            338,
+            42,
+            44
+          ],
+          "destination": [
+            76,
+            24,
+            4,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            382,
+            236,
+            465
+          ],
+          "destination": [
+            56,
+            28,
+            20,
+            52
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        }
+      ],
+      "cross_width_world": 20,
+      "stem_rect": [
+        56,
+        24,
+        20,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        132,
+        24
+      ],
+      "inner_chamfer_bounds": [
+        [
+          52,
+          24,
+          4,
+          4
+        ],
+        [
+          76,
+          24,
+          4,
+          4
+        ]
+      ],
+      "return_start_world": 80,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "c61e00b01c3d0a0b22a04cb14198b88e898a21593729161ffd5f1999b1ab08a3",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v09/icons/cafeteria_t_20_v29.tres"
+    },
+    {
+      "id": "cafeteria_t_v29",
+      "name": "石墙完整向下T·24厚",
+      "texture": "res://art/architecture/v29/cafeteria_t_master_v29.png",
+      "texture_size": [
+        1635,
+        962
+      ],
+      "region": [
+        0,
+        0,
+        1635,
+        962
+      ],
+      "world_size": [
+        136,
+        80
+      ],
+      "render_size": [
+        136,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            88,
+            117,
+            612,
+            221
+          ],
+          "destination": [
+            0,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            117,
+            236,
+            221
+          ],
+          "destination": [
+            56,
+            0,
+            24,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            936,
+            117,
+            612,
+            221
+          ],
+          "destination": [
+            80,
+            0,
+            56,
+            24
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            658,
+            338,
+            42,
+            44
+          ],
+          "destination": [
+            52,
+            24,
+            4,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            338,
+            236,
+            44
+          ],
+          "destination": [
+            56,
+            24,
+            24,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            936,
+            338,
+            42,
+            44
+          ],
+          "destination": [
+            80,
+            24,
+            4,
+            4
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        },
+        {
+          "source": [
+            700,
+            382,
+            236,
+            465
+          ],
+          "destination": [
+            56,
+            28,
+            24,
+            52
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "single new painted T, continuous branch and two carved inner chamfers"
+        }
+      ],
+      "cross_width_world": 24,
+      "stem_rect": [
+        56,
+        24,
+        24,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        136,
+        24
+      ],
+      "inner_chamfer_bounds": [
+        [
+          52,
+          24,
+          4,
+          4
+        ],
+        [
+          80,
+          24,
+          4,
+          4
+        ]
+      ],
+      "return_start_world": 80,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "c61e00b01c3d0a0b22a04cb14198b88e898a21593729161ffd5f1999b1ab08a3",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v09/icons/cafeteria_t_v29.tres"
+    }
+  ]
+}

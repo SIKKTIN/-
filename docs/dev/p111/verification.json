@@ -1,0 +1,100 @@
+{
+  "human_scale": 1.6,
+  "player_height": 96,
+  "foot_radii_unchanged": [
+    8,
+    3
+  ],
+  "side_door_span": 166.4,
+  "door_body": [
+    -28.8,
+    -102.4,
+    57.6,
+    106.4
+  ],
+  "checks": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 19.55,
+      "checks": 17,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-proportions-confirmed\\feet.json"
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.86,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-proportions\\structure.json"
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 26.42,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-proportions-confirmed\\map.json"
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 52.34,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-proportions-confirmed\\tutorial.json"
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 62.25,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-ai\\npc.json"
+    },
+    {
+      "id": "legacy_maps",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.61,
+      "checks": 9,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-ai\\legacy_maps.json"
+    },
+    {
+      "id": "chase",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.95,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false,
+      "report_source": "docs\\tests\\p111-ai\\chase.json"
+    }
+  ],
+  "total_checks": 214,
+  "passed": true,
+  "native_captures": [
+    "docs/dev/p111/dorm-proportions.png",
+    "docs/dev/p111/workshop-proportions.png"
+  ]
+}

@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v34/grid_wall_master.png" id="1_jmf81"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_21kvf"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 8, 0, 112, 112, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 85, 85, 237, 62, 0, 0, 191, 62, 255, 255, 255, 255, 171, 170, 9, 63, 0, 0, 191, 62, 255, 255, 255, 255, 171, 170, 9, 63, 0, 0, 215, 62, 255, 255, 255, 255, 85, 85, 237, 62, 0, 0, 215, 62),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 0, 0, 0, 65, 0, 0, 240, 66, 0, 0, 0, 65, 0, 0, 240, 66, 0, 0, 240, 66, 0, 0, 0, 65, 0, 0, 240, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_21kvf")
+base_texture = ExtResource("1_jmf81")
+image_size = Vector2(128, 128)

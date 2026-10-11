@@ -1,0 +1,358 @@
+{
+  "schema": 2,
+  "version": "factory-expansion-v43",
+  "assets": [
+    {
+      "id": "warehouse_rack_v43",
+      "name": "仓库货架 · 纵向",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        109,
+        20,
+        150,
+        476
+      ],
+      "ground_rect": [
+        0,
+        51.0,
+        150,
+        425.0
+      ],
+      "footprint_world_size": [
+        120,
+        340
+      ],
+      "world_size": [
+        120,
+        380.8
+      ],
+      "render_size": [
+        120,
+        380.8
+      ],
+      "elevation_world": 40.80000000000001,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/warehouse_rack_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "cargo_pallet_v43",
+      "name": "托盘货堆",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        450,
+        132,
+        272,
+        302
+      ],
+      "ground_rect": [
+        0,
+        75.33333333333331,
+        272,
+        226.66666666666669
+      ],
+      "footprint_world_size": [
+        120,
+        100
+      ],
+      "world_size": [
+        120,
+        133.23529411764704
+      ],
+      "render_size": [
+        120,
+        133.23529411764704
+      ],
+      "elevation_world": 33.235294117647044,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/cargo_pallet_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "cargo_truck_v43",
+      "name": "装卸货车 · 纵向",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        839,
+        15,
+        214,
+        497
+      ],
+      "ground_rect": [
+        0,
+        26.19999999999999,
+        214,
+        470.8
+      ],
+      "footprint_world_size": [
+        200,
+        440
+      ],
+      "world_size": [
+        200,
+        464.4859813084112
+      ],
+      "render_size": [
+        200,
+        464.4859813084112
+      ],
+      "elevation_world": 24.485981308411226,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/cargo_truck_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "washing_machine_v43",
+      "name": "工业洗衣机",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1227,
+        99,
+        223,
+        340
+      ],
+      "ground_rect": [
+        0,
+        139.3,
+        223,
+        200.7
+      ],
+      "footprint_world_size": [
+        100,
+        90
+      ],
+      "world_size": [
+        100,
+        152.4663677130045
+      ],
+      "render_size": [
+        100,
+        152.4663677130045
+      ],
+      "elevation_world": 62.4663677130045,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/washing_machine_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "drying_rack_v43",
+      "name": "晾衣架 · 纵向",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        77,
+        571,
+        213,
+        378
+      ],
+      "ground_rect": [
+        0,
+        58.5,
+        213,
+        319.5
+      ],
+      "footprint_world_size": [
+        100,
+        150
+      ],
+      "world_size": [
+        100,
+        177.46478873239437
+      ],
+      "render_size": [
+        100,
+        177.46478873239437
+      ],
+      "elevation_world": 27.464788732394368,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/drying_rack_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "equipment_pump_v43",
+      "name": "设备泵组",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        401,
+        634,
+        361,
+        262
+      ],
+      "ground_rect": [
+        0,
+        97.9090909090909,
+        361,
+        164.0909090909091
+      ],
+      "footprint_world_size": [
+        220,
+        100
+      ],
+      "world_size": [
+        220,
+        159.6675900277008
+      ],
+      "render_size": [
+        220,
+        159.6675900277008
+      ],
+      "elevation_world": 59.66759002770081,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/equipment_pump_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "electrical_cabinet_v43",
+      "name": "电气柜",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        852,
+        552,
+        207,
+        406
+      ],
+      "ground_rect": [
+        0,
+        268.0,
+        207,
+        138.0
+      ],
+      "footprint_world_size": [
+        90,
+        60
+      ],
+      "world_size": [
+        90,
+        176.52173913043478
+      ],
+      "render_size": [
+        90,
+        176.52173913043478
+      ],
+      "elevation_world": 116.52173913043478,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/electrical_cabinet_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    },
+    {
+      "id": "guard_booth_v43",
+      "name": "门岗亭",
+      "texture": "res://art/props/factory_v43/expansion_atlas.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1198,
+        570,
+        288,
+        369
+      ],
+      "ground_rect": [
+        0,
+        177.0,
+        288,
+        192.0
+      ],
+      "footprint_world_size": [
+        180,
+        120
+      ],
+      "world_size": [
+        180,
+        230.625
+      ],
+      "render_size": [
+        180,
+        230.625
+      ],
+      "elevation_world": 110.625,
+      "render_mode": "projected_prop",
+      "blocking": true,
+      "interactive": false,
+      "shadow_baked": false,
+      "authoring_set": "factory-expansion-v43",
+      "editor_subcategory": "furnishings",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v21/icons/guard_booth_v43.tres",
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "description": "当前七天单图 demo 的回归入口；历史阶段脚本保留为开发证据",
+  "checks": [
+    {"id":"head_layer","script":"qa/p115_head_layer.gd","report":"docs/tests/p115-head-layer.json","timeout":90},
+    {"id":"feet","script":"qa/p110_feet_collision.gd","report":"docs/tests/p110-feet.json","timeout":90},
+    {"id":"structure","script":"qa/p108_structure.gd","report":"docs/tests/p108-structure.json","timeout":90},
+    {"id":"map","script":"qa/p107_courtyard.gd","report":"docs/tests/p107-courtyard.json","timeout":150},
+    {"id":"inventory","script":"qa/p94_single_player_ui.gd","report":"docs/tests/p94-single-player-ui.json","timeout":90},
+    {"id":"player","script":"qa/p104_manual_player.gd","report":"docs/tests/p104-manual-headless.json","timeout":90},
+    {"id":"social","script":"qa/p102_social_world.gd","report":"docs/tests/p102-social-headless.json","timeout":90},
+    {"id":"npc","script":"qa/p104_npc_two_day_cycle.gd","report":"docs/tests/p104-npc-two-day-cycle.json","timeout":180},
+    {"id":"tutorial","script":"qa/p104_tutorial_regression.gd","report":"docs/tests/p104-tutorial-headless.json","timeout":180},
+    {"id":"legacy_maps","script":"qa/p104_legacy_life.gd","report":"docs/tests/p104-legacy-life.json","timeout":90},
+    {"id":"chase","script":"qa/p90_warning_recovery.gd","report":"docs/tests/p90-warning-headless.json","timeout":90}
+  ]
+}

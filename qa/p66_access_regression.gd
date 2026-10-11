@@ -46,7 +46,8 @@ func run() -> void:
 	game.set_process(false)
 	fresh()
 	checks.map_larger = game.world.bounds.size == Vector2(2800,2200)
-	checks.all_new_art_loaded = ["cafeteria_gate_closed_v23","cafeteria_gate_open_v23","prison_notice_board","wash_basin","access_reader","solitary_bed","solitary_door_closed_v23","solitary_door_open_v23"].all(func(id): return game.world.art_textures.has(id))
+	var cafeteria_gate: Dictionary = game.room_config.fixtures.filter(func(f): return f.get("id","") == "cafeteria-door-visual")[0]
+	checks.all_new_art_loaded = [cafeteria_gate.closed_asset,cafeteria_gate.open_asset,"prison_notice_board","wash_basin","access_reader","solitary_bed","solitary_door_closed_v23","solitary_door_open_v23"].all(func(id): return game.world.art_textures.has(id))
 	checks.map_lamps_authoritative = game.presentation.lighting.lamp_specs == game.room_config.lamps
 	checks.new_lamps_in_bounds = game.room_config.lamps.all(func(spec): return game.world.bounds.has_point(Vector2(spec.position[0],spec.position[1])))
 	checks.old_notice_preserved = game.presentation.asset_definitions.has("notice_board") and game.presentation.asset_definitions.has("prison_notice_board")

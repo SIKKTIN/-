@@ -1,0 +1,116 @@
+{
+  "revision": "code-structure-p108",
+  "changes": [
+    "启动流程拆分为 GameBootstrap，HUD 公共节点由 HudShell 构建",
+    "缓存导航拆分为 WorldNavigation，保留世界碰撞与路径接口",
+    "删除废弃 RoutinePanel、RoutineBoard、PaperBackdrop 及其 UID",
+    "移除旧多角色状态卡、隐藏技能按钮、旧背包交接按钮、隐藏任务计数和小地图停止按钮",
+    "背包选择/操作与绘制分离，使用 InventoryDrawer 一套显示状态",
+    "统一209项素材目录注册，前后定义完全一致",
+    "增加资源依赖检查、当前回归清单及自动运行入口",
+    "更新 README 为当前七天单图玩法"
+  ],
+  "production_scripts": 88,
+  "asset_definitions": 209,
+  "unique_regression_checks": 300,
+  "regressions": [
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.84,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.22,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.92,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.66,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "social",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.97,
+      "checks": 38,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 46.08,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 27.36,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "legacy_maps",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.16,
+      "checks": 9,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "chase",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.61,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "passed": true,
+  "native_ui_checks": 37,
+  "native_ui_errors": "",
+  "baseline": "docs/dev/p108/baseline",
+  "screenshots": [
+    "docs/dev/p108/native/backpack-1200.png",
+    "docs/dev/p108/native/hud-1200.png"
+  ]
+}

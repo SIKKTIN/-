@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v34/grid_wall_master.png" id="1_usppo"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tvsmq"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(45.333336, 8, 0, 37.33333, 112, 0),
+"attribute_data": PackedByteArray("/////1VV7T4AAAQ+/////6uqCT8AAAQ+/////6uqCT8AAPk+/////1VV7T4AAPk+/////6uqCT8AAAQ+/////1VVHj8AAAQ+/////1VVHj8AAPk+/////6uqCT8AAPk+"),
+"format": 34393296921,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("VlU1QgAAAEEAAIBCAAAAQQAAgEIAAPBCVlU1QgAA8EIAAIBCAAAAQVVVpUIAAABBVVWlQgAA8EIAAIBCAADwQg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_tvsmq")
+base_texture = ExtResource("1_usppo")
+image_size = Vector2(128, 128)

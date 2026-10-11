@@ -1,0 +1,776 @@
+{
+	"gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"map_sha256": "6a5b7e11494dee1be982c3d5df204d0e2e808bcb1ee846bbdfd9e680803f4c78",
+	"samples": [
+		{
+			"frame": {
+				"max_ms": 32.748,
+				"mean_ms": 16.63524,
+				"p95_ms": 16.724,
+				"p99_ms": 32.094
+			},
+			"name": "outside_dorm_warning_to_chase",
+			"nav_events": [],
+			"path_calls": 888,
+			"paths": {
+				"max_ms": 21.742,
+				"mean_ms": 0.240405405405405,
+				"p95_ms": 0.039,
+				"p99_ms": 2.863
+			},
+			"saw_chase": true,
+			"slow_paths": [
+				{
+					"budget": true,
+					"from": "(750.0, 1300.0)",
+					"ms": 2.537,
+					"points": 2,
+					"role": "res://scripts/actors/guard.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(2400.0, 1260.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 21.235,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.335,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 19.712,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.292,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 18.66,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.522,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.809,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.674,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": false,
+					"from": "(726.8622, 815.6381)",
+					"ms": 19.976,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"_send",
+						"tick",
+						"_process"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.803,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.666,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 18.777,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.642,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 19.461,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.469,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 21.742,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.598,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": false,
+					"from": "(1270.0, 1070.0)",
+					"ms": 19.437,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"_send",
+						"tick",
+						"_process"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.339,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.263,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.478,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.476,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.863,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(740.0, 750.0)"
+				}
+			],
+			"transition": {
+				"max_ms": 22.874,
+				"mean_ms": 3.67143333333333,
+				"p95_ms": 5.027,
+				"p99_ms": 22.874
+			},
+			"work": {
+				"max_ms": 25.017,
+				"mean_ms": 3.42126,
+				"p95_ms": 5.371,
+				"p99_ms": 23.329
+			}
+		},
+		{
+			"frame": {
+				"max_ms": 32.391,
+				"mean_ms": 16.6344633333333,
+				"p95_ms": 16.728,
+				"p99_ms": 30.723
+			},
+			"name": "outside_workshop_warning_to_chase",
+			"nav_events": [],
+			"path_calls": 886,
+			"paths": {
+				"max_ms": 21.712,
+				"mean_ms": 0.241835214446952,
+				"p95_ms": 0.039,
+				"p99_ms": 3.256
+			},
+			"saw_chase": true,
+			"slow_paths": [
+				{
+					"budget": true,
+					"from": "(750.0, 1300.0)",
+					"ms": 2.208,
+					"points": 2,
+					"role": "res://scripts/actors/guard.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(2400.0, 1260.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 18.502,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.52,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 18.687,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.023,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(726.8622, 815.6381)",
+					"ms": 20.109,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.256,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.701,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.003,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": false,
+					"from": "(726.8622, 815.6381)",
+					"ms": 20.562,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"_send",
+						"tick",
+						"_process"
+					],
+					"to": "(1346.24, 507.92)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.657,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.548,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 21.712,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.893,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 17.914,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.934,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1270.0, 1070.0)",
+					"ms": 20.096,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.57,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": false,
+					"from": "(1270.0, 1070.0)",
+					"ms": 18.526,
+					"points": 0,
+					"role": "res://scripts/actors/prisoner.gd",
+					"stack": [
+						"find_path",
+						"issue",
+						"_send",
+						"tick",
+						"_process"
+					],
+					"to": "(934.78, 779.62)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.759,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 2.871,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.117,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.149,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				},
+				{
+					"budget": true,
+					"from": "(1287.5, 750.0)",
+					"ms": 3.028,
+					"points": 0,
+					"role": "res://scripts/actors/workshop_overseer.gd",
+					"stack": [
+						"find_path",
+						"tick",
+						"tick",
+						"_process",
+						"scenario"
+					],
+					"to": "(1450.0, 1290.0)"
+				}
+			],
+			"transition": {
+				"max_ms": 21.352,
+				"mean_ms": 3.19226666666667,
+				"p95_ms": 5.595,
+				"p99_ms": 21.352
+			},
+			"work": {
+				"max_ms": 24.442,
+				"mean_ms": 2.95769,
+				"p95_ms": 5.355,
+				"p99_ms": 22.87
+			}
+		}
+	]
+}

@@ -88,16 +88,19 @@ func refresh():
 	page_label.text = "%d/%d ▾" % [tutorial.line_index+1,tutorial.lines.size()]
 	# Position from the real actor's foot anchor after the camera moved.
 	# Keep the speech inside the play area, away from the clock and minimap.
-	mouth = tutorial.game.get_global_transform_with_canvas()*actor.position+Vector2(0,-48)
+	var transform: Transform2D=tutorial.game.get_global_transform_with_canvas()
+	var host_foot: Vector2=transform*actor.position
+	mouth = transform*(actor.position+Vector2(0,-48*preload("res://scripts/core/world_scale.gd").HUMAN))
 	var low := Vector2(safe.position.x+18,safe.position.y+128)
 	var high := Vector2(safe.end.x-width-18,safe.end.y-bubble.size.y-18)
 	high = high.max(low)
 	bubble.position = (mouth-Vector2(width/2,bubble.size.y+22)).clamp(low,high)
 	var player_foot: Vector2 = tutorial.game.get_global_transform_with_canvas()*tutorial.game.actors[0].position
-	var host_foot: Vector2 = mouth+Vector2(0,48)
-	var bodies := [Rect2(player_foot-Vector2(22,64),Vector2(44,64)),Rect2(host_foot-Vector2(22,64),Vector2(44,64))]
+	var body_size := Vector2(44,64)*preload("res://scripts/core/world_scale.gd").HUMAN
+	var bodies := [Rect2(player_foot-Vector2(body_size.x/2,body_size.y),body_size),Rect2(host_foot-Vector2(body_size.x/2,body_size.y),body_size)]
 	if bodies.any(func(rect): return rect.intersects(bubble.get_rect())):
-		for candidate in [Vector2(mouth.x+42,mouth.y-92),Vector2(mouth.x-width-42,mouth.y-92)]:
+		var above_both: float=minf(bodies[0].position.y,bodies[1].position.y)-bubble.size.y-12
+		for candidate in [Vector2(bubble.position.x,above_both),Vector2(mouth.x+42,mouth.y-92),Vector2(mouth.x-width-42,mouth.y-92)]:
 			var position: Vector2 = candidate.clamp(low,high)
 			if not bodies.any(func(rect): return rect.intersects(Rect2(position,bubble.size))):
 				bubble.position = position

@@ -1,0 +1,80 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"label": "profile2",
+	"map_sha256": "1866813692bc8154632c63599c7a4b968cf786a4adbedf23497922cecf3e61f3",
+	"microbench": {
+		"view_polygon_ms": 0.0524
+	},
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"draw_calls": 1163.47422680412,
+			"fps": 77.4358669364415,
+			"frames": 388,
+			"mean_ms": 12.913912371134,
+			"name": "day_stationary",
+			"p50_ms": 12.845,
+			"p95_ms": 14.639,
+			"process": {
+				"fps": 48.5538036837071,
+				"frames": 388,
+				"mean_ms": 20.5957087628865,
+				"p50_ms": 16.382,
+				"p95_ms": 77.296
+			}
+		},
+		{
+			"draw_calls": 1122.0,
+			"fps": 98.2460580850677,
+			"frames": 295,
+			"mean_ms": 10.1785254237288,
+			"name": "day_without_information",
+			"p50_ms": 10.043,
+			"p95_ms": 11.863,
+			"process": {
+				"fps": 79.3225051391573,
+				"frames": 295,
+				"mean_ms": 12.6067627118644,
+				"p50_ms": 12.142,
+				"p95_ms": 13.88
+			}
+		},
+		{
+			"draw_calls": 1151.89743589744,
+			"fps": 85.7528016579674,
+			"frames": 429,
+			"mean_ms": 11.6614265734266,
+			"name": "day_moving",
+			"p50_ms": 11.662,
+			"p95_ms": 13.423,
+			"process": {
+				"fps": 72.9711097340911,
+				"frames": 429,
+				"mean_ms": 13.7040536130536,
+				"p50_ms": 13.284,
+				"p95_ms": 15.043
+			}
+		},
+		{
+			"draw_calls": 1232.25916230366,
+			"fps": 76.3066464487346,
+			"frames": 382,
+			"mean_ms": 13.1050183246073,
+			"name": "night_inspection",
+			"p50_ms": 12.925,
+			"p95_ms": 16.251,
+			"process": {
+				"fps": 38.8939814210985,
+				"frames": 382,
+				"mean_ms": 25.7109188481676,
+				"p50_ms": 20.092,
+				"p95_ms": 71.978
+			}
+		}
+	],
+	"viewport": [
+		1200,
+		720
+	],
+	"vsync": 1
+}

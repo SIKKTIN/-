@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v24/cafeteria_portal_v24.png" id="1_m4cks"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xp4vf"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(34.13333, 8, 0, 59.73333, 112, 0),
+"attribute_data": PackedByteArray("/////1D/hD17l4c+/////0EDKz57l4c+/////0EDKz7WnT0//////1D/hD3WnT0//////+n02j17l4c+/////zWLGj57l4c+/////zWLGj5B57s+/////+n02j1B57s+/////+n02j17l4c+/////+n02j1B57s+/////1wXYT5B57s+/////1wXYT57l4c+/////+n02j17l4c+/////+n02j1B57s+/////1wXYT5B57s+/////1wXYT57l4c+/////+n02j17l4c+/////+n02j1B57s+/////zKx5T1B57s+/////zKx5T17l4c+"),
+"format": 34393296921,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("nDZQQgAAAEG7u7tCAAAAQbu7u0LA7LZCnDZQQsDstkKIiAhCAAAAQZw2UEIAAABBnDZQQilcz0GIiAhCKVzPQYiICEIpXM9BnDZQQilcz0GcNlBCGsmPQoiICEIayY9CiIgIQhrJj0KcNlBCGsmPQpw2UEIqu+tCiIgIQiq760KIiAhCKbvrQpw2UEIpu+tCnDZQQgAA8EKIiAhCAADwQg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_xp4vf")
+base_texture = ExtResource("1_m4cks")
+image_size = Vector2(128, 128)

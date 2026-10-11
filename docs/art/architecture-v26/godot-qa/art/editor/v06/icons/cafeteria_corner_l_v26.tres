@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v26/wall_tiles_master_v26.png" id="1_cat4n"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6knk0"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(34.13333, 8, 0, 59.733337, 112, 0),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAA/////wAAID8AAAAA/////wAAID8AAEQ+/////wAAAAAAAEQ+xsbG/wAAQD4AAAAAxsbG/wAAID8AAAAAxsbG/wAAID8AAEQ+xsbG/wAAQD4AAEQ+/////wAAID4AAAAA/////wAAID4AAEQ+/////wAAgD8AAEQ+/////wAAgD8AAAAA/////wAAAAAAAAAA/////wAAAAAAAEQ+/////wAAMD4AAEQ+/////wAAMD4AAAAAxsbG/wAAID4AAAAAxsbG/wAAID4AAEQ+xsbG/wAAgD8AAEQ+xsbG/wAAgD8AAAAAxsbG/wAAAAAAAAAAxsbG/wAAAAAAAEQ+xsbG/wAAMD4AAEQ+xsbG/wAAMD4AAAAA/////wAAQD4AAFA+/////wAAID8AAFA+/////wAAID8AADA//////wAAQD4AADA//////wAAQD4AADE//////wAAID8AADE//////wAAID8AAH8//////wAAQD4AAH8/"),
+"format": 34393296921,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("iIgIQgAAAEG8u7tCAAAAQby7u0J4d7dBiIgIQnh3t0GcNlBCeHe3Qbu7u0J4d7dBu7u7Qipcz0GcNlBCKlzPQYiICEJ4d7dBREREQnh3t0FERERCjCXPQoiICEKMJc9CiIgIQowlz0JERERCjCXPQkREREIAAPBCiIgIQgAA8EJERERCeHe3QZ02UEJ4d7dBnTZQQowlz0JERERCjCXPQkREREKMJc9CnTZQQowlz0KdNlBCAADwQkREREIAAPBCnDZQQilcz0G7u7tCKVzPQbu7u0J3d4dCnDZQQnd3h0KcNlBCeHeHQru7u0J4d4dCu7u7QnE9ukKcNlBCcT26Qg==")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_6knk0")
+base_texture = ExtResource("1_cat4n")
+image_size = Vector2(128, 128)

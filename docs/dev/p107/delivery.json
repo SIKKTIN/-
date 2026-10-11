@@ -1,0 +1,11 @@
+{
+  "request": "移除寝室走廊旧连接墙，按照批准概念恢复中央庭院",
+  "map": "res://data/rooms/r04.json",
+  "removed_topology_segment": "north-life-connection",
+  "new_assets": "res://art/props/courtyard_v48/manifest.json",
+  "asset_generation_mode": "built-in image_gen",
+  "prompts": ["docs/art/courtyard-v48/prompt-0.txt", "docs/art/courtyard-v48/prompt-1.txt", "docs/art/courtyard-v48/prompt-2.txt"],
+  "landscape": ["中央树岛与自强石碑", "八段低石边花坛", "两张长椅", "四侧入口与环绕步道"],
+  "verification": {"native_checks": 100, "failed": [], "map_errors": [], "map_warnings": [], "report": "docs/tests/p107-courtyard.json"},
+  "screenshots": ["docs/art/courtyard-v48/campus-overview.png", "docs/art/courtyard-v48/courtyard-runtime.png", "docs/art/courtyard-v48/dorm-corridor-runtime.png"]
+}

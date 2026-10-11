@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/prison_v42/workbench_v42.png" id="1_cb1uu"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mns27"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(7.999996, 36.66469, 0, 112, 54.670624, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 0, 0, 180, 61, 0, 0, 63, 62, 255, 255, 255, 255, 171, 42, 119, 63, 0, 0, 63, 62, 255, 255, 255, 255, 171, 42, 119, 63, 0, 64, 84, 63, 255, 255, 255, 255, 0, 0, 180, 61, 0, 64, 84, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(248, 255, 255, 64, 164, 168, 18, 66, 0, 0, 240, 66, 164, 168, 18, 66, 0, 0, 240, 66, 174, 171, 182, 66, 248, 255, 255, 64, 174, 171, 182, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_mns27")
+base_texture = ExtResource("1_cb1uu")
+image_size = Vector2(128, 128)

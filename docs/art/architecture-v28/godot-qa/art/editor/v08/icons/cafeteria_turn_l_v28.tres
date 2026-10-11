@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v28/cafeteria_turn_master_v28.png" id="1_6ndd6"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hctw1"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 8, 0, 112, 112, 0),
+"attribute_data": PackedByteArray("/////yPp5z1yeAM+/////5f/uj5yeAM+/////5f/uj6IwcI+/////yPp5z2IwcI+/////5f/uj5yeAM+/////1aaYj9yeAM+/////1aaYj+IwcI+/////5f/uj6IwcI+/////yPp5z2IwcI+/////5f/uj6IwcI+/////5f/uj7jIV8//////yPp5z3jIV8/"),
+"format": 34393296921,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAQQAAAEFmZiZCAAAAQWZmJkJmZiZCAAAAQWZmJkJmZiZCAAAAQQAA8EIAAABBAADwQmZmJkJmZiZCZmYmQgAAAEFmZiZCZmYmQmZmJkJmZiZCAADwQgAAAEEAAPBC")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_hctw1")
+base_texture = ExtResource("1_6ndd6")
+image_size = Vector2(128, 128)

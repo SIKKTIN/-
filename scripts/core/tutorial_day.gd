@@ -58,6 +58,8 @@ func configure(owner_game):
 	game = owner_game
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for step in JSON.parse_string(FileAccess.get_file_as_string("res://data/tutorial_day.json")).steps:
+		if step.has("lines"):
+			step.lines = step.lines.map(func(line): return str(line).replace("正式三天","正式%d天" % game.schedule.escape_days))
 		steps[str(step.id)] = step
 	_make_ui()
 	speech = preload("res://scripts/ui/tutorial_speech.gd").new()
@@ -168,7 +170,7 @@ func layout():
 	if not primary.visible: body.size.x = panel.size.x-56
 
 func ui_visible() -> bool:
-	return active and not transition and not game.get_tree().paused and game.phase=="playing" and not game.fullscreen_ui.menu.visible and not game.dialogue.panel.visible and not game.shop_panel.panel.visible and not game.routine_panel.panel.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible
+	return active and not transition and not game.get_tree().paused and game.phase=="playing" and not game.fullscreen_ui.menu.visible and not game.dialogue.panel.visible and not game.shop_panel.panel.visible and not game.schedule.panel.visible and not game.developer_settings.panel.visible
 
 func sync_visibility():
 	panel.visible = ui_visible() and not speaking()
@@ -263,10 +265,8 @@ func begin():
 	caught_message_until = 0
 	monitor_goal = Vector2.ZERO
 	game.fullscreen_ui.close_menu()
-	game.routine_panel.close()
 	game.schedule.close()
 	game.dialogue.close()
-	game.routines.morning_pending = false
 	game.routines.take_control(0)
 	game.orders.stop(0)
 	game.skills.cancel(0)
@@ -301,7 +301,7 @@ func _process(delta: float):
 		completed = true
 		cancel()
 		game.reset_round()
-		game.show_status("入监日结束：第2天08:00，正式三天逃脱期限开始。",6)
+		game.show_status("入监日结束：第2天08:00，正式%d天逃脱期限开始。" % game.schedule.escape_days,6)
 	else:
 		transition_cover.modulate.a = maxf(0,1-(transition_age-0.4)/0.6)
 		if transition_age >= 1:
@@ -387,7 +387,6 @@ func _clock(minute: float):
 	game.workshop.update_gate()
 	game.routines.tick()
 	game.routines.take_control(0)
-	game.routine_panel.close()
 
 func _enter(id: String):
 	if id == "formal":

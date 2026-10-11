@@ -2,7 +2,7 @@ extends RefCounted
 
 # Shared visible apertures. Ground movement still uses feet; door passage
 # additionally tests the independent projected body against jambs/leaves.
-const SIDE_SPAN := 128.0
+const SIDE_SPAN := 128.0+64*(preload("res://scripts/core/world_scale.gd").HUMAN-1)
 static func managed_fixture(fixture: Dictionary) -> bool:
 	return controlled_fixture(fixture) or str(fixture.get("asset_id","")).begins_with("prison_gate_") or str(fixture.get("asset_id","")).begins_with("doorway_")
 

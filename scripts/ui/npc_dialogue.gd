@@ -103,7 +103,7 @@ func targets() -> Array:
 	result.append({"id":"guard:patrol","name":"巡逻看守","role":"patrol","node":game.guard})
 	if game.gate_watch:
 		for guard in game.gate_watch.guards:
-			result.append({"id":"guard:"+guard.guard_id,"name":"门岗看守","role":"gate","node":guard})
+			result.append({"id":"guard:"+guard.guard_id,"name":guard.post_label,"role":"gate","node":guard})
 	if game.workshop and is_instance_valid(game.workshop.overseer):
 		result.append({"id":"guard:overseer","name":"监工","role":"overseer","node":game.workshop.overseer})
 	if game.prison_alert:
@@ -228,7 +228,7 @@ func close() -> void:
 
 func tick() -> void:
 	if not panel.visible: return
-	if game.phase != "playing" or game.get_tree().paused or game.routine_panel.panel.visible or game.fullscreen_ui.menu.visible or game.shop_panel.panel.visible:
+	if game.phase != "playing" or game.get_tree().paused or game.fullscreen_ui.menu.visible or game.shop_panel.panel.visible:
 		close()
 		return
 	var next := find_target(str(current_target.get("id","")))
@@ -310,7 +310,7 @@ func layout() -> void:
 func position_speech() -> void:
 	if not panel.visible or not is_instance_valid(current_target.get("node")): return
 	var transform: Transform2D = game.get_global_transform_with_canvas()
-	var mouth: Vector2 = transform*current_target.node.position+Vector2(0,-48)
+	var mouth: Vector2 = transform*(current_target.node.position+Vector2(0,-48*preload("res://scripts/core/world_scale.gd").HUMAN))
 	var player_foot: Vector2 = transform*game.actors[0].position
 	var safe: Rect2 = game.fullscreen_ui.safe_area()
 	var next_key := [mouth,player_foot,safe,panel.size,responses.get_global_rect(),game.mini_map.visible]
@@ -318,7 +318,9 @@ func position_speech() -> void:
 	anchor_key = next_key
 	var low := safe.position+Vector2(18,128)
 	var high := (safe.end-panel.size-Vector2(18,18)).max(low)
-	var bodies := [Rect2(player_foot-Vector2(22,64),Vector2(44,64)),Rect2(mouth-Vector2(22,16),Vector2(44,64)),game.mobile_controls.pad.get_global_rect()]
+	var body_size := Vector2(44,64)*preload("res://scripts/core/world_scale.gd").HUMAN
+	var host_foot: Vector2=transform*current_target.node.position
+	var bodies := [Rect2(player_foot-Vector2(body_size.x/2,body_size.y),body_size),Rect2(host_foot-Vector2(body_size.x/2,body_size.y),body_size),game.mobile_controls.pad.get_global_rect()]
 	if responses.visible: bodies.append(responses.get_global_rect().grow(8))
 	if game.mini_map.visible: bodies.append(game.mini_map.get_global_rect())
 	var candidates := [mouth-Vector2(panel.size.x/2,panel.size.y+22),mouth+Vector2(42,-92),mouth-Vector2(panel.size.x+42,92),mouth+Vector2(-panel.size.x/2,70)]

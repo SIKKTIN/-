@@ -21,9 +21,13 @@ func register(actor, role: String, home: Vector2, offsite := false) -> void:
 		actor.hide()
 
 func exterior() -> Vector2:
+	if game.room_config.has("staff_exterior"):
+		var coords: Array = game.room_config.staff_exterior
+		return Vector2(coords[0],coords[1])
 	return Vector2(game.world.bounds.end.x+80,game.world.door.get_center().y)
 
 func exterior_allowed(point: Vector2, radius: float) -> bool:
+	if game.room_config.has("staff_exterior"): return false
 	var bounds: Rect2 = game.world.bounds
 	var door: Rect2 = game.world.door
 	return point.x >= bounds.end.x-radius and point.x <= bounds.end.x+100 and point.y >= door.position.y+radius and point.y <= door.end.y-radius
@@ -58,12 +62,13 @@ func _begin(record: Dictionary, incoming: bool) -> void:
 	record.status = "entering" if incoming else "leaving"
 	record.retry = 0.0
 	var door: Rect2 = game.world.door
-	var inner := door.get_center()-Vector2(90,0)
-	var outer := door.get_center()+Vector2(90,0)
+	var normal := Vector2.UP if door.size.x>door.size.y else Vector2.RIGHT
+	var inner := door.get_center()-normal*90
+	var outer := door.get_center()+normal*90
 	var legs: Array = []
 	# A recall can reverse an officer midway without repositioning them.
 	if incoming:
-		if actor.position.x > door.end.x:
+		if (actor.position-door.get_center()).dot(normal)>0:
 			legs.append(outer)
 			legs.append(inner)
 		if record.role == "overseer" and game.workshop and not game.workshop.area.has_point(actor.position):
@@ -76,7 +81,7 @@ func _begin(record: Dictionary, incoming: bool) -> void:
 			var gate: Dictionary = game.world.access_by_id(str(game.workshop.config.access_id))
 			legs.append(gate.rect.get_center()-Vector2(0,85))
 			legs.append(gate.rect.get_center()+Vector2(0,85))
-		if actor.position.x <= door.end.x:
+		if (actor.position-door.get_center()).dot(normal)<=0:
 			legs.append(inner)
 			legs.append(outer)
 		legs.append(exterior())
@@ -166,7 +171,7 @@ func tick_guard(actor, delta: float) -> bool:
 			actor.path.clear()
 			record.retry = 0.0
 	# Crossing the world boundary controls presence, independently of duty.
-	actor.escaped = actor.position.x > game.world.bounds.end.x+20
+	actor.escaped = game.world.exit_area.has_point(actor.position) if game.room_config.has("staff_exterior") else actor.position.x > game.world.bounds.end.x+20
 	actor.visible = not actor.escaped
 	if record.legs.is_empty():
 		record.status = "duty" if needed else "offsite"

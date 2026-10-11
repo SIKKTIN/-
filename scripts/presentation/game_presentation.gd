@@ -25,7 +25,6 @@ var label_states: Array[Label] = []
 var font_size: int = 17
 var asset_version: String = ""
 var fx: Dictionary = {}
-var card_symbols: Array[TextureRect] = []
 var audio_available: bool = true
 var profile: Dictionary = {}
 var profile_id: String = "v01"
@@ -152,39 +151,6 @@ func _make_ui() -> void:
 	for control in game.get_node("HUD").get_children():
 		if control is Control:
 			control.theme = theme
-	for index in range(game.cards.size()):
-		var card = game.cards[index]
-		card.add_theme_font_size_override("font_size",17)
-		card.set_meta("base_style",normal)
-		card.set_meta("selected_style",selected)
-		card.icon = skill_icons[game.actors[index].skill_id]
-		card.add_theme_constant_override("icon_max_width",32)
-		card.expand_icon = true
-		var symbol := TextureRect.new()
-		symbol.position = Vector2(123,60)
-		symbol.size = Vector2(24,24)
-		symbol.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		symbol.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		symbol.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		card.add_child(symbol)
-		card_symbols.append(symbol)
-	game.hint_label.add_theme_font_size_override("font_size",15)
-	game.hint_label.position.y = 560
-	game.hint_label.size.y = 66
-	game.skill_button.visible = false
-	var controls := Label.new()
-	controls.name = "ControlHint"
-	controls.text = "轻点选人 / 空地移动\n拖主图或小地图移视野\n定位 / 停止见小地图"
-	controls.position = Vector2(1029,648)
-	controls.theme = theme
-	controls.add_theme_font_size_override("font_size",12)
-	game.get_node("HUD").add_child(controls)
-	var instructions := Label.new()
-	instructions.text = "轻点选人 / 空地移动 · 单指拖动视野 · 小地图点击 / 拖动 · 靠近点图标互动"
-	instructions.position = Vector2(34,91)
-	instructions.theme = theme
-	instructions.add_theme_font_size_override("font_size",15)
-	game.get_node("HUD").add_child(instructions)
 	mute_button = Button.new()
 	mute_button.name = "ToggleSound"
 	mute_button.position = Vector2(819,35)
@@ -223,12 +189,14 @@ func reset() -> void:
 	events.clear()
 	previous = _state()
 	for visual in visuals:
+		visual.refresh_appearance()
 		visual.actor.moved_this_frame = false
 		visual.flip_h = false
 		visual.flash_time = 0
 		visual.tick_visual(0)
-	update_cards()
 	_tick_scene()
+	if game.items_view:
+		game.items_view.tick_visuals()
 	if lighting:
 		lighting.tick()
 	if interaction:
@@ -301,7 +269,7 @@ func _tick_scene() -> void:
 	if visual_world_revision != game.world.fixtures_revision or volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
 		_refresh_volumes()
 	for visual in visuals:
-		visual.actor.z_index = int(visual.actor.position.y)
+		visual.actor.z_index = preload("res://scripts/presentation/world_depth.gd").for_y(visual.actor.position.y,game.world.bounds.end.y)
 	var room_revision: int=game.room_visibility.revision if game.room_visibility else 0
 	if volume_visibility_revision!=room_revision or volume_obstacle_revision!=game.world.obstacle_revision:
 		volume_visibility_revision=room_revision
@@ -336,11 +304,12 @@ func tick(delta: float) -> void:
 	if dog_visual:
 		dog_visual.tick_visual(delta)
 	_tick_scene()
+	if game.items_view:
+		game.items_view.tick_visuals()
 	if lighting:
 		lighting.tick()
 	if interaction:
 		interaction.refresh()
-	update_cards()
 	var now := _state()
 	var active: bool = game.phase == "playing" and not game.get_tree().paused and not muted and audio_available
 	var chat: bool = game.actors.any(func(a): return a.action_state == "chatting")
@@ -370,20 +339,6 @@ func tick(delta: float) -> void:
 				cue("cancelled")
 				visuals[id].show_event("cancelled")
 	previous = now
-
-func update_cards() -> void:
-	for index in range(game.cards.size()):
-		var card = game.cards[index]
-		var actor = game.actors[index]
-		card.icon = null if game.fullscreen_ui else skill_icons[actor.skill_id]
-		if game.fullscreen_ui:
-			card.text = ""
-		var style = card.get_meta("selected_style") if actor.selected and not actor.escaped else card.get_meta("base_style")
-		if card.get_theme_stylebox("normal") != style:
-			card.add_theme_stylebox_override("normal",style)
-		var symbol: TextureRect = card_symbols[index]
-		symbol.visible = not game.fullscreen_ui and (actor.escaped or actor.selected or visuals[index].flash_time > 0)
-		symbol.texture = fx.escaped if actor.escaped else (fx[visuals[index].flash_state] if visuals[index].flash_time > 0 else fx.selected)
 
 func _loop(id: String, active: bool) -> void:
 	var player: AudioStreamPlayer = loops[id]

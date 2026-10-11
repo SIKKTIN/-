@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://art/props/factory_v44/variation_atlas.png" id="1_4mhtr"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_opdur"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(8, 13.213215, 0, 112, 101.57358, 0),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 0, 0, 67, 63, 0, 192, 20, 63, 255, 255, 255, 255, 0, 128, 122, 63, 0, 192, 20, 63, 255, 255, 255, 255, 0, 128, 122, 63, 0, 64, 96, 63, 255, 255, 255, 255, 0, 0, 67, 63, 0, 64, 96, 63),
+"format": 34393296921,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 65, 84, 105, 83, 65, 0, 0, 240, 66, 84, 105, 83, 65, 0, 0, 240, 66, 214, 146, 229, 66, 0, 0, 0, 65, 214, 146, 229, 66)
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_opdur")
+base_texture = ExtResource("1_4mhtr")
+image_size = Vector2(128, 128)

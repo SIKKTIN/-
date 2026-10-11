@@ -237,47 +237,6 @@
       "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
     },
     {
-      "id": "wash_basin",
-      "label": "双位洗漱盆",
-      "texture": "res://art/props/prison_v17/wash_basin_v17.png",
-      "texture_size": [
-        1536,
-        1024
-      ],
-      "region": [
-        262,
-        257,
-        1012,
-        532
-      ],
-      "ground_rect": [
-        6,
-        106.0,
-        1000,
-        420.0
-      ],
-      "footprint_world_size": [
-        100,
-        42
-      ],
-      "world_size": [
-        101.2,
-        53.2
-      ],
-      "scale": 0.1,
-      "anchor": [
-        506.0,
-        526
-      ],
-      "elevation_world": 10.6,
-      "shadow_baked": false,
-      "render_mode": "ground_prop",
-      "blocking": true,
-      "interactive": false,
-      "source_kind": "built-in-imagegen-original-png",
-      "sha256": "3f429da987edc16259b9b613637b40011592c41f9a2f50527f964ad280159ef7"
-    },
-    {
       "id": "fire_extinguisher",
       "label": "消防器具",
       "texture": "res://art/props/prison_v17/fire_extinguisher_v17.png",
@@ -370,47 +329,6 @@
       ],
       "recommended_mount_height_world": 50,
       "registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow."
-    },
-    {
-      "id": "laundry_cart",
-      "label": "洗衣推车",
-      "texture": "res://art/props/prison_v17/laundry_cart_v17.png",
-      "texture_size": [
-        1536,
-        1024
-      ],
-      "region": [
-        413,
-        215,
-        711,
-        596
-      ],
-      "ground_rect": [
-        6,
-        96.588235,
-        699,
-        493.411765
-      ],
-      "footprint_world_size": [
-        68,
-        48
-      ],
-      "world_size": [
-        69.167382,
-        57.979971
-      ],
-      "scale": 0.09728183118741059,
-      "anchor": [
-        355.5,
-        590
-      ],
-      "elevation_world": 9.39628,
-      "shadow_baked": false,
-      "render_mode": "ground_prop",
-      "blocking": true,
-      "interactive": false,
-      "source_kind": "built-in-imagegen-original-png",
-      "sha256": "3ea21afeb5444a347977503b29eb80d3d4833af5a89cc23c6243f4d9d2c21f58"
     }
   ],
   "wall_attachment_contract": "draw at wall ground registration minus (0,mount_height), using mount_anchor and uniform scale; no floor collision; prefer rear/cutaway wall; no gameplay added"

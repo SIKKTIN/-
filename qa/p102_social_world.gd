@@ -6,7 +6,7 @@ func _initialize():
 	call_deferred("run")
 func near(id: int):
 	game.dialogue.close()
-	game.actors[id].position = Vector2(1120,1300)
+	game.actors[id].position = living_point(1120,1300)
 	game.orders.clear()
 	game.room_visibility.tick(1,true)
 	approach({"node":game.actors[id]})
@@ -83,7 +83,7 @@ func run():
 	check("day_schedule_changes_do_not_erase_memory",social.people[key].memories.size()==count)
 	near(1)
 	game.actors[2].position = game.actors[0].position
-	game.actors[0].position = Vector2(750,1300)
+	game.actors[0].position = living_point(750,1300)
 	game.orders.clear()
 	game.actors[1].action_state = "idle"
 	game.actors[2].action_state = "idle"
@@ -119,7 +119,7 @@ func run():
 	social.request_help(key)
 	check("inaccessible_requests_have_no_effect",game.attributes.values[0].fullness==before)
 	clock(600)
-	game.actors[1].position = Vector2(1350,1300)
+	game.actors[1].position = living_point(1350,1300)
 	near(2)
 	game.actors[0].immune_until = 0
 	game.guard.position = (game.actors[2].position+game.actors[0].position)/2
@@ -202,7 +202,7 @@ func run():
 			await frame()
 			game.fullscreen_ui.layout()
 			game.fullscreen_ui.refresh()
-			game.map_camera.center_on(Vector2(1155,1300))
+			game.map_camera.center_on(living_point(1155,1300))
 			game.dialogue.layout()
 			await frame()
 			check("social_dialogue_fits_"+str(dims.x),fits())

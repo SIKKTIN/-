@@ -61,6 +61,12 @@ func start_chat_with(actor_id: int, guard) -> bool:
 	game.show_status("正在分散看守注意力；移动或停止操作会结束交谈。",4)
 	return true
 
+func button_state(actor) -> Dictionary:
+	var active: bool = actions.has(actor.actor_id)
+	var reason: String = target_reason(actor)
+	var label: String = "停止技能  E" if active else "接触重箱自动推" if actor.skill_id=="strong" else "使用%s  E" % game.SKILL_NAMES[actor.skill_id]
+	return {"active":active,"label":label,"disabled":game.phase!="playing" or actor.escaped or actor.skill_id=="strong" or (not active and not reason.is_empty())}
+
 func target_reason(actor) -> String:
 	if actor.confined: return "禁闭中，等待关押结束后可继续行动。"
 	if actor.escaped or game.phase != "playing":
@@ -209,7 +215,7 @@ func tick(delta: float) -> void:
 			open_target(str(id))
 			for actor_id in actions.keys():
 				if actions[actor_id].kind in ["lockpick","lock_tool"] and str(actions[actor_id].get("door_id","")) == str(id): cancel(actor_id)
-			game.show_status("禁闭门已撬开，伙伴获救！" if not str(id).is_empty() else "锁撬开了！伙伴和看守都能走这条通路。")
+			game.show_status("禁闭门已撬开，伙伴获救！" if gate.get("kind","") == "confinement" else str(gate.get("name","锁门"))+"已打开。")
 
 func snapshot() -> Array:
 	var result: Array = []

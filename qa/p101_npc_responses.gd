@@ -37,9 +37,12 @@ func clock(minute: float):
 	game.schedule.tick(false)
 	game.workshop.update_gate()
 	game.routines.tick()
+func living_point(x: float,y: float) -> Vector2:
+	var shift: Array = game.room_config.get("expansion",{}).get("living_translation",[0,0])
+	return Vector2(x+shift[0],y+shift[1])
+
 func reset(skill := "strong", minute := 600):
 	game.reset_round([skill,"chat","backpack"],72)
-	game.routine_panel.close()
 	game.schedule.set_time_speed(0)
 	clock(minute)
 	game.orders.clear()

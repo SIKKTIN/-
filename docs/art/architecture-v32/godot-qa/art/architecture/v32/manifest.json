@@ -1,0 +1,952 @@
+{
+  "schema": 2,
+  "version": "architecture-v32-20261007",
+  "style": "APPROVED-C-ROUND-SAME-HEIGHT",
+  "master_texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+  "master_sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+  "edge_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+  "physical_contract": {
+    "exterior_width": 24,
+    "interior_width": 20,
+    "front_height": 90,
+    "door_width": 180
+  },
+  "assets": [
+    {
+      "id": "cafeteria_t_20_v32",
+      "name": "圆弧同高T接口·20厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        132,
+        80
+      ],
+      "render_size": [
+        132,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            116,
+            206,
+            310,
+            80
+          ],
+          "destination": [
+            0,
+            0,
+            48,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            426,
+            206,
+            44,
+            80
+          ],
+          "destination": [
+            48,
+            0,
+            8,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            470,
+            206,
+            88,
+            80
+          ],
+          "destination": [
+            56,
+            0,
+            20,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            558,
+            206,
+            44,
+            80
+          ],
+          "destination": [
+            76,
+            0,
+            8,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            602,
+            206,
+            308,
+            80
+          ],
+          "destination": [
+            84,
+            0,
+            48,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            426,
+            286,
+            44,
+            12
+          ],
+          "destination": [
+            48,
+            21,
+            8,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            470,
+            286,
+            88,
+            12
+          ],
+          "destination": [
+            56,
+            21,
+            20,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            558,
+            286,
+            44,
+            12
+          ],
+          "destination": [
+            76,
+            21,
+            8,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            205.33333333333334
+          ],
+          "destination": [
+            56,
+            24,
+            20,
+            56
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "longitudinal_stem"
+        }
+      ],
+      "cross_width_world": 20,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_t_20_v32.tres",
+      "stem_rect": [
+        56,
+        24,
+        20,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        132,
+        24
+      ],
+      "visible_bar_depth": 21,
+      "inner_arc_bounds": [
+        [
+          48,
+          21,
+          8,
+          3
+        ],
+        [
+          76,
+          21,
+          8,
+          3
+        ]
+      ],
+      "return_start_world": 80,
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_l_20_v32",
+      "name": "圆弧同源左纵墙顶·20厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        20,
+        151.63636363636363
+      ],
+      "render_size": [
+        20,
+        151.63636363636363
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            0.0,
+            20,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            75.81818181818181,
+            20,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        }
+      ],
+      "cross_width_world": 20,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_wall_v_l_20_v32.tres",
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ],
+      "tile_origin_offset_from_corner": 24
+    },
+    {
+      "id": "cafeteria_wall_v_r_20_v32",
+      "name": "圆弧同源右纵墙顶·20厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        20,
+        151.63636363636363
+      ],
+      "render_size": [
+        20,
+        151.63636363636363
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            0.0,
+            20,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            75.81818181818181,
+            20,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        }
+      ],
+      "cross_width_world": 20,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_wall_v_r_20_v32.tres",
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ],
+      "tile_origin_offset_from_corner": 24
+    },
+    {
+      "id": "cafeteria_t_v32",
+      "name": "圆弧同高T接口·24厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        136,
+        80
+      ],
+      "render_size": [
+        136,
+        80
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            116,
+            206,
+            310,
+            80
+          ],
+          "destination": [
+            0,
+            0,
+            48,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            426,
+            206,
+            44,
+            80
+          ],
+          "destination": [
+            48,
+            0,
+            8,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            470,
+            206,
+            88,
+            80
+          ],
+          "destination": [
+            56,
+            0,
+            24,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            558,
+            206,
+            44,
+            80
+          ],
+          "destination": [
+            80,
+            0,
+            8,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            602,
+            206,
+            308,
+            80
+          ],
+          "destination": [
+            88,
+            0,
+            48,
+            21
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "horizontal_cap"
+        },
+        {
+          "source": [
+            426,
+            286,
+            44,
+            12
+          ],
+          "destination": [
+            48,
+            21,
+            8,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            470,
+            286,
+            88,
+            12
+          ],
+          "destination": [
+            56,
+            21,
+            24,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            558,
+            286,
+            44,
+            12
+          ],
+          "destination": [
+            80,
+            21,
+            8,
+            3
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "rounded_contact"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            205.33333333333334
+          ],
+          "destination": [
+            56,
+            24,
+            24,
+            56
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "longitudinal_stem"
+        }
+      ],
+      "cross_width_world": 24,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_t_v32.tres",
+      "stem_rect": [
+        56,
+        24,
+        24,
+        56
+      ],
+      "north_bar_rect": [
+        0,
+        0,
+        136,
+        24
+      ],
+      "visible_bar_depth": 21,
+      "inner_arc_bounds": [
+        [
+          48,
+          21,
+          8,
+          3
+        ],
+        [
+          80,
+          21,
+          8,
+          3
+        ]
+      ],
+      "return_start_world": 80,
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ]
+    },
+    {
+      "id": "cafeteria_wall_v_l_v32",
+      "name": "圆弧同源左纵墙顶·24厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        24,
+        151.63636363636363
+      ],
+      "render_size": [
+        24,
+        151.63636363636363
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            0.0,
+            24,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            75.81818181818181,
+            24,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": false,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        }
+      ],
+      "cross_width_world": 24,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_wall_v_l_v32.tres",
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ],
+      "tile_origin_offset_from_corner": 24
+    },
+    {
+      "id": "cafeteria_wall_v_r_v32",
+      "name": "圆弧同源右纵墙顶·24厚",
+      "texture": "res://art/architecture/v32/rounded_wall_master_v32.png",
+      "texture_size": [
+        1024,
+        1536
+      ],
+      "region": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "world_size": [
+        24,
+        151.63636363636363
+      ],
+      "render_size": [
+        24,
+        151.63636363636363
+      ],
+      "render_mode": "architecture_tiled_top",
+      "assembly_patches": [
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            0.0,
+            24,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        },
+        {
+          "source": [
+            470,
+            298,
+            88,
+            278
+          ],
+          "destination": [
+            0,
+            75.81818181818181,
+            24,
+            75.81818181818181
+          ],
+          "transpose": false,
+          "mirror_x": true,
+          "rotation_quarters": 0,
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "role": "same_source_vertical_repeat"
+        }
+      ],
+      "cross_width_world": 24,
+      "blocking": false,
+      "interactive": false,
+      "shadow_baked": false,
+      "self_shading_baked": true,
+      "source_coordinate_space": "absolute original PNG pixels",
+      "sha256": "5fc27ac05388bfeb10dfeff7fee33cf0a18b56473a2013f949b29f73273e5ff7",
+      "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+      "editor_icon": "res://art/editor/v12/icons/cafeteria_wall_v_r_v32.tres",
+      "tile_period_world": 75.81818181818181,
+      "source_repeat_window": [
+        470,
+        298,
+        88,
+        278
+      ],
+      "tile_origin_offset_from_corner": 24
+    }
+  ]
+}
