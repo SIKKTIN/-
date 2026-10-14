@@ -1,0 +1,46 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "looting",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 17.0,
+      "checks": 90,
+      "failed": [
+        "valid_target_is_highlighted",
+        "valid_drag_has_release_instruction",
+        "actual_drag_to_bag_transfers_once"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.98,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 17.2,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 131,
+  "passed": false
+}

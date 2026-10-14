@@ -1,0 +1,1435 @@
+{
+	"automatic_process": true,
+	"cases": {
+		"cap60_running_time": {
+			"draw_calls": {
+				"max": 822.0,
+				"mean": 814.208888888889,
+				"p50": 814.0,
+				"p95": 821.0
+			},
+			"frame_ms": {
+				"max": 157.508,
+				"mean": 16.7937888888889,
+				"p50": 16.688,
+				"p95": 17.895
+			},
+			"game_script_ms": {
+				"max": 7.278,
+				"mean": 3.00642,
+				"p50": 2.837,
+				"p95": 4.059
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.386,
+				"ground_static": 12.266,
+				"information": 0.402
+			},
+			"over20ms": 5,
+			"sample_frames": 900,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.111,
+					"mean": 0.0160455555555556,
+					"p50": 0.017,
+					"p95": 0.023
+				},
+				"clock_routines_npc": {
+					"max": 2.729,
+					"mean": 1.28663888888889,
+					"p50": 1.248,
+					"p95": 1.687
+				},
+				"fine_gate_watch": {
+					"max": 1.44,
+					"mean": 0.533971111111111,
+					"p50": 0.514,
+					"p95": 0.783
+				},
+				"fine_guard": {
+					"max": 4.981,
+					"mean": 0.128008888888889,
+					"p50": 0.116,
+					"p95": 0.168
+				},
+				"fine_npc_life": {
+					"max": 0.213,
+					"mean": 0.00508555555555546,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.109,
+					"mean": 0.00404555555555557,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.557,
+					"mean": 0.198521111111111,
+					"p50": 0.188,
+					"p95": 0.261
+				},
+				"fine_routines": {
+					"max": 0.089,
+					"mean": 0.0158744444444444,
+					"p50": 0.015,
+					"p95": 0.02
+				},
+				"fine_staff_traffic": {
+					"max": 0.073,
+					"mean": 0.0166744444444444,
+					"p50": 0.016,
+					"p95": 0.023
+				},
+				"fine_workshop": {
+					"max": 0.141,
+					"mean": 0.0469677777777777,
+					"p50": 0.044,
+					"p95": 0.064
+				},
+				"guard_work_alert": {
+					"max": 5.046,
+					"mean": 0.180516666666667,
+					"p50": 0.167,
+					"p95": 0.234
+				},
+				"hud_panels": {
+					"max": 0.069,
+					"mean": 0.0135333333333333,
+					"p50": 0.013,
+					"p95": 0.017
+				},
+				"movement_orders": {
+					"max": 2.189,
+					"mean": 0.120573333333332,
+					"p50": 0.003,
+					"p95": 0.398
+				},
+				"presentation": {
+					"max": 1.534,
+					"mean": 0.718139999999999,
+					"p50": 0.697,
+					"p95": 0.885
+				},
+				"skills_trade_dog": {
+					"max": 0.162,
+					"mean": 0.0350511111111111,
+					"p50": 0.033,
+					"p95": 0.047
+				},
+				"staff_input": {
+					"max": 1.507,
+					"mean": 0.572074444444444,
+					"p50": 0.55,
+					"p95": 0.829
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.434,
+					"mean": 0.0503588888888888,
+					"p50": 0.044,
+					"p95": 0.063
+				}
+			},
+			"spikes": [
+				{
+					"clock": 491.961420266667,
+					"draw_calls": 814.0,
+					"fixture_revision": 2,
+					"frame_ms": 26.99,
+					"game_script_ms": 3.368,
+					"index": 345,
+					"paths": [],
+					"sections": {
+						"camera_status": 0.031,
+						"clock_routines_npc": 1.471,
+						"fine_gate_watch": 0.594,
+						"fine_guard": 0.127,
+						"fine_npc_life": 0.003,
+						"fine_prison_alert": 0.004,
+						"fine_room_access": 0.208,
+						"fine_routines": 0.019,
+						"fine_staff_traffic": 0.018,
+						"fine_workshop": 0.049,
+						"guard_work_alert": 0.182,
+						"hud_panels": 0.014,
+						"movement_orders": 0.148,
+						"presentation": 0.775,
+						"skills_trade_dog": 0.044,
+						"staff_input": 0.637,
+						"visibility_dialogue_loot_social": 0.051
+					},
+					"texture_mib": 665.0703125
+				},
+				{
+					"clock": 496.7857248,
+					"draw_calls": 814.0,
+					"fixture_revision": 2,
+					"frame_ms": 157.508,
+					"game_script_ms": 2.844,
+					"index": 518,
+					"paths": [],
+					"sections": {
+						"camera_status": 0.017,
+						"clock_routines_npc": 1.152,
+						"fine_gate_watch": 0.653,
+						"fine_guard": 0.219,
+						"fine_npc_life": 0.003,
+						"fine_prison_alert": 0.003,
+						"fine_room_access": 0.169,
+						"fine_routines": 0.014,
+						"fine_staff_traffic": 0.014,
+						"fine_workshop": 0.04,
+						"guard_work_alert": 0.264,
+						"hud_panels": 0.012,
+						"movement_orders": 0.003,
+						"presentation": 0.624,
+						"skills_trade_dog": 0.03,
+						"staff_input": 0.688,
+						"visibility_dialogue_loot_social": 0.041
+					},
+					"texture_mib": 665.0703125
+				}
+			]
+		},
+		"cap60_searching": {
+			"draw_calls": {
+				"max": 567.0,
+				"mean": 561.983333333333,
+				"p50": 562.0,
+				"p95": 567.0
+			},
+			"frame_ms": {
+				"max": 21.117,
+				"mean": 16.66644,
+				"p50": 16.669,
+				"p95": 17.776
+			},
+			"game_script_ms": {
+				"max": 6.447,
+				"mean": 2.82306666666667,
+				"p50": 2.745,
+				"p95": 3.373
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.475,
+				"ground_static": 12.266,
+				"information": 0.405
+			},
+			"over20ms": 4,
+			"sample_frames": 600,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.268,
+					"mean": 0.0145966666666666,
+					"p50": 0.014,
+					"p95": 0.017
+				},
+				"clock_routines_npc": {
+					"max": 2.878,
+					"mean": 1.12182166666667,
+					"p50": 1.074,
+					"p95": 1.368
+				},
+				"fine_gate_watch": {
+					"max": 1.884,
+					"mean": 0.422046666666667,
+					"p50": 0.402,
+					"p95": 0.53
+				},
+				"fine_guard": {
+					"max": 0.887,
+					"mean": 0.325546666666667,
+					"p50": 0.319,
+					"p95": 0.4
+				},
+				"fine_npc_life": {
+					"max": 0.335,
+					"mean": 0.00542499999999992,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.025,
+					"mean": 0.00391333333333332,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 1.349,
+					"mean": 0.186758333333334,
+					"p50": 0.175,
+					"p95": 0.236
+				},
+				"fine_routines": {
+					"max": 0.163,
+					"mean": 0.0291066666666666,
+					"p50": 0.027,
+					"p95": 0.041
+				},
+				"fine_staff_traffic": {
+					"max": 0.061,
+					"mean": 0.0169933333333333,
+					"p50": 0.016,
+					"p95": 0.024
+				},
+				"fine_workshop": {
+					"max": 0.388,
+					"mean": 0.135253333333333,
+					"p50": 0.127,
+					"p95": 0.176
+				},
+				"guard_work_alert": {
+					"max": 1.252,
+					"mean": 0.466339999999999,
+					"p50": 0.455,
+					"p95": 0.575
+				},
+				"hud_panels": {
+					"max": 0.058,
+					"mean": 0.00784999999999999,
+					"p50": 0.008,
+					"p95": 0.01
+				},
+				"movement_orders": {
+					"max": 0.319,
+					"mean": 0.0368083333333327,
+					"p50": 0.002,
+					"p95": 0.174
+				},
+				"presentation": {
+					"max": 1.034,
+					"mean": 0.449206666666666,
+					"p50": 0.45,
+					"p95": 0.569
+				},
+				"skills_trade_dog": {
+					"max": 0.519,
+					"mean": 0.0684300000000001,
+					"p50": 0.064,
+					"p95": 0.089
+				},
+				"staff_input": {
+					"max": 1.92,
+					"mean": 0.454566666666666,
+					"p50": 0.436,
+					"p95": 0.569
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.49,
+					"mean": 0.190198333333334,
+					"p50": 0.181,
+					"p95": 0.239
+				}
+			},
+			"spikes": []
+		},
+		"cap90_running_time": {
+			"draw_calls": {
+				"max": 814.0,
+				"mean": 814.0,
+				"p50": 814.0,
+				"p95": 814.0
+			},
+			"frame_ms": {
+				"max": 43.16,
+				"mean": 11.138595,
+				"p50": 11.125,
+				"p95": 12.182
+			},
+			"game_script_ms": {
+				"max": 4.792,
+				"mean": 2.38239166666667,
+				"p50": 2.294,
+				"p95": 2.93
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.383,
+				"ground_static": 12.266,
+				"information": 0.403
+			},
+			"over20ms": 1,
+			"sample_frames": 600,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.067,
+					"mean": 0.0185033333333334,
+					"p50": 0.017,
+					"p95": 0.025
+				},
+				"clock_routines_npc": {
+					"max": 2.434,
+					"mean": 1.02207166666667,
+					"p50": 0.977,
+					"p95": 1.302
+				},
+				"fine_gate_watch": {
+					"max": 0.962,
+					"mean": 0.379161666666667,
+					"p50": 0.363,
+					"p95": 0.472
+				},
+				"fine_guard": {
+					"max": 0.292,
+					"mean": 0.116341666666667,
+					"p50": 0.111,
+					"p95": 0.149
+				},
+				"fine_npc_life": {
+					"max": 0.232,
+					"mean": 0.0041783333333333,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.017,
+					"mean": 0.00361499999999998,
+					"p50": 0.003,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.461,
+					"mean": 0.179765,
+					"p50": 0.168,
+					"p95": 0.25
+				},
+				"fine_routines": {
+					"max": 0.122,
+					"mean": 0.0143299999999999,
+					"p50": 0.013,
+					"p95": 0.02
+				},
+				"fine_staff_traffic": {
+					"max": 0.066,
+					"mean": 0.015155,
+					"p50": 0.014,
+					"p95": 0.02
+				},
+				"fine_workshop": {
+					"max": 0.148,
+					"mean": 0.0435516666666668,
+					"p50": 0.04,
+					"p95": 0.058
+				},
+				"guard_work_alert": {
+					"max": 0.438,
+					"mean": 0.164823333333334,
+					"p50": 0.157,
+					"p95": 0.208
+				},
+				"hud_panels": {
+					"max": 0.157,
+					"mean": 0.0130266666666666,
+					"p50": 0.012,
+					"p95": 0.016
+				},
+				"movement_orders": {
+					"max": 0.005,
+					"mean": 0.002205,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"presentation": {
+					"max": 1.369,
+					"mean": 0.660145,
+					"p50": 0.637,
+					"p95": 0.782
+				},
+				"skills_trade_dog": {
+					"max": 0.089,
+					"mean": 0.0306799999999999,
+					"p50": 0.029,
+					"p95": 0.039
+				},
+				"staff_input": {
+					"max": 1.028,
+					"mean": 0.413781666666666,
+					"p50": 0.396,
+					"p95": 0.512
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.27,
+					"mean": 0.0461250000000001,
+					"p50": 0.042,
+					"p95": 0.065
+				}
+			},
+			"spikes": [
+				{
+					"clock": 517.812312888891,
+					"draw_calls": 814.0,
+					"fixture_revision": 2,
+					"frame_ms": 43.16,
+					"game_script_ms": 2.446,
+					"index": 519,
+					"paths": [],
+					"sections": {
+						"camera_status": 0.024,
+						"clock_routines_npc": 0.969,
+						"fine_gate_watch": 0.362,
+						"fine_guard": 0.216,
+						"fine_npc_life": 0.003,
+						"fine_prison_alert": 0.005,
+						"fine_room_access": 0.166,
+						"fine_routines": 0.013,
+						"fine_staff_traffic": 0.02,
+						"fine_workshop": 0.052,
+						"guard_work_alert": 0.273,
+						"hud_panels": 0.014,
+						"movement_orders": 0.002,
+						"presentation": 0.67,
+						"skills_trade_dog": 0.03,
+						"staff_input": 0.402,
+						"visibility_dialogue_loot_social": 0.051
+					},
+					"texture_mib": 665.0703125
+				}
+			]
+		},
+		"hour_12_transition": {
+			"draw_calls": {
+				"max": 839.0,
+				"mean": 828.983333333333,
+				"p50": 837.0,
+				"p95": 839.0
+			},
+			"frame_ms": {
+				"max": 12.711,
+				"mean": 7.12461333333333,
+				"p50": 7.022,
+				"p95": 8.157
+			},
+			"game_script_ms": {
+				"max": 8.709,
+				"mean": 3.20411333333333,
+				"p50": 3.156,
+				"p95": 3.769
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.306,
+				"ground_static": 12.266,
+				"information": 0.424
+			},
+			"over20ms": 0,
+			"sample_frames": 300,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.169,
+					"mean": 0.0141433333333333,
+					"p50": 0.013,
+					"p95": 0.017
+				},
+				"clock_routines_npc": {
+					"max": 1.597,
+					"mean": 1.11861666666667,
+					"p50": 1.104,
+					"p95": 1.325
+				},
+				"fine_gate_watch": {
+					"max": 0.929,
+					"mean": 0.560283333333333,
+					"p50": 0.532,
+					"p95": 0.72
+				},
+				"fine_guard": {
+					"max": 0.301,
+					"mean": 0.180743333333333,
+					"p50": 0.177,
+					"p95": 0.213
+				},
+				"fine_npc_life": {
+					"max": 0.245,
+					"mean": 0.00366333333333333,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.013,
+					"mean": 0.00417666666666666,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.261,
+					"mean": 0.132053333333333,
+					"p50": 0.128,
+					"p95": 0.159
+				},
+				"fine_routines": {
+					"max": 0.039,
+					"mean": 0.0159666666666667,
+					"p50": 0.015,
+					"p95": 0.02
+				},
+				"fine_staff_traffic": {
+					"max": 0.08,
+					"mean": 0.0178966666666666,
+					"p50": 0.017,
+					"p95": 0.022
+				},
+				"fine_workshop": {
+					"max": 5.642,
+					"mean": 0.14432,
+					"p50": 0.124,
+					"p95": 0.154
+				},
+				"guard_work_alert": {
+					"max": 5.827,
+					"mean": 0.33094,
+					"p50": 0.308,
+					"p95": 0.372
+				},
+				"hud_panels": {
+					"max": 0.019,
+					"mean": 0.01311,
+					"p50": 0.013,
+					"p95": 0.016
+				},
+				"movement_orders": {
+					"max": 3.32,
+					"mean": 0.183303333333333,
+					"p50": 0.171,
+					"p95": 0.227
+				},
+				"presentation": {
+					"max": 1.017,
+					"mean": 0.825506666666666,
+					"p50": 0.821,
+					"p95": 0.969
+				},
+				"skills_trade_dog": {
+					"max": 0.115,
+					"mean": 0.0645366666666667,
+					"p50": 0.062,
+					"p95": 0.082
+				},
+				"staff_input": {
+					"max": 0.977,
+					"mean": 0.596993333333334,
+					"p50": 0.571,
+					"p95": 0.764
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.271,
+					"mean": 0.04753,
+					"p50": 0.045,
+					"p95": 0.055
+				}
+			},
+			"spikes": []
+		},
+		"hour_14_transition": {
+			"draw_calls": {
+				"max": 814.0,
+				"mean": 812.21,
+				"p50": 812.0,
+				"p95": 814.0
+			},
+			"frame_ms": {
+				"max": 55.337,
+				"mean": 7.58591,
+				"p50": 6.816,
+				"p95": 8.253
+			},
+			"game_script_ms": {
+				"max": 50.674,
+				"mean": 4.10183666666667,
+				"p50": 3.375,
+				"p95": 4.282
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.268,
+				"ground_static": 12.266,
+				"information": 0.353
+			},
+			"over20ms": 5,
+			"sample_frames": 300,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.03,
+					"mean": 0.01235,
+					"p50": 0.012,
+					"p95": 0.016
+				},
+				"clock_routines_npc": {
+					"max": 2.439,
+					"mean": 1.40730666666667,
+					"p50": 1.387,
+					"p95": 1.695
+				},
+				"fine_gate_watch": {
+					"max": 1.009,
+					"mean": 0.713963333333333,
+					"p50": 0.702,
+					"p95": 0.881
+				},
+				"fine_guard": {
+					"max": 0.303,
+					"mean": 0.157276666666667,
+					"p50": 0.154,
+					"p95": 0.203
+				},
+				"fine_npc_life": {
+					"max": 0.171,
+					"mean": 0.00301333333333333,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.05,
+					"mean": 0.00454666666666666,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.423,
+					"mean": 0.199656666666667,
+					"p50": 0.195,
+					"p95": 0.24
+				},
+				"fine_routines": {
+					"max": 0.027,
+					"mean": 0.0108133333333333,
+					"p50": 0.01,
+					"p95": 0.015
+				},
+				"fine_staff_traffic": {
+					"max": 0.141,
+					"mean": 0.01654,
+					"p50": 0.016,
+					"p95": 0.02
+				},
+				"fine_workshop": {
+					"max": 47.169,
+					"mean": 0.918883333333333,
+					"p50": 0.17,
+					"p95": 0.363
+				},
+				"guard_work_alert": {
+					"max": 47.351,
+					"mean": 1.08233333333333,
+					"p50": 0.337,
+					"p95": 0.565
+				},
+				"hud_panels": {
+					"max": 0.054,
+					"mean": 0.0126166666666667,
+					"p50": 0.012,
+					"p95": 0.017
+				},
+				"movement_orders": {
+					"max": 0.004,
+					"mean": 0.00227333333333334,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"presentation": {
+					"max": 0.986,
+					"mean": 0.724113333333333,
+					"p50": 0.715,
+					"p95": 0.905
+				},
+				"skills_trade_dog": {
+					"max": 0.122,
+					"mean": 0.05871,
+					"p50": 0.056,
+					"p95": 0.079
+				},
+				"staff_input": {
+					"max": 1.045,
+					"mean": 0.747963333333333,
+					"p50": 0.734,
+					"p95": 0.925
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.226,
+					"mean": 0.0458366666666666,
+					"p50": 0.043,
+					"p95": 0.057
+				}
+			},
+			"spikes": [
+				{
+					"clock": 842.815065955555,
+					"draw_calls": 811.0,
+					"fixture_revision": 2,
+					"frame_ms": 55.337,
+					"game_script_ms": 50.674,
+					"index": 127,
+					"paths": [
+						{
+							"actor": "res://scripts/actors/workshop_overseer.gd",
+							"from": "(1501.775, 2316.954)",
+							"path_points": 0,
+							"state": "patrol",
+							"subsearches": [
+								{
+									"astar_ms": 24.024,
+									"astar_raw_points": 0,
+									"grid": "inspection",
+									"overlay_endpoints_ms": 0.435,
+									"total_ms": 24.467
+								},
+								{
+									"astar_ms": 21.869,
+									"astar_raw_points": 0,
+									"grid": "portal_inspection",
+									"overlay_endpoints_ms": 0.536,
+									"total_ms": 22.414
+								}
+							],
+							"to": "(1140.51, 1913.58)",
+							"total_ms": 46.969
+						}
+					],
+					"sections": {
+						"camera_status": 0.023,
+						"clock_routines_npc": 1.443,
+						"fine_gate_watch": 0.745,
+						"fine_guard": 0.157,
+						"fine_npc_life": 0.002,
+						"fine_prison_alert": 0.021,
+						"fine_room_access": 0.209,
+						"fine_routines": 0.01,
+						"fine_staff_traffic": 0.016,
+						"fine_workshop": 47.169,
+						"guard_work_alert": 47.351,
+						"hud_panels": 0.02,
+						"movement_orders": 0.002,
+						"presentation": 0.919,
+						"skills_trade_dog": 0.061,
+						"staff_input": 0.777,
+						"visibility_dialogue_loot_social": 0.067
+					},
+					"texture_mib": 665.1953125
+				},
+				{
+					"clock": 843.300329599999,
+					"draw_calls": 812.0,
+					"fixture_revision": 2,
+					"frame_ms": 43.697,
+					"game_script_ms": 39.349,
+					"index": 163,
+					"paths": [
+						{
+							"actor": "res://scripts/actors/workshop_overseer.gd",
+							"from": "(1501.775, 2316.954)",
+							"path_points": 0,
+							"state": "patrol",
+							"subsearches": [
+								{
+									"astar_ms": 18.196,
+									"astar_raw_points": 0,
+									"grid": "inspection",
+									"overlay_endpoints_ms": 0.337,
+									"total_ms": 18.542
+								},
+								{
+									"astar_ms": 17.017,
+									"astar_raw_points": 0,
+									"grid": "portal_inspection",
+									"overlay_endpoints_ms": 0.44,
+									"total_ms": 17.466
+								}
+							],
+							"to": "(1140.51, 1913.58)",
+							"total_ms": 36.094
+						}
+					],
+					"sections": {
+						"camera_status": 0.02,
+						"clock_routines_npc": 1.279,
+						"fine_gate_watch": 0.637,
+						"fine_guard": 0.135,
+						"fine_npc_life": 0.002,
+						"fine_prison_alert": 0.021,
+						"fine_room_access": 0.179,
+						"fine_routines": 0.008,
+						"fine_staff_traffic": 0.015,
+						"fine_workshop": 36.273,
+						"guard_work_alert": 36.432,
+						"hud_panels": 0.02,
+						"movement_orders": 0.003,
+						"presentation": 0.795,
+						"skills_trade_dog": 0.058,
+						"staff_input": 0.673,
+						"visibility_dialogue_loot_social": 0.06
+					},
+					"texture_mib": 665.1953125
+				},
+				{
+					"clock": 843.78557100606,
+					"draw_calls": 811.0,
+					"fixture_revision": 2,
+					"frame_ms": 53.096,
+					"game_script_ms": 49.226,
+					"index": 207,
+					"paths": [
+						{
+							"actor": "res://scripts/actors/workshop_overseer.gd",
+							"from": "(1501.775, 2316.954)",
+							"path_points": 0,
+							"state": "patrol",
+							"subsearches": [
+								{
+									"astar_ms": 22.92,
+									"astar_raw_points": 0,
+									"grid": "inspection",
+									"overlay_endpoints_ms": 0.423,
+									"total_ms": 23.352
+								},
+								{
+									"astar_ms": 21.502,
+									"astar_raw_points": 0,
+									"grid": "portal_inspection",
+									"overlay_endpoints_ms": 0.542,
+									"total_ms": 22.052
+								}
+							],
+							"to": "(1140.51, 1913.58)",
+							"total_ms": 45.497
+						}
+					],
+					"sections": {
+						"camera_status": 0.023,
+						"clock_routines_npc": 1.433,
+						"fine_gate_watch": 0.746,
+						"fine_guard": 0.173,
+						"fine_npc_life": 0.002,
+						"fine_prison_alert": 0.021,
+						"fine_room_access": 0.208,
+						"fine_routines": 0.009,
+						"fine_staff_traffic": 0.017,
+						"fine_workshop": 45.703,
+						"guard_work_alert": 45.901,
+						"hud_panels": 0.021,
+						"movement_orders": 0.003,
+						"presentation": 0.911,
+						"skills_trade_dog": 0.082,
+						"staff_input": 0.779,
+						"visibility_dialogue_loot_social": 0.065
+					},
+					"texture_mib": 665.1953125
+				},
+				{
+					"clock": 844.266664484848,
+					"draw_calls": 811.0,
+					"fixture_revision": 2,
+					"frame_ms": 45.023,
+					"game_script_ms": 41.678,
+					"index": 245,
+					"paths": [
+						{
+							"actor": "res://scripts/actors/workshop_overseer.gd",
+							"from": "(1501.775, 2316.954)",
+							"path_points": 0,
+							"state": "patrol",
+							"subsearches": [
+								{
+									"astar_ms": 20.299,
+									"astar_raw_points": 0,
+									"grid": "inspection",
+									"overlay_endpoints_ms": 0.398,
+									"total_ms": 20.706
+								},
+								{
+									"astar_ms": 17.004,
+									"astar_raw_points": 0,
+									"grid": "portal_inspection",
+									"overlay_endpoints_ms": 0.587,
+									"total_ms": 17.599
+								}
+							],
+							"to": "(1140.51, 1913.58)",
+							"total_ms": 38.385
+						}
+					],
+					"sections": {
+						"camera_status": 0.02,
+						"clock_routines_npc": 1.34,
+						"fine_gate_watch": 0.697,
+						"fine_guard": 0.143,
+						"fine_npc_life": 0.002,
+						"fine_prison_alert": 0.017,
+						"fine_room_access": 0.203,
+						"fine_routines": 0.009,
+						"fine_staff_traffic": 0.015,
+						"fine_workshop": 38.567,
+						"guard_work_alert": 38.731,
+						"hud_panels": 0.018,
+						"movement_orders": 0.002,
+						"presentation": 0.73,
+						"skills_trade_dog": 0.047,
+						"staff_input": 0.727,
+						"visibility_dialogue_loot_social": 0.056
+					},
+					"texture_mib": 665.1953125
+				},
+				{
+					"clock": 844.748762133333,
+					"draw_calls": 813.0,
+					"fixture_revision": 2,
+					"frame_ms": 49.926,
+					"game_script_ms": 46.157,
+					"index": 285,
+					"paths": [
+						{
+							"actor": "res://scripts/actors/workshop_overseer.gd",
+							"from": "(1501.775, 2316.954)",
+							"path_points": 0,
+							"state": "patrol",
+							"subsearches": [
+								{
+									"astar_ms": 20.79,
+									"astar_raw_points": 0,
+									"grid": "inspection",
+									"overlay_endpoints_ms": 0.403,
+									"total_ms": 21.2
+								},
+								{
+									"astar_ms": 20.47,
+									"astar_raw_points": 0,
+									"grid": "portal_inspection",
+									"overlay_endpoints_ms": 0.48,
+									"total_ms": 20.96
+								}
+							],
+							"to": "(1573.63, 1913.58)",
+							"total_ms": 42.265
+						}
+					],
+					"sections": {
+						"camera_status": 0.023,
+						"clock_routines_npc": 1.445,
+						"fine_gate_watch": 0.75,
+						"fine_guard": 0.154,
+						"fine_npc_life": 0.002,
+						"fine_prison_alert": 0.021,
+						"fine_room_access": 0.208,
+						"fine_routines": 0.01,
+						"fine_staff_traffic": 0.141,
+						"fine_workshop": 42.472,
+						"guard_work_alert": 42.65,
+						"hud_panels": 0.02,
+						"movement_orders": 0.002,
+						"presentation": 0.982,
+						"skills_trade_dog": 0.054,
+						"staff_input": 0.908,
+						"visibility_dialogue_loot_social": 0.065
+					},
+					"texture_mib": 665.1953125
+				}
+			]
+		},
+		"hour_17_transition": {
+			"draw_calls": {
+				"max": 812.0,
+				"mean": 809.336666666667,
+				"p50": 809.0,
+				"p95": 811.0
+			},
+			"frame_ms": {
+				"max": 11.351,
+				"mean": 6.83365333333334,
+				"p50": 6.911,
+				"p95": 7.926
+			},
+			"game_script_ms": {
+				"max": 7.704,
+				"mean": 3.34742666666667,
+				"p50": 3.314,
+				"p95": 3.897
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.25,
+				"ground_static": 12.266,
+				"information": 0.349
+			},
+			"over20ms": 0,
+			"sample_frames": 300,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.024,
+					"mean": 0.0128866666666666,
+					"p50": 0.013,
+					"p95": 0.016
+				},
+				"clock_routines_npc": {
+					"max": 1.601,
+					"mean": 1.13267666666667,
+					"p50": 1.137,
+					"p95": 1.321
+				},
+				"fine_gate_watch": {
+					"max": 0.692,
+					"mean": 0.46334,
+					"p50": 0.466,
+					"p95": 0.527
+				},
+				"fine_guard": {
+					"max": 0.574,
+					"mean": 0.343096666666667,
+					"p50": 0.412,
+					"p95": 0.517
+				},
+				"fine_npc_life": {
+					"max": 0.216,
+					"mean": 0.00323,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.012,
+					"mean": 0.00406333333333333,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.363,
+					"mean": 0.200343333333333,
+					"p50": 0.2,
+					"p95": 0.231
+				},
+				"fine_routines": {
+					"max": 0.105,
+					"mean": 0.0258633333333333,
+					"p50": 0.025,
+					"p95": 0.031
+				},
+				"fine_staff_traffic": {
+					"max": 0.05,
+					"mean": 0.01774,
+					"p50": 0.018,
+					"p95": 0.022
+				},
+				"fine_workshop": {
+					"max": 0.274,
+					"mean": 0.124016666666667,
+					"p50": 0.125,
+					"p95": 0.146
+				},
+				"guard_work_alert": {
+					"max": 0.739,
+					"mean": 0.47281,
+					"p50": 0.529,
+					"p95": 0.667
+				},
+				"hud_panels": {
+					"max": 0.019,
+					"mean": 0.0119333333333333,
+					"p50": 0.012,
+					"p95": 0.016
+				},
+				"movement_orders": {
+					"max": 4.074,
+					"mean": 0.257903333333333,
+					"p50": 0.247,
+					"p95": 0.288
+				},
+				"presentation": {
+					"max": 1.065,
+					"mean": 0.813623333333334,
+					"p50": 0.807,
+					"p95": 0.962
+				},
+				"skills_trade_dog": {
+					"max": 0.148,
+					"mean": 0.0952500000000001,
+					"p50": 0.094,
+					"p95": 0.114
+				},
+				"staff_input": {
+					"max": 0.743,
+					"mean": 0.497036666666667,
+					"p50": 0.497,
+					"p95": 0.568
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.283,
+					"mean": 0.0449966666666666,
+					"p50": 0.043,
+					"p95": 0.052
+				}
+			},
+			"spikes": []
+		},
+		"hour_9_transition": {
+			"draw_calls": {
+				"max": 835.0,
+				"mean": 833.263333333333,
+				"p50": 833.0,
+				"p95": 835.0
+			},
+			"frame_ms": {
+				"max": 10.671,
+				"mean": 8.10138333333333,
+				"p50": 8.089,
+				"p95": 9.419
+			},
+			"game_script_ms": {
+				"max": 6.199,
+				"mean": 4.02521333333333,
+				"p50": 3.993,
+				"p95": 4.807
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.403,
+				"ground_static": 12.266,
+				"information": 0.463
+			},
+			"over20ms": 0,
+			"sample_frames": 300,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.043,
+					"mean": 0.0141266666666666,
+					"p50": 0.014,
+					"p95": 0.019
+				},
+				"clock_routines_npc": {
+					"max": 2.946,
+					"mean": 1.6306,
+					"p50": 1.607,
+					"p95": 1.953
+				},
+				"fine_gate_watch": {
+					"max": 1.717,
+					"mean": 0.878916666666667,
+					"p50": 0.868,
+					"p95": 1.077
+				},
+				"fine_guard": {
+					"max": 0.526,
+					"mean": 0.33054,
+					"p50": 0.331,
+					"p95": 0.415
+				},
+				"fine_npc_life": {
+					"max": 0.185,
+					"mean": 0.00340666666666667,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.05,
+					"mean": 0.00457999999999999,
+					"p50": 0.004,
+					"p95": 0.006
+				},
+				"fine_room_access": {
+					"max": 0.385,
+					"mean": 0.203643333333333,
+					"p50": 0.199,
+					"p95": 0.25
+				},
+				"fine_routines": {
+					"max": 0.084,
+					"mean": 0.01488,
+					"p50": 0.014,
+					"p95": 0.018
+				},
+				"fine_staff_traffic": {
+					"max": 0.031,
+					"mean": 0.0171566666666666,
+					"p50": 0.017,
+					"p95": 0.022
+				},
+				"fine_workshop": {
+					"max": 0.313,
+					"mean": 0.200636666666667,
+					"p50": 0.201,
+					"p95": 0.241
+				},
+				"guard_work_alert": {
+					"max": 0.761,
+					"mean": 0.537503333333333,
+					"p50": 0.536,
+					"p95": 0.663
+				},
+				"hud_panels": {
+					"max": 0.067,
+					"mean": 0.0136566666666666,
+					"p50": 0.013,
+					"p95": 0.017
+				},
+				"movement_orders": {
+					"max": 0.015,
+					"mean": 0.00233666666666667,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"presentation": {
+					"max": 1.003,
+					"mean": 0.788723333333333,
+					"p50": 0.794,
+					"p95": 0.918
+				},
+				"skills_trade_dog": {
+					"max": 0.13,
+					"mean": 0.0652533333333333,
+					"p50": 0.063,
+					"p95": 0.088
+				},
+				"staff_input": {
+					"max": 1.778,
+					"mean": 0.914903333333333,
+					"p50": 0.907,
+					"p95": 1.118
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.282,
+					"mean": 0.04846,
+					"p50": 0.046,
+					"p95": 0.061
+				}
+			},
+			"spikes": []
+		},
+		"uncapped_running_time": {
+			"draw_calls": {
+				"max": 814.0,
+				"mean": 814.0,
+				"p50": 814.0,
+				"p95": 814.0
+			},
+			"frame_ms": {
+				"max": 8.048,
+				"mean": 6.03398,
+				"p50": 5.963,
+				"p95": 7.206
+			},
+			"game_script_ms": {
+				"max": 3.643,
+				"mean": 2.43899833333333,
+				"p50": 2.387,
+				"p95": 2.866
+			},
+			"layer_draw_ms_last": {
+				"fixture_shadows": 47.52,
+				"ground": 0.4,
+				"ground_static": 12.266,
+				"information": 0.423
+			},
+			"over20ms": 0,
+			"sample_frames": 600,
+			"section_ms": {
+				"camera_status": {
+					"max": 0.032,
+					"mean": 0.0179983333333333,
+					"p50": 0.018,
+					"p95": 0.022
+				},
+				"clock_routines_npc": {
+					"max": 2.182,
+					"mean": 1.01495,
+					"p50": 0.987,
+					"p95": 1.2
+				},
+				"fine_gate_watch": {
+					"max": 0.591,
+					"mean": 0.410173333333333,
+					"p50": 0.403,
+					"p95": 0.487
+				},
+				"fine_guard": {
+					"max": 0.273,
+					"mean": 0.137645,
+					"p50": 0.135,
+					"p95": 0.167
+				},
+				"fine_npc_life": {
+					"max": 0.184,
+					"mean": 0.00301499999999999,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"fine_prison_alert": {
+					"max": 0.009,
+					"mean": 0.00368166666666665,
+					"p50": 0.004,
+					"p95": 0.005
+				},
+				"fine_room_access": {
+					"max": 0.457,
+					"mean": 0.190796666666667,
+					"p50": 0.186,
+					"p95": 0.226
+				},
+				"fine_routines": {
+					"max": 0.142,
+					"mean": 0.0136533333333333,
+					"p50": 0.013,
+					"p95": 0.017
+				},
+				"fine_staff_traffic": {
+					"max": 0.088,
+					"mean": 0.01577,
+					"p50": 0.015,
+					"p95": 0.02
+				},
+				"fine_workshop": {
+					"max": 0.092,
+					"mean": 0.04633,
+					"p50": 0.045,
+					"p95": 0.057
+				},
+				"guard_work_alert": {
+					"max": 0.329,
+					"mean": 0.189175,
+					"p50": 0.185,
+					"p95": 0.226
+				},
+				"hud_panels": {
+					"max": 0.125,
+					"mean": 0.0120649999999999,
+					"p50": 0.012,
+					"p95": 0.015
+				},
+				"movement_orders": {
+					"max": 0.008,
+					"mean": 0.00206333333333333,
+					"p50": 0.002,
+					"p95": 0.003
+				},
+				"presentation": {
+					"max": 1.056,
+					"mean": 0.679068333333333,
+					"p50": 0.669,
+					"p95": 0.805
+				},
+				"skills_trade_dog": {
+					"max": 0.052,
+					"mean": 0.0290566666666666,
+					"p50": 0.029,
+					"p95": 0.036
+				},
+				"staff_input": {
+					"max": 0.628,
+					"mean": 0.442793333333333,
+					"p50": 0.434,
+					"p95": 0.531
+				},
+				"visibility_dialogue_loot_social": {
+					"max": 0.265,
+					"mean": 0.0438416666666667,
+					"p50": 0.042,
+					"p95": 0.052
+				}
+			},
+			"spikes": []
+		}
+	},
+	"native": true,
+	"time_speed": 1,
+	"viewport": [
+		1200,
+		720
+	]
+}

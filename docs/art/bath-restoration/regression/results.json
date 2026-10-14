@@ -1,0 +1,55 @@
+[
+  {
+    "id": "editor",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 20
+  },
+  {
+    "id": "bath_restoration",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 125,
+    "verification": "latest native"
+  },
+  {
+    "id": "render_cache",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 4
+  },
+  {
+    "id": "looting",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 113
+  },
+  {
+    "id": "head_layer",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 14
+  },
+  {
+    "id": "scene_seams",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 8
+  },
+  {
+    "id": "feet",
+    "exit_code": 1,
+    "failed": [
+      "head_clearance_start_is_walkable"
+    ],
+    "checks": 29,
+    "note": "Existing dorm test starts at x650 beside the new dorm wash counter (x608..658); 28 other whole-body checks pass. Bath-specific actual movement and jamb checks pass."
+  },
+  {
+    "id": "clinic_roof_door",
+    "exit_code": 0,
+    "failed": [],
+    "checks": 56,
+    "verification": "latest headless retry"
+  }
+]

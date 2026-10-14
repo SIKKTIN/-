@@ -1,0 +1,50 @@
+{
+	"schema": 2,
+	"version": "energy-south-road-v2",
+	"assets": [
+		{
+			"id": "energy_south_stone_curb_v2",
+			"name": "能源区南侧道路 · 浅色石质路缘",
+			"texture": "res://art/architecture/equipment_secure_v1/wall.png",
+			"texture_size": [
+				1983,
+				793
+			],
+			"region": [
+				24,
+				195,
+				1938,
+				80
+			],
+			"world_size": [
+				600,
+				20
+			],
+			"render_size": [
+				600,
+				20
+			],
+			"ground_rect": [
+				0,
+				32,
+				1938,
+				48
+			],
+			"footprint_world_size": [
+				600,
+				12
+			],
+			"elevation_world": 8,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"editor_subcategory": "furnishings",
+			"source_kind": "existing-original-png-atlas-region",
+			"sha256": "bfc5bbc0bd1cd95f5912302c9fe825aac1a88e69863ccbc7e11c781f2f65c570"
+		}
+	]
+}

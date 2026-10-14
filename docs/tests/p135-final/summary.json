@@ -1,0 +1,72 @@
+{
+  "resources": {
+    "production_text_files": 139,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "quick_items",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.53,
+      "checks": 83,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.69,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.58,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": false,
+      "exit_code": 124,
+      "seconds": 90.09,
+      "checks": 0,
+      "failed": [],
+      "fresh_report": false,
+      "engine_errors": true
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.59,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 24.03,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 268,
+  "passed": false
+}

@@ -1,0 +1,450 @@
+{
+	"schema": 2,
+	"version": "laundry-v1",
+	"assets": [
+		{
+			"texture": "res://art/props/laundry_v1/washer.png",
+			"texture_size": [
+				1159,
+				1357
+			],
+			"region": [
+				185,
+				103,
+				791,
+				1148
+			],
+			"runtime_size_limit": 512,
+			"sha256": "58452452840d31f59db61ea6a7bbae513a9bdc6f348cdfe8931b44faab16ad11",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_washer_v1",
+			"name": "洗衣房 · 滚筒洗衣机",
+			"render_mode": "projected_prop",
+			"world_size": [
+				72,
+				104.49557522123894
+			],
+			"render_size": [
+				72,
+				104.49557522123894
+			],
+			"footprint_world_size": [
+				72,
+				60
+			],
+			"ground_rect": [
+				0,
+				488.83333333333337,
+				791,
+				659.1666666666666
+			],
+			"elevation_world": 44.49557522123894,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/shelf_vertical.png",
+			"texture_size": [
+				1024,
+				1536
+			],
+			"region": [
+				300,
+				121,
+				425,
+				1162
+			],
+			"runtime_size_limit": 512,
+			"sha256": "320c579919ee4b33ca154efb717a7b9ac910079f266cc73133151f89a45cd8e0",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_shelf_vertical_v1",
+			"name": "洗衣房 · 窄布草用品架",
+			"render_mode": "projected_prop",
+			"world_size": [
+				60,
+				164.0470588235294
+			],
+			"render_size": [
+				60,
+				164.0470588235294
+			],
+			"footprint_world_size": [
+				60,
+				150
+			],
+			"ground_rect": [
+				0,
+				99.5,
+				425,
+				1062.5
+			],
+			"elevation_world": 14.047058823529397,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/shelf_horizontal.png",
+			"texture_size": [
+				2055,
+				765
+			],
+			"region": [
+				334,
+				96,
+				1389,
+				605
+			],
+			"runtime_size_limit": 512,
+			"sha256": "573c4fcebdafe544ee151795d80954c7edda2bc736549e5b6cf2063158bd025a",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_shelf_horizontal_v1",
+			"name": "洗衣房 · 净衣补给架",
+			"render_mode": "projected_prop",
+			"world_size": [
+				190,
+				82.75737940964723
+			],
+			"render_size": [
+				190,
+				82.75737940964723
+			],
+			"footprint_world_size": [
+				190,
+				44
+			],
+			"ground_rect": [
+				0,
+				283.33684210526314,
+				1389,
+				321.66315789473686
+			],
+			"elevation_world": 38.75737940964723,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/folding_table.png",
+			"texture_size": [
+				2174,
+				723
+			],
+			"region": [
+				185,
+				121,
+				1804,
+				536
+			],
+			"runtime_size_limit": 512,
+			"sha256": "38e17e2dd59828943d64c7bd0c7a5f50da06f3d86a16a321926936f19dae45b2",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_folding_table_v1",
+			"name": "洗衣房 · 布草叠衣台",
+			"render_mode": "projected_prop",
+			"world_size": [
+				320,
+				95.07760532150776
+			],
+			"render_size": [
+				320,
+				95.07760532150776
+			],
+			"footprint_world_size": [
+				320,
+				65
+			],
+			"ground_rect": [
+				0,
+				169.5625,
+				1804,
+				366.4375
+			],
+			"elevation_world": 30.07760532150776,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/dirty_station.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				126,
+				84,
+				1522,
+				715
+			],
+			"runtime_size_limit": 512,
+			"sha256": "03c58840854ed36b7f28d5427e2b0a0a2f6133ebdc82cc46e6de91d18661693d",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_dirty_station_v1",
+			"name": "洗衣房 · 脏衣分拣台",
+			"render_mode": "projected_prop",
+			"world_size": [
+				180,
+				84.55978975032852
+			],
+			"render_size": [
+				180,
+				84.55978975032852
+			],
+			"footprint_world_size": [
+				180,
+				65
+			],
+			"ground_rect": [
+				0,
+				165.3888888888889,
+				1522,
+				549.6111111111111
+			],
+			"elevation_world": 19.55978975032852,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/architecture/laundry_v1/sign.png",
+			"texture_size": [
+				2126,
+				740
+			],
+			"region": [
+				252,
+				128,
+				1623,
+				470
+			],
+			"runtime_size_limit": 512,
+			"sha256": "9f43775e43f31a7ecb5430cf6d3636de49163400f9a08891a09779b1c08f33dc",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_sign_v1",
+			"name": "洗衣房 · 洗衣房名称牌",
+			"render_mode": "wall_attachment",
+			"world_size": [
+				95,
+				27.51078250154036
+			],
+			"render_size": [
+				95,
+				27.51078250154036
+			],
+			"footprint_world_size": [
+				95,
+				1
+			],
+			"ground_rect": [
+				0,
+				1238.7894736842104,
+				1623,
+				17.08421052631579
+			],
+			"elevation_world": 72.51078250154036,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/supply_pipe.png",
+			"texture_size": [
+				1983,
+				793
+			],
+			"region": [
+				55,
+				204,
+				1869,
+				388
+			],
+			"runtime_size_limit": 512,
+			"sha256": "9164394cf93fb4fdbda880f39414fc4d14a3eab3676c1ec1c15406cd0c98ca4f",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_supply_pipe_v1",
+			"name": "洗衣房 · 四位供水管",
+			"render_mode": "wall_attachment",
+			"world_size": [
+				310,
+				64.35527019796683
+			],
+			"render_size": [
+				310,
+				64.35527019796683
+			],
+			"footprint_world_size": [
+				310,
+				1
+			],
+			"ground_rect": [
+				0,
+				381.9709677419355,
+				1869,
+				6.029032258064516
+			],
+			"elevation_world": 63.35527019796683,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/laundry_v1/downpipe.png",
+			"texture_size": [
+				1024,
+				1536
+			],
+			"region": [
+				401,
+				24,
+				210,
+				1488
+			],
+			"runtime_size_limit": 512,
+			"sha256": "414ff9802b8c5d63db9be665fac7656c6130e12b2fa09f1ae8ab9f19dd3ee731",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_downpipe_v1",
+			"name": "洗衣房 · 屋面落水管",
+			"render_mode": "wall_attachment",
+			"world_size": [
+				20,
+				141.7142857142857
+			],
+			"render_size": [
+				20,
+				141.7142857142857
+			],
+			"footprint_world_size": [
+				20,
+				1
+			],
+			"ground_rect": [
+				0,
+				1477.5,
+				210,
+				10.5
+			],
+			"elevation_world": 140.7142857142857,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "laundry_basin_v1",
+			"name": "洗衣房 · 双位搪瓷水池",
+			"texture": "res://art/props/prison_v42/wash_basin_v42.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				162,
+				196,
+				1214,
+				666
+			],
+			"ground_rect": [
+				0,
+				156.11999999999995,
+				1214,
+				509.88000000000005
+			],
+			"footprint_world_size": [
+				150,
+				63.00000000000001
+			],
+			"world_size": [
+				150,
+				82.28995057660626
+			],
+			"render_size": [
+				150,
+				82.28995057660626
+			],
+			"elevation_world": 19.289950576606252,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "prison-perspective-v42",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "79ceca9a12fc19b52ed9f156ff2b70ce8854abe4b1727ba12a23bc93a478af90",
+			"registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained.",
+			"proportion_locked": true,
+			"runtime_size_limit": 512
+		},
+		{
+			"id": "laundry_cart_v1",
+			"name": "洗衣房 · 帆布布草车",
+			"texture": "res://art/props/prison_v42/laundry_cart_v42.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				438,
+				140,
+				662,
+				748
+			],
+			"ground_rect": [
+				0,
+				280.7058823529412,
+				662,
+				467.2941176470588
+			],
+			"footprint_world_size": [
+				65,
+				45.882352941176464
+			],
+			"world_size": [
+				65,
+				73.4441087613293
+			],
+			"render_size": [
+				65,
+				73.4441087613293
+			],
+			"elevation_world": 27.56175582015284,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "prison-perspective-v42",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "2e8fc83d5f4246402822df72b07b5a57f3351d9e4da98cbb0283ed3c44d5d1aa",
+			"registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained.",
+			"proportion_locked": true,
+			"runtime_size_limit": 512
+		}
+	]
+}

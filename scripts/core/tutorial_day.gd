@@ -500,7 +500,6 @@ func controls_guard(actor, delta: float) -> bool:
 			actor.path.clear()
 			actor.path_timer = 0
 		if not guide_legs.is_empty(): destination = guide_legs[0]
-	game.world.update_dorm_doors(game.schedule.is_sleep_time(),game.inspection_positions())
 	_walk_guard(actor,destination,delta,step_id in ["follow_work","cell_tour"])
 	return true
 
@@ -554,7 +553,7 @@ func _focus(point: Vector2, delta: float, conversation := false):
 	game.map_camera.following = false
 	var limits: Array = game.map_camera.camera_limits()
 	var anchor: Vector2 = Vector2(game.map_camera.view_rect().size.x/2,panel.position.y-14) if conversation else game.map_camera.view_rect().size/2
-	var desired: Vector2 = (point-anchor).clamp(limits[0],limits[1])
+	var desired: Vector2 = (point-anchor/game.map_camera.zoom).clamp(limits[0],limits[1])
 	game.map_camera.position = game.map_camera.position.lerp(desired,1-exp(-maxf(delta,0)*3))
 	game.map_camera.force_update_scroll()
 

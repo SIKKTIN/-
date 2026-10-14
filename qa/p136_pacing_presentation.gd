@@ -1,0 +1,388 @@
+extends Node
+
+const GuardWarning = preload("res://scripts/presentation/guard_warning.gd")
+var guard_warnings: Dictionary = {}
+
+const ActorVisual = preload("res://scripts/presentation/actor_visual.gd")
+const WorldVolume = preload("res://scripts/presentation/world_volume.gd")
+const RoofBuilding = preload("res://scripts/presentation/roof_building.gd")
+const SceneLayers = preload("res://qa/p136_pacing_layer.gd")
+const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
+const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
+const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
+const DogVisual = preload("res://scripts/presentation/dog_visual.gd")
+var game
+var visuals: Array = []
+var skill_icons: Dictionary = {}
+var font: Font
+var loops: Dictionary = {}
+var streams: Dictionary = {}
+var events: Array = []
+var previous: Dictionary = {}
+var mute_button: Button
+var muted: bool = false
+var label_states: Array[Label] = []
+var font_size: int = 17
+var asset_version: String = ""
+var fx: Dictionary = {}
+var audio_available: bool = true
+var profile: Dictionary = {}
+var profile_id: String = "v01"
+var volumes: Array = []
+var scene_layers: Array = []
+var roof_buildings: Array = []
+var visual_world_revision := -1
+var volume_visibility_revision := -1
+var volume_obstacle_revision := -1
+var asset_definitions: Dictionary = {}
+var character_material: ShaderMaterial
+var lighting
+var interaction
+var dog_visual
+
+func configure(escape_game) -> void:
+	game = escape_game
+	audio_available = DisplayServer.get_name() != "headless"
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	font = load("res://art/fonts/NotoSansCJKsc-Regular.otf")
+	var active: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/active.json"))
+	profile_id = OS.get_environment("ESCAPE_ART_PROFILE")
+	if profile_id not in ["v01","v02","v03"] or not FileAccess.file_exists("res://data/presentation/%s.json" % profile_id):
+		profile_id = active.profile
+	profile = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/%s.json" % profile_id))
+	if profile.get("perspective",false):
+		character_material = ShaderMaterial.new()
+		character_material.shader = preload("res://scripts/presentation/character_cohesion.gdshader")
+		character_material.set_shader_parameter("saturation",float(profile.get("actor_saturation",0.88)))
+		character_material.set_shader_parameter("scene_tint",Color(profile.get("actor_scene_tint","#faf7ef")))
+	var delivery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile.delivery))
+	asset_version = delivery.version
+	for id in ["chat","lockpick","strong"]:
+		skill_icons[id] = load("res://art/ui/skill_%s_v01.png" % id)
+	skill_icons["backpack"] = null # A05 provides the new passive skill icon.
+	for id in ["selected","detected","searching","escaped","captured","cancelled"]:
+		fx[id] = load("res://art/fx/%s_v01.png" % id)
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile.characters))
+	var walk_definitions := {}
+	var motion_path: String = OS.get_environment("ESCAPE_WALK_MANIFEST")
+	if motion_path.is_empty():
+		motion_path = str(active.get("character_motion",""))
+	if profile_id == "v03" and not motion_path.is_empty() and FileAccess.file_exists(motion_path):
+		var motion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(motion_path))
+		for entry in motion.actors:
+			walk_definitions[str(entry.actor_id)] = entry.walk_animation
+	for asset in manifest.actors:
+		asset = asset.duplicate(true)
+		if walk_definitions.has(str(asset.actor_id)):
+			asset.walk_animation = walk_definitions[str(asset.actor_id)]
+		# Guard is a logic role. Its active appearance can be a civilian lookout,
+		# and gate guards/reinforcements inherit this complete definition.
+		var guard_appearance: String = str(active.get("guard_appearance",""))
+		if str(asset.actor_id) == "guard" and not guard_appearance.is_empty() and FileAccess.file_exists(guard_appearance):
+			asset = JSON.parse_string(FileAccess.get_file_as_string(guard_appearance))
+		var actor = game.guard if str(asset.actor_id) == "guard" else game.actors[int(asset.actor_id)]
+		actor.art_body = true
+		actor.z_index = 15 if actor == game.guard else 20
+		var visual = ActorVisual.new()
+		visual.name = "ArtVisual"
+		actor.add_child(visual)
+		visual.configure(actor,game,asset,skill_icons,font)
+		if actor == game.guard:
+			visual.light_mask = 2
+		visual.separate_information = profile.perspective
+		actor.presentation_layers = profile.perspective
+		visual.fx = fx
+		visuals.append(visual)
+		actor.queue_redraw()
+	for file in ["environment","props"]:
+		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile[file]))
+		for asset in data.assets:
+			asset_definitions[asset.id] = asset
+			game.world.art_textures[asset.id] = _load_texture(asset)
+	for asset in load("res://scripts/presentation/prop_catalog.gd").assets().values():
+		asset_definitions[str(asset.id)] = asset
+	game.world.queue_redraw()
+	game.floor_texture = game.world.art_textures[profile.floor_asset] if profile.has("floor_asset") else load(profile.floor)
+	game.floor_tile_size = profile.floor_tile_size
+	game.perspective_floor = profile.perspective
+	if profile.perspective:
+		game.world.presentation_layers = true
+		game.world.art_textures.exit_v01 = load("res://art/props/exit_v01.png")
+		for kind in ["ground_static","ground","fixture_shadows","information"]:
+			var layer = SceneLayers.new()
+			layer.name = "Scene_%s" % kind
+			game.add_child(layer)
+			layer.configure(game,self,kind)
+			scene_layers.append(layer)
+		_refresh_volumes()
+	_make_ui()
+	lighting = LightingSystem.new()
+	lighting.name = "Lighting"
+	game.add_child(lighting)
+	lighting.configure(game,mute_button.theme)
+	interaction = InteractionPrompt.new()
+	interaction.name = "InteractionPrompt"
+	add_child(interaction)
+	interaction.configure(game,self)
+	dog_visual = DogVisual.new()
+	dog_visual.name = "DogVisual"
+	game.dog.add_child(dog_visual)
+	dog_visual.configure(game,str(active.get("police_dog","")))
+	_make_audio()
+	reset()
+
+func _load_texture(asset: Dictionary) -> Texture2D:
+	return WorldTexture.load_asset(asset)
+
+func _make_ui() -> void:
+	var theme := Theme.new()
+	theme.default_font = font
+	theme.default_font_size = font_size
+	var normal := StyleBoxTexture.new()
+	normal.texture = load("res://art/ui/paper_card_v01.png")
+	for side in [SIDE_LEFT,SIDE_TOP,SIDE_RIGHT,SIDE_BOTTOM]:
+		normal.set_texture_margin(side,12)
+		normal.set_content_margin(side,8)
+	var selected := StyleBoxFlat.new()
+	selected.bg_color = Color("e0eee3")
+	selected.border_color = Color("328b82")
+	selected.set_border_width_all(3)
+	selected.set_corner_radius_all(5)
+	selected.set_content_margin_all(8)
+	for state in ["normal","hover","pressed","disabled"]:
+		theme.set_stylebox(state,"Button",normal if state == "normal" or state == "disabled" else selected)
+		theme.set_color("font_color" if state == "normal" else "font_%s_color" % state,"Button",Color("303b46") if state != "disabled" else Color("68776e"))
+	theme.set_stylebox("focus","Button",selected)
+	theme.set_color("font_color","Label",Color("303b46"))
+	for control in game.get_node("HUD").get_children():
+		if control is Control:
+			control.theme = theme
+	mute_button = Button.new()
+	mute_button.name = "ToggleSound"
+	mute_button.position = Vector2(819,35)
+	mute_button.size = Vector2(159,42)
+	mute_button.theme = theme
+	mute_button.text = "声音：开"
+	mute_button.pressed.connect(func():
+		muted = not muted
+		mute_button.text = "声音：关" if muted else "声音：开"
+		if muted:
+			stop_all()
+	)
+	game.get_node("HUD").add_child(mute_button)
+
+func _make_audio() -> void:
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/manifest.json"))
+	for cue in manifest.cues:
+		var stream: AudioStreamWAV = load(cue.file).duplicate()
+		if cue.loop:
+			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+			stream.loop_begin = 0
+			stream.loop_end = stream.data.size() / 2
+		streams[cue.id] = stream
+		if cue.loop:
+			var player := AudioStreamPlayer.new()
+			player.name = cue.id
+			player.stream = stream
+			player.volume_db = -4
+			add_child(player)
+			loops[cue.id] = player
+
+func reset() -> void:
+	stop_all()
+	if dog_visual:
+		dog_visual.tick_visual(0)
+	events.clear()
+	previous = _state()
+	for visual in visuals:
+		visual.refresh_appearance()
+		visual.actor.moved_this_frame = false
+		visual.flip_h = false
+		visual.flash_time = 0
+		visual.tick_visual(0)
+	_tick_scene()
+	if game.items_view:
+		game.items_view.tick_visuals()
+	if lighting:
+		lighting.tick()
+	if interaction:
+		interaction.refresh()
+
+func _refresh_volumes() -> void:
+	volume_visibility_revision=-1
+	volume_obstacle_revision=-1
+	visual_world_revision = game.world.fixtures_revision
+	for volume in volumes:
+		volume.free()
+	volumes.clear()
+	for building in roof_buildings: building.free()
+	roof_buildings.clear()
+	for definition in asset_definitions.values():
+		if str(definition.get("render_mode","")).begins_with("architecture_"):
+			game.world.art_textures[str(definition.id)] = _load_texture(definition)
+	for index in range(game.world.roofed_cells.size()):
+		var building = RoofBuilding.new()
+		game.add_child(building)
+		building.configure(game,self,index)
+		roof_buildings.append(building)
+	for fixture in game.world.fixtures:
+		var id: String = fixture.asset_id
+		for state_id in [fixture.get("closed_asset",""),fixture.get("open_asset","")]:
+			if not str(state_id).is_empty() and asset_definitions.has(state_id): game.world.art_textures[state_id] = _load_texture(asset_definitions[state_id])
+		if not game.world.art_textures.has(id) and asset_definitions.has(id):
+			var texture: Texture2D = _load_texture(asset_definitions[id])
+			if texture != null:
+				game.world.art_textures[id] = texture
+	for index in range(game.world.walls.size()):
+		_add_volume("wall",index)
+	for index in range(game.world.fixtures.size()):
+		_add_volume("fixture",index)
+	_add_volume("door")
+	_add_volume("crate")
+	for layer in scene_layers:
+		if layer.kind in ["ground_static","fixture_shadows"]:
+			if layer.kind=="ground_static":layer.static_ground.revision=-1
+			layer.queue_redraw()
+
+func _add_volume(kind: String, index: int = 0) -> void:
+	var volume = WorldVolume.new()
+	game.add_child(volume)
+	volume.configure(game.world,kind,index,profile,asset_definitions)
+	volumes.append(volume)
+
+func _tick_guard_warnings() -> void:
+	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
+	var officers: Array = game.guard.warning_officers()
+	var ids: Array = officers.map(func(g): return g.get_instance_id())
+	for id in guard_warnings.keys():
+		if id not in ids:
+			guard_warnings[id].free()
+			guard_warnings.erase(id)
+	var enabled: bool = scene_layers.any(func(layer): return layer.kind == "information" and layer.visible)
+	for officer in officers:
+		var id: int = officer.get_instance_id()
+		if not guard_warnings.has(id):
+			var warning = GuardWarning.new()
+			game.add_child(warning)
+			warning.configure(officer)
+			guard_warnings[id] = warning
+		guard_warnings[id].refresh(view,enabled,lighting != null and lighting.period == "day")
+
+func _tick_scene() -> void:
+	if not profile.get("perspective",false):
+		for warning in guard_warnings.values(): warning.hide()
+		return
+	_tick_guard_warnings()
+	if visual_world_revision != game.world.fixtures_revision or volumes.size() != game.world.walls.size()+game.world.fixtures.size()+2:
+		_refresh_volumes()
+	for visual in visuals:
+		visual.actor.z_index = preload("res://scripts/presentation/world_depth.gd").for_y(visual.actor.position.y,game.world.bounds.end.y)
+	var room_revision: int=game.room_visibility.revision if game.room_visibility else 0
+	if volume_visibility_revision!=room_revision or volume_obstacle_revision!=game.world.obstacle_revision:
+		volume_visibility_revision=room_revision
+		volume_obstacle_revision=game.world.obstacle_revision
+		# Walls are synchronized at map load; only fixtures react to room/gate
+		# changes. Camera motion doesn't alter any of this geometry.
+		for volume in volumes:
+			if volume.kind=="fixture": volume.tick_visual()
+	for volume in volumes.slice(-2): volume.tick_visual()
+	for building in roof_buildings:
+		building.tick_information()
+	for layer in scene_layers:
+		if layer.kind == "ground_static":
+			var key := [game.world.fixtures_revision]
+			if layer.ground_key != key:
+				layer.ground_key = key
+				layer.queue_redraw()
+		elif layer.kind == "fixture_shadows":
+			if layer.fixtures_revision != game.world.fixtures_revision:
+				layer.fixtures_revision = game.world.fixtures_revision
+				layer.queue_redraw()
+		else:
+			layer.queue_redraw()
+
+func _state() -> Dictionary:
+	return {"actions":game.skills.actions.duplicate(true),"guard":game.guard.state,"captures":game.captures,"door":game.world.door_open,"escaped":game.actors.map(func(a): return a.escaped),"immune":game.actors.map(func(a): return a.immune_until),"crate":game.world.crate.position,"phase":game.phase,"deal":game.deal_number}
+
+func tick(delta: float) -> void:
+	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
+	for visual in visuals:
+		visual.tick_visual(delta,view)
+	if dog_visual:
+		dog_visual.tick_visual(delta)
+	_tick_scene()
+	if game.items_view:
+		game.items_view.tick_visuals()
+	if lighting:
+		lighting.tick()
+	if interaction:
+		interaction.refresh()
+	var now := _state()
+	var active: bool = game.phase == "playing" and not game.get_tree().paused and not muted and audio_available
+	var chat: bool = game.actors.any(func(a): return a.action_state == "chatting")
+	var lock: bool = game.actors.any(func(a): return a.action_state == "lockpicking")
+	var push: bool = previous.get("crate",now.crate).distance_squared_to(now.crate) > 0.0001
+	_loop("chat_loop",active and chat)
+	_loop("lockpick_loop",active and lock)
+	_loop("crate_move_loop",active and push)
+	if previous.get("deal",now.deal) == now.deal:
+		if now.captures > previous.get("captures",now.captures):
+			cue("captured")
+			for id in range(3):
+				if now.immune[id] > previous.get("immune",now.immune)[id]:
+					visuals[id].show_event("captured")
+		if now.guard == "chasing" and previous.get("guard",now.guard) != "chasing":
+			cue("detected")
+		if now.door and not previous.get("door",now.door):
+			cue("door_open")
+		var old_escaped: Array = previous.get("escaped",now.escaped)
+		for index in range(3):
+			if now.escaped[index] and not old_escaped[index]:
+				cue("escaped")
+		if now.phase == "complete" and previous.get("phase",now.phase) != "complete":
+			cue("complete")
+		for id in previous.get("actions",{}):
+			if not now.actions.has(id) and (previous.actions[id].kind != "lockpick" or not now.door) and not now.escaped[id] and now.captures == previous.get("captures",now.captures):
+				cue("cancelled")
+				visuals[id].show_event("cancelled")
+	previous = now
+
+func _loop(id: String, active: bool) -> void:
+	var player: AudioStreamPlayer = loops[id]
+	if active and not player.playing:
+		player.play()
+	elif not active and player.playing:
+		player.stop()
+
+func cue(id: String) -> void:
+	events.append({"id":id,"elapsed":game.elapsed})
+	if events.size() > 32:
+		events.pop_front()
+	if muted or game.get_tree().paused or not audio_available:
+		return
+	var player := AudioStreamPlayer.new()
+	player.stream = streams[id]
+	player.volume_db = -4
+	player.finished.connect(player.queue_free)
+	add_child(player)
+	player.play()
+
+func stop_all() -> void:
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			child.stop()
+			if not loops.values().has(child):
+				child.queue_free()
+
+func _process(_delta: float) -> void:
+	if game and (get_tree().paused or muted):
+		stop_all()
+
+func _exit_tree() -> void:
+	stop_all()
+
+func snapshot() -> Dictionary:
+	var playback := {}
+	for id in loops:
+		playback[id] = loops[id].playing
+	return {"asset_version":asset_version,"profile":profile_id,"render_settings":profile.duplicate(true),"visuals":visuals.map(func(v): return v.snapshot()),"loops":playback,"events":events.duplicate(true),"muted":muted,"lighting":lighting.snapshot() if lighting else {},"interaction":interaction.snapshot() if interaction else {}}

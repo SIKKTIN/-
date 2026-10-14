@@ -1,0 +1,47 @@
+{
+  "resources": {
+    "production_text_files": 124,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.64,
+      "checks": 21,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 11.62,
+      "checks": 14,
+      "failed": [
+        "catalog_refactor_preserves_every_asset",
+        "editor_validates_current_map"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 14.8,
+      "checks": 100,
+      "failed": [
+        "meal_to_seat"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 135,
+  "passed": false
+}

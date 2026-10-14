@@ -1,0 +1,129 @@
+{
+	"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e\\exec-8220363a-3961-4f11-a45b-45b76b0e3a2e.png",
+	"png": "art/environment/drying_yard_edges_v1/pebble-strips.png",
+	"png_sha256": "a58093e5cf9cc02f4803f30801559e10b67d6ac0bb9bea06a17eab0df1359f01",
+	"mode": "built-in imagegen",
+	"manifest": "res://art/environment/drying_yard_edges_v1/manifest.json",
+	"definitions": [
+		"drying_pebble_edge_1_v1",
+		"drying_pebble_edge_2_v1"
+	],
+	"input_map_sha256": "47e3d817d3579e18bfdc496217249574d4b4de6eaad493dd07c6f3a47f23dd94",
+	"new_patch_ids": [
+		"drying-yard-stone-edge-west-outer-0",
+		"drying-yard-stone-edge-west-outer-1",
+		"drying-yard-stone-edge-west-inner-0",
+		"drying-yard-stone-edge-west-inner-1",
+		"drying-yard-stone-edge-west-south-0",
+		"drying-yard-stone-edge-west-south-1",
+		"drying-yard-stone-edge-east-inner-0",
+		"drying-yard-stone-edge-east-inner-1",
+		"drying-yard-stone-edge-east-outer-0",
+		"drying-yard-stone-edge-east-outer-1",
+		"drying-yard-stone-edge-east-step-0",
+		"drying-yard-stone-edge-east-step-outer-0",
+		"drying-yard-stone-edge-east-south-0",
+		"drying-yard-stone-edge-east-south-1"
+	],
+	"runs": [
+		[
+			"west-outer",
+			[
+				880,
+				2540
+			],
+			[
+				880,
+				3180
+			],
+			1
+		],
+		[
+			"west-inner",
+			[
+				1300,
+				2540
+			],
+			[
+				1300,
+				3180
+			],
+			3
+		],
+		[
+			"west-south",
+			[
+				880,
+				3180
+			],
+			[
+				1300,
+				3180
+			],
+			0
+		],
+		[
+			"east-inner",
+			[
+				1620,
+				2540
+			],
+			[
+				1620,
+				3180
+			],
+			1
+		],
+		[
+			"east-outer",
+			[
+				2120,
+				2540
+			],
+			[
+				2120,
+				3060
+			],
+			3
+		],
+		[
+			"east-step",
+			[
+				2120,
+				3060
+			],
+			[
+				2200,
+				3060
+			],
+			2
+		],
+		[
+			"east-step-outer",
+			[
+				2200,
+				3060
+			],
+			[
+				2200,
+				3180
+			],
+			3
+		],
+		[
+			"east-south",
+			[
+				1620,
+				3180
+			],
+			[
+				2200,
+				3180
+			],
+			0
+		]
+	],
+	"source_pixels_unchanged": true,
+	"collision_changed": false,
+	"output_map_sha256": "1efe452b1e489b37068348d94b65d80108f0d00e0a213cd01076b3af05154aea"
+}

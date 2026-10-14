@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "approved_concept": "res://docs/art/keycard-access-concept-v2/concept.png",
+  "asset_manifest": "res://art/items/keycards_v1/manifest.json",
+  "access_data": "res://data/access/keycards.json",
+  "map": "r04",
+  "cards": [
+    "dorm_card",
+    "daily_card",
+    "logistics_card",
+    "duty_card",
+    "office_card",
+    "monitor_card",
+    "tools_card"
+  ],
+  "numbering": {
+    "dorm-extra-0": "D-01",
+    "dorm-extra-1": "D-02",
+    "dorm-0": "D-03",
+    "dorm-1": "D-04",
+    "dorm-2": "D-05"
+  },
+  "behavior": [
+    "Per-instance stable room IDs; no character names or portraits on dorm cards.",
+    "Carry to match automatically; E opens the matched door; card is not consumed.",
+    "Only currently carried items grant permission; dropping removes rights immediately.",
+    "Daytime room occupants may release doors from inside without a card; the existing nighttime guard lock remains.",
+    "Night and timed entry security still applies; prison exits/confinement keep original rules.",
+    "Guaranteed cards are packed before random loot; no circular acquisition chain.",
+    "Runtime map decoration keeps editor source map intact and uses current door assemblies.",
+    "Compound equipment room uses actual room parts, keeping outdoor courtyards free."
+  ],
+  "native_proofs": [
+    "res://docs/tests/keycards-v1/backpack-certificates.png",
+    "res://docs/tests/keycards-v1/door-matched-card.png",
+    "res://docs/tests/keycards-v1/door-missing-card.png"
+  ],
+  "qa": [
+    "qa/keycards.gd",
+    "qa/dorm_pocket_open_v3.gd",
+    "qa/p130_manual_inventory.gd",
+    "tools/verify_dorm_closed_appearance.py"
+  ],
+  "starter": [
+    "D-03 宿舍卡",
+    "生活通行卡"
+  ],
+  "validation": {
+    "keycard_native": "docs/tests/keycards-v1/checks.json",
+    "backpack_native": {
+      "checks": 114,
+      "failed": [],
+      "report": "docs/tests/p130-manual-inventory.json"
+    },
+    "dorm_native": {
+      "checks": 225,
+      "failed": [],
+      "closed_pixels_identical": true,
+      "report": "docs/tests/dorm-pocket-open-v3/closed-preservation.json"
+    },
+    "full_tutorial": {
+      "passed": false,
+      "issue": "Existing canteen seat path is unreachable. Same zero-length route reproduced in original raw map without keycard decoration and with admission disabled.",
+      "comparison": "docs/tests/keycards-v1/path-compare.json"
+    },
+    "keycard_native_checks": 122
+  }
+}

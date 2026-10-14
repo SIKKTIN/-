@@ -77,7 +77,7 @@
 			},
 			"guard:loading-watch": {
 				"decision": {},
-				"goal": "(5580.0, 1200.0)",
+				"goal": "(5440.0, 510.0)",
 				"id": "guard:loading-watch",
 				"intent": "守门",
 				"label": "守门",
@@ -130,6 +130,20 @@
 				"next_think": -1.0,
 				"phase": "duty",
 				"role": "gate"
+			},
+			"merchant:campus_kiosk": {
+				"decision": {},
+				"goal": "(2740.0, 2375.0)",
+				"id": "merchant:campus_kiosk",
+				"intent": "营业中",
+				"label": "营业中",
+				"needs": {
+					"fatigue": 15.0,
+					"hunger": 20.0
+				},
+				"next_think": -1.0,
+				"phase": "duty",
+				"role": "merchant"
 			},
 			"merchant:prison_dealer": {
 				"decision": {},
@@ -282,7 +296,7 @@
 				"goal": "(428.0, 2193.97)",
 				"id": "prisoner:2",
 				"intent": "rest",
-				"label": "回寝休息",
+				"label": "休息",
 				"needs": {
 					"fatigue": 65,
 					"hunger": 20.0

@@ -1,0 +1,15 @@
+办公室概念图接入结果
+
+R04 办公室由 380×640 调整为 460×440，保持南侧门位置不变；未迁移值班室、监控室或用户调整过的其他房间。
+布局：北侧双档案柜；西侧办公桌、工作椅和两把接待椅；东侧文件柜与窄保管柜；中央通路；公告板、挂钟与门牌。
+家具渲染尺寸和地面碰撞分别登记。桌、档案柜、文件柜和保管柜使用现有 office 搜刮配置。
+新生成七张独立透明 PNG，保留原始像素，内置 imagegen 模式；复用现有公告板和挂钟。
+素材与运行时定义：art/props/office_v1/manifest.json。
+最终提示词、原始生成来源：docs/art/office-restoration/generated-assets.json；窄柜修正提示词 sideboard-correction-prompt.txt。
+运行时纹理通过既有 WorldTexture 缓存，最大边限制 512，椅子 256；不新增常驻处理、独立灯光或整房大图覆盖。
+
+验证：qa/office_restoration.gd，在原生 D3D12 / RTX 4050 下运行，60 项检查全部通过。
+涵盖独立 PNG 校验、邻室和无关地图字段保留、家具脚印、双向门通行与关门阻挡、搜刮可达、放入背包与拖回柜体、室内外屋顶、现有 1.4 角色显示、素材目录、纹理上限、地图重读、验证期间无磁盘写入。
+本次没有进行帧率基准测试，静态 QA 截图上的 FPS 不是游戏运行性能测量。
+实际渲染：runtime-art.png / runtime-interior.png；编辑器：editor-layout.png；检查明细：checks.json。
+保存修改前原图备份：initial-map.json。接入脚本：tools/register_office_restoration.py。

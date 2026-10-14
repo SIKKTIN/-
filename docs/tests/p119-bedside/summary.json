@@ -1,0 +1,42 @@
+{
+  "resources": {
+    "production_text_files": 124,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "prop_proportions",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.12,
+      "checks": 347,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.64,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.31,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 462,
+  "passed": true
+}

@@ -1,0 +1,25 @@
+{
+	"checks": {
+		"cancel refreshes dirty status and geometry": true,
+		"collision view loads after dragging": true,
+		"continuous exterior grass under region": true,
+		"drag does not rebuild all rooms": true,
+		"drag keeps object list stable": true,
+		"drag updates retained painter geometry": true,
+		"duplicated wall retains material": true,
+		"editing tests leave map file unchanged": true,
+		"editor loads current saved geometry": true,
+		"fixture layer hides retained painter": true,
+		"fixture layer restores retained painter": true,
+		"map validates": true,
+		"no gravel rectangle remains": true,
+		"offscreen grid lines culled": true,
+		"pan preserves cached architecture": true,
+		"redo restores moved painter": true,
+		"release refreshes list and inspector": true,
+		"undo restores original geometry": true,
+		"wall cache follows removed indexes": true,
+		"wall cache follows undo": true
+	},
+	"failed": []
+}

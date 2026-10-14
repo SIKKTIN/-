@@ -1,0 +1,376 @@
+{
+	"schema": 2,
+	"version": "bath-pocket-v1",
+	"assets": [
+		{
+			"id": "doorway_bath_pocket_open_v1",
+			"name": "浴室北入口 · 磨砂双扇推拉门 · 打开",
+			"texture": "res://art/architecture/bath_pocket_v1/door_states.png",
+			"texture_size": [
+				1923,
+				818
+			],
+			"region": [
+				1039,
+				126,
+				720,
+				584
+			],
+			"runtime_size_limit": 512,
+			"sha256": "b8753beeae8c924b67f1854c96d0b97dc6efaaecc7381ac3217e3d6c47a31332",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"render_mode": "embedded_door",
+			"world_size": [
+				140,
+				120
+			],
+			"render_size": [
+				140,
+				120
+			],
+			"footprint_world_size": [
+				120,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				720,
+				584
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"door_art": "doorway_bath_pocket_open_v1",
+				"door_art_closed": "doorway_bath_pocket_closed_v1",
+				"door_art_size": [
+					140,
+					120
+				],
+				"door_open_patches": [
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							0.08732876712328767
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							10.48
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0.08732876712328767,
+							0.10694444444444444,
+							0.9126712328767124
+						],
+						"destination": [
+							0,
+							10.48,
+							14.97,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0.8972222222222223,
+							0.08732876712328767,
+							0.10277777777777777,
+							0.9126712328767124
+						],
+						"destination": [
+							125.61,
+							10.48,
+							14.39,
+							109.52
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "doorway_bath_pocket_closed_v1",
+						"source": [
+							0.07905686546463246,
+							0.08717948717948718,
+							0.8460471567267683,
+							0.9025641025641026
+						],
+						"destination": [
+							14.97,
+							10.48,
+							110.64,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							0.08732876712328767
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							10.48
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0.08732876712328767,
+							0.10694444444444444,
+							0.9126712328767124
+						],
+						"destination": [
+							0,
+							10.48,
+							14.97,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0.8972222222222223,
+							0.08732876712328767,
+							0.10277777777777777,
+							0.9126712328767124
+						],
+						"destination": [
+							125.61,
+							10.48,
+							14.39,
+							109.52
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						10.48,
+						14.97,
+						109.52
+					],
+					[
+						125.61,
+						10.48,
+						14.39,
+						109.52
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						14.97,
+						10.48,
+						110.64,
+						109.52
+					]
+				],
+				"body_profile": "human_silhouette",
+				"raised_door": true,
+				"clear_wall_facade": true
+			}
+		},
+		{
+			"id": "doorway_bath_pocket_closed_v1",
+			"name": "浴室北入口 · 磨砂双扇推拉门 · 关闭",
+			"texture": "res://art/architecture/bath_pocket_v1/door_states.png",
+			"texture_size": [
+				1923,
+				818
+			],
+			"region": [
+				165,
+				125,
+				721,
+				585
+			],
+			"runtime_size_limit": 512,
+			"sha256": "b8753beeae8c924b67f1854c96d0b97dc6efaaecc7381ac3217e3d6c47a31332",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"render_mode": "embedded_door",
+			"world_size": [
+				140,
+				120
+			],
+			"render_size": [
+				140,
+				120
+			],
+			"footprint_world_size": [
+				120,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				721,
+				585
+			],
+			"blocking": true,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"door_art": "doorway_bath_pocket_open_v1",
+				"door_art_closed": "doorway_bath_pocket_closed_v1",
+				"door_art_size": [
+					140,
+					120
+				],
+				"door_open_patches": [
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							0.08732876712328767
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							10.48
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0.08732876712328767,
+							0.10694444444444444,
+							0.9126712328767124
+						],
+						"destination": [
+							0,
+							10.48,
+							14.97,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0.8972222222222223,
+							0.08732876712328767,
+							0.10277777777777777,
+							0.9126712328767124
+						],
+						"destination": [
+							125.61,
+							10.48,
+							14.39,
+							109.52
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "doorway_bath_pocket_closed_v1",
+						"source": [
+							0.07905686546463246,
+							0.08717948717948718,
+							0.8460471567267683,
+							0.9025641025641026
+						],
+						"destination": [
+							14.97,
+							10.48,
+							110.64,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							0.08732876712328767
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							10.48
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0,
+							0.08732876712328767,
+							0.10694444444444444,
+							0.9126712328767124
+						],
+						"destination": [
+							0,
+							10.48,
+							14.97,
+							109.52
+						]
+					},
+					{
+						"asset": "doorway_bath_pocket_open_v1",
+						"source": [
+							0.8972222222222223,
+							0.08732876712328767,
+							0.10277777777777777,
+							0.9126712328767124
+						],
+						"destination": [
+							125.61,
+							10.48,
+							14.39,
+							109.52
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						10.48,
+						14.97,
+						109.52
+					],
+					[
+						125.61,
+						10.48,
+						14.39,
+						109.52
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						14.97,
+						10.48,
+						110.64,
+						109.52
+					]
+				],
+				"body_profile": "human_silhouette",
+				"raised_door": true,
+				"clear_wall_facade": true
+			}
+		}
+	]
+}

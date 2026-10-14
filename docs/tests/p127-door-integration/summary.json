@@ -1,0 +1,42 @@
+{
+  "resources": {
+    "production_text_files": 130,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.17,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 48.22,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 23.97,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 73,
+  "passed": true
+}

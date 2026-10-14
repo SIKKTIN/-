@@ -1,0 +1,242 @@
+{
+  "schema": 2,
+  "version": "three-way-junction-v53",
+  "assets": [
+    {
+      "id": "prison_t_w_round_v53",
+      "name": "T形弧接 · 上 / 下 / 左 · 2×7格",
+      "texture": "res://art/architecture/v53/three_way_west.png",
+      "texture_size": [
+        1073,
+        1466
+      ],
+      "region": [
+        488,
+        420,
+        200,
+        508
+      ],
+      "world_size": [
+        40,
+        140
+      ],
+      "render_size": [
+        40,
+        140
+      ],
+      "render_mode": "architecture_junction_t",
+      "assembly_patches": [
+        {
+          "source": [
+            588,
+            420,
+            96,
+            52
+          ],
+          "destination": [
+            20,
+            0,
+            20,
+            20
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            492,
+            472,
+            96,
+            90
+          ],
+          "destination": [
+            0,
+            20,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            588,
+            472,
+            96,
+            90
+          ],
+          "destination": [
+            20,
+            20,
+            20,
+            28
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            492,
+            562,
+            96,
+            273
+          ],
+          "destination": [
+            0,
+            48,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            588,
+            562,
+            96,
+            273
+          ],
+          "destination": [
+            20,
+            48,
+            20,
+            60
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            492,
+            835,
+            96,
+            90
+          ],
+          "destination": [
+            0,
+            108,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        },
+        {
+          "source": [
+            588,
+            835,
+            96,
+            90
+          ],
+          "destination": [
+            20,
+            108,
+            20,
+            32
+          ],
+          "modulate": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mirror_x": false,
+          "role": "complete_wall_body"
+        }
+      ],
+      "blocking": false,
+      "alpha_core_shader": "res://art/architecture/v38/shared-ports.gdshader",
+      "grid_tile": {
+        "cell": 20,
+        "columns": 2,
+        "rows": 7,
+        "parameterized_shader": true,
+        "horizontal_ports": true,
+        "horizontal_left": true,
+        "horizontal_right": false,
+        "vertical_ports": false,
+        "north_port": false,
+        "north_stem": true,
+        "south_stem": true,
+        "stem_x": 20,
+        "horizontal_profile": [
+          1030,
+          130,
+          0,
+          370
+        ],
+        "vertical_profile": [
+          710,
+          600,
+          120,
+          0
+        ],
+        "horizontal_offset": 20,
+        "horizontal_extent": 120,
+        "port_reference_texture": "res://art/architecture/v33/full_wall_master_v33.png"
+      },
+      "collision_parts": [
+        [
+          0,
+          120,
+          40,
+          20
+        ],
+        [
+          20,
+          0,
+          20,
+          140
+        ]
+      ],
+      "connections": [
+        "north",
+        "south",
+        "west"
+      ],
+      "authoring_set": "universal-v53",
+      "connection_tag": "north,south,west/40x140",
+      "sha256": "29d02d556115599275276fa6c74e378f650e64509327046ad69150f19bf01116",
+      "editor_icon": "res://art/editor/v25/icons/prison_t_w_round_v53.tres",
+      "junction_shape": "continuous-rounded-three-port",
+      "editor_subcategory": "tiles_junction"
+    }
+  ]
+}

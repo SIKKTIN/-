@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "status": "fixed",
+  "cause": "A foreground actor 3 to 4 world pixels beyond the gate base shared an integer depth bucket with the door's +1 sorting bias, allowing the door to cover the actor at valid foot contact.",
+  "fix": "Depth-limited workshop doors now sort immediately below the first legal foreground foot position. Collision clipping, closure safety and drawing depth share ActorFootprint.front_contact_y.",
+  "before": "contact-before-checks.json",
+  "after": "exterior-checks.json",
+  "native_checks": {"count":103,"failed":[]},
+  "door_regression": {"count":49,"failed":[]},
+  "pixel_checks": "Both door states, both jamb sides at base + 3.01: the rendered body matches an unoccluded reference.",
+  "map_modified": false,
+  "screenshot": "contact-closed-right.png",
+  "preview": "play-contact-fix.gd"
+}

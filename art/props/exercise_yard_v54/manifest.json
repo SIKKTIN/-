@@ -1,0 +1,375 @@
+{
+	"schema": 2,
+	"version": "exercise-yard-v54",
+	"assets": [
+		{
+			"id": "pullup_bars_v54",
+			"name": "放风院双单杠",
+			"texture": "res://art/props/exercise_yard_v54/bars.png",
+			"texture_size": [
+				1484,
+				1060
+			],
+			"region": [
+				200,
+				287,
+				1085,
+				469
+			],
+			"ground_rect": [
+				0,
+				401,
+				1085,
+				64
+			],
+			"world_size": [
+				210,
+				90.7742
+			],
+			"render_size": [
+				210,
+				90.7742
+			],
+			"footprint_world_size": [
+				210.0,
+				12.3871
+			],
+			"elevation_world": 78.3871,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "b032ae07b992e89b4599c23ef22a25fcb7f4dbe93517368ec2800b67d8fd38d2",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0,
+					0,
+					0.13,
+					1
+				],
+				[
+					0.435,
+					0,
+					0.13,
+					1
+				],
+				[
+					0.87,
+					0,
+					0.13,
+					1
+				]
+			]
+		},
+		{
+			"id": "yard_shelter_roof_v54",
+			"name": "遮雨棚 · 棚顶",
+			"texture": "res://art/props/exercise_yard_v54/shelter-layers.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				228,
+				73,
+				1081,
+				374
+			],
+			"ground_rect": [
+				0,
+				0,
+				1081,
+				374
+			],
+			"world_size": [
+				280,
+				96.8733
+			],
+			"render_size": [
+				280,
+				96.8733
+			],
+			"footprint_world_size": [
+				280.0,
+				96.8733
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "e8a07a1a2e98fa9f2b5e03c4548530141a759f4e644dec5037efc96eca57a6e2",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"canopy_cover": [
+				10,
+				120,
+				260,
+				90
+			]
+		},
+		{
+			"id": "yard_shelter_back_v54",
+			"name": "遮雨棚 · 后框",
+			"texture": "res://art/props/exercise_yard_v54/shelter-layers.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				55,
+				536,
+				700,
+				397
+			],
+			"ground_rect": [
+				0,
+				368,
+				700,
+				25
+			],
+			"world_size": [
+				260,
+				147.4571
+			],
+			"render_size": [
+				260,
+				147.4571
+			],
+			"footprint_world_size": [
+				260.0,
+				9.2857
+			],
+			"elevation_world": 138.1714,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "e8a07a1a2e98fa9f2b5e03c4548530141a759f4e644dec5037efc96eca57a6e2",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0,
+					0,
+					0.09,
+					1
+				],
+				[
+					0.91,
+					0,
+					0.09,
+					1
+				]
+			]
+		},
+		{
+			"id": "yard_shelter_front_v54",
+			"name": "遮雨棚 · 前柱",
+			"texture": "res://art/props/exercise_yard_v54/shelter-layers.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				813,
+				639,
+				670,
+				294
+			],
+			"ground_rect": [
+				0,
+				266,
+				670,
+				24
+			],
+			"world_size": [
+				260,
+				114.0896
+			],
+			"render_size": [
+				260,
+				114.0896
+			],
+			"footprint_world_size": [
+				260.0,
+				9.3134
+			],
+			"elevation_world": 104.7761,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "e8a07a1a2e98fa9f2b5e03c4548530141a759f4e644dec5037efc96eca57a6e2",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0,
+					0,
+					0.09,
+					1
+				],
+				[
+					0.91,
+					0,
+					0.09,
+					1
+				]
+			]
+		},
+		{
+			"id": "yard_tree_round_v54",
+			"name": "放风院水泥圆盆树",
+			"texture": "res://art/props/exercise_yard_v54/tree-round.png",
+			"texture_size": [
+				1292,
+				1218
+			],
+			"region": [
+				142,
+				57,
+				1024,
+				1016
+			],
+			"ground_rect": [
+				366,
+				820,
+				292,
+				180
+			],
+			"world_size": [
+				140,
+				138.9062
+			],
+			"render_size": [
+				140,
+				138.9062
+			],
+			"footprint_world_size": [
+				39.9219,
+				24.6094
+			],
+			"elevation_world": 114.2969,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "4e1eb12bb364077bd86b5c84d2cbfaaa93967ef5f9a6617506d3c4d2026a2744",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "yard_tree_square_v54",
+			"name": "放风院水泥方盆树",
+			"texture": "res://art/props/exercise_yard_v54/tree-square.png",
+			"texture_size": [
+				1292,
+				1218
+			],
+			"region": [
+				308,
+				191,
+				677,
+				817
+			],
+			"ground_rect": [
+				219,
+				633,
+				239,
+				168
+			],
+			"world_size": [
+				100,
+				120.6795
+			],
+			"render_size": [
+				100,
+				120.6795
+			],
+			"footprint_world_size": [
+				35.3028,
+				24.8154
+			],
+			"elevation_world": 95.8641,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "b789a1f253b6ab0e935a7f8db3d44dad0a168af68d2eb3749987f1ca32e74a6e",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "yard_bench_vertical_v54",
+			"name": "放风院纵向长椅",
+			"texture": "res://art/props/exercise_yard_v54/bench-vertical.png",
+			"texture_size": [
+				972,
+				1618
+			],
+			"region": [
+				363,
+				210,
+				281,
+				1157
+			],
+			"ground_rect": [
+				12,
+				100,
+				257,
+				1040
+			],
+			"world_size": [
+				38.85911840968021,
+				160.0
+			],
+			"render_size": [
+				38.85911840968021,
+				160.0
+			],
+			"footprint_world_size": [
+				35.5402,
+				143.8202
+			],
+			"elevation_world": 16.1798,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "077cba6c3a85aa4907ceec8ce93d1d65f7a308dd0a8e0ab22cebab36d101fc1c",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		}
+	]
+}

@@ -55,6 +55,9 @@ func blocking() -> bool:
 func tick(delta: float) -> void:
 	for actor in guards:
 		actor.tick(delta)
+	refresh_blocking()
+
+func refresh_blocking() -> void:
 	game.world.set_gate_guarded(blocking())
 
 func snapshot() -> Array:

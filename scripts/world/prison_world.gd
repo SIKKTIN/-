@@ -20,9 +20,16 @@ var boundary_doors: Dictionary = {}
 var boundary_interactions: Dictionary = {}
 var boundary_destinations: Dictionary = {}
 var boundary_builds := 0
+var wall_collision_cache: Array[Rect2] = []
+var wall_collision_dirty := true
+var wall_collision_signature: Array = []
 var roofed_cells: Array = []
 var room_visibility
 var dorm_doors: Array = []
+var dorms_locked := false
+var dorm_geometry_cache: Dictionary = {}
+var dorm_geometry_builds := 0
+var dorm_sync_count := 0
 var access_doors: Array = []
 var inspection_grid := AStarGrid2D.new()
 var inspection_solids: Array[Rect2] = []
@@ -82,6 +89,10 @@ var art_textures: Dictionary = {}
 var presentation_layers: bool = false
 
 func configure(config: Dictionary, friendlies: Array) -> void:
+	dorm_geometry_cache.clear()
+	preload("res://scripts/presentation/doorway_geometry.gd").art_definitions.clear()
+	preload("res://scripts/presentation/prop_catalog.gd").invalidate()
+	wall_collision_dirty = true
 	room_id = str(config.get("id", "r01"))
 	fixtures.clear()
 	fixtures_revision += 1
@@ -159,10 +170,13 @@ func reset_world() -> void:
 	lock_progress = 0.0
 	crate = original_crate
 	push_distance = 0.0
-	for gate in dorm_doors:
-		gate.closed = false
+	dorms_locked = false
+	for gate in dorm_gates():
+		gate.closed = bool(gate.get("card_controlled",false))
+		gate.erase("manual_closed")
 	for gate in access_doors:
 		gate.closed = bool(gate.get("initial_closed",true))
+		gate.erase("manual_closed")
 		gate.progress = 0.0
 	_changed(true)
 
@@ -179,7 +193,9 @@ func set_access_closed(id: String, closed: bool, reset_progress := false) -> voi
 		return
 	# Timed/manual closure waits for the complete body to clear the leaf.
 	# Forced confinement still closes immediately before its landing move.
-	if closed and not reset_progress and actors.any(func(a):return not a.escaped and door_closure_overlap(a,gate)): closed=false
+	# Only defer an open leaf's closure. Reapplying a locked state must never
+	# reopen that door because somebody approaches or overlaps its boundary.
+	if closed and not gate.closed and not reset_progress and actors.any(func(a):return not a.escaped and door_closure_overlap(a,gate)): closed=false
 	if reset_progress: gate.progress = 0.0
 	var changed: bool = bool(gate.closed)!=closed
 	gate.closed = closed
@@ -190,13 +206,44 @@ func set_access_closed(id: String, closed: bool, reset_progress := false) -> voi
 		if reset_progress:companion.progress=0.0
 	if changed:_changed(true)
 
-func update_dorm_doors(locked: bool, keyholders: Variant) -> void:
+func dorm_gates() -> Array:
+	var result := dorm_doors.duplicate()
+	for port in door_passage.portals:
+		if port.gate.get("manual_door",false) and (not port.gate.get("card_controlled",false) or str(port.gate.get("card_room","")).begins_with("dorm")) and port.gate not in result: result.append(port.gate)
+	return result
+
+func dorm_closure_rect(gate: Dictionary) -> Rect2:
+	# A leaf state never changes its static closing envelope. Hash only the
+	# authored geometry, including nested arrays, so moving/rotating a gate
+	# directly also invalidates it without hashing every wall each frame.
+	var key: int = [fixtures_revision,gate.get("id",""),gate.rect,gate.get("asset_id",""),gate.get("actor_id",-1),gate.get("rotation_quarters",0),gate.get("rotation_door_visual_rect",[]),gate.get("door_art_size",[]),gate.get("closed_visual_solid_parts",[]),gate.get("expose_closed_frame",false),gate.get("closure_padding",[])].hash()
+	if dorm_geometry_cache.has(key): return dorm_geometry_cache[key]
+	dorm_geometry_builds += 1
+	var geometry = preload("res://scripts/presentation/doorway_geometry.gd")
+	var rect: Rect2
+	if gate.get("expose_closed_frame",false): rect = geometry.closed_art_bounds(self,gate)
+	else: rect = geometry.projected_rect(self,gate)
+	var padding: Array = gate.get("closure_padding",[0,0,0,0])
+	if not gate.get("expose_closed_frame",false): rect = rect.grow_individual(padding[0],padding[1],padding[2],padding[3])
+	dorm_geometry_cache[key] = rect
+	return rect
+
+func update_dorm_doors(locked: bool, keyholders: Variant, occupants: Array = []) -> void:
+	dorm_sync_count += 1
 	var points: Array = keyholders if keyholders is Array else [keyholders]
 	var changed := false
-	for gate in dorm_doors:
+	var gates := dorm_gates()
+	if locked != dorms_locked:
+		# A new day/night boundary resets the daytime manual choice.
+		for gate in gates: gate.erase("manual_closed")
+	dorms_locked = locked
+	for gate in gates:
 		# The guard uses a key and opens the gate before crossing its collider.
-		var closed: bool = str(gate.get("kind","dorm")) != "open" and locked and not points.any(func(point): return gate.rect.get_center().distance_to(point) <= 85)
-		if closed and actors.any(func(a):return not a.escaped and body_overlaps_door(a,gate.rect)): closed=false
+		var closure := dorm_closure_rect(gate)
+		var key_near: bool = points.any(func(point): return point.distance_to(point.clamp(closure.position,closure.end)) <= 65)
+		var closed: bool = (gate.get("manual_door",false) or str(gate.get("kind","dorm")) != "open") and locked and not key_near
+		if not locked: closed = bool(gate.get("manual_closed",gate.get("card_controlled",false)))
+		if closed and not gate.closed and (actors+occupants).any(func(a):return is_instance_valid(a) and a.get("escaped")!=true and Footprint.body_at(a.position).intersects(closure)): closed=false
 		if bool(gate.closed) != closed:
 			gate.closed = closed
 			changed = true
@@ -256,22 +303,33 @@ func body_overlaps_door(actor, rect: Rect2) -> bool:
 	return Footprint.body_at(actor.position).intersects(door_collision_rect(rect))
 
 func door_closure_overlap(actor, gate: Dictionary) -> bool:
-	if body_overlaps_door(actor,gate.rect): return true
+	if _gate_closure_overlap(actor,gate): return true
 	for companion in access_doors:
-		if str(companion.get("linked_to",""))==str(gate.get("id","")) and body_overlaps_door(actor,companion.rect): return true
+		if str(companion.get("linked_to",""))==str(gate.get("id","")) and _gate_closure_overlap(actor,companion): return true
 	return false
+
+func _gate_closure_overlap(actor, gate: Dictionary) -> bool:
+	if gate.get("body_depth_limited",false) and actor.position.y>=Footprint.front_contact_y(gate.rect):
+		return false
+	return body_overlaps_door(actor,gate.rect)
 
 func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
 	if not door_body_clear(point): return false
-	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
-	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
-		return false
+	if not dynamic_placement_clear(point,radius,ignore_actor,check_actors,include_crate): return false
 	if not inside_room(point, radius) and not _staff_exterior(ignore_actor,point,radius):
 		return false
 	var index = inspection_index if planning_guard_doors else solid_index
 	if index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)
 	for rect in index.nearby(point,radius):
 		if _circle_hits_rect(point, radius, rect): return false
+	return true
+
+# Shared moving-obstacle/admission rules. Navigation may skip fixed geometry
+# only for points already known clear on its freshly updated static grid.
+func dynamic_placement_clear(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
+	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
+	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
+		return false
 	if include_crate and _circle_hits_rect(point,radius,crate): return false
 	if check_actors:
 		for actor in actors:
@@ -427,6 +485,7 @@ func _segment_hits_rect(from: Vector2, to: Vector2, rect: Rect2) -> bool:
 	return false
 
 func motion_clear(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> bool:
+	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,to,RADIUS): return false
 	if (not inside_room(from) and not _staff_exterior(ignore_actor,from)) or (not inside_room(to) and not _staff_exterior(ignore_actor,to)):
 		return false
 	if ignore_actor != null and ignore_actor.has_method("movement_allowed"):
@@ -462,6 +521,9 @@ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bo
 	return pathfinding.find_path(from,to,ignore_actor,avoid_actors,ignore_crate)
 
 func set_wall_boundaries(clips: Dictionary, doors: Dictionary) -> void:
+	# Door apertures and projected boundaries are rebuilt together at map load.
+	# Opening a leaf later cannot change the fixed wall geometry.
+	wall_collision_dirty = true
 	var next: Array[Rect2] = []
 	for pieces in clips.values(): next.append_array(pieces)
 	if next == boundary_solids and doors == boundary_doors:
@@ -517,6 +579,11 @@ func _door_operation_origin(gate: Dictionary) -> Vector2:
 	return rect.get_center()+Vector2(37,0) if rect.size.y>rect.size.x else rect.get_center()+Vector2(0,45)
 
 func wall_collision_rects() -> Array[Rect2]:
+	# Native array hashes also catch callers inserting/moving walls directly.
+	# Gate states are excluded: the fixed apertures do not change with a leaf.
+	var signature: Array = [walls.hash(),wall_surfaces.hash(),boundary_solids.hash(),door_passage.portals.size()]
+	if not wall_collision_dirty and signature == wall_collision_signature: return wall_collision_cache.duplicate()
+	dorm_geometry_cache.clear()
 	var result: Array[Rect2] = []
 	var cuts: Array[Rect2] = []
 	for port in door_passage.portals:
@@ -536,6 +603,9 @@ func wall_collision_rects() -> Array[Rect2]:
 		for part in surface.collision_parts:
 			result.append(Rect2(walls[index].position+Vector2(part[0],part[1]),Vector2(part[2],part[3])))
 	result.append_array(boundary_solids)
+	wall_collision_cache = result.duplicate()
+	wall_collision_signature = signature
+	wall_collision_dirty = false
 	return result
 
 func _changed(static_changed: bool = false) -> void:
@@ -552,22 +622,38 @@ func _changed(static_changed: bool = false) -> void:
 		cached_sight.append(door_collision_rect(door))
 	for fixture in fixtures:
 		if fixture.get("blocks_movement",true):
-			static_solids.append(fixture.rect)
+			static_solids.append_array(fixture_collision_rects(fixture))
 		if fixture.get("blocks_sight",false):
-			cached_sight.append(fixture.rect)
+			cached_sight.append_array(fixture_collision_rects(fixture))
 	for gate in access_doors:
+		if gate.has("sliding_door"):
+			if gate.get("blocks_sight",false):
+				cached_sight.append_array(preload("res://scripts/presentation/sliding_door_geometry.gd").world_solids(gate,door_collision_rect(gate.rect),float(gate.get("slide_fraction",0))))
+			continue
 		if gate.closed:
 			static_solids.append(door_collision_rect(gate.rect))
 			if gate.get("blocks_sight",false): cached_sight.append(door_collision_rect(gate.rect))
 	inspection_solids = static_solids.duplicate()
-	for gate in dorm_doors:
+	for gate in dorm_gates():
 		if gate.closed:
-			static_solids.append(door_collision_rect(gate.rect))
+			static_solids.append(dorm_closure_rect(gate) if gate.get("manual_door",false) else door_collision_rect(gate.rect))
 	cached_solids = static_solids.duplicate()
 	cached_solids.append(crate)
 	cached_sight.append(crate)
 	cached_crate = crate
 	queue_redraw()
+
+func fixture_collision_rects(fixture: Dictionary) -> Array[Rect2]:
+	var result: Array[Rect2] = []
+	var rect: Rect2 = fixture.rect
+	if not fixture.has("solid_parts"):
+		result.append(rect)
+		return result
+	# Fractions of the ground footprint keep open frames walkable when moved
+	# or resized in the editor. Canopies and pull-up bars only block at posts.
+	for part: Array in fixture.solid_parts:
+		result.append(Rect2(rect.position+Vector2(part[0],part[1])*rect.size,Vector2(part[2],part[3])*rect.size))
+	return result
 
 func exit_icon_rect() -> Rect2:
 	return Rect2(exit_area.position.x-59 if not bounds.encloses(exit_area) else exit_area.get_center().x-27,exit_area.get_center().y-35,54,54)

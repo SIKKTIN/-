@@ -9,6 +9,7 @@ static func configure(game) -> void:
 	_create_services(game)
 
 static func _load_room(game) -> Dictionary:
+	preload("res://scripts/core/menu_preferences.gd").new().configure()
 	game.frame_settings=preload("res://scripts/core/frame_settings.gd").new()
 	game.frame_settings.configure()
 	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/rooms/%s.json" % game.room_id))
@@ -40,6 +41,7 @@ static func _load_room(game) -> Dictionary:
 	return config
 
 static func _create_world(game, config: Dictionary) -> void:
+	config = preload("res://scripts/items/keycard_service.gd").decorate(config)
 	for index in range(3):
 		var actor = game.Prisoner.new()
 		actor.name = "Prisoner%d" % (index + 1)
@@ -67,6 +69,8 @@ static func _create_world(game, config: Dictionary) -> void:
 	game.skills = game.Skills.new(game)
 	game.orders = game.MoveOrders.new(game)
 	game.inventory = game.Inventory.new(game)
+	game.keycards = preload("res://scripts/items/keycard_service.gd").new(game)
+	game.quick_items = preload("res://scripts/items/quick_items.gd").new(game)
 	game.trade = game.Trade.new(game)
 	game._build_ui()
 	game.reset_round()
@@ -112,6 +116,9 @@ static func _create_services(game) -> void:
 	game.fullscreen_ui = game.FullscreenHUD.new()
 	game.add_child(game.fullscreen_ui)
 	game.fullscreen_ui.configure(game)
+	game.map_viewer = preload("res://scripts/ui/map_viewer.gd").new()
+	game.add_child(game.map_viewer)
+	game.map_viewer.configure(game)
 	game.staff_traffic = game.StaffTraffic.new(game)
 	game.gate_watch = game.GateWatch.new(game)
 	game.gate_watch.reset(game.room_config)
@@ -127,6 +134,17 @@ static func _create_services(game) -> void:
 	game.dialogue.configure(game)
 	game.room_visibility = preload("res://scripts/core/room_visibility.gd").new(game)
 	game.room_visibility.reset()
+	game.resident_staff = preload("res://scripts/actors/resident_staff.gd").new(game)
+	game.looting=preload("res://scripts/items/looting.gd").new()
+	game.add_child(game.looting)
+	game.looting.configure(game)
+	game.bath_service=preload("res://scripts/items/bath_service.gd").new()
+	game.add_child(game.bath_service)
+	game.bath_service.configure(game)
+	game.nine_point = preload("res://scripts/minigames/nine_point_game.gd").new()
+	game.nine_point.name = "NinePointGame"
+	game.add_child(game.nine_point)
+	game.nine_point.configure(game)
 	var social_labels = preload("res://scripts/presentation/social_labels.gd").new()
 	game.add_child(social_labels)
 	social_labels.configure(game)

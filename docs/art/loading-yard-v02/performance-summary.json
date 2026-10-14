@@ -1,0 +1,22 @@
+{
+	"scope": "paused simulation, retained static scene rendering only",
+	"viewport": [
+		1000,
+		2400
+	],
+	"zoom": 0.55,
+	"results": {
+		"baseline": {
+			"median_ms": 16.716,
+			"p95_ms": 17.915,
+			"mean_ms": 16.655,
+			"samples": 80
+		},
+		"after": {
+			"median_ms": 16.674,
+			"p95_ms": 18.696,
+			"mean_ms": 19.772,
+			"samples": 80
+		}
+	}
+}

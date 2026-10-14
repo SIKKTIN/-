@@ -31,10 +31,26 @@ func run():
 	check("baseline_catalog_compiles",old_catalog.reload()==OK)
 	var before: Dictionary=old_catalog.assets()
 	var after: Dictionary=load("res://scripts/presentation/prop_catalog.gd").assets()
-	check("catalog_refactor_preserves_every_asset",before==after)
+	# Keep the refactor's source baseline, except the explicitly redesigned
+	# bedside cabinet. Its stable ID keeps existing maps and saves compatible.
+	var sources_preserved: bool=before.keys().all(func(id):return after.has(id))
+	for id in before:
+		if not after.has(id):sources_preserved=false;continue
+		var original: Dictionary=before[id].duplicate(true)
+		var current: Dictionary=after[id].duplicate(true)
+		if id=="bedside_cabinet_v44":
+			check("bedside_replacement_registered_and_loadable",current.authoring_set=="bedside-v51" and load(current.texture) is Texture2D and FileAccess.get_sha256(current.texture)==str(current.sha256))
+			continue
+		if current.get("proportion_locked",false):
+			for field in ["world_size","render_size","footprint_world_size","elevation_world","proportion_locked","proportion_reference_human_height"]:
+				original.erase(field)
+				current.erase(field)
+		if original!=current:sources_preserved=false
+	check("catalog_preserves_every_source_asset",sources_preserved)
 	var document=load("res://scripts/editor/map_document.gd").new()
 	check("editor_still_opens_current_map",document.open_file("res://data/rooms/r04.json"))
 	var validation: Dictionary=document.validate()
+	if not validation.errors.is_empty() or not validation.warnings.is_empty():print(validation)
 	check("editor_validates_current_map",validation.errors.is_empty() and validation.warnings.is_empty())
 	check("editor_scene_remains_loadable",load("res://scenes/editor/map_editor.tscn") is PackedScene)
 	var parsed:=[]

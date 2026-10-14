@@ -1,0 +1,94 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.39,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.98,
+      "checks": 347,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 10.66,
+      "checks": 100,
+      "failed": [
+        "door_workshop-entry-east"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.66,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.67,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "social",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.14,
+      "checks": 38,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "legacy_maps",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.7,
+      "checks": 9,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "chase",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.73,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 593,
+  "passed": false
+}

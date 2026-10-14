@@ -1,0 +1,77 @@
+{
+  "categories": {
+    "structure": {
+      "checks": 15,
+      "failed": []
+    },
+    "npc": {
+      "checks": 15,
+      "failed": []
+    },
+    "staff": {
+      "checks": 21,
+      "failed": []
+    },
+    "legacy": {
+      "checks": 9,
+      "failed": []
+    },
+    "quick": {
+      "checks": 83,
+      "failed": []
+    },
+    "editor": {
+      "checks": 20,
+      "failed": []
+    },
+    "looting_native": {
+      "checks": 114,
+      "failed": []
+    },
+    "tutorial": {
+      "checks": 29,
+      "failed": []
+    },
+    "player": {
+      "checks": 28,
+      "failed": []
+    },
+    "chase": {
+      "checks": 30,
+      "failed": []
+    },
+    "navigation": {
+      "checks": 29,
+      "failed": []
+    },
+    "dynamic_navigation": {
+      "checks": 23,
+      "failed": []
+    },
+    "day_render": {
+      "checks": 7,
+      "failed": []
+    },
+    "night_render": {
+      "checks": 7,
+      "failed": []
+    },
+    "seven_day_state": {
+      "checks": 47,
+      "failed": [],
+      "source": "seven-days-final.json"
+    },
+    "final_normal_day": {
+      "checks": 7,
+      "failed": []
+    }
+  },
+  "total_checks": 484,
+  "initial_runner": "validation/results.json",
+  "reruns": {
+    "looting": "looting-native.out / validation/looting-check.json",
+    "tutorial": "tutorial-final.out / validation/tutorial-headless.json"
+  },
+  "compiled_production_scripts": 112,
+  "catalog_entries": 219
+}

@@ -27,6 +27,18 @@
     "actor_id": null
   },
   "items": {
+    "factory_map": {
+      "texture": "res://art/items/factory_map_v135.png",
+      "trim_transparent": true,
+      "world_size": [
+        30,
+        20
+      ],
+      "hud_size": [
+        48,
+        32
+      ]
+    },
     "scrap": {
       "texture": "res://art/items/item_scrap_v07b.png",
       "world_size": [
@@ -58,6 +70,508 @@
       "hud_size": [
         28,
         28
+      ]
+    },
+    "copper_wire": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        53,
+        166,
+        475,
+        297
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "wrench": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        679,
+        46,
+        178,
+        491
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "cloth": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        1057,
+        192,
+        423,
+        263
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "bandage": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        112,
+        589,
+        295,
+        359
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "bread": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        580,
+        598,
+        377,
+        343
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "gear": {
+      "texture": "res://art/ui/looting_v01/items.png",
+      "region": [
+        1113,
+        592,
+        343,
+        348
+      ],
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        28,
+        28
+      ]
+    },
+    "biscuits": {
+      "texture": "res://art/items/expansion_v01/biscuits.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "canned_meat": {
+      "texture": "res://art/items/expansion_v01/canned_meat.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "instant_coffee": {
+      "texture": "res://art/items/expansion_v01/instant_coffee.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "cigarettes": {
+      "texture": "res://art/items/expansion_v01/cigarettes.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "painkillers": {
+      "texture": "res://art/items/expansion_v01/painkillers.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "antiseptic": {
+      "texture": "res://art/items/expansion_v01/antiseptic.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "duct_tape": {
+      "texture": "res://art/items/expansion_v01/duct_tape.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "screw_box": {
+      "texture": "res://art/items/expansion_v01/screw_box.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "work_gloves": {
+      "texture": "res://art/items/expansion_v01/work_gloves.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "pliers": {
+      "texture": "res://art/items/expansion_v01/pliers.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "repair_kit": {
+      "texture": "res://art/items/expansion_v01/repair_kit.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "canvas_pouch": {
+      "texture": "res://art/items/expansion_v01/canvas_pouch.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "duty_roster": {
+      "texture": "res://art/items/expansion_v01/duty_roster.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "delivery_note": {
+      "texture": "res://art/items/expansion_v01/delivery_note.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "work_id": {
+      "texture": "res://art/items/expansion_v01/work_id.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "temporary_pass": {
+      "texture": "res://art/items/expansion_v01/temporary_pass.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "work_clothes": {
+      "texture": "res://art/items/expansion_v01/work_clothes.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "secret_note": {
+      "texture": "res://art/items/expansion_v01/secret_note.png",
+      "trim_transparent": true,
+      "world_size": [
+        26,
+        26
+      ],
+      "hud_size": [
+        48,
+        48
+      ]
+    },
+    "water_card": {
+      "texture": "res://art/items/bath_watercard_v1/water_card.png",
+      "region": [
+        105,
+        116,
+        1403,
+        737
+      ],
+      "texture_size": [
+        1612,
+        976
+      ],
+      "sha256": "3e324ec63ec9ec734dfb9cbd0f590e64c733322c90fe681f0185ed865ecef788",
+      "source_kind": "built-in-imagegen-original-png",
+      "world_size": [
+        32,
+        16.80969351389879
+      ],
+      "hud_size": [
+        48,
+        25.214540270848183
+      ]
+    },
+    "dorm_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        74,
+        116,
+        675,
+        376
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "logistics_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        789,
+        116,
+        673,
+        376
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "duty_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        74,
+        535,
+        675,
+        375
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "office_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        74,
+        535,
+        675,
+        375
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "monitor_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        74,
+        535,
+        675,
+        375
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "tools_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        789,
+        535,
+        673,
+        375
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
+      ]
+    },
+    "daily_card": {
+      "texture": "res://art/items/keycards_v1/cards.png",
+      "region": [
+        789,
+        535,
+        673,
+        375
+      ],
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "source_kind": "built-in-imagegen-original-png",
+      "sha256": "a35c0a79c7162e19da6ebae46ffde865f5bd1550d9a73f20cf887b0acdeaff2d",
+      "world_size": [
+        32,
+        18
+      ],
+      "hud_size": [
+        64,
+        36
       ]
     }
   },

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-12",
+  "version": "v07",
+  "mode": "built-in imagegen",
+  "scope": "design only; game/map unchanged",
+  "authoritative_reference": "reference-cafeteria-v07.png",
+  "concept": "concept-final-v07.png",
+  "door_study": "door-cafeteria-states-v07.png",
+  "sources": {
+    "concept": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-4e5921c7-ba02-4e63-b5f8-d2cb4196ea11.png",
+    "study": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-197e5199-17fd-4828-992e-7dd09979b45b.png"
+  },
+  "prompts": [
+    "concept-v07-cafeteria-prompt.txt",
+    "door-v07-cafeteria-states-prompt.txt"
+  ],
+  "states": [
+    "无遮挡",
+    "右侧不可见",
+    "左侧不可见"
+  ],
+  "design": "Match user cafeteria side door: shared blue steel leaf, simple rail, narrow metal frame, shallow game-camera projection. Same complete boundary door rendering from either adjoining side.",
+  "validation": "Generated concept preview only; close-up establishes door proportions. No runtime visibility QA claimed."
+}

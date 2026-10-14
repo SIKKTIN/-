@@ -1,0 +1,36 @@
+{
+  "resources": {
+    "production_text_files": 146,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "items_preview",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.84,
+      "checks": 170,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor_eraser",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 7.58,
+      "checks": 32,
+      "failed": [
+        "real wall removed from actual draft",
+        "erased wall no longer visible or hit testable",
+        "actual map redo removes wall again"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 202,
+  "passed": false
+}

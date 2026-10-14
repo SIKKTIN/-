@@ -1,0 +1,129 @@
+{
+	"mode": "built-in image_gen",
+	"assets": {
+		"cashier": {
+			"texture": "res://art/characters/bath_cashier_v1/cashier_poses.png",
+			"region": [
+				105,
+				83,
+				1757,
+				716
+			],
+			"texture_size": [
+				1881,
+				836
+			],
+			"sha256": "b1a82cd15592746464ea5ac1cd1698fd74f12df587471be853ff39eb70a990dd",
+			"source_kind": "built-in-imagegen-original-png"
+		},
+		"water_card": {
+			"texture": "res://art/items/bath_watercard_v1/water_card.png",
+			"region": [
+				105,
+				116,
+				1403,
+				737
+			],
+			"texture_size": [
+				1612,
+				976
+			],
+			"sha256": "3e324ec63ec9ec734dfb9cbd0f590e64c733322c90fe681f0185ed865ecef788",
+			"source_kind": "built-in-imagegen-original-png"
+		},
+		"counter": {
+			"texture": "res://art/props/bath_watercard_v1/counter.png",
+			"region": [
+				193,
+				150,
+				1041,
+				820
+			],
+			"texture_size": [
+				1428,
+				1101
+			],
+			"sha256": "32ba0634d9bf03b7c57744e649ca9c364047d8c9629a42e0d93cfe10509f6a90",
+			"source_kind": "built-in-imagegen-original-png"
+		}
+	},
+	"character_frames": {
+		"idle": {
+			"region": [
+				105,
+				83,
+				448,
+				716
+			],
+			"anchor": [
+				246.0,
+				711
+			]
+		},
+		"counting": {
+			"region": [
+				735,
+				85,
+				428,
+				713
+			],
+			"anchor": [
+				201.0,
+				708
+			]
+		},
+		"handover": {
+			"region": [
+				1286,
+				83,
+				576,
+				715
+			],
+			"anchor": [
+				233.5,
+				710
+			]
+		}
+	},
+	"counter": {
+		"id": "campus-bath-recharge-counter",
+		"asset_id": "bath_recharge_counter",
+		"rect": [
+			1260.0,
+			636.0,
+			116,
+			36
+		],
+		"blocks_movement": true,
+		"blocks_sight": false
+	},
+	"staff": {
+		"id": "bath-cashier",
+		"name": "浴室收费员",
+		"appearance_id": "bath_cashier",
+		"position": [
+			1318.0,
+			598.0
+		],
+		"patrol": [],
+		"speed": 0,
+		"wait_seconds": 7,
+		"work_start": 480,
+		"work_end": 1200,
+		"room_id": "bath",
+		"service_role": "water_recharge"
+	},
+	"service": {
+		"enabled": true,
+		"cashier_id": "bath-cashier",
+		"counter_id": "campus-bath-recharge-counter",
+		"shower_cost": 2,
+		"duration_seconds": 6,
+		"restore_stamina": 20,
+		"recharge_amounts": [
+			5,
+			10,
+			20
+		]
+	}
+}

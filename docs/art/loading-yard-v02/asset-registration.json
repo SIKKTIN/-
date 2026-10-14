@@ -1,0 +1,155 @@
+{
+	"mode": "built-in imagegen",
+	"assets": [
+		{
+			"key": "truck",
+			"path": "art/props/loading_yard_v1/truck.png",
+			"sha256": "a25b8ac46230046505e3720ca559fea64bfaff6b098a5ce394b2d9f4feece7e0",
+			"region": [
+				217,
+				49,
+				453,
+				1651
+			]
+		},
+		{
+			"key": "crates",
+			"path": "art/props/loading_yard_v1/crates.png",
+			"sha256": "6a75919a0637ec1729000fbf39d090ee269cc1c1801092d918e35c7a122fc669",
+			"region": [
+				303,
+				213,
+				691,
+				813
+			]
+		},
+		{
+			"key": "booth",
+			"path": "art/props/loading_yard_v1/booth.png",
+			"sha256": "41488f4f6bf864d4f52f07af2aa4cb885edfa11a84aedaa201f6712fbf16f97f",
+			"region": [
+				325,
+				254,
+				605,
+				747
+			]
+		},
+		{
+			"key": "pallets",
+			"path": "art/props/loading_yard_v1/pallets.png",
+			"sha256": "4de6b89b0aca897bb2429e2a876b0ed8a9f1ea9e9aa4db111fb507588e97e835",
+			"region": [
+				242,
+				313,
+				770,
+				655
+			]
+		},
+		{
+			"key": "floor",
+			"path": "art/props/loading_yard_v1/floor.png",
+			"sha256": "3cd00d9ba6d39dc09221d502697466a08eaa951f50e11787fb25aadcf6b5b8d5",
+			"region": [
+				0,
+				0,
+				1254,
+				1254
+			]
+		},
+		{
+			"key": "crates_low",
+			"path": "art/props/loading_yard_v1/crates_low.png",
+			"sha256": "cbad3b9d3cd9fd9d7d4226d88f8c694e3c79f7db23ea9b164be0c7d86bb49021",
+			"region": [
+				227,
+				356,
+				810,
+				589
+			]
+		},
+		{
+			"key": "logistics_sign",
+			"path": "art/props/loading_yard_v1/logistics_sign.png",
+			"sha256": "8fe0dd30e16b89a6e67a5c71c0f360df4fb191eef86693d2f2c4ce2a7f5f735f",
+			"region": [
+				230,
+				142,
+				1712,
+				426
+			]
+		},
+		{
+			"key": "yard_sign",
+			"path": "art/props/loading_yard_v1/yard_sign.png",
+			"sha256": "98c6d79b53c61aee6050cb76836b14ee1c351e753547af316443914755e75dda",
+			"region": [
+				251,
+				214,
+				447,
+				1235
+			]
+		},
+		{
+			"key": "bollard",
+			"path": "art/props/loading_yard_v1/bollard.png",
+			"sha256": "d0c796963a8c8c947d3360f542f357aa4f1d1529ccf57b7cf014f20b095d3ac9",
+			"region": [
+				473,
+				314,
+				236,
+				714
+			]
+		}
+	],
+	"definition_ids": [
+		"loading_truck_v1",
+		"loading_crates_v1",
+		"loading_booth_v1",
+		"loading_pallets_v1",
+		"loading_crates_low_v1",
+		"loading_logistics_sign_v1",
+		"loading_yard_sign_v1",
+		"loading_bollard_v1",
+		"loading_sacks_v1",
+		"loading_drums_v1",
+		"loading_jack_v1",
+		"loading_clock_v1",
+		"doorway_loading_open_v1",
+		"doorway_loading_closed_v1"
+	],
+	"floors": [
+		"loading_floor_v1"
+	],
+	"reused": [
+		{
+			"id": "loading_sacks_v1",
+			"source": "warehouse_packages_v1",
+			"texture": "res://art/props/factory_v44/variation_atlas.png"
+		},
+		{
+			"id": "loading_drums_v1",
+			"source": "warehouse_drums_v1",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "loading_jack_v1",
+			"source": "warehouse_jack_v1",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "loading_clock_v1",
+			"source": "duty_clock_v1",
+			"texture": "res://art/props/duty_room_v1/clock.png"
+		},
+		{
+			"id": "doorway_loading_open_v1",
+			"source": "prison_gate_open_v37",
+			"texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png"
+		},
+		{
+			"id": "doorway_loading_closed_v1",
+			"source": "prison_gate_closed_v37",
+			"texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png"
+		}
+	]
+}

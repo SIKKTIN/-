@@ -4,7 +4,7 @@ extends RefCounted
 signal changed
 const World = preload("res://scripts/world/prison_world.gd")
 const RECT_KEYS := ["bounds","door","crate","exit","guard_zone"]
-const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","escape_routes":"逃脱出口","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界","access_doors":"管制门","confinement":"禁闭室范围","visibility_rooms":"房间可见范围"}
+const GROUP_NAMES := {"walls":"墙","fixtures":"摆设","starts":"伙伴","patrol":"巡逻点","guard_start":"巡逻看守","gate_guards":"门岗","merchants":"商人","resident_staff":"常驻人员","items":"物品","dormitories":"寝室范围","dorm_doors":"寝室门","zones":"区域","escape_routes":"逃脱出口","work":"工作点","meal":"取餐点","dine":"用餐点","free":"活动点","door":"主锁门","crate":"推箱","exit":"出口","guard_zone":"看守活动范围","bounds":"地图边界","access_doors":"管制门","confinement":"禁闭室范围","visibility_rooms":"房间可见范围"}
 const ASSET_NAMES := {"access_reader":"门禁控制盒","prison_gate_closed":"铁门关闭外观","prison_gate_open":"铁门打开外观","solitary_bed":"薄单人床","solitary_door_closed":"禁闭门关闭外观","solitary_door_open":"禁闭门打开外观","prison_notice_board":"旧布告板","wall_vent":"通风口","caged_wall_lamp":"笼罩墙灯","pipe_valve":"管线阀门","wash_basin":"双位洗漱盆","fire_extinguisher":"灭火器","laundry_cart":"洗衣推车","bunk_bed":"双层床","cell_bars":"铁栏杆","toilet_sink":"洗手台与马桶","workbench":"工作台","tool_locker":"工具柜","communal_table":"长桌长凳","notice_board":"公告栏","cafeteria_counter":"食堂取餐台","cafeteria_return":"餐盘回收架","cafeteria_tray":"简陋餐盘","cafeteria_queue":"排队围栏","heavy_crate_handpaint_v03":"木箱摆设","locked_door_closed_v02":"锁门外观（摆设）","locked_door_open_v02":"开门外观（摆设）"}
 var data: Dictionary = {}
 var path := ""
@@ -15,7 +15,16 @@ var cursor := 0
 var transaction: Dictionary = {}
 var grid := 20.0
 var last_error := ""
+var last_removed_refs: Array = []
 var placement_assets: Dictionary = {}
+var _wall_surface_index: Dictionary = {}
+var _wall_surface_count := -1
+
+func _init() -> void:
+	changed.connect(invalidate_wall_surface_index)
+
+func invalidate_wall_surface_index() -> void:
+	_wall_surface_count = -1
 
 func asset_definition(id: String) -> Dictionary:
 	if placement_assets.is_empty(): placement_assets = load("res://scripts/presentation/prop_catalog.gd").assets()
@@ -93,21 +102,35 @@ static func check_shape(candidate: Dictionary) -> String:
 	for key in RECT_KEYS+["guard_start"]:
 		if candidate.has(key) and not valid_coords(candidate[key],2 if key == "guard_start" else 4):
 			return key+"坐标格式错误。"
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]:
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","resident_staff","items","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]:
 		var items = candidate.get("confinement",{}).get("cells",[]) if group == "confinement" else candidate.get(group,[])
 		if not items is Array:
 			return group+"必须是数组。"
 		for item in items:
 			var rectangle: bool = group in ["walls","fixtures","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]
-			var object: bool = group in ["fixtures","gate_guards","merchants","items","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]
+			var object: bool = group in ["fixtures","gate_guards","merchants","resident_staff","items","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]
 			if object and not item is Dictionary:
 				return group+"对象格式错误。"
 			var coords = item.get("rect" if rectangle else "position",[]) if object else item
 			if not valid_coords(coords,4 if rectangle else 2):
 				return group+"坐标格式错误。"
+			if group=="resident_staff":
+				if str(item.get("id","")).is_empty(): return "常驻医护缺少ID。"
+				if not item.get("patrol",[]) is Array: return "常驻医护巡行路线必须是数组。"
+				for point in item.get("patrol",[]):
+					if not valid_coords(point,2): return "常驻医护巡行点坐标格式错误。"
+				for field in ["speed","wait_seconds"]:
+					var number = item.get(field,0)
+					if not typeof(number) in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)) or number<0: return "常驻医护速度和等待时间必须是非负数。"
 			if group == "visibility_rooms":
 				if str(item.get("id","")) == "" or coords[2] <= 0 or coords[3] <= 0: return "可见范围需要唯一ID和正数宽高。"
-				if item.has("roof_style") and item.roof_style not in ["auto","concrete","dark_concrete","metal_green","metal_light"]: return "屋顶样式无效。"
+				if item.has("roof_style") and item.roof_style not in ["auto","concrete","dark_concrete","metal_green","metal_light","clinic","bath","monitor","laundry","cafeteria","workshop_two","tool_room","warehouse","kiosk","reading","chess","office","duty"]: return "屋顶样式无效。"
+				if item.has("roof_rect") and (not valid_coords(item.roof_rect,4) or item.roof_rect[2]<=0 or item.roof_rect[3]<=0): return "独立屋顶范围格式错误。"
+				if item.has("roof_sealed") and typeof(item.roof_sealed)!=TYPE_BOOL: return "屋顶封盖开关必须为布尔值。"
+				if item.has("room_parts"):
+					if not item.room_parts is Array or item.room_parts.is_empty(): return "组合房间需要有效的分区。"
+					for part in item.room_parts:
+						if not valid_coords(part,4) or part[2]<=0 or part[3]<=0 or not Rect2(0,0,1,1).encloses(Rect2(part[0],part[1],part[2],part[3])): return "组合房间分区需在范围内。"
 				var doors = item.get("door_ids",[])
 				if not doors is Array or doors.any(func(id): return not id is String): return "关联门必须是门ID数组。"
 			if group == "fixtures" and not item.has("asset_id"):
@@ -182,23 +205,41 @@ func entries() -> Array:
 			result.append({"group":group,"index":-1})
 	if data.has("guard_start"):
 		result.append({"group":"guard_start","index":-1})
-	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","items","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms","work","meal","dine","free"]:
+	for index in collection("floor_regions").size(): result.append({"group":"floor_regions","index":index})
+	for group in ["walls","fixtures","starts","patrol","gate_guards","merchants","resident_staff","items","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms","work","meal","dine","free"]:
 		for index in range(collection(group).size()):
 			result.append({"group":group,"index":index})
+	return result
+
+# Ground remains separate from building selection: a paving region must not
+# become a member of every marquee that contains a room or an ordinary prop.
+func eraser_entries() -> Array:
+	var result := entries()
+	for group in ["terrain_patches","ground_details"]:
+		for index in collection(group).size(): result.append({"group":group,"index":index})
 	return result
 
 func value(ref: Dictionary):
 	return data.get(ref.group) if int(ref.index) < 0 else collection(ref.group)[ref.index]
 
 func is_rect(ref: Dictionary) -> bool:
+	if ref.group in ["floor_regions","terrain_patches","ground_details"]: return true
 	return ref.group in RECT_KEYS or ref.group in ["walls","fixtures","dormitories","dorm_doors","zones","escape_routes","access_doors","confinement","visibility_rooms"]
 
 func geometry(ref: Dictionary) -> Rect2:
 	var item = value(ref)
+	if ref.group == "ground_details": return preload("res://scripts/presentation/site_details.gd").hit_bounds(item)
+	if ref.group == "terrain_patches" and item.has("clip_rect"):
+		var r: Array = item.rect
+		var c: Array = item.clip_rect
+		return Rect2(r[0],r[1],r[2],r[3]).intersection(Rect2(c[0],c[1],c[2],c[3]))
 	var coords: Array = item.rect if item is Dictionary and is_rect(ref) else item.position if item is Dictionary else item
 	return Rect2(coords[0],coords[1],coords[2],coords[3]) if is_rect(ref) else Rect2(Vector2(coords[0],coords[1]),Vector2.ZERO)
 
 func name_for(ref: Dictionary) -> String:
+	if ref.group in ["floor_regions","terrain_patches","ground_details"]:
+		var item: Dictionary = value(ref)
+		return ("地板" if ref.group == "floor_regions" else "地表装饰" if ref.group == "terrain_patches" else "地面标记")+" · "+str(item.get("id",item.get("asset_id",item.get("kind",""))))
 	if ref.group == "walls" and wall_surface(int(ref.index)).has("grid_tile_asset"):
 		var id := str(wall_surface(int(ref.index)).grid_tile_asset)
 		return str(asset_definition(id).get("name",id))+" · "+str(int(ref.index)+1)
@@ -208,12 +249,16 @@ func name_for(ref: Dictionary) -> String:
 	return label+(" · "+suffix if suffix != "" else "")
 
 func set_geometry(ref: Dictionary, rect: Rect2) -> void:
+	if ref.group == "floor_regions":
+		if not can_remove(ref): return
+		rect = clamp_floor_rect(rect)
 	if ref.group == "walls":
 		var surface := wall_surface(int(ref.index))
 		if surface.has("grid_tile_asset"):
 			var definition := asset_definition(str(surface.grid_tile_asset))
 			rect.position = rect.position.snapped(Vector2(20,20))
 			rect.size = Vector2(definition.render_size[0],definition.render_size[1])
+			if posmod(int(surface.get("rotation_quarters",0)),2): rect.size = Vector2(rect.size.y,rect.size.x)
 	if ref.group == "fixtures":
 		var definition: Dictionary = asset_definition(str(value(ref).get("asset_id","")))
 		if definition.has("grid_tile"):
@@ -222,9 +267,21 @@ func set_geometry(ref: Dictionary, rect: Rect2) -> void:
 		elif definition.has("grid_door"):
 			rect.position = rect.position.snapped(Vector2(20,20))
 			rect.size = Vector2(definition.footprint_world_size[0],definition.footprint_world_size[1])
+		elif definition.get("proportion_locked",false):
+			rect.size = Vector2(definition.footprint_world_size[0],definition.footprint_world_size[1])
+		if posmod(int(value(ref).get("rotation_quarters",0)),2) and (definition.has("grid_tile") or definition.has("grid_door") or definition.get("proportion_locked",false)):
+			rect.size = Vector2(rect.size.y,rect.size.x)
 	var coords: Array = [rect.position.x,rect.position.y,rect.size.x,rect.size.y] if is_rect(ref) else [rect.position.x,rect.position.y]
 	var item = value(ref)
 	if item is Dictionary:
+		if item.has("rect"):
+			var delta := rect.position-Vector2(item.rect[0],item.rect[1])
+			if item.has("rotation_draw_anchor"):
+				item.rotation_draw_anchor[0] += delta.x
+				item.rotation_draw_anchor[1] += delta.y
+			if item.has("rotation_door_visual_rect"):
+				item.rotation_door_visual_rect[0] += delta.x
+				item.rotation_door_visual_rect[1] += delta.y
 		if ref.group == "fixtures" and item.has("draw_depth"):
 			item.draw_depth += rect.position.y-float(item.rect[1])
 		if ref.group == "merchants":
@@ -232,6 +289,11 @@ func set_geometry(ref: Dictionary, rect: Rect2) -> void:
 			for entry in item.get("routine",[]):
 				if entry.get("position",[]) == previous:
 					entry.position = [rect.position.x,rect.position.y]
+		if ref.group == "resident_staff":
+			var delta := rect.position-Vector2(item.position[0],item.position[1])
+			for point in item.get("patrol",[]):
+				point[0] += delta.x
+				point[1] += delta.y
 		if ref.group == "access_doors":
 			for fixture in data.get("fixtures",[]):
 				if str(fixture.get("access_id","")) == str(item.id): fixture.rect = coords.duplicate()
@@ -243,10 +305,40 @@ func set_geometry(ref: Dictionary, rect: Rect2) -> void:
 		collection(ref.group)[ref.index] = coords
 	changed.emit()
 
+func clamp_floor_rect(rect: Rect2) -> Rect2:
+	var bounds := geometry({"group":"bounds","index":-1})
+	rect.size = rect.size.max(Vector2.ONE).min(bounds.size)
+	rect.position = rect.position.clamp(bounds.position,bounds.end-rect.size)
+	return rect
+
+# Called inside a canvas-owned transaction so an entire rectangle gesture
+# produces one undo entry, including cancellation and outside releases.
+func append_floor(rect: Rect2, material: Dictionary) -> Dictionary:
+	if not data.has("floor_regions"): data.floor_regions = []
+	rect = clamp_floor_rect(rect)
+	var spec := {"id":unique_id("floor"),"asset_id":str(material.asset_id),"manifest":str(material.manifest),"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y],"tile_size":material.get("tile_size",[320,320]).duplicate(),"tile_origin":[0,0],"natural_ground":bool(material.get("natural_ground",false))}
+	data.floor_regions.append(spec)
+	changed.emit()
+	return {"group":"floor_regions","index":data.floor_regions.size()-1}
+
+func set_floor_material(ref: Dictionary, material: Dictionary) -> void:
+	if ref.get("group","") != "floor_regions" or int(ref.index) < 0 or int(ref.index) >= collection("floor_regions").size(): return
+	begin()
+	var floor: Dictionary = value(ref)
+	floor.asset_id = str(material.asset_id)
+	floor.manifest = str(material.manifest)
+	floor.tile_size = material.get("tile_size",[320,320]).duplicate()
+	floor.natural_ground = bool(material.get("natural_ground",false))
+	floor.erase("edge_feather")
+	commit()
+
 func wall_surface(index: int) -> Dictionary:
-	for surface in data.get("architecture",{}).get("wall_surfaces",[]):
-		if int(surface.wall_index) == index: return surface
-	return {}
+	var surfaces: Array = data.get("architecture",{}).get("wall_surfaces",[])
+	if _wall_surface_count != surfaces.size():
+		_wall_surface_index.clear()
+		for surface in surfaces: _wall_surface_index[int(surface.wall_index)] = surface
+		_wall_surface_count = surfaces.size()
+	return _wall_surface_index.get(index,{})
 
 func set_wall_asset(index: int, id: String) -> void:
 	var definition := asset_definition(id)
@@ -257,6 +349,15 @@ func set_wall_asset(index: int, id: String) -> void:
 	begin()
 	surface.grid_tile_asset = id
 	surface.collision_parts = definition.collision_parts.duplicate(true)
+	var quarters := posmod(int(surface.get("rotation_quarters",0)),4)
+	if quarters:
+		var original_size := Vector2(definition.render_size[0],definition.render_size[1])
+		var dimensions := Vector2(original_size.y,original_size.x) if posmod(quarters,2) else original_size
+		var transform = preload("res://scripts/core/spatial_transform.gd")
+		for part_index in range(surface.collision_parts.size()):
+			var part: Array = surface.collision_parts[part_index]
+			var area: Rect2 = transform.rectangle(Rect2(part[0],part[1],part[2],part[3]),original_size/2,quarters,dimensions/2-original_size/2)
+			surface.collision_parts[part_index] = [area.position.x,area.position.y,area.size.x,area.size.y]
 	surface.erase("grid_parameters")
 	changed.emit()
 	commit()
@@ -279,7 +380,9 @@ func snap_point(point: Vector2) -> Vector2:
 
 func move(ref: Dictionary, point: Vector2) -> void:
 	var rect := geometry(ref)
-	rect.position = snap_point(point)
+	var next := snap_point(point)
+	if rect.position == next: return
+	rect.position = next
 	set_geometry(ref,rect)
 
 func set_property(ref: Dictionary, property: String, new_value) -> void:
@@ -290,9 +393,33 @@ func set_property(ref: Dictionary, property: String, new_value) -> void:
 		item[property] = new_value
 		commit()
 
+func mirror_fixture(ref: Dictionary, horizontal := true) -> bool:
+	if ref not in entries() or ref.get("group","")!="fixtures":
+		last_error = "请单独选中一个场景摆设后镜像。"
+		return false
+	var item: Dictionary = value(ref)
+	if preload("res://scripts/presentation/doorway_geometry.gd").managed_fixture(item):
+		last_error = "门的朝向由门框与门禁控制，请选择家具摆设。"
+		return false
+	# Buttons reflect the currently visible screen axis, including rotated props.
+	var odd: bool = posmod(int(item.get("rotation_quarters",0)),2)!=0
+	var key := "mirror_x" if horizontal!=odd else "mirror_y"
+	var explicit := key+"_explicit_false"
+	begin()
+	if not bool(item.get(key,false)):
+		if item.has(key): item[explicit] = true
+		item[key] = true
+	else:
+		if item.get(explicit,false): item[key] = false
+		else: item.erase(key)
+		item.erase(explicit)
+	commit()
+	return true
+
 func character_appearance(ref: Dictionary) -> String:
 	var key: String=preload("res://scripts/presentation/character_library.gd").key_for(ref,data)
-	return str(data.get("character_appearances",{}).get(key,""))
+	var fallback := str(value(ref).get("appearance_id","")) if ref.group=="resident_staff" else ""
+	return str(data.get("character_appearances",{}).get(key,fallback))
 
 func set_character_appearance(ref: Dictionary, id: String) -> void:
 	var library=preload("res://scripts/presentation/character_library.gd")
@@ -321,6 +448,8 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 				var dims: Array = definition.get("footprint_world_size",definition.get("world_size",[120,100]))
 				item.rect = [p.x,p.y,dims[0],dims[1]]
 				item.blocks_movement = definition.get("blocking",true)
+				for key in ["solid_parts","canopy_cover"]:
+					if definition.has(key): item[key] = definition[key].duplicate(true)
 				if str(definition.get("render_mode","")).begins_with("architecture_") and definition.has("render_size"):
 					item.render_size = definition.render_size.duplicate()
 				if definition.has("grid_tile"):
@@ -338,6 +467,9 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 					if item.has("draw_depth"): item.draw_depth += p.y-float(item.rect[1])
 					item.rect = [p.x,p.y,existing.rect[2],existing.rect[3]]
 					break
+			if definition.get("proportion_locked",false):
+				item.rect = [p.x,p.y,definition.footprint_world_size[0],definition.footprint_world_size[1]]
+				item.erase("render_size")
 		"visibility_rooms": item = {"id":unique_id("room"),"name":"新房间","rect":[p.x,p.y,320,240],"door_ids":[],"kind":"room"}
 		"zones": item = {"id":unique_id("zone"),"name":"新区域","rect":[p.x,p.y,320,240],"color":"#a5b19a"}
 		"dormitories": item = [p.x,p.y,240,180]
@@ -345,6 +477,7 @@ func add(group: String, point: Vector2, asset := "") -> Dictionary:
 		"gate_guards": item = {"id":unique_id("lookout"),"position":[p.x,p.y]}
 		"items": item = {"id":unique_id("item"),"definition_id":asset if asset != "" else "scrap","position":[p.x,p.y]}
 		"merchants": item = {"id":unique_id("merchant"),"name":"商人","position":[p.x,p.y],"stock":[{"definition_id":"door_key","count":1},{"definition_id":"lock_tool","count":2}]}
+		"resident_staff": item = {"id":unique_id("resident"),"name":"医务人员","appearance_id":"clinic_medic","position":[p.x,p.y],"patrol":[],"speed":36,"wait_seconds":7,"work_start":480,"work_end":1200}
 		_: item = [p.x,p.y]
 	if group in ["work","meal","dine","free"]:
 		if not data.has("routine_points"):
@@ -383,19 +516,86 @@ func unique_id(prefix: String) -> String:
 	return prefix+"_"+str(index)
 
 func can_remove(ref: Dictionary) -> bool:
-	return not ref.is_empty() and int(ref.index) >= 0 and not ref.group in ["starts","dormitories","confinement","access_doors"]
+	if ref.is_empty() or int(ref.index) < 0 or ref.group in ["starts","dormitories","confinement"] or int(ref.index) >= collection(ref.group).size(): return false
+	if ref.group == "floor_regions" and int(ref.index) == 0 and geometry(ref) == geometry({"group":"bounds","index":-1}): return false
+	if ref.group == "access_doors":
+		var id := str(value(ref).id)
+		if collection("confinement").any(func(cell): return str(cell.get("door_id","")) == id): return false
+	if ref.group == "fixtures":
+		var fixture: Dictionary = value(ref)
+		if fixture.get("primary_gate",false) or fixture.has("dorm_actor_id"): return false
+		if fixture.has("access_id"):
+			for index in collection("access_doors").size():
+				if str(collection("access_doors")[index].id) == str(fixture.access_id): return can_remove({"group":"access_doors","index":index})
+	return true
+
+func removal_refs(refs: Array) -> Array:
+	var result: Array = []
+	var ids := {}
+	for ref in refs:
+		if not can_remove(ref): continue
+		if ref not in result: result.append(ref.duplicate())
+		var item = value(ref)
+		if ref.group == "access_doors": ids[str(item.id)] = true
+		elif ref.group == "fixtures" and item.has("access_id"): ids[str(item.access_id)] = true
+	if ids.is_empty(): return result
+	for group in ["access_doors","fixtures"]:
+		for index in collection(group).size():
+			var item: Dictionary = collection(group)[index]
+			var id := str(item.get("id","")) if group == "access_doors" else str(item.get("access_id",""))
+			var ref := {"group":group,"index":index}
+			if ids.has(id) and can_remove(ref) and ref not in result: result.append(ref)
+	return result
 
 func remove(ref: Dictionary) -> void:
-	if not can_remove(ref):
-		return
-	begin()
-	if ref.group == "walls":
+	remove_many([ref])
+
+func remove_many(refs: Array) -> int:
+	# An eraser stroke owns one transaction; individual batches only notify the
+	# preview. Standalone Delete still creates its own undo entry.
+	var groups := {}
+	last_removed_refs = removal_refs(refs)
+	for ref in last_removed_refs:
+		if not can_remove(ref): continue
+		if not groups.has(ref.group): groups[ref.group] = {}
+		groups[ref.group][int(ref.index)] = true
+	if groups.is_empty(): return 0
+	var owns_transaction := transaction.is_empty()
+	if owns_transaction: begin()
+	if groups.has("access_doors"):
+		var ids: Array = groups.access_doors.keys().map(func(index): return str(collection("access_doors")[index].id))
+		for room in collection("visibility_rooms"):
+			if room.has("door_ids"): room.door_ids = room.door_ids.filter(func(id): return id not in ids)
+		for gate in collection("access_doors"):
+			if str(gate.get("linked_to","")) in ids: gate.erase("linked_to")
+			if gate.has("opens"): gate.opens = gate.opens.filter(func(id): return id not in ids)
+		var workshop: Dictionary = data.get("workshop",{})
+		if str(workshop.get("access_id","")) in ids:
+			var remaining: Array = collection("access_doors").filter(func(gate): return gate.get("kind","") == "workshop" and str(gate.id) not in ids)
+			if remaining.is_empty(): data.erase("workshop")
+			else: workshop.access_id = str(remaining[0].id)
+	if groups.has("walls"):
+		var remap: Array[int] = []
+		var next := 0
+		for index in range(collection("walls").size()):
+			remap.append(-1 if groups.walls.has(index) else next)
+			if not groups.walls.has(index): next += 1
 		var surfaces: Array = data.get("architecture",{}).get("wall_surfaces",[])
 		for surface in surfaces.duplicate():
-			if int(surface.wall_index) == int(ref.index): surfaces.erase(surface)
-			elif int(surface.wall_index) > int(ref.index): surface.wall_index = int(surface.wall_index)-1
-	collection(ref.group).remove_at(ref.index)
-	commit()
+			var index := int(surface.wall_index)
+			if index < 0 or index >= remap.size() or remap[index] < 0: surfaces.erase(surface)
+			else: surface.wall_index = remap[index]
+	var removed := 0
+	for group in groups:
+		var indexes: Array = groups[group].keys()
+		indexes.sort()
+		indexes.reverse()
+		for index in indexes:
+			collection(group).remove_at(index)
+			removed += 1
+	if owns_transaction: commit()
+	else: changed.emit()
+	return removed
 
 func duplicate_entry(ref: Dictionary) -> Dictionary:
 	if not can_remove(ref):
@@ -452,7 +652,10 @@ func validate() -> Dictionary:
 			if ids.has(key):
 				errors.append(name_for(ref)+"：同类ID重复。")
 			ids[key] = true
-		if not is_rect(ref) and ref.group != "items" and not world.can_place_circle(rect.position,world.RADIUS,null,false):
+		var operation_point := rect.position
+		if ref.group=="merchants" and item.get("service_offset") is Array and item.service_offset.size()==2:
+			operation_point += Vector2(item.service_offset[0],item.service_offset[1])
+		if not is_rect(ref) and ref.group != "items" and not world.can_place_circle(operation_point,world.RADIUS,null,false):
 			if ref.group in ["starts","guard_start","gate_guards"]:
 				errors.append(name_for(ref)+"：出生点被墙、门或摆设挡住。")
 			else:

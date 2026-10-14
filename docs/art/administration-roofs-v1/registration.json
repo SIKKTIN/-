@@ -1,0 +1,57 @@
+{
+	"map_before_sha256": "54c73f3f3ff5e4a8531b5b59b6aacef8c245dd8ae8053ca5990250d5f3ec4624",
+	"map_after_sha256": "24f2a8c0d96646507fc738ef20a54594ff5117cba3ef4a10f1375cffde15cde9",
+	"changed_rooms": [
+		"duty",
+		"office"
+	],
+	"changed_fields": [
+		"roof_style",
+		"roof_asset_id"
+	],
+	"mode": "built-in-imagegen",
+	"assets": [
+		{
+			"id": "roof_duty",
+			"name": "值班室 · 蓝灰咬边金属屋顶",
+			"texture": "res://art/architecture/administration_roofs_v1/duty-roof.png",
+			"texture_size": [
+				1166,
+				1349
+			],
+			"world_size": [
+				380,
+				440
+			],
+			"runtime_size_limit": 512,
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"opaque": true,
+			"blocking": false,
+			"editor_hidden": true,
+			"sha256": "4f0aedb7e42b9ade7111e34d0a47347c37a099340365da043394a737ee0e7702",
+			"source_kind": "built-in-imagegen-original-png"
+		},
+		{
+			"id": "roof_office",
+			"name": "办公室 · 灰瓦与金属屋脊",
+			"texture": "res://art/architecture/administration_roofs_v1/office-roof.png",
+			"texture_size": [
+				1283,
+				1226
+			],
+			"world_size": [
+				460,
+				440
+			],
+			"runtime_size_limit": 512,
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"opaque": true,
+			"blocking": false,
+			"editor_hidden": true,
+			"sha256": "91dec07585c27135cbd2e40bc2e96368c2d9939c6092e600044bde613dfb3051",
+			"source_kind": "built-in-imagegen-original-png"
+		}
+	]
+}

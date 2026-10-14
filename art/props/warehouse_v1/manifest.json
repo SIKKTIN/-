@@ -1,0 +1,555 @@
+{
+	"schema": 2,
+	"version": "warehouse-v1",
+	"assets": [
+		{
+			"id": "warehouse_rack_parts_v1",
+			"name": "仓库 · 备件纵向长货架",
+			"texture": "res://art/props/warehouse_v1/rack_parts.png",
+			"texture_size": [
+				789,
+				1993
+			],
+			"region": [
+				246,
+				28,
+				298,
+				1925
+			],
+			"ground_rect": [
+				0,
+				158.28571428571422,
+				298,
+				1766.7142857142858
+			],
+			"footprint_world_size": [
+				140,
+				830
+			],
+			"world_size": [
+				140,
+				904.3624161073825
+			],
+			"render_size": [
+				140,
+				904.3624161073825
+			],
+			"elevation_world": 74.3624161073825,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "c779352c41f52b694ec4c1629ce700d577d0a6fdf34d952f6439c7685efd0bbd"
+		},
+		{
+			"id": "warehouse_rack_goods_v1",
+			"name": "仓库 · 周转物资纵向长货架",
+			"texture": "res://art/props/warehouse_v1/rack_goods.png",
+			"texture_size": [
+				1024,
+				1536
+			],
+			"region": [
+				395,
+				36,
+				236,
+				1459
+			],
+			"ground_rect": [
+				0,
+				110.42857142857133,
+				236,
+				1348.5714285714287
+			],
+			"footprint_world_size": [
+				140,
+				800
+			],
+			"world_size": [
+				140,
+				865.5084745762712
+			],
+			"render_size": [
+				140,
+				865.5084745762712
+			],
+			"elevation_world": 65.50847457627117,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "2cbecd93b7bd12702d26f7e7615d1bccc183d9fca3bc5ff2f3ca57550b975c31"
+		},
+		{
+			"id": "warehouse_wall_rack_v1",
+			"name": "仓库 · 沿墙窄货架",
+			"texture": "res://art/props/warehouse_v1/wall_rack.png",
+			"texture_size": [
+				971,
+				1620
+			],
+			"region": [
+				363,
+				63,
+				244,
+				1479
+			],
+			"ground_rect": [
+				0,
+				174.8620689655172,
+				244,
+				1304.1379310344828
+			],
+			"footprint_world_size": [
+				58,
+				310
+			],
+			"world_size": [
+				58,
+				351.56557377049177
+			],
+			"render_size": [
+				58,
+				351.56557377049177
+			],
+			"elevation_world": 41.56557377049177,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 768,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "8751f1780f73e6c0e905030221eb2cd43b19bf3bb0dc1bffdd3dca5170fdb209"
+		},
+		{
+			"id": "warehouse_north_shelf_v1",
+			"name": "仓库 · 横向箱货架",
+			"texture": "res://art/props/warehouse_v1/north_shelf.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				261,
+				195,
+				1253,
+				535
+			],
+			"ground_rect": [
+				0,
+				41.76666666666665,
+				1253,
+				493.23333333333335
+			],
+			"footprint_world_size": [
+				150,
+				59.0462889066241
+			],
+			"world_size": [
+				150,
+				64.0462889066241
+			],
+			"render_size": [
+				150,
+				64.0462889066241
+			],
+			"elevation_world": 5.0,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5aa1f765169f6367fab509d5c2cd04e6a95bc9249263ad4ffd019c943f0a9826"
+		},
+		{
+			"id": "warehouse_registration_desk_v1",
+			"name": "仓库 · 分拣登记台",
+			"texture": "res://art/props/warehouse_v1/registration_desk.png",
+			"texture_size": [
+				1586,
+				992
+			],
+			"region": [
+				257,
+				129,
+				1067,
+				727
+			],
+			"ground_rect": [
+				0,
+				143.7066666666667,
+				1067,
+				583.2933333333333
+			],
+			"footprint_world_size": [
+				150,
+				82
+			],
+			"world_size": [
+				150,
+				102.20243673851922
+			],
+			"render_size": [
+				150,
+				102.20243673851922
+			],
+			"elevation_world": 20.202436738519225,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "a9bd898a0c690a7a470d5ab6e7214a630bbbb0326988f77950068f09ea7b1d1b"
+		},
+		{
+			"id": "warehouse_sign_v1",
+			"name": "仓库 · 仓库门牌",
+			"texture": "res://art/props/warehouse_v1/sign.png",
+			"texture_size": [
+				2054,
+				766
+			],
+			"region": [
+				347,
+				137,
+				1361,
+				475
+			],
+			"ground_rect": [
+				0,
+				653.3379310344827,
+				1361,
+				9.386206896551723
+			],
+			"footprint_world_size": [
+				145,
+				1
+			],
+			"world_size": [
+				145,
+				50.606171932402646
+			],
+			"render_size": [
+				145,
+				50.606171932402646
+			],
+			"elevation_world": 69.60617193240265,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 256,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "attachments",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "2de1aecaa00ee2aa2d6cf252400f04ac74e2d2d950dc80426ef632eef36d54fa"
+		},
+		{
+			"id": "warehouse_crate_v1",
+			"name": "仓库 · 待运木箱",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1182,
+				46,
+				286,
+				299
+			],
+			"ground_rect": [
+				0,
+				70.19999999999999,
+				286,
+				228.8
+			],
+			"footprint_world_size": [
+				75,
+				60
+			],
+			"world_size": [
+				75,
+				78.4090909090909
+			],
+			"render_size": [
+				75,
+				78.4090909090909
+			],
+			"elevation_world": 18.409090909090907,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "shipping_crates_v44"
+		},
+		{
+			"id": "warehouse_packages_v1",
+			"name": "仓库 · 捆装物资",
+			"texture": "res://art/props/factory_v44/variation_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1186,
+				135,
+				313,
+				329
+			],
+			"ground_rect": [
+				0,
+				78.6,
+				313,
+				250.4
+			],
+			"footprint_world_size": [
+				75,
+				60
+			],
+			"world_size": [
+				75,
+				78.83386581469648
+			],
+			"render_size": [
+				75,
+				78.83386581469648
+			],
+			"elevation_world": 18.83386581469648,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "sack_pallet_v44"
+		},
+		{
+			"id": "warehouse_drums_v1",
+			"name": "仓库 · 油桶",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				46,
+				405,
+				349,
+				248
+			],
+			"ground_rect": [
+				0,
+				38.599999999999994,
+				349,
+				209.4
+			],
+			"footprint_world_size": [
+				75,
+				45
+			],
+			"world_size": [
+				75,
+				53.295128939828075
+			],
+			"render_size": [
+				75,
+				53.295128939828075
+			],
+			"elevation_world": 8.295128939828075,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "oil_drums_v44"
+		},
+		{
+			"id": "warehouse_jack_v1",
+			"name": "仓库 · 手动托盘车",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				519,
+				372,
+				155,
+				296
+			],
+			"ground_rect": [
+				0,
+				-35.46153846153845,
+				155,
+				331.46153846153845
+			],
+			"footprint_world_size": [
+				65,
+				139
+			],
+			"world_size": [
+				65,
+				124.12903225806453
+			],
+			"render_size": [
+				65,
+				124.12903225806453
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "pallet_jack_v44"
+		},
+		{
+			"id": "warehouse_cabinet_v1",
+			"name": "仓库 · 工具立柜",
+			"texture": "res://art/props/workshop_one_v2/high-cabinet-b.png",
+			"texture_size": [
+				1402,
+				1122
+			],
+			"region": [
+				388,
+				179,
+				627,
+				881
+			],
+			"ground_rect": [
+				0,
+				572.323076923077,
+				627,
+				308.67692307692306
+			],
+			"render_size": [
+				65,
+				91.3317384370016
+			],
+			"world_size": [
+				65,
+				91.3317384370016
+			],
+			"footprint_world_size": [
+				65,
+				32
+			],
+			"elevation_world": 59.331738437001604,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"sha256": "1cad339292da61df78c960bcecf09750d92788950d9e186820d69ea36161018c",
+			"runtime_size_limit": 512,
+			"reused_from": "workshop2_high_cabinet_b"
+		},
+		{
+			"id": "warehouse_lamp_v1",
+			"label": "笼罩墙灯",
+			"texture": "res://art/props/prison_v17/caged_wall_lamp_v17.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				298,
+				258,
+				911,
+				500
+			],
+			"ground_rect": [
+				0,
+				462.0416666666667,
+				911,
+				37.958333333333336
+			],
+			"footprint_world_size": [
+				24,
+				1
+			],
+			"world_size": [
+				24,
+				13.172338090010976
+			],
+			"scale": 0.026696329254727477,
+			"anchor": [
+				455.5,
+				494
+			],
+			"elevation_world": 12.172338090010976,
+			"shadow_baked": false,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "501f2d1780a18005f0f4e33cc64f12d92b2a9e8e43d01e5033a20352e99a6228",
+			"mount_anchor": [
+				455.5,
+				494
+			],
+			"recommended_mount_height_world": 65,
+			"registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow.",
+			"name": "仓库 · 仓库壁灯",
+			"render_size": [
+				24,
+				13.172338090010976
+			],
+			"proportion_locked": true,
+			"runtime_size_limit": 256,
+			"reused_from": "caged_wall_lamp",
+			"editor_subcategory": "attachments"
+		}
+	]
+}

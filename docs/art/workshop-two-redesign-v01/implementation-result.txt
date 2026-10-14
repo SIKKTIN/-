@@ -1,0 +1,21 @@
+二号车间改造交付
+
+已保存到 data/rooms/r04.json，区域 workshop-two。
+按已批准方案配置两台长车床、一台立式铣床、一台精密车床；沿墙零件柜、长料架、工具台和物资箱；灰泥墙、机加工地坪、金属屋顶及通风附件。
+北门、南门、东门共用当前一号车间 workshop_door_v2 门框和开关两态组件。东门沿用编辑器旋转门显示约定。
+北门外原挡路的落地灯移至门旁；物资箱移至东侧刀具架下方，保留可搜刮站位。
+
+素材制作：built-in imagegen。五份生成 PNG 原文件完整保留，裁切和锚点均为 manifest 元数据。
+资产目录：E:/Project/Godot/这次怎么逃/art/props/workshop_two_v1/
+完整提示词：E:/Project/Godot/这次怎么逃/docs/art/workshop-two-redesign-v01/production-prompts.json
+生成源路径与项目输出：同目录 generated-assets.json
+原图 SHA256、注册 ID、复用资源来源：同目录 asset-registration.json
+安装脚本：E:/Project/Godot/这次怎么逃/tools/register_workshop_two_restoration.py
+
+验证：qa/workshop_two_restoration.gd 共 114 项通过。
+包括全身门口双向通行、关闭阻挡、中央通道寻路、家具不重叠、搜刮和背包来回转移、屋顶显隐、素材注册与纹理尺寸上限、镜像和旋转撤销、地图验证。
+最后一次写入前后的 9 项区域外保留检查通过。制作期间磁盘出现阅览室改动，已基于最新地图保留，未恢复旧快照。
+截图 runtime-interior.png、runtime-doors-closed.png、runtime-roof.png、editor-layout.png 均为原生 Godot 渲染。
+已打开独立的“二号车间改造预览”地图编辑器，定位区域并筛选二号车间素材。
+
+此次交付验证范围为编辑器与本地运行；未进行发行版导出。现有项目仍会报告部分原始 PNG 的直接加载提示。

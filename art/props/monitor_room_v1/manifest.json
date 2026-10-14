@@ -1,0 +1,314 @@
+{
+	"schema": 2,
+	"version": "monitor-room-v1",
+	"assets": [
+		{
+			"texture": "res://art/props/monitor_room_v1/screens.png",
+			"texture_size": [
+				1972,
+				798
+			],
+			"region": [
+				203,
+				99,
+				1567,
+				602
+			],
+			"sha256": "5cf1dca0125ba969894ebfc65bbc0aec8e36d9a033e2e8c41f320b7bf928b049",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_screen_wall_v1",
+			"name": "监控室 · 八屏监视屏墙",
+			"render_mode": "wall_attachment",
+			"ground_rect": [
+				0,
+				595.973076923077,
+				1567,
+				6.026923076923077
+			],
+			"world_size": [
+				260,
+				99.8851308232291
+			],
+			"render_size": [
+				260,
+				99.8851308232291
+			],
+			"footprint_world_size": [
+				260,
+				1
+			],
+			"elevation_world": 98.8851308232291,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/monitor_room_v1/console.png",
+			"texture_size": [
+				1998,
+				787
+			],
+			"region": [
+				163,
+				190,
+				1670,
+				394
+			],
+			"sha256": "ee39316d1562ebe85f2ba12848020c7f9a85d443a9d447b2e6d2e4f6293f6e21",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_console_v1",
+			"name": "监控室 · 金属操作台",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				162.76923076923077,
+				1670,
+				231.23076923076923
+			],
+			"world_size": [
+				260,
+				61.34131736526946
+			],
+			"render_size": [
+				260,
+				61.34131736526946
+			],
+			"footprint_world_size": [
+				260,
+				36
+			],
+			"elevation_world": 25.34131736526946,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/monitor_room_v1/recorder-rack.png",
+			"texture_size": [
+				966,
+				1628
+			],
+			"region": [
+				278,
+				203,
+				411,
+				1244
+			],
+			"sha256": "196cd69eb42b677fa2e70cde4583284210cc15f6e4352d7636ace02b2515e0f0",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_rack_v1",
+			"name": "监控室 · 录像设备柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				950.4285714285714,
+				411,
+				293.57142857142856
+			],
+			"world_size": [
+				56,
+				169.49878345498783
+			],
+			"render_size": [
+				56,
+				169.49878345498783
+			],
+			"footprint_world_size": [
+				56,
+				40
+			],
+			"elevation_world": 129.49878345498783,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/monitor_room_v1/operator-chair.png",
+			"texture_size": [
+				1226,
+				1283
+			],
+			"region": [
+				340,
+				360,
+				546,
+				605
+			],
+			"sha256": "698107d51416f410e97c29549207cc27de282b117040247f5688d0b090755b38",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_chair_v1",
+			"name": "监控室 · 操作椅",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				108.63636363636368,
+				546,
+				496.3636363636363
+			],
+			"world_size": [
+				44,
+				48.75457875457876
+			],
+			"render_size": [
+				44,
+				48.75457875457876
+			],
+			"footprint_world_size": [
+				44,
+				40
+			],
+			"elevation_world": 8.754578754578759,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/monitor_room_v1/logbook-desk.png",
+			"texture_size": [
+				987,
+				1594
+			],
+			"region": [
+				281,
+				308,
+				462,
+				915
+			],
+			"sha256": "42d59c6781533f3ee0e7321f83a642b12c723635596618014596b6d98999bf33",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_desk_v1",
+			"name": "监控室 · 日志记录桌",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				164.70000000000016,
+				462,
+				750.2999999999998
+			],
+			"world_size": [
+				65,
+				128.73376623376623
+			],
+			"render_size": [
+				65,
+				128.73376623376623
+			],
+			"footprint_world_size": [
+				65,
+				105.5616883116883
+			],
+			"elevation_world": 23.172077922077932,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/monitor_room_v1/sign.png",
+			"texture_size": [
+				1983,
+				793
+			],
+			"region": [
+				524,
+				259,
+				936,
+				276
+			],
+			"sha256": "c32cd127a1664ea23d14af7573999e0f65134e2fe9f97e84e113f20d96d5893c",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"runtime_size_limit": 512,
+			"id": "monitor_sign_v1",
+			"name": "监控室 · 名称牌",
+			"render_mode": "wall_attachment",
+			"ground_rect": [
+				0,
+				1248.0,
+				936,
+				10.399999999999999
+			],
+			"world_size": [
+				90,
+				26.53846153846154
+			],
+			"render_size": [
+				90,
+				26.53846153846154
+			],
+			"footprint_world_size": [
+				90,
+				1
+			],
+			"elevation_world": 120,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/roster.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				186,
+				172,
+				880,
+				926
+			],
+			"sha256": "0963d043334c727612348f015022cb6067d9bc0e293d313ebf2374281ed2d39a",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "monitor_clipboard_v1",
+			"name": "监控室 · 值守夹板",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				880,
+				926
+			],
+			"world_size": [
+				32,
+				33.67272727272727
+			],
+			"render_size": [
+				32,
+				33.67272727272727
+			],
+			"footprint_world_size": [
+				32,
+				33.67272727272727
+			],
+			"elevation_world": 0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments",
+			"runtime_size_limit": 512
+		}
+	]
+}

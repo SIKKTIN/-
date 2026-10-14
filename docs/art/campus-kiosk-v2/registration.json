@@ -1,0 +1,44 @@
+{
+	"assets": [
+		{
+			"key": "shell",
+			"path": "art/architecture/kiosk_v2/shell.png",
+			"sha256": "d08ac1bfce6824ae0ec5578443dcf4de34c603222aae8944d8ed81d1d3752846"
+		},
+		{
+			"key": "door",
+			"path": "art/architecture/kiosk_v2/door.png",
+			"sha256": "bf6c02410bb53fbdf965459cd5a90d5cd5bb79a8b7d722b3a669f0eae035a2f2"
+		},
+		{
+			"key": "shelf",
+			"path": "art/architecture/kiosk_v2/shelf.png",
+			"sha256": "de534dc2d0f3a6cfa7a379efae75b77f7fc69ddba3339cc1d2e4a1b1997b8d5a"
+		}
+	],
+	"definition_ids": [
+		"kiosk_shell_v2",
+		"kiosk_side_entry_v2",
+		"kiosk_goods_shelf_v2",
+		"kiosk_front_counter_v2",
+		"kiosk_front_canopy_v2",
+		"kiosk_supply_locker_v2"
+	],
+	"origin": [
+		2320.0,
+		1920.0
+	],
+	"removed_fixture_ids": [
+		"kiosk-building"
+	],
+	"added_fixture_ids": [
+		"kiosk-shell",
+		"kiosk-side-entry",
+		"kiosk-back-shelf",
+		"kiosk-supply-locker",
+		"kiosk-front-counter",
+		"kiosk-front-canopy"
+	],
+	"map_before_sha256": "c24f52c4c6206f38e8f0fd6db1ac66bc36a82d59b05525e7e3419e8b6193db0d",
+	"map_after_sha256": "78e944adc5232addbe358e95d4ea5e287f7ed6fc51e15153c4e6c5d3a938f1b1"
+}

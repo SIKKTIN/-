@@ -1,0 +1,18 @@
+商店墙体显示修复（接续完成）
+
+接续对话：codex://threads/01a12ef7-5d80-7021-b6a0-dc920b924418。
+此前已经生成并接入 continuous-shell-v6.png，替换旧侧门墙壳被拉伸的片段；原对话在验证之后中断，没有完成交付。
+本次保留该修复及最新 R04，不回滚其他房间。补齐 Godot 资源导入、实际画面验证和专用编辑器预览。
+
+显示效果：西、东两侧为连续等宽墙体，奶油色墙面和绿色包边不再在旧侧门位置断开或扩大成色块；前侧门脸与墙壳连接保持完整。
+保持正面入口、唯一售货员、商品价格、周界碰撞、屋顶与雨棚进出显隐。
+
+原生 Godot 验证：177 项检查全部通过。
+新增墙面验证覆盖 55%、100%、140% 缩放，在两侧墙面各抽查九个高度，共 54 个画面样点。
+同时验证真实角色进出、门框通行、屋顶雨棚恢复、商品购买扣款及最新地图验证。
+最终验证前后 R04 的 SHA256 相同，未写入或丢弃当前地图修改。记录见 continuation-map-audit.json。
+
+美术为上一段使用内置 image_gen 生成的原始透明 PNG，本次复用，未改动像素。完整提示词和原始来源见 generation.json。
+repair_kiosk_shell.py 支持重复执行；已经安装时只验证，不覆盖原始修复备份或最新地图。
+最新实机截图：runtime-walls-1-0.png、runtime-interior.png、runtime-exterior.png、runtime-threshold.png。
+打开编辑器：res://docs/art/campus-kiosk-shell-repair/open-editor.gd。

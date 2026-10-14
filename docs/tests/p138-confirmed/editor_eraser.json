@@ -1,0 +1,41 @@
+{
+	"checks": {
+		"Ctrl Y redoes entire stroke": true,
+		"Ctrl Z restores entire stroke and surfaces": true,
+		"E activates toolbar eraser": true,
+		"Escape cancels whole active stroke": true,
+		"QA leaves saved map file unchanged": true,
+		"actual map redo removes wall again": false,
+		"actual map undo restores wall and material": true,
+		"actual preview geometry follows erased draft": true,
+		"batch rejects duplicates and invalid protected refs": true,
+		"click immediately removes tile": true,
+		"complete map capture reaches all visible walls": true,
+		"consecutive motions remove correct shifted fixtures": true,
+		"empty stroke leaves undo cursor unchanged": true,
+		"erased wall no longer visible or hit testable": false,
+		"eraser icon imported": true,
+		"fast drag erases all crossed tiles": true,
+		"hidden fixtures survive eraser": true,
+		"hover targets visible art": true,
+		"locked walls survive eraser": true,
+		"one stroke creates one undo": true,
+		"ordinary Delete retains standalone undo": true,
+		"plain grid wall returns typed hit areas": true,
+		"protected starts survive eraser": true,
+		"real wall located in current saved map": true,
+		"real wall removed from actual draft": false,
+		"release outside canvas finishes transaction": true,
+		"release refreshes object list": true,
+		"restored map validates": true,
+		"stroke defers history and object list": true,
+		"undo while held ends and restores stroke": true,
+		"visual mode erases visible furniture": true,
+		"wall materials remap after batches": true
+	},
+	"failed": [
+		"real wall removed from actual draft",
+		"erased wall no longer visible or hit testable",
+		"actual map redo removes wall again"
+	]
+}

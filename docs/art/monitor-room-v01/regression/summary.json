@@ -1,0 +1,52 @@
+{
+  "resources": {
+    "production_text_files": 154,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "monitor_room_restoration",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 19.36,
+      "checks": 130,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "duty_room_restoration",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 22.41,
+      "checks": 1272,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "clinic_sliding_door",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 20.25,
+      "checks": 79,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "clinic_roof_door",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 18.56,
+      "checks": 56,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 1537,
+  "passed": true
+}

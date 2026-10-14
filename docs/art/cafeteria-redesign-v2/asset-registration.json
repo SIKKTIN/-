@@ -1,0 +1,128 @@
+{
+	"mode": "built-in image_gen",
+	"assets": [
+		{
+			"key": "wall",
+			"path": "art/architecture/cafeteria_v2/wall.png",
+			"sha256": "f63a2c0f017feaee511e4461f0ee1c7beec271a4df81522f0f0cd400a77f2011",
+			"size": [
+				2172,
+				724
+			]
+		},
+		{
+			"key": "fridge",
+			"path": "art/architecture/cafeteria_v2/fridge.png",
+			"sha256": "fabcf5393d765c657edfd79227296b1fba004f0d8f2aca5127817b987adf492c",
+			"size": [
+				1691,
+				930
+			]
+		},
+		{
+			"key": "cupboard",
+			"path": "art/architecture/cafeteria_v2/cupboard.png",
+			"sha256": "2914ae7606ac098ede3eb370da0351ba6443b285f338ee418c91cc6e020256b6",
+			"size": [
+				1145,
+				1374
+			]
+		},
+		{
+			"key": "sink",
+			"path": "art/architecture/cafeteria_v2/sink.png",
+			"sha256": "ec4e95b2a025a6c8b627693739497a7a6579c9004e0e0dca07855fa8c0d67f9c",
+			"size": [
+				2132,
+				738
+			]
+		},
+		{
+			"key": "rack",
+			"path": "art/architecture/cafeteria_v2/rack.png",
+			"sha256": "1e42b705f18a780ed6780b42a27c170075976d7b31f2effc0642e173f83bc6c6",
+			"size": [
+				1774,
+				887
+			]
+		},
+		{
+			"key": "door",
+			"path": "art/architecture/cafeteria_v2/door.png",
+			"sha256": "e908038873309092a6468bca65fa3b0f7ef4698619a8164e48393502c5d9469b",
+			"size": [
+				1897,
+				829
+			]
+		},
+		{
+			"key": "bins",
+			"path": "art/architecture/cafeteria_v2/bins.png",
+			"sha256": "a98d0257a2a95f392930b63c2b177170f4a615cf2a834949ebb59c76b901db45",
+			"size": [
+				1676,
+				938
+			]
+		}
+	],
+	"definition_ids": [
+		"cafeteria_wall_h_00_v2",
+		"cafeteria_wall_h_01_v2",
+		"cafeteria_wall_h_02_v2",
+		"cafeteria_wall_h_03_v2",
+		"cafeteria_wall_h_04_v2",
+		"cafeteria_wall_h_05_v2",
+		"cafeteria_wall_h_06_v2",
+		"cafeteria_wall_h_07_v2",
+		"cafeteria_wall_h_08_v2",
+		"cafeteria_wall_h_09_v2",
+		"cafeteria_wall_h_10_v2",
+		"cafeteria_wall_h_11_v2",
+		"cafeteria_wall_h_12_v2",
+		"cafeteria_wall_h_13_v2",
+		"cafeteria_wall_h_14_v2",
+		"cafeteria_wall_h_15_v2",
+		"cafeteria_wall_h_short_v2",
+		"cafeteria_wall_v_long_v2",
+		"cafeteria_wall_v_short_v2",
+		"cafeteria_corner_nw_v2",
+		"cafeteria_corner_ne_v2",
+		"cafeteria_corner_sw_v2",
+		"cafeteria_corner_se_v2",
+		"cafeteria_lintel_80_v2",
+		"cafeteria_lintel_20_v2",
+		"cafeteria_junction_e_v2",
+		"cafeteria_junction_s_v2",
+		"cafeteria_fridge_v2",
+		"cafeteria_bowl_cupboard_v2",
+		"cafeteria_sink_v2",
+		"cafeteria_bowl_rack_v2",
+		"cafeteria_covered_bins_v2",
+		"cafeteria_table_vertical_v2",
+		"cafeteria_counter_v2",
+		"cafeteria_stove_v2",
+		"cafeteria_floor_v1",
+		"cafeteria_roof_surface",
+		"cafeteria_door_component_frame",
+		"cafeteria_door_component_closed_leaves",
+		"cafeteria_door_component_open_left",
+		"cafeteria_door_component_open_right",
+		"doorway_cafeteria_open_v2",
+		"doorway_cafeteria_closed_v2"
+	],
+	"shared_door_frame": {
+		"asset": "cafeteria_door_component_frame",
+		"source": [
+			0,
+			0,
+			1,
+			1
+		],
+		"destination": [
+			0,
+			0,
+			180,
+			100
+		]
+	}
+}

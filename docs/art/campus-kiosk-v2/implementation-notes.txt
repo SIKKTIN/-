@@ -1,0 +1,14 @@
+小卖铺可进入版本
+
+采用用户批准的侧门概念图。用户圈出的室内收银柜台和第二名店员均不添加，保留原南侧唯一售货台和店员、原商品及营业流程。
+新增西侧开放门、雨罩、壁灯及入口牌，室内增加后墙货架与备货柜。建筑外墙采用奶油灰与绿色金属包边。
+屋顶最北边已有实体边界，东西外墙及正面柜台阻挡移动；西侧通道可进入，室内留出走道。进入室内隐藏屋顶与悬挑雨棚，离开后恢复。
+原室外道路、其他建筑、人物与存档数据保留。地图保存于 data/rooms/r04.json，改动前备份为本目录 before.json。
+
+美术模式：built-in image_gen。新增 shell.png、door.png、shelf.png 为生成器原始透明 PNG，未修改像素。UV 裁切及拼接信息见 art/architecture/kiosk_v2/manifest.json。旧屋顶、正面售货台与店员继续复用 kiosk_v1 原始美术。
+全部生成提示词及来源路径：production-assets.json。
+
+验证：qa/campus_kiosk_entry_v2.gd 原生 Godot 实机运行，102 项检查全部通过，详细结果 checks.json。
+检查包含实际移动穿过侧门、室内寻路、周界碰撞、进出屋顶显隐、单一售货台/店员、原购物扣款、地图验证及编辑器可用。
+贴图缩小加载仍使用显式世界 render_size，保证外墙显示范围与实体周界一致。
+实机截图：runtime-exterior.png、runtime-interior.png、runtime-interior-east.png；编辑器截图：editor.png。

@@ -1,0 +1,154 @@
+{
+  "status": "concept-and-art-plan-only",
+  "room_id": "workshop",
+  "coordinate_space": "world units; proposed rectangles are ground footprints",
+  "current_room_rect": [
+    820,
+    1420,
+    1360,
+    720
+  ],
+  "proposed_room_rect": [
+    820,
+    1420,
+    1360,
+    720
+  ],
+  "character_scale": 1.4,
+  "doors": [
+    {
+      "id": "workshop-entry",
+      "rect": [
+        1260,
+        2140,
+        160,
+        20
+      ]
+    },
+    {
+      "id": "workshop-entry-east",
+      "rect": [
+        1780,
+        2140,
+        160,
+        20
+      ],
+      "linked_to": "workshop-entry"
+    }
+  ],
+  "workbenches": [
+    {
+      "id": "bench_0",
+      "ground_rect": [
+        1020,
+        1640,
+        320,
+        120
+      ],
+      "top_variant": "fitting"
+    },
+    {
+      "id": "bench_1",
+      "ground_rect": [
+        1520,
+        1640,
+        320,
+        120
+      ],
+      "top_variant": "motor"
+    },
+    {
+      "id": "bench_2",
+      "ground_rect": [
+        1020,
+        1870,
+        320,
+        120
+      ],
+      "top_variant": "winding"
+    },
+    {
+      "id": "bench_3",
+      "ground_rect": [
+        1520,
+        1870,
+        320,
+        120
+      ],
+      "top_variant": "housings"
+    }
+  ],
+  "work_points": [
+    [
+      1170,
+      1810
+    ],
+    [
+      1670,
+      1810
+    ],
+    [
+      1170,
+      2040
+    ]
+  ],
+  "overseer_start": [
+    1430,
+    1820
+  ],
+  "aisles": {
+    "central_width": 180,
+    "between_rows": 110,
+    "south_reserved_depth": 120,
+    "east_width": 140
+  },
+  "source_pngs_to_make": [
+    "workbench.png",
+    "fitting-tools.png",
+    "motor-assembly.png",
+    "copper-winding.png",
+    "housings.png",
+    "parts-drawers.png",
+    "north-parts-rack.png",
+    "west-parts-rack.png",
+    "low-tool-cabinet.png",
+    "bench-drill.png",
+    "wall-toolboard.png",
+    "electrical-cabinet.png",
+    "shift-board.png",
+    "room-sign.png",
+    "floor.png",
+    "wall.png",
+    "door-open.png",
+    "door-closed.png"
+  ],
+  "reuse": [
+    "tool_locker_v42",
+    "drill_press_v44",
+    "oil_drums_v44",
+    "shipping_crates_v44",
+    "parcel_trolley_v44",
+    "pipe_valve",
+    "wall_vent",
+    "caged_wall_lamp",
+    "overseer",
+    "young_worker"
+  ],
+  "loot_profiles": {
+    "tools": "Existing tool lockers",
+    "industrial": "Existing and replacement parts cabinets",
+    "warehouse": "Stock crates"
+  },
+  "integration_contracts": [
+    "Preserve existing room bounds and access door rectangles",
+    "Preserve both linked workshop gate schedules driven by WorkshopRules",
+    "Preserve original fixture IDs and loot ownership",
+    "Update routine_points.work and workshop.patrol when moving furniture",
+    "Top overlays have no additional ground collision",
+    "Bodies and heads share feet-based depth ordering",
+    "Threshold remains floor layer; opened door leaves remain outside passage",
+    "Generated source PNG bytes are preserved; dimensions are calibrated by manifest"
+  ],
+  "concept_final": "concept-v1.png",
+  "plan_document": "README.md"
+}

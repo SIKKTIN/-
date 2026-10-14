@@ -2,16 +2,6 @@ extends Node2D
 
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 const WorldScale = preload("res://scripts/core/world_scale.gd")
-const Footprint = preload("res://scripts/core/actor_footprint.gd")
-
-# Keep the torso in the ordinary foot-depth order. Only the head is painted
-# above retained wall coping, with the same texture, pose and foot origin.
-class HeadOverlay extends Node2D:
-	var visual
-	func _draw() -> void:
-		visual.paint_head(self)
-
-var head_overlay: HeadOverlay
 
 var actor
 var game
@@ -50,13 +40,7 @@ func configure(owner_actor, escape_game, asset: Dictionary, icons: Dictionary, t
 	font = text_font
 	is_guard = str(asset.actor_id) == "guard"
 	if game.presentation.profile.get("perspective",false):
-		head_overlay = HeadOverlay.new()
-		head_overlay.name = "HeadOverlay"
-		head_overlay.visual = self
-		head_overlay.z_as_relative = false
-		head_overlay.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
-		head_overlay.use_parent_material = true
-		add_child(head_overlay)
+		material = game.presentation.character_material
 	tick_visual(0)
 
 func refresh_appearance() -> void:
@@ -74,10 +58,10 @@ func apply_definition(asset: Dictionary) -> void:
 	walk_textures.clear()
 	walk_clock=0
 	var animation: Dictionary = asset.get("walk_animation",{})
-	if animation.has("texture") and (ResourceLoader.exists(animation.texture) or FileAccess.file_exists(animation.texture)) and animation.get("frames",[]).size() > 1:
+	if animation.has("texture") and (ResourceLoader.exists(animation.texture) or FileAccess.file_exists(animation.texture)) and animation.get("frames",[]).size() > 0:
 		walk_frames = animation.frames
 		walk_fps = clampf(float(animation.get("fps",12)),1,60)
-		walk_scale_height = float(animation.get("scale_height",walk_frames[0].region[3]))
+		walk_scale_height = float(animation.get("scale_height",asset.get("scale_height",walk_frames[0].region[3]) if walk_frames.size()==1 else walk_frames[0].region[3]))
 		if idle_region_cropped:
 			walk_textures.assign(motion.walk)
 		else:
@@ -88,6 +72,9 @@ func apply_definition(asset: Dictionary) -> void:
 			push_warning("Walk texture unavailable; retaining legacy animation for "+str(asset.actor_id))
 
 func tick_visual(delta: float, camera_view: Rect2 = Rect2()) -> void:
+	if not is_guard and game.nine_point and game.nine_point.is_seated_actor(actor.actor_id):
+		visible = false
+		return
 	var on_screen: bool = not camera_view.has_area() or camera_view.grow(100).has_point(actor.position)
 	visible = on_screen and not actor.escaped and not game.world.is_under_roof(actor.position)
 	if game.get_tree().paused:
@@ -102,8 +89,8 @@ func tick_visual(delta: float, camera_view: Rect2 = Rect2()) -> void:
 		var cycle: float = walk_frames.size()/walk_fps
 		walk_clock = fposmod(walk_clock+maxf(delta,0),cycle)
 		walk_frame_index = mini(int(walk_clock*walk_fps+0.000001),walk_frames.size()-1)
-		frame_name = str(walk_frames[walk_frame_index].id)
-	elif moving:
+		frame_name = str(walk_frames[walk_frame_index].get("id","walk_"+str(walk_frame_index)))
+	elif moving and definition.frames.has("walk_a") and definition.frames.has("walk_b"):
 		walk_clock = fposmod(walk_clock+maxf(delta,0),2*float(definition.initial_walk_frame_seconds))
 		frame_name = "walk_a" if int(walk_clock / float(definition.initial_walk_frame_seconds)) % 2 == 0 else "walk_b"
 	else:
@@ -129,9 +116,6 @@ func tick_visual(delta: float, camera_view: Rect2 = Rect2()) -> void:
 	destination = Rect2(-Vector2(anchor[0],anchor[1])*ratio,source_region.size*ratio)
 	if absf(actor.facing.x) > 0.08:
 		flip_h = actor.facing.x < 0
-	if head_overlay:
-		head_overlay.light_mask = light_mask
-		head_overlay.queue_redraw()
 	queue_redraw()
 
 func _draw() -> void:
@@ -139,7 +123,7 @@ func _draw() -> void:
 		return
 	if not separate_information:
 		draw_ellipse(Vector2(0,2),15,4,Color(0,0,0,0.12))
-	paint_sprite_section(self,false)
+	paint_sprite(self)
 	if working:
 		_paint_work_tool()
 	if not is_guard and game.routines and game.routines.carries_meal(actor.actor_id):
@@ -155,36 +139,17 @@ func _draw() -> void:
 	if not separate_information:
 		paint_information(self)
 
-func sprite_section(head: bool) -> Dictionary:
-	var target := destination
-	var source := source_region
-	if head_overlay and target.size.y>0:
-		var cut := clampf(Footprint.DOOR_BODY.position.y,target.position.y,target.end.y)
-		var upper := cut-target.position.y
-		var source_upper := upper/target.size.y*source.size.y
-		if head:
-			target.size.y=upper
-			source.size.y=source_upper
-		else:
-			target.position.y=cut
-			target.size.y-=upper
-			source.position.y+=source_upper
-			source.size.y-=source_upper
-	return {"destination":target,"source":source}
-
-func paint_sprite_section(canvas: CanvasItem, head: bool) -> void:
-	var section := sprite_section(head)
-	if not section.destination.has_area():return
-	# Both sections share the work lean/bob and horizontal mirroring, so the
-	# neck joins exactly even when the gait frame has an asymmetric anchor.
+# Draw the complete pose in one canvas item so head and body share depth.
+func paint_sprite(canvas: CanvasItem) -> void:
+	if not destination.has_area():return
 	var labor_bob: float = maxf(0,sin(work_clock))*1.3 if working else 0.0
 	var labor_lean: float = sin(work_clock)*0.035 if working else 0.0
 	canvas.draw_set_transform(Vector2(0,labor_bob),labor_lean,Vector2(-1 if flip_h else 1,1))
-	canvas.draw_texture_rect_region(texture,section.destination,section.source)
+	# Baked cropped frames can use fewer pixels; authored anchors and world
+	# dimensions remain unchanged, while the sampled region spans the bake.
+	var sampled: Rect2=Rect2(Vector2.ZERO,texture.get_size()) if idle_region_cropped or walk_frame_index>=0 else source_region
+	canvas.draw_texture_rect_region(texture,destination,sampled)
 	canvas.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-
-func paint_head(canvas: CanvasItem) -> void:
-	if texture and visible:paint_sprite_section(canvas,true)
 
 func _paint_work_tool() -> void:
 	var side := -1.0 if flip_h else 1.0
@@ -201,6 +166,7 @@ func _paint_work_tool() -> void:
 			draw_line(contact+direction*0.5,contact+direction,Color("d3a252"),2,true)
 
 func paint_information(canvas: CanvasItem) -> void:
+	if not is_guard and game.nine_point and game.nine_point.is_seated_actor(actor.actor_id): return
 	var top: float = -world_height()-10
 	var direction_color := Color("c9534b") if is_guard and actor.state == "chasing" else Color("303b46") if is_guard else Color("328b82")
 	if is_guard and actor.state != "chasing" and game.presentation and game.presentation.lighting and game.presentation.lighting.period == "night":
@@ -256,7 +222,7 @@ func paint_information(canvas: CanvasItem) -> void:
 				var width := font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x+16
 				canvas.draw_style_box(_work_paper(),Rect2(-width/2,top-49-rise,width,25))
 				canvas.draw_string(font,Vector2(-width/2+8,top-31-rise),text,HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("977037"))
-		if actor.action_state != "idle":
+		if actor.action_state not in ["idle","bathing"]:
 			canvas.draw_circle(Vector2(20,top-2),15,Color("f2ebdd"))
 			var icon: Texture2D = skill_icons.get("lockpick" if actor.action_state == "lockpicking" else "chat")
 			if icon:

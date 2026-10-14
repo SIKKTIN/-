@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-12",
+  "version": "v06",
+  "mode": "built-in imagegen",
+  "scope": "concept only; no gameplay/map modification",
+  "asset": "door-symmetry-v06.png",
+  "prompt": "door-v06-symmetry-prompt.txt",
+  "source": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-3fd3b767-8efb-4369-972c-2c359ca7a779.png",
+  "design": "Shared, bilateral-symmetric overhead closed steel door; no side-facing facade.",
+  "states": [
+    "无遮挡",
+    "右侧不可见",
+    "左侧不可见"
+  ],
+  "visibility_rule": "When visible from either adjoining side, shared door/frame boundary remains visible; hidden room starts beyond bounded module footprint.",
+  "validation": "Conceptual generated comparison only, not pixel-identical sprites or runtime QA."
+}

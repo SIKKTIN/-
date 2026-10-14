@@ -1,0 +1,93 @@
+{
+  "verified_at": "2026-10-12T10:56:21",
+  "concept": "docs/concepts/quick-slots-v04.png",
+  "passed": true,
+  "regression_check_count": 305,
+  "regression_results": [
+    {
+      "id": "quick_items",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.53,
+      "checks": 83,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.69,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.58,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.64,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.59,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 24.03,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "regression_sources": [
+    "docs/tests/p135-final/summary.json",
+    "docs/tests/p135-inventory-final/summary.json"
+  ],
+  "report_recovery": "Inventory checks passed in the original run, but its legacy report path failed to open for writing. Explicitly closed report output was redirected to docs/dev/p135/inventory-ui.json and all 37 checks reran successfully.",
+  "native_check_count": 91,
+  "native_report": "docs/dev/p135/native-quick-items.json",
+  "native_log": "docs/dev/p135/native-final.log",
+  "screenshots": [
+    "docs/dev/p135/backpack-1200.png",
+    "docs/dev/p135/hud-1200.png",
+    "docs/dev/p135/binding-drag.png",
+    "docs/dev/p135/map-viewer.png"
+  ],
+  "new_art": {
+    "path": "art/items/factory_map_v135.png",
+    "prompt": "docs/dev/p135/map-item-prompt.txt",
+    "mode": "built-in image_gen"
+  },
+  "controls": {
+    "bind": "Drag owned functional item to one of four slots inside backpack; item retains its position.",
+    "activate": "Click right-side HUD slot or keys 1-4.",
+    "unbind": "Right-click or long-press binding slot in backpack.",
+    "map": "Search and carry physical map; viewing does not consume it."
+  }
+}

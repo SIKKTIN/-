@@ -1,0 +1,72 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.47,
+      "checks": 90,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "head_layer",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.0,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.84,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.17,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 78.24,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 37.58,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 192,
+  "passed": true
+}

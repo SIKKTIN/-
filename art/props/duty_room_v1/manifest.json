@@ -1,0 +1,754 @@
+{
+	"schema": 2,
+	"version": "duty-room-v1",
+	"assets": [
+		{
+			"texture": "res://art/props/duty_room_v1/desk.png",
+			"texture_size": [
+				1352,
+				1163
+			],
+			"region": [
+				57,
+				112,
+				1244,
+				924
+			],
+			"sha256": "f3d94eee3c385848591da612013843f310b16db5f7267c909d65f872e1573507",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_desk_v1",
+			"name": "值班室 · L形登记台",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				221.76,
+				1244,
+				702.24
+			],
+			"world_size": [
+				180,
+				133.69774919614147
+			],
+			"render_size": [
+				180,
+				133.69774919614147
+			],
+			"footprint_world_size": [
+				180,
+				101.61028938906752
+			],
+			"elevation_world": 32.087459807073955,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"solid_parts": [
+				[
+					0,
+					0.56,
+					1,
+					0.44
+				],
+				[
+					0.77,
+					0,
+					0.23,
+					0.56
+				]
+			]
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/communications.png",
+			"texture_size": [
+				1458,
+				1079
+			],
+			"region": [
+				110,
+				233,
+				1239,
+				646
+			],
+			"sha256": "1fb49f9ade8aff2ef5df394a293d26f3746016b324b080589b31244bd7c6e6e5",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_communications_v1",
+			"name": "值班室 · 矮通讯柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				271.32000000000005,
+				1239,
+				374.67999999999995
+			],
+			"world_size": [
+				115,
+				59.95964487489911
+			],
+			"render_size": [
+				115,
+				59.95964487489911
+			],
+			"footprint_world_size": [
+				115,
+				34.776594027441476
+			],
+			"elevation_world": 25.183050847457633,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/locker.png",
+			"texture_size": [
+				849,
+				1853
+			],
+			"region": [
+				189,
+				179,
+				471,
+				1473
+			],
+			"sha256": "69457fa787ac9dad3f9c2b5cbb132a3eca4f74364f8760d940719194d85b08d0",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_locker_v1",
+			"name": "值班室 · 个人物品柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				1134.21,
+				471,
+				338.79
+			],
+			"world_size": [
+				40,
+				125.09554140127388
+			],
+			"render_size": [
+				40,
+				125.09554140127388
+			],
+			"footprint_world_size": [
+				40,
+				28.771974522292993
+			],
+			"elevation_world": 96.32356687898088,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/shelf.png",
+			"texture_size": [
+				1073,
+				1466
+			],
+			"region": [
+				418,
+				108,
+				237,
+				1143
+			],
+			"sha256": "f29875f239c510cda73807a885df61428bd66d74a3b9d8c376456b95c40bf956",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_shelf_v1",
+			"name": "值班室 · 纵向档案架",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				171.45000000000005,
+				237,
+				971.55
+			],
+			"world_size": [
+				45,
+				217.0253164556962
+			],
+			"render_size": [
+				45,
+				217.0253164556962
+			],
+			"footprint_world_size": [
+				45,
+				184.47151898734177
+			],
+			"elevation_world": 32.55379746835444,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/chair.png",
+			"texture_size": [
+				960,
+				1638
+			],
+			"region": [
+				141,
+				182,
+				678,
+				1254
+			],
+			"sha256": "d978e7f95850d0f5523972be7353572c566584a153b4b686741aeeee89eccd2f",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_chair_v1",
+			"name": "值班室 · 登记台木椅",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				601.92,
+				678,
+				652.08
+			],
+			"world_size": [
+				38,
+				70.28318584070796
+			],
+			"render_size": [
+				38,
+				70.28318584070796
+			],
+			"footprint_world_size": [
+				38,
+				36.54725663716815
+			],
+			"elevation_world": 33.73592920353982,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/phone.png",
+			"texture_size": [
+				1393,
+				1129
+			],
+			"region": [
+				118,
+				149,
+				1148,
+				842
+			],
+			"sha256": "3d9bf1e3dfccbfc11aa054348a0785a1a3297d3b5e95571a44ddb90f60d9d6fa",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_phone_v1",
+			"name": "值班室 · 黑色值班电话",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1148,
+				842
+			],
+			"world_size": [
+				27,
+				19.803135888501743
+			],
+			"render_size": [
+				27,
+				19.803135888501743
+			],
+			"footprint_world_size": [
+				27,
+				19.803135888501743
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/ledger.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				130,
+				180,
+				1293,
+				678
+			],
+			"sha256": "3a0e5218e6d5f4c04405482dcac1eeca63c3b81650aa18e2f2b9f237faa2945d",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_ledger_v1",
+			"name": "值班室 · 登记簿与笔",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1293,
+				678
+			],
+			"world_size": [
+				48,
+				25.16937354988399
+			],
+			"render_size": [
+				48,
+				25.16937354988399
+			],
+			"footprint_world_size": [
+				48,
+				25.16937354988399
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/lamp.png",
+			"texture_size": [
+				1230,
+				1278
+			],
+			"region": [
+				287,
+				123,
+				655,
+				1025
+			],
+			"sha256": "927b9bcc169263e4413d6a09170d7216b20ea14bdd0f88591639f17ea31d3fdf",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_lamp_v1",
+			"name": "值班室 · 绿色值班台灯",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				655,
+				1025
+			],
+			"world_size": [
+				24,
+				37.55725190839695
+			],
+			"render_size": [
+				24,
+				37.55725190839695
+			],
+			"footprint_world_size": [
+				24,
+				37.55725190839695
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/mug.png",
+			"texture_size": [
+				1330,
+				1182
+			],
+			"region": [
+				378,
+				293,
+				616,
+				600
+			],
+			"sha256": "40c033af8fd6cfd62abdaee68da3949a6d0a5a1ea347b1db43a8f96334a38f39",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_mug_v1",
+			"name": "值班室 · 搪瓷茶杯",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				616,
+				600
+			],
+			"world_size": [
+				12,
+				11.688311688311687
+			],
+			"render_size": [
+				12,
+				11.688311688311687
+			],
+			"footprint_world_size": [
+				12,
+				11.688311688311687
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/radio.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				261,
+				235,
+				1014,
+				555
+			],
+			"sha256": "16cca5cd62a1b925556e03a058234592da1b5c91e4e3e6ad365e7e5a56fc22e7",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_radio_v1",
+			"name": "值班室 · 旧式无线电",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1014,
+				555
+			],
+			"world_size": [
+				33,
+				18.062130177514792
+			],
+			"render_size": [
+				33,
+				18.062130177514792
+			],
+			"footprint_world_size": [
+				33,
+				18.062130177514792
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/charger.png",
+			"texture_size": [
+				1312,
+				1199
+			],
+			"region": [
+				331,
+				232,
+				666,
+				730
+			],
+			"sha256": "0bb739828cf94c9b45f7968ce6216238c1bfd02b36bb2cc099b3501b26d48dae",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_charger_v1",
+			"name": "值班室 · 对讲机充电座",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				666,
+				730
+			],
+			"world_size": [
+				28,
+				30.690690690690694
+			],
+			"render_size": [
+				28,
+				30.690690690690694
+			],
+			"footprint_world_size": [
+				28,
+				30.690690690690694
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/keybox.png",
+			"texture_size": [
+				1375,
+				1144
+			],
+			"region": [
+				190,
+				176,
+				995,
+				793
+			],
+			"sha256": "6bb15d8afa6d7598b08d07f6c66bd9ff813b9d6352e0924e79435ace897a5775",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_keybox_v1",
+			"name": "值班室 · 壁挂钥匙柜",
+			"render_mode": "wall_attachment",
+			"ground_rect": [
+				0,
+				2152.8333333333335,
+				995,
+				16.583333333333336
+			],
+			"world_size": [
+				60,
+				47.81909547738693
+			],
+			"render_size": [
+				60,
+				47.81909547738693
+			],
+			"footprint_world_size": [
+				60,
+				1
+			],
+			"elevation_world": 129.81909547738692,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/clock.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				276,
+				267,
+				701,
+				697
+			],
+			"sha256": "15703c46a339cc9b9c3b75b4e24ce5dd2b74e5d71406aaa2399976fc202b7491",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_clock_v1",
+			"name": "值班室 · 值班挂钟",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				701,
+				697
+			],
+			"world_size": [
+				25,
+				24.85734664764622
+			],
+			"render_size": [
+				25,
+				24.85734664764622
+			],
+			"footprint_world_size": [
+				25,
+				24.85734664764622
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/roster.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				186,
+				172,
+				880,
+				926
+			],
+			"sha256": "0963d043334c727612348f015022cb6067d9bc0e293d313ebf2374281ed2d39a",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_roster_v1",
+			"name": "值班室 · 壁挂值班表",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				880,
+				926
+			],
+			"world_size": [
+				38,
+				39.986363636363635
+			],
+			"render_size": [
+				38,
+				39.986363636363635
+			],
+			"footprint_world_size": [
+				38,
+				39.986363636363635
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/sign.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				329,
+				286,
+				1116,
+				318
+			],
+			"sha256": "b8c4a2e52e4a9e0d3e21715924fc6162a7110d16191164331ac5858b6285a026",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "duty_sign_v1",
+			"name": "值班室 · 值班室名称牌",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1116,
+				318
+			],
+			"world_size": [
+				90,
+				25.64516129032258
+			],
+			"render_size": [
+				90,
+				25.64516129032258
+			],
+			"footprint_world_size": [
+				90,
+				25.64516129032258
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "duty_bench_v1",
+			"name": "值班室 · 等候长凳",
+			"texture": "res://art/props/exercise_yard_v54/bench-vertical.png",
+			"texture_size": [
+				972,
+				1618
+			],
+			"region": [
+				363,
+				210,
+				281,
+				1157
+			],
+			"ground_rect": [
+				12,
+				100,
+				257,
+				1040
+			],
+			"world_size": [
+				24,
+				98.8185053380783
+			],
+			"render_size": [
+				24,
+				98.8185053380783
+			],
+			"footprint_world_size": [
+				21.95017793594306,
+				88.82562277580071
+			],
+			"elevation_world": 9.99288256227758,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "077cba6c3a85aa4907ceec8ce93d1d65f7a308dd0a8e0ab22cebab36d101fc1c",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "duty_planter_v1",
+			"name": "值班室 · 旧盆绿植",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				841,
+				697,
+				235,
+				265
+			],
+			"ground_rect": [
+				0,
+				59.375,
+				235,
+				205.625
+			],
+			"footprint_world_size": [
+				42.0,
+				36.75
+			],
+			"world_size": [
+				42,
+				47.361702127659576
+			],
+			"render_size": [
+				42,
+				47.361702127659576
+			],
+			"elevation_world": 10.611702127659575,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true
+		}
+	]
+}

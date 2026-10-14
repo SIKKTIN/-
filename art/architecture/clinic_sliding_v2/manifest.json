@@ -1,0 +1,147 @@
+{
+	"schema": 2,
+	"version": "clinic-sliding-v2",
+	"assets": [
+		{
+			"id": "clinic_sliding_leaf_v2",
+			"name": "医务室侧滑门扇",
+			"texture": "res://art/architecture/clinic_sliding_v2/sliding_leaf.png",
+			"texture_size": [
+				1190,
+				1322
+			],
+			"region": [
+				208,
+				78,
+				774,
+				1127
+			],
+			"world_size": [
+				90,
+				116
+			],
+			"render_size": [
+				90,
+				116
+			],
+			"ground_rect": [
+				0,
+				0,
+				774,
+				1127
+			],
+			"footprint_world_size": [
+				90,
+				116
+			],
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "clinic_sliding_track_v2",
+			"name": "医务室侧滑门轨道",
+			"texture": "res://art/architecture/clinic_sliding_v2/sliding_track.png",
+			"texture_size": [
+				1900,
+				828
+			],
+			"region": [
+				31,
+				379,
+				1838,
+				71
+			],
+			"world_size": [
+				368,
+				16
+			],
+			"render_size": [
+				368,
+				16
+			],
+			"ground_rect": [
+				0,
+				0,
+				1838,
+				71
+			],
+			"footprint_world_size": [
+				368,
+				16
+			],
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "doorway_clinic_sliding_v2",
+			"name": "医务室双扇侧滑门 · 日间开放",
+			"texture": "res://art/architecture/clinic_sliding_v2/sliding_leaf.png",
+			"texture_size": [
+				1190,
+				1322
+			],
+			"region": [
+				208,
+				78,
+				774,
+				1127
+			],
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"ground_rect": [
+				0,
+				0,
+				774,
+				1127
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"render_mode": "embedded_door",
+			"blocking": false,
+			"editor_subcategory": "doors",
+			"grid_door": {
+				"cell": 20
+			},
+			"door_presentation": {
+				"door_art_size": [
+					180,
+					120
+				],
+				"sliding_door": {
+					"leaf": "clinic_sliding_leaf_v2",
+					"track": "clinic_sliding_track_v2",
+					"leaf_rect": [
+						0,
+						4,
+						90,
+						116
+					],
+					"track_rect": [
+						-94,
+						0,
+						368,
+						16
+					],
+					"solid_rect": [
+						0,
+						12,
+						90,
+						108
+					],
+					"seconds": 0.65
+				},
+				"body_profile": "human_silhouette"
+			}
+		}
+	]
+}

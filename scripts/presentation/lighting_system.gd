@@ -10,7 +10,7 @@ var occluders: Array[LightOccluder2D] = []
 var occluder_rects: Array[Rect2] = []
 var lamp_specs: Array = []
 var room_id: String = ""
-var lamp_layout_key := ""
+var lamp_layout_key: Array=[]
 var obstacle_revision: int = -1
 var toggle_button: Button
 var guard_light: PointLight2D
@@ -18,6 +18,7 @@ var guard_boundaries: Array[LightOccluder2D] = []
 var beam_texture: Texture2D
 var curfew_beam_texture: Texture2D
 var search_lights: Dictionary = {}
+var lamp_textures: Dictionary = {}
 
 func configure(owner_game, theme: Theme) -> void:
 	game = owner_game
@@ -161,22 +162,26 @@ func _sync_guard_boundaries() -> void:
 		guard_boundaries.append(node)
 
 func _light_texture(radius: float) -> GradientTexture2D:
+	var pixels := ceili(radius*2)
+	if lamp_textures.has(pixels): return lamp_textures[pixels]
 	var gradient := Gradient.new()
 	gradient.offsets = PackedFloat32Array([0.0,0.20,0.62,1.0])
 	gradient.colors = PackedColorArray([Color(1,1,1,1),Color(1,1,1,0.8),Color(1,1,1,0.24),Color(1,1,1,0)])
 	var texture := GradientTexture2D.new()
 	texture.gradient = gradient
-	texture.width = ceili(radius*2)
-	texture.height = ceili(radius*2)
+	texture.width = pixels
+	texture.height = pixels
 	texture.fill = GradientTexture2D.FILL_RADIAL
 	texture.fill_from = Vector2(0.5,0.5)
 	texture.fill_to = Vector2(1.0,0.5)
+	lamp_textures[pixels] = texture
 	return texture
 
 func _rebuild_lamps() -> void:
 	for lamp in lamps:
 		lamp.free()
 	lamps.clear()
+	lamp_textures.clear()
 	lamp_specs = game.room_config.get("lamps",settings.rooms.get(game.world.room_id,[]))
 	for index in range(lamp_specs.size()):
 		var spec: Dictionary = lamp_specs[index]
@@ -218,9 +223,9 @@ func _sync_occluders() -> void:
 	obstacle_revision = game.world.obstacle_revision
 
 func tick() -> void:
-	var layout_key: String = game.world.room_id+JSON.stringify(game.room_config.get("lamps",[]))
+	var layout_key: Array=[game.world.room_id,game.room_config.get("lamps",[])]
 	if lamp_layout_key != layout_key:
-		lamp_layout_key = layout_key
+		lamp_layout_key = layout_key.duplicate(true)
 		room_id = game.world.room_id
 		_rebuild_lamps()
 		_sync_guard_boundaries()
@@ -235,6 +240,7 @@ func tick() -> void:
 
 func _draw() -> void:
 	for spec in lamp_specs:
+		if not spec.get("draw_fixture",true): continue
 		var point := Vector2(spec.position[0],spec.position[1])
 		if game.world.is_under_roof(point): continue
 		draw_line(point-Vector2(0,15),point,Color("515b5b"),3,true)

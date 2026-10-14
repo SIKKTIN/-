@@ -1,0 +1,224 @@
+{
+  "read_at": "2026-10-12T12:50:08",
+  "room": "data/rooms/r04.json",
+  "purpose": "Read-only source inventory for exercise-yard art planning",
+  "yard_boundaries": [
+    {
+      "gaps": [],
+      "id": "yard-north",
+      "x0": 2300.0,
+      "x1": 3200.0,
+      "y": 340.0
+    },
+    {
+      "gaps": [
+        [
+          2620.0,
+          2820.0
+        ]
+      ],
+      "id": "yard-south",
+      "x0": 2300.0,
+      "x1": 3200.0,
+      "y": 1120.0
+    },
+    {
+      "gaps": [
+        [
+          600.0,
+          760.0
+        ]
+      ],
+      "id": "yard-west",
+      "x": 2300.0,
+      "y0": 340.0,
+      "y1": 1120.0
+    },
+    {
+      "gaps": [
+        [
+          660.0,
+          820.0
+        ]
+      ],
+      "id": "yard-east",
+      "x": 3180.0,
+      "y0": 340.0,
+      "y1": 1120.0
+    }
+  ],
+  "yard_floor": [
+    {
+      "asset_id": "common_floor_v46",
+      "id": "campus-yard",
+      "rect": [
+        2300.0,
+        340.0,
+        900.0,
+        800.0
+      ],
+      "tile_size": [
+        320.0,
+        320.0
+      ]
+    }
+  ],
+  "yard_fixture_counts": {
+    "bench": 3,
+    "planter": 4,
+    "basketball_hoop": 1
+  },
+  "fixtures": [
+    {
+      "asset_id": "doorway_free_v48",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "id": "campus-yard-south",
+      "rect": [
+        2620.0,
+        1120.0,
+        200.0,
+        20.0
+      ],
+      "render_size": [
+        200.0,
+        24.0
+      ],
+      "rotation_quarters": 0.0
+    },
+    {
+      "asset_id": "doorway_free_v48",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "id": "campus-yard-west",
+      "rect": [
+        2300.0,
+        600.0,
+        20.0,
+        160.0
+      ],
+      "render_size": [
+        24.0,
+        160.0
+      ],
+      "rotation_quarters": 1.0
+    },
+    {
+      "asset_id": "doorway_free_v48",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "id": "campus-yard-east",
+      "rect": [
+        3180.0,
+        660.0,
+        20.0,
+        160.0
+      ],
+      "render_size": [
+        24.0,
+        160.0
+      ],
+      "rotation_quarters": 1.0
+    },
+    {
+      "asset_id": "park_bench_v47",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-seat-0",
+      "rect": [
+        2435.0,
+        990.2633,
+        160.0,
+        54.7367
+      ]
+    },
+    {
+      "asset_id": "park_bench_v47",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-seat-1",
+      "rect": [
+        2875.0,
+        990.2633,
+        160.0,
+        54.7367
+      ]
+    },
+    {
+      "asset_id": "park_bench_v47",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-seat-2",
+      "rect": [
+        2415.0,
+        440.2633,
+        160.0,
+        54.7367
+      ]
+    },
+    {
+      "asset_id": "weed_planter_v44",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-planter-0",
+      "rect": [
+        2423.5,
+        479.25,
+        58.0,
+        50.75
+      ]
+    },
+    {
+      "asset_id": "weed_planter_v44",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-planter-1",
+      "rect": [
+        3003.5,
+        479.25,
+        58.0,
+        50.75
+      ]
+    },
+    {
+      "asset_id": "weed_planter_v44",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-planter-2",
+      "rect": [
+        2443.5,
+        899.25,
+        58.0,
+        50.75
+      ]
+    },
+    {
+      "asset_id": "weed_planter_v44",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "campus-yard-planter-3",
+      "rect": [
+        3003.5,
+        899.25,
+        58.0,
+        50.75
+      ]
+    },
+    {
+      "asset_id": "basketball_hoop_v47",
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "id": "campus-yard-hoop",
+      "rect": [
+        2690.0,
+        490.0,
+        120.0,
+        45.0
+      ]
+    }
+  ],
+  "current_character_scale": 1.4,
+  "prop_reference_human_height": 96,
+  "recommended_boundary": "No separate four-sided yard wall; preserve factory perimeter and adjoining building walls",
+  "proposal_only": true
+}

@@ -34,6 +34,8 @@ func behaviors() -> Array:
 			kind = "sleep"
 		elif actor.action_state == "chatting":
 			kind = "chat"
+		elif actor.action_state == "bathing":
+			kind = "idle"
 		elif actor.action_state != "idle":
 			kind = "skill"
 		elif game.routines.is_eating(actor.actor_id):

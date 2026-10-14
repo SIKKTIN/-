@@ -1,0 +1,18 @@
+layout(rgba32f,set=0,binding=4) readonly uniform image2DArray ocean_map;
+layout(rgba32f,set=0,binding=5) readonly uniform image2D foam_in;
+layout(rgba32f,set=0,binding=6) writeonly uniform image2D foam_out;
+vec4 ocean_sample(vec2 world,int layer){
+    float length_m=layer==0?134.4:33.6;
+    vec2 pos=fract(world/length_m)*128.0-0.5;
+    ivec2 a=ivec2(floor(pos)); vec2 f=fract(pos);
+    ivec2 b=(a%128+128)%128,c=(b+1)%128;
+    return mix(mix(imageLoad(ocean_map,ivec3(b,layer)),imageLoad(ocean_map,ivec3(c.x,b.y,layer)),f.x),
+               mix(imageLoad(ocean_map,ivec3(b.x,c.y,layer)),imageLoad(ocean_map,ivec3(c,layer)),f.x),f.y);
+}
+vec4 ocean(vec2 world){return ocean_sample(world,0)+ocean_sample(world,1);}
+vec4 foam(ivec2 q){return imageLoad(foam_in,bounds(q));}
+vec4 foam_advect(vec2 q){
+    ivec2 a=ivec2(floor(q));vec2 f=fract(q);
+    return mix(mix(foam(a),foam(a+ivec2(1,0)),f.x),mix(foam(a+ivec2(0,1)),foam(a+ivec2(1,1)),f.x),f.y);
+}
+float random_cell(vec2 pos){vec3 x=fract(vec3(pos.xyx)*0.1031);x+=dot(x,x.yzx+33.33);return fract((x.x+x.y)*x.z);}

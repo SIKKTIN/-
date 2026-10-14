@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "room_id": "equipment",
+  "map": "res://data/rooms/r04.json",
+  "manifest": "res://art/architecture/equipment_secure_v1/manifest.json",
+  "asset_png_count": 6,
+  "asset_definition_count": 49,
+  "editable_fixture_count": 28,
+  "equipment_checks": 213,
+  "native_render_checks": 213,
+  "workshop_door_regression_checks": 48,
+  "failed": [],
+  "screenshots": [
+    "runtime-exterior.png",
+    "runtime-interior.png",
+    "editor-restored.png"
+  ],
+  "production_mode": "built-in-imagegen",
+  "prompt_set": [
+    "production-prompts.json",
+    "console-production-prompt.txt"
+  ],
+  "floor_authoring_regression_checks": 58,
+  "unique_checks_total": 319,
+  "editor_window": "监狱风云 · 地图编辑器 · 机密设备室还原",
+  "editor_render_log": "editor-preview-fixed.log",
+  "minor_editor_fix": "Skip zero-triangle clipped terrain slivers."
+}

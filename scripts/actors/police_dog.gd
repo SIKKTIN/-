@@ -20,6 +20,7 @@ var path := PackedVector2Array()
 var path_goal := Vector2.ZERO
 var path_revision := -1
 var path_timer := 0.0
+var path_deferred := false
 var stalled_time := 0.0
 var bark_until := 0.0
 var next_bark := 0.0
@@ -48,6 +49,7 @@ func reset_dog() -> void:
 	path.clear()
 	path_revision = -1
 	path_timer = 0
+	path_deferred = false
 	stalled_time = 0
 	sample_timer = 0
 	next_bark = 0
@@ -60,6 +62,9 @@ func reset_dog() -> void:
 
 func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
 	return search_zone().grow(-radius).has_point(point)
+
+func uses_navigation_budget() -> bool:
+	return true
 
 func inspection_allowed() -> bool:
 	return game.prison_alert != null and game.prison_alert.active
@@ -150,8 +155,9 @@ func _move(delta: float) -> void:
 	var changed: bool = not path.is_empty() and path[-1].distance_to(path_goal) > 16
 	if path_timer <= 0 and (path.is_empty() or invalid or changed or stalled_time >= 0.4):
 		path = world.find_path(position,path_goal,self,true)
-		path_revision = world.obstacle_revision
-		path_timer = 0.45
+		if not path_deferred:
+			path_revision = world.obstacle_revision
+			path_timer = 0.45
 	while not path.is_empty() and position.distance_to(path[0]) < 4:
 		path.remove_at(0)
 	if not path.is_empty():
@@ -159,7 +165,7 @@ func _move(delta: float) -> void:
 		facing = offset.normalized()
 		var speed := 125.0 if state == "tracking" else 82.0
 		moved_this_frame = world.move_actor(self,facing*minf(speed*delta,offset.length())).length_squared() > 0.001
-	stalled_time = 0 if moved_this_frame else stalled_time+delta
+	if not path_deferred: stalled_time = 0 if moved_this_frame else stalled_time+delta
 	if stalled_time > 1 and state == "patrol":
 		route_index = (route_index+world.patrol.size()-1)%world.patrol.size()
 		skipped_waypoints += 1

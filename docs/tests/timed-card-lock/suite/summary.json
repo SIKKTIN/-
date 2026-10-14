@@ -1,0 +1,38 @@
+{
+  "resources": {
+    "production_text_files": 190,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [
+      "scripts/tools/bake_administration_roofs_v1.gd",
+      "scripts/tools/bake_nine_point_v1.gd",
+      "scripts/tools/bake_nine_point_v2.gd",
+      "scripts/tools/bake_runtime_textures.gd",
+      "scripts/ui/nine_point_panel.gd"
+    ],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "timed_card_lock",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.61,
+      "checks": 18,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.81,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 22,
+  "passed": true
+}

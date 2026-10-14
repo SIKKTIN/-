@@ -1,0 +1,888 @@
+{
+	"schema": 2,
+	"version": "kiosk-v2",
+	"assets": [
+		{
+			"texture": "res://art/architecture/kiosk_v2/shell.png",
+			"texture_size": [
+				1729,
+				910
+			],
+			"region": [
+				56,
+				95,
+				1621,
+				728
+			],
+			"sha256": "d08ac1bfce6824ae0ec5578443dcf4de34c603222aae8944d8ed81d1d3752846",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_shell_v2",
+			"name": "小卖铺 · 西侧开口外墙",
+			"world_size": [
+				640,
+				340
+			],
+			"render_size": [
+				640,
+				340
+			],
+			"footprint_world_size": [
+				640,
+				340
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "buildings",
+			"ground_rect": [
+				0,
+				0.0,
+				1621,
+				728.0
+			],
+			"elevation_world": 0,
+			"assembly_patches": [
+				{
+					"source": [
+						56,
+						95,
+						1621,
+						291
+					],
+					"destination": [
+						0,
+						0,
+						640,
+						116
+					]
+				},
+				{
+					"source": [
+						1560,
+						386,
+						117,
+						437
+					],
+					"destination": [
+						600,
+						116,
+						40,
+						224
+					]
+				},
+				{
+					"source": [
+						56,
+						386,
+						120,
+						172
+					],
+					"destination": [
+						0,
+						116,
+						40,
+						44
+					]
+				},
+				{
+					"source": [
+						56,
+						650,
+						90,
+						173
+					],
+					"destination": [
+						0,
+						300,
+						40,
+						40
+					]
+				}
+			]
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/door.png",
+			"texture_size": [
+				1024,
+				1536
+			],
+			"region": [
+				172,
+				214,
+				715,
+				1054
+			],
+			"sha256": "bf6c02410bb53fbdf965459cd5a90d5cd5bb79a8b7d722b3a669f0eae035a2f2",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_side_entry_v2",
+			"name": "小卖铺 · 开放侧门与壁灯",
+			"world_size": [
+				110,
+				162
+			],
+			"render_size": [
+				110,
+				162
+			],
+			"footprint_world_size": [
+				110,
+				162
+			],
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				0.0,
+				715,
+				1054.0
+			],
+			"elevation_world": 0
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/shelf.png",
+			"texture_size": [
+				2060,
+				763
+			],
+			"region": [
+				328,
+				19,
+				1407,
+				723
+			],
+			"sha256": "de534dc2d0f3a6cfa7a379efae75b77f7fc69ddba3339cc1d2e4a1b1997b8d5a",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_goods_shelf_v2",
+			"name": "小卖铺 · 后墙生活用品架",
+			"world_size": [
+				350,
+				179.8507462686567
+			],
+			"render_size": [
+				350,
+				179.8507462686567
+			],
+			"footprint_world_size": [
+				350,
+				42
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"ground_rect": [
+				0,
+				554.16,
+				1407,
+				168.84000000000003
+			],
+			"elevation_world": 137.8507462686567
+		},
+		{
+			"id": "kiosk_front_counter_v2",
+			"name": "小卖铺 · 唯一正面售货台",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				212,
+				646,
+				1113,
+				308
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				640,
+				177.1069182389937
+			],
+			"render_size": [
+				640,
+				177.1069182389937
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				1113,
+				308.0
+			],
+			"footprint_world_size": [
+				640,
+				177.1069182389937
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "kiosk_front_canopy_v2",
+			"name": "小卖铺 · 雨棚与招牌",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				212,
+				435,
+				1113,
+				211
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				640,
+				121.32973944294699
+			],
+			"render_size": [
+				640,
+				121.32973944294699
+			],
+			"ground_rect": [
+				0,
+				158.828125,
+				1113,
+				52.17187500000001
+			],
+			"footprint_world_size": [
+				640,
+				30
+			],
+			"elevation_world": 91.32973944294699,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "kiosk_supply_locker_v2",
+			"name": "小卖铺 · 备货柜",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1073,
+				228,
+				128,
+				197
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				55,
+				84.6484375
+			],
+			"render_size": [
+				55,
+				84.6484375
+			],
+			"ground_rect": [
+				0,
+				136.4909090909091,
+				128,
+				60.50909090909091
+			],
+			"footprint_world_size": [
+				55,
+				26
+			],
+			"elevation_world": 58.6484375,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/open-entry-d-v3.png",
+			"texture_size": [
+				876,
+				1795
+			],
+			"region": [
+				163,
+				190,
+				537,
+				1496
+			],
+			"sha256": "b728ac1b12762be2242069f08322a3dddaf52b5a44adef89ddf3892497325a26",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-open-entry-d",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_open_entry_d_v3",
+			"name": "小卖铺 · D敞开式门洞",
+			"world_size": [
+				80,
+				162
+			],
+			"render_size": [
+				80,
+				162
+			],
+			"footprint_world_size": [
+				80,
+				162
+			],
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				0,
+				537,
+				1496
+			],
+			"elevation_world": 0
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/west-recess-v4.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				25,
+				264,
+				1035,
+				954
+			],
+			"sha256": "734c904501a4ab49b191caaaa2802f22402dea79818784c55c80aa1bac05e197",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-west-recess",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_west_recess_v4",
+			"name": "小卖铺 · 西向内凹入口",
+			"world_size": [
+				160,
+				194
+			],
+			"render_size": [
+				160,
+				194
+			],
+			"footprint_world_size": [
+				160,
+				194
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				0,
+				1035,
+				954
+			],
+			"elevation_world": 0,
+			"assembly_patches": [
+				{
+					"source": [
+						38,
+						260,
+						1018,
+						239
+					],
+					"destination": [
+						0,
+						0,
+						160,
+						24
+					]
+				},
+				{
+					"source": [
+						190,
+						1014,
+						866,
+						195
+					],
+					"destination": [
+						26,
+						164,
+						134,
+						30
+					]
+				},
+				{
+					"source": [
+						24,
+						932,
+						166,
+						284
+					],
+					"destination": [
+						0,
+						148,
+						26,
+						46
+					]
+				}
+			]
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/west-recess-v4.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				25,
+				264,
+				1035,
+				954
+			],
+			"sha256": "734c904501a4ab49b191caaaa2802f22402dea79818784c55c80aa1bac05e197",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-west-recess",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_recess_north_return_v4",
+			"name": "小卖铺 · north_return",
+			"world_size": [
+				112,
+				24
+			],
+			"render_size": [
+				112,
+				24
+			],
+			"footprint_world_size": [
+				112,
+				24
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				0.0,
+				1035,
+				954.0
+			],
+			"elevation_world": 0,
+			"assembly_patches": [
+				{
+					"source": [
+						38,
+						264,
+						1018,
+						235
+					],
+					"destination": [
+						0,
+						0,
+						112,
+						24
+					]
+				}
+			]
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/west-recess-v4.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				25,
+				264,
+				1035,
+				954
+			],
+			"sha256": "734c904501a4ab49b191caaaa2802f22402dea79818784c55c80aa1bac05e197",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-west-recess",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_recess_south_return_v4",
+			"name": "小卖铺 · south_return",
+			"world_size": [
+				112,
+				46
+			],
+			"render_size": [
+				112,
+				46
+			],
+			"footprint_world_size": [
+				112,
+				30
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				331.82608695652175,
+				1035,
+				622.1739130434783
+			],
+			"elevation_world": 16,
+			"assembly_patches": [
+				{
+					"source": [
+						190,
+						1014,
+						866,
+						195
+					],
+					"destination": [
+						18.2,
+						16,
+						93.8,
+						30
+					]
+				},
+				{
+					"source": [
+						25,
+						932,
+						165,
+						284
+					],
+					"destination": [
+						0,
+						0,
+						18.2,
+						46
+					]
+				}
+			]
+		},
+		{
+			"id": "kiosk_recess_canopy_v4",
+			"name": "小卖铺 · 入口退让雨棚",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				407,
+				435,
+				918,
+				211
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-west-recess",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				528,
+				121.359477124183
+			],
+			"render_size": [
+				528,
+				121.359477124183
+			],
+			"ground_rect": [
+				0,
+				158.8409090909091,
+				918,
+				52.159090909090914
+			],
+			"footprint_world_size": [
+				528,
+				30
+			],
+			"elevation_world": 91.359477124183,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/front-facade-v5.png",
+			"texture_size": [
+				2032,
+				774
+			],
+			"region": [
+				64,
+				111,
+				1904,
+				551
+			],
+			"sha256": "17c326d9cc7639c33964f12622ced4fdeaaa465d0c3206c39880ac03cdfef8d6",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-front-entry",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_front_facade_v5",
+			"name": "小卖铺 · 正门与售货窗口",
+			"world_size": [
+				640,
+				160
+			],
+			"render_size": [
+				640,
+				160
+			],
+			"footprint_world_size": [
+				640,
+				160
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"ground_rect": [
+				0,
+				0,
+				1904,
+				551
+			],
+			"elevation_world": 0
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/shell.png",
+			"texture_size": [
+				1729,
+				910
+			],
+			"region": [
+				56,
+				95,
+				1621,
+				728
+			],
+			"sha256": "d08ac1bfce6824ae0ec5578443dcf4de34c603222aae8944d8ed81d1d3752846",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_closed_side_shell_v5",
+			"name": "小卖铺 · 连续侧墙外壳",
+			"world_size": [
+				640,
+				340
+			],
+			"render_size": [
+				640,
+				340
+			],
+			"footprint_world_size": [
+				640,
+				340
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "buildings",
+			"ground_rect": [
+				0,
+				0.0,
+				1621,
+				728.0
+			],
+			"elevation_world": 0,
+			"assembly_patches": [
+				{
+					"source": [
+						56,
+						95,
+						1621,
+						291
+					],
+					"destination": [
+						0,
+						0,
+						640,
+						116
+					]
+				},
+				{
+					"source": [
+						1560,
+						386,
+						117,
+						437
+					],
+					"destination": [
+						600,
+						116,
+						40,
+						224
+					]
+				},
+				{
+					"source": [
+						56,
+						386,
+						120,
+						172
+					],
+					"destination": [
+						0,
+						116,
+						40,
+						224
+					]
+				}
+			]
+		},
+		{
+			"texture": "res://art/architecture/kiosk_v2/shelf.png",
+			"texture_size": [
+				2060,
+				763
+			],
+			"region": [
+				328,
+				19,
+				1407,
+				723
+			],
+			"sha256": "de534dc2d0f3a6cfa7a379efae75b77f7fc69ddba3339cc1d2e4a1b1997b8d5a",
+			"source_kind": "built-in-imagegen-original-png",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "kiosk_goods_island_v5",
+			"name": "小卖铺 · 中央商品架",
+			"world_size": [
+				190,
+				97.63326226012794
+			],
+			"render_size": [
+				190,
+				97.63326226012794
+			],
+			"footprint_world_size": [
+				190,
+				36
+			],
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"ground_rect": [
+				0,
+				456.41052631578947,
+				1407,
+				266.58947368421053
+			],
+			"elevation_world": 61.633262260127935
+		},
+		{
+			"id": "kiosk_front_canopy_clean_v5",
+			"name": "小卖铺 · 雨棚与招牌",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				212,
+				435,
+				1113,
+				215
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v2",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				640,
+				124
+			],
+			"render_size": [
+				640,
+				124
+			],
+			"ground_rect": [
+				0,
+				162.98387096774195,
+				1113,
+				52.016129032258064
+			],
+			"footprint_world_size": [
+				640,
+				30
+			],
+			"elevation_world": 94,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments",
+			"assembly_patches": [
+				{
+					"source": [
+						212,
+						435,
+						1113,
+						136
+					],
+					"destination": [
+						0,
+						0,
+						640,
+						78.2
+					]
+				},
+				{
+					"source": [
+						545,
+						550,
+						440,
+						100
+					],
+					"destination": [
+						191.5,
+						66.1,
+						253,
+						57.5
+					]
+				}
+			]
+		}
+	]
+}

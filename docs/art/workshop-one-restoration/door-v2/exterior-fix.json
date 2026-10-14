@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-13",
+  "status": "fixed",
+  "cause": "Projected whole-body door obstacles extended 84 world units beyond the facade footline, rejecting sideways movement on clear foreground floor.",
+  "reproduction_point": [1425, 1755],
+  "fix": "Workshop door whole-body checks are clipped at the shared rendering depth boundary with 3 world units of sole contact. Full-body passage checks behind the door remain active. Closing also distinguishes an actor in front from an actor inside the threshold.",
+  "scope": "Both workshop entrances, open and closed; enabled by workshop asset metadata only.",
+  "map_modified": false,
+  "assets_modified": false,
+  "tests": {
+    "exterior_movement_and_closure": {"checks":75,"failed":[]},
+    "door_regression_headless": {"checks":48,"failed":[]},
+    "workshop_regression": {"checks":2419,"failed":[]}
+  },
+  "before": "exterior-before-checks.json",
+  "after": "exterior-checks.json",
+  "preview": "play-exterior-fix.gd"
+}

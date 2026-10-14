@@ -1,0 +1,57 @@
+{
+	"schema": 2,
+	"assets": [
+		{
+			"texture": "res://art/architecture/laundry_v1/roof.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"runtime_size_limit": 1024,
+			"sha256": "cf5cde60d008184b3a624dfcabaf40fd43e371341e06da4610e261f4f124e03f",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_roof_surface",
+			"name": "洗衣房蓝灰咬边金属屋面",
+			"world_size": [
+				900,
+				500
+			],
+			"render_mode": "architecture_material",
+			"opaque": true,
+			"blocking": false,
+			"fit_roof": true
+		},
+		{
+			"texture": "res://art/architecture/laundry_v1/skylight.png",
+			"texture_size": [
+				1024,
+				1536
+			],
+			"region": [
+				382,
+				195,
+				259,
+				1146
+			],
+			"runtime_size_limit": 256,
+			"sha256": "2e58ebf28d52557d326738a39bbed4ddca1e9b0babb182e83536ed4e49d0fa7c",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_roof_skylight",
+			"name": "洗衣房磨砂采光带",
+			"world_size": [
+				24,
+				108
+			],
+			"render_mode": "architecture_roof_detail",
+			"blocking": false
+		}
+	]
+}

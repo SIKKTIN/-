@@ -1,0 +1,110 @@
+{
+  "feedback": {
+    "build": "0.2-perf-test",
+    "device": "iQOO Z9 Turbo",
+    "room": "一号车间",
+    "result": "Entering drops to about 40 FPS and does not recover at rest; overall unstable; no more 30 FPS observed by user"
+  },
+  "scope": "Windows rendering diagnostics; Android GPU and frame pacing remain unmeasured",
+  "change": "Combine each fixture shadow into an ordered triangle mesh; retain per-fixture culling and room visibility",
+  "paired_render_comparison": {
+    "cases": {
+      "day-outside": {
+        "after_draws": 398.0,
+        "before_draws": 402.0
+      },
+      "day-workshop": {
+        "after_draws": 525.0,
+        "before_draws": 665.0
+      },
+      "day-workshop_two": {
+        "after_draws": 477.0,
+        "before_draws": 561.0
+      },
+      "night-outside": {
+        "after_draws": 424.0,
+        "before_draws": 428.0
+      },
+      "night-workshop": {
+        "after_draws": 557.0,
+        "before_draws": 697.0
+      },
+      "night-workshop_two": {
+        "after_draws": 514.0,
+        "before_draws": 598.0
+      }
+    },
+    "door_keeps_shadow_geometry": true,
+    "mesh_count": 241
+  },
+  "compatibility_pixel_difference": {
+    "mesh-day-outside": {
+      "max_difference": 2,
+      "changed_pixels": 1561
+    },
+    "mesh-day-workshop": {
+      "max_difference": 2,
+      "changed_pixels": 86692
+    },
+    "mesh-day-workshop_two": {
+      "max_difference": 2,
+      "changed_pixels": 89540
+    },
+    "mesh-night-outside": {
+      "max_difference": 1,
+      "changed_pixels": 516
+    },
+    "mesh-night-workshop": {
+      "max_difference": 2,
+      "changed_pixels": 47729
+    },
+    "mesh-night-workshop_two": {
+      "max_difference": 2,
+      "changed_pixels": 86115
+    }
+  },
+  "forward_plus_pixel_difference": {
+    "mesh-day-outside": {
+      "max_difference": 1,
+      "changed_pixels": 459
+    },
+    "mesh-day-workshop": {
+      "max_difference": 1,
+      "changed_pixels": 36746
+    },
+    "mesh-day-workshop_two": {
+      "max_difference": 1,
+      "changed_pixels": 3948
+    },
+    "mesh-night-outside": {
+      "max_difference": 0,
+      "changed_pixels": 0
+    },
+    "mesh-night-workshop": {
+      "max_difference": 2,
+      "changed_pixels": 13713
+    },
+    "mesh-night-workshop_two": {
+      "max_difference": 1,
+      "changed_pixels": 7
+    }
+  },
+  "visibility_regression": {
+    "mismatches": [],
+    "table_cache_rebuild_and_return_isolation": true,
+    "visibility_comparisons": 15024
+  },
+  "limitations": [
+    "Desktop frame-time samples vary with system load and do not establish Android FPS gains",
+    "Sharing the tested uniform-free material did not reduce draw calls; not applied",
+    "New mesh vertex colors introduce up to 2/255 channel difference; screenshots visually reviewed"
+  ],
+  "source_sha256": "bef4b0eb21d25af078f408b9d476d1e07b0bd3fdaf4e145042a2eb428fb76e23",
+  "build": {
+    "version": "0.3-workshop-test",
+    "apk": "build/android/prison-android-arm64-release-v3.apk",
+    "package_report": "release-v3-package.json",
+    "upgrade_checks": "release-v3-upgrade-check.json",
+    "device_validation": "pending"
+  }
+}

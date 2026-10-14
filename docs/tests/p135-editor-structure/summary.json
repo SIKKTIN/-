@@ -1,0 +1,26 @@
+{
+  "resources": {
+    "production_text_files": 138,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [
+      "scripts/ui/quick_slots.gd"
+    ],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "structure",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 8.0,
+      "checks": 15,
+      "failed": [
+        "every_production_script_compiles"
+      ],
+      "fresh_report": true,
+      "engine_errors": true
+    }
+  ],
+  "total_checks": 15,
+  "passed": false
+}

@@ -1,0 +1,83 @@
+{
+	"schema": 1,
+	"version": "bath-cashier-v1",
+	"characters": [
+		{
+			"id": "bath_cashier",
+			"name": "浴室收费员",
+			"texture": "res://art/characters/bath_cashier_v1/cashier_poses.png",
+			"texture_size": [
+				1881,
+				836
+			],
+			"world_height": 60,
+			"scale_height": 710,
+			"frames": {
+				"idle": [
+					105,
+					83,
+					448,
+					716
+				]
+			},
+			"anchor": {
+				"idle": [
+					246.0,
+					711
+				]
+			},
+			"portrait_region": [
+				185,
+				85,
+				315,
+				300
+			],
+			"service_frames": {
+				"counting": {
+					"region": [
+						735,
+						85,
+						428,
+						713
+					],
+					"anchor": [
+						201.0,
+						708
+					]
+				},
+				"handover": {
+					"region": [
+						1286,
+						83,
+						576,
+						715
+					],
+					"anchor": [
+						233.5,
+						710
+					]
+				}
+			},
+			"walk_animation": {
+				"texture": "res://art/characters/bath_cashier_v1/cashier_poses.png",
+				"fps": 1,
+				"frames": [
+					{
+						"region": [
+							105,
+							83,
+							448,
+							716
+						],
+						"anchor": [
+							246.0,
+							711
+						]
+					}
+				]
+			},
+			"shadow_baked": false,
+			"sha256": "b1a82cd15592746464ea5ac1cd1698fd74f12df587471be853ff39eb70a990dd"
+		}
+	]
+}

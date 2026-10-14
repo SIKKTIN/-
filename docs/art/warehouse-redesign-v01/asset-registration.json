@@ -1,0 +1,119 @@
+{
+	"mode": "built-in imagegen",
+	"assets": [
+		{
+			"key": "rack_parts",
+			"path": "art/props/warehouse_v1/rack_parts.png",
+			"sha256": "c779352c41f52b694ec4c1629ce700d577d0a6fdf34d952f6439c7685efd0bbd",
+			"region": [
+				246,
+				28,
+				298,
+				1925
+			]
+		},
+		{
+			"key": "rack_goods",
+			"path": "art/props/warehouse_v1/rack_goods.png",
+			"sha256": "2cbecd93b7bd12702d26f7e7615d1bccc183d9fca3bc5ff2f3ca57550b975c31",
+			"region": [
+				395,
+				36,
+				236,
+				1459
+			]
+		},
+		{
+			"key": "wall_rack",
+			"path": "art/props/warehouse_v1/wall_rack.png",
+			"sha256": "8751f1780f73e6c0e905030221eb2cd43b19bf3bb0dc1bffdd3dca5170fdb209",
+			"region": [
+				363,
+				63,
+				244,
+				1479
+			]
+		},
+		{
+			"key": "north_shelf",
+			"path": "art/props/warehouse_v1/north_shelf.png",
+			"sha256": "5aa1f765169f6367fab509d5c2cd04e6a95bc9249263ad4ffd019c943f0a9826",
+			"region": [
+				261,
+				195,
+				1253,
+				535
+			]
+		},
+		{
+			"key": "registration_desk",
+			"path": "art/props/warehouse_v1/registration_desk.png",
+			"sha256": "a9bd898a0c690a7a470d5ab6e7214a630bbbb0326988f77950068f09ea7b1d1b",
+			"region": [
+				257,
+				129,
+				1067,
+				727
+			]
+		},
+		{
+			"key": "sign",
+			"path": "art/props/warehouse_v1/sign.png",
+			"sha256": "2de1aecaa00ee2aa2d6cf252400f04ac74e2d2d950dc80426ef632eef36d54fa",
+			"region": [
+				347,
+				137,
+				1361,
+				475
+			]
+		}
+	],
+	"definition_ids": [
+		"warehouse_rack_parts_v1",
+		"warehouse_rack_goods_v1",
+		"warehouse_wall_rack_v1",
+		"warehouse_north_shelf_v1",
+		"warehouse_registration_desk_v1",
+		"warehouse_sign_v1",
+		"warehouse_crate_v1",
+		"warehouse_packages_v1",
+		"warehouse_drums_v1",
+		"warehouse_jack_v1",
+		"warehouse_cabinet_v1",
+		"warehouse_lamp_v1"
+	],
+	"reused": [
+		{
+			"id": "warehouse_crate_v1",
+			"source": "shipping_crates_v44",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "warehouse_packages_v1",
+			"source": "sack_pallet_v44",
+			"texture": "res://art/props/factory_v44/variation_atlas.png"
+		},
+		{
+			"id": "warehouse_drums_v1",
+			"source": "oil_drums_v44",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "warehouse_jack_v1",
+			"source": "pallet_jack_v44",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "warehouse_cabinet_v1",
+			"source": "workshop2_high_cabinet_b",
+			"texture": "res://art/props/workshop_one_v2/high-cabinet-b.png"
+		},
+		{
+			"id": "warehouse_lamp_v1",
+			"source": "caged_wall_lamp",
+			"texture": "res://art/props/prison_v17/caged_wall_lamp_v17.png"
+		}
+	],
+	"door": "res://art/architecture/workshop_door_v2/manifest.json",
+	"wall": "res://art/architecture/workshop_one_v1/manifest.json"
+}

@@ -1,0 +1,62 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.61,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.11,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 17.45,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 22.56,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "social",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 22.05,
+      "checks": 38,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 122,
+  "passed": true
+}

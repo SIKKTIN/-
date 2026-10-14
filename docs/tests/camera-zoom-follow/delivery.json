@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "cause": "Dorm preview uses 1.35 zoom while follow, locate and bounds used unscaled viewport size. At 1200x800 this places player feet at (810,540) instead of (600,400).",
+  "changes": [
+    "Use viewport/zoom for world-space follow, locate, center, limits and small-map reset.",
+    "Convert pointer and middle-button drag pixels into world displacement.",
+    "Apply zoom conversion to tutorial focus anchor."
+  ],
+  "checks": 89,
+  "failed": [],
+  "runtime_note": "Existing game processes must restart to load edited scripts. World geometry and saved R04 map were not modified by this camera repair."
+}

@@ -1,0 +1,10 @@
+已接入用户选择的 D 敞开式门洞。
+入口使用新的原始透明 PNG open-entry-d-v3.png，移除门扇；保留浅绿色雨棚、薄门框、奶油灰墙柱、壁灯与“入口”牌。
+资源由内置 image_gen 生成，完整提示词、来源、保存路径见 generation.json。没有编辑原始 PNG 像素。
+入口仍为非阻挡美术，使用原有西侧物理开口；屋顶进出显隐、原单一售货台/店员和购买流程保持可用。
+入口绘制深度高于雨棚和屋顶，避免深度量化后入口牌再次被遮住。
+
+地图中只有 kiosk-side-entry 改用 kiosk_open_entry_d_v3，缩减旧门扇占据的外侧显示宽度，并调整显示深度。保留同步写入的其他地图修改。
+before-installation.json 是首次替换前的地图。before.json/after.json 是最终层级调整前后的最新地图，用于检查其他对象和区域未被改动。
+原生 Godot 实机验证 100 项通过，包括实际穿过入口、进出屋顶显隐、物理墙体边界、购买扣款、入口牌层级、门洞透明度、编辑器可用以及保留其他地图修改。
+截图：runtime-exterior.png、runtime-interior.png、runtime-interior-east.png、editor.png。详细结果：checks.json。

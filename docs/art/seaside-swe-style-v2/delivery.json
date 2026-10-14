@@ -1,0 +1,140 @@
+{
+  "status": "game-style sea prototype adapted and profiled",
+  "measurements": {
+    "adapted_material": {
+      "average_fps": 60.0092814355287,
+      "compute_gpu_median_ms": 0.342016,
+      "compute_gpu_p95_ms": 0.35328,
+      "estimated_combined_gpu_median_ms": 0.820015985218048,
+      "fixed_step_hz": 120,
+      "frame_median_ms": 16.668,
+      "frame_p95_ms": 17.106,
+      "frames": 180,
+      "grid": [
+        384,
+        256
+      ],
+      "note": "Compute and viewport render timings are separate scopes; combined value is their median sum, not a full-game GPU measurement.",
+      "render_cpu_median_ms": 0.0590000003576279,
+      "render_gpu_median_ms": 0.477999985218048,
+      "render_gpu_p95_ms": 1.48099994659424,
+      "reported_scene_video_memory_bytes": 47169536,
+      "simulation_texture_mib": 4.125,
+      "steps_per_frame": 2
+    },
+    "checks": {
+      "all_resolutions_profiled": true,
+      "game_character_loaded": true,
+      "game_grass_loaded": true,
+      "original_and_style_share_solver": true,
+      "pier_texture_loaded": true,
+      "style_compute_gpu_p95_under_1ms": true,
+      "style_frame_p95_under_20ms": true,
+      "style_render_gpu_p95_under_2ms": true
+    },
+    "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "high_resolution": {
+      "average_fps": 60.0018200552083,
+      "compute_gpu_median_ms": 0.566272,
+      "compute_gpu_p95_ms": 1.486848,
+      "estimated_combined_gpu_median_ms": 1.03127200357628,
+      "fixed_step_hz": 120,
+      "frame_median_ms": 16.664,
+      "frame_p95_ms": 17.02,
+      "frames": 180,
+      "grid": [
+        512,
+        342
+      ],
+      "note": "Compute and viewport render timings are separate scopes; combined value is their median sum, not a full-game GPU measurement.",
+      "render_cpu_median_ms": 0.0579999983310699,
+      "render_gpu_median_ms": 0.465000003576279,
+      "render_gpu_p95_ms": 1.48099994659424,
+      "reported_scene_video_memory_bytes": 51494912,
+      "simulation_texture_mib": 7.34765625,
+      "steps_per_frame": 2
+    },
+    "low_resolution": {
+      "average_fps": 60.0026601179319,
+      "compute_gpu_median_ms": 0.094208,
+      "compute_gpu_p95_ms": 0.19968,
+      "estimated_combined_gpu_median_ms": 0.341207993920326,
+      "fixed_step_hz": 120,
+      "frame_median_ms": 16.667,
+      "frame_p95_ms": 17.122,
+      "frames": 180,
+      "grid": [
+        256,
+        170
+      ],
+      "note": "Compute and viewport render timings are separate scopes; combined value is their median sum, not a full-game GPU measurement.",
+      "render_cpu_median_ms": 0.0560000017285347,
+      "render_gpu_median_ms": 0.246999993920326,
+      "render_gpu_p95_ms": 1.50100004673004,
+      "reported_scene_video_memory_bytes": 45006848,
+      "simulation_texture_mib": 1.826171875,
+      "steps_per_frame": 2
+    },
+    "previous_material": {
+      "average_fps": 60.0043603168497,
+      "compute_gpu_median_ms": 0.19968,
+      "compute_gpu_p95_ms": 0.382976,
+      "estimated_combined_gpu_median_ms": 0.48067998831749,
+      "fixed_step_hz": 120,
+      "frame_median_ms": 16.652,
+      "frame_p95_ms": 17.12,
+      "frames": 180,
+      "grid": [
+        384,
+        256
+      ],
+      "note": "Compute and viewport render timings are separate scopes; combined value is their median sum, not a full-game GPU measurement.",
+      "render_cpu_median_ms": 0.063000001013279,
+      "render_gpu_median_ms": 0.28099998831749,
+      "render_gpu_p95_ms": 1.15799999237061,
+      "reported_scene_video_memory_bytes": 47169536,
+      "simulation_texture_mib": 4.125,
+      "steps_per_frame": 2
+    },
+    "scope": "Independent sea prototype on RTX 4050, 1200x812 output, capped 60 FPS; not whole-map or mobile performance. Shader simulation is unchanged."
+  },
+  "recording": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\seaside-swe-style-v2\\style-water.webp",
+  "recording_seconds": 6,
+  "recording_origin": "native Godot framebuffer; 0.1 simulated second per capture",
+  "art_tool": "built-in image_gen; original transparent PNG retained byte for byte",
+  "pier": "E:\\Project\\Godot\\这次怎么逃\\art\\fx\\seaside_swe_style_v2\\pier.png",
+  "prompt": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\seaside-swe-style-v2\\pier-prompt.txt",
+  "style_changes": [
+    "muted gray-green sea",
+    "soft low-gloss highlights from solved height gradients",
+    "warm broken foam brush clusters controlled by transported foam field",
+    "game grass and shrubs",
+    "game player sprite",
+    "weathered wooden pier sprite"
+  ],
+  "performance_changes": [
+    "shared textures and cached mipmaps",
+    "polynomial brush hash avoids per-pixel sine noise",
+    "simulation stays on GPU; no per-frame CPU texture readback"
+  ],
+  "map_unchanged": true,
+  "scope": "independent prototype; live map and game scene unchanged; whole-map performance not yet measured",
+  "interactive": {
+    "average_fps": 59.9869628334109,
+    "checks": {
+      "frame_p95_below_20ms": true,
+      "no_compute_when_rendering_stops": true,
+      "paused_state_exactly_unchanged": true,
+      "real_time_simulation_rate": true,
+      "resume_advances_simulation": true,
+      "resume_after_rendering_stops": true
+    },
+    "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "frame_median_ms": 16.669,
+    "frame_p95_ms": 17.338,
+    "measured_frames": 180,
+    "scope": "automatic interactive prototype, capped to 60 FPS; not whole-game performance",
+    "simulation_seconds_per_wall_second": 0.999782713890214,
+    "snapshot": "res://docs/art/seaside-swe-style-v2/interactive-live.png"
+  }
+}

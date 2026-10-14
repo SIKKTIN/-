@@ -58,6 +58,7 @@ static func key_for(ref: Dictionary, config: Dictionary) -> String:
 		"guard_start":return "guard"
 		"gate_guards":return "gate:"+str(config.gate_guards[ref.index].id)
 		"merchants":return "merchant:"+str(config.merchants[ref.index].id)
+		"resident_staff":return "resident:"+str(config.resident_staff[ref.index].id)
 	return ""
 
 static func id_for(game, actor) -> String:

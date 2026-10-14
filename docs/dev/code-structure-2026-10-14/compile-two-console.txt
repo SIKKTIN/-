@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "selector_index" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/core/game_session.gd:33)
+   GDScript backtrace (most recent call first):
+       [0] _initialize (res://qa/performance_optimization_20261014/compile.gd:7)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/core/escape_game.gd:0)
+   GDScript backtrace (most recent call first):
+       [0] _initialize (res://qa/performance_optimization_20261014/compile.gd:7)
+ERROR: Failed to load script "res://scripts/core/escape_game.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _initialize (res://qa/performance_optimization_20261014/compile.gd:7)
+COMPILE {"failed":["res://scripts/core/game_session.gd"],"scripts":126}
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)

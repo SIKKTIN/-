@@ -1,0 +1,92 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "exercise_yard",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.69,
+      "checks": 65,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "interaction_hint",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.92,
+      "checks": 32,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "quick_items",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.08,
+      "checks": 83,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.12,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 17.3,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "southwest_yard",
+      "ok": false,
+      "exit_code": 124,
+      "seconds": 75.84,
+      "checks": 0,
+      "failed": [],
+      "fresh_report": false,
+      "engine_errors": true
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.64,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 18.39,
+      "checks": 97,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 409,
+  "passed": false
+}

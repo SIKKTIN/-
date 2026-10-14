@@ -1,0 +1,330 @@
+{
+	"schema": 2,
+	"version": "canteen-side-v3",
+	"assets": [
+		{
+			"id": "doorway_canteen_side_open_v3",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "食堂侧门 · 加宽钢门开启",
+			"render_mode": "embedded_door",
+			"world_size": [
+				260,
+				120
+			],
+			"render_size": [
+				260,
+				120
+			],
+			"footprint_world_size": [
+				220,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				755,
+				516
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					260,
+					120
+				],
+				"door_art": "doorway_workshop_open_v2",
+				"door_art_closed": "doorway_workshop_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							33.22222222222222,
+							19,
+							26.0,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							200.77777777777777,
+							19,
+							26.0,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0.0,
+							0,
+							260.0,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							33.22222222222222,
+							19,
+							193.55555555555554,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0.0,
+							0,
+							260.0,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0.0,
+						18,
+						59.22222222222222,
+						102
+					],
+					[
+						200.77777777777777,
+						18,
+						59.22222222222222,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0.0,
+						18,
+						260.0,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				],
+				"roof_occludes_door": true
+			},
+			"reused_from": "doorway_workshop_open_v2"
+		},
+		{
+			"id": "doorway_canteen_side_closed_v3",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "食堂侧门 · 加宽钢门关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				260,
+				120
+			],
+			"render_size": [
+				260,
+				120
+			],
+			"footprint_world_size": [
+				220,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				498,
+				432
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					260,
+					120
+				],
+				"door_art": "doorway_workshop_open_v2",
+				"door_art_closed": "doorway_workshop_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							33.22222222222222,
+							19,
+							26.0,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							200.77777777777777,
+							19,
+							26.0,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0.0,
+							0,
+							260.0,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							33.22222222222222,
+							19,
+							193.55555555555554,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0.0,
+							0,
+							260.0,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0.0,
+						18,
+						59.22222222222222,
+						102
+					],
+					[
+						200.77777777777777,
+						18,
+						59.22222222222222,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0.0,
+						18,
+						260.0,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				],
+				"roof_occludes_door": true
+			},
+			"reused_from": "doorway_workshop_closed_v2"
+		}
+	]
+}

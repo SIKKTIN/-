@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-14",
+  "target": "Windows D3D12 Forward+ RTX4050 Laptop 1200x720",
+  "texture_MiB": {
+    "before": 846.71875,
+    "after": 402.48046875
+  },
+  "render_GiB": {
+    "before": 1.781707763671875,
+    "after": 1.3478813171386719
+  },
+  "first_frame_seconds": {
+    "before": 11.004,
+    "after": 6.818
+  },
+  "fallback_requests": {
+    "before": 75,
+    "after": 0
+  },
+  "texture_files_MiB": {
+    "before": 370.76,
+    "after": 207.85486030578613
+  },
+  "pack_MiB": 608.3841171264648,
+  "pixel_registration_equal": true,
+  "regressions": "checks/summary.json",
+  "known_failures": "baseline-failure-comparison.json",
+  "limitations": [
+    "Short samples; not a full day or leak proof",
+    "No consistent CPU/frame-time improvement",
+    "Startup excludes engine process launch; OS cache was not cleared",
+    "BC7 tested on Windows D3D12 only",
+    "Three pre-existing regression groups still fail"
+  ]
+}

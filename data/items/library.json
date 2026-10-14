@@ -1,8 +1,652 @@
 {
   "schema": 1,
   "items": [
-    {"id":"scrap","name":"旧零件","short":"零件","description":"带回安全区卖给商人，或随伙伴带出。","buy_price":3,"sell_price":5},
-    {"id":"door_key","name":"钥匙","short":"钥匙","description":"门左侧使用，瞬间打开主锁门；成功才消耗。","buy_price":4,"sell_price":9},
-    {"id":"lock_tool","name":"撬锁工具","short":"工具","description":"门左侧启动6秒撬锁，启动消耗；移动会中断，门进度保留。","buy_price":2,"sell_price":6,"duration":6}
+    {
+      "id": "scrap",
+      "name": "旧零件",
+      "short": "零件",
+      "description": "旧零件，可以收集、携带或带出。",
+      "buy_price": 3,
+      "sell_price": 5,
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "material"
+    },
+    {
+      "id": "door_key",
+      "use_action": "开锁",
+      "consumable": true,
+      "name": "钥匙",
+      "short": "钥匙",
+      "description": "门左侧使用，瞬间打开主锁门；成功才消耗。",
+      "buy_price": 4,
+      "sell_price": 9,
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "tool"
+    },
+    {
+      "id": "lock_tool",
+      "use_action": "撬锁",
+      "consumable": true,
+      "name": "撬锁工具",
+      "short": "工具",
+      "description": "门左侧启动6秒撬锁，启动消耗；移动会中断，门进度保留。",
+      "buy_price": 2,
+      "sell_price": 6,
+      "duration": 6,
+      "grid_size": [
+        2,
+        1
+      ],
+      "category": "tool"
+    },
+    {
+      "id": "copper_wire",
+      "name": "铜线",
+      "short": "铜线",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "工具材料，可收集、携带或带出。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "material"
+    },
+    {
+      "id": "wrench",
+      "name": "扳手",
+      "short": "扳手",
+      "grid_size": [
+        1,
+        3
+      ],
+      "description": "车间工具，可收集、携带或带出。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "tool"
+    },
+    {
+      "id": "cloth",
+      "name": "布料",
+      "short": "布料",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "生活材料，可收集、携带或带出。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "material"
+    },
+    {
+      "id": "bandage",
+      "use_action": "包扎",
+      "consumable": true,
+      "name": "绷带",
+      "short": "绷带",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "使用后恢复20点体力，状态已满时不会消耗。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "medical"
+    },
+    {
+      "id": "bread",
+      "use_action": "食用",
+      "consumable": true,
+      "name": "馒头",
+      "short": "馒头",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "使用后恢复25点饱腹，吃饱时不会消耗。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "food"
+    },
+    {
+      "id": "factory_map",
+      "name": "园区地图",
+      "short": "地图",
+      "use_action": "查看地图",
+      "consumable": false,
+      "description": "记录园区的道路与建筑，可手动标记。查看不会消耗；需要携带地图。",
+      "grid_size": [
+        2,
+        1
+      ],
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "document"
+    },
+    {
+      "id": "gear",
+      "name": "齿轮",
+      "short": "齿轮",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "机械零件，可收集、携带或带出。",
+      "buy_price": 0,
+      "sell_price": 0,
+      "category": "material"
+    },
+    {
+      "id": "biscuits",
+      "name": "饼干",
+      "short": "饼干",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "food",
+      "description": "使用后恢复15点饱腹，吃饱时不会消耗。",
+      "buy_price": 2,
+      "sell_price": 4,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "食用",
+      "consumable": true,
+      "restore": {
+        "stat": "fullness",
+        "amount": 15
+      }
+    },
+    {
+      "id": "canned_meat",
+      "name": "肉罐头",
+      "short": "罐头",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "food",
+      "description": "使用后恢复40点饱腹，吃饱时不会消耗。",
+      "buy_price": 4,
+      "sell_price": 9,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "食用",
+      "consumable": true,
+      "restore": {
+        "stat": "fullness",
+        "amount": 40
+      }
+    },
+    {
+      "id": "instant_coffee",
+      "name": "速溶咖啡",
+      "short": "咖啡",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "food",
+      "description": "使用后恢复20点体力，体力已满时不会消耗。",
+      "buy_price": 3,
+      "sell_price": 7,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "饮用",
+      "consumable": true,
+      "restore": {
+        "stat": "stamina",
+        "amount": 20
+      }
+    },
+    {
+      "id": "cigarettes",
+      "name": "香烟",
+      "short": "香烟",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "social",
+      "description": "靠近一位空闲工友后赠送，提高好感与信任；成功送出才消耗。",
+      "buy_price": 5,
+      "sell_price": 10,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "赠送工友",
+      "consumable": true
+    },
+    {
+      "id": "painkillers",
+      "name": "止痛药",
+      "short": "药片",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "medical",
+      "description": "使用后恢复30点体力，体力已满时不会消耗。",
+      "buy_price": 5,
+      "sell_price": 10,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "使用",
+      "consumable": true,
+      "restore": {
+        "stat": "stamina",
+        "amount": 30
+      }
+    },
+    {
+      "id": "antiseptic",
+      "name": "消毒药水",
+      "short": "消毒液",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "medical",
+      "description": "使用后恢复15点体力，体力已满时不会消耗。",
+      "buy_price": 2,
+      "sell_price": 5,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "处理擦伤",
+      "consumable": true,
+      "restore": {
+        "stat": "stamina",
+        "amount": 15
+      }
+    },
+    {
+      "id": "duct_tape",
+      "name": "胶带",
+      "short": "胶带",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "material",
+      "description": "维修用胶带，可搜刮、携带和整理；制作材料。",
+      "buy_price": 2,
+      "sell_price": 4,
+      "implementation_status": "可搜刮 / 可整理（制作待接入）"
+    },
+    {
+      "id": "screw_box",
+      "name": "螺丝盒",
+      "short": "螺丝",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "material",
+      "description": "装有螺丝和螺帽的小铁盒；制作材料。",
+      "buy_price": 2,
+      "sell_price": 5,
+      "implementation_status": "可搜刮 / 可整理（制作待接入）"
+    },
+    {
+      "id": "work_gloves",
+      "name": "工作手套",
+      "short": "手套",
+      "grid_size": [
+        2,
+        1
+      ],
+      "category": "equipment",
+      "description": "旧皮革工作手套，可搜刮和携带。",
+      "buy_price": 6,
+      "sell_price": 12,
+      "implementation_status": "可搜刮 / 可整理（穿戴待接入）"
+    },
+    {
+      "id": "pliers",
+      "name": "钳子",
+      "short": "钳子",
+      "grid_size": [
+        1,
+        2
+      ],
+      "category": "tool",
+      "description": "车间钳子，占两格，可搜刮和携带。",
+      "buy_price": 7,
+      "sell_price": 14,
+      "implementation_status": "可搜刮 / 可整理（工具操作待接入）"
+    },
+    {
+      "id": "repair_kit",
+      "name": "维修包",
+      "short": "维修包",
+      "grid_size": [
+        2,
+        2
+      ],
+      "category": "tool",
+      "description": "装有维修工具的帆布包，占四格，可搜刮和携带。",
+      "buy_price": 10,
+      "sell_price": 20,
+      "implementation_status": "可搜刮 / 可整理（维修操作待接入）"
+    },
+    {
+      "id": "canvas_pouch",
+      "name": "帆布扩容袋",
+      "short": "扩容袋",
+      "grid_size": [
+        2,
+        2
+      ],
+      "category": "equipment",
+      "description": "安装后本轮背包扩充到30格；已达30格时不会消耗。",
+      "buy_price": 12,
+      "sell_price": 24,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "安装扩容袋",
+      "consumable": true
+    },
+    {
+      "id": "duty_roster",
+      "name": "值班表",
+      "short": "班表",
+      "grid_size": [
+        2,
+        1
+      ],
+      "category": "document",
+      "description": "记录园区作息与劳动时间，阅读不会消耗。",
+      "buy_price": 3,
+      "sell_price": 6,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "阅读",
+      "read_text": "园区日常安排\n\n08:00 起床准备\n09:00–12:00 上午劳动\n12:00–14:00 午间休息\n14:00–17:00 下午劳动\n17:00 后可自由活动\n\n留意看守巡逻的位置，工作与休息期间的路线有所不同。"
+    },
+    {
+      "id": "delivery_note",
+      "name": "送货单",
+      "short": "货单",
+      "grid_size": [
+        2,
+        1
+      ],
+      "category": "document",
+      "description": "仓库的送货凭单，记录物流出口与装卸场的位置。",
+      "buy_price": 4,
+      "sell_price": 8,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "阅读",
+      "read_text": "货物交接单\n\n物资由仓库转送到东侧装卸场。\n物流出口位于园区东北角。\n\n搬运过程中需要经过仓库和装卸场的门口。\n观察物流通道，与正门、后勤通道比较路线。"
+    },
+    {
+      "id": "work_id",
+      "name": "工作证",
+      "short": "工证",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "description": "车间工作证，记录工厂身份，可查看证件。",
+      "buy_price": 6,
+      "sell_price": 12,
+      "implementation_status": "可搜刮 / 可阅读（身份验证待接入）",
+      "use_action": "查看证件",
+      "read_text": "园区车间工作证\n\n所属区域：生产车间\n身份：工厂工作人员\n\n证件注明：仅限工作区域使用，通行须经门岗检查。"
+    },
+    {
+      "id": "temporary_pass",
+      "name": "临时通行证",
+      "short": "通行证",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "description": "临时通行证，可查看上面的通行记录。",
+      "buy_price": 9,
+      "sell_price": 18,
+      "implementation_status": "可搜刮 / 可阅读（门岗验证待接入）",
+      "use_action": "查看证件",
+      "read_text": "园区临时通行证\n\n登记区域：物流与后勤通道\n\n证件注明：出入须配合门岗检查。\n不要把一张证件当成已经打开的门。"
+    },
+    {
+      "id": "work_clothes",
+      "name": "工作服",
+      "short": "工作服",
+      "grid_size": [
+        2,
+        2
+      ],
+      "category": "equipment",
+      "description": "折叠的灰蓝工作服，占四格，可搜刮和携带。",
+      "buy_price": 8,
+      "sell_price": 16,
+      "implementation_status": "可搜刮 / 可整理（穿戴与伪装待接入）"
+    },
+    {
+      "id": "secret_note",
+      "name": "秘密便条",
+      "short": "便条",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "description": "夹在角落里的纸条，记录后勤路线的线索。",
+      "buy_price": 2,
+      "sell_price": 5,
+      "implementation_status": "可搜刮 / 可使用",
+      "use_action": "阅读",
+      "read_text": "有人留下的便条\n\n洗衣房后面连着设备间。\n南侧后勤通道沿围墙通往东南出口。\n\n先看清道路和门的位置，再准备需要的工具。\n空闲时找工友聊聊，也许能问到更多消息。"
+    },
+    {
+      "id": "water_card",
+      "name": "水卡",
+      "short": "水卡",
+      "description": "公共浴室储值卡。找浴室收费员充值，使用花洒时自动检测并扣费。余额随这张卡保留，洗澡不会消耗水卡本身。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "buy_price": 0,
+      "sell_price": 0,
+      "use_action": "查看余额",
+      "consumable": false,
+      "initial_state": {
+        "water_balance": 0
+      },
+      "implementation_status": "已接入：人工充值 / 花洒扣费 / 独立余额",
+      "acquisition_sources": [
+        "公共浴室 · 收费员充值领卡"
+      ]
+    },
+    {
+      "id": "dorm_card",
+      "name": "宿舍卡",
+      "short": "宿舍卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": []
+      },
+      "card_art": "dorm",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "开局配发"
+      ],
+      "card_role": "宿舍"
+    },
+    {
+      "id": "logistics_card",
+      "name": "后勤通行卡",
+      "short": "后勤通行卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "laundry",
+          "equipment",
+          "warehouse"
+        ]
+      },
+      "card_art": "logistics",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "locker_0"
+      ],
+      "card_role": "后勤"
+    },
+    {
+      "id": "duty_card",
+      "name": "值班室房卡",
+      "short": "值班室房卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "duty"
+        ]
+      },
+      "card_art": "guard",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "locker_1"
+      ],
+      "card_role": "值班"
+    },
+    {
+      "id": "office_card",
+      "name": "办公室房卡",
+      "short": "办公室房卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "office"
+        ]
+      },
+      "card_art": "guard",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "campus-admin-desk-0"
+      ],
+      "card_role": "行政"
+    },
+    {
+      "id": "monitor_card",
+      "name": "监控室房卡",
+      "short": "监控室房卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "monitor"
+        ]
+      },
+      "card_art": "guard",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "office-archive-west"
+      ],
+      "card_role": "监控"
+    },
+    {
+      "id": "tools_card",
+      "name": "工具房卡",
+      "short": "工具房卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "tools"
+        ]
+      },
+      "card_art": "work",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "warehouse-high-cabinet"
+      ],
+      "card_role": "工具管理"
+    },
+    {
+      "id": "daily_card",
+      "name": "生活通行卡",
+      "short": "生活通行卡",
+      "description": "随身携带，门边自动匹配权限；刷卡不消耗。",
+      "grid_size": [
+        1,
+        1
+      ],
+      "category": "document",
+      "keycard": true,
+      "consumable": false,
+      "buy_price": 0,
+      "sell_price": 0,
+      "initial_state": {
+        "card_rooms": [
+          "workshop",
+          "workshop-two",
+          "canteen",
+          "bath",
+          "reading-room",
+          "clinic",
+          "chess-room"
+        ]
+      },
+      "card_art": "work",
+      "implementation_status": "已接入：独立权限 / 房号绑定 / 自动刷卡 / 室内离场",
+      "acquisition_sources": [
+        "开局配发"
+      ],
+      "card_role": "生活与劳动"
+    }
   ]
 }

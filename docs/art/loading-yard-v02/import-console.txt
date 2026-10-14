@@ -1,0 +1,1212 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+MCP | plugin disabled in headless mode
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/bench.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/locker.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/drawers.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/rack_short.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/rack.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/return.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/cable.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/chest.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/bars.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/shelter-layers.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/shelter-layers.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/shelter-layers.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/tree-round.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/tree-square.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v54/bench-vertical.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-vertical.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-horizontal.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-corner-sw-v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/metal-bucket.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/shrub-group-a.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/shrub-group-b.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-vertical.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-horizontal.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/exercise_yard_v55/curb-horizontal.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/archive.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/desk.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/cabinet.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/sideboard.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/work_chair.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/visitor_chair.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/console.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/recorder-rack.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/operator-chair.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/logbook-desk.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/washer.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/shelf_vertical.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/shelf_horizontal.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/folding_table.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/dirty_station.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/prison_v42/wash_basin_v42.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/prison_v42/laundry_cart_v42.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_two_v1/lathe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_two_v1/precision_lathe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_two_v1/vertical_mill.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_two_v1/stock_rack.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v1/parts-drawers.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v1/north-parts-rack.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v2/double-cabinet.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v2/high-cabinet-b.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v2/tool-station.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v1/electrical-cabinet.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v2/east-bits.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_one_v2/wood-crate.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/factory_v44/detail_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/rack_parts.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/rack_goods.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/wall_rack.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/north_shelf.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/registration_desk.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/factory_v44/detail_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/factory_v44/variation_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/factory_v44/detail_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] icon (res://scripts/editor/editor_catalog.gd:70)
+       [2] rebuild_palette (res://scripts/editor/map_editor.gd:658)
+       [3] rebuild_subcategories (res://scripts/editor/map_editor.gd:648)
+       [4] build_ui (res://scripts/editor/map_editor.gd:396)
+       [5] _ready (res://scripts/editor/map_editor.gd:77)
+       [6] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/floor.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] texture (res://scripts/presentation/region_terrain.gd:20)
+       [2] warm_map (res://scripts/presentation/region_terrain.gd:26)
+       [3] load_map_textures (res://scripts/editor/map_canvas.gd:95)
+       [4] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [5] open_file (res://scripts/editor/map_document.gd:66)
+       [6] open_now (res://scripts/editor/map_editor.gd:743)
+       [7] request_open (res://scripts/editor/map_editor.gd:740)
+       [8] _ready (res://scripts/editor/map_editor.gd:81)
+       [9] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/environment/monitor_room_v1/floor.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] texture (res://scripts/presentation/region_terrain.gd:20)
+       [2] warm_map (res://scripts/presentation/region_terrain.gd:26)
+       [3] load_map_textures (res://scripts/editor/map_canvas.gd:95)
+       [4] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [5] open_file (res://scripts/editor/map_document.gd:66)
+       [6] open_now (res://scripts/editor/map_editor.gd:743)
+       [7] request_open (res://scripts/editor/map_editor.gd:740)
+       [8] _ready (res://scripts/editor/map_editor.gd:81)
+       [9] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/floor.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] texture (res://scripts/presentation/region_terrain.gd:20)
+       [2] warm_map (res://scripts/presentation/region_terrain.gd:26)
+       [3] load_map_textures (res://scripts/editor/map_canvas.gd:95)
+       [4] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [5] open_file (res://scripts/editor/map_document.gd:66)
+       [6] open_now (res://scripts/editor/map_editor.gd:743)
+       [7] request_open (res://scripts/editor/map_editor.gd:740)
+       [8] _ready (res://scripts/editor/map_editor.gd:81)
+       [9] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/environment/exercise_yard_v55/concrete-a.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] texture (res://scripts/presentation/region_terrain.gd:20)
+       [2] warm_map (res://scripts/presentation/region_terrain.gd:26)
+       [3] load_map_textures (res://scripts/editor/map_canvas.gd:95)
+       [4] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [5] open_file (res://scripts/editor/map_document.gd:66)
+       [6] open_now (res://scripts/editor/map_editor.gd:743)
+       [7] request_open (res://scripts/editor/map_editor.gd:740)
+       [8] _ready (res://scripts/editor/map_editor.gd:81)
+       [9] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/environment/exercise_yard_v55/concrete-b.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] texture (res://scripts/presentation/region_terrain.gd:20)
+       [2] warm_map (res://scripts/presentation/region_terrain.gd:26)
+       [3] load_map_textures (res://scripts/editor/map_canvas.gd:95)
+       [4] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [5] open_file (res://scripts/editor/map_document.gd:66)
+       [6] open_now (res://scripts/editor/map_editor.gd:743)
+       [7] request_open (res://scripts/editor/map_editor.gd:740)
+       [8] _ready (res://scripts/editor/map_editor.gd:81)
+       [9] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/cafeteria_v2/door.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/cafeteria_v2/door.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/cafeteria_v2/door.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/cafeteria_v2/door.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/workshop_door_v2/components.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/workshop_door_v2/components.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/workshop_door_v2/components.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/workshop_door_v2/components.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/v23/cafeteria_gate_pair_v23.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/v23/cafeteria_gate_pair_v23.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/monitor_room_v1/door-open.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/monitor_room_v1/door-closed.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/door_closed.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/door_side_open.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/door_open.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/laundry_v1/wall.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/monitor_room_v1/wall.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/laundry_v1/door_open.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/laundry_v1/door_closed.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/office_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/screens.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/monitor_room_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/duty_room_v1/roster.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/laundry_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/laundry_v1/supply_pipe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/laundry_v1/downpipe.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/workshop_two_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/prison_v17/caged_wall_lamp_v17.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/prison_v17/pipe_valve_v17.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/pegboard.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/tool_room_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/reading_room_v1/lamp.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/duty_room_v1/clock.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/duty_room_v1/roster.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/duty_room_v1/ledger.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/props/warehouse_v1/sign.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/kiosk_v1/building.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/architecture/kiosk_v1/vendor.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] load_asset (res://scripts/presentation/world_texture.gd:52)
+       [1] load_referenced_textures (res://scripts/editor/map_canvas.gd:101)
+       [2] load_map_textures (res://scripts/editor/map_canvas.gd:96)
+       [3] on_document_changed (res://scripts/editor/map_canvas.gd:86)
+       [4] open_file (res://scripts/editor/map_document.gd:66)
+       [5] open_now (res://scripts/editor/map_editor.gd:743)
+       [6] request_open (res://scripts/editor/map_editor.gd:740)
+       [7] _ready (res://scripts/editor/map_editor.gd:81)
+       [8] _enter_tree (res://addons/escape_map_editor/plugin.gd:8)
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (8 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  22% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  44% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  77% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (9 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | bollard.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | booth.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | crates.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | crates_low.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | floor.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | logistics_sign.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | pallets.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | truck.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | yard_sign.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (9 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  10% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  20% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  30% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  40% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  50% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  60% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  70% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  80% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的前置操作……[39m[0m
+[   0% ] [90m[1mreimport[22m | bollard.png[39m[0m
+[  10% ] [90m[1mreimport[22m | booth.png[39m[0m
+[  20% ] [90m[1mreimport[22m | crates.png[39m[0m
+[  30% ] [90m[1mreimport[22m | crates_low.png[39m[0m
+[  40% ] [90m[1mreimport[22m | floor.png[39m[0m
+[  50% ] [90m[1mreimport[22m | logistics_sign.png[39m[0m
+[  60% ] [90m[1mreimport[22m | pallets.png[39m[0m
+[  70% ] [90m[1mreimport[22m | truck.png[39m[0m
+[  80% ] [90m[1mreimport[22m | yard_sign.png[39m[0m
+[  90% ] [90m[1mreimport[22m | 正在结束资产导入……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (9 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的后置操作……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

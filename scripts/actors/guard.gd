@@ -197,7 +197,6 @@ func tick(delta: float) -> void:
 		release_target()
 	if not labor_enforcement() and not curfew_alert() and not world.guard_zone.grow(-Footprint.RADIUS).has_point(position):
 		returning_from_inspection = true
-	world.update_dorm_doors(game.schedule != null and game.schedule.is_sleep_time(),game.inspection_positions())
 	if returning_from_inspection and world.guard_zone.grow(-Footprint.RADIUS).has_point(position):
 		returning_from_inspection = false
 		path.clear()

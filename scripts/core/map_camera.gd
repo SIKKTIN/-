@@ -4,6 +4,7 @@ const VIEW := Rect2(0,0,1200,720) # Legacy test default; runtime uses view_rect(
 const SCROLL_SPEED := 520.0
 const DRAG_THRESHOLD := 12.0
 const FOLLOW_SPEED := 10.0
+const DEFAULT_ZOOM := Vector2(0.8,0.8)
 var game
 var panning: bool = false
 var enabled_for_room: bool = false
@@ -20,6 +21,7 @@ var _follow_actor: int = -1
 
 func configure(owner_game) -> void:
 	game = owner_game
+	zoom = DEFAULT_ZOOM
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 	process_callback = Camera2D.CAMERA2D_PROCESS_IDLE
 	position_smoothing_enabled = false
@@ -33,8 +35,9 @@ func reset() -> void:
 	if game.mini_map:
 		game.mini_map.pointer_id = -2
 	scroll_direction = Vector2.ZERO
-	enabled_for_room = game.world.bounds.size.x > view_rect().size.x + 1 or game.world.bounds.size.y > view_rect().size.y + 1
-	position = game.world.bounds.get_center()-view_rect().get_center()
+	var span := world_view_size()
+	enabled_for_room = game.world.bounds.size.x > span.x + 1 or game.world.bounds.size.y > span.y + 1
+	position = game.world.bounds.get_center()-span/2
 	if enabled_for_room:
 		locate_selected()
 	else:
@@ -62,7 +65,7 @@ func locate_selected() -> void:
 	_target_sample_valid = false
 	if not enabled_for_room:
 		return
-	position = game.actors[game.selected_actor_id].position - view_rect().get_center()
+	position = game.actors[game.selected_actor_id].position - world_view_size()/2
 	pan_by(Vector2.ZERO)
 
 func interaction_blocked() -> bool:
@@ -72,21 +75,26 @@ func center_on(world_point: Vector2) -> void:
 	following = false
 	_target_sample_valid = false
 	if enabled_for_room:
-		position = world_point - view_rect().get_center()
+		position = world_point - world_view_size()/2
 		pan_by(Vector2.ZERO)
 
 func view_rect() -> Rect2:
 	return Rect2(Vector2.ZERO,get_viewport_rect().size)
 
 func world_view_rect() -> Rect2:
-	return Rect2(position,view_rect().size/zoom)
+	return Rect2(position,world_view_size())
+
+func world_view_size() -> Vector2:
+	# Camera position is in world units; viewport/HUD dimensions are pixels.
+	return view_rect().size/zoom
 
 func camera_limits() -> Array:
 	var low: Vector2 = game.world.bounds.position
-	var high: Vector2 = game.world.bounds.end-view_rect().size
+	var span := world_view_size()
+	var high: Vector2 = game.world.bounds.end-span
 	for axis in range(2):
 		if high[axis] < low[axis]:
-			low[axis] = game.world.bounds.get_center()[axis]-view_rect().size[axis]/2
+			low[axis] = game.world.bounds.get_center()[axis]-span[axis]/2
 			high[axis] = low[axis]
 	return [low,high]
 
@@ -109,9 +117,9 @@ func begin_pointer(id: int, point: Vector2) -> bool:
 func move_pointer(point: Vector2) -> void:
 	if not pointer_dragged and point.distance_to(pointer_start) >= DRAG_THRESHOLD:
 		pointer_dragged = true
-		manual_pan_by(pointer_start-point)
+		manual_pan_by((pointer_start-point)/zoom)
 	elif pointer_dragged:
-		manual_pan_by(pointer_last-point)
+		manual_pan_by((pointer_last-point)/zoom)
 	pointer_last = point
 
 func end_pointer(point: Vector2, cancelled: bool = false) -> void:
@@ -154,7 +162,7 @@ func tick(delta: float) -> void:
 	if scroll_direction != Vector2.ZERO:
 		manual_pan_by(scroll_direction * SCROLL_SPEED * delta)
 	elif following and not game.actors[game.selected_actor_id].escaped:
-		var target: Vector2 = game.actors[game.selected_actor_id].position-view_rect().get_center()
+		var target: Vector2 = game.actors[game.selected_actor_id].position-world_view_size()/2
 		var limits := camera_limits()
 		var low: Vector2 = limits[0]
 		var high: Vector2 = limits[1]
@@ -216,7 +224,7 @@ func _input(event: InputEvent) -> void:
 				end_pointer(event.position)
 				get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and panning:
-		manual_pan_by(-event.relative)
+		manual_pan_by(-event.relative/zoom)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and pointer_id == -1:
 		move_pointer(event.position)

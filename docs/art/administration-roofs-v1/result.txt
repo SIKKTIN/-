@@ -1,0 +1,33 @@
+办公室 / 值班室屋顶还原 · 2026-10-14
+
+表现
+值班室：蓝灰金属咬边屋顶、后部通风口、前侧检修盖。
+办公室：灰瓦、横向金属屋脊、旧化边缘。
+原有石质墙沿和门框继续使用，避免重复描画厚墙或覆盖门洞。
+两个整体贴合的屋面各只绘制一次；屋脊/通风口/检修盖已在原图中，不另添加旧的默认排水附件。
+
+接入
+R04 visibility_rooms 中只有 duty / office 的 roof_style 和预热用 roof_asset_id 两个字段改变。
+房间范围、墙体、家具、门状态、门碰撞及其余地图字段均与登记前保存的 input-map.json 对照一致。
+room_cover 支持 office / duty 两种样式；PropCatalog 和编辑器验证、屋顶选项同步注册。
+进入当前房间只隐藏对应屋面，离开后恢复，既有墙沿和门仍保持正常显示。
+两个预烘焙纹理分别 443×512 / 512×489，含 mipmaps，总像素内存约 1.82 MiB。
+定向预烘焙只合并这两项索引，未删除或重新生成其他任务的素材缓存。
+
+验证
+无界面新屋顶回归 118 项通过。
+原生 Forward+ D3D12 新屋顶回归 118 项通过；1.0 及当前 0.8 缩放的外观已人工检查。
+原有办公室/值班室门回归 50 项通过。
+130 份生产/构建脚本 can_instantiate 检查通过。
+覆盖原图 SHA、缩小纹理/mipmaps/透明度、烘焙命中、屋面范围和裁口、进屋显隐/离开恢复、门口双向通行/办公室关门阻挡、稳定状态绘制缓存、编辑器样式与数据验证。
+QA 不写生产地图；测试结束核对 R04 SHA 不变。
+没有 SCRIPT ERROR / ERROR。当前其他工作中的部分宿舍门/设备源图未重新烘焙，原有回退警告仍存在；不归因于这两个新屋顶，新屋顶缓存检查命中。
+未关闭用户运行中的编辑器或游戏，也未重置/提交其他工作。
+
+复现
+python tools/register_administration_roofs_v1.py
+Godot --headless --path 项目 --script res://scripts/tools/bake_administration_roofs_v1.gd
+Godot --headless --path 项目 --script res://qa/administration_roofs_v1.gd
+Godot --path 项目 --script res://qa/administration_roofs_v1.gd
+已有窗口需要重新启动或重新载入地图后使用新资源。
+最终原图、内置生成方式及完整提示词：art/architecture/administration_roofs_v1/source-v1.txt。

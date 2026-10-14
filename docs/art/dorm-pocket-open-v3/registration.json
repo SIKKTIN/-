@@ -1,0 +1,96 @@
+{
+  "generator": "built-in-imagegen",
+  "source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e\\exec-8046b55c-2bf0-416e-8eab-e8748b97f315.png",
+  "asset": "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\dorm_door_v1\\open-stone-components-v3.png",
+  "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+  "regions": {
+    "dorm_open_north_cap_v3": [
+      621,
+      176,
+      78,
+      184
+    ],
+    "dorm_open_south_cap_v3": [
+      621,
+      659,
+      78,
+      185
+    ],
+    "dorm_open_north_stone_v3": [
+      699,
+      176,
+      82,
+      184
+    ],
+    "dorm_open_south_stone_v3": [
+      699,
+      659,
+      82,
+      185
+    ],
+    "dorm_open_threshold_v3": [
+      1001,
+      24,
+      145,
+      979
+    ]
+  },
+  "closed_state": "accepted-v2-identical",
+  "closed_patches": [
+    {
+      "asset": "dorm_pocket_closed_frame_v2",
+      "source": [
+        0,
+        0.15,
+        1,
+        0.7
+      ],
+      "destination": [
+        14,
+        0,
+        172,
+        28
+      ],
+      "rotation_quarters": 3
+    },
+    {
+      "asset": "dorm_pocket_open_frame_v2",
+      "source": [
+        0,
+        0,
+        1,
+        0.15
+      ],
+      "destination": [
+        0,
+        0,
+        14,
+        28
+      ],
+      "rotation_quarters": 3
+    },
+    {
+      "asset": "dorm_pocket_open_frame_v2",
+      "source": [
+        0,
+        0.85,
+        1,
+        0.15
+      ],
+      "destination": [
+        186,
+        0,
+        14,
+        28
+      ],
+      "rotation_quarters": 3
+    }
+  ],
+  "aperture": 200,
+  "clear_span": 172,
+  "usable_body_anchor_span": 72,
+  "map_rewritten": false,
+  "prompt": "docs/art/dorm-pocket-open-v3/prompt.txt",
+  "concept": "docs/art/dorm-pocket-open-concept-v3/concept.png",
+  "validation": "docs/tests/dorm-pocket-open-v3/closed-preservation.json"
+}

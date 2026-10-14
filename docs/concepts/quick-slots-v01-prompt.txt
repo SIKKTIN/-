@@ -1,0 +1,27 @@
+Mode: built-in image_gen, reference-based generation.
+References: docs/dev/p131/fixed-seams.png (game scene and HUD); docs/concepts/functional-items-v01.png (item and textile art style).
+
+Use case: ui-mockup.
+Generate a polished landscape 16:10 game HUD concept for the Chinese top-down hand-painted prison-factory escape game in the references.
+Reference 1 supplies the REAL GAME scene, character size, camera and existing HUD arrangement. Reference 2 supplies ITEM ILLUSTRATIONS and the ivory fabric / grey-blue textile / muted teal / amber interface art direction only. Do not put a huge open inventory window over the game.
+
+Main request: clearly design FOUR CUSTOMIZABLE QUICK-USE ITEM SLOTS ABOVE the existing three bottom-right action buttons.
+Composition: upper 78 percent of image is one coherent in-game screen, lower 22 percent is a modest dark-teal presentation strip showing three enlarged interaction details. The gameplay view is dominant. Crisp legible Chinese text and clean illustrative assets, fine fabric weave and thin stitching, restrained wear, no sandy/grainy noise. No logos or watermarks.
+
+GAMEPLAY HERO:
+Preserve beige riveted player portrait/stamina/fullness HUD at upper left, beige clock/day HUD center top, money and pause buttons upper right. Remove the separate top-right map button because the acquired map now goes in the item shortcut slots. Preserve virtual joystick bottom-left, slim ivory current-task strip bottom-center reading "探索园区，寻找有用的物资", and the three familiar ivory bottom-right buttons with icons and labels "背包", "能力", "靠近互动".
+World: a slightly wider view of the same top-down grey-green tiled industrial hallway and room door, old factory walls, rusty furniture; one black-haired orange-clothed cartoon player at the center, one guard further away. Keep the reference character art style and established scale. No changed isometric viewpoint, no extra UI obstructing the player.
+
+QUICK BAR near bottom-right directly above the existing action row: exactly FOUR single-square slots in one horizontal row on a slender grey-blue cloth strip. Each slot has off-white canvas inset, visible fine stitched edge, subtle dark ink separator, generous recognizable item icon. Big enough to touch yet visually lightweight, roughly 72-82px squares on a 1200px-wide viewport. Simple paper-tab labels underneath, legible Chinese:
+slot 1 folded paper map, "地图", small key badge "1", NO quantity badge, soft amber selected border;
+slot 2 bun, "食用", small key badge "2", unobtrusive bottom-right badge "×2";
+slot 3 red-cross rolled bandage, "包扎", small key badge "3", badge "×1";
+slot 4 lock-pick tool, "撬锁", small key badge "4", subtly muted/greyed because no locked door is in range, tiny lock glyph indicating currently unavailable. The toolbar contains exactly four icons, no fifth slot, no bulky buckles or puffy military pouch.
+A SMALL warm paper tooltip directly ABOVE the bar, pointing to the map slot, reads "园区地图" then "点击查看 · 不消耗". Keep tooltip under 230px wide, clean dark ink, subtle shadow, no huge dialogue box. A quiet pencil-style mini label next to tool reads "靠近锁门". The screen represents the state AFTER searching and obtaining the map; do not imply default ownership.
+
+LOWER DETAIL STRIP (outside gameplay screen, clear divider):
+Three spacious horizontal detail cards with small visual demonstrations:
+1. Title "拖入绑定": folded map icon being dragged with visible translucent icon ghost and a short arrow from a little canvas inventory cell into ONE highlighted quick slot. Subtitle "从背包拖入快捷栏". No giant backpack panel.
+2. Title "点击使用": bun quick slot with quantity "×2", subtle teal tap ripple. Subtitle "食物与绷带直接使用".
+3. Title "条件提示": one grey lock-pick slot and a tiny paper tooltip "需要靠近锁门"; alongside one empty canvas slot with a faint plus/outline. Subtitle "用完变灰，空位可重新绑定".
+Do not introduce take/take-all buttons, automatic packing buttons or transfer menus. Primary emphasis is the actual four-slot in-game bar; details only clarify binding and states. All Chinese strings exact, professional coherent typography matching game HUD. No neon, sci-fi interface, shooter HUD, photographic hands, oversized character, noisy textures, or massive tutorial arrows in gameplay.

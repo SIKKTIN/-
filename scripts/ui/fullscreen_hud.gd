@@ -31,6 +31,7 @@ var replay_tutorial: Button
 var menu_blocker: ColorRect
 var inventory_paper: Panel
 var inventory_drawer
+var quick_slots
 var toast: Panel
 var faces: Array = []
 var portraits: Array = []
@@ -54,6 +55,10 @@ var warning_detail: Label
 var warning_meter: ProgressBar
 var warning_fill: StyleBoxFlat
 var redraw_keys := {}
+var _safe_area_cache := Rect2()
+var _safe_area_size := Vector2(-1,-1)
+var _safe_area_checked_at := -1000
+var _layout_safe_area := Rect2()
 
 func redraw_changed(control: CanvasItem, key: Array):
 	var id := control.get_instance_id()
@@ -172,11 +177,15 @@ func configure(owner_game) -> void:
 	bag_button = _mobile_button("背包",toggle_bag)
 	bag_button.name = "MobileBag"
 	bag_button.display_icon = inventory_drawer.icon_for("backpack")
+	quick_slots = preload("res://scripts/ui/quick_slots.gd").new()
+	add_child(quick_slots)
+	quick_slots.configure(self)
 	target_button = _button("切换",func(): game.presentation.interaction.cycle_mobile_target())
 	target_button.name = "MobileTargetCycle"
 	target_button.add_theme_font_size_override("font_size",14)
 	target_button.tooltip_text = "切换附近的互动目标"
-	map_toggle = _button("地图",func(): minimap_collapsed = false; layout(),"locate")
+	map_toggle = _button("地图",open_carried_map,"locate")
+	map_toggle.hide()
 	map_collapse = Button.new()
 	map_collapse.text = "收起"
 	map_collapse.theme = theme
@@ -242,6 +251,7 @@ func configure(owner_game) -> void:
 	menu_blocker.hide()
 	# GUI hit order follows tree order. Shop can still select the floating bag.
 	hud.move_child(inventory_paper,game.shop_panel.panel.get_index()+1)
+	hud.move_child(inventory_drawer.blocker,inventory_paper.get_index())
 	hud.move_child(menu_button,hud.get_child_count()-1)
 	button_layout = load("res://scripts/ui/button_layout.gd").new()
 	add_child(button_layout)
@@ -298,6 +308,9 @@ func toggle_bag() -> void:
 	if game.phase != "playing" or (game.world_input_blocked() and not game.shop_panel.panel.visible):
 		return
 	bag_open = not bag_open
+	if bag_open:
+		game.mobile_controls.cancel_input()
+		game.orders.stop(game.PLAYER_ACTOR_ID)
 	refresh_inventory()
 
 func _paper(id: String) -> Panel:
@@ -310,19 +323,34 @@ func _paper(id: String) -> Panel:
 
 func safe_area() -> Rect2:
 	var size: Vector2 = game.get_viewport_rect().size
+	var now := Time.get_ticks_msec()
+	# Android's safe-area query crosses into Java. Reuse stable insets between
+	# layout changes, with a short poll for cutout/system-bar changes at the
+	# same viewport size (for example rotating between landscape directions).
+	if size == _safe_area_size and now-_safe_area_checked_at < 500:
+		return _safe_area_cache
 	# Convert physical display safe insets to the canvas, never to world units.
 	var inset := Vector4(16,16,16,20)
 	if OS.has_feature("mobile"):
 		var physical := Vector2(DisplayServer.window_get_size())
 		var safe := DisplayServer.get_display_safe_area()
-		var scale := size/physical
-		inset += Vector4(safe.position.x*scale.x,safe.position.y*scale.y,(physical.x-safe.end.x)*scale.x,(physical.y-safe.end.y)*scale.y)
-	return Rect2(Vector2(inset.x,inset.y),size-Vector2(inset.x+inset.z,inset.y+inset.w))
+		if physical.x > 0 and physical.y > 0:
+			var scale := size/physical
+			inset += Vector4(safe.position.x*scale.x,safe.position.y*scale.y,(physical.x-safe.end.x)*scale.x,(physical.y-safe.end.y)*scale.y)
+	_safe_area_cache=Rect2(Vector2(inset.x,inset.y),size-Vector2(inset.x+inset.z,inset.y+inset.w))
+	_safe_area_size=size
+	_safe_area_checked_at=now
+	return _safe_area_cache
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_RESUMED,NOTIFICATION_APPLICATION_FOCUS_IN]:
+		_safe_area_checked_at=-1000
 
 func layout() -> void:
 	if not game or not menu:
 		return
 	var safe := safe_area()
+	_layout_safe_area=safe
 	if button_layout and button_layout.editing and last_size != game.get_viewport_rect().size:
 		button_layout.end_drag()
 	last_size = game.get_viewport_rect().size
@@ -381,6 +409,11 @@ func layout() -> void:
 	if button_layout:
 		button_layout.remember_defaults()
 		button_layout.apply_positions()
+	if quick_slots:
+		quick_slots.layout()
+		for slot in quick_slots.buttons:
+			if target_button.get_rect().intersects(slot.get_rect()):
+				target_button.position.x = slot.position.x-target_button.size.x-12
 	menu.position = safe.get_center()-menu.size/2
 	for blocker in [menu_blocker,game.shop_panel.blocker,game.schedule.blocker,game.schedule.result_blocker,game.developer_settings.blocker]:
 		blocker.position = Vector2.ZERO
@@ -419,6 +452,7 @@ func position_toast() -> void:
 func refresh() -> void:
 	if not clock or not game.attributes or not game.prison_alert:
 		return
+	refresh_inventory()
 	var blocked: bool = game.world_input_blocked()
 	var actor = game.actors[game.selected_actor_id]
 	var active: bool = not blocked and not actor.escaped
@@ -453,7 +487,7 @@ func refresh() -> void:
 	ability_button.visible = not blocked
 	redraw_changed(ability_button,[ability_button.text,ability_button.display_icon,ability_button.disabled,ability_button.size])
 	bag_button.text = "背包"
-	bag_button.tooltip_text = "随身背包 %d/%d" % [game.inventory.items(0).size(),game.inventory.capacity(0)]
+	bag_button.tooltip_text = "随身背包 %d/%d格" % [game.inventory.used_cells(0),game.inventory.capacity(0)]
 	bag_button.disabled = not active
 	bag_button.visible = not blocked
 	redraw_changed(bag_button,[bag_button.text,bag_button.display_icon,bag_button.disabled,bag_button.size])
@@ -464,13 +498,14 @@ func refresh() -> void:
 	game.mobile_controls.pad.visible = active
 	if not active:
 		game.mobile_controls.cancel_input()
-	refresh_inventory()
-	if inventory_paper.visible: minimap_collapsed = true
-	game.mini_map.set_process_input(not minimap_collapsed and not inventory_paper.visible)
-	map_toggle.visible = minimap_collapsed and not game.world_input_blocked()
-	if inventory_paper.visible:
-		game.mini_map.hide()
-		map_toggle.visible = map_toggle.visible and not map_toggle.get_rect().intersects(inventory_paper.get_rect())
+	# A physical map replaces the permanently owned live minimap. The dormant
+	# node is kept for old tooling; it never accepts gameplay input or draws.
+	minimap_collapsed = true
+	game.mini_map.set_process_input(false)
+	game.mini_map.set_process(false)
+	game.mini_map.hide()
+	map_toggle.hide()
+	if quick_slots: quick_slots.refresh()
 	toast.visible = game.elapsed < game.status_until and not game.world_input_blocked()
 	game.status_label.visible = toast.visible
 	refresh_warning(blocked)
@@ -512,7 +547,9 @@ func toggle_menu() -> void:
 	if menu.visible:
 		close_menu()
 	else:
+		if game.map_viewer: game.map_viewer.close()
 		game.shop_panel.close()
+		if game.looting: game.looting.close()
 		game.schedule.close()
 		game.developer_settings.close()
 		menu.show()
@@ -539,13 +576,18 @@ func _process(_delta: float) -> void:
 			var fps := Engine.get_frames_per_second()
 			fps_label.text = "FPS %d" % fps if fps > 0 else "FPS —"
 			fps_badge.tooltip_text="目标：%s；物理与日程速度保持一致。" % ("不限帧" if game.frame_settings.target_fps==0 else "%d帧" % game.frame_settings.target_fps)
-		if last_size != game.get_viewport_rect().size:
+		if last_size != game.get_viewport_rect().size or _layout_safe_area != safe_area():
 			layout()
 		refresh()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
-		if game.dialogue and game.dialogue.panel.visible:
+		if game.map_viewer and game.map_viewer.is_open():
+			game.map_viewer.close()
+		elif bag_open:
+			bag_open = false
+			refresh()
+		elif game.dialogue and game.dialogue.panel.visible:
 			game.dialogue.close()
 		elif game.shop_panel.panel.visible:
 			game.shop_panel.close()
@@ -556,3 +598,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			toggle_menu()
 		game.get_viewport().set_input_as_handled()
+
+func open_carried_map():
+	var id: String = game.quick_items.first_item("factory_map")
+	if id.is_empty():
+		game.show_status("尚未获得地图，搜索柜子寻找。")
+		return
+	game.inventory.try_use(0,id)

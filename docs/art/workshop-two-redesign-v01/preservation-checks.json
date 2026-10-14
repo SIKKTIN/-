@@ -1,0 +1,15 @@
+{
+  "baseline": "last-input-map.json: latest disk map immediately before patch",
+  "checks": {
+    "unrelated root fields": true,
+    "visibility_rooms": true,
+    "zones": true,
+    "floor_regions": true,
+    "unrelated furniture": true,
+    "walls and gates": true,
+    "unrelated wall art": true,
+    "other architecture settings": true,
+    "other ground details": true
+  },
+  "concurrent_change_note": "Reading-room changes appeared between initial snapshot and final patch input; retained from latest disk state, not reverted."
+}

@@ -1,5 +1,6 @@
 extends Node2D
 
+const Session = preload("res://scripts/core/game_session.gd")
 const Prisoner = preload("res://scripts/actors/prisoner.gd")
 const World = preload("res://scripts/world/prison_world.gd")
 const Guard = preload("res://scripts/actors/guard.gd")
@@ -36,7 +37,11 @@ const PLAYER_ACTOR_ID := 0
 const SKILL_NAMES := {"chat": "会聊天", "lockpick": "会撬锁", "strong": "大力气", "backpack": "会收纳"}
 const ROOM_IDS := ["r01", "r02", "r03", "r04"]
 var inventory
+var keycards
+var quick_items
+var map_viewer
 var inventory_panel
+var looting
 var room_config: Dictionary = {}
 var trade
 var items_view
@@ -60,6 +65,9 @@ var dialogue
 var tutorial
 var social
 var npc_life
+var bath_service
+var nine_point
+var resident_staff
 var confinement_counts: Array[int] = [0,0,0]
 var failure_reason := ""
 var editor_preview_mode := false
@@ -98,87 +106,26 @@ func _build_ui() -> void:
 	preload("res://scripts/ui/hud_shell.gd").configure(self)
 
 func _process(delta: float) -> void:
-	if get_tree().paused:
-		return
-	if tutorial and tutorial.speaking():
-		tutorial.tick(delta)
-		presentation.tick(delta)
-		fullscreen_ui.refresh()
-		return
-	if phase != "playing":
-		if map_camera:
-			map_camera.tick(delta)
-		if presentation:
-			presentation.tick(delta)
-		return
-	delta = minf(delta,schedule.real_remaining()) if schedule else delta
-	var workers_before: Array = routines.working_ids() if routines else []
-	var behaviors_before: Array = attributes.behaviors() if attributes else []
-	var previous_clock: float = schedule.clock_elapsed if schedule else 0.0
-	if schedule:
-		if tutorial and tutorial.active: tutorial.advance_clock(delta)
-		else: schedule.advance(delta)
-		if schedule.time_speed > 0 and not (tutorial and tutorial.active):
-			delta = minf(delta,(schedule.clock_elapsed-previous_clock)/schedule.time_speed)
-	elapsed += delta
-	if room_access:
-		room_access.tick()
-	if workshop:
-		workshop.update_gate()
-	var work_credit: Dictionary = attributes.accrue(previous_clock,schedule.clock_elapsed,behaviors_before) if attributes else {}
-	for actor in actors:
-		actor.moved_this_frame = false
-	if routines:
-		# Credit the old work state before tick replaces it at 12:00/18:00.
-		routines.accrue_work(previous_clock, schedule.clock_elapsed, workers_before, work_credit)
-		routines.tick()
-		# Opening the morning planner inside this tick must also stop the
-		# remainder of this frame, before movement, skills and enemy AI.
-		if get_tree().paused:
-			_update_ui()
-			return
-	if npc_life: npc_life.tick(delta)
-	world.begin_ai_paths()
-	if staff_traffic:
-		staff_traffic.update_gate()
-	if gate_watch:
-		gate_watch.tick(delta)
-	if mobile_controls:
-		mobile_controls.tick(delta)
-	orders.tick(delta)
-	trade.tick(delta)
-	skills.tick(delta)
-	if gate_watch:
-		gate_watch.tick(0)
-	dog.tick(delta)
-	guard.tick(delta)
-	if workshop:
-		workshop.tick(delta)
-	if prison_alert:
-		prison_alert.tick(delta)
-	world.end_ai_paths()
-	if room_visibility: room_visibility.tick(delta)
-	if dialogue: dialogue.tick()
-	if social: social.tick(delta)
-	if tutorial: tutorial.tick(delta)
-	if schedule and phase == "playing" and schedule.remaining() <= 0:
-		finish_timeout()
-	guard_position = guard.position
-	if map_camera:
-		map_camera.tick(delta)
-	if phase == "playing" and elapsed >= status_until:
-		status_text = "逃脱 %d / 1 · 锁门%s · 抓回 %d 次 · 看守%s" % [escape_count(),"已开" if world.door_open else "%d%%"%roundi(world.lock_progress*100),captures,"追击中" if guard.state == "chasing" else ("交谈中" if guard.state == "talking" else "巡逻中")]
-	_update_ui(false)
-	if presentation:
-		presentation.tick(delta)
-	queue_redraw()
+	preload("res://scripts/core/game_frame.gd").tick(self,delta)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if nine_point and nine_point.is_open(): return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_R:
 			reset_round()
 			return
 		if event.keycode == KEY_ESCAPE:
+			if map_viewer and map_viewer.is_open():
+				map_viewer.close()
+				return
+			if fullscreen_ui and fullscreen_ui.bag_open:
+				fullscreen_ui.bag_open = false
+				_update_ui()
+				return
+			if looting and looting.is_open():
+				looting.close()
+				_update_ui()
+				return
 			if fullscreen_ui:
 				fullscreen_ui.toggle_menu()
 				return
@@ -200,8 +147,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT and mobile_controls == null:
 			command_at(point)
 	elif event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode >= KEY_1 and event.keycode <= KEY_3:
-			select_actor(event.keycode - KEY_1)
+		if event.keycode >= KEY_1 and event.keycode <= KEY_4:
+			quick_items.activate(event.keycode - KEY_1)
 		elif event.keycode == KEY_E:
 			presentation.interaction.activate_nearest()
 		elif event.keycode == KEY_S:
@@ -242,24 +189,12 @@ func stop_selected() -> void:
 		routines.take_control(selected_actor_id)
 	orders.stop(selected_actor_id)
 	skills.cancel(selected_actor_id,"当前伙伴已停止操作，撬锁进度保留。")
+	if bath_service: bath_service.cancel(selected_actor_id)
 	show_status("伙伴%d已停止。" % (selected_actor_id+1))
 	_update_ui()
 
 func on_actor_escaped(actor_id: int) -> void:
-	if tutorial and tutorial.active:
-		actors[actor_id].escaped = false
-		orders.stop(actor_id)
-		show_status("入监日先熟悉作息；正式%d天开始后再寻找逃脱机会。" % schedule.escape_days,4)
-		return
-	inventory.carry_out(actor_id)
-	if actors[PLAYER_ACTOR_ID].escaped:
-		phase = "complete"
-		orders.clear()
-		skills.clear_all()
-		var carried: int = inventory.instances.values().filter(func(i): return i.location == "escaped").size()
-		status_text = "主角逃脱成功！%.1f秒 · 抓回%d次 · 带出%d件 · 钱%d · R重开" % [elapsed,captures,carried,inventory.wallet]
-		if schedule:
-			schedule.show_result(true)
+	Session.on_actor_escaped(self,actor_id)
 
 func actor_is_controllable(index: int) -> bool:
 	return index == PLAYER_ACTOR_ID and index >= 0 and index < actors.size()
@@ -285,83 +220,7 @@ func select_actor(index: int) -> void:
 	_update_ui()
 
 func reset_round(fixed_skills: Array = [], seed_value: int = -1) -> void:
-	if tutorial: tutorial.cancel()
-	if fullscreen_ui:
-		fullscreen_ui.close_menu()
-		fullscreen_ui.bag_open = false
-	if mobile_controls:
-		mobile_controls.cancel_input()
-	phase = "playing"
-	elapsed = 0
-	status_until = 0
-	captures = 0
-	confinement_counts = [0,0,0]
-	failure_reason = ""
-	if dialogue: dialogue.close()
-	deal_number += 1
-	deal_seed = randi() if seed_value < 0 else seed_value
-	var random := RandomNumberGenerator.new()
-	random.seed = deal_seed
-	var choices: Array = room_config.get("skill_pool", ["chat","lockpick","strong"])
-	if skills:
-		skills.clear_all()
-	if orders:
-		orders.clear()
-	for actor in actors:
-		actor.reset_actor()
-		actor.skill_id = str(fixed_skills[actor.actor_id]) if fixed_skills.size() == 3 else choices[random.randi_range(0,choices.size()-1)]
-	if inventory:
-		inventory.reset(room_config)
-	if trade:
-		trade.reset(room_config)
-	if shop_panel:
-		shop_panel.close()
-	if inventory_panel:
-		inventory_panel.selected_item = ""
-	if staff_traffic:
-		staff_traffic.reset()
-	if prison_alert:
-		prison_alert.reset()
-	if world:
-		world.reset_world()
-	if room_access:
-		room_access.reset()
-	if guard:
-		guard.reset_guard()
-		guard_position = guard.position
-	if dog:
-		dog.reset_dog()
-	if presentation:
-		presentation.reset()
-	if routines:
-		routines.reset()
-	if schedule:
-		schedule.reset()
-		if tutorial and tutorial.completed and tutorial.eligible():
-			schedule.calendar_day_offset = 1
-			schedule.tick(false)
-	if room_visibility: room_visibility.reset()
-	if gate_watch:
-		gate_watch.reset(room_config)
-	if attributes:
-		attributes.reset()
-	if workshop:
-		workshop.reset()
-	if social: social.reset()
-	if npc_life: npc_life.reset()
-	if room_access:
-		room_access.tick()
-	if routines:
-		routines.tick()
-	if developer_settings:
-		developer_settings.close()
-	show_status("你的移动、工作、吃饭和归寝都由你决定；NPC 按各自状态生活。",4)
-	select_actor(0)
-	if map_camera:
-		map_camera.reset()
-	if tutorial: tutorial.on_round_reset()
-	_update_ui()
-	queue_redraw()
+	Session.reset_round(self,fixed_skills,seed_value)
 
 func _update_ui(refresh_hud := true) -> void:
 	if status_label:
@@ -406,9 +265,15 @@ func inspection_positions() -> Array:
 
 func snapshot() -> Dictionary:
 	var alarm: Dictionary = prison_alert.snapshot() if prison_alert else {}
-	return {"room_access":room_access.snapshot() if room_access else {},"prison_alert":alarm,"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"confinement_counts":confinement_counts.duplicate(),"failure_reason":failure_reason,"dialogue":dialogue.snapshot() if dialogue else {},"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"routines":routines.snapshot() if routines else {},"dog":dog.snapshot() if dog else {}}
+	return {"bath_service":bath_service.snapshot() if bath_service else {},"room_access":room_access.snapshot() if room_access else {},"prison_alert":alarm,"phase": phase, "elapsed": elapsed, "selected_actor_id": selected_actor_id, "orders":orders.snapshot() if orders else [], "actors": actors.map(func(actor): return actor.snapshot()), "guard_position": [guard_position.x, guard_position.y],"guard":guard.snapshot() if guard else {},"world":world.snapshot() if world else {},"captures":captures,"confinement_counts":confinement_counts.duplicate(),"failure_reason":failure_reason,"dialogue":dialogue.snapshot() if dialogue else {},"seed":deal_seed,"deal":deal_number,"actions":skills.snapshot() if skills else [],"inventory":inventory.snapshot() if inventory else {}, "merchants": trade.snapshot() if trade else {}, "schedule":schedule.snapshot() if schedule else {},"routines":routines.snapshot() if routines else {},"dog":dog.snapshot() if dog else {}}
 
-func world_input_blocked() -> bool:
+func world_input_blocked(ignore_inventory := false) -> bool:
+	if nine_point and nine_point.is_open(): return true
+	if bath_service and bath_service.panel.is_open(): return true
+	if inventory and is_instance_valid(inventory.reading_dialog) and inventory.reading_dialog.visible: return true
+	if map_viewer and map_viewer.is_open(): return true
+	if not ignore_inventory and fullscreen_ui and fullscreen_ui.bag_open and fullscreen_ui.inventory_paper and fullscreen_ui.inventory_paper.visible: return true
+	if looting and looting.is_open(): return true
 	if tutorial and tutorial.blocks_input(): return true
 	return phase != "playing" or get_tree().paused or (fullscreen_ui != null and fullscreen_ui.menu.visible) or (shop_panel != null and shop_panel.panel.visible) or (schedule != null and schedule.panel.visible) or (developer_settings != null and developer_settings.panel.visible) or (dialogue != null and dialogue.panel.visible)
 
@@ -416,49 +281,10 @@ func finish_timeout() -> void:
 	finish_failure("逃脱期限已到 · 时间耗尽")
 
 func finish_failure(reason: String) -> void:
-	if phase != "playing": return
-	if dialogue: dialogue.close()
-	failure_reason = reason
-	phase = "failed"
-	orders.clear()
-	skills.clear_all()
-	for actor in actors:
-		actor.moved_this_frame = false
-	guard.moved_this_frame = false
-	dog.moved_this_frame = false
-	status_text = reason+"，行动结束。可重新开始。"
-	schedule.show_result(false)
+	Session.finish_failure(self,reason)
 
 func capture_actor(actor_id: int) -> void:
-	if tutorial and tutorial.active:
-		tutorial.on_capture(actor_id)
-		return
-	if phase != "playing" or actor_id < 0 or actor_id >= actors.size() or actors[actor_id].escaped or actors[actor_id].confined: return
-	if dialogue: dialogue.close()
-	if mobile_controls and selected_actor_id == actor_id:
-		mobile_controls.cancel_input()
-	if routines:
-		routines.suspend(actor_id)
-	if shop_panel and shop_panel.actor_id == actor_id:
-		shop_panel.close()
-	var actor = actors[actor_id]
-	if social and actor_id==PLAYER_ACTOR_ID: social.player_captured(actor.position)
-	if skills:
-		skills.cancel(actor_id)
-	actor.position = actor.home
-	if room_access:
-		room_access.capture(actor_id)
-	actor.action_state = "idle"
-	actor.immune_until = elapsed + 1.0
-	actor.queue_redraw()
-	orders.stop(actor_id)
-	captures += 1
-	if room_access and room_access.is_held(actor_id):
-		confinement_counts[actor_id] += 1
-		if actor_id == PLAYER_ACTOR_ID and confinement_counts[actor_id] >= 3:
-			finish_failure("主角第三次被关禁闭 · 逃脱失败")
-	if room_access == null or not room_access.is_held(actor_id):
-		show_status("伙伴%d被送回起点；门、箱子、技能和已逃脱伙伴保留。" % (actor_id+1))
+	Session.capture_actor(self,actor_id)
 
 func show_status(text: String, duration: float = 2.5) -> void:
 	status_text = social.localize(text) if social else text
@@ -472,7 +298,7 @@ func use_selected_skill() -> void:
 		skills.cancel(selected_actor_id, "已停止操作，撬锁进度保留。")
 		return
 	if actors[selected_actor_id].skill_id == "backpack":
-		show_status("会收纳是被动能力：背包3格，无需使用技能。")
+		show_status("会收纳是被动能力：背包30格，无需使用技能。")
 		return
 	if skills and phase == "playing":
 		if actors[selected_actor_id].skill_id == "strong" and presentation and presentation.interaction:
@@ -491,23 +317,4 @@ func cancel_guard_chat(reason: String) -> void:
 		skills.cancel_chat(reason)
 
 func load_room(identifier: String, fixed_skills: Array = [], seed_value: int = -1) -> bool:
-	var path := "res://data/rooms/%s.json" % identifier
-	if not FileAccess.file_exists(path):
-		show_status("这个房间还在制作。")
-		return false
-	if skills:
-		skills.clear_all()
-	var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
-	room_config = config
-	room_id = identifier
-	world.configure(config,actors)
-	for index in range(actors.size()):
-		var start: Array = config.starts[index]
-		actors[index].home = Vector2(start[0],start[1])
-	guard.configure(world,self)
-	if room_selector:
-		var selector_index := ROOM_IDS.find(identifier)
-		if selector_index >= 0:
-			room_selector.select(selector_index)
-	reset_round(fixed_skills,seed_value)
-	return true
+	return Session.load_room(self,identifier,fixed_skills,seed_value)

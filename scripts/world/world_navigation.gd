@@ -6,6 +6,7 @@ const Footprint = preload("res://scripts/core/actor_footprint.gd")
 const RADIUS := Footprint.RADIUS
 const GRID_SIZE := 20.0
 var world
+var connectivity = preload("res://scripts/world/navigation_connectivity.gd").new()
 
 func _init(owner_world) -> void:
 	world = owner_world
@@ -13,32 +14,25 @@ func _init(owner_world) -> void:
 func _rebuild_navigation() -> void:
 	var area = world.bounds.merge(world.exit_area)
 	var layout = [area,world.guard_zone,not world.boundary_solids.is_empty()]
-	var old_solids: Dictionary = {}
-	var new_solids: Dictionary = {}
-	for rect in world.navigation_solids: old_solids[rect]=true
-	for rect in world.static_solids: new_solids[rect]=true
+	var changes: Dictionary = {}
+	if layout == world.navigation_layout:
+		for pair in [[world.navigation_solids,world.static_solids],[world.navigation_inspection_solids,world.inspection_solids],[world.navigation_body_solids,world.body_solids],[world.navigation_inspection_body_solids,world.inspection_body_solids]]:
+			if pair[0]==pair[1]: continue
+			var previous: Dictionary = {}
+			var current: Dictionary = {}
+			for rect in pair[0]: previous[rect]=true
+			for rect in pair[1]: current[rect]=true
+			for rect in previous:
+				if not current.has(rect): changes[rect]=true
+			for rect in current:
+				if not previous.has(rect): changes[rect]=true
 	var changed_rects: Array[Rect2] = []
-	for pair in [[world.navigation_body_solids,world.body_solids],[world.navigation_inspection_body_solids,world.inspection_body_solids]]:
-		for rect in pair[0]:
-			if rect not in pair[1] and rect not in changed_rects: changed_rects.append(rect)
-		for rect in pair[1]:
-			if rect not in pair[0] and rect not in changed_rects: changed_rects.append(rect)
-	for rect in old_solids:
-		if not new_solids.has(rect): changed_rects.append(rect)
-	for rect in new_solids:
-		if not old_solids.has(rect): changed_rects.append(rect)
-	var old_inspection: Dictionary = {}
-	var new_inspection: Dictionary = {}
-	for rect in world.navigation_inspection_solids: old_inspection[rect]=true
-	for rect in world.inspection_solids: new_inspection[rect]=true
-	for rect in old_inspection:
-		if not new_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)
-	for rect in new_inspection:
-		if not old_inspection.has(rect) and not changed_rects.has(rect): changed_rects.append(rect)
+	changed_rects.assign(changes.keys())
 	if layout == world.navigation_layout and changed_rects.size() < 96:
 		_refresh_navigation_cells(changed_rects)
 		_finish_navigation(layout)
 		return
+	connectivity.reset()
 	var low := Vector2i(floori(area.position.x/GRID_SIZE),floori(area.position.y/GRID_SIZE))
 	var high := Vector2i(ceili(area.end.x/GRID_SIZE),ceili(area.end.y/GRID_SIZE))
 	var sets := _navigation_sets()
@@ -50,7 +44,10 @@ func _rebuild_navigation() -> void:
 			# portals use a separately cached grid with centres on wall joins.
 			navigation.offset = Vector2.ZERO if navigation in [world.portal_grid,world.portal_guard_grid,world.portal_inspection_grid] else Vector2.ONE*GRID_SIZE*0.5
 			navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
-			navigation.jumping_enabled = true
+			# JPS repeatedly scans long obstructed lanes in the dense campus.
+			# Native A* was faster there with the same optimal path costs.
+			# Keep jump searches for the smaller, relatively open maps.
+			navigation.jumping_enabled = world.walls.size()+world.fixtures.size() < 512
 			navigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 			navigation.update()
 		for y in range(low.y,high.y):
@@ -99,27 +96,69 @@ func _finish_navigation(layout: Array) -> void:
 	world.navigation_builds += 1
 	world.static_nav_dirty = false
 	world.nav_dirty = false
+	# Prepare new grids during loading; subsequent door edits rebuild only the
+	# requested grid's dirty chunks, before any temporary actor overlays.
+	for triple in _navigation_sets():
+		for navigation in triple:
+			if not connectivity.has_index(navigation): connectivity.warm(navigation)
 
 func _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:
+	if changed_rects.is_empty(): return
 	if world.solid_index.revision != world.obstacle_revision: world.solid_index.rebuild(world.static_solids,world.obstacle_revision)
-	if world.inspection_index.revision != world.obstacle_revision: world.inspection_index.rebuild(world.inspection_solids,world.obstacle_revision)
+	if world.body_index.revision != world.obstacle_revision: world.body_index.rebuild(world.body_solids,world.obstacle_revision)
+	if world.inspection_body_index.revision != world.obstacle_revision: world.inspection_body_index.rebuild(world.inspection_body_solids,world.obstacle_revision)
+	var inspection_members: Dictionary = {}
+	for rect in world.inspection_solids: inspection_members[rect]=true
 	var cells: Dictionary = {}
+	var solids: Dictionary = {}
+	var bodies: Dictionary = {}
+	var inspection_bodies: Dictionary = {}
 	for rect in changed_rects:
-		var inflated := rect.grow(RADIUS)
+		var inflated: Rect2 = rect.grow(RADIUS)
 		for y in range(maxi(world.grid.region.position.y,floori(inflated.position.y/GRID_SIZE)),mini(world.grid.region.end.y,ceili(inflated.end.y/GRID_SIZE))):
 			for x in range(maxi(world.grid.region.position.x,floori(inflated.position.x/GRID_SIZE)),mini(world.grid.region.end.x,ceili(inflated.end.x/GRID_SIZE))): cells[Vector2i(x,y)]=true
-	for cell in cells:
-		for triple in _navigation_sets():
-			var point: Vector2 = triple[0].get_point_position(cell)
-			var blocked = not world.inside_room(point) or world.body_solids.any(func(rect):return rect.has_point(point))
-			for rect in world.solid_index.nearby(point,RADIUS):
-				if world._circle_hits_rect(point,RADIUS,rect): blocked=true;break
-			var inspection_blocked = not world.inside_room(point) or world.inspection_body_solids.any(func(rect):return rect.has_point(point))
-			for rect in world.inspection_index.nearby(point,RADIUS):
-				if world._circle_hits_rect(point,RADIUS,rect): inspection_blocked=true;break
-			triple[0].set_point_solid(cell,blocked)
-			triple[1].set_point_solid(cell,blocked or not Footprint.inset(world.guard_zone).has_point(point))
-			triple[2].set_point_solid(cell,inspection_blocked)
+		# One broad-phase query per edited rectangle, shared by the lattices.
+		# The margin covers rounding to both whole and half-cell samples.
+		var query: Rect2 = rect.grow(RADIUS+GRID_SIZE)
+		for candidate in world.solid_index.intersecting(query): solids[candidate]=true
+		for candidate in world.body_index.intersecting(query): bodies[candidate]=true
+		for candidate in world.inspection_body_index.intersecting(query): inspection_bodies[candidate]=true
+	var guard_area := Footprint.inset(world.guard_zone)
+	for triple in _navigation_sets():
+		var navigation: AStarGrid2D = triple[0]
+		var mask: Dictionary = {}
+		for cell in cells:
+			mask[cell]=0 if world.inside_room(navigation.get_point_position(cell)) else 3
+		# Rasterize only overlapping obstacles into the edited cells. Repeated
+		# point queries formerly tested the same wall/furniture dozens of times.
+		_paint_navigation_mask(navigation,mask,solids,false,1,inspection_members)
+		_paint_navigation_mask(navigation,mask,bodies,true,1)
+		# Open inspection leaf bodies are independent of the ordinary bodies.
+		_paint_navigation_mask(navigation,mask,inspection_bodies,true,2)
+		for cell in cells:
+			var flags: int = mask[cell]
+			_set_solid(triple[0],cell,(flags&1)!=0)
+			_set_solid(triple[1],cell,(flags&1)!=0 or not guard_area.has_point(navigation.get_point_position(cell)))
+			_set_solid(triple[2],cell,(flags&2)!=0)
+
+func _paint_navigation_mask(navigation: AStarGrid2D, mask: Dictionary, rects: Dictionary, body: bool, bits: int, inspection_members: Dictionary = {}) -> void:
+	for rect: Rect2 in rects:
+		var affected: Rect2 = rect if body else rect.grow(RADIUS)
+		var low := Vector2i(maxi(navigation.region.position.x,floori(affected.position.x/GRID_SIZE)),maxi(navigation.region.position.y,floori(affected.position.y/GRID_SIZE)))
+		var high := Vector2i(mini(navigation.region.end.x,ceili(affected.end.x/GRID_SIZE)),mini(navigation.region.end.y,ceili(affected.end.y/GRID_SIZE)))
+		var flags: int = bits|2 if not body and inspection_members.has(rect) else bits
+		for y in range(low.y,high.y):
+			for x in range(low.x,high.x):
+				var cell := Vector2i(x,y)
+				if not mask.has(cell) or (int(mask[cell])&flags)==flags: continue
+				var point := navigation.get_point_position(cell)
+				if rect.has_point(point) if body else world._circle_hits_rect(point,RADIUS,rect):
+					mask[cell]=int(mask[cell])|flags
+
+func _set_solid(navigation: AStarGrid2D, cell: Vector2i, blocked: bool) -> void:
+	if navigation.is_point_solid(cell)==blocked: return
+	navigation.set_point_solid(cell,blocked)
+	connectivity.touch(navigation,cell)
 
 func _navigation_sets() -> Array:
 	return [[world.grid,world.guard_grid,world.inspection_grid]] if world.boundary_solids.is_empty() else [[world.grid,world.guard_grid,world.inspection_grid],[world.portal_grid,world.portal_guard_grid,world.portal_inspection_grid]]
@@ -156,7 +195,7 @@ func _nearest_nav_point(point: Vector2, ignore_actor = null, avoid_actors: bool 
 
 func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> PackedVector2Array:
 	world.planning_guard_doors = ignore_actor != null and ignore_actor.has_method("inspection_allowed") and ignore_actor.inspection_allowed()
-	var officer: bool=ignore_actor!=null and ignore_actor.has_method("_capture_if_touching")
+	var officer: bool=ignore_actor!=null and (ignore_actor.has_method("_capture_if_touching") or ignore_actor.has_method("uses_navigation_budget"))
 	if officer:ignore_actor.path_deferred=false
 	# Spend at most one expensive officer search after the frame's allowance.
 	# A clear direct route remains immediate; deferred officers retain their
@@ -209,7 +248,9 @@ func _sealed_room_separates(from: Vector2, to: Vector2) -> bool:
 func _closed_perimeter(area: Rect2) -> bool:
 	# Use all actual static solids, including every projected gate. A free
 	# passage or either of two entrances breaks coverage and preserves A*.
-	var solids: Array[Rect2] = world.solid_rects(false)
+	if world.solid_index.revision != world.obstacle_revision:
+		world.solid_index.rebuild(world.static_solids,world.obstacle_revision)
+	var solids: Array[Rect2] = world.solid_index.intersecting(area.grow(RADIUS))
 	for edge in [0,1,2,3]:
 		var vertical: bool = edge < 2
 		var line: float = area.position.x if edge==0 else area.end.x if edge==1 else area.position.y if edge==2 else area.end.y
@@ -234,6 +275,7 @@ func _closed_perimeter(area: Rect2) -> bool:
 	return true
 
 func _path_on_grid(from: Vector2, to: Vector2, ignore_actor, avoid_actors: bool, ignore_crate: bool, navigation: AStarGrid2D) -> PackedVector2Array:
+	connectivity.warm(navigation)
 	# Overlay just the small footprints of moving bodies and the box. The
 	# cached grids contain static walls/furniture (and the guard's boundary).
 	var changed: Array[Vector2i] = []
@@ -248,7 +290,7 @@ func _path_on_grid(from: Vector2, to: Vector2, ignore_actor, avoid_actors: bool,
 	var start := _nearest_nav_point(from,ignore_actor,avoid_actors,ignore_crate,navigation)
 	var finish := _nearest_nav_point(to,ignore_actor,avoid_actors,ignore_crate,navigation)
 	var raw := PackedVector2Array()
-	if start.x >= 0 and finish.x >= 0:
+	if start.x >= 0 and finish.x >= 0 and connectivity.connected(navigation,start,finish):
 		raw = navigation.get_point_path(start,finish)
 		if not raw.is_empty():
 			raw.append(to)
@@ -290,7 +332,7 @@ func _overlay_rect(navigation: AStarGrid2D, area: Rect2, changed: Array[Vector2i
 	for y in range(maxi(low.y,navigation.region.position.y),mini(high.y,navigation.region.end.y)):
 		for x in range(maxi(low.x,navigation.region.position.x),mini(high.x,navigation.region.end.x)):
 			var cell := Vector2i(x,y)
-			if not navigation.is_point_solid(cell) and not world.can_place_circle(navigation.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
+			if not navigation.is_point_solid(cell) and not world.dynamic_placement_clear(navigation.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
 				changed.append(cell)
 				navigation.set_point_solid(cell,true)
 

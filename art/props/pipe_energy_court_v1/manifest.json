@@ -1,0 +1,1572 @@
+{
+	"schema": 2,
+	"version": "pipe-energy-court-v1",
+	"assets": [
+		{
+			"id": "energy_tank_v1",
+			"name": "能源庭院 · 纵向长压力储罐",
+			"texture": "res://art/props/pipe_energy_court_v1/pressure-tank.png",
+			"texture_size": [
+				949,
+				1658
+			],
+			"region": [
+				251,
+				23,
+				445,
+				1524
+			],
+			"world_size": [
+				205,
+				702.0674157303371
+			],
+			"render_size": [
+				205,
+				702.0674157303371
+			],
+			"footprint_world_size": [
+				205,
+				680
+			],
+			"ground_rect": [
+				0,
+				47.90243902439033,
+				445,
+				1476.0975609756097
+			],
+			"elevation_world": 22.067415730337075,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "bf2e3fb46c02ca0d927c7d2bf463db953b2a3594f3ba3646e6c77f99093cfbc4"
+		},
+		{
+			"id": "energy_platform_v1",
+			"name": "能源庭院 · 八角阀门检修平台",
+			"texture": "res://art/props/pipe_energy_court_v1/valve-platform.png",
+			"texture_size": [
+				1345,
+				1169
+			],
+			"region": [
+				221,
+				123,
+				912,
+				907
+			],
+			"world_size": [
+				500,
+				497.2587719298246
+			],
+			"render_size": [
+				500,
+				497.2587719298246
+			],
+			"footprint_world_size": [
+				500,
+				440
+			],
+			"ground_rect": [
+				0,
+				104.44000000000005,
+				912,
+				802.56
+			],
+			"elevation_world": 57.258771929824604,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "1f4b6b6350182780e28f1f8dad9cd3a52d93004afc47d715c6081019f22f4a0e",
+			"solid_parts": [
+				[
+					0.22,
+					0,
+					0.56,
+					0.18
+				],
+				[
+					0.08,
+					0.18,
+					0.84,
+					0.16
+				],
+				[
+					0,
+					0.34,
+					1,
+					0.32
+				],
+				[
+					0.08,
+					0.66,
+					0.84,
+					0.16
+				],
+				[
+					0.22,
+					0.82,
+					0.56,
+					0.18
+				]
+			]
+		},
+		{
+			"id": "energy_gantry_v1",
+			"name": "能源庭院 · 红蓝架空管架单跨",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-gantry-span.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				21,
+				79,
+				2129,
+				583
+			],
+			"world_size": [
+				288,
+				191.3773076923077
+			],
+			"render_size": [
+				288,
+				191.3773076923077
+			],
+			"footprint_world_size": [
+				288,
+				26
+			],
+			"ground_rect": [
+				0,
+				0,
+				288,
+				26
+			],
+			"elevation_world": 165.3773076923077,
+			"render_mode": "architecture_overhead_gantry",
+			"proportion_locked": false,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "d0f13334156ce15399c4fdeaa2133a09d082cbfdfb1dba91532161e7b29bd3ee",
+			"editor_placeable": true,
+			"solid_parts": [
+				[
+					0.455,
+					0,
+					0.09,
+					1
+				]
+			],
+			"collision_note": "Only the center support foot blocks movement; the beam is overhead.",
+			"assembly_patches": [
+				{
+					"source": [
+						400,
+						81,
+						1300,
+						203
+					],
+					"destination": [
+						0,
+						0,
+						288,
+						44.972307692307695
+					],
+					"role": "unchanged_pipe_pair"
+				},
+				{
+					"source": [
+						1008,
+						293,
+						170,
+						180
+					],
+					"destination": [
+						132.5,
+						44.972307692307695,
+						23,
+						24.4
+					],
+					"role": "repeated_equal_scale_brace"
+				},
+				{
+					"source": [
+						1008,
+						293,
+						170,
+						180
+					],
+					"destination": [
+						132.5,
+						69.37230769230769,
+						23,
+						24.4
+					],
+					"role": "repeated_equal_scale_brace"
+				},
+				{
+					"source": [
+						1008,
+						293,
+						170,
+						180
+					],
+					"destination": [
+						132.5,
+						93.77230769230769,
+						23,
+						24.4
+					],
+					"role": "repeated_equal_scale_brace"
+				},
+				{
+					"source": [
+						1008,
+						293,
+						170,
+						180
+					],
+					"destination": [
+						132.5,
+						118.17230769230768,
+						23,
+						24.4
+					],
+					"role": "repeated_equal_scale_brace"
+				},
+				{
+					"source": [
+						1008,
+						293,
+						170,
+						180
+					],
+					"destination": [
+						132.5,
+						142.57230769230767,
+						23,
+						24.4
+					],
+					"role": "repeated_equal_scale_brace"
+				},
+				{
+					"source": [
+						996,
+						478,
+						190,
+						180
+					],
+					"destination": [
+						131.12,
+						166.9723076923077,
+						25.76,
+						24.405
+					],
+					"role": "support_foot"
+				}
+			]
+		},
+		{
+			"id": "energy_pipe_pair_v1",
+			"name": "能源庭院 · 横向红蓝双管",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				54,
+				208,
+				428,
+				168
+			],
+			"world_size": [
+				72,
+				28.261682242990652
+			],
+			"render_size": [
+				72,
+				28.261682242990652
+			],
+			"footprint_world_size": [
+				72,
+				28.261682242990652
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				428,
+				168.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_pipe_elbow_up_v1",
+			"name": "能源庭院 · 红蓝双管左接上弯",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				577,
+				69,
+				368,
+				315
+			],
+			"world_size": [
+				78,
+				66.7663043478261
+			],
+			"render_size": [
+				78,
+				66.7663043478261
+			],
+			"footprint_world_size": [
+				78,
+				66.7663043478261
+			],
+			"ground_rect": [
+				0,
+				-5.684341886080802e-14,
+				368,
+				315.00000000000006
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_pipe_elbow_right_v1",
+			"name": "能源庭院 · 红蓝双管上接右弯",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1093,
+				64,
+				390,
+				351
+			],
+			"world_size": [
+				78,
+				70.2
+			],
+			"render_size": [
+				78,
+				70.2
+			],
+			"footprint_world_size": [
+				78,
+				70.2
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				390,
+				351.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_pipe_red_v1",
+			"name": "能源庭院 · 红色直管",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				220,
+				537,
+				102,
+				410
+			],
+			"world_size": [
+				18,
+				72.3529411764706
+			],
+			"render_size": [
+				18,
+				72.3529411764706
+			],
+			"footprint_world_size": [
+				18,
+				72.3529411764706
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				102,
+				410.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_pipe_blue_v1",
+			"name": "能源庭院 · 蓝色直管",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				716,
+				523,
+				107,
+				427
+			],
+			"world_size": [
+				18,
+				71.83177570093457
+			],
+			"render_size": [
+				18,
+				71.83177570093457
+			],
+			"footprint_world_size": [
+				18,
+				71.83177570093457
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				107,
+				427.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_pipe_tee_v1",
+			"name": "能源庭院 · 平台红管三通",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1053,
+				623,
+				431,
+				275
+			],
+			"world_size": [
+				70,
+				44.66357308584686
+			],
+			"render_size": [
+				70,
+				44.66357308584686
+			],
+			"footprint_world_size": [
+				70,
+				44.66357308584686
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				431,
+				275.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "energy_sign_v1",
+			"name": "能源庭院 · 设备间搪瓷标牌",
+			"texture": "res://art/props/pipe_energy_court_v1/equipment-sign.png",
+			"texture_size": [
+				2073,
+				758
+			],
+			"region": [
+				260,
+				164,
+				1554,
+				411
+			],
+			"world_size": [
+				190,
+				50.25096525096525
+			],
+			"render_size": [
+				190,
+				50.25096525096525
+			],
+			"footprint_world_size": [
+				190,
+				1
+			],
+			"ground_rect": [
+				0,
+				402.82105263157894,
+				1554,
+				8.178947368421053
+			],
+			"elevation_world": 49.25096525096525,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "8e54a54fcb1e0643e5a18bb671bfcc4428f32a1f7073765708932af3c7df13e2"
+		},
+		{
+			"id": "energy_canopy_v1",
+			"name": "能源庭院 · 橄榄帆布备件棚",
+			"texture": "res://art/props/pipe_energy_court_v1/parts-canopy.png",
+			"texture_size": [
+				1234,
+				1274
+			],
+			"region": [
+				214,
+				117,
+				807,
+				1040
+			],
+			"world_size": [
+				185,
+				238.41387856257745
+			],
+			"render_size": [
+				185,
+				238.41387856257745
+			],
+			"footprint_world_size": [
+				185,
+				170
+			],
+			"ground_rect": [
+				0,
+				298.4324324324325,
+				807,
+				741.5675675675675
+			],
+			"elevation_world": 68.41387856257745,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "6a6dd6dddd86e5154ce2b4bc96101e439a829f09b245f9746e0290b27c557f4c",
+			"solid_parts": [
+				[
+					0.06,
+					0.85,
+					0.06,
+					0.15
+				],
+				[
+					0.86,
+					0.85,
+					0.06,
+					0.15
+				],
+				[
+					0.17,
+					0.3,
+					0.65,
+					0.62
+				]
+			]
+		},
+		{
+			"id": "energy_control_bank_v1",
+			"name": "能源庭院 · 三联灰钢仪表控制柜",
+			"texture": "res://art/props/pipe_energy_court_v1/control-bank.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				92,
+				155,
+				1353,
+				688
+			],
+			"world_size": [
+				240,
+				122.039911308204
+			],
+			"render_size": [
+				240,
+				122.039911308204
+			],
+			"footprint_world_size": [
+				240,
+				65
+			],
+			"ground_rect": [
+				0,
+				321.5625,
+				1353,
+				366.4375
+			],
+			"elevation_world": 57.039911308204,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "500b4bbf04ef7396889bac149b1e1022b4f280c8c03390021ffdd9ccbfff902f"
+		},
+		{
+			"id": "energy_pump_v1",
+			"name": "能源庭院 · 蓝钢循环泵组",
+			"texture": "res://art/props/factory_v43/expansion_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				401,
+				634,
+				361,
+				262
+			],
+			"ground_rect": [
+				0,
+				97.9090909090909,
+				361,
+				164.0909090909091
+			],
+			"footprint_world_size": [
+				280.0,
+				127.27272727272728
+			],
+			"world_size": [
+				280,
+				203.21329639889197
+			],
+			"render_size": [
+				280,
+				203.21329639889197
+			],
+			"elevation_world": 75.94056912616469,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-expansion-v43",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "equipment_pump_v43"
+		},
+		{
+			"id": "energy_control_v1",
+			"name": "能源庭院 · 电气控制柜",
+			"texture": "res://art/props/factory_v43/expansion_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				852,
+				552,
+				207,
+				406
+			],
+			"ground_rect": [
+				0,
+				268.0,
+				207,
+				138.0
+			],
+			"footprint_world_size": [
+				75.0,
+				50.0
+			],
+			"world_size": [
+				75,
+				147.1014492753623
+			],
+			"render_size": [
+				75,
+				147.1014492753623
+			],
+			"elevation_world": 97.10144927536231,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-expansion-v43",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "electrical_cabinet_v43"
+		},
+		{
+			"id": "energy_worktable_v1",
+			"name": "能源庭院 · 南墙检修台",
+			"texture": "res://art/props/workshop_one_v2/workbench.png",
+			"texture_size": [
+				1962,
+				801
+			],
+			"region": [
+				47,
+				37,
+				1868,
+				734
+			],
+			"ground_rect": [
+				0,
+				267.0,
+				1868,
+				467.0
+			],
+			"render_size": [
+				180,
+				70.72805139186296
+			],
+			"world_size": [
+				180,
+				70.72805139186296
+			],
+			"footprint_world_size": [
+				180.0,
+				45.0
+			],
+			"elevation_world": 25.728051391862962,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"sha256": "d4ce5fc7097b443b2b9f3750ee0e9f92c6d8cc97b895ff9b94eb2bb3f5c9ec7c",
+			"runtime_size_limit": 512,
+			"reused_from": "workshop2_workbench"
+		},
+		{
+			"id": "energy_drums_v1",
+			"name": "能源庭院 · 蓝色检修桶",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				46,
+				405,
+				349,
+				248
+			],
+			"ground_rect": [
+				0,
+				38.599999999999994,
+				349,
+				209.4
+			],
+			"footprint_world_size": [
+				58.0,
+				34.800000000000004
+			],
+			"world_size": [
+				58,
+				41.21489971346705
+			],
+			"render_size": [
+				58,
+				41.21489971346705
+			],
+			"elevation_world": 6.414899713467044,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_drums_v1"
+		},
+		{
+			"id": "energy_parts_v1",
+			"name": "能源庭院 · 室外备件工作台",
+			"texture": "res://art/props/warehouse_v1/north_shelf.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				261,
+				195,
+				1253,
+				535
+			],
+			"ground_rect": [
+				0,
+				41.76666666666665,
+				1253,
+				493.23333333333335
+			],
+			"footprint_world_size": [
+				155.0,
+				61.01449853684491
+			],
+			"world_size": [
+				155,
+				66.18116520351157
+			],
+			"render_size": [
+				155,
+				66.18116520351157
+			],
+			"elevation_world": 5.166666666666657,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5aa1f765169f6367fab509d5c2cd04e6a95bc9249263ad4ffd019c943f0a9826",
+			"reused_from": "warehouse_north_shelf_v1"
+		},
+		{
+			"id": "energy_pallet_v1",
+			"name": "能源庭院 · 周转木托盘",
+			"texture": "res://art/props/factory_v43/expansion_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				450,
+				132,
+				272,
+				302
+			],
+			"ground_rect": [
+				0,
+				75.33333333333331,
+				272,
+				226.66666666666669
+			],
+			"footprint_world_size": [
+				125.0,
+				104.16666666666667
+			],
+			"world_size": [
+				125,
+				138.78676470588235
+			],
+			"render_size": [
+				125,
+				138.78676470588235
+			],
+			"elevation_world": 34.62009803921568,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-expansion-v43",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "0b063bb8eb55e41b08b5bd880f0b8c42c13c7ae3baf72baeab5c0300181c995f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "cargo_pallet_v43"
+		},
+		{
+			"id": "energy_jack_v1",
+			"name": "能源庭院 · 后勤手推托盘车",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				519,
+				372,
+				155,
+				296
+			],
+			"ground_rect": [
+				0,
+				-35.46153846153845,
+				155,
+				331.46153846153845
+			],
+			"footprint_world_size": [
+				55.0,
+				117.61538461538461
+			],
+			"world_size": [
+				55,
+				105.03225806451613
+			],
+			"render_size": [
+				55,
+				105.03225806451613
+			],
+			"elevation_world": -12.583126550868485,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_jack_v1"
+		},
+		{
+			"id": "energy_shelf_v1",
+			"name": "能源庭院 · 院角备件柜",
+			"texture": "res://art/props/workshop_one_v2/high-cabinet-b.png",
+			"texture_size": [
+				1402,
+				1122
+			],
+			"region": [
+				388,
+				179,
+				627,
+				881
+			],
+			"ground_rect": [
+				0,
+				572.323076923077,
+				627,
+				308.67692307692306
+			],
+			"render_size": [
+				75,
+				105.38277511961722
+			],
+			"world_size": [
+				75,
+				105.38277511961722
+			],
+			"footprint_world_size": [
+				75.0,
+				36.92307692307692
+			],
+			"elevation_world": 68.4596981965403,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"sha256": "1cad339292da61df78c960bcecf09750d92788950d9e186820d69ea36161018c",
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_cabinet_v1"
+		},
+		{
+			"id": "energy_bench_v1",
+			"name": "能源庭院 · 上院木长椅",
+			"texture": "res://art/props/campus_v47/campus_atlas.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				383,
+				1160,
+				316,
+				162
+			],
+			"ground_rect": [
+				0,
+				53.895,
+				316,
+				108.105
+			],
+			"footprint_world_size": [
+				180.0,
+				61.57879746835444
+			],
+			"world_size": [
+				180,
+				92.27848101265823
+			],
+			"render_size": [
+				180,
+				92.27848101265823
+			],
+			"elevation_world": 30.699683544303795,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "campus-v47",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "park_bench_v47"
+		},
+		{
+			"id": "energy_lamp_v1",
+			"name": "能源庭院 · 旧式院灯",
+			"texture": "res://art/props/campus_v47/campus_atlas.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				852,
+				1086,
+				115,
+				300
+			],
+			"ground_rect": [
+				0,
+				242.5,
+				115,
+				57.5
+			],
+			"footprint_world_size": [
+				46.0,
+				23.0
+			],
+			"world_size": [
+				46,
+				120.0
+			],
+			"render_size": [
+				46,
+				120.0
+			],
+			"elevation_world": 97.0,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "campus-v47",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "yard_lamp_v47"
+		},
+		{
+			"id": "energy_shrubs_a_v1",
+			"name": "能源庭院 · 地栽灌木 A",
+			"texture": "res://art/props/exercise_yard_v55/shrub-group-a.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				256,
+				167,
+				1293,
+				579
+			],
+			"world_size": [
+				150,
+				67.16937354988399
+			],
+			"render_size": [
+				150,
+				67.16937354988399
+			],
+			"ground_rect": [
+				0,
+				350.82352941176475,
+				1293,
+				228.17647058823528
+			],
+			"footprint_world_size": [
+				150.0,
+				26.470588235294116
+			],
+			"elevation_world": 40.69878531458987,
+			"proportion_locked": true,
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "43ec621c53788c8a023b33e82cf63849b2276616f7c2f40e8b3461676279979c",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"reused_from": "yard_ground_shrubs_a_v55"
+		},
+		{
+			"id": "energy_shrubs_b_v1",
+			"name": "能源庭院 · 地栽灌木 B",
+			"texture": "res://art/props/exercise_yard_v55/shrub-group-b.png",
+			"texture_size": [
+				1836,
+				856
+			],
+			"region": [
+				174,
+				159,
+				1493,
+				574
+			],
+			"world_size": [
+				115,
+				44.21299397186872
+			],
+			"render_size": [
+				115,
+				44.21299397186872
+			],
+			"ground_rect": [
+				0,
+				296.72857142857146,
+				1493,
+				277.27142857142854
+			],
+			"footprint_world_size": [
+				114.99999999999999,
+				21.357142857142854
+			],
+			"elevation_world": 22.855851114725866,
+			"proportion_locked": true,
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "8800bbd4ef7883e0c21fdc989f3d15e72b6dc5f0ef97ed0c12051bf35a2c5049",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"reused_from": "yard_ground_shrubs_b_v55"
+		},
+		{
+			"id": "doorway_energy_open_v1",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "能源庭院 · 设备间钢门 · 开启",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				160,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				755,
+				516
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_energy_open_v1",
+				"door_art_closed": "doorway_energy_closed_v1",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_open_v2"
+		},
+		{
+			"id": "doorway_energy_closed_v1",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "能源庭院 · 设备间钢门 · 关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				160,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				498,
+				432
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_energy_open_v1",
+				"door_art_closed": "doorway_energy_closed_v1",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_closed_v2"
+		}
+	]
+}

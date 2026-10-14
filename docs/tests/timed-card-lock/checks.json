@@ -1,0 +1,23 @@
+{
+	"checks": {
+		"after-hours admission accepts matching card": true,
+		"after-hours admission denies missing card": true,
+		"approach cannot reopen closed door": true,
+		"body overlap does not reopen locked leaf": true,
+		"closing locks despite occupant": true,
+		"dropped card cannot reopen relocked room": true,
+		"inside without card denied": true,
+		"leaf closes after body clears": true,
+		"manual close is retained during open hours": true,
+		"matching card opens after closing": true,
+		"matching card present": true,
+		"next opening period restores scheduled access": true,
+		"no automatic evacuation opening": true,
+		"open leaf still waits for body to clear": true,
+		"reset clears previous manual choice": true,
+		"room open within hours": true,
+		"swipe is not immediately undone by schedule": true,
+		"unrelated card denied": true
+	},
+	"failed": []
+}

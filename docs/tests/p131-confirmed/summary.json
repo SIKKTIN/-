@@ -1,0 +1,66 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "looting",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 15.16,
+      "checks": 113,
+      "failed": [
+        "manual_drag_started"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.66,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "southwest_yard",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.92,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.19,
+      "checks": 360,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 7.94,
+      "checks": 15,
+      "failed": [
+        "catalog_preserves_every_source_asset"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 522,
+  "passed": false
+}

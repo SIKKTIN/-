@@ -1,0 +1,18 @@
+{
+  "upstream": "https://github.com/opengenius/godot_swe_ocean2d",
+  "commit": "ade2d150c2f34785715ed7452063e8b81df1a709",
+  "license": "MIT",
+  "attribution": "Copyright (c) 2024 Evgenii Gubenko",
+  "adaptation": [
+    "staggered velocity advection and free-surface pressure gradient",
+    "upwind depth flux update",
+    "foam production from compression and persistent advection",
+    "double-buffered state instead of shared intermediate texture",
+    "fixed 120 Hz steps, dry boundaries and shallow-water drag",
+    "procedural bathymetry and bridge-pier obstacles",
+    "incoming waves forced only at outer boundary",
+    "water shading from computed height gradients; no water photograph, normal-map or foam image"
+  ],
+  "scope": "independent verification scene; no game map integration",
+  "map_sha256_at_start": "7a07dfe665c529b56d145d7b3708d827035d8fe84aec9082d2b02f90676aaee5"
+}

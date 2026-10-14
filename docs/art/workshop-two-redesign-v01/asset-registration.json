@@ -1,0 +1,137 @@
+{
+	"mode": "built-in imagegen",
+	"assets": [
+		{
+			"key": "lathe",
+			"path": "art/props/workshop_two_v1/lathe.png",
+			"sha256": "d173557bf629d877f4b2048d2d85d953204ed8e916bde0cb36dadf76b3866b09",
+			"region": [
+				35,
+				3,
+				1947,
+				715
+			]
+		},
+		{
+			"key": "precision_lathe",
+			"path": "art/props/workshop_two_v1/precision_lathe.png",
+			"sha256": "66995dec2eb2f49736361b1f690dbfaa82abbaaa178ddbcba03114a9a25840a9",
+			"region": [
+				124,
+				73,
+				1675,
+				651
+			]
+		},
+		{
+			"key": "vertical_mill",
+			"path": "art/props/workshop_two_v1/vertical_mill.png",
+			"sha256": "dcf60c9244055b30a49274f1457110fa819c43858d25fe6f29bf82b1ae71ba6b",
+			"region": [
+				72,
+				104,
+				999,
+				1198
+			]
+		},
+		{
+			"key": "stock_rack",
+			"path": "art/props/workshop_two_v1/stock_rack.png",
+			"sha256": "36dec262084293702c0070a18f0a87557a1db7e8aff07bf283afcda3d772c9c8",
+			"region": [
+				292,
+				86,
+				237,
+				1738
+			]
+		},
+		{
+			"key": "sign",
+			"path": "art/props/workshop_two_v1/sign.png",
+			"sha256": "49f1e433c07cc053b9b50a0081a3c3e70c1e81aa4a8d82ecea2bead3b834b4f7",
+			"region": [
+				472,
+				201,
+				1227,
+				320
+			]
+		}
+	],
+	"definition_ids": [
+		"workshop_two_lathe_v1",
+		"workshop_two_precision_lathe_v1",
+		"workshop_two_vertical_mill_v1",
+		"workshop_two_stock_rack_v1",
+		"workshop_two_sign_v1",
+		"workshop_two_parts_drawers_v1",
+		"workshop_two_parts_shelf_v1",
+		"workshop_two_tool_cabinet_v1",
+		"workshop_two_tall_cabinet_v1",
+		"workshop_two_tool_station_v1",
+		"workshop_two_electrical_v1",
+		"workshop_two_bits_v1",
+		"workshop_two_crate_v1",
+		"workshop_two_drums_v1",
+		"workshop_two_wall_lamp_v1",
+		"workshop_two_pipe_v1"
+	],
+	"reused": [
+		{
+			"id": "workshop_two_parts_drawers_v1",
+			"source": "workshop2_drawers",
+			"texture": "res://art/props/workshop_one_v1/parts-drawers.png"
+		},
+		{
+			"id": "workshop_two_parts_shelf_v1",
+			"source": "workshop2_open_parts",
+			"texture": "res://art/props/workshop_one_v1/north-parts-rack.png"
+		},
+		{
+			"id": "workshop_two_tool_cabinet_v1",
+			"source": "workshop2_double_cabinet",
+			"texture": "res://art/props/workshop_one_v2/double-cabinet.png"
+		},
+		{
+			"id": "workshop_two_tall_cabinet_v1",
+			"source": "workshop2_high_cabinet_b",
+			"texture": "res://art/props/workshop_one_v2/high-cabinet-b.png"
+		},
+		{
+			"id": "workshop_two_tool_station_v1",
+			"source": "workshop2_tool_station",
+			"texture": "res://art/props/workshop_one_v2/tool-station.png"
+		},
+		{
+			"id": "workshop_two_electrical_v1",
+			"source": "workshop2_electrical",
+			"texture": "res://art/props/workshop_one_v1/electrical-cabinet.png"
+		},
+		{
+			"id": "workshop_two_bits_v1",
+			"source": "workshop2_east_bits",
+			"texture": "res://art/props/workshop_one_v2/east-bits.png"
+		},
+		{
+			"id": "workshop_two_crate_v1",
+			"source": "workshop2_wood_crate",
+			"texture": "res://art/props/workshop_one_v2/wood-crate.png"
+		},
+		{
+			"id": "workshop_two_drums_v1",
+			"source": "workshop2_drums",
+			"texture": "res://art/props/factory_v44/detail_atlas.png"
+		},
+		{
+			"id": "workshop_two_wall_lamp_v1",
+			"source": "caged_wall_lamp",
+			"texture": "res://art/props/prison_v17/caged_wall_lamp_v17.png"
+		},
+		{
+			"id": "workshop_two_pipe_v1",
+			"source": "pipe_valve",
+			"texture": "res://art/props/prison_v17/pipe_valve_v17.png"
+		}
+	],
+	"door": "res://art/architecture/workshop_door_v2/manifest.json",
+	"wall": "res://art/architecture/workshop_one_v1/manifest.json"
+}

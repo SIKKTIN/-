@@ -21,6 +21,8 @@ func reset(config: Dictionary) -> void:
 		game.add_child(actor)
 		actor.configure(game,spec)
 		actors[id] = actor
+		var service_point: Vector2 = actor.interaction_point()
+		merchants[id].position = [service_point.x,service_point.y]
 		for offer in spec.get("stock", []):
 			for n in range(int(offer.count)):
 				var item_id: String = game.inventory.add_ground(str(offer.definition_id), Vector2.ZERO)
@@ -31,11 +33,13 @@ func reset(config: Dictionary) -> void:
 func tick(delta: float) -> void:
 	for id in actors:
 		actors[id].tick(delta)
-		merchants[id].position = [actors[id].position.x,actors[id].position.y]
+		var service_point: Vector2 = actors[id].interaction_point()
+		merchants[id].position = [service_point.x,service_point.y]
 	# Close an already-open shop before UI processing or a late purchase click.
 	if game.shop_panel and game.shop_panel.panel.visible and not is_open(game.shop_panel.merchant_id):
+		var counter: bool = actors.has(game.shop_panel.merchant_id) and actors[game.shop_panel.merchant_id].service_spec.has("service_offset")
 		game.shop_panel.close()
-		game.show_status("商人已收摊。营业时间：12:00–14:00、17:00–20:00。")
+		game.show_status("小卖铺已收摊。营业时间：08:00–20:00。" if counter else "商人已收摊。营业时间：12:00–14:00、17:00–20:00。")
 
 func is_open(id: String) -> bool:
 	if not actors.has(id):
@@ -47,10 +51,14 @@ func reason(actor_id: int, merchant_id: String) -> String:
 	if not game.inventory.available(actor_id) or not merchants.has(merchant_id):
 		return "当前伙伴不能交易。"
 	if not is_open(merchant_id):
+		if actors[merchant_id].service_spec.has("service_offset"):
+			return "小卖铺未营业；营业时间：08:00–20:00。"
 		return "商人%s；12:00–14:00、17:00–20:00到摊位营业。" % actors[merchant_id].activity_text()
 	var actor = game.actors[actor_id]
 	var pos: Array = merchants[merchant_id].position
 	var point := Vector2(pos[0], pos[1])
+	if str(actors[merchant_id].service_spec.get("service_side","")) == "south" and actor.position.y < point.y-25:
+		return "请到南侧售货窗口购买。"
 	if game.world.is_under_roof(point): return "进入房间后才能与里面的商人交易。"
 	if actor.position.distance_to(point) > 100 or not game.world.line_clear(actor.position, point):
 		return "靠近商人100单位且无遮挡才能交易。"
@@ -65,7 +73,7 @@ func try_buy(actor_id: int, merchant_id: String, item_id: String) -> Dictionary:
 	if not merchants[merchant_id].stock.has(item_id) or not inv.instances.has(item_id) or inv.instances[item_id].location != "shop":
 		return {"ok": false, "reason": "这件物品已经售出。"}
 	var price := int(inv.definitions[inv.instances[item_id].definition_id].sell_price)
-	if inv.items(actor_id).size() >= inv.capacity(actor_id):
+	if inv.find_space(actor_id,str(inv.instances[item_id].definition_id)).x<0:
 		return {"ok": false, "reason": "背包已满，购买未扣款。"}
 	if inv.wallet < price:
 		return {"ok": false, "reason": "钱不够：安排工作获得工资。"}

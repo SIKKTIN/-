@@ -1,0 +1,46 @@
+{
+  "mode": "built-in-imagegen-edit",
+  "source": "art/architecture/dorm_door_v1/components-heavy-v2.png",
+  "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+  "regions": {
+    "dorm_door_upper_leaf_v1": [
+      271,
+      28,
+      483,
+      424
+    ],
+    "dorm_door_lower_leaf_v1": [
+      273,
+      539,
+      480,
+      437
+    ],
+    "dorm_door_closed_leaves_v1": [
+      1000,
+      8,
+      166,
+      489
+    ],
+    "dorm_door_frame_v1": [
+      1007,
+      511,
+      159,
+      494
+    ]
+  },
+  "prompt": "docs/art/dorm-door-v1/heavy-production-prompt.txt",
+  "closed_visible_width": 32,
+  "frame_width": 36,
+  "manual_interaction": "E / nearby interaction, day manual choice persists, night locked, body-safe closure",
+  "interaction_checks": 90,
+  "dorm_regression_checks": 68,
+  "workshop_regression_checks": 48,
+  "manifest": "art/architecture/dorm_door_v1/manifest.json",
+  "screenshots": [
+    "docs/art/dorm-door-v1/heavy-interaction-open.png",
+    "docs/art/dorm-door-v1/heavy-interaction-closed.png",
+    "docs/art/dorm-door-v1/heavy-interaction-exterior.png"
+  ],
+  "night_rule": "00:00–08:00 locks all five interactive dorm entrances; officer keys may open; manual action cannot unlock",
+  "saved_map_modified": false
+}

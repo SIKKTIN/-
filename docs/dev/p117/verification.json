@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.05,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.94,
+      "checks": 347,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "head_layer",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.94,
+      "checks": 17,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 7.67,
+      "checks": 21,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.95,
+      "checks": 100,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "npc",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 40.53,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 25.16,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 543,
+  "passed": true,
+  "native_day_views": "docs/dev/p116/cohesion",
+  "native_night_view": "docs/dev/p117/dorm-night.png",
+  "preserved": [
+    "original character PNGs and poses",
+    "16x6 ground foot collision",
+    "torso-only doorway clearance",
+    "wall/door geometry"
+  ],
+  "changes": [
+    "regrouped dorm furniture into sleeping/storage and washing areas",
+    "80-unit home tiles, 160-unit workshop slabs",
+    "shared character saturation and warm tint",
+    "body-sized sole contact shadows"
+  ]
+}

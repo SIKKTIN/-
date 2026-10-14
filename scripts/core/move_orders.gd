@@ -10,15 +10,36 @@ func issue(actor_id: int, goal: Vector2, source: String = "manual") -> bool:
 	if game.phase != "playing" or actor_id < 0 or actor_id >= game.actors.size():
 		return false
 	if source == "manual" and not game.actor_is_controllable(actor_id): return false
+	if game.nine_point and game.nine_point.is_seated_actor(actor_id):
+		if source == "manual": return false
+		game.nine_point.close()
+		game.show_status("外部安排打断了牌局。",4)
 	var actor = game.actors[actor_id]
+	if source!="manual" and game.keycards: game.keycards.prepare_npc_route(actor,goal)
 	if actor.escaped:
 		return false
 	var push: bool = source == "manual" and actor.skill_id == "strong"
 	if not game.world.can_place_circle(goal,game.world.RADIUS,actor,true,not push):
 		game.show_status("目标被墙、门或伙伴占据，请选择可站立的位置。")
 		return false
-	var path: PackedVector2Array = game.world.find_path(actor.position,goal,actor,true,push)
-	if path.is_empty():
+	var automatic: bool = source != "manual" and not game.actor_is_controllable(actor_id)
+	# Closing a room and changing a routine can request the same evacuation
+	# twice in one frame. Retain a valid route instead of solving it again.
+	if automatic and active.has(actor_id) and active[actor_id].goal==goal and active[actor_id].revision==game.world.obstacle_revision and not active[actor_id].path.is_empty():
+		game.skills.cancel(actor_id,"收到移动指令，当前操作停止；撬锁进度保留。")
+		active[actor_id].source=source
+		return true
+	var path := PackedVector2Array()
+	var deferred := false
+	if automatic and game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000:
+		if game.world.motion_clear(actor.position,goal,actor,true,push): path.append(goal)
+		else: deferred=true
+	else:
+		var start := Time.get_ticks_usec()
+		path = game.world.find_path(actor.position,goal,actor,true,push)
+		if automatic and game.world.ai_path_budget_active:
+			game.world.ai_path_spent_usec += Time.get_ticks_usec()-start
+	if path.is_empty() and not deferred:
 		game.show_status("这里暂时走不到：先打开通路，再下达移动指令。")
 		return false
 	if source == "manual" and game.routines:
@@ -58,10 +79,18 @@ func tick(delta: float) -> void:
 		while not path.is_empty() and actor.position.distance_to(path[0]) < 2.5:
 			path.remove_at(0)
 		var blocked: bool = path.is_empty() or not game.world.motion_clear(actor.position,path[0],actor,true,order.push)
+		var routing_wait := false
 		if blocked and order.repath <= 0:
-			path = game.world.find_path(actor.position,order.goal,actor,true,order.push)
-			order.repath = 0.35
-			order.revision = game.world.obstacle_revision
+			var automatic: bool = not game.actor_is_controllable(id)
+			if automatic and game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000:
+				routing_wait=true
+			else:
+				var start := Time.get_ticks_usec()
+				path = game.world.find_path(actor.position,order.goal,actor,true,order.push)
+				if automatic and game.world.ai_path_budget_active:
+					game.world.ai_path_spent_usec += Time.get_ticks_usec()-start
+				order.repath = 0.35
+				order.revision = game.world.obstacle_revision
 		order.path = path
 		var moved := Vector2.ZERO
 		if not path.is_empty():
@@ -84,7 +113,7 @@ func tick(delta: float) -> void:
 		if actor.moved_this_frame:
 			actor.facing = moved.normalized()
 			order.stalled = 0.0
-		else:
+		elif not routing_wait:
 			order.stalled += delta
 		if order.stalled > 1.0:
 			stop(id)

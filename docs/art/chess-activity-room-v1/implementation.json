@@ -1,0 +1,61 @@
+{
+  "status": "integrated",
+  "date": "2026-10-13",
+  "approved_concept": "concept-final-v1.png",
+  "map": "res://data/rooms/r04.json",
+  "asset_manifest": "res://art/props/chess_room_v1/manifest.json",
+  "original_png_count": 9,
+  "definition_count": 41,
+  "room_id": "chess-room",
+  "room_rect": [
+    900,
+    220,
+    560,
+    580
+  ],
+  "usable_visual_floor_end_y": 700,
+  "door_rect": [
+    1120,
+    800,
+    160,
+    20
+  ],
+  "door_hours": [
+    480,
+    1200
+  ],
+  "new_fixture_count": 20,
+  "new_wall_tile_count": 72,
+  "game_connections": {
+    "cupboard": "existing personal container search",
+    "activities": "3 appended free routine points",
+    "doors": "timed day opening, two-state shared-frame art",
+    "roof": "existing concrete roof, revealed on entry",
+    "board_games": "decorative tabletop sprites; no playable chess/card rules added"
+  },
+  "validation": {
+    "script": "res://qa/chess_room_v1.gd",
+    "report": "checks.json",
+    "native_check_count": 163,
+    "failed": [],
+    "screenshots": [
+      "runtime-interior.png",
+      "runtime-roof.png",
+      "runtime-closed.png",
+      "editor-chess-room.png"
+    ],
+    "original_png_byte_hashes_retained": true,
+    "all_png_imported": true
+  },
+  "preservation": {
+    "initial_saved_map": "restoration-input.json",
+    "latest_saved_map_before_refinement": "refinement-input.json",
+    "final": "restoration-output.json",
+    "concurrent_change_preserved": "kiosk-shell update from closed_side_shell_v5 to continuous_shell_v6"
+  },
+  "production_prompts": "production-assets.json",
+  "preview_scripts": [
+    "open-editor.gd",
+    "play-chess-room.gd"
+  ]
+}

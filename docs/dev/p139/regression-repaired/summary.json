@@ -1,0 +1,31 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "southwest_yard",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 19.22,
+      "checks": 46,
+      "failed": [
+        "yard_ground_replaces_lawn",
+        "south_wall_stops_feet",
+        "player_cannot_path_into_scenery_(400.0, 3500.0)",
+        "npc_cannot_path_into_scenery_(400.0, 3500.0)",
+        "player_cannot_path_into_scenery_(610.0, 3870.0)",
+        "npc_cannot_path_into_scenery_(610.0, 3870.0)",
+        "player_cannot_path_into_scenery_(610.0, 3970.0)",
+        "npc_cannot_path_into_scenery_(610.0, 3970.0)"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 46,
+  "passed": false
+}

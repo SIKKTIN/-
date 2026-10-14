@@ -1,0 +1,3916 @@
+{
+	"baked_misses": 0,
+	"cases": {
+		"hud_disabled": {
+			"draw_calls": {
+				"max": 498.0,
+				"mean": 498.0,
+				"p95": 498.0,
+				"p99": 498.0
+			},
+			"engine_process_ms": {
+				"max": 26.516,
+				"mean": 22.34312,
+				"p95": 26.516,
+				"p99": 26.516
+			},
+			"frame_ms": {
+				"max": 21.931,
+				"mean": 15.80978,
+				"p95": 19.915,
+				"p99": 21.755
+			},
+			"game_ms": {
+				"max": 11.578,
+				"mean": 8.23874,
+				"p95": 10.642,
+				"p99": 11.016
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.013,
+				"mean": 0.00881333333333332,
+				"p95": 0.011,
+				"p99": 0.012
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.006,
+				"mean": 0.00213333333333333,
+				"p95": 0.003,
+				"p99": 0.005
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.055,
+				"mean": 0.02674,
+				"p95": 0.038,
+				"p99": 0.049
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.024,
+				"mean": 0.0131666666666666,
+				"p95": 0.018,
+				"p99": 0.023
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.004,
+				"mean": 0.00155333333333333,
+				"p95": 0.002,
+				"p99": 0.004
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 0.333,
+				"mean": 0.13504,
+				"p95": 0.214,
+				"p99": 0.309
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.005,
+				"mean": 0.00132666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 0.12,
+				"mean": 0.00515333333333334,
+				"p95": 0.006,
+				"p99": 0.02
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.018,
+				"mean": 0.0054,
+				"p95": 0.007,
+				"p99": 0.011
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.122,
+				"mean": 0.0423533333333333,
+				"p95": 0.061,
+				"p99": 0.076
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.006,
+				"mean": 0.00216666666666667,
+				"p95": 0.003,
+				"p99": 0.005
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.003,
+				"mean": 0.00162666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.059,
+				"mean": 0.0159666666666666,
+				"p95": 0.022,
+				"p99": 0.028
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.009,
+				"mean": 0.00354666666666667,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.092,
+				"mean": 0.02352,
+				"p95": 0.039,
+				"p99": 0.057
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.023,
+				"mean": 0.01274,
+				"p95": 0.018,
+				"p99": 0.021
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.01,
+				"mean": 0.00407333333333334,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.132,
+				"mean": 0.0307733333333333,
+				"p95": 0.042,
+				"p99": 0.076
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.08,
+				"mean": 0.0379666666666666,
+				"p95": 0.049,
+				"p99": 0.071
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.289,
+				"mean": 0.00881999999999999,
+				"p95": 0.007,
+				"p99": 0.287
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.004,
+				"mean": 0.00134666666666667,
+				"p95": 0.002,
+				"p99": 0.004
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.027,
+				"mean": 0.0161866666666666,
+				"p95": 0.022,
+				"p99": 0.024
+			},
+			"logic: if game.presentation:": {
+				"max": 5.033,
+				"mean": 3.57766,
+				"p95": 4.644,
+				"p99": 4.943
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.027,
+				"mean": 0.00779333333333333,
+				"p95": 0.011,
+				"p99": 0.013
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.25,
+				"mean": 0.116586666666667,
+				"p95": 0.164,
+				"p99": 0.189
+			},
+			"logic: if game.room_access:": {
+				"max": 3.423,
+				"mean": 2.27888666666667,
+				"p95": 3.101,
+				"p99": 3.416
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.16,
+				"mean": 0.0976866666666667,
+				"p95": 0.126,
+				"p99": 0.151
+			},
+			"logic: if game.routines:": {
+				"max": 0.095,
+				"mean": 0.04972,
+				"p95": 0.073,
+				"p99": 0.086
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.004,
+				"mean": 0.00268,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.schedule:": {
+				"max": 0.676,
+				"mean": 0.415306666666667,
+				"p95": 0.537,
+				"p99": 0.631
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.599,
+				"mean": 0.0114866666666667,
+				"p95": 0.007,
+				"p99": 0.357
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.174,
+				"mean": 0.04346,
+				"p95": 0.067,
+				"p99": 0.154
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.018,
+				"mean": 0.00441333333333334,
+				"p95": 0.006,
+				"p99": 0.018
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.004,
+				"mean": 0.00208666666666667,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: if game.workshop:": {
+				"max": 0.354,
+				"mean": 0.107646666666667,
+				"p95": 0.155,
+				"p99": 0.302
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.003,
+				"mean": 0.000686666666666667,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.148,
+				"mean": 0.0760066666666666,
+				"p95": 0.101,
+				"p99": 0.112
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.004,
+				"mean": 0.00138,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.192,
+				"mean": 0.0363333333333333,
+				"p95": 0.051,
+				"p99": 0.067
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.102,
+				"mean": 0.0416333333333333,
+				"p95": 0.055,
+				"p99": 0.067
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.024,
+				"mean": 0.00793333333333333,
+				"p95": 0.011,
+				"p99": 0.018
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.005,
+				"mean": 0.00154,
+				"p95": 0.002,
+				"p99": 0.004
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.018,
+				"mean": 0.00188,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"visual: _tick_scene()": {
+				"max": 0.867,
+				"mean": 0.494066666666666,
+				"p95": 0.716,
+				"p99": 0.833
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.265,
+				"mean": 0.117213333333333,
+				"p95": 0.165,
+				"p99": 0.236
+			},
+			"visual: if dog_visual:": {
+				"max": 0.079,
+				"mean": 0.0184866666666666,
+				"p95": 0.025,
+				"p99": 0.049
+			},
+			"visual: if game.items_view:": {
+				"max": 0.182,
+				"mean": 0.0655,
+				"p95": 0.093,
+				"p99": 0.115
+			},
+			"visual: if interaction:": {
+				"max": 3.775,
+				"mean": 2.63444,
+				"p95": 3.444,
+				"p99": 3.682
+			},
+			"visual: if lighting:": {
+				"max": 0.387,
+				"mean": 0.164393333333333,
+				"p95": 0.238,
+				"p99": 0.329
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.083,
+				"mean": 0.00809333333333333,
+				"p95": 0.011,
+				"p99": 0.013
+			},
+			"visual: previous = now": {
+				"max": 0.002,
+				"mean": 0.0015,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.007,
+				"mean": 0.00316666666666667,
+				"p95": 0.005,
+				"p99": 0.007
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.092,
+				"mean": 0.00434,
+				"p95": 0.005,
+				"p99": 0.025
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.008,
+				"mean": 0.00232666666666667,
+				"p95": 0.003,
+				"p99": 0.006
+			},
+			"visual: var now := _state()": {
+				"max": 0.154,
+				"mean": 0.02028,
+				"p95": 0.026,
+				"p99": 0.033
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.013,
+				"mean": 0.00238666666666667,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.09,
+				"mean": 0.0126,
+				"p95": 0.016,
+				"p99": 0.021
+			}
+		},
+		"outdoor": {
+			"draw_calls": {
+				"max": 668.0,
+				"mean": 664.106666666667,
+				"p95": 668.0,
+				"p99": 668.0
+			},
+			"engine_process_ms": {
+				"max": 26.251,
+				"mean": 20.54308,
+				"p95": 26.251,
+				"p99": 26.251
+			},
+			"frame_ms": {
+				"max": 17.589,
+				"mean": 12.25984,
+				"p95": 13.842,
+				"p99": 15.139
+			},
+			"game_ms": {
+				"max": 10.179,
+				"mean": 5.90652,
+				"p95": 6.769,
+				"p99": 7.134
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.015,
+				"mean": 0.00516666666666667,
+				"p95": 0.006,
+				"p99": 0.01
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.002,
+				"mean": 0.00108,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.117,
+				"mean": 0.0203066666666667,
+				"p95": 0.024,
+				"p99": 0.09
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.018,
+				"mean": 0.00945333333333332,
+				"p95": 0.012,
+				"p99": 0.016
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.002,
+				"mean": 0.00100666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 0.234,
+				"mean": 0.10676,
+				"p95": 0.145,
+				"p99": 0.195
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.002,
+				"mean": 0.000820000000000001,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 4.571,
+				"mean": 0.791046666666667,
+				"p95": 1.052,
+				"p99": 1.147
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.014,
+				"mean": 0.004,
+				"p95": 0.005,
+				"p99": 0.006
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.059,
+				"mean": 0.0304533333333333,
+				"p95": 0.039,
+				"p99": 0.058
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.00152666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.026,
+				"mean": 0.00122666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.018,
+				"mean": 0.0116333333333333,
+				"p95": 0.014,
+				"p99": 0.016
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.004,
+				"mean": 0.00216666666666667,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.03,
+				"mean": 0.0178666666666666,
+				"p95": 0.024,
+				"p99": 0.028
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.05,
+				"mean": 0.00913333333333333,
+				"p95": 0.011,
+				"p99": 0.043
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.00298666666666667,
+				"p95": 0.004,
+				"p99": 0.005
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.069,
+				"mean": 0.02272,
+				"p95": 0.029,
+				"p99": 0.044
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.13,
+				"mean": 0.0284666666666666,
+				"p95": 0.032,
+				"p99": 0.064
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.244,
+				"mean": 0.00649333333333334,
+				"p95": 0.004,
+				"p99": 0.202
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.002,
+				"mean": 0.000886666666666667,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.069,
+				"mean": 0.00423333333333334,
+				"p95": 0.012,
+				"p99": 0.022
+			},
+			"logic: if game.presentation:": {
+				"max": 2.603,
+				"mean": 2.05425333333333,
+				"p95": 2.432,
+				"p99": 2.527
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.025,
+				"mean": 0.00572,
+				"p95": 0.007,
+				"p99": 0.014
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.178,
+				"mean": 0.0800866666666667,
+				"p95": 0.098,
+				"p99": 0.104
+			},
+			"logic: if game.room_access:": {
+				"max": 1.792,
+				"mean": 1.42656,
+				"p95": 1.647,
+				"p99": 1.702
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.2,
+				"mean": 0.106066666666667,
+				"p95": 0.135,
+				"p99": 0.164
+			},
+			"logic: if game.routines:": {
+				"max": 0.032,
+				"mean": 0.02498,
+				"p95": 0.03,
+				"p99": 0.031
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.003,
+				"mean": 0.00183333333333333,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"logic: if game.schedule:": {
+				"max": 0.457,
+				"mean": 0.278193333333333,
+				"p95": 0.346,
+				"p99": 0.452
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.364,
+				"mean": 0.00799333333333332,
+				"p95": 0.005,
+				"p99": 0.294
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.13,
+				"mean": 0.0272466666666667,
+				"p95": 0.032,
+				"p99": 0.046
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.004,
+				"mean": 0.00325333333333334,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.011,
+				"mean": 0.00156666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.workshop:": {
+				"max": 0.214,
+				"mean": 0.0707666666666667,
+				"p95": 0.098,
+				"p99": 0.117
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.001,
+				"mean": 0.000533333333333334,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.167,
+				"mean": 0.0521533333333334,
+				"p95": 0.058,
+				"p99": 0.111
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.002,
+				"mean": 0.00111333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.008,
+				"mean": 0.00508,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.071,
+				"mean": 0.0302,
+				"p95": 0.034,
+				"p99": 0.064
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.011,
+				"mean": 0.00582,
+				"p95": 0.007,
+				"p99": 0.009
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.002,
+				"mean": 0.00112,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.002,
+				"mean": 0.00132,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _tick_scene()": {
+				"max": 0.537,
+				"mean": 0.3281,
+				"p95": 0.407,
+				"p99": 0.52
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.167,
+				"mean": 0.0963866666666667,
+				"p95": 0.123,
+				"p99": 0.15
+			},
+			"visual: if dog_visual:": {
+				"max": 0.024,
+				"mean": 0.0131333333333333,
+				"p95": 0.016,
+				"p99": 0.023
+			},
+			"visual: if game.items_view:": {
+				"max": 0.182,
+				"mean": 0.0449266666666666,
+				"p95": 0.054,
+				"p99": 0.119
+			},
+			"visual: if interaction:": {
+				"max": 1.835,
+				"mean": 1.40782666666667,
+				"p95": 1.679,
+				"p99": 1.766
+			},
+			"visual: if lighting:": {
+				"max": 0.248,
+				"mean": 0.108526666666667,
+				"p95": 0.134,
+				"p99": 0.192
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.01,
+				"mean": 0.00508,
+				"p95": 0.007,
+				"p99": 0.008
+			},
+			"visual: previous = now": {
+				"max": 0.002,
+				"mean": 0.00106,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.005,
+				"mean": 0.00247333333333334,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.004,
+				"mean": 0.00226666666666667,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.003,
+				"mean": 0.00156,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"visual: var now := _state()": {
+				"max": 0.047,
+				"mean": 0.0131066666666666,
+				"p95": 0.016,
+				"p99": 0.043
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.005,
+				"mean": 0.00128,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.016,
+				"mean": 0.00874,
+				"p95": 0.011,
+				"p99": 0.014
+			}
+		},
+		"simulation_disabled": {
+			"draw_calls": {
+				"max": 498.0,
+				"mean": 498.0,
+				"p95": 498.0,
+				"p99": 498.0
+			},
+			"engine_process_ms": {
+				"max": 19.224,
+				"mean": 18.5726600000001,
+				"p95": 19.224,
+				"p99": 19.224
+			},
+			"frame_ms": {
+				"max": 4.815,
+				"mean": 3.85390666666667,
+				"p95": 4.429,
+				"p99": 4.655
+			},
+			"game_ms": {
+				"max": 7.575,
+				"mean": 7.57500000000002,
+				"p95": 7.575,
+				"p99": 7.575
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.008,
+				"mean": 0.00800000000000001,
+				"p95": 0.008,
+				"p99": 0.008
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.023,
+				"mean": 0.023,
+				"p95": 0.023,
+				"p99": 0.023
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.013,
+				"mean": 0.013,
+				"p95": 0.013,
+				"p99": 0.013
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 0.108,
+				"mean": 0.108,
+				"p95": 0.108,
+				"p99": 0.108
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 0.006,
+				"mean": 0.006,
+				"p95": 0.006,
+				"p99": 0.006
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.005,
+				"p95": 0.005,
+				"p99": 0.005
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.048,
+				"mean": 0.048,
+				"p95": 0.048,
+				"p99": 0.048
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.016,
+				"mean": 0.016,
+				"p95": 0.016,
+				"p99": 0.016
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.003,
+				"mean": 0.003,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.017,
+				"mean": 0.0169999999999999,
+				"p95": 0.017,
+				"p99": 0.017
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.01,
+				"mean": 0.01,
+				"p95": 0.01,
+				"p99": 0.01
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.004,
+				"mean": 0.004,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.03,
+				"mean": 0.03,
+				"p95": 0.03,
+				"p99": 0.03
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.045,
+				"mean": 0.045,
+				"p95": 0.045,
+				"p99": 0.045
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.005,
+				"p95": 0.005,
+				"p99": 0.005
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.015,
+				"mean": 0.015,
+				"p95": 0.015,
+				"p99": 0.015
+			},
+			"logic: if game.presentation:": {
+				"max": 3.183,
+				"mean": 3.18299999999999,
+				"p95": 3.183,
+				"p99": 3.183
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.007,
+				"mean": 0.007,
+				"p95": 0.007,
+				"p99": 0.007
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.109,
+				"mean": 0.109,
+				"p95": 0.109,
+				"p99": 0.109
+			},
+			"logic: if game.room_access:": {
+				"max": 1.723,
+				"mean": 1.72300000000001,
+				"p95": 1.723,
+				"p99": 1.723
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.107,
+				"mean": 0.107,
+				"p95": 0.107,
+				"p99": 0.107
+			},
+			"logic: if game.routines:": {
+				"max": 0.038,
+				"mean": 0.038,
+				"p95": 0.038,
+				"p99": 0.038
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.schedule:": {
+				"max": 0.42,
+				"mean": 0.420000000000001,
+				"p95": 0.42,
+				"p99": 0.42
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.005,
+				"p95": 0.005,
+				"p99": 0.005
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.033,
+				"mean": 0.033,
+				"p95": 0.033,
+				"p99": 0.033
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.004,
+				"mean": 0.004,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.workshop:": {
+				"max": 0.093,
+				"mean": 0.093,
+				"p95": 0.093,
+				"p99": 0.093
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.079,
+				"mean": 0.0790000000000001,
+				"p95": 0.079,
+				"p99": 0.079
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.025,
+				"mean": 0.0249999999999999,
+				"p95": 0.025,
+				"p99": 0.025
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.04,
+				"mean": 0.04,
+				"p95": 0.04,
+				"p99": 0.04
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.007,
+				"mean": 0.007,
+				"p95": 0.007,
+				"p99": 0.007
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"visual: _tick_scene()": {
+				"max": 0.533,
+				"mean": 0.533000000000001,
+				"p95": 0.533,
+				"p99": 0.533
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.096,
+				"mean": 0.0960000000000001,
+				"p95": 0.096,
+				"p99": 0.096
+			},
+			"visual: if dog_visual:": {
+				"max": 0.019,
+				"mean": 0.019,
+				"p95": 0.019,
+				"p99": 0.019
+			},
+			"visual: if game.items_view:": {
+				"max": 0.054,
+				"mean": 0.0540000000000001,
+				"p95": 0.054,
+				"p99": 0.054
+			},
+			"visual: if interaction:": {
+				"max": 2.21,
+				"mean": 2.21,
+				"p95": 2.21,
+				"p99": 2.21
+			},
+			"visual: if lighting:": {
+				"max": 0.207,
+				"mean": 0.207000000000001,
+				"p95": 0.207,
+				"p99": 0.207
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.006,
+				"mean": 0.006,
+				"p95": 0.006,
+				"p99": 0.006
+			},
+			"visual: previous = now": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.003,
+				"mean": 0.003,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.003,
+				"mean": 0.003,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.002,
+				"mean": 0.002,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var now := _state()": {
+				"max": 0.014,
+				"mean": 0.014,
+				"p95": 0.014,
+				"p99": 0.014
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.001,
+				"mean": 0.001,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.011,
+				"mean": 0.011,
+				"p95": 0.011,
+				"p99": 0.011
+			}
+		},
+		"spawn": {
+			"draw_calls": {
+				"max": 619.0,
+				"mean": 609.106666666667,
+				"p95": 619.0,
+				"p99": 619.0
+			},
+			"engine_process_ms": {
+				"max": 26.875,
+				"mean": 20.6163,
+				"p95": 26.875,
+				"p99": 26.875
+			},
+			"frame_ms": {
+				"max": 15.436,
+				"mean": 11.35276,
+				"p95": 13.468,
+				"p99": 14.855
+			},
+			"game_ms": {
+				"max": 8.515,
+				"mean": 5.55967333333333,
+				"p95": 6.969,
+				"p99": 8.335
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.013,
+				"mean": 0.00494666666666667,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.002,
+				"mean": 0.00106,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.033,
+				"mean": 0.01798,
+				"p95": 0.024,
+				"p99": 0.031
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.018,
+				"mean": 0.00918666666666666,
+				"p95": 0.012,
+				"p99": 0.018
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.002,
+				"mean": 0.000926666666666667,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 2.668,
+				"mean": 0.118033333333333,
+				"p95": 0.147,
+				"p99": 0.317
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.003,
+				"mean": 0.000706666666666667,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 4.071,
+				"mean": 0.734086666666667,
+				"p95": 1.105,
+				"p99": 1.602
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.013,
+				"mean": 0.00387333333333334,
+				"p95": 0.005,
+				"p99": 0.006
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.045,
+				"mean": 0.0288333333333333,
+				"p95": 0.037,
+				"p99": 0.045
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.00149333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.00101333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.022,
+				"mean": 0.0112466666666667,
+				"p95": 0.014,
+				"p99": 0.02
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.004,
+				"mean": 0.00200666666666667,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.069,
+				"mean": 0.01748,
+				"p95": 0.025,
+				"p99": 0.034
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.021,
+				"mean": 0.00859999999999999,
+				"p95": 0.01,
+				"p99": 0.017
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.00284,
+				"p95": 0.004,
+				"p99": 0.005
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.101,
+				"mean": 0.0477266666666667,
+				"p95": 0.059,
+				"p99": 0.075
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.045,
+				"mean": 0.0271733333333333,
+				"p95": 0.033,
+				"p99": 0.042
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.245,
+				"mean": 0.0067,
+				"p95": 0.005,
+				"p99": 0.243
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.002,
+				"mean": 0.000893333333333334,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.002,
+				"mean": 0.000780000000000001,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: if game.presentation:": {
+				"max": 3.585,
+				"mean": 1.86697333333333,
+				"p95": 2.215,
+				"p99": 3.097
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.01,
+				"mean": 0.00536,
+				"p95": 0.007,
+				"p99": 0.008
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.12,
+				"mean": 0.0789066666666667,
+				"p95": 0.095,
+				"p99": 0.118
+			},
+			"logic: if game.room_access:": {
+				"max": 1.683,
+				"mean": 1.35248,
+				"p95": 1.61,
+				"p99": 1.677
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.171,
+				"mean": 0.07056,
+				"p95": 0.083,
+				"p99": 0.098
+			},
+			"logic: if game.routines:": {
+				"max": 0.051,
+				"mean": 0.0246666666666666,
+				"p95": 0.033,
+				"p99": 0.043
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.004,
+				"mean": 0.00175333333333333,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"logic: if game.schedule:": {
+				"max": 0.462,
+				"mean": 0.26568,
+				"p95": 0.326,
+				"p99": 0.4
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.395,
+				"mean": 0.00811333333333333,
+				"p95": 0.005,
+				"p99": 0.297
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.087,
+				"mean": 0.0268866666666666,
+				"p95": 0.037,
+				"p99": 0.042
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.005,
+				"mean": 0.00312666666666667,
+				"p95": 0.004,
+				"p99": 0.005
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.003,
+				"mean": 0.00152666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.workshop:": {
+				"max": 0.149,
+				"mean": 0.06618,
+				"p95": 0.09,
+				"p99": 0.12
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.001,
+				"mean": 0.000546666666666667,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.145,
+				"mean": 0.04984,
+				"p95": 0.057,
+				"p99": 0.103
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.003,
+				"mean": 0.00104666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.007,
+				"mean": 0.00484,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.073,
+				"mean": 0.0287533333333333,
+				"p95": 0.033,
+				"p99": 0.036
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.026,
+				"mean": 0.00591333333333334,
+				"p95": 0.007,
+				"p99": 0.014
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.002,
+				"mean": 0.00104666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.007,
+				"mean": 0.00132666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _tick_scene()": {
+				"max": 0.459,
+				"mean": 0.201293333333333,
+				"p95": 0.244,
+				"p99": 0.381
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.184,
+				"mean": 0.08818,
+				"p95": 0.118,
+				"p99": 0.138
+			},
+			"visual: if dog_visual:": {
+				"max": 0.21,
+				"mean": 0.0136666666666666,
+				"p95": 0.016,
+				"p99": 0.036
+			},
+			"visual: if game.items_view:": {
+				"max": 0.148,
+				"mean": 0.0442266666666667,
+				"p95": 0.059,
+				"p99": 0.116
+			},
+			"visual: if interaction:": {
+				"max": 2.589,
+				"mean": 1.36480666666667,
+				"p95": 1.626,
+				"p99": 2.091
+			},
+			"visual: if lighting:": {
+				"max": 0.212,
+				"mean": 0.10568,
+				"p95": 0.13,
+				"p99": 0.17
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.016,
+				"mean": 0.00482666666666667,
+				"p95": 0.006,
+				"p99": 0.009
+			},
+			"visual: previous = now": {
+				"max": 0.002,
+				"mean": 0.000986666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.005,
+				"mean": 0.00238666666666667,
+				"p95": 0.003,
+				"p99": 0.005
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.005,
+				"mean": 0.00222,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.002,
+				"mean": 0.00143333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var now := _state()": {
+				"max": 0.032,
+				"mean": 0.0124733333333333,
+				"p95": 0.015,
+				"p99": 0.025
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.003,
+				"mean": 0.00134666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.009,
+				"mean": 0.00412666666666667,
+				"p95": 0.006,
+				"p99": 0.006
+			}
+		},
+		"tutorial_dialogue": {
+			"draw_calls": {
+				"max": 706.0,
+				"mean": 620.593333333333,
+				"p95": 666.0,
+				"p99": 705.0
+			},
+			"engine_process_ms": {
+				"max": 40.133,
+				"mean": 25.71476,
+				"p95": 40.133,
+				"p99": 40.133
+			},
+			"frame_ms": {
+				"max": 40.232,
+				"mean": 15.56484,
+				"p95": 21.55,
+				"p99": 22.974
+			},
+			"game_ms": {
+				"max": 9.429,
+				"mean": 5.9401,
+				"p95": 8.474,
+				"p99": 8.955
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.05,
+				"mean": 0.00716666666666667,
+				"p95": 0.01,
+				"p99": 0.023
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.006,
+				"mean": 0.00207333333333334,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.116,
+				"mean": 0.0276533333333333,
+				"p95": 0.039,
+				"p99": 0.104
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.04,
+				"mean": 0.0139466666666667,
+				"p95": 0.02,
+				"p99": 0.024
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.004,
+				"mean": 0.00174666666666667,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 0.41,
+				"mean": 0.177266666666667,
+				"p95": 0.263,
+				"p99": 0.295
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.002,
+				"mean": 0.00111333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 0.008,
+				"mean": 0.00423333333333334,
+				"p95": 0.006,
+				"p99": 0.008
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.009,
+				"mean": 0.00546,
+				"p95": 0.007,
+				"p99": 0.008
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.096,
+				"mean": 0.05168,
+				"p95": 0.079,
+				"p99": 0.087
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.004,
+				"mean": 0.00217333333333333,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.004,
+				"mean": 0.00150666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.045,
+				"mean": 0.0166333333333333,
+				"p95": 0.025,
+				"p99": 0.029
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.041,
+				"mean": 0.00412666666666667,
+				"p95": 0.006,
+				"p99": 0.012
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.057,
+				"mean": 0.0247,
+				"p95": 0.04,
+				"p99": 0.048
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.133,
+				"mean": 0.0146333333333333,
+				"p95": 0.023,
+				"p99": 0.032
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.02,
+				"mean": 0.00438666666666667,
+				"p95": 0.007,
+				"p99": 0.011
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.096,
+				"mean": 0.0245866666666666,
+				"p95": 0.039,
+				"p99": 0.084
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.098,
+				"mean": 0.0423066666666667,
+				"p95": 0.058,
+				"p99": 0.079
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.349,
+				"mean": 0.00940666666666666,
+				"p95": 0.009,
+				"p99": 0.237
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.079,
+				"mean": 0.00192,
+				"p95": 0.002,
+				"p99": 0.011
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.076,
+				"mean": 0.0134733333333333,
+				"p95": 0.019,
+				"p99": 0.037
+			},
+			"logic: if game.presentation:": {
+				"max": 1.817,
+				"mean": 1.04221333333333,
+				"p95": 1.515,
+				"p99": 1.807
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.005,
+				"mean": 0.00265333333333334,
+				"p95": 0.004,
+				"p99": 0.005
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.2,
+				"mean": 0.12134,
+				"p95": 0.169,
+				"p99": 0.188
+			},
+			"logic: if game.room_access:": {
+				"max": 4.859,
+				"mean": 2.36824666666667,
+				"p95": 3.38,
+				"p99": 4.236
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.191,
+				"mean": 0.1036,
+				"p95": 0.149,
+				"p99": 0.176
+			},
+			"logic: if game.routines:": {
+				"max": 0.086,
+				"mean": 0.0396466666666666,
+				"p95": 0.054,
+				"p99": 0.074
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.004,
+				"mean": 0.00246,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.schedule:": {
+				"max": 0.965,
+				"mean": 0.422693333333333,
+				"p95": 0.594,
+				"p99": 0.762
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.01,
+				"mean": 0.00496666666666667,
+				"p95": 0.007,
+				"p99": 0.009
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.074,
+				"mean": 0.0434533333333333,
+				"p95": 0.064,
+				"p99": 0.071
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.023,
+				"mean": 0.0123066666666667,
+				"p95": 0.017,
+				"p99": 0.021
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.51,
+				"mean": 0.262946666666667,
+				"p95": 0.395,
+				"p99": 0.479
+			},
+			"logic: if game.workshop:": {
+				"max": 0.282,
+				"mean": 0.123153333333333,
+				"p95": 0.19,
+				"p99": 0.235
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.001,
+				"mean": 0.00054,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.176,
+				"mean": 0.07932,
+				"p95": 0.111,
+				"p99": 0.135
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.004,
+				"mean": 0.00141333333333333,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.02,
+				"mean": 0.0089,
+				"p95": 0.013,
+				"p99": 0.02
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.143,
+				"mean": 0.04386,
+				"p95": 0.058,
+				"p99": 0.109
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.031,
+				"mean": 0.00754,
+				"p95": 0.012,
+				"p99": 0.013
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.003,
+				"mean": 0.00149333333333333,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.003,
+				"mean": 0.00178666666666667,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: _tick_scene()": {
+				"max": 0.926,
+				"mean": 0.52796,
+				"p95": 0.777,
+				"p99": 0.896
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.228,
+				"mean": 0.126793333333333,
+				"p95": 0.177,
+				"p99": 0.206
+			},
+			"visual: if dog_visual:": {
+				"max": 0.105,
+				"mean": 0.0204266666666667,
+				"p95": 0.032,
+				"p99": 0.053
+			},
+			"visual: if game.items_view:": {
+				"max": 0.154,
+				"mean": 0.0681266666666667,
+				"p95": 0.1,
+				"p99": 0.142
+			},
+			"visual: if interaction:": {
+				"max": 0.115,
+				"mean": 0.0459466666666667,
+				"p95": 0.075,
+				"p99": 0.089
+			},
+			"visual: if lighting:": {
+				"max": 0.363,
+				"mean": 0.1727,
+				"p95": 0.284,
+				"p99": 0.338
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.116,
+				"mean": 0.00831333333333333,
+				"p95": 0.011,
+				"p99": 0.013
+			},
+			"visual: previous = now": {
+				"max": 0.004,
+				"mean": 0.00191333333333333,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.088,
+				"mean": 0.00503333333333334,
+				"p95": 0.007,
+				"p99": 0.022
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.007,
+				"mean": 0.00367333333333334,
+				"p95": 0.005,
+				"p99": 0.006
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.31,
+				"mean": 0.00446,
+				"p95": 0.004,
+				"p99": 0.006
+			},
+			"visual: var now := _state()": {
+				"max": 0.034,
+				"mean": 0.0185466666666666,
+				"p95": 0.028,
+				"p99": 0.031
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.005,
+				"mean": 0.00216666666666667,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.038,
+				"mean": 0.00925333333333333,
+				"p95": 0.014,
+				"p99": 0.029
+			}
+		},
+		"workshop": {
+			"draw_calls": {
+				"max": 901.0,
+				"mean": 898.733333333333,
+				"p95": 901.0,
+				"p99": 901.0
+			},
+			"engine_process_ms": {
+				"max": 22.985,
+				"mean": 19.4136333333334,
+				"p95": 22.985,
+				"p99": 22.985
+			},
+			"frame_ms": {
+				"max": 15.817,
+				"mean": 12.4300866666667,
+				"p95": 15.082,
+				"p99": 15.722
+			},
+			"game_ms": {
+				"max": 7.633,
+				"mean": 5.53192,
+				"p95": 7.123,
+				"p99": 7.492
+			},
+			"logic: delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": {
+				"max": 0.007,
+				"mean": 0.00495333333333334,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"logic: for actor in game.actors:": {
+				"max": 0.003,
+				"mean": 0.001,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game._update_ui(false)": {
+				"max": 0.027,
+				"mean": 0.0177866666666666,
+				"p95": 0.021,
+				"p99": 0.024
+			},
+			"logic: game.dog.tick(delta)": {
+				"max": 0.018,
+				"mean": 0.00899333333333333,
+				"p95": 0.011,
+				"p99": 0.017
+			},
+			"logic: game.elapsed += delta": {
+				"max": 0.002,
+				"mean": 0.000960000000000001,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.guard.tick(delta)": {
+				"max": 0.225,
+				"mean": 0.10132,
+				"p95": 0.128,
+				"p99": 0.209
+			},
+			"logic: game.guard_position = game.guard.position": {
+				"max": 0.002,
+				"mean": 0.000686666666666667,
+				"p95": 0.001,
+				"p99": 0.002
+			},
+			"logic: game.orders.tick(delta)": {
+				"max": 1.279,
+				"mean": 0.350886666666667,
+				"p95": 0.929,
+				"p99": 1.142
+			},
+			"logic: game.skills.tick(delta)": {
+				"max": 0.026,
+				"mean": 0.00386666666666667,
+				"p95": 0.005,
+				"p99": 0.007
+			},
+			"logic: game.trade.tick(delta)": {
+				"max": 0.098,
+				"mean": 0.0297933333333333,
+				"p95": 0.037,
+				"p99": 0.046
+			},
+			"logic: game.world.begin_ai_paths()": {
+				"max": 0.002,
+				"mean": 0.00150666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: game.world.end_ai_paths()": {
+				"max": 0.012,
+				"mean": 0.00118666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.bath_service: game.bath_service.tick(delta)": {
+				"max": 0.024,
+				"mean": 0.0108466666666667,
+				"p95": 0.013,
+				"p99": 0.02
+			},
+			"logic: if game.dialogue: game.dialogue.tick()": {
+				"max": 0.004,
+				"mean": 0.00206,
+				"p95": 0.003,
+				"p99": 0.004
+			},
+			"logic: if game.gate_watch:": {
+				"max": 0.038,
+				"mean": 0.0146133333333333,
+				"p95": 0.022,
+				"p99": 0.035
+			},
+			"logic: if game.get_tree().paused:": {
+				"max": 0.013,
+				"mean": 0.00859999999999999,
+				"p95": 0.011,
+				"p99": 0.011
+			},
+			"logic: if game.looting: game.looting.tick(delta)": {
+				"max": 0.005,
+				"mean": 0.00266,
+				"p95": 0.004,
+				"p99": 0.004
+			},
+			"logic: if game.map_camera:": {
+				"max": 0.032,
+				"mean": 0.0198333333333333,
+				"p95": 0.024,
+				"p99": 0.027
+			},
+			"logic: if game.mobile_controls:": {
+				"max": 0.049,
+				"mean": 0.02754,
+				"p95": 0.033,
+				"p99": 0.039
+			},
+			"logic: if game.npc_life: game.npc_life.tick(delta)": {
+				"max": 0.217,
+				"mean": 0.00619333333333334,
+				"p95": 0.004,
+				"p99": 0.197
+			},
+			"logic: if game.phase != \"playing\":": {
+				"max": 0.015,
+				"mean": 0.001,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.phase == \"playing\" and game.elapsed >= game.status_until:": {
+				"max": 0.02,
+				"mean": 0.00989333333333332,
+				"p95": 0.013,
+				"p99": 0.019
+			},
+			"logic: if game.presentation:": {
+				"max": 3.07,
+				"mean": 2.28254666666666,
+				"p95": 2.77,
+				"p99": 2.942
+			},
+			"logic: if game.prison_alert:": {
+				"max": 0.032,
+				"mean": 0.00552,
+				"p95": 0.007,
+				"p99": 0.009
+			},
+			"logic: if game.resident_staff: game.resident_staff.tick(delta)": {
+				"max": 0.145,
+				"mean": 0.0808933333333333,
+				"p95": 0.112,
+				"p99": 0.144
+			},
+			"logic: if game.room_access:": {
+				"max": 1.899,
+				"mean": 1.36435333333333,
+				"p95": 1.676,
+				"p99": 1.834
+			},
+			"logic: if game.room_visibility: game.room_visibility.tick(delta)": {
+				"max": 0.107,
+				"mean": 0.0697933333333333,
+				"p95": 0.087,
+				"p99": 0.105
+			},
+			"logic: if game.routines:": {
+				"max": 0.061,
+				"mean": 0.0247266666666666,
+				"p95": 0.031,
+				"p99": 0.061
+			},
+			"logic: if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": {
+				"max": 0.003,
+				"mean": 0.00171333333333333,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"logic: if game.schedule:": {
+				"max": 0.43,
+				"mean": 0.266266666666667,
+				"p95": 0.314,
+				"p99": 0.362
+			},
+			"logic: if game.social: game.social.tick(delta)": {
+				"max": 0.369,
+				"mean": 0.00766666666666665,
+				"p95": 0.004,
+				"p99": 0.263
+			},
+			"logic: if game.staff_traffic:": {
+				"max": 0.049,
+				"mean": 0.0260866666666667,
+				"p95": 0.032,
+				"p99": 0.038
+			},
+			"logic: if game.tutorial and game.tutorial.speaking():": {
+				"max": 0.005,
+				"mean": 0.0032,
+				"p95": 0.004,
+				"p99": 0.005
+			},
+			"logic: if game.tutorial: game.tutorial.tick(delta)": {
+				"max": 0.003,
+				"mean": 0.00149333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: if game.workshop:": {
+				"max": 0.114,
+				"mean": 0.0649733333333333,
+				"p95": 0.079,
+				"p99": 0.097
+			},
+			"logic: if not game.perspective_floor:game.queue_redraw()": {
+				"max": 0.001,
+				"mean": 0.000493333333333334,
+				"p95": 0.001,
+				"p99": 0.001
+			},
+			"logic: var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": {
+				"max": 0.105,
+				"mean": 0.05102,
+				"p95": 0.061,
+				"p99": 0.087
+			},
+			"logic: var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": {
+				"max": 0.002,
+				"mean": 0.00102666666666667,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"logic: var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": {
+				"max": 0.097,
+				"mean": 0.00562,
+				"p95": 0.006,
+				"p99": 0.035
+			},
+			"logic: var workers_before: Array = game.routines.working_ids() if game.routines else []": {
+				"max": 0.045,
+				"mean": 0.02914,
+				"p95": 0.035,
+				"p99": 0.041
+			},
+			"visual: _loop(\"chat_loop\",active and chat)": {
+				"max": 0.015,
+				"mean": 0.0051,
+				"p95": 0.006,
+				"p99": 0.007
+			},
+			"visual: _loop(\"crate_move_loop\",active and push)": {
+				"max": 0.002,
+				"mean": 0.001,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _loop(\"lockpick_loop\",active and lock)": {
+				"max": 0.002,
+				"mean": 0.00116,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: _tick_scene()": {
+				"max": 0.387,
+				"mean": 0.23086,
+				"p95": 0.289,
+				"p99": 0.372
+			},
+			"visual: for visual in visuals:": {
+				"max": 0.231,
+				"mean": 0.0943400000000001,
+				"p95": 0.115,
+				"p99": 0.179
+			},
+			"visual: if dog_visual:": {
+				"max": 0.039,
+				"mean": 0.01246,
+				"p95": 0.015,
+				"p99": 0.019
+			},
+			"visual: if game.items_view:": {
+				"max": 0.109,
+				"mean": 0.04278,
+				"p95": 0.051,
+				"p99": 0.104
+			},
+			"visual: if interaction:": {
+				"max": 2.362,
+				"mean": 1.74107333333333,
+				"p95": 2.134,
+				"p99": 2.326
+			},
+			"visual: if lighting:": {
+				"max": 0.267,
+				"mean": 0.10744,
+				"p95": 0.146,
+				"p99": 0.241
+			},
+			"visual: if previous.get(\"deal\",now.deal) == now.deal:": {
+				"max": 0.033,
+				"mean": 0.00516,
+				"p95": 0.006,
+				"p99": 0.01
+			},
+			"visual: previous = now": {
+				"max": 0.002,
+				"mean": 0.00117333333333333,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": {
+				"max": 0.003,
+				"mean": 0.00181333333333333,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"visual: var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": {
+				"max": 0.003,
+				"mean": 0.00226,
+				"p95": 0.003,
+				"p99": 0.003
+			},
+			"visual: var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": {
+				"max": 0.003,
+				"mean": 0.0014,
+				"p95": 0.002,
+				"p99": 0.002
+			},
+			"visual: var now := _state()": {
+				"max": 0.095,
+				"mean": 0.0124666666666666,
+				"p95": 0.015,
+				"p99": 0.025
+			},
+			"visual: var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": {
+				"max": 0.011,
+				"mean": 0.00154666666666667,
+				"p95": 0.002,
+				"p99": 0.003
+			},
+			"visual: var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": {
+				"max": 0.077,
+				"mean": 0.00894666666666667,
+				"p95": 0.01,
+				"p99": 0.023
+			}
+		}
+	},
+	"device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"micro": {
+		"bath": {
+			"max": 0.274,
+			"mean": 0.178025,
+			"p95": 0.258,
+			"p99": 0.274
+		},
+		"card_nearby_all": {
+			"max": 0.212,
+			"mean": 0.11645,
+			"p95": 0.139,
+			"p99": 0.212
+		},
+		"hud_refresh": {
+			"max": 0.384,
+			"mean": 0.13685,
+			"p95": 0.207,
+			"p99": 0.384
+		},
+		"interaction_refresh": {
+			"max": 1.671,
+			"mean": 1.186075,
+			"p95": 1.493,
+			"p99": 1.671
+		},
+		"items": {
+			"max": 0.132,
+			"mean": 0.0662,
+			"p95": 0.1,
+			"p99": 0.132
+		},
+		"keycards_tick": {
+			"max": 1.079,
+			"mean": 0.847175,
+			"p95": 1.078,
+			"p99": 1.079
+		},
+		"loot": {
+			"max": 0.004,
+			"mean": 0.0017,
+			"p95": 0.003,
+			"p99": 0.004
+		},
+		"nine_point": {
+			"max": 0.749,
+			"mean": 0.511075,
+			"p95": 0.684,
+			"p99": 0.749
+		},
+		"npcs": {
+			"max": 0.448,
+			"mean": 0.2025,
+			"p95": 0.278,
+			"p99": 0.448
+		},
+		"room_access_tick": {
+			"max": 1.488,
+			"mean": 1.26605,
+			"p95": 1.466,
+			"p99": 1.488
+		}
+	},
+	"renderer": "gl_compatibility",
+	"scope": "Windows GPU, desktop textures, synthetic crossings; not Android performance",
+	"transitions": [
+		{
+			"crossing": 0,
+			"frame": 0,
+			"frame_ms": 23.02,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.01,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.212,
+				"game.guard_position = game.guard.position": 0.002,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.028,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.011,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.026,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.012,
+				"if game.presentation:": 9.098,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.077,
+				"if game.room_access:": 1.658,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.286,
+				"if game.routines:": 0.025,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.27,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.03,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.079,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.049,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.028
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.007,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 7.409,
+				"for visual in visuals:": 0.084,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.057,
+				"if interaction:": 1.341,
+				"if lighting:": 0.136,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.013,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 0,
+			"frame": 1,
+			"frame_ms": 10.588,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.017,
+				"game.dog.tick(delta)": 0.01,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.089,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.034,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.007,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.035,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.005,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 2.043,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.087,
+				"if game.room_access:": 1.302,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.104,
+				"if game.routines:": 0.086,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.25,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.034,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.062,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.05,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.0,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.004,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.029
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 0.332,
+				"for visual in visuals:": 0.079,
+				"if dog_visual:": 0.013,
+				"if game.items_view:": 0.044,
+				"if interaction:": 1.419,
+				"if lighting:": 0.105,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.012,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 1,
+			"frame": 0,
+			"frame_ms": 20.178,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.016,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.0,
+				"game.guard.tick(delta)": 0.087,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.03,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.01,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.02,
+				"if game.mobile_controls:": 0.031,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.013,
+				"if game.presentation:": 8.505,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.077,
+				"if game.room_access:": 1.255,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.254,
+				"if game.routines:": 0.022,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.001,
+				"if game.schedule:": 0.242,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.025,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.059,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.044,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.026
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 6.469,
+				"for visual in visuals:": 0.088,
+				"if dog_visual:": 0.011,
+				"if game.items_view:": 0.05,
+				"if interaction:": 1.711,
+				"if lighting:": 0.121,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 1,
+			"frame": 1,
+			"frame_ms": 11.924,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.016,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.086,
+				"game.guard_position = game.guard.position": 0.0,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.026,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.0,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.01,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.01,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.018,
+				"if game.mobile_controls:": 0.025,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.008,
+				"if game.presentation:": 2.043,
+				"if game.prison_alert:": 0.004,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.073,
+				"if game.room_access:": 1.326,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.064,
+				"if game.routines:": 0.026,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.244,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.024,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.064,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.051,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.033
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.231,
+				"for visual in visuals:": 0.09,
+				"if dog_visual:": 0.011,
+				"if game.items_view:": 0.042,
+				"if interaction:": 1.527,
+				"if lighting:": 0.094,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.004,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.001,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.01,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.007
+			}
+		},
+		{
+			"crossing": 2,
+			"frame": 0,
+			"frame_ms": 19.724,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.088,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.002,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.026,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.012,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.024,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.0,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 8.203,
+				"if game.prison_alert:": 0.004,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.075,
+				"if game.room_access:": 1.254,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.272,
+				"if game.routines:": 0.026,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.243,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.025,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.057,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.047,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.002,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.026
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 6.647,
+				"for visual in visuals:": 0.081,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.051,
+				"if interaction:": 1.241,
+				"if lighting:": 0.116,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 2,
+			"frame": 1,
+			"frame_ms": 10.548,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.096,
+				"game.guard_position = game.guard.position": 0.0,
+				"game.orders.tick(delta)": 0.002,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.028,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.002,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.014,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.019,
+				"if game.mobile_controls:": 0.025,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.002,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 2.008,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.069,
+				"if game.room_access:": 1.335,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.107,
+				"if game.routines:": 0.023,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.249,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.023,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.074,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.098,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.033
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.309,
+				"for visual in visuals:": 0.079,
+				"if dog_visual:": 0.013,
+				"if game.items_view:": 0.037,
+				"if interaction:": 1.396,
+				"if lighting:": 0.12,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.004,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.012,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.01
+			}
+		},
+		{
+			"crossing": 3,
+			"frame": 0,
+			"frame_ms": 23.343,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.022,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.122,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.004,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.033,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.017,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.014,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.026,
+				"if game.mobile_controls:": 0.032,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.013,
+				"if game.presentation:": 9.977,
+				"if game.prison_alert:": 0.007,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.088,
+				"if game.room_access:": 1.47,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.326,
+				"if game.routines:": 0.025,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.266,
+				"if game.social: game.social.tick(delta)": 0.005,
+				"if game.staff_traffic:": 0.027,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.082,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.049,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.002,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.028
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 7.636,
+				"for visual in visuals:": 0.108,
+				"if dog_visual:": 0.013,
+				"if game.items_view:": 0.067,
+				"if interaction:": 1.937,
+				"if lighting:": 0.158,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.013,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 3,
+			"frame": 1,
+			"frame_ms": 12.973,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.006,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.01,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.104,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.032,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.002,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.011,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.013,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.019,
+				"if game.mobile_controls:": 0.029,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 2.359,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.085,
+				"if game.room_access:": 1.47,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.071,
+				"if game.routines:": 0.026,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.29,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.026,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.069,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.058,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.034
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.252,
+				"for visual in visuals:": 0.095,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.045,
+				"if interaction:": 1.79,
+				"if lighting:": 0.106,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.014,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 4,
+			"frame": 0,
+			"frame_ms": 19.335,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.103,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.03,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.01,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.025,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.005,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 7.837,
+				"if game.prison_alert:": 0.007,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.077,
+				"if game.room_access:": 1.388,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.27,
+				"if game.routines:": 0.025,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.267,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.028,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.061,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.044,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.026
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 6.264,
+				"for visual in visuals:": 0.076,
+				"if dog_visual:": 0.023,
+				"if game.items_view:": 0.051,
+				"if interaction:": 1.241,
+				"if lighting:": 0.129,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.007
+			}
+		},
+		{
+			"crossing": 4,
+			"frame": 1,
+			"frame_ms": 9.567,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.016,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.091,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.002,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.026,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.009,
+				"if game.dialogue: game.dialogue.tick()": 0.001,
+				"if game.gate_watch:": 0.01,
+				"if game.get_tree().paused:": 0.007,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.017,
+				"if game.mobile_controls:": 0.025,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 1.713,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.068,
+				"if game.room_access:": 1.232,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.091,
+				"if game.routines:": 0.023,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.258,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.023,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.056,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.051,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.03
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.279,
+				"for visual in visuals:": 0.068,
+				"if dog_visual:": 0.011,
+				"if game.items_view:": 0.039,
+				"if interaction:": 1.177,
+				"if lighting:": 0.093,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.01,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 5,
+			"frame": 0,
+			"frame_ms": 19.629,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.017,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.093,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.029,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.028,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.0,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 8.498,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.077,
+				"if game.room_access:": 1.285,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.267,
+				"if game.routines:": 0.021,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.241,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.023,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.063,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.046,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.026
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.004,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 6.562,
+				"for visual in visuals:": 0.096,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.051,
+				"if interaction:": 1.609,
+				"if lighting:": 0.118,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.007
+			}
+		},
+		{
+			"crossing": 5,
+			"frame": 1,
+			"frame_ms": 10.824,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.084,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.027,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.011,
+				"if game.dialogue: game.dialogue.tick()": 0.001,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.018,
+				"if game.mobile_controls:": 0.024,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.009,
+				"if game.presentation:": 2.02,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.071,
+				"if game.room_access:": 1.228,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.071,
+				"if game.routines:": 0.021,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.24,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.022,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.058,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.05,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.029
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.002,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.213,
+				"for visual in visuals:": 0.081,
+				"if dog_visual:": 0.011,
+				"if game.items_view:": 0.039,
+				"if interaction:": 1.522,
+				"if lighting:": 0.102,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.001,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 6,
+			"frame": 0,
+			"frame_ms": 23.487,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.019,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.095,
+				"game.guard_position = game.guard.position": 0.002,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.027,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.014,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.004,
+				"if game.map_camera:": 0.027,
+				"if game.mobile_controls:": 0.03,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.0,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 9.742,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.08,
+				"if game.room_access:": 1.505,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.293,
+				"if game.routines:": 0.026,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.003,
+				"if game.schedule:": 0.256,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.027,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.003,
+				"if game.workshop:": 0.063,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.046,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.027
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.007,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 7.681,
+				"for visual in visuals:": 0.091,
+				"if dog_visual:": 0.014,
+				"if game.items_view:": 0.069,
+				"if interaction:": 1.688,
+				"if lighting:": 0.139,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.004,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.014,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 6,
+			"frame": 1,
+			"frame_ms": 13.111,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.006,
+				"for actor in game.actors:": 0.002,
+				"game._update_ui(false)": 0.02,
+				"game.dog.tick(delta)": 0.02,
+				"game.elapsed += delta": 0.003,
+				"game.guard.tick(delta)": 0.112,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.033,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.014,
+				"if game.get_tree().paused:": 0.185,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.022,
+				"if game.mobile_controls:": 0.027,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.005,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 2.463,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.083,
+				"if game.room_access:": 1.603,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.109,
+				"if game.routines:": 0.108,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.302,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.031,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.074,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.057,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.034
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.38,
+				"for visual in visuals:": 0.1,
+				"if dog_visual:": 0.015,
+				"if game.items_view:": 0.055,
+				"if interaction:": 1.736,
+				"if lighting:": 0.119,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.014,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 7,
+			"frame": 0,
+			"frame_ms": 21.822,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.091,
+				"game.guard_position = game.guard.position": 0.002,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.028,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.009,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.023,
+				"if game.mobile_controls:": 0.026,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.0,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 9.274,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.072,
+				"if game.room_access:": 1.322,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.275,
+				"if game.routines:": 0.027,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.248,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.025,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.14,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.047,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.026
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.0,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 7.193,
+				"for visual in visuals:": 0.095,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.051,
+				"if interaction:": 1.752,
+				"if lighting:": 0.118,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.013,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 7,
+			"frame": 1,
+			"frame_ms": 10.632,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.006,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.017,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.079,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.025,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.01,
+				"if game.dialogue: game.dialogue.tick()": 0.001,
+				"if game.gate_watch:": 0.01,
+				"if game.get_tree().paused:": 0.007,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.017,
+				"if game.mobile_controls:": 0.024,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.008,
+				"if game.presentation:": 1.922,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.067,
+				"if game.room_access:": 1.167,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.063,
+				"if game.routines:": 0.021,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.24,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.022,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.053,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.052,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.004,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.032
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.004,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.192,
+				"for visual in visuals:": 0.078,
+				"if dog_visual:": 0.01,
+				"if game.items_view:": 0.036,
+				"if interaction:": 1.472,
+				"if lighting:": 0.086,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 8,
+			"frame": 0,
+			"frame_ms": 19.705,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.003,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.0,
+				"game.guard.tick(delta)": 0.092,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.026,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.002,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.011,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.011,
+				"if game.get_tree().paused:": 0.008,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.02,
+				"if game.mobile_controls:": 0.026,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.0,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.022,
+				"if game.presentation:": 8.144,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.075,
+				"if game.room_access:": 1.321,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.252,
+				"if game.routines:": 0.023,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.003,
+				"if game.schedule:": 0.245,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.025,
+				"if game.tutorial and game.tutorial.speaking():": 0.002,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.061,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.044,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.025
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.008,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 6.592,
+				"for visual in visuals:": 0.077,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.051,
+				"if interaction:": 1.242,
+				"if lighting:": 0.115,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.0,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.012,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.007
+			}
+		},
+		{
+			"crossing": 8,
+			"frame": 1,
+			"frame_ms": 9.539,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.002,
+				"game._update_ui(false)": 0.017,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.082,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.003,
+				"game.trade.tick(delta)": 0.027,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.01,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.01,
+				"if game.get_tree().paused:": 0.007,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.018,
+				"if game.mobile_controls:": 0.024,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.009,
+				"if game.presentation:": 1.685,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.069,
+				"if game.room_access:": 1.244,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.095,
+				"if game.routines:": 0.024,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.26,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.026,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.056,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.048,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.028
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.0,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.278,
+				"for visual in visuals:": 0.068,
+				"if dog_visual:": 0.01,
+				"if game.items_view:": 0.036,
+				"if interaction:": 1.158,
+				"if lighting:": 0.088,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.004,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 9,
+			"frame": 0,
+			"frame_ms": 24.717,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.019,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.0,
+				"game.guard.tick(delta)": 0.148,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.03,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.014,
+				"if game.get_tree().paused:": 0.01,
+				"if game.looting: game.looting.tick(delta)": 0.004,
+				"if game.map_camera:": 0.023,
+				"if game.mobile_controls:": 0.029,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.012,
+				"if game.presentation:": 10.578,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.083,
+				"if game.room_access:": 1.722,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.338,
+				"if game.routines:": 0.033,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.281,
+				"if game.social: game.social.tick(delta)": 0.005,
+				"if game.staff_traffic:": 0.036,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.071,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.053,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.006,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.03
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.002,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 8.143,
+				"for visual in visuals:": 0.117,
+				"if dog_visual:": 0.014,
+				"if game.items_view:": 0.061,
+				"if interaction:": 2.015,
+				"if lighting:": 0.167,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.015,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 9,
+			"frame": 1,
+			"frame_ms": 12.751,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.006,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.02,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.115,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.03,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.013,
+				"if game.get_tree().paused:": 0.01,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.021,
+				"if game.mobile_controls:": 0.028,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.005,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 2.356,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.081,
+				"if game.room_access:": 1.511,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.075,
+				"if game.routines:": 0.028,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.001,
+				"if game.schedule:": 0.285,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.031,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.077,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.059,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.034
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.238,
+				"for visual in visuals:": 0.098,
+				"if dog_visual:": 0.013,
+				"if game.items_view:": 0.044,
+				"if interaction:": 1.794,
+				"if lighting:": 0.114,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.012,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 10,
+			"frame": 0,
+			"frame_ms": 20.306,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.019,
+				"game.dog.tick(delta)": 0.008,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.091,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.028,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.013,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.012,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.023,
+				"if game.mobile_controls:": 0.025,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.011,
+				"if game.presentation:": 8.356,
+				"if game.prison_alert:": 0.005,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.073,
+				"if game.room_access:": 1.369,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.283,
+				"if game.routines:": 0.023,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.271,
+				"if game.social: game.social.tick(delta)": 0.005,
+				"if game.staff_traffic:": 0.026,
+				"if game.tutorial and game.tutorial.speaking():": 0.004,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.075,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.054,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.004,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.034
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 6.695,
+				"for visual in visuals:": 0.085,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.05,
+				"if interaction:": 1.332,
+				"if lighting:": 0.128,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.002,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.002,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.009
+			}
+		},
+		{
+			"crossing": 10,
+			"frame": 1,
+			"frame_ms": 9.765,
+			"from": "workshop",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.018,
+				"game.dog.tick(delta)": 0.011,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.094,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.002,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.03,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.011,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.024,
+				"if game.get_tree().paused:": 0.008,
+				"if game.looting: game.looting.tick(delta)": 0.002,
+				"if game.map_camera:": 0.02,
+				"if game.mobile_controls:": 0.026,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 1.754,
+				"if game.prison_alert:": 0.004,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.076,
+				"if game.room_access:": 1.268,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.096,
+				"if game.routines:": 0.023,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.283,
+				"if game.social: game.social.tick(delta)": 0.003,
+				"if game.staff_traffic:": 0.024,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.002,
+				"if game.workshop:": 0.062,
+				"if not game.perspective_floor:game.queue_redraw()": 0.0,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.051,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.002,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.004,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.029
+			},
+			"to": "",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 0.266,
+				"for visual in visuals:": 0.075,
+				"if dog_visual:": 0.012,
+				"if game.items_view:": 0.038,
+				"if interaction:": 1.22,
+				"if lighting:": 0.092,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.005,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.011,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.002,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.008
+			}
+		},
+		{
+			"crossing": 11,
+			"frame": 0,
+			"frame_ms": 24.118,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.004,
+				"for actor in game.actors:": 0.002,
+				"game._update_ui(false)": 0.028,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.135,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.031,
+				"game.world.begin_ai_paths()": 0.001,
+				"game.world.end_ai_paths()": 0.002,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.019,
+				"if game.dialogue: game.dialogue.tick()": 0.003,
+				"if game.gate_watch:": 0.013,
+				"if game.get_tree().paused:": 0.011,
+				"if game.looting: game.looting.tick(delta)": 0.004,
+				"if game.map_camera:": 0.027,
+				"if game.mobile_controls:": 0.029,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.004,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.013,
+				"if game.presentation:": 10.643,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.084,
+				"if game.room_access:": 1.525,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.321,
+				"if game.routines:": 0.026,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.376,
+				"if game.social: game.social.tick(delta)": 0.005,
+				"if game.staff_traffic:": 0.03,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.071,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.052,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.005,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.03
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.006,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.002,
+				"_tick_scene()": 8.173,
+				"for visual in visuals:": 0.125,
+				"if dog_visual:": 0.015,
+				"if game.items_view:": 0.063,
+				"if interaction:": 2.059,
+				"if lighting:": 0.139,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.002,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.003,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.003,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.019,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.012
+			}
+		},
+		{
+			"crossing": 11,
+			"frame": 1,
+			"frame_ms": 13.327,
+			"from": "",
+			"logic": {
+				"delta = minf(delta,game.schedule.real_remaining()) if game.schedule else delta": 0.005,
+				"for actor in game.actors:": 0.001,
+				"game._update_ui(false)": 0.019,
+				"game.dog.tick(delta)": 0.009,
+				"game.elapsed += delta": 0.001,
+				"game.guard.tick(delta)": 0.1,
+				"game.guard_position = game.guard.position": 0.001,
+				"game.orders.tick(delta)": 0.003,
+				"game.skills.tick(delta)": 0.004,
+				"game.trade.tick(delta)": 0.031,
+				"game.world.begin_ai_paths()": 0.002,
+				"game.world.end_ai_paths()": 0.001,
+				"if game.bath_service: game.bath_service.tick(delta)": 0.012,
+				"if game.dialogue: game.dialogue.tick()": 0.002,
+				"if game.gate_watch:": 0.012,
+				"if game.get_tree().paused:": 0.008,
+				"if game.looting: game.looting.tick(delta)": 0.003,
+				"if game.map_camera:": 0.019,
+				"if game.mobile_controls:": 0.027,
+				"if game.npc_life: game.npc_life.tick(delta)": 0.003,
+				"if game.phase != \"playing\":": 0.001,
+				"if game.phase == \"playing\" and game.elapsed >= game.status_until:": 0.01,
+				"if game.presentation:": 2.675,
+				"if game.prison_alert:": 0.006,
+				"if game.resident_staff: game.resident_staff.tick(delta)": 0.084,
+				"if game.room_access:": 1.617,
+				"if game.room_visibility: game.room_visibility.tick(delta)": 0.073,
+				"if game.routines:": 0.029,
+				"if game.schedule and game.phase == \"playing\" and game.schedule.remaining() <= 0:": 0.002,
+				"if game.schedule:": 0.277,
+				"if game.social: game.social.tick(delta)": 0.004,
+				"if game.staff_traffic:": 0.029,
+				"if game.tutorial and game.tutorial.speaking():": 0.003,
+				"if game.tutorial: game.tutorial.tick(delta)": 0.001,
+				"if game.workshop:": 0.068,
+				"if not game.perspective_floor:game.queue_redraw()": 0.001,
+				"var behaviors_before: Array = game.attributes.behaviors() if game.attributes else []": 0.054,
+				"var previous_clock: float = game.schedule.clock_elapsed if game.schedule else 0.0": 0.001,
+				"var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_befo": 0.006,
+				"var workers_before: Array = game.routines.working_ids() if game.routines else []": 0.032
+			},
+			"to": "workshop",
+			"visual": {
+				"_loop(\"chat_loop\",active and chat)": 0.005,
+				"_loop(\"crate_move_loop\",active and push)": 0.001,
+				"_loop(\"lockpick_loop\",active and lock)": 0.001,
+				"_tick_scene()": 0.372,
+				"for visual in visuals:": 0.109,
+				"if dog_visual:": 0.015,
+				"if game.items_view:": 0.047,
+				"if interaction:": 1.958,
+				"if lighting:": 0.115,
+				"if previous.get(\"deal\",now.deal) == now.deal:": 0.006,
+				"previous = now": 0.001,
+				"var active: bool = game.phase == \"playing\" and not game.get_tree().paused and not muted and audio_available": 0.001,
+				"var chat: bool = game.actors.any(func(a): return a.action_state == \"chatting\")": 0.002,
+				"var lock: bool = game.actors.any(func(a): return a.action_state == \"lockpicking\")": 0.001,
+				"var now := _state()": 0.012,
+				"var push: bool = previous.get(\"crate\",now.crate).distance_squared_to(now.crate) > 0.0001": 0.001,
+				"var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds": 0.01
+			}
+		}
+	],
+	"viewport": [
+		1600,
+		720
+	]
+}

@@ -1,0 +1,177 @@
+{
+	"original_png": "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\workshop_door_v2\\components.png",
+	"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+	"regions": [
+		{
+			"id": "workshop_door_v2_frame",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768
+		},
+		{
+			"id": "workshop_door_v2_closed_leaves",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768
+		},
+		{
+			"id": "workshop_door_v2_open_left",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				1578,
+				117,
+				75,
+				476
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768
+		},
+		{
+			"id": "workshop_door_v2_open_right",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				1992,
+				117,
+				71,
+				476
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768
+		}
+	],
+	"shared_frame": {
+		"asset": "workshop_door_v2_frame",
+		"source": [
+			0,
+			0,
+			1,
+			1
+		],
+		"destination": [
+			0,
+			0,
+			180,
+			120
+		]
+	},
+	"closed": [
+		{
+			"asset": "workshop_door_v2_closed_leaves",
+			"source": [
+				0,
+				0,
+				1,
+				1
+			],
+			"destination": [
+				23,
+				19,
+				134,
+				101
+			]
+		},
+		{
+			"asset": "workshop_door_v2_frame",
+			"source": [
+				0,
+				0,
+				1,
+				1
+			],
+			"destination": [
+				0,
+				0,
+				180,
+				120
+			]
+		}
+	],
+	"fully_open": [
+		{
+			"asset": "workshop_door_v2_open_left",
+			"source": [
+				0,
+				0,
+				1,
+				1
+			],
+			"destination": [
+				23,
+				19,
+				18,
+				101
+			]
+		},
+		{
+			"asset": "workshop_door_v2_open_right",
+			"source": [
+				0,
+				0,
+				1,
+				1
+			],
+			"destination": [
+				139,
+				19,
+				18,
+				101
+			]
+		},
+		{
+			"asset": "workshop_door_v2_frame",
+			"source": [
+				0,
+				0,
+				1,
+				1
+			],
+			"destination": [
+				0,
+				0,
+				180,
+				120
+			]
+		}
+	],
+	"map_modified": false,
+	"legacy_ids": [
+		"doorway_workshop_open_v1",
+		"doorway_workshop_closed_v1"
+	]
+}

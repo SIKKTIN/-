@@ -1,0 +1,665 @@
+{
+	"checks": {
+		"all five dorm doors checked": true,
+		"dorm-0 actual controls exit": true,
+		"dorm-0 actual controls reenter": true,
+		"dorm-0 central strip aligns with both end nodes": true,
+		"dorm-0 closed door blocks movement": true,
+		"dorm-0 threshold width": true,
+		"dorm-0 usable passage": true,
+		"dorm-1 actual controls exit": true,
+		"dorm-1 actual controls reenter": true,
+		"dorm-1 central strip aligns with both end nodes": true,
+		"dorm-1 closed door blocks movement": true,
+		"dorm-1 threshold width": true,
+		"dorm-1 usable passage": true,
+		"dorm-2 actual controls exit": true,
+		"dorm-2 actual controls reenter": true,
+		"dorm-2 central strip aligns with both end nodes": true,
+		"dorm-2 closed door blocks movement": true,
+		"dorm-2 threshold width": true,
+		"dorm-2 usable passage": true,
+		"fixture:campus-dorm-extra-1 actual controls exit": true,
+		"fixture:campus-dorm-extra-1 actual controls reenter": true,
+		"fixture:campus-dorm-extra-1 central strip aligns with both end nodes": true,
+		"fixture:campus-dorm-extra-1 closed door blocks movement": true,
+		"fixture:campus-dorm-extra-1 threshold width": true,
+		"fixture:campus-dorm-extra-1 usable passage": true,
+		"fixture:campus-dorm-extra-2 actual controls exit": true,
+		"fixture:campus-dorm-extra-2 actual controls reenter": true,
+		"fixture:campus-dorm-extra-2 central strip aligns with both end nodes": true,
+		"fixture:campus-dorm-extra-2 closed door blocks movement": true,
+		"fixture:campus-dorm-extra-2 threshold width": true,
+		"fixture:campus-dorm-extra-2 usable passage": true,
+		"passage and closed state identical to baseline": true,
+		"saved map unchanged": true
+	},
+	"failed": [],
+	"geometry": {
+		"dorm-0": {
+			"clear_rows": [
+				1450,
+				1452,
+				1454,
+				1456,
+				1458,
+				1460,
+				1462,
+				1464,
+				1466,
+				1468,
+				1470,
+				1472,
+				1474,
+				1476,
+				1478,
+				1480,
+				1482,
+				1484,
+				1486,
+				1488,
+				1490,
+				1492,
+				1494,
+				1496,
+				1498,
+				1500,
+				1502,
+				1504,
+				1506,
+				1508,
+				1510,
+				1512,
+				1514,
+				1516,
+				1518,
+				1520,
+				1522
+			],
+			"closed_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					14.0,
+					0.0,
+					172.0,
+					28.0
+				]
+			],
+			"closed_patches": [
+				{
+					"asset": "dorm_pocket_closed_frame_v2",
+					"destination": [
+						14.0,
+						0.0,
+						172.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.15,
+						1.0,
+						0.7
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						0.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.0,
+						1.0,
+						0.15
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						186.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.85,
+						1.0,
+						0.15
+					]
+				}
+			],
+			"open_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				]
+			]
+		},
+		"dorm-1": {
+			"clear_rows": [
+				1790,
+				1792,
+				1794,
+				1796,
+				1798,
+				1800,
+				1802,
+				1804,
+				1806,
+				1808,
+				1810,
+				1812,
+				1814,
+				1816,
+				1818,
+				1820,
+				1822,
+				1824,
+				1826,
+				1828,
+				1830,
+				1832,
+				1834,
+				1836,
+				1838,
+				1840,
+				1842,
+				1844,
+				1846,
+				1848,
+				1850,
+				1852,
+				1854,
+				1856,
+				1858,
+				1860,
+				1862
+			],
+			"closed_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					14.0,
+					0.0,
+					172.0,
+					28.0
+				]
+			],
+			"closed_patches": [
+				{
+					"asset": "dorm_pocket_closed_frame_v2",
+					"destination": [
+						14.0,
+						0.0,
+						172.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.15,
+						1.0,
+						0.7
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						0.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.0,
+						1.0,
+						0.15
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						186.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.85,
+						1.0,
+						0.15
+					]
+				}
+			],
+			"open_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				]
+			]
+		},
+		"dorm-2": {
+			"clear_rows": [
+				2150,
+				2152,
+				2154,
+				2156,
+				2158,
+				2160,
+				2162,
+				2164,
+				2166,
+				2168,
+				2170,
+				2172,
+				2174,
+				2176,
+				2178,
+				2180,
+				2182,
+				2184,
+				2186,
+				2188,
+				2190,
+				2192,
+				2194,
+				2196,
+				2198,
+				2200,
+				2202,
+				2204,
+				2206,
+				2208,
+				2210,
+				2212,
+				2214,
+				2216,
+				2218,
+				2220,
+				2222
+			],
+			"closed_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					14.0,
+					0.0,
+					172.0,
+					28.0
+				]
+			],
+			"closed_patches": [
+				{
+					"asset": "dorm_pocket_closed_frame_v2",
+					"destination": [
+						14.0,
+						0.0,
+						172.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.15,
+						1.0,
+						0.7
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						0.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.0,
+						1.0,
+						0.15
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						186.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.85,
+						1.0,
+						0.15
+					]
+				}
+			],
+			"open_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				]
+			]
+		},
+		"fixture:campus-dorm-extra-1": {
+			"clear_rows": [
+				770,
+				772,
+				774,
+				776,
+				778,
+				780,
+				782,
+				784,
+				786,
+				788,
+				790,
+				792,
+				794,
+				796,
+				798,
+				800,
+				802,
+				804,
+				806,
+				808,
+				810,
+				812,
+				814,
+				816,
+				818,
+				820,
+				822,
+				824,
+				826,
+				828,
+				830,
+				832,
+				834,
+				836,
+				838,
+				840,
+				842
+			],
+			"closed_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					14.0,
+					0.0,
+					172.0,
+					28.0
+				]
+			],
+			"closed_patches": [
+				{
+					"asset": "dorm_pocket_closed_frame_v2",
+					"destination": [
+						14.0,
+						0.0,
+						172.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.15,
+						1.0,
+						0.7
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						0.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.0,
+						1.0,
+						0.15
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						186.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.85,
+						1.0,
+						0.15
+					]
+				}
+			],
+			"open_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				]
+			]
+		},
+		"fixture:campus-dorm-extra-2": {
+			"clear_rows": [
+				1110,
+				1112,
+				1114,
+				1116,
+				1118,
+				1120,
+				1122,
+				1124,
+				1126,
+				1128,
+				1130,
+				1132,
+				1134,
+				1136,
+				1138,
+				1140,
+				1142,
+				1144,
+				1146,
+				1148,
+				1150,
+				1152,
+				1154,
+				1156,
+				1158,
+				1160,
+				1162,
+				1164,
+				1166,
+				1168,
+				1170,
+				1172,
+				1174,
+				1176,
+				1178,
+				1180,
+				1182
+			],
+			"closed_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					14.0,
+					0.0,
+					172.0,
+					28.0
+				]
+			],
+			"closed_patches": [
+				{
+					"asset": "dorm_pocket_closed_frame_v2",
+					"destination": [
+						14.0,
+						0.0,
+						172.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.15,
+						1.0,
+						0.7
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						0.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.0,
+						1.0,
+						0.15
+					]
+				},
+				{
+					"asset": "dorm_pocket_open_frame_v2",
+					"destination": [
+						186.0,
+						0.0,
+						14.0,
+						28.0
+					],
+					"rotation_quarters": 3.0,
+					"source": [
+						0.0,
+						0.85,
+						1.0,
+						0.15
+					]
+				}
+			],
+			"open_parts": [
+				[
+					0.0,
+					0.0,
+					14.0,
+					28.0
+				],
+				[
+					186.0,
+					0.0,
+					14.0,
+					28.0
+				]
+			]
+		}
+	}
+}

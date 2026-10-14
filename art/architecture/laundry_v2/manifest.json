@@ -1,0 +1,341 @@
+{
+	"schema": 2,
+	"version": "laundry-v2",
+	"assets": [
+		{
+			"texture": "res://art/architecture/laundry_v2/north_door_states.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				1086,
+				150,
+				449,
+				577
+			],
+			"runtime_size_limit": 512,
+			"sha256": "9b9870682560277c160743d7a5f039a9e0c031425ab79b693d9364790c5bd1ab",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "doorway_laundry_north_open_v2",
+			"name": "洗衣房北侧单扇钢门 · 敞开",
+			"render_mode": "embedded_door",
+			"world_size": [
+				140,
+				120
+			],
+			"render_size": [
+				140,
+				120
+			],
+			"footprint_world_size": [
+				120,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				449,
+				577
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"door_art": "doorway_laundry_north_open_v2",
+				"door_art_closed": "doorway_laundry_north_closed_v2",
+				"door_art_size": [
+					140,
+					120
+				],
+				"door_closed_patches": [
+					{
+						"asset": "doorway_laundry_north_closed_v2",
+						"source": [
+							0.1319910514541387,
+							0.1022530329289428,
+							0.7472035794183445,
+							0.8596187175043327
+						],
+						"destination": [
+							27.4,
+							12.3,
+							96.4,
+							105.8
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0,
+							0,
+							1,
+							0.1022530329289428
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							12.3
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0,
+							0.1022530329289428,
+							0.19599109131403117,
+							0.8977469670710572
+						],
+						"destination": [
+							0,
+							12.3,
+							27.4,
+							107.7
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0.8864142538975501,
+							0.1022530329289428,
+							0.11358574610244988,
+							0.8977469670710572
+						],
+						"destination": [
+							124.1,
+							12.3,
+							15.9,
+							107.7
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						12.3,
+						27.4,
+						107.7
+					],
+					[
+						124.1,
+						12.3,
+						15.9,
+						107.7
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						27.4,
+						12.3,
+						96.4,
+						105.8
+					]
+				],
+				"body_profile": "human_silhouette",
+				"raised_door": true,
+				"clear_wall_facade": true
+			}
+		},
+		{
+			"texture": "res://art/architecture/laundry_v2/north_door_states.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				241,
+				150,
+				447,
+				577
+			],
+			"runtime_size_limit": 512,
+			"sha256": "9b9870682560277c160743d7a5f039a9e0c031425ab79b693d9364790c5bd1ab",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "doorway_laundry_north_closed_v2",
+			"name": "洗衣房北侧单扇钢门 · 关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				140,
+				120
+			],
+			"render_size": [
+				140,
+				120
+			],
+			"footprint_world_size": [
+				120,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				447,
+				577
+			],
+			"blocking": true,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"door_art": "doorway_laundry_north_open_v2",
+				"door_art_closed": "doorway_laundry_north_closed_v2",
+				"door_art_size": [
+					140,
+					120
+				],
+				"door_closed_patches": [
+					{
+						"asset": "doorway_laundry_north_closed_v2",
+						"source": [
+							0.1319910514541387,
+							0.1022530329289428,
+							0.7472035794183445,
+							0.8596187175043327
+						],
+						"destination": [
+							27.4,
+							12.3,
+							96.4,
+							105.8
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0,
+							0,
+							1,
+							0.1022530329289428
+						],
+						"destination": [
+							0,
+							0,
+							140,
+							12.3
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0,
+							0.1022530329289428,
+							0.19599109131403117,
+							0.8977469670710572
+						],
+						"destination": [
+							0,
+							12.3,
+							27.4,
+							107.7
+						]
+					},
+					{
+						"asset": "doorway_laundry_north_open_v2",
+						"source": [
+							0.8864142538975501,
+							0.1022530329289428,
+							0.11358574610244988,
+							0.8977469670710572
+						],
+						"destination": [
+							124.1,
+							12.3,
+							15.9,
+							107.7
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						12.3,
+						27.4,
+						107.7
+					],
+					[
+						124.1,
+						12.3,
+						15.9,
+						107.7
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						27.4,
+						12.3,
+						96.4,
+						105.8
+					]
+				],
+				"body_profile": "human_silhouette",
+				"raised_door": true,
+				"clear_wall_facade": true
+			}
+		},
+		{
+			"texture": "res://art/architecture/laundry_v1/wall.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				173,
+				2063,
+				410
+			],
+			"runtime_size_limit": 1024,
+			"sha256": "6fb8f04de467e21aa243b3bf50f6217f1cc6b361c6b80bc024de8ad4d31928ee",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_lintel_40",
+			"name": "洗衣房门上收口 · 40",
+			"render_mode": "architecture_lintel",
+			"world_size": [
+				40,
+				20
+			],
+			"render_size": [
+				40,
+				20
+			],
+			"assembly_patches": [
+				{
+					"source": [
+						55,
+						173,
+						257.875,
+						61.5
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						20
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"blocking": false,
+			"collision_parts": [],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "laundry/east,west/80x20",
+			"authoring_set": "laundry-v1",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2,
+				"rows": 1.0,
+				"parameterized_shader": false
+			}
+		}
+	]
+}

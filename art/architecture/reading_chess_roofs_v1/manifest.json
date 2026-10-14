@@ -1,0 +1,104 @@
+{
+	"schema": 2,
+	"version": "reading-chess-roofs-v1",
+	"assets": [
+		{
+			"id": "roof_reading",
+			"name": "阅览室 · 旧砖红瓦屋顶",
+			"texture": "res://art/architecture/reading_chess_roofs_v1/reading-roof.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"sha256": "a7bde4bce9b6ba91e0bb703f7455164eef006de11e2dcaa9ac64cdf0e83687e4",
+			"source_kind": "built-in-imagegen-original-png",
+			"blocking": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				600,
+				400
+			],
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"opaque": true,
+			"editor_hidden": true
+		},
+		{
+			"id": "roof_chess",
+			"name": "棋牌室 · 旧灰瓦屋顶",
+			"texture": "res://art/architecture/reading_chess_roofs_v1/chess-roof.png",
+			"texture_size": [
+				1178,
+				1335
+			],
+			"sha256": "12ad784e52afbbb066af0e82e007c88f32d3e7741d46cf9c3db4b96e2ad6162a",
+			"source_kind": "built-in-imagegen-original-png",
+			"blocking": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"region": [
+				0,
+				0,
+				1178,
+				1335
+			],
+			"world_size": [
+				600,
+				680
+			],
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"opaque": true,
+			"editor_hidden": true
+		},
+		{
+			"id": "reading_enamel_sign_v1",
+			"name": "阅览室 · 入口搪瓷门牌",
+			"texture": "res://art/architecture/reading_chess_roofs_v1/reading-sign.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"sha256": "342becdce635c9934b99a132c03caff6376a5dd6f24409dbcfcf66ae3b72e445",
+			"source_kind": "built-in-imagegen-original-png",
+			"blocking": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"region": [
+				337,
+				136,
+				1499,
+				440
+			],
+			"world_size": [
+				115,
+				33.755837224816545
+			],
+			"render_size": [
+				115,
+				33.755837224816545
+			],
+			"footprint_world_size": [
+				115,
+				33.755837224816545
+			],
+			"ground_rect": [
+				0,
+				0,
+				1499,
+				440
+			],
+			"elevation_world": 0,
+			"render_mode": "wall_attachment",
+			"editor_subcategory": "attachments",
+			"proportion_locked": true
+		}
+	]
+}

@@ -1,0 +1,465 @@
+{
+	"cases": {
+		"software_cap60": {
+			"distance": 2866.23720359802,
+			"draw_calls": {
+				"count": 600,
+				"max": 641.0,
+				"mean": 576.175,
+				"over25": 600,
+				"over33": 600,
+				"p50": 580.0,
+				"p95": 624.0,
+				"p99": 638.0
+			},
+			"focus_frames": 600,
+			"frame_ms": {
+				"count": 600,
+				"max": 25.106,
+				"mean": 16.660905,
+				"over25": 1,
+				"over33": 0,
+				"p50": 16.676,
+				"p95": 18.772,
+				"p99": 21.668
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 4.36499977111816,
+				"mean": 1.29123499522607,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.02900004386902,
+				"p95": 3.11999988555908,
+				"p99": 4.04099988937378
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 1.9099999666214,
+				"mean": 1.04578499794006,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.00300002098084,
+				"p95": 1.44700002670288,
+				"p99": 1.64999997615814
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 11.415,
+				"mean": 3.96877166666666,
+				"over25": 0,
+				"over33": 0,
+				"p50": 3.735,
+				"p95": 5.672,
+				"p99": 8.103
+			},
+			"slow_paths": [
+				{
+					"builds": 2,
+					"connectivity_parts": {},
+					"deferred": 3,
+					"from": [
+						750.180419921875,
+						1944.32958984375
+					],
+					"ms": 2.814,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.059,
+						"jps": 0.022,
+						"overlay": 2.082,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.048,
+						"smooth": 0.269
+					},
+					"points": 2,
+					"to": [
+						750.0,
+						2580.0
+					]
+				},
+				{
+					"builds": 2,
+					"connectivity_parts": {},
+					"deferred": 3,
+					"from": [
+						4993.38330078125,
+						2451.0830078125
+					],
+					"ms": 4.15,
+					"parts": {
+						"connectivity": 0.007,
+						"endpoints": 0.13,
+						"jps": 0.133,
+						"overlay": 2.056,
+						"restore_compress": 0.013,
+						"search_and_connect": 0.157,
+						"smooth": 0.996
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"connectivity_parts": {},
+					"deferred": 3,
+					"from": [
+						3312.74633789063,
+						1130.77880859375
+					],
+					"ms": 3.993,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.108,
+						"jps": 0.374,
+						"overlay": 1.271,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.392,
+						"smooth": 1.515
+					},
+					"points": 5,
+					"to": [
+						2240.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 2,
+					"connectivity_parts": {},
+					"deferred": 3,
+					"from": [
+						4993.154296875,
+						2457.58251953125
+					],
+					"ms": 3.145,
+					"parts": {
+						"connectivity": 0.007,
+						"endpoints": 0.086,
+						"jps": 0.104,
+						"overlay": 1.668,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.121,
+						"smooth": 0.854
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"connectivity_parts": {},
+					"deferred": 3,
+					"from": [
+						869.774047851563,
+						1810.61340332031
+					],
+					"ms": 2.097,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.041,
+						"jps": 0.068,
+						"overlay": 1.632,
+						"restore_compress": 0.005,
+						"search_and_connect": 0.082,
+						"smooth": 0.189
+					},
+					"points": 3,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 25.106,
+					"minute": 497.8928672,
+					"parts": {
+						"dog.tick": 0.009,
+						"gate_watch.tick": 3.234,
+						"guard.tick": 0.119,
+						"orders.tick": 0.188,
+						"presentation.tick": 4.656,
+						"room_access.tick": 2.256,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.054,
+						"workshop.update_gate": 0.047,
+						"world.update_dorm_doors": 0.168
+					},
+					"paths": [
+						{
+							"builds": 2,
+							"connectivity_parts": {},
+							"deferred": 3,
+							"from": [
+								1363.71765136719,
+								2528.36767578125
+							],
+							"ms": 0.109,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1540.0,
+								2590.0
+							]
+						}
+					],
+					"script": 11.415
+				}
+			]
+		},
+		"vsync_cap60": {
+			"distance": 2755.02307128906,
+			"draw_calls": {
+				"count": 600,
+				"max": 605.0,
+				"mean": 562.37,
+				"over25": 600,
+				"over33": 600,
+				"p50": 567.0,
+				"p95": 587.0,
+				"p99": 589.0
+			},
+			"focus_frames": 600,
+			"frame_ms": {
+				"count": 600,
+				"max": 28.418,
+				"mean": 16.661695,
+				"over25": 3,
+				"over33": 0,
+				"p50": 16.631,
+				"p95": 17.986,
+				"p99": 19.135
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 4.05000019073486,
+				"mean": 1.20490833381812,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.987999975681305,
+				"p95": 2.96199989318848,
+				"p99": 3.64199995994568
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 1.96599996089935,
+				"mean": 1.0446766675512,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.01900005340576,
+				"p95": 1.35099995136261,
+				"p99": 1.58899998664856
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 14.771,
+				"mean": 3.801355,
+				"over25": 0,
+				"over33": 0,
+				"p50": 3.74,
+				"p95": 4.725,
+				"p99": 5.803
+			},
+			"slow_paths": [
+				{
+					"builds": 3,
+					"connectivity_parts": {
+						"chunk_build": 0.131,
+						"chunk_link": 0.227,
+						"graph_components": 0.479
+					},
+					"deferred": 3,
+					"from": [
+						1537.05883789063,
+						2588.9716796875
+					],
+					"ms": 10.072,
+					"parts": {
+						"connectivity": 0.864,
+						"endpoints": 0.092,
+						"grid_cells": 2.498,
+						"grid_collect": 0.44,
+						"grid_finish": 0.025,
+						"grid_indexes": 0.245,
+						"grid_update": 6.507,
+						"jps": 0.08,
+						"overlay": 1.209,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.095,
+						"smooth": 0.933
+					},
+					"points": 3,
+					"to": [
+						2400.0,
+						2360.0
+					]
+				},
+				{
+					"builds": 4,
+					"connectivity_parts": {
+						"chunk_build": 0.118,
+						"chunk_link": 0.157,
+						"graph_components": 0.58
+					},
+					"deferred": 3,
+					"from": [
+						4713.759765625,
+						3149.85327148438
+					],
+					"ms": 8.441,
+					"parts": {
+						"connectivity": 0.892,
+						"endpoints": 0.08,
+						"grid_cells": 2.145,
+						"grid_collect": 0.414,
+						"grid_finish": 0.02,
+						"grid_indexes": 0.355,
+						"grid_update": 5.901,
+						"jps": 0.018,
+						"overlay": 1.192,
+						"restore_compress": 0.006,
+						"search_and_connect": 0.032,
+						"smooth": 0.19
+					},
+					"points": 3,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 28.418,
+					"minute": 502.439808,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.557,
+						"guard.tick": 10.208,
+						"orders.tick": 0.417,
+						"presentation.tick": 2.162,
+						"room_access.tick": 0.345,
+						"routines.tick": 0.017,
+						"workshop.tick": 0.095,
+						"workshop.update_gate": 0.042,
+						"world.update_dorm_doors": 0.196
+					},
+					"paths": [
+						{
+							"builds": 3,
+							"connectivity_parts": {
+								"chunk_build": 0.131,
+								"chunk_link": 0.227,
+								"graph_components": 0.479
+							},
+							"deferred": 3,
+							"from": [
+								1537.05883789063,
+								2588.9716796875
+							],
+							"ms": 10.072,
+							"parts": {
+								"connectivity": 0.864,
+								"endpoints": 0.092,
+								"grid_cells": 2.498,
+								"grid_collect": 0.44,
+								"grid_finish": 0.025,
+								"grid_indexes": 0.245,
+								"grid_update": 6.507,
+								"jps": 0.08,
+								"overlay": 1.209,
+								"restore_compress": 0.008,
+								"search_and_connect": 0.095,
+								"smooth": 0.933
+							},
+							"points": 3,
+							"to": [
+								2400.0,
+								2360.0
+							]
+						}
+					],
+					"script": 14.771
+				},
+				{
+					"frame": 25.539,
+					"minute": 503.9330784,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 2.835,
+						"guard.tick": 0.246,
+						"orders.tick": 0.182,
+						"presentation.tick": 6.022,
+						"room_access.tick": 2.284,
+						"routines.tick": 0.022,
+						"workshop.tick": 0.06,
+						"workshop.update_gate": 0.052,
+						"world.update_dorm_doors": 0.187
+					},
+					"paths": [],
+					"script": 12.598
+				},
+				{
+					"frame": 25.18,
+					"minute": 507.666265600001,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 9.013,
+						"guard.tick": 0.156,
+						"orders.tick": 0.194,
+						"presentation.tick": 2.046,
+						"room_access.tick": 0.48,
+						"routines.tick": 0.023,
+						"workshop.tick": 0.07,
+						"workshop.update_gate": 0.052,
+						"world.update_dorm_doors": 0.211
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"connectivity_parts": {
+								"chunk_build": 0.118,
+								"chunk_link": 0.157,
+								"graph_components": 0.58
+							},
+							"deferred": 3,
+							"from": [
+								4713.759765625,
+								3149.85327148438
+							],
+							"ms": 8.441,
+							"parts": {
+								"connectivity": 0.892,
+								"endpoints": 0.08,
+								"grid_cells": 2.145,
+								"grid_collect": 0.414,
+								"grid_finish": 0.02,
+								"grid_indexes": 0.355,
+								"grid_update": 5.901,
+								"jps": 0.018,
+								"overlay": 1.192,
+								"restore_compress": 0.006,
+								"search_and_connect": 0.032,
+								"smooth": 0.19
+							},
+							"points": 3,
+							"to": [
+								4860.0,
+								3420.0
+							]
+						}
+					],
+					"script": 13.056
+				}
+			]
+		}
+	},
+	"refresh_hz": 165.001602172852,
+	"scope": "Production collision movement and follow camera; foreground verified per sample. Native callback intervals, not display scanout."
+}

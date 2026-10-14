@@ -1,0 +1,829 @@
+{
+	"schema": 2,
+	"version": "workshop-one-v1",
+	"assets": [
+		{
+			"texture": "res://art/props/workshop_one_v1/workbench.png",
+			"texture_size": [
+				1816,
+				866
+			],
+			"region": [
+				95,
+				141,
+				1626,
+				579
+			],
+			"sha256": "f3e4b97a48d6272e76c76f95555f9815d6c0c13355d3e528d44d50698c463b85",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_workbench_v1",
+			"name": "一号车间 · 重型木面工作台",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				127.38,
+				1626,
+				451.62
+			],
+			"render_size": [
+				320,
+				113.94833948339483
+			],
+			"world_size": [
+				320,
+				113.94833948339483
+			],
+			"footprint_world_size": [
+				320,
+				88.87970479704796
+			],
+			"elevation_world": 25.06863468634686,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/fitting-tools.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				100,
+				262,
+				1575,
+				378
+			],
+			"sha256": "fd0db1051b1b32a95bf023a760e92fe6c8be8a59286e20e1f50db536868ae19f",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_fitting_tools_v1",
+			"name": "一号车间 · 钳工台面组合",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1575,
+				378
+			],
+			"render_size": [
+				180,
+				43.199999999999996
+			],
+			"world_size": [
+				180,
+				43.199999999999996
+			],
+			"footprint_world_size": [
+				180,
+				43.199999999999996
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/motor-assembly.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				314,
+				257,
+				1160,
+				402
+			],
+			"sha256": "98247688c8425f348affa27531f8111f1fc23a0e4c15d3b6437e1cae89076bd8",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_motor_assembly_v1",
+			"name": "一号车间 · 电机装配组合",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1160,
+				402
+			],
+			"render_size": [
+				180,
+				62.37931034482759
+			],
+			"world_size": [
+				180,
+				62.37931034482759
+			],
+			"footprint_world_size": [
+				180,
+				62.37931034482759
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/copper-winding.png",
+			"texture_size": [
+				1721,
+				914
+			],
+			"region": [
+				218,
+				238,
+				1286,
+				446
+			],
+			"sha256": "591cabc21344fc3b581293cd633997001f7998f0e2614d70afb879065dcf5047",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_copper_winding_v1",
+			"name": "一号车间 · 绕线台面组合",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1286,
+				446
+			],
+			"render_size": [
+				180,
+				62.42612752721618
+			],
+			"world_size": [
+				180,
+				62.42612752721618
+			],
+			"footprint_world_size": [
+				180,
+				62.42612752721618
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/housings.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				222,
+				237,
+				1345,
+				425
+			],
+			"sha256": "c223e185d5bf42c441c7c83db87a217c3bf345dd85abf33ce39e4628441432ce",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_housings_v1",
+			"name": "一号车间 · 壳体整理组合",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1345,
+				425
+			],
+			"render_size": [
+				180,
+				56.87732342007435
+			],
+			"world_size": [
+				180,
+				56.87732342007435
+			],
+			"footprint_world_size": [
+				180,
+				56.87732342007435
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/parts-drawers.png",
+			"texture_size": [
+				1484,
+				1060
+			],
+			"region": [
+				182,
+				194,
+				1119,
+				709
+			],
+			"sha256": "a68fe4796ea7fccf08361a40361d163ef0ffd8626ded2ad9d2616aac2d1bb121",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_parts_drawers_v1",
+			"name": "一号车间 · 零件抽屉柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				425.4,
+				1119,
+				283.6
+			],
+			"render_size": [
+				120,
+				76.03217158176943
+			],
+			"world_size": [
+				120,
+				76.03217158176943
+			],
+			"footprint_world_size": [
+				120,
+				30.412868632707777
+			],
+			"elevation_world": 45.61930294906166,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/north-parts-rack.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				120,
+				184,
+				1014,
+				964
+			],
+			"sha256": "9db47d8f3f596d5550c2b40236f5efac2e84242516e136eaa96a7001c01b628d",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_north_parts_rack_v1",
+			"name": "一号车间 · 北墙开放零件架",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				636.24,
+				1014,
+				327.76000000000005
+			],
+			"render_size": [
+				120,
+				114.08284023668638
+			],
+			"world_size": [
+				120,
+				114.08284023668638
+			],
+			"footprint_world_size": [
+				120,
+				38.78816568047338
+			],
+			"elevation_world": 75.29467455621301,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/west-parts-rack.png",
+			"texture_size": [
+				728,
+				2160
+			],
+			"region": [
+				213,
+				87,
+				319,
+				1963
+			],
+			"sha256": "d33c9e665eacfa079e3e804f5bd8668e66a53ec2ecc9eabf1bd6a5a8d0b364b1",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_west_parts_rack_v1",
+			"name": "一号车间 · 西墙纵向零件架",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				314.08000000000015,
+				319,
+				1648.9199999999998
+			],
+			"render_size": [
+				70,
+				430.7523510971787
+			],
+			"world_size": [
+				70,
+				430.7523510971787
+			],
+			"footprint_world_size": [
+				70,
+				361.8319749216301
+			],
+			"elevation_world": 68.92037617554863,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/low-tool-cabinet.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				305,
+				239,
+				926,
+				567
+			],
+			"sha256": "3073e14cfec1c5fb542b914588887802ea168766305f06e52a7edc73298285ff",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_low_tool_cabinet_v1",
+			"name": "一号车间 · 矮工具柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				283.5,
+				926,
+				283.5
+			],
+			"render_size": [
+				110,
+				67.35421166306696
+			],
+			"world_size": [
+				110,
+				67.35421166306696
+			],
+			"footprint_world_size": [
+				110,
+				33.67710583153348
+			],
+			"elevation_world": 33.67710583153348,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/bench-drill.png",
+			"texture_size": [
+				1293,
+				1216
+			],
+			"region": [
+				376,
+				250,
+				556,
+				800
+			],
+			"sha256": "1dfaf22b4b768653a4992a6d3e74b243a0f865c66bdabff1ee6a0329b2ff780b",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_bench_drill_v1",
+			"name": "一号车间 · 小型台钻",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				520.0,
+				556,
+				280.0
+			],
+			"render_size": [
+				45,
+				64.74820143884892
+			],
+			"world_size": [
+				45,
+				64.74820143884892
+			],
+			"footprint_world_size": [
+				45,
+				22.66187050359712
+			],
+			"elevation_world": 42.086330935251794,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "misc"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/wall-toolboard.png",
+			"texture_size": [
+				1683,
+				935
+			],
+			"region": [
+				89,
+				105,
+				1507,
+				706
+			],
+			"sha256": "f27b770959bcf98544facd22c7b272c8bdfb8707220720d1819e77256ea936a3",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_wall_toolboard_v1",
+			"name": "一号车间 · 壁挂工具板",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1507,
+				706
+			],
+			"render_size": [
+				120,
+				56.21765096217651
+			],
+			"world_size": [
+				120,
+				56.21765096217651
+			],
+			"footprint_world_size": [
+				120,
+				56.21765096217651
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/electrical-cabinet.png",
+			"texture_size": [
+				992,
+				1586
+			],
+			"region": [
+				235,
+				212,
+				522,
+				1161
+			],
+			"sha256": "35fc87292d35855b10481029155508a5e2d3e154619d95334537fbd58aaad32e",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_electrical_cabinet_v1",
+			"name": "一号车间 · 电气控制柜",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				847.53,
+				522,
+				313.47
+			],
+			"render_size": [
+				50,
+				111.20689655172414
+			],
+			"world_size": [
+				50,
+				111.20689655172414
+			],
+			"footprint_world_size": [
+				50,
+				30.02586206896552
+			],
+			"elevation_world": 81.18103448275862,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/shift-board.png",
+			"texture_size": [
+				1427,
+				1102
+			],
+			"region": [
+				103,
+				210,
+				1222,
+				669
+			],
+			"sha256": "0d05c5a0fd9e7d310114937216f665798caf743da196829ebad1c0f807719cd3",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_shift_board_v1",
+			"name": "一号车间 · 班次记录板",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1222,
+				669
+			],
+			"render_size": [
+				85,
+				46.53436988543371
+			],
+			"world_size": [
+				85,
+				46.53436988543371
+			],
+			"footprint_world_size": [
+				85,
+				46.53436988543371
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/room-sign.png",
+			"texture_size": [
+				2162,
+				727
+			],
+			"region": [
+				411,
+				189,
+				1341,
+				356
+			],
+			"sha256": "f593fb9ed66a5dd59174f6890f66ed5a700e0cd9daa80d8af7e04f4170f1095a",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "workshop_room_sign_v1",
+			"name": "一号车间 · 一号车间名称牌",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				0,
+				1341,
+				356
+			],
+			"render_size": [
+				150,
+				39.82102908277405
+			],
+			"world_size": [
+				150,
+				39.82102908277405
+			],
+			"footprint_world_size": [
+				150,
+				39.82102908277405
+			],
+			"elevation_world": 0.0,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "workshop_locker_v1",
+			"name": "一号车间 · 工具柜",
+			"texture": "res://art/props/prison_v42/tool_locker_v42.png",
+			"texture_size": [
+				1221,
+				1289
+			],
+			"region": [
+				241,
+				99,
+				739,
+				1100
+			],
+			"ground_rect": [
+				0,
+				771.5555555555557,
+				739,
+				328.4444444444444
+			],
+			"footprint_world_size": [
+				66.0,
+				29.33333333333333
+			],
+			"world_size": [
+				66,
+				98.24086603518268
+			],
+			"render_size": [
+				66,
+				98.24086603518268
+			],
+			"elevation_world": 68.90753270184935,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "prison-perspective-v42",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "2379175baa1853b84fa9219b15dacd0ae4e7cc93581a9f652171a2f0025bb57f",
+			"registration_note": "Original source PNG untouched; uniform width-based sprite registration; logical footprints retained.",
+			"proportion_locked": true
+		},
+		{
+			"id": "workshop_drill_v1",
+			"name": "一号车间 · 立式钻床",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				114,
+				55,
+				182,
+				290
+			],
+			"ground_rect": [
+				0,
+				108.00000000000003,
+				182,
+				181.99999999999997
+			],
+			"footprint_world_size": [
+				90.0,
+				89.99999999999999
+			],
+			"world_size": [
+				90,
+				143.4065934065934
+			],
+			"render_size": [
+				90,
+				143.4065934065934
+			],
+			"elevation_world": 53.40659340659342,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true
+		},
+		{
+			"id": "workshop_drums_v1",
+			"name": "一号车间 · 油桶",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				46,
+				405,
+				349,
+				248
+			],
+			"ground_rect": [
+				0,
+				29.875,
+				349,
+				218.125
+			],
+			"footprint_world_size": [
+				80.0,
+				50.0
+			],
+			"world_size": [
+				80,
+				56.84813753581662
+			],
+			"render_size": [
+				80,
+				56.84813753581662
+			],
+			"elevation_world": 6.848137535816619,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true
+		},
+		{
+			"id": "workshop_crates_v1",
+			"name": "一号车间 · 物资箱",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1182,
+				46,
+				286,
+				299
+			],
+			"ground_rect": [
+				0,
+				53.85714285714286,
+				286,
+				245.14285714285714
+			],
+			"footprint_world_size": [
+				85.0,
+				72.85714285714285
+			],
+			"world_size": [
+				85,
+				88.86363636363636
+			],
+			"render_size": [
+				85,
+				88.86363636363636
+			],
+			"elevation_world": 16.006493506493506,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true
+		},
+		{
+			"id": "workshop_trolley_v1",
+			"name": "一号车间 · 运输推车",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				859,
+				383,
+				192,
+				278
+			],
+			"ground_rect": [
+				0,
+				64.66666666666666,
+				192,
+				213.33333333333334
+			],
+			"footprint_world_size": [
+				55.0,
+				61.11111111111111
+			],
+			"world_size": [
+				55,
+				79.63541666666666
+			],
+			"render_size": [
+				55,
+				79.63541666666666
+			],
+			"elevation_world": 18.52430555555555,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true
+		}
+	]
+}

@@ -1,0 +1,72 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "clinic_restoration",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 16.56,
+      "checks": 192,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.03,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.44,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "scene_seams",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.69,
+      "checks": 8,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "head_layer",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.67,
+      "checks": 14,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.66,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 267,
+  "passed": true
+}

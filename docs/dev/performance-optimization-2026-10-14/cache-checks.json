@@ -1,0 +1,72 @@
+{
+	"baked_hits": 1647,
+	"baked_misses": 0,
+	"checks": {
+		"500 repeated geometry requests do not rebuild": true,
+		"baked textures used for scene dependencies": true,
+		"catalog callers cannot mutate cached definitions": true,
+		"legacy exit icon survives scene release 0": true,
+		"legacy exit icon survives scene release 1": true,
+		"legacy exit icon survives scene release 2": true,
+		"legacy exit icon survives scene release 3": true,
+		"legacy exit icon survives scene release 4": true,
+		"legacy exit icon survives scene release 5": true,
+		"load r010": true,
+		"load r014": true,
+		"load r032": true,
+		"load r041": true,
+		"load r043": true,
+		"load r045": true,
+		"moving gate invalidates cached bounds": true,
+		"nested geometry edits invalidate cache": true,
+		"one centralized door update in an ordinary frame": true,
+		"reload retains a populated texture set 0": true,
+		"reload retains a populated texture set 1": true,
+		"reload retains a populated texture set 2": true,
+		"reload retains a populated texture set 3": true,
+		"reload retains a populated texture set 4": true,
+		"reload retains a populated texture set 5": true,
+		"repeated R04 cache ownership is bounded": true,
+		"rotation invalidates cached bounds": true,
+		"wall edit invalidates geometry via collision revision": true
+	},
+	"failed": [],
+	"reloads": [
+		{
+			"cache": 29,
+			"nodes": 412.0,
+			"room": "r01",
+			"texture_mib": 0.0
+		},
+		{
+			"cache": 388,
+			"nodes": 5091.0,
+			"room": "r04",
+			"texture_mib": 0.0
+		},
+		{
+			"cache": 20,
+			"nodes": 435.0,
+			"room": "r03",
+			"texture_mib": 0.0
+		},
+		{
+			"cache": 388,
+			"nodes": 5093.0,
+			"room": "r04",
+			"texture_mib": 0.0
+		},
+		{
+			"cache": 11,
+			"nodes": 412.0,
+			"room": "r01",
+			"texture_mib": 0.0
+		},
+		{
+			"cache": 388,
+			"nodes": 5091.0,
+			"room": "r04",
+			"texture_mib": 0.0
+		}
+	]
+}

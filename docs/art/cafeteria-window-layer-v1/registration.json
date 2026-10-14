@@ -1,0 +1,10 @@
+{
+  "changed_fixture_ids": [
+    "canteen-redesign-window-0",
+    "canteen-redesign-window-1"
+  ],
+  "input_sha256": "a94702c275abaf36be6004a3f97f3d0320d6492e49b132ef21adfcfba5600ca0",
+  "output_sha256": "10a6b50fc84d102c84a4d5f05f6f22b8a99401232286e365be4dd4fa67a7d811",
+  "cause": "Retained wall edge at z=4095 covers upper window.",
+  "fix": "Render windows above wall edge only while canteen is active."
+}

@@ -1,0 +1,32 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "scene_seams",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.19,
+      "checks": 8,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.66,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 23,
+  "passed": true
+}

@@ -1,0 +1,496 @@
+{
+	"schema": 2,
+	"version": "drying-yard-v1",
+	"assets": [
+		{
+			"id": "drying_clothesline_sheets_v1",
+			"name": "晾晒区 · 床单晾衣架",
+			"texture": "res://art/props/drying_yard_v1/clotheslines.png",
+			"texture_size": [
+				2022,
+				778
+			],
+			"region": [
+				439,
+				25,
+				1146,
+				330
+			],
+			"world_size": [
+				330,
+				95.02617801047121
+			],
+			"render_size": [
+				330,
+				95.02617801047121
+			],
+			"footprint_world_size": [
+				330,
+				16
+			],
+			"ground_rect": [
+				0,
+				274.43636363636364,
+				1146,
+				55.563636363636355
+			],
+			"elevation_world": 79.02617801047121,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "3ecf9136d5d327c98901311945ef5039cf02bf17ccb7ffe9efaf557039b90a0b",
+			"solid_parts": [
+				[
+					0,
+					0,
+					0.068,
+					1
+				],
+				[
+					0.932,
+					0,
+					0.068,
+					1
+				]
+			],
+			"collision_note": "Only post bases block feet; fabric is raised above the ground."
+		},
+		{
+			"id": "drying_clothesline_clothes_v1",
+			"name": "晾晒区 · 衣物晾衣架",
+			"texture": "res://art/props/drying_yard_v1/clotheslines.png",
+			"texture_size": [
+				2022,
+				778
+			],
+			"region": [
+				436,
+				400,
+				1149,
+				332
+			],
+			"world_size": [
+				330,
+				95.35248041775456
+			],
+			"render_size": [
+				330,
+				95.35248041775456
+			],
+			"footprint_world_size": [
+				330,
+				16
+			],
+			"ground_rect": [
+				0,
+				276.2909090909091,
+				1149,
+				55.70909090909091
+			],
+			"elevation_world": 79.35248041775456,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "3ecf9136d5d327c98901311945ef5039cf02bf17ccb7ffe9efaf557039b90a0b",
+			"solid_parts": [
+				[
+					0,
+					0,
+					0.068,
+					1
+				],
+				[
+					0.932,
+					0,
+					0.068,
+					1
+				]
+			],
+			"collision_note": "Only post bases block feet; fabric is raised above the ground."
+		},
+		{
+			"id": "drying_linen_cart_v1",
+			"name": "晾晒区 · 蓝色布草车",
+			"texture": "res://art/props/drying_yard_v1/linen-cart.png",
+			"texture_size": [
+				1345,
+				1169
+			],
+			"region": [
+				129,
+				163,
+				1134,
+				916
+			],
+			"world_size": [
+				95,
+				76.73721340388006
+			],
+			"render_size": [
+				95,
+				76.73721340388006
+			],
+			"footprint_world_size": [
+				95,
+				54
+			],
+			"ground_rect": [
+				0,
+				271.4105263157894,
+				1134,
+				644.5894736842106
+			],
+			"elevation_world": 22.737213403880062,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "732d2ddd05ca778bfa9364ec58543cfb636f9cbf2439e73bf603fc9874945a9c"
+		},
+		{
+			"id": "drying_flowerbed_long_v1",
+			"name": "晾晒区 · 横向低花坛",
+			"texture": "res://art/props/drying_yard_v1/flowerbed.png",
+			"texture_size": [
+				2184,
+				720
+			],
+			"region": [
+				82,
+				91,
+				2020,
+				530
+			],
+			"world_size": [
+				230,
+				60.34653465346535
+			],
+			"render_size": [
+				230,
+				60.34653465346535
+			],
+			"footprint_world_size": [
+				230,
+				46
+			],
+			"ground_rect": [
+				0,
+				126.0,
+				2020,
+				404.0
+			],
+			"elevation_world": 14.346534653465348,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5015fc016f3b14cc74b47b3c39b554724c9b6d006186ca11fb4253bdf844f03e"
+		},
+		{
+			"id": "drying_flowerbed_square_v1",
+			"name": "晾晒区 · 入口方花坛",
+			"texture": "res://art/props/drying_yard_v1/square-flowerbed.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				188,
+				198,
+				879,
+				858
+			],
+			"world_size": [
+				90,
+				87.84982935153583
+			],
+			"render_size": [
+				90,
+				87.84982935153583
+			],
+			"footprint_world_size": [
+				90,
+				75
+			],
+			"ground_rect": [
+				0,
+				125.5,
+				879,
+				732.5
+			],
+			"elevation_world": 12.849829351535831,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "84700ead94e94eb3d84c90a81dad06d3c13983fecba63881fba8ee13c3f62538"
+		},
+		{
+			"id": "drying_area_sign_v1",
+			"name": "晾晒区 · 晾晒区搪瓷牌",
+			"texture": "res://art/props/drying_yard_v1/yard-sign.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				403,
+				282,
+				968,
+				457
+			],
+			"world_size": [
+				165,
+				77.89772727272727
+			],
+			"render_size": [
+				165,
+				77.89772727272727
+			],
+			"footprint_world_size": [
+				165,
+				14
+			],
+			"ground_rect": [
+				0,
+				374.8666666666667,
+				968,
+				82.13333333333334
+			],
+			"elevation_world": 63.897727272727266,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "d456eecf8da9b45841420daede0b267c3892a375a2ce0822c8061fdb7731f92d",
+			"solid_parts": [
+				[
+					0.015,
+					0,
+					0.13,
+					1
+				],
+				[
+					0.86,
+					0,
+					0.13,
+					1
+				]
+			]
+		},
+		{
+			"id": "drying_bench_v1",
+			"name": "晾晒区 · 休息木长椅",
+			"texture": "res://art/props/campus_v47/campus_atlas.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				383,
+				1160,
+				316,
+				162
+			],
+			"ground_rect": [
+				0,
+				53.895,
+				316,
+				108.105
+			],
+			"footprint_world_size": [
+				220.00000000000003,
+				75.26297468354431
+			],
+			"world_size": [
+				220,
+				112.78481012658229
+			],
+			"render_size": [
+				220,
+				112.78481012658229
+			],
+			"elevation_world": 37.52183544303797,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "campus-v47",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "park_bench_v47"
+		},
+		{
+			"id": "drying_lamp_v1",
+			"name": "晾晒区 · 园区矮路灯",
+			"texture": "res://art/props/campus_v47/campus_atlas.png",
+			"texture_size": [
+				1086,
+				1448
+			],
+			"region": [
+				852,
+				1086,
+				115,
+				300
+			],
+			"ground_rect": [
+				0,
+				242.5,
+				115,
+				57.5
+			],
+			"footprint_world_size": [
+				46.0,
+				23.0
+			],
+			"world_size": [
+				46,
+				120.0
+			],
+			"render_size": [
+				46,
+				120.0
+			],
+			"elevation_world": 97.0,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "campus-v47",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "5a5ed6f5ee09447f71e88a81fc1cfaa606bba3ee7f9f35478b5e7c685c75556f",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "yard_lamp_v47"
+		},
+		{
+			"id": "drying_shrubs_a_v1",
+			"name": "晾晒区 · 地栽灌木 A",
+			"texture": "res://art/props/exercise_yard_v55/shrub-group-a.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				256,
+				167,
+				1293,
+				579
+			],
+			"world_size": [
+				160,
+				71.64733178654292
+			],
+			"render_size": [
+				160,
+				71.64733178654292
+			],
+			"ground_rect": [
+				0,
+				350.82352941176475,
+				1293,
+				228.17647058823528
+			],
+			"footprint_world_size": [
+				160.0,
+				28.235294117647058
+			],
+			"elevation_world": 43.41203766889586,
+			"proportion_locked": true,
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "43ec621c53788c8a023b33e82cf63849b2276616f7c2f40e8b3461676279979c",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"reused_from": "yard_ground_shrubs_a_v55"
+		},
+		{
+			"id": "drying_shrubs_b_v1",
+			"name": "晾晒区 · 地栽灌木 B",
+			"texture": "res://art/props/exercise_yard_v55/shrub-group-b.png",
+			"texture_size": [
+				1836,
+				856
+			],
+			"region": [
+				174,
+				159,
+				1493,
+				574
+			],
+			"world_size": [
+				140,
+				53.82451440053584
+			],
+			"render_size": [
+				140,
+				53.82451440053584
+			],
+			"ground_rect": [
+				0,
+				296.72857142857146,
+				1493,
+				277.27142857142854
+			],
+			"footprint_world_size": [
+				140.0,
+				26.0
+			],
+			"elevation_world": 27.82451440053584,
+			"proportion_locked": true,
+			"render_mode": "projected_prop",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "8800bbd4ef7883e0c21fdc989f3d15e72b6dc5f0ef97ed0c12051bf35a2c5049",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"reused_from": "yard_ground_shrubs_b_v55"
+		}
+	]
+}

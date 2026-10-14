@@ -1,0 +1,36 @@
+{
+  "mode": "built-in image_gen",
+  "intent": "generate new concept using reference images",
+  "created_local_date": "2026-10-13",
+  "workspace_output": "E:/Project/Godot/这次怎么逃/docs/art/cafeteria-redesign-v2/concept-final-v2.png",
+  "source_png": "C:/Users/gst20/.codex/generated_images/01a12b69-115b-7641-b7d4-9ca1e651c449/exec-66117f62-e1ab-4da5-a990-7ae4fa8f0a90.png",
+  "transparent_background": false,
+  "reference_images": [
+    {
+      "path": "E:/Project/Godot/这次怎么逃/docs/art/cafeteria-redesign-v2/reference-current-editor.png",
+      "role": "Latest requested cafeteria area"
+    },
+    {
+      "path": "E:/Project/Godot/这次怎么逃/docs/art/cafeteria-redesign-v2/reference-factory-plan.png",
+      "role": "Original campus layout and art style"
+    },
+    {
+      "path": "E:/Project/Godot/这次怎么逃/docs/art/cafeteria-redesign-v1/concept-final-v1.png",
+      "role": "Existing painted camera and proportions"
+    }
+  ],
+  "prompt": "Use case: stylized-concept.\nAsset type: final environment concept for a 2D Godot prison factory campus cafeteria, new design proposal.\nInput images: Image 1 is the latest in-game editor screenshot: reference only for location beneath Workshop One, five north-south dining tables, and existing painterly props; do not reproduce editor UI or red outlines. Image 2 is the original campus concept crop: authoritative compact cafeteria arrangement (north kitchen, five parallel long tables) and overall worn industrial painterly art style. Image 3 is an older cafeteria concept: supporting reference for how orthographic wall fronts, table benches and small orange-clothed characters look. Redesign its kitchen organization, walls and doorway count rather than copy it.\n\nPrimary request: Create ONE polished final-effect concept of the redesigned cafeteria interior. Broad horizontal rectangular enclosed building, compact and dense with convincing playable circulation, same hand-painted top-down 2.5D game camera as references, north-up, zero perspective convergence and no isometric diagonal rotation. Whole room and a thin strip of outside pavement visible. No game UI. Render the room as a practical modest institutional canteen, used by factory inmates, not a luxurious restaurant. Compact floor ratio approximately 1360 wide by 560 deep, character reference 84 tall; tables with benches footprint 140 wide by 210 long, so tables are only 2.5 character-heights long.\n\nComposition/layout: North side organized into a real kitchen band: back-wall stainless sink, two covered stockpots and a modest rice cooker, small bowl/cup cabinet and a utility refrigerator, all aligned cleanly along north wall. In front of backline a clearly visible narrow staff passage with ONE cook in white work clothes and white cap. In front of cook passage a separate low stainless serving counter with rice pot, two simple open trays of cabbage and potatoes, soup pot and a stack of divided metal trays. All equipment has coherent feet/base contact and is not stacked into one confusing giant machine. Clear serving queue aisle between counter and tables. Dining area contains EXACTLY FIVE parallel vertical NORTH–SOUTH long warm honey-brown wooden tables, each with one narrow long bench along each side, short dark steel legs and restrained worn edges. All five table sets same size, not five miniature desks; empty aisles between them just wide enough to walk. Two orange-uniform inmate characters at table side aisles for scale, do not obstruct doors. Only a few modest meal trays and enamel cups on tables. Left edge contains one compact hot-water urn and enamel-cup rack; southeast edge contains a small tray-return trolley and two covered waste bins, outside walking paths. No indoor landscaping or scattered warehouse machinery.\n\nArchitecture: Full consistent-height walls on all sides, about one character-height apparent front face, rendered as cream painted plaster upper wall and desaturated slate BLUE-GRAY rectangular ceramic lower wall tiles. Warm light-gray small anti-slip floor tiles throughout EVERY part of interior, absolutely no grass inside. Dark blue-gray metal trims and a few simple caged fluorescent lights, no clinic red crosses or medical green wall band. North wall has two simple dark blue institutional doors at left and right ends with counter in the center; south wall has one small centered open doorway facing the exterior path. Door posts, lintel and wall corners join cleanly; open doors have the same metal material as their frames and must not leave floating caps or fragments. The north doors have a clear side passage to tables without crossing cook equipment. A restrained weathered cream sign reads exactly “食堂” on the front wall near doorway. Smaller functional signs at counter and return trolley read “取餐” and “餐具回收”. Only these three readable Chinese labels, no explanatory diagram text.\nExterior: Only a narrow gray paved circulation strip outside, subtle grass/bush edges outside the wall. Keep adjacent campus implied, not a big second scene.\n\nStyle/materials: Match reference's detailed but legible hand-painted raster game environment, subdued olive-gray surrounding campus, cream plaster, slate blue-gray tile, aged honey wood, brushed dull steel, fine dark outlines and soft grounded shadows cast down-right. Top surfaces and front wall thickness consistent; readable at game zoom. Soft neutral daylight, slight wear, clean functional layout rather than grimy ruins.\nAvoid: oversized empty halls, extreme high-angle photographic realism, cinematic perspective, isometric diamond view, luxury buffet, decorative restaurant lamps, extra tables, extra doorways, kitchen giant appliance mash-up, grass on floor, exploded diagram, asset sheet, map editor interface, red boxes, path arrows, debug circles, blue selection handles, watermarks.",
+  "status": "concept and plan only",
+  "visual_review": {
+    "tables": 5,
+    "kitchen": "separate backline, staff aisle and serving counter",
+    "floor": "warm gray tile across interior",
+    "wall": "cream plaster with slate blue-gray tile base",
+    "text": [
+      "食堂",
+      "取餐",
+      "餐具回收"
+    ],
+    "note": "Concept door openings are illustrative; preserve existing map connections during implementation."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "resources": {
+    "production_text_files": 138,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "quick_items",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 17.81,
+      "checks": 70,
+      "failed": [
+        "map_closes_and_restores_world",
+        "map_return_office_accessible",
+        "map_return_to_container_removes_access",
+        "returned_map_stays_revealed",
+        "retake_map_restores_same_shortcut",
+        "right_click_unbinds_without_item_loss",
+        "touch_long_press_unbinds_without_item_loss",
+        "tool_shortcut_uses_real_six_second_action",
+        "shortcut_tool_opens_real_gate"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": false,
+      "exit_code": 0,
+      "seconds": 16.17,
+      "checks": 111,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": true
+    },
+    {
+      "id": "inventory",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 17.27,
+      "checks": 37,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "player",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 24.38,
+      "checks": 28,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "tutorial",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 36.39,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 275,
+  "passed": false
+}

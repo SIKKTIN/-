@@ -1,0 +1,26 @@
+{
+	"source_manifest": "E:\\Project\\Godot\\这次怎么逃\\art\\architecture\\workshop_door_v2\\manifest.json",
+	"source_sha256": "b2330b7107c3fa2e3516fc88c3694c40a27c4c0482c706e67da7ec71cdb13227",
+	"source_png": "res://art/architecture/workshop_door_v2/components.png",
+	"source_png_sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+	"definitions": [
+		"doorway_duty_open_v2",
+		"doorway_duty_open_v1",
+		"doorway_duty_closed_v2",
+		"doorway_duty_closed_v1",
+		"doorway_office_open_v2",
+		"doorway_office_closed_v2"
+	],
+	"changed_fixture_ids": [
+		"campus-duty",
+		"campus-office-entry-visual",
+		"duty-sign",
+		"office-entry-sign"
+	],
+	"input_map_sha256": "49fe20e29dc188723e7afde1fd475db4db08b31b8512ca07e14d2510ed798212",
+	"output_map_sha256": "6e993d450f6f64ec3538d68abef8d82b911f6c1c710578e2d0cd064602afdc71",
+	"duty_default_state": "open; closed variant available in editor",
+	"office_default_state": "locked; keys and lockpicking use office-entry",
+	"map_permissions_preserved": true,
+	"png_modified": false
+}

@@ -1,0 +1,54 @@
+{
+  "world_and_player_geometry_identical": true,
+  "views": {
+    "bath-1.0": {
+      "mean_rgb_error": 1.2215670594837262,
+      "pixels_with_channel_error_over20_percent": 1.3388047138047139
+    },
+    "bath-1.8": {
+      "mean_rgb_error": 1.6621071829405163,
+      "pixels_with_channel_error_over20_percent": 1.3533249158249157
+    },
+    "cafeteria-1.0": {
+      "mean_rgb_error": 3.6082884399551065,
+      "pixels_with_channel_error_over20_percent": 5.809343434343434
+    },
+    "cafeteria-1.8": {
+      "mean_rgb_error": 3.7955822109988775,
+      "pixels_with_channel_error_over20_percent": 6.351010101010102
+    },
+    "clinic-1.0": {
+      "mean_rgb_error": 1.8733824354657689,
+      "pixels_with_channel_error_over20_percent": 2.2561026936026933
+    },
+    "clinic-1.8": {
+      "mean_rgb_error": 1.91625,
+      "pixels_with_channel_error_over20_percent": 1.1525673400673402
+    },
+    "courtyard-1.0": {
+      "mean_rgb_error": 1.3833789281705948,
+      "pixels_with_channel_error_over20_percent": 0.9819023569023569
+    },
+    "courtyard-1.8": {
+      "mean_rgb_error": 1.772821268237935,
+      "pixels_with_channel_error_over20_percent": 0.980429292929293
+    },
+    "dorm-1.0": {
+      "mean_rgb_error": 0.9110332491582491,
+      "pixels_with_channel_error_over20_percent": 0.9522306397306397
+    },
+    "dorm-1.8": {
+      "mean_rgb_error": 1.2074046015712683,
+      "pixels_with_channel_error_over20_percent": 1.107744107744108
+    },
+    "workshop-1.0": {
+      "mean_rgb_error": 2.4256544612794615,
+      "pixels_with_channel_error_over20_percent": 2.2794612794612794
+    },
+    "workshop-1.8": {
+      "mean_rgb_error": 2.1662394781144783,
+      "pixels_with_channel_error_over20_percent": 1.5111531986531987
+    }
+  },
+  "note": "These are quality diagnostics, not exact-pixel equivalence: lower-resolution mipmapped pixels intentionally differ. Frozen screenshot FPS badges are not performance samples."
+}

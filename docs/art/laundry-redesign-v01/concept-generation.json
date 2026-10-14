@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-13",
+  "mode": "built-in imagegen",
+  "status": "design only; no game/map changes",
+  "final_image": "concept-final.png",
+  "prompts": [
+    "concept-prompt.txt",
+    "concept-refinement-prompt.txt"
+  ],
+  "sources": {
+    "initial": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-71f08ed0-ed89-4d04-88dd-5634765fc52b.png",
+    "final": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-a8d10190-1249-457e-9ca5-41b1d6ad5560.png"
+  },
+  "references": [
+    {
+      "role": "current editor screenshot",
+      "saved": "reference-current.png",
+      "source": "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-77cfb8db-965c-4984-a3bc-c84871e3815b.png"
+    },
+    {
+      "role": "master laundry layout reference",
+      "saved": "reference-master.png",
+      "source": "C:/Users/gst20/AppData/Local/Temp/codex-clipboard-66ad012c-14f6-4d08-9441-90f89bd241c8.png"
+    }
+  ],
+  "verified_existing": {
+    "room_zone": [
+      900,
+      3440,
+      880,
+      440
+    ],
+    "visibility_room": [
+      900,
+      3420,
+      900,
+      480
+    ],
+    "floor": [
+      880,
+      3400,
+      940,
+      500
+    ],
+    "washer_count": 4,
+    "props_manifest": "art/props/laundry_v1/manifest.json",
+    "architecture_manifest": "art/architecture/laundry_v1/manifest.json",
+    "roof_manifest": "art/architecture/laundry_v1/roof-manifest.json"
+  },
+  "visual_review": "Four north washers; west dirty-clothes cluster; NE linen shelf; east sink and correctly edge-on service door; south-center metal folding table; south-right exit and clear approach; north-left paved approach. Generated concept only, not runtime QA."
+}

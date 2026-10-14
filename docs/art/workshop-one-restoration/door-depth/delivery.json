@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-13",
+  "status": "fixed",
+  "issue": "Workshop door jambs and leaf edges were hidden behind adjacent wall facades because the door inherited the ground decoration layer.",
+  "solution": "Both workshop door asset states now use the existing raised_door presentation: footline depth for frame and leaves, independent low-layer threshold floor.",
+  "map_modified": false,
+  "source_png_modified": false,
+  "original_unsaved_editor_preserved": true,
+  "checks": 31,
+  "failed": [],
+  "test": "qa/workshop_door_depth.gd",
+  "report": "docs/art/workshop-one-restoration/door-depth/checks.json",
+  "preview": "docs/art/workshop-one-restoration/open-door-depth-editor.gd",
+  "images": ["editor-open.png", "editor-closed.png", "runtime-crossing.png"]
+}

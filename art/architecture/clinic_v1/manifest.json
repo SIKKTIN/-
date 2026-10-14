@@ -1,0 +1,2375 @@
+{
+	"schema": 2,
+	"version": "clinic-v1",
+	"assets": [
+		{
+			"texture": "res://art/architecture/clinic_v1/corner_post.png",
+			"texture_size": [
+				948,
+				1659
+			],
+			"region": [
+				425,
+				79,
+				98,
+				1501
+			],
+			"sha256": "dded6c1276bcc268ad3fc1a302a4623557e812ea07e690ed308c7369c253be36",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_corner_post",
+			"name": "医务室金属护角",
+			"render_mode": "wall_attachment",
+			"world_size": [
+				8,
+				130
+			],
+			"render_size": [
+				8,
+				130
+			],
+			"ground_rect": [
+				0,
+				0,
+				98,
+				1501
+			],
+			"footprint_world_size": [
+				8,
+				130
+			],
+			"blocking": false,
+			"proportion_locked": true,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_00",
+			"name": "医务室横墙 01",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						54.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_01",
+			"name": "医务室横墙 02",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						137.75,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_02",
+			"name": "医务室横墙 03",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						221.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_03",
+			"name": "医务室横墙 04",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						305.25,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_04",
+			"name": "医务室横墙 05",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						389.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_05",
+			"name": "医务室横墙 06",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						472.75,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_06",
+			"name": "医务室横墙 07",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						556.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_07",
+			"name": "医务室横墙 08",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						640.25,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_08",
+			"name": "医务室横墙 09",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						724.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_09",
+			"name": "医务室横墙 10",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						807.75,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_10",
+			"name": "医务室横墙 11",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						891.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_11",
+			"name": "医务室横墙 12",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						975.25,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_12",
+			"name": "医务室横墙 13",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						1059.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_13",
+			"name": "医务室横墙 14",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						1142.75,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_14",
+			"name": "医务室横墙 15",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						1226.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_15",
+			"name": "医务室横墙 16",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						1310.25,
+						266,
+						83.75,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"role": "complete_wall_body"
+				},
+				{
+					"source": [
+						54.0,
+						266,
+						83.75,
+						580
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_h_short",
+			"name": "医务室短横墙",
+			"world_size": [
+				20,
+				120
+			],
+			"render_size": [
+				20,
+				120
+			],
+			"render_mode": "architecture_tiled_facade",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						807.75,
+						266,
+						83.75,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					20,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/20x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_h_short_c",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_v_long",
+			"name": "医务室纵墙",
+			"world_size": [
+				20,
+				120
+			],
+			"render_size": [
+				20,
+				120
+			],
+			"render_mode": "architecture_tiled_top",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						254,
+						266,
+						502.5,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						120
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					0,
+					20,
+					120
+				]
+			],
+			"connections": [
+				"north",
+				"south"
+			],
+			"connection_tag": "clinic/north,south/20x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_v_long",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_v_short",
+			"name": "医务室短纵墙",
+			"world_size": [
+				20,
+				20
+			],
+			"render_size": [
+				20,
+				20
+			],
+			"render_mode": "architecture_tiled_top",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					0,
+					20,
+					20
+				]
+			],
+			"connections": [
+				"north",
+				"south"
+			],
+			"connection_tag": "clinic/north,south/20x20",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_v_short",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1.0,
+				"rows": 1.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_corner_nw",
+			"name": "医务室转角 NW",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_junction_l",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						54.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				},
+				{
+					"source": [
+						254,
+						266,
+						418.75,
+						98
+					],
+					"destination": [
+						0,
+						20,
+						20,
+						100
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1,
+					"clip_polygon": [
+						[
+							0,
+							0
+						],
+						[
+							1,
+							1
+						],
+						[
+							0,
+							1
+						]
+					]
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"east",
+				"south"
+			],
+			"connection_tag": "clinic/east,south/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_l_se",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_corner_ne",
+			"name": "医务室转角 NE",
+			"world_size": [
+				40,
+				120
+			],
+			"render_size": [
+				40,
+				120
+			],
+			"render_mode": "architecture_junction_l",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						891.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						0,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				},
+				{
+					"source": [
+						254,
+						266,
+						418.75,
+						98
+					],
+					"destination": [
+						20,
+						20,
+						20,
+						100
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1,
+					"clip_polygon": [
+						[
+							1,
+							0
+						],
+						[
+							1,
+							1
+						],
+						[
+							0,
+							1
+						]
+					]
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					100,
+					40,
+					20
+				]
+			],
+			"connections": [
+				"west",
+				"south"
+			],
+			"connection_tag": "clinic/south,west/40x120",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_l_sw",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 6.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_corner_sw",
+			"name": "医务室转角 SW",
+			"world_size": [
+				40,
+				140
+			],
+			"render_size": [
+				40,
+				140
+			],
+			"render_mode": "architecture_junction_l",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						54.0,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						20,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						0,
+						20,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1,
+					"clip_polygon": [
+						[
+							0,
+							0
+						],
+						[
+							1,
+							0
+						],
+						[
+							0,
+							1
+						]
+					]
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					120,
+					40,
+					20
+				],
+				[
+					0,
+					0,
+					20,
+					140
+				]
+			],
+			"connections": [
+				"east",
+				"north"
+			],
+			"connection_tag": "clinic/east,north/40x140",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_l_ne",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 7.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_corner_se",
+			"name": "医务室转角 SE",
+			"world_size": [
+				40,
+				140
+			],
+			"render_size": [
+				40,
+				140
+			],
+			"render_mode": "architecture_junction_l",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						891.5,
+						266,
+						167.5,
+						580
+					],
+					"destination": [
+						0,
+						20,
+						40,
+						120
+					],
+					"role": "complete_wall_body"
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						20,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1
+				},
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						20,
+						20,
+						20,
+						20
+					],
+					"role": "complete_wall_body",
+					"rotation_quarters": 1,
+					"clip_polygon": [
+						[
+							0,
+							0
+						],
+						[
+							1,
+							0
+						],
+						[
+							1,
+							1
+						]
+					]
+				}
+			],
+			"collision_parts": [
+				[
+					0,
+					120,
+					40,
+					20
+				],
+				[
+					20,
+					0,
+					20,
+					140
+				]
+			],
+			"connections": [
+				"west",
+				"north"
+			],
+			"connection_tag": "clinic/north,west/40x140",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_l_nw",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 2.0,
+				"rows": 7.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_lintel_80",
+			"name": "医务室门楣 80",
+			"world_size": [
+				80,
+				20
+			],
+			"render_size": [
+				80,
+				20
+			],
+			"render_mode": "architecture_lintel",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						254,
+						266,
+						335.0,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						80,
+						20
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/80x20",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_lintel_80",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 4.0,
+				"rows": 1.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/wall_profile.png",
+			"texture_size": [
+				1448,
+				1086
+			],
+			"region": [
+				54,
+				266,
+				1340,
+				580
+			],
+			"sha256": "8fb2346a9a52a6c6998c8cbca6c03f3d2ffa0d2f92297777dd8f3e9bd48cb3a0",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_lintel_20",
+			"name": "医务室门楣 20",
+			"world_size": [
+				20,
+				20
+			],
+			"render_size": [
+				20,
+				20
+			],
+			"render_mode": "architecture_lintel",
+			"blocking": false,
+			"assembly_patches": [
+				{
+					"source": [
+						254,
+						266,
+						83.75,
+						98
+					],
+					"destination": [
+						0,
+						0,
+						20,
+						20
+					],
+					"role": "complete_wall_body"
+				}
+			],
+			"collision_parts": [],
+			"connections": [
+				"west",
+				"east"
+			],
+			"connection_tag": "clinic/east,west/20x20",
+			"authoring_set": "clinic-v1",
+			"legacy_id": "prison_lintel_20",
+			"grid_tile": {
+				"cell": 20,
+				"columns": 1.0,
+				"rows": 1.0,
+				"parameterized_shader": false
+			}
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/window.png",
+			"texture_size": [
+				1942,
+				809
+			],
+			"region": [
+				338,
+				181,
+				1267,
+				440
+			],
+			"sha256": "f6ffe887632cc8d719e355de31d50efc5a374475518aae9f9f165770169b8a6f",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_frosted_window",
+			"name": "医务室磨砂窗",
+			"render_mode": "wall_attachment",
+			"render_size": [
+				138,
+				47.92423046566693
+			],
+			"world_size": [
+				138,
+				47.92423046566693
+			],
+			"ground_rect": [
+				0,
+				0,
+				1267,
+				440
+			],
+			"footprint_world_size": [
+				138,
+				47.92423046566693
+			],
+			"blocking": false,
+			"proportion_locked": true,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/sign.png",
+			"texture_size": [
+				2206,
+				713
+			],
+			"region": [
+				158,
+				99,
+				1890,
+				512
+			],
+			"sha256": "6604b66ca71be4fd2855183ae07d524311dbe1edca2cb68f3b1d853a3d732923",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_medical_sign",
+			"name": "医务室搪瓷标牌",
+			"render_mode": "wall_attachment",
+			"render_size": [
+				170.0,
+				46.05291005291005
+			],
+			"world_size": [
+				170.0,
+				46.05291005291005
+			],
+			"ground_rect": [
+				0,
+				0,
+				1890,
+				512
+			],
+			"footprint_world_size": [
+				170.0,
+				46.05291005291005
+			],
+			"blocking": false,
+			"proportion_locked": true,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/light.png",
+			"texture_size": [
+				2056,
+				765
+			],
+			"region": [
+				442,
+				292,
+				1168,
+				205
+			],
+			"sha256": "ceefc7a65e0f37aa038d7b8a2f3a39d305e446a1b6925cf4aa02710a0496c45d",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "clinic_wall_light",
+			"name": "医务室壁灯",
+			"render_mode": "wall_attachment",
+			"render_size": [
+				46,
+				8.073630136986301
+			],
+			"world_size": [
+				46,
+				8.073630136986301
+			],
+			"ground_rect": [
+				0,
+				0,
+				1168,
+				205
+			],
+			"footprint_world_size": [
+				46,
+				8.073630136986301
+			],
+			"blocking": false,
+			"proportion_locked": true,
+			"shadow_baked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"texture": "res://art/architecture/clinic_v1/open_door.png",
+			"texture_size": [
+				1586,
+				992
+			],
+			"region": [
+				187,
+				84,
+				1212,
+				722
+			],
+			"sha256": "d0ec0bcc648fd0fcdaa29639bec38cc3d5d30c9380d6532a4bee9fb5558ed4ad",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"id": "doorway_clinic_open_v1",
+			"name": "医务室双开玻璃门 · 开启",
+			"render_mode": "embedded_door",
+			"render_size": [
+				200,
+				119.14191419141915
+			],
+			"world_size": [
+				200,
+				119.14191419141915
+			],
+			"ground_rect": [
+				0,
+				0,
+				1212,
+				722
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"blocking": false,
+			"proportion_locked": false,
+			"shadow_baked": true,
+			"editor_subcategory": "doors",
+			"grid_door": {
+				"cell": 20
+			},
+			"door_presentation": {
+				"door_art": "doorway_clinic_open_v1",
+				"door_art_size": [
+					200,
+					119.14191419141915
+				],
+				"visual_jambs": [
+					[
+						0,
+						0,
+						44,
+						119.14191419141915
+					],
+					[
+						156,
+						0,
+						44,
+						119.14191419141915
+					]
+				],
+				"visual_solid_parts": [
+					[
+						38.0,
+						0.0,
+						3.5,
+						0.9900990099009901
+					],
+					[
+						36.0,
+						0.9900990099009901,
+						8.0,
+						0.9900990099009901
+					],
+					[
+						34.0,
+						1.9801980198019802,
+						10.0,
+						0.9900990099009901
+					],
+					[
+						32.5,
+						2.9702970297029703,
+						11.5,
+						0.9900990099009901
+					],
+					[
+						30.5,
+						3.9603960396039604,
+						13.5,
+						0.9900990099009901
+					],
+					[
+						28.5,
+						4.9504950495049505,
+						15.5,
+						0.9900990099009901
+					],
+					[
+						26.5,
+						5.9405940594059405,
+						17.5,
+						0.9900990099009901
+					],
+					[
+						1.0,
+						6.930693069306931,
+						43.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						7.920792079207921,
+						43.5,
+						96.0396039603959
+					],
+					[
+						0.5,
+						103.96039603960396,
+						41.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						104.95049504950495,
+						39.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						105.94059405940594,
+						38.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						106.93069306930693,
+						36.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						107.92079207920791,
+						34.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						108.91089108910892,
+						32.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						109.9009900990099,
+						30.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						110.89108910891089,
+						28.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						111.88118811881188,
+						27.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						112.87128712871286,
+						25.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						113.86138613861387,
+						23.0,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						114.85148514851485,
+						21.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						115.84158415841584,
+						19.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						116.83168316831683,
+						17.5,
+						0.9900990099009901
+					],
+					[
+						0.5,
+						117.82178217821782,
+						16.0,
+						0.9900990099009901
+					],
+					[
+						159.0,
+						0.0,
+						3.0,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						0.9900990099009901,
+						8.0,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						1.9801980198019802,
+						10.0,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						2.9702970297029703,
+						11.5,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						3.9603960396039604,
+						13.5,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						4.9504950495049505,
+						15.5,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						5.9405940594059405,
+						17.5,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						6.930693069306931,
+						43.0,
+						0.9900990099009901
+					],
+					[
+						156.0,
+						7.920792079207921,
+						43.5,
+						96.0396039603959
+					],
+					[
+						158.0,
+						103.96039603960396,
+						41.5,
+						0.9900990099009901
+					],
+					[
+						159.5,
+						104.95049504950495,
+						40.0,
+						0.9900990099009901
+					],
+					[
+						161.5,
+						105.94059405940594,
+						38.0,
+						0.9900990099009901
+					],
+					[
+						163.5,
+						106.93069306930693,
+						36.0,
+						0.9900990099009901
+					],
+					[
+						165.0,
+						107.92079207920791,
+						34.5,
+						0.9900990099009901
+					],
+					[
+						167.0,
+						108.91089108910892,
+						32.5,
+						0.9900990099009901
+					],
+					[
+						169.0,
+						109.9009900990099,
+						30.5,
+						0.9900990099009901
+					],
+					[
+						171.0,
+						110.89108910891089,
+						28.5,
+						0.9900990099009901
+					],
+					[
+						172.5,
+						111.88118811881188,
+						27.0,
+						0.9900990099009901
+					],
+					[
+						174.5,
+						112.87128712871286,
+						25.0,
+						0.9900990099009901
+					],
+					[
+						176.5,
+						113.86138613861387,
+						23.0,
+						0.9900990099009901
+					],
+					[
+						178.0,
+						114.85148514851485,
+						21.5,
+						0.9900990099009901
+					],
+					[
+						180.5,
+						115.84158415841584,
+						19.0,
+						0.9900990099009901
+					],
+					[
+						182.0,
+						116.83168316831683,
+						17.5,
+						0.9900990099009901
+					],
+					[
+						183.5,
+						117.82178217821782,
+						16.0,
+						0.9900990099009901
+					]
+				],
+				"body_profile": "human_silhouette"
+			}
+		}
+	]
+}

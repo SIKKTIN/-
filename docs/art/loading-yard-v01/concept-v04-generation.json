@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-12",
+  "version": "v04",
+  "mode": "built-in imagegen",
+  "scope": "design only; map/game unchanged",
+  "concept": "concept-final-v04.png",
+  "door_study": "door-study-v04.png",
+  "sources": {
+    "concept": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-62991cbd-a496-4494-ac80-9e11ed9d19f9.png",
+    "door_study": "C:/Users/gst20/.codex/generated_images/01a12f0d-4fc4-7dd2-b6a0-d189a674ef6e/exec-0915850f-7113-4b9d-85f6-799bc32f9519.png"
+  },
+  "prompts": [
+    "concept-v04-prompt.txt",
+    "door-study-v04-prompt.txt"
+  ],
+  "reference": "reference-correction-v04.png",
+  "changes": [
+    "warehouse side doors replaced by closed galvanized roll-up freight shutters",
+    "slim guide tracks and compact roller housing",
+    "door study shows yard side, warehouse interior side and overhead readability"
+  ],
+  "implementation_note": "Study includes material/elevation references. East-west facing game sprites must be authored for vertical-wall projection; do not rotate front elevation into runtime. Precise door anchors will be matched to latest map at implementation."
+}

@@ -1,0 +1,14 @@
+Generated with built-in imagegen; transparent background.
+Original atlas copied unchanged. Runtime AtlasTexture regions select surfaces; no pixel edits.
+Reference: docs/concepts/looting-v02.png
+
+Use case: stylized-concept.
+Asset type: production game UI skin atlas, true transparent background.
+Image 1 is an approved looting interface concept. Extract its material design into TWO EMPTY, SEPARATE UI surface sprites. Do not reproduce any text, items, item grid, buttons, icons, HUD, or scene.
+
+Composition: a wide 1536x1024 atlas with exactly two isolated front-facing flat rectangular panels, side-by-side, separated by ample transparent gutter and transparent margins. Left panel occupies roughly x64..704 and y144..880. Right panel occupies roughly x800..1472 and y128..880. Both viewed straight-on in UI plane, not isometric. Preserve clean rectangular inner usable surfaces; centers are intentionally blank to host programmatic item grids and labels.
+
+LEFT: the opened dark steel drawer tray from the concept. Slate green oxidized thin raised metal rim, a few small corner fasteners, dark charcoal weathered smooth inner bottom, subtly lit edges, narrow aged brass pull/hinge at left edge, restrained wear. The large inner region must be an unbroken dark surface, no subdivisions. No labels.
+RIGHT: the opened olive canvas satchel lining from the concept. Broad flat olive woven canvas central surface, slim stitched reinforced perimeter, soft small flap along top with single brass snap, small strap loops along sides, small buckle at lower right. This is a UI panel made of canvas, not a whole backpack in perspective. The large inner region must be an unbroken flat canvas surface, no subdivisions or stitched internal grid. Side decorations compact and confined to edges.
+
+Hand-painted game UI, match reference muted aged industrial materials, moderate detail, restrained contrast, crisp outer silhouettes and consistent lighting. Fill entire panel interiors opaque, background outside sprites genuinely transparent with no white/black backdrop and no checkerboard pixels. Do not connect panels. No text, glyphs, items, lines dividing slots, progress bars, placeholders, labels, shadows outside that occupy gutters, or extra objects.

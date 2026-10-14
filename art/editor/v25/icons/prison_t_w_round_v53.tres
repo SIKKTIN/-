@@ -1,0 +1,22 @@
+[gd_resource type="MeshTexture" format=4]
+
+[ext_resource type="Texture2D" path="res://art/architecture/v53/three_way_west.png" id="1_6b4fc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ruifl"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(48, 8, 0, 32, 112, 0),
+"attribute_data": PackedByteArray("/////3xJDD9Tr5I+/////+kwIz9Tr5I+/////+kwIz9ai6U+/////3xJDD9ai6U+/////x7E6j5ai6U+/////3xJDD9ai6U+/////3xJDD8/R8Q+/////x7E6j4/R8Q+/////3xJDD9ai6U+/////+kwIz9ai6U+/////+kwIz8/R8Q+/////3xJDD8/R8Q+/////x7E6j4/R8Q+/////3xJDD8/R8Q+/////3xJDD/OzxE//////x7E6j7OzxE//////3xJDD8/R8Q+/////+kwIz8/R8Q+/////+kwIz/OzxE//////3xJDD/OzxE//////x7E6j7OzxE//////3xJDD/OzxE//////3xJDD8phyE//////x7E6j4phyE//////3xJDD/OzxE//////+kwIz/OzxE//////+kwIz8phyE//////3xJDD8phyE/"),
+"format": 34393296921,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AACAQgAAAEEAAKBCAAAAQQAAoEIAAMBBAACAQgAAwEEAAEBCAADAQQAAgEIAAMBBAACAQpqZQUIAAEBCmplBQgAAgEIAAMBBAACgQgAAwEEAAKBCmplBQgAAgEKamUFCAABAQpqZQUIAAIBCmplBQgAAgELNzLxCAABAQs3MvEIAAIBCmplBQgAAoEKamUFCAACgQs3MvEIAAIBCzcy8QgAAQELNzLxCAACAQs3MvEIAAIBCAADwQgAAQEIAAPBCAACAQs3MvEIAAKBCzcy8QgAAoEIAAPBCAACAQgAA8EI=")
+}]
+
+[resource]
+mesh = SubResource("ArrayMesh_ruifl")
+base_texture = ExtResource("1_6b4fc")
+image_size = Vector2(128, 128)

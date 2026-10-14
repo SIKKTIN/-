@@ -42,7 +42,7 @@ func run():
 	check("collapsed_map_does_not_consume_touch",not game.mini_map.is_processing_input())
 	ui.minimap_collapsed = false
 	ui.refresh()
-	check("expanded_map_accepts_touch",game.mini_map.is_processing_input())
+	check("unowned_map_cannot_enable_live_minimap",ui.minimap_collapsed and not game.mini_map.is_processing_input() and not game.map_viewer.open())
 	check("legacy_transfer_buttons_hidden",inv.get("transfer_buttons")==null)
 	var key := add_item("door_key")
 	var tool := add_item("lock_tool")
@@ -65,7 +65,7 @@ func run():
 		var safe: Rect2 = ui.safe_area()
 		var bounds: Rect2 = drawer.paper.get_rect()
 		var all_fit := safe.encloses(bounds)
-		var slots_fit: bool = inv.slots.filter(func(slot):return slot.visible).all(func(slot):return Rect2(Vector2.ZERO,drawer.paper.size).encloses(slot.get_rect()))
+		var slots_fit: bool = drawer.bag_surface.get_global_rect().encloses(drawer.grid_scroll.get_global_rect())
 		var text_fit: bool = drawer.description.get_minimum_size().y<=drawer.description.size.y+1
 		for item_index in range(3):
 			inv._select(item_index)
@@ -74,7 +74,7 @@ func run():
 			text_fit = text_fit and drawer.description.get_minimum_size().y<=drawer.description.size.y+1
 		inv._select(1)
 		ui.refresh()
-		var footer_fit: bool = inv.drop_button.get_rect().end.y<=(drawer.hint.position.y+1 if drawer.hint.visible else drawer.paper.size.y-8)
+		var footer_fit: bool = inv.drop_button.get_global_rect().end.y<=drawer.binding_footer.get_global_rect().position.y and drawer.paper.get_global_rect().encloses(drawer.binding_footer.get_global_rect())
 		var row_clear: bool = not game.cards[0].get_rect().intersects(ui.clock.get_rect()) and not ui.clock.get_rect().intersects(ui.wallet.get_rect())
 		var drawer_clear: bool = not drawer.paper.get_rect().intersects(ui.clock.get_rect()) and not drawer.paper.get_rect().intersects(game.cards[0].get_rect())
 		check("drawer_layout_"+str(size.x),all_fit and slots_fit and text_fit and footer_fit and row_clear and drawer_clear)
@@ -113,7 +113,7 @@ func run():
 	ui.layout()
 	ui.bag_open = true
 	ui.refresh()
-	check("one_capacity_shows_one_slot",inv.slots.filter(func(slot):return slot.visible).size()==1 and drawer.capacity.text=="0 / 1")
+	check("ordinary_bag_has_twenty_cells",inv.slots.filter(func(slot):return slot.visible).size()==20 and drawer.capacity.text=="0 / 20格")
 	check("empty_bag_buttons_disabled",inv.use_button.disabled and inv.drop_button.disabled)
 	await image("bag-empty-one-960")
 	ui.bag_open = false
@@ -148,6 +148,17 @@ func run():
 		check("tutorial_hides_legacy_transfer_buttons_"+str(size.x),inv.get("transfer_buttons")==null)
 	check("all_tutorial_task_text_fits",task_layout_ok)
 	var failed: Array = checks.keys().filter(func(k):return not checks[k])
-	FileAccess.open("res://docs/tests/p94-single-player-ui.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failed":failed,"layouts":layouts},"\t"))
+	var report_path := ProjectSettings.globalize_path("res://docs/dev/p135/inventory-ui.json")
+	var report := FileAccess.open(report_path,FileAccess.WRITE)
+	for attempt in range(3):
+		if report != null: break
+		await create_timer(0.1).timeout
+		report = FileAccess.open(report_path,FileAccess.WRITE)
+	if report == null:
+		push_error("Could not save inventory report: %s" % FileAccess.get_open_error())
+		quit(1)
+		return
+	report.store_string(JSON.stringify({"checks":checks,"failed":failed,"layouts":layouts},"\t"))
+	report.close()
 	print(JSON.stringify({"failed":failed,"checks":checks}))
 	quit(0 if failed.is_empty() else 1)

@@ -3,8 +3,9 @@ extends RefCounted
 
 # Shared editor/runtime floor paint. All coordinates are authored in world space.
 # These marks are scenery, never collision or navigation geometry.
-static func paint(painter: CanvasItem, specs: Array, offset := Vector2.ZERO, scale_factor := 1.0) -> void:
+static func paint(painter: CanvasItem, specs: Array, offset := Vector2.ZERO, scale_factor := 1.0, clip := Rect2()) -> void:
 	for spec in specs:
+		if clip.has_area() and not visible_in(spec,clip): continue
 		var color := Color(spec.get("color","#b4a36c"))
 		color.a = float(spec.get("opacity",0.65))
 		var kind: String = str(spec.get("kind","line"))
@@ -56,3 +57,37 @@ static func paint(painter: CanvasItem, specs: Array, offset := Vector2.ZERO, sca
 			painter.draw_rect(Rect2(offset+area.position*scale_factor,area.size*scale_factor),Color("#899185"),false,maxf(1,2*scale_factor))
 			for x in range(int(area.position.x)+5,int(area.end.x)-2,8):
 				painter.draw_line(offset+Vector2(x,area.position.y+3)*scale_factor,offset+Vector2(x,area.end.y-3)*scale_factor,Color("#242c2a"),maxf(1,3*scale_factor),true)
+
+static func visible_in(spec: Dictionary, clip: Rect2) -> bool:
+	if spec.has("rect"):
+		var r: Array = spec.rect
+		return Rect2(r[0],r[1],r[2],r[3]).grow(8).intersects(clip)
+	if spec.has("position"):
+		var p: Array = spec.position
+		var height := float(spec.get("size",24))
+		return Rect2(Vector2(p[0],p[1]-height),Vector2(str(spec.get("text","")).length()*height,height*1.5)).grow(8).intersects(clip)
+	if spec.has("from") and spec.has("to"):
+		var a: Array = spec.from
+		var b: Array = spec.to
+		var box := Rect2(Vector2(a[0],a[1]),Vector2.ZERO).expand(Vector2(b[0],b[1]))
+		return box.grow(maxf(2,float(spec.get("width",5)))).intersects(clip)
+	return true
+
+static func hit_bounds(spec: Dictionary) -> Rect2:
+	if spec.has("rect"):
+		var r: Array = spec.rect
+		return Rect2(r[0],r[1],r[2],r[3])
+	if spec.has("position"):
+		var p: Array = spec.position
+		var height := float(spec.get("size",24))
+		return Rect2(Vector2(p[0],p[1]-height),Vector2(maxi(1,str(spec.get("text","")).length())*height,height*1.5))
+	if spec.has("from") and spec.has("to"):
+		return Rect2(Vector2(spec.from[0],spec.from[1]),Vector2.ZERO).expand(Vector2(spec.to[0],spec.to[1])).grow(maxf(2,float(spec.get("width",5))/2))
+	return Rect2()
+
+static func hit_test(spec: Dictionary, point: Vector2, tolerance: float) -> bool:
+	if spec.has("from") and spec.has("to"):
+		var a := Vector2(spec.from[0],spec.from[1])
+		var b := Vector2(spec.to[0],spec.to[1])
+		return point.distance_to(Geometry2D.get_closest_point_to_segment(point,a,b)) <= float(spec.get("width",5))/2+tolerance
+	return hit_bounds(spec).grow(tolerance).has_point(point)

@@ -1,0 +1,5019 @@
+{
+	"baked_hits": 423,
+	"baked_misses": 17,
+	"cases": {
+		"normal60": {
+			"draw_calls": {
+				"count": 1200,
+				"max": 561.0,
+				"mean": 544.47,
+				"over25": 1200,
+				"over33": 1200,
+				"p50": 540.0,
+				"p95": 560.0,
+				"p99": 560.0
+			},
+			"frame_ms": {
+				"count": 1200,
+				"max": 31.851,
+				"mean": 16.6623516666667,
+				"over25": 4,
+				"over33": 0,
+				"p50": 16.645,
+				"p95": 18.44,
+				"p99": 20.58
+			},
+			"gpu_ms": {
+				"count": 1200,
+				"max": 6.54500007629395,
+				"mean": 1.31171500146389,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.08299994468689,
+				"p95": 2.97499990463257,
+				"p99": 5.48600006103516
+			},
+			"render_cpu_ms": {
+				"count": 1200,
+				"max": 3.36199998855591,
+				"mean": 1.12463833297292,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.02499997615814,
+				"p95": 1.86199998855591,
+				"p99": 2.29299998283386
+			},
+			"script_ms": {
+				"count": 1200,
+				"max": 18.126,
+				"mean": 3.64555833333334,
+				"over25": 0,
+				"over33": 0,
+				"p50": 3.256,
+				"p95": 6.117,
+				"p99": 7.312
+			},
+			"slow_paths": [
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						4992.98583984375,
+						2451.08325195313
+					],
+					"ms": 3.919,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.244,
+						"jps": 0.178,
+						"overlay": 1.37,
+						"restore_compress": 0.013,
+						"search_and_connect": 0.205,
+						"smooth": 1.432
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						3312.38330078125,
+						1130.61303710938
+					],
+					"ms": 6.529,
+					"parts": {
+						"connectivity": 0.011,
+						"endpoints": 0.179,
+						"jps": 0.633,
+						"overlay": 1.871,
+						"restore_compress": 0.016,
+						"search_and_connect": 0.679,
+						"smooth": 2.536
+					},
+					"points": 5,
+					"to": [
+						2240.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						4992.6806640625,
+						2458.666015625
+					],
+					"ms": 2.853,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.097,
+						"jps": 0.105,
+						"overlay": 1.313,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.123,
+						"smooth": 0.922
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						861.350708007813,
+						1799.77490234375
+					],
+					"ms": 2.928,
+					"parts": {
+						"connectivity": 0.008,
+						"endpoints": 0.086,
+						"jps": 0.104,
+						"overlay": 2.18,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.124,
+						"smooth": 0.352
+					},
+					"points": 4,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 3,
+					"deferred": 3,
+					"from": [
+						1536.52905273438,
+						2588.78637695313
+					],
+					"ms": 9.817,
+					"parts": {
+						"connectivity": 0.913,
+						"endpoints": 0.101,
+						"grid_update": 6.431,
+						"jps": 0.068,
+						"overlay": 1.141,
+						"restore_compress": 0.006,
+						"search_and_connect": 0.082,
+						"smooth": 0.813
+					},
+					"points": 3,
+					"to": [
+						2400.0,
+						2360.0
+					]
+				},
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						4713.73388671875,
+						3149.86157226563
+					],
+					"ms": 7.417,
+					"parts": {
+						"connectivity": 0.672,
+						"endpoints": 0.09,
+						"grid_update": 5.088,
+						"jps": 0.02,
+						"overlay": 1.192,
+						"restore_compress": 0.005,
+						"search_and_connect": 0.033,
+						"smooth": 0.212
+					},
+					"points": 3,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 25.779,
+					"minute": 482.943328,
+					"parts": {
+						"dog.tick": 0.014,
+						"gate_watch.tick": 7.247,
+						"guard.tick": 0.172,
+						"orders.tick": 1.033,
+						"presentation.tick": 1.735,
+						"room_access.tick": 0.67,
+						"routines.tick": 0.037,
+						"workshop.tick": 0.116,
+						"workshop.update_gate": 0.106,
+						"world.update_dorm_doors": 0.336
+					},
+					"paths": [
+						{
+							"builds": 2,
+							"deferred": 3,
+							"from": [
+								3312.38330078125,
+								1130.61303710938
+							],
+							"ms": 6.529,
+							"parts": {
+								"connectivity": 0.011,
+								"endpoints": 0.179,
+								"jps": 0.633,
+								"overlay": 1.871,
+								"restore_compress": 0.016,
+								"search_and_connect": 0.679,
+								"smooth": 2.536
+							},
+							"points": 5,
+							"to": [
+								2240.0,
+								1180.0
+							]
+						}
+					],
+					"script": 12.554
+				},
+				{
+					"frame": 31.851,
+					"minute": 498.0093744,
+					"parts": {
+						"dog.tick": 0.015,
+						"gate_watch.tick": 5.715,
+						"guard.tick": 0.268,
+						"orders.tick": 0.006,
+						"presentation.tick": 5.763,
+						"room_access.tick": 4.45,
+						"routines.tick": 0.029,
+						"workshop.tick": 0.112,
+						"workshop.update_gate": 0.078,
+						"world.update_dorm_doors": 0.404
+					},
+					"paths": [
+						{
+							"builds": 2,
+							"deferred": 3,
+							"from": [
+								1363.71667480469,
+								2528.3671875
+							],
+							"ms": 0.242,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1540.0,
+								2590.0
+							]
+						}
+					],
+					"script": 18.126
+				},
+				{
+					"frame": 27.103,
+					"minute": 502.542527466667,
+					"parts": {
+						"dog.tick": 0.009,
+						"gate_watch.tick": 0.499,
+						"guard.tick": 9.954,
+						"orders.tick": 0.004,
+						"presentation.tick": 1.219,
+						"room_access.tick": 0.473,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.108,
+						"workshop.update_gate": 0.051,
+						"world.update_dorm_doors": 0.204
+					},
+					"paths": [
+						{
+							"builds": 3,
+							"deferred": 3,
+							"from": [
+								1536.52905273438,
+								2588.78637695313
+							],
+							"ms": 9.817,
+							"parts": {
+								"connectivity": 0.913,
+								"endpoints": 0.101,
+								"grid_update": 6.431,
+								"jps": 0.068,
+								"overlay": 1.141,
+								"restore_compress": 0.006,
+								"search_and_connect": 0.082,
+								"smooth": 0.813
+							},
+							"points": 3,
+							"to": [
+								2400.0,
+								2360.0
+							]
+						}
+					],
+					"script": 13.254
+				},
+				{
+					"frame": 25.56,
+					"minute": 507.848970666667,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 7.929,
+						"guard.tick": 0.134,
+						"orders.tick": 0.003,
+						"presentation.tick": 1.091,
+						"room_access.tick": 0.302,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.073,
+						"workshop.update_gate": 0.036,
+						"world.update_dorm_doors": 0.167
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								4713.73388671875,
+								3149.86157226563
+							],
+							"ms": 7.417,
+							"parts": {
+								"connectivity": 0.672,
+								"endpoints": 0.09,
+								"grid_update": 5.088,
+								"jps": 0.02,
+								"overlay": 1.192,
+								"restore_compress": 0.005,
+								"search_and_connect": 0.033,
+								"smooth": 0.212
+							},
+							"points": 3,
+							"to": [
+								4860.0,
+								3420.0
+							]
+						}
+					],
+					"script": 10.849
+				}
+			]
+		},
+		"transition_1020": {
+			"draw_calls": {
+				"count": 240,
+				"max": 570.0,
+				"mean": 559.629166666667,
+				"over25": 240,
+				"over33": 240,
+				"p50": 561.0,
+				"p95": 570.0,
+				"p99": 570.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 63.587,
+				"mean": 16.8523666666667,
+				"over25": 4,
+				"over33": 3,
+				"p50": 16.593,
+				"p95": 18.425,
+				"p99": 50.449
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 5.38600015640259,
+				"mean": 1.42979583541552,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.11800003051758,
+				"p95": 3.47099995613098,
+				"p99": 4.07299995422363
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 1.96399998664856,
+				"mean": 1.02860833232601,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.989000022411346,
+				"p95": 1.30499994754791,
+				"p99": 1.62600004673004
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 44.7,
+				"mean": 4.60071666666667,
+				"over25": 2,
+				"over33": 2,
+				"p50": 4.063,
+				"p95": 5.819,
+				"p99": 15.678
+			},
+			"slow_paths": [
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						750.0,
+						3220.0
+					],
+					"ms": 28.123,
+					"parts": {
+						"connectivity": 5.407,
+						"endpoints": 0.068,
+						"grid_update": 17.103,
+						"jps": 1.759,
+						"overlay": 2.074,
+						"restore_compress": 0.009,
+						"search_and_connect": 1.778,
+						"smooth": 0.983
+					},
+					"points": 4,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						3380.0,
+						330.0
+					],
+					"ms": 2.568,
+					"parts": {},
+					"points": 1,
+					"to": [
+						3380.0,
+						330.0
+					]
+				},
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						1174.65881347656,
+						1773.26098632813
+					],
+					"ms": 3.435,
+					"parts": {
+						"connectivity": 2.462,
+						"endpoints": 0.042,
+						"jps": 0.099,
+						"overlay": 0.449,
+						"restore_compress": 0.006,
+						"search_and_connect": 0.108,
+						"smooth": 0.248
+					},
+					"points": 6,
+					"to": [
+						1910.0,
+						1205.0
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 5,
+					"from": [
+						768.810302734375,
+						2977.1943359375
+					],
+					"ms": 17.693,
+					"parts": {
+						"connectivity": 4.265,
+						"endpoints": 0.053,
+						"grid_update": 7.274,
+						"jps": 1.842,
+						"overlay": 2.29,
+						"restore_compress": 0.01,
+						"search_and_connect": 1.861,
+						"smooth": 1.493
+					},
+					"points": 6,
+					"to": [
+						4140.0,
+						3200.0
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						1221.70849609375,
+						1758.10437011719
+					],
+					"ms": 2.266,
+					"parts": {},
+					"points": 0,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						1221.70849609375,
+						1758.10437011719
+					],
+					"ms": 6.184,
+					"parts": {
+						"connectivity": 2.96,
+						"endpoints": 0.05,
+						"jps": 0.719,
+						"overlay": 0.666,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.732,
+						"smooth": 1.582
+					},
+					"points": 8,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						784.570495605469,
+						2930.04907226563
+					],
+					"ms": 2.26,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.029,
+						"jps": 0.017,
+						"overlay": 2.032,
+						"restore_compress": 0.005,
+						"search_and_connect": 0.032,
+						"smooth": 0.05
+					},
+					"points": 2,
+					"to": [
+						838.810302734375,
+						2977.1943359375
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						4200.0,
+						3440.0
+					],
+					"ms": 11.698,
+					"parts": {
+						"connectivity": 4.794,
+						"endpoints": 0.037,
+						"jps": 4.857,
+						"overlay": 0.425,
+						"restore_compress": 0.015,
+						"search_and_connect": 4.872,
+						"smooth": 0.902
+					},
+					"points": 12,
+					"to": [
+						3400.0,
+						1220.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 52.209,
+					"minute": 1018.52737653333,
+					"parts": {
+						"dog.tick": 0.012,
+						"gate_watch.tick": 1.331,
+						"guard.tick": 0.15,
+						"orders.tick": 0.825,
+						"presentation.tick": 8.16,
+						"room_access.tick": 0.391,
+						"routines.tick": 30.843,
+						"workshop.tick": 0.163,
+						"workshop.update_gate": 1.761,
+						"world.update_dorm_doors": 0.2
+					},
+					"paths": [
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								750.0,
+								3220.0
+							],
+							"ms": 28.123,
+							"parts": {
+								"connectivity": 5.407,
+								"endpoints": 0.068,
+								"grid_update": 17.103,
+								"jps": 1.759,
+								"overlay": 2.074,
+								"restore_compress": 0.009,
+								"search_and_connect": 1.778,
+								"smooth": 0.983
+							},
+							"points": 4,
+							"to": [
+								1250.0,
+								1535.0
+							]
+						}
+					],
+					"script": 44.7
+				},
+				{
+					"frame": 63.587,
+					"minute": 1019.664144,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 1.282,
+						"guard.tick": 0.209,
+						"orders.tick": 0.576,
+						"presentation.tick": 1.532,
+						"room_access.tick": 0.508,
+						"routines.tick": 0.024,
+						"workshop.tick": 0.149,
+						"workshop.update_gate": 0.093,
+						"world.update_dorm_doors": 0.25
+					},
+					"paths": [],
+					"script": 5.501
+				},
+				{
+					"frame": 50.449,
+					"minute": 1020.02461546667,
+					"parts": {
+						"dog.tick": 0.052,
+						"gate_watch.tick": 0.804,
+						"guard.tick": 0.226,
+						"orders.tick": 0.593,
+						"presentation.tick": 3.747,
+						"room_access.tick": 2.262,
+						"routines.tick": 23.337,
+						"workshop.tick": 2.441,
+						"workshop.update_gate": 0.083,
+						"world.update_dorm_doors": 0.147
+					},
+					"paths": [
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								750.0,
+								2900.0
+							],
+							"ms": 0.073,
+							"parts": {},
+							"points": 1,
+							"to": [
+								838.810302734375,
+								2977.1943359375
+							]
+						},
+						{
+							"builds": 10,
+							"deferred": 5,
+							"from": [
+								768.810302734375,
+								2977.1943359375
+							],
+							"ms": 17.693,
+							"parts": {
+								"connectivity": 4.265,
+								"endpoints": 0.053,
+								"grid_update": 7.274,
+								"jps": 1.842,
+								"overlay": 2.29,
+								"restore_compress": 0.01,
+								"search_and_connect": 1.861,
+								"smooth": 1.493
+							},
+							"points": 6,
+							"to": [
+								4140.0,
+								3200.0
+							]
+						},
+						{
+							"builds": 10,
+							"deferred": 5,
+							"from": [
+								4200.0,
+								3440.0
+							],
+							"ms": 0.017,
+							"parts": {},
+							"points": 0,
+							"to": [
+								4260.0,
+								2260.0
+							]
+						},
+						{
+							"builds": 10,
+							"deferred": 6,
+							"from": [
+								1221.70849609375,
+								1758.10437011719
+							],
+							"ms": 2.266,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 35.494
+				},
+				{
+					"frame": 28.518,
+					"minute": 1022.24045653333,
+					"parts": {
+						"dog.tick": 11.756,
+						"gate_watch.tick": 0.696,
+						"guard.tick": 0.197,
+						"orders.tick": 0.24,
+						"presentation.tick": 1.376,
+						"room_access.tick": 0.329,
+						"routines.tick": 0.033,
+						"workshop.tick": 0.195,
+						"workshop.update_gate": 0.039,
+						"world.update_dorm_doors": 0.193
+					},
+					"paths": [
+						{
+							"builds": 10,
+							"deferred": 6,
+							"from": [
+								4200.0,
+								3440.0
+							],
+							"ms": 11.698,
+							"parts": {
+								"connectivity": 4.794,
+								"endpoints": 0.037,
+								"jps": 4.857,
+								"overlay": 0.425,
+								"restore_compress": 0.015,
+								"search_and_connect": 4.872,
+								"smooth": 0.902
+							},
+							"points": 12,
+							"to": [
+								3400.0,
+								1220.0
+							]
+						}
+					],
+					"script": 15.678
+				}
+			]
+		},
+		"transition_1200": {
+			"draw_calls": {
+				"count": 240,
+				"max": 608.0,
+				"mean": 588.504166666667,
+				"over25": 240,
+				"over33": 240,
+				"p50": 599.0,
+				"p95": 608.0,
+				"p99": 608.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 95.967,
+				"mean": 17.2583125,
+				"over25": 6,
+				"over33": 5,
+				"p50": 16.633,
+				"p95": 20.211,
+				"p99": 40.132
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 3.89199995994568,
+				"mean": 1.30897499819597,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.855000019073486,
+				"p95": 3.14800000190735,
+				"p99": 3.64100003242493
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 9.76299953460693,
+				"mean": 1.4244916677475,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.2610000371933,
+				"p95": 2.30599999427795,
+				"p99": 2.71399998664856
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 68.5,
+				"mean": 5.72635,
+				"over25": 5,
+				"over33": 2,
+				"p50": 4.272,
+				"p95": 8.847,
+				"p99": 31.088
+			},
+			"slow_paths": [
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						838.810302734375,
+						2977.1943359375
+					],
+					"ms": 3.955,
+					"parts": {
+						"connectivity": 0.954,
+						"endpoints": 0.04,
+						"jps": 0.336,
+						"overlay": 1.682,
+						"restore_compress": 0.005,
+						"search_and_connect": 0.348,
+						"smooth": 0.56
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						1566.70922851563,
+						2791.33544921875
+					],
+					"ms": 5.811,
+					"parts": {
+						"connectivity": 0.01,
+						"endpoints": 0.077,
+						"jps": 0.47,
+						"overlay": 3.91,
+						"restore_compress": 0.013,
+						"search_and_connect": 0.499,
+						"smooth": 0.811
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						800.612670898438,
+						2746.33349609375
+					],
+					"ms": 4.305,
+					"parts": {
+						"connectivity": 0.01,
+						"endpoints": 0.06,
+						"jps": 0.225,
+						"overlay": 3.099,
+						"restore_compress": 0.01,
+						"search_and_connect": 0.25,
+						"smooth": 0.598
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 6,
+					"from": [
+						1398.7216796875,
+						2634.74169921875
+					],
+					"ms": 4.483,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.102,
+						"jps": 0.138,
+						"overlay": 3.074,
+						"restore_compress": 0.01,
+						"search_and_connect": 0.168,
+						"smooth": 0.695
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 11,
+					"deferred": 6,
+					"from": [
+						800.612670898438,
+						2746.33349609375
+					],
+					"ms": 16.663,
+					"parts": {
+						"connectivity": 2.241,
+						"endpoints": 0.061,
+						"grid_update": 8.521,
+						"jps": 0.236,
+						"overlay": 4.306,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.259,
+						"smooth": 0.668
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 11,
+					"deferred": 6,
+					"from": [
+						3380.0,
+						330.0
+					],
+					"ms": 5.603,
+					"parts": {},
+					"points": 1,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 11,
+					"deferred": 11,
+					"from": [
+						2087.98071289063,
+						1712.22619628906
+					],
+					"ms": 5.808,
+					"parts": {},
+					"points": 8,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 11,
+					"from": [
+						1398.7216796875,
+						2634.74169921875
+					],
+					"ms": 20.124,
+					"parts": {
+						"connectivity": 2.351,
+						"endpoints": 0.096,
+						"grid_update": 11.422,
+						"jps": 0.244,
+						"overlay": 3.867,
+						"restore_compress": 0.015,
+						"search_and_connect": 0.273,
+						"smooth": 1.044
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 16,
+					"from": [
+						5027.8984375,
+						3062.48364257813
+					],
+					"ms": 22.82,
+					"parts": {
+						"connectivity": 8.427,
+						"endpoints": 0.108,
+						"jps": 10.309,
+						"overlay": 0.954,
+						"restore_compress": 0.026,
+						"search_and_connect": 10.345,
+						"smooth": 1.819
+					},
+					"points": 16,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 20,
+					"from": [
+						5440.0234375,
+						3009.14526367188
+					],
+					"ms": 32.43,
+					"parts": {
+						"connectivity": 0.883,
+						"endpoints": 0.068,
+						"grid_update": 8.033,
+						"jps": 18.393,
+						"overlay": 0.925,
+						"restore_compress": 0.026,
+						"search_and_connect": 18.42,
+						"smooth": 3.334
+					},
+					"points": 14,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 23,
+					"from": [
+						2119.509765625,
+						1710.55554199219
+					],
+					"ms": 5.951,
+					"parts": {},
+					"points": 8,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 23,
+					"from": [
+						1331.50500488281,
+						921.075866699219
+					],
+					"ms": 3.427,
+					"parts": {
+						"connectivity": 0.009,
+						"endpoints": 0.069,
+						"jps": 0.089,
+						"overlay": 0.705,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.107,
+						"smooth": 2.242
+					},
+					"points": 5,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 25,
+					"from": [
+						2770.0,
+						4040.0
+					],
+					"ms": 6.589,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.047,
+						"jps": 3.452,
+						"overlay": 0.655,
+						"restore_compress": 0.013,
+						"search_and_connect": 3.478,
+						"smooth": 2.105
+					},
+					"points": 15,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 26,
+					"from": [
+						2140.84790039063,
+						1699.15173339844
+					],
+					"ms": 4.525,
+					"parts": {
+						"connectivity": 2.17,
+						"endpoints": 0.043,
+						"jps": 0.154,
+						"overlay": 0.666,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.165,
+						"smooth": 1.146
+					},
+					"points": 7,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 26,
+					"from": [
+						4977.55517578125,
+						3110.0
+					],
+					"ms": 10.77,
+					"parts": {
+						"connectivity": 0.007,
+						"endpoints": 0.068,
+						"jps": 7.305,
+						"overlay": 0.588,
+						"restore_compress": 0.018,
+						"search_and_connect": 7.326,
+						"smooth": 1.691
+					},
+					"points": 15,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 26,
+					"from": [
+						4799.00341796875,
+						3110.0
+					],
+					"ms": 16.427,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.05,
+						"grid_update": 5.677,
+						"jps": 6.125,
+						"overlay": 0.552,
+						"restore_compress": 0.013,
+						"search_and_connect": 6.14,
+						"smooth": 1.283
+					},
+					"points": 15,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 30,
+					"from": [
+						2270.0,
+						1524.89282226563
+					],
+					"ms": 2.119,
+					"parts": {},
+					"points": 6,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 30,
+					"from": [
+						5308.087890625,
+						3204.13159179688
+					],
+					"ms": 10.234,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.037,
+						"jps": 8.045,
+						"overlay": 0.405,
+						"restore_compress": 0.014,
+						"search_and_connect": 8.061,
+						"smooth": 1.527
+					},
+					"points": 13,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 35,
+					"from": [
+						2525.57250976563,
+						4004.35327148438
+					],
+					"ms": 3.849,
+					"parts": {
+						"connectivity": 0.005,
+						"endpoints": 0.038,
+						"jps": 1.231,
+						"overlay": 0.449,
+						"restore_compress": 0.01,
+						"search_and_connect": 1.246,
+						"smooth": 1.907
+					},
+					"points": 15,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 36,
+					"from": [
+						2270.0,
+						1508.88598632813
+					],
+					"ms": 3.785,
+					"parts": {
+						"connectivity": 2.164,
+						"endpoints": 0.041,
+						"jps": 0.082,
+						"overlay": 0.503,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.094,
+						"smooth": 0.662
+					},
+					"points": 6,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 36,
+					"from": [
+						1540.0,
+						2589.99975585938
+					],
+					"ms": 7.292,
+					"parts": {
+						"connectivity": 1.978,
+						"endpoints": 0.094,
+						"jps": 0.149,
+						"overlay": 2.921,
+						"restore_compress": 0.01,
+						"search_and_connect": 0.18,
+						"smooth": 1.349
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 95.967,
+					"minute": 1200.0199488,
+					"parts": {
+						"dog.tick": 0.399,
+						"gate_watch.tick": 12.405,
+						"guard.tick": 0.443,
+						"orders.tick": 0.543,
+						"presentation.tick": 7.454,
+						"room_access.tick": 5.216,
+						"routines.tick": 20.055,
+						"workshop.tick": 6.202,
+						"workshop.update_gate": 0.094,
+						"world.update_dorm_doors": 0.179
+					},
+					"paths": [
+						{
+							"builds": 10,
+							"deferred": 6,
+							"from": [
+								800.612670898438,
+								2746.33349609375
+							],
+							"ms": 4.305,
+							"parts": {
+								"connectivity": 0.01,
+								"endpoints": 0.06,
+								"jps": 0.225,
+								"overlay": 3.099,
+								"restore_compress": 0.01,
+								"search_and_connect": 0.25,
+								"smooth": 0.598
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 10,
+							"deferred": 6,
+							"from": [
+								1398.7216796875,
+								2634.74169921875
+							],
+							"ms": 4.483,
+							"parts": {
+								"connectivity": 0.006,
+								"endpoints": 0.102,
+								"jps": 0.138,
+								"overlay": 3.074,
+								"restore_compress": 0.01,
+								"search_and_connect": 0.168,
+								"smooth": 0.695
+							},
+							"points": 4,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 6,
+							"from": [
+								800.612670898438,
+								2746.33349609375
+							],
+							"ms": 16.663,
+							"parts": {
+								"connectivity": 2.241,
+								"endpoints": 0.061,
+								"grid_update": 8.521,
+								"jps": 0.236,
+								"overlay": 4.306,
+								"restore_compress": 0.008,
+								"search_and_connect": 0.259,
+								"smooth": 0.668
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 6,
+							"from": [
+								3380.0,
+								330.0
+							],
+							"ms": 5.603,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 6,
+							"from": [
+								3560.0,
+								330.0
+							],
+							"ms": 0.099,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 7,
+							"from": [
+								5027.8984375,
+								3062.48364257813
+							],
+							"ms": 1.065,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 8,
+							"from": [
+								5440.0234375,
+								3009.14526367188
+							],
+							"ms": 0.838,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 9,
+							"from": [
+								1331.50500488281,
+								921.075866699219
+							],
+							"ms": 0.182,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 10,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.212,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 10,
+							"from": [
+								750.0,
+								2216.25170898438
+							],
+							"ms": 0.083,
+							"parts": {},
+							"points": 1,
+							"to": [
+								750.0,
+								2264.80004882813
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 11,
+							"from": [
+								2087.98071289063,
+								1712.22619628906
+							],
+							"ms": 5.808,
+							"parts": {},
+							"points": 8,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 68.5
+				},
+				{
+					"frame": 37.92,
+					"minute": 1200.1673984,
+					"parts": {
+						"dog.tick": 0.526,
+						"gate_watch.tick": 2.429,
+						"guard.tick": 0.634,
+						"orders.tick": 2.519,
+						"presentation.tick": 1.458,
+						"room_access.tick": 0.801,
+						"routines.tick": 20.394,
+						"workshop.tick": 0.799,
+						"workshop.update_gate": 0.075,
+						"world.update_dorm_doors": 0.289
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 11,
+							"from": [
+								1398.7216796875,
+								2634.74169921875
+							],
+							"ms": 20.124,
+							"parts": {
+								"connectivity": 2.351,
+								"endpoints": 0.096,
+								"grid_update": 11.422,
+								"jps": 0.244,
+								"overlay": 3.867,
+								"restore_compress": 0.015,
+								"search_and_connect": 0.273,
+								"smooth": 1.044
+							},
+							"points": 4,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 12,
+							"from": [
+								5027.8984375,
+								3062.48364257813
+							],
+							"ms": 0.616,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 13,
+							"from": [
+								5440.0234375,
+								3009.14526367188
+							],
+							"ms": 0.542,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 14,
+							"from": [
+								1331.50500488281,
+								921.075866699219
+							],
+							"ms": 0.155,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 15,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.209,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 16,
+							"from": [
+								2091.55883789063,
+								1712.03649902344
+							],
+							"ms": 0.413,
+							"parts": {},
+							"points": 8,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 31.088
+				},
+				{
+					"frame": 35.72,
+					"minute": 1200.2282416,
+					"parts": {
+						"dog.tick": 0.237,
+						"gate_watch.tick": 24.56,
+						"guard.tick": 0.296,
+						"orders.tick": 0.882,
+						"presentation.tick": 1.315,
+						"room_access.tick": 0.81,
+						"routines.tick": 0.04,
+						"workshop.tick": 0.565,
+						"workshop.update_gate": 0.087,
+						"world.update_dorm_doors": 0.337
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 16,
+							"from": [
+								5027.8984375,
+								3062.48364257813
+							],
+							"ms": 22.82,
+							"parts": {
+								"connectivity": 8.427,
+								"endpoints": 0.108,
+								"jps": 10.309,
+								"overlay": 0.954,
+								"restore_compress": 0.026,
+								"search_and_connect": 10.345,
+								"smooth": 1.819
+							},
+							"points": 16,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 17,
+							"from": [
+								5440.0234375,
+								3009.14526367188
+							],
+							"ms": 0.523,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 18,
+							"from": [
+								1331.50500488281,
+								921.075866699219
+							],
+							"ms": 0.157,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.177,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 20,
+							"from": [
+								2111.34545898438,
+								1710.98803710938
+							],
+							"ms": 0.352,
+							"parts": {},
+							"points": 8,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 30.855
+				},
+				{
+					"frame": 60.763,
+					"minute": 1200.2850896,
+					"parts": {
+						"dog.tick": 0.447,
+						"gate_watch.tick": 37.331,
+						"guard.tick": 0.536,
+						"orders.tick": 1.656,
+						"presentation.tick": 4.308,
+						"room_access.tick": 2.803,
+						"routines.tick": 0.037,
+						"workshop.tick": 6.436,
+						"workshop.update_gate": 0.085,
+						"world.update_dorm_doors": 0.196
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 20,
+							"from": [
+								1373.96337890625,
+								2611.66162109375
+							],
+							"ms": 0.13,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1540.0,
+								2590.0
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 20,
+							"from": [
+								5440.0234375,
+								3009.14526367188
+							],
+							"ms": 32.43,
+							"parts": {
+								"connectivity": 0.883,
+								"endpoints": 0.068,
+								"grid_update": 8.033,
+								"jps": 18.393,
+								"overlay": 0.925,
+								"restore_compress": 0.026,
+								"search_and_connect": 18.42,
+								"smooth": 3.334
+							},
+							"points": 14,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 21,
+							"from": [
+								1331.50500488281,
+								921.075866699219
+							],
+							"ms": 0.297,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 22,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.353,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 23,
+							"from": [
+								2119.509765625,
+								1710.55554199219
+							],
+							"ms": 5.951,
+							"parts": {},
+							"points": 8,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 55.021
+				},
+				{
+					"frame": 17.046,
+					"minute": 1200.42058933333,
+					"parts": {
+						"dog.tick": 0.24,
+						"gate_watch.tick": 7.473,
+						"guard.tick": 0.253,
+						"orders.tick": 0.67,
+						"presentation.tick": 1.63,
+						"room_access.tick": 0.453,
+						"routines.tick": 0.024,
+						"workshop.tick": 0.534,
+						"workshop.update_gate": 0.052,
+						"world.update_dorm_doors": 0.208
+					},
+					"paths": [
+						{
+							"builds": 13,
+							"deferred": 25,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 6.589,
+							"parts": {
+								"connectivity": 0.006,
+								"endpoints": 0.047,
+								"jps": 3.452,
+								"overlay": 0.655,
+								"restore_compress": 0.013,
+								"search_and_connect": 3.478,
+								"smooth": 2.105
+							},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 26,
+							"from": [
+								2135.94213867188,
+								1704.05749511719
+							],
+							"ms": 0.306,
+							"parts": {},
+							"points": 7,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 12.449
+				},
+				{
+					"frame": 28.417,
+					"minute": 1200.81115075555,
+					"parts": {
+						"dog.tick": 0.26,
+						"gate_watch.tick": 11.937,
+						"guard.tick": 0.265,
+						"orders.tick": 0.892,
+						"presentation.tick": 1.272,
+						"room_access.tick": 0.453,
+						"routines.tick": 0.036,
+						"workshop.tick": 0.287,
+						"workshop.update_gate": 0.1,
+						"world.update_dorm_doors": 0.195
+					},
+					"paths": [
+						{
+							"builds": 13,
+							"deferred": 26,
+							"from": [
+								4977.55517578125,
+								3110.0
+							],
+							"ms": 10.77,
+							"parts": {
+								"connectivity": 0.007,
+								"endpoints": 0.068,
+								"jps": 7.305,
+								"overlay": 0.588,
+								"restore_compress": 0.018,
+								"search_and_connect": 7.326,
+								"smooth": 1.691
+							},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 16.568
+				},
+				{
+					"frame": 40.132,
+					"minute": 1202.14220533333,
+					"parts": {
+						"dog.tick": 0.172,
+						"gate_watch.tick": 19.036,
+						"guard.tick": 0.142,
+						"orders.tick": 0.216,
+						"presentation.tick": 3.082,
+						"room_access.tick": 0.36,
+						"routines.tick": 0.022,
+						"workshop.tick": 2.294,
+						"workshop.update_gate": 0.044,
+						"world.update_dorm_doors": 0.179
+					},
+					"paths": [
+						{
+							"builds": 13,
+							"deferred": 26,
+							"from": [
+								3460.0,
+								120.0
+							],
+							"ms": 0.067,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								120.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 26,
+							"from": [
+								4799.00341796875,
+								3110.0
+							],
+							"ms": 16.427,
+							"parts": {
+								"connectivity": 0.005,
+								"endpoints": 0.05,
+								"grid_update": 5.677,
+								"jps": 6.125,
+								"overlay": 0.552,
+								"restore_compress": 0.013,
+								"search_and_connect": 6.14,
+								"smooth": 1.283
+							},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 27,
+							"from": [
+								5311.3955078125,
+								3202.75366210938
+							],
+							"ms": 0.146,
+							"parts": {},
+							"points": 13,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 28,
+							"from": [
+								1576.76379394531,
+								902.439331054688
+							],
+							"ms": 0.097,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 29,
+							"from": [
+								2537.75512695313,
+								4006.12963867188
+							],
+							"ms": 0.126,
+							"parts": {},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 30,
+							"from": [
+								2270.0,
+								1524.89282226563
+							],
+							"ms": 2.119,
+							"parts": {},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 26.228
+				},
+				{
+					"frame": 18.209,
+					"minute": 1202.17801546666,
+					"parts": {
+						"dog.tick": 0.189,
+						"gate_watch.tick": 11.111,
+						"guard.tick": 0.152,
+						"orders.tick": 0.242,
+						"presentation.tick": 1.003,
+						"room_access.tick": 0.331,
+						"routines.tick": 0.018,
+						"workshop.tick": 0.391,
+						"workshop.update_gate": 0.04,
+						"world.update_dorm_doors": 0.166
+					},
+					"paths": [
+						{
+							"builds": 14,
+							"deferred": 30,
+							"from": [
+								5308.087890625,
+								3204.13159179688
+							],
+							"ms": 10.234,
+							"parts": {
+								"connectivity": 0.005,
+								"endpoints": 0.037,
+								"jps": 8.045,
+								"overlay": 0.405,
+								"restore_compress": 0.014,
+								"search_and_connect": 8.061,
+								"smooth": 1.527
+							},
+							"points": 13,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 31,
+							"from": [
+								1580.33679199219,
+								902.167846679688
+							],
+							"ms": 0.13,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 32,
+							"from": [
+								2534.20922851563,
+								4005.61254882813
+							],
+							"ms": 0.141,
+							"parts": {},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 33,
+							"from": [
+								2270.0,
+								1521.3095703125
+							],
+							"ms": 0.238,
+							"parts": {},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 14.309
+				},
+				{
+					"frame": 21.03,
+					"minute": 1204.98132586666,
+					"parts": {
+						"dog.tick": 0.278,
+						"gate_watch.tick": 0.702,
+						"guard.tick": 0.2,
+						"orders.tick": 0.81,
+						"presentation.tick": 1.61,
+						"room_access.tick": 0.666,
+						"routines.tick": 7.514,
+						"workshop.tick": 0.225,
+						"workshop.update_gate": 0.08,
+						"world.update_dorm_doors": 0.362
+					},
+					"paths": [
+						{
+							"builds": 14,
+							"deferred": 36,
+							"from": [
+								1540.0,
+								2589.99975585938
+							],
+							"ms": 7.292,
+							"parts": {
+								"connectivity": 1.978,
+								"endpoints": 0.094,
+								"jps": 0.149,
+								"overlay": 2.921,
+								"restore_compress": 0.01,
+								"search_and_connect": 0.18,
+								"smooth": 1.349
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						}
+					],
+					"script": 13.566
+				}
+			]
+		},
+		"transition_1440": {
+			"draw_calls": {
+				"count": 240,
+				"max": 610.0,
+				"mean": 605.733333333333,
+				"over25": 240,
+				"over33": 240,
+				"p50": 608.0,
+				"p95": 610.0,
+				"p99": 610.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 103.932,
+				"mean": 17.3578166666667,
+				"over25": 6,
+				"over33": 4,
+				"p50": 16.594,
+				"p95": 19.828,
+				"p99": 43.793
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 4.78800010681152,
+				"mean": 1.88085416704416,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.62300002574921,
+				"p95": 3.82699990272522,
+				"p99": 4.26700019836426
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 3.28299999237061,
+				"mean": 1.84512499620517,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.77199995517731,
+				"p95": 2.57599997520447,
+				"p99": 2.71700000762939
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 83.148,
+				"mean": 6.6575625,
+				"over25": 4,
+				"over33": 3,
+				"p50": 5.503,
+				"p95": 9.159,
+				"p99": 35.028
+			},
+			"slow_paths": [
+				{
+					"builds": 15,
+					"deferred": 36,
+					"from": [
+						4383.359375,
+						3269.88208007813
+					],
+					"ms": 34.936,
+					"parts": {
+						"connectivity": 1.588,
+						"endpoints": 0.092,
+						"grid_update": 12.054,
+						"jps": 10.899,
+						"overlay": 0.93,
+						"restore_compress": 0.03,
+						"search_and_connect": 10.933,
+						"smooth": 3.373
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 15,
+					"deferred": 40,
+					"from": [
+						2261.298828125,
+						996.55078125
+					],
+					"ms": 5.629,
+					"parts": {},
+					"points": 6,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 15,
+					"deferred": 40,
+					"from": [
+						4792.87451171875,
+						3270.0
+					],
+					"ms": 20.255,
+					"parts": {
+						"connectivity": 0.009,
+						"endpoints": 0.1,
+						"jps": 15.356,
+						"overlay": 0.886,
+						"restore_compress": 0.03,
+						"search_and_connect": 15.391,
+						"smooth": 3.359
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 15,
+					"deferred": 45,
+					"from": [
+						2170.0,
+						3717.65747070313
+					],
+					"ms": 6.224,
+					"parts": {
+						"connectivity": 0.008,
+						"endpoints": 0.085,
+						"jps": 1.612,
+						"overlay": 0.703,
+						"restore_compress": 0.02,
+						"search_and_connect": 1.64,
+						"smooth": 3.423
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 15,
+					"deferred": 46,
+					"from": [
+						2260.80444335938,
+						967.428161621094
+					],
+					"ms": 4.108,
+					"parts": {
+						"connectivity": 2.125,
+						"endpoints": 0.053,
+						"jps": 0.063,
+						"overlay": 0.876,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.084,
+						"smooth": 0.635
+					},
+					"points": 6,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 15,
+					"deferred": 46,
+					"from": [
+						1268.99926757813,
+						2570.06884765625
+					],
+					"ms": 9.206,
+					"parts": {
+						"connectivity": 2.06,
+						"endpoints": 0.087,
+						"jps": 0.105,
+						"overlay": 4.88,
+						"restore_compress": 0.011,
+						"search_and_connect": 0.134,
+						"smooth": 1.073
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 46,
+					"from": [
+						4305.58056640625,
+						3269.95092773438
+					],
+					"ms": 55.249,
+					"parts": {
+						"connectivity": 0.007,
+						"endpoints": 0.08,
+						"grid_update": 35.336,
+						"jps": 10.183,
+						"overlay": 1.257,
+						"restore_compress": 0.031,
+						"search_and_connect": 10.218,
+						"smooth": 2.836
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 47,
+					"from": [
+						4715.095703125,
+						3270.0
+					],
+					"ms": 19.56,
+					"parts": {
+						"connectivity": 0.014,
+						"endpoints": 0.105,
+						"jps": 14.284,
+						"overlay": 1.441,
+						"restore_compress": 0.036,
+						"search_and_connect": 14.321,
+						"smooth": 3.131
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 49,
+					"from": [
+						2204.10815429688,
+						842.534790039063
+					],
+					"ms": 2.968,
+					"parts": {
+						"connectivity": 0.01,
+						"endpoints": 0.088,
+						"jps": 0.103,
+						"overlay": 1.423,
+						"restore_compress": 0.015,
+						"search_and_connect": 0.136,
+						"smooth": 0.807
+					},
+					"points": 5,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 52,
+					"from": [
+						2170.0,
+						3628.65307617188
+					],
+					"ms": 8.519,
+					"parts": {
+						"connectivity": 0.01,
+						"endpoints": 0.122,
+						"jps": 2.464,
+						"overlay": 1.551,
+						"restore_compress": 0.029,
+						"search_and_connect": 2.505,
+						"smooth": 3.871
+					},
+					"points": 12,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 54,
+					"from": [
+						1446.59033203125,
+						2982.78002929688
+					],
+					"ms": 8.751,
+					"parts": {
+						"connectivity": 1.862,
+						"endpoints": 0.156,
+						"jps": 1.263,
+						"overlay": 2.594,
+						"restore_compress": 0.017,
+						"search_and_connect": 1.294,
+						"smooth": 2.442
+					},
+					"points": 5,
+					"to": [
+						493.0,
+						1513.96997070313
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 55,
+					"from": [
+						2322.5849609375,
+						909.775024414063
+					],
+					"ms": 3.12,
+					"parts": {
+						"connectivity": 0.011,
+						"endpoints": 0.079,
+						"jps": 0.089,
+						"overlay": 1.482,
+						"restore_compress": 0.014,
+						"search_and_connect": 0.115,
+						"smooth": 0.933
+					},
+					"points": 5,
+					"to": [
+						3460.0,
+						300.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 67.219,
+					"minute": 1439.43333333333,
+					"parts": {
+						"dog.tick": 0.305,
+						"gate_watch.tick": 37.452,
+						"guard.tick": 0.313,
+						"orders.tick": 1.293,
+						"presentation.tick": 6.709,
+						"room_access.tick": 4.047,
+						"routines.tick": 0.043,
+						"workshop.tick": 6.076,
+						"workshop.update_gate": 0.1,
+						"world.update_dorm_doors": 0.336
+					},
+					"paths": [
+						{
+							"builds": 15,
+							"deferred": 36,
+							"from": [
+								4383.359375,
+								3269.88208007813
+							],
+							"ms": 34.936,
+							"parts": {
+								"connectivity": 1.588,
+								"endpoints": 0.092,
+								"grid_update": 12.054,
+								"jps": 10.899,
+								"overlay": 0.93,
+								"restore_compress": 0.03,
+								"search_and_connect": 10.933,
+								"smooth": 3.373
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 37,
+							"from": [
+								4796.45751953125,
+								3270.0
+							],
+							"ms": 0.4,
+							"parts": {},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 38,
+							"from": [
+								2101.93334960938,
+								846.464599609375
+							],
+							"ms": 0.498,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 39,
+							"from": [
+								2170.0,
+								3741.65551757813
+							],
+							"ms": 0.358,
+							"parts": {},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 40,
+							"from": [
+								2261.298828125,
+								996.55078125
+							],
+							"ms": 5.629,
+							"parts": {},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 58.037
+				},
+				{
+					"frame": 36.56,
+					"minute": 1439.52684533333,
+					"parts": {
+						"dog.tick": 0.28,
+						"gate_watch.tick": 22.263,
+						"guard.tick": 0.299,
+						"orders.tick": 2.389,
+						"presentation.tick": 1.729,
+						"room_access.tick": 1.15,
+						"routines.tick": 0.044,
+						"workshop.tick": 0.769,
+						"workshop.update_gate": 0.09,
+						"world.update_dorm_doors": 0.329
+					},
+					"paths": [
+						{
+							"builds": 15,
+							"deferred": 40,
+							"from": [
+								4792.87451171875,
+								3270.0
+							],
+							"ms": 20.255,
+							"parts": {
+								"connectivity": 0.009,
+								"endpoints": 0.1,
+								"jps": 15.356,
+								"overlay": 0.886,
+								"restore_compress": 0.03,
+								"search_and_connect": 15.391,
+								"smooth": 3.359
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 41,
+							"from": [
+								2105.51391601563,
+								846.326904296875
+							],
+							"ms": 0.366,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 42,
+							"from": [
+								2170.0,
+								3738.07202148438
+							],
+							"ms": 0.271,
+							"parts": {},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 43,
+							"from": [
+								2261.23828125,
+								992.968017578125
+							],
+							"ms": 0.345,
+							"parts": {},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 30.58
+				},
+				{
+					"frame": 17.946,
+					"minute": 1439.62342506667,
+					"parts": {
+						"dog.tick": 0.208,
+						"gate_watch.tick": 7.082,
+						"guard.tick": 0.308,
+						"orders.tick": 0.922,
+						"presentation.tick": 1.758,
+						"room_access.tick": 0.575,
+						"routines.tick": 0.032,
+						"workshop.tick": 0.658,
+						"workshop.update_gate": 0.071,
+						"world.update_dorm_doors": 0.273
+					},
+					"paths": [
+						{
+							"builds": 15,
+							"deferred": 45,
+							"from": [
+								2170.0,
+								3717.65747070313
+							],
+							"ms": 6.224,
+							"parts": {
+								"connectivity": 0.008,
+								"endpoints": 0.085,
+								"jps": 1.612,
+								"overlay": 0.703,
+								"restore_compress": 0.02,
+								"search_and_connect": 1.64,
+								"smooth": 3.423
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 46,
+							"from": [
+								2260.89135742188,
+								972.556701660156
+							],
+							"ms": 0.33,
+							"parts": {},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 12.869
+				},
+				{
+					"frame": 103.932,
+					"minute": 1440.01216693333,
+					"parts": {
+						"dog.tick": 0.3,
+						"gate_watch.tick": 56.576,
+						"guard.tick": 0.513,
+						"orders.tick": 1.008,
+						"presentation.tick": 5.713,
+						"room_access.tick": 0.79,
+						"routines.tick": 0.075,
+						"workshop.tick": 0.331,
+						"workshop.update_gate": 0.109,
+						"world.update_dorm_doors": 0.562
+					},
+					"paths": [
+						{
+							"builds": 15,
+							"deferred": 46,
+							"from": [
+								534.999633789063,
+								1856.32360839844
+							],
+							"ms": 0.219,
+							"parts": {},
+							"points": 1,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 15,
+							"deferred": 46,
+							"from": [
+								1268.99926757813,
+								2570.06884765625
+							],
+							"ms": 9.206,
+							"parts": {
+								"connectivity": 2.06,
+								"endpoints": 0.087,
+								"jps": 0.105,
+								"overlay": 4.88,
+								"restore_compress": 0.011,
+								"search_and_connect": 0.134,
+								"smooth": 1.073
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 46,
+							"from": [
+								4305.58056640625,
+								3269.95092773438
+							],
+							"ms": 55.249,
+							"parts": {
+								"connectivity": 0.007,
+								"endpoints": 0.08,
+								"grid_update": 35.336,
+								"jps": 10.183,
+								"overlay": 1.257,
+								"restore_compress": 0.031,
+								"search_and_connect": 10.218,
+								"smooth": 2.836
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 47,
+							"from": [
+								1446.59033203125,
+								2982.78002929688
+							],
+							"ms": 0.297,
+							"parts": {},
+							"points": 0,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						}
+					],
+					"script": 83.148
+				},
+				{
+					"frame": 43.793,
+					"minute": 1440.16760373333,
+					"parts": {
+						"dog.tick": 0.468,
+						"gate_watch.tick": 22.456,
+						"guard.tick": 0.644,
+						"orders.tick": 3.807,
+						"presentation.tick": 2.077,
+						"room_access.tick": 1.047,
+						"routines.tick": 0.025,
+						"workshop.tick": 0.858,
+						"workshop.update_gate": 0.095,
+						"world.update_dorm_doors": 0.599
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 47,
+							"from": [
+								4715.095703125,
+								3270.0
+							],
+							"ms": 19.56,
+							"parts": {
+								"connectivity": 0.014,
+								"endpoints": 0.105,
+								"jps": 14.284,
+								"overlay": 1.441,
+								"restore_compress": 0.036,
+								"search_and_connect": 14.321,
+								"smooth": 3.131
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 48,
+							"from": [
+								2183.236328125,
+								843.337585449219
+							],
+							"ms": 0.561,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 49,
+							"from": [
+								1446.59033203125,
+								2982.78002929688
+							],
+							"ms": 0.348,
+							"parts": {},
+							"points": 0,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						}
+					],
+					"script": 35.028
+				},
+				{
+					"frame": 23.457,
+					"minute": 1440.24760373333,
+					"parts": {
+						"dog.tick": 0.437,
+						"gate_watch.tick": 4.917,
+						"guard.tick": 0.668,
+						"orders.tick": 2.065,
+						"presentation.tick": 2.203,
+						"room_access.tick": 0.822,
+						"routines.tick": 0.019,
+						"workshop.tick": 1.189,
+						"workshop.update_gate": 0.1,
+						"world.update_dorm_doors": 0.574
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 49,
+							"from": [
+								2204.10815429688,
+								842.534790039063
+							],
+							"ms": 2.968,
+							"parts": {
+								"connectivity": 0.01,
+								"endpoints": 0.088,
+								"jps": 0.103,
+								"overlay": 1.423,
+								"restore_compress": 0.015,
+								"search_and_connect": 0.136,
+								"smooth": 0.807
+							},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 50,
+							"from": [
+								2170.0,
+								3639.40307617188
+							],
+							"ms": 0.416,
+							"parts": {},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 51,
+							"from": [
+								1446.59033203125,
+								2982.78002929688
+							],
+							"ms": 0.377,
+							"parts": {},
+							"points": 0,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 52,
+							"from": [
+								2302.2783203125,
+								917.585571289063
+							],
+							"ms": 0.477,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 14.548
+				},
+				{
+					"frame": 27.794,
+					"minute": 1440.28506293333,
+					"parts": {
+						"dog.tick": 0.469,
+						"gate_watch.tick": 9.63,
+						"guard.tick": 0.654,
+						"orders.tick": 1.531,
+						"presentation.tick": 2.062,
+						"room_access.tick": 0.814,
+						"routines.tick": 0.021,
+						"workshop.tick": 1.014,
+						"workshop.update_gate": 0.101,
+						"world.update_dorm_doors": 0.574
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 52,
+							"from": [
+								2170.0,
+								3628.65307617188
+							],
+							"ms": 8.519,
+							"parts": {
+								"connectivity": 0.01,
+								"endpoints": 0.122,
+								"jps": 2.464,
+								"overlay": 1.551,
+								"restore_compress": 0.029,
+								"search_and_connect": 2.505,
+								"smooth": 3.871
+							},
+							"points": 12,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 53,
+							"from": [
+								1446.59033203125,
+								2982.78002929688
+							],
+							"ms": 0.374,
+							"parts": {},
+							"points": 0,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 54,
+							"from": [
+								2312.3115234375,
+								913.726440429688
+							],
+							"ms": 0.482,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 18.497
+				},
+				{
+					"frame": 26.005,
+					"minute": 1440.32951733333,
+					"parts": {
+						"dog.tick": 0.367,
+						"gate_watch.tick": 1.068,
+						"guard.tick": 9.094,
+						"orders.tick": 1.468,
+						"presentation.tick": 1.913,
+						"room_access.tick": 0.882,
+						"routines.tick": 0.023,
+						"workshop.tick": 0.829,
+						"workshop.update_gate": 0.109,
+						"world.update_dorm_doors": 0.609
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 54,
+							"from": [
+								1446.59033203125,
+								2982.78002929688
+							],
+							"ms": 8.751,
+							"parts": {
+								"connectivity": 1.862,
+								"endpoints": 0.156,
+								"jps": 1.263,
+								"overlay": 2.594,
+								"restore_compress": 0.017,
+								"search_and_connect": 1.294,
+								"smooth": 2.442
+							},
+							"points": 5,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 55,
+							"from": [
+								2317.009765625,
+								911.91943359375
+							],
+							"ms": 0.375,
+							"parts": {},
+							"points": 5,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 17.804
+				}
+			]
+		},
+		"transition_1920": {
+			"draw_calls": {
+				"count": 240,
+				"max": 595.0,
+				"mean": 572.545833333333,
+				"over25": 240,
+				"over33": 240,
+				"p50": 574.0,
+				"p95": 595.0,
+				"p99": 595.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 62.155,
+				"mean": 16.6720333333333,
+				"over25": 3,
+				"over33": 1,
+				"p50": 16.628,
+				"p95": 18.837,
+				"p99": 29.446
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 4.23299980163574,
+				"mean": 1.65634999896089,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.50699996948242,
+				"p95": 3.73099994659424,
+				"p99": 4.13000011444092
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 2.45099997520447,
+				"mean": 1.28340833584468,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.23000001907349,
+				"p95": 1.82200002670288,
+				"p99": 2.09400010108948
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 44.598,
+				"mean": 5.36138333333333,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.749,
+				"p95": 9.189,
+				"p99": 18.746
+			},
+			"slow_paths": [
+				{
+					"builds": 18,
+					"deferred": 55,
+					"from": [
+						428.220031738281,
+						1853.97485351563
+					],
+					"ms": 25.135,
+					"parts": {
+						"connectivity": 4.319,
+						"endpoints": 0.051,
+						"grid_update": 16.741,
+						"jps": 0.162,
+						"overlay": 2.013,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.181,
+						"smooth": 0.838
+					},
+					"points": 5,
+					"to": [
+						1710.0,
+						1340.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 61,
+					"from": [
+						3024.08984375,
+						510.0
+					],
+					"ms": 2.649,
+					"parts": {},
+					"points": 0,
+					"to": [
+						1360.0,
+						1775.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 61,
+					"from": [
+						860.269775390625,
+						2540.01977539063
+					],
+					"ms": 3.636,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.167,
+						"jps": 0.348,
+						"overlay": 2.224,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.368,
+						"smooth": 0.658
+					},
+					"points": 4,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 67,
+					"from": [
+						3886.5068359375,
+						3031.66333007813
+					],
+					"ms": 6.055,
+					"parts": {
+						"connectivity": 2.854,
+						"endpoints": 0.045,
+						"jps": 1.16,
+						"overlay": 0.461,
+						"restore_compress": 0.009,
+						"search_and_connect": 1.172,
+						"smooth": 0.983
+					},
+					"points": 10,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 72,
+					"from": [
+						4225.5673828125,
+						3270.0
+					],
+					"ms": 4.42,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.046,
+						"jps": 1.95,
+						"overlay": 0.468,
+						"restore_compress": 0.009,
+						"search_and_connect": 1.967,
+						"smooth": 1.721
+					},
+					"points": 5,
+					"to": [
+						5580.0,
+						470.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 76,
+					"from": [
+						2983.32348632813,
+						680.0
+					],
+					"ms": 4.549,
+					"parts": {
+						"connectivity": 3.137,
+						"endpoints": 0.045,
+						"jps": 0.118,
+						"overlay": 0.474,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.132,
+						"smooth": 0.232
+					},
+					"points": 3,
+					"to": [
+						3420.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 18,
+					"deferred": 82,
+					"from": [
+						3024.08984375,
+						510.0
+					],
+					"ms": 4.818,
+					"parts": {
+						"connectivity": 1.089,
+						"endpoints": 0.06,
+						"jps": 1.057,
+						"overlay": 0.747,
+						"restore_compress": 0.011,
+						"search_and_connect": 1.075,
+						"smooth": 1.694
+					},
+					"points": 6,
+					"to": [
+						1360.0,
+						1775.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 82,
+					"from": [
+						3942.83642578125,
+						3086.80078125
+					],
+					"ms": 15.511,
+					"parts": {
+						"connectivity": 0.008,
+						"endpoints": 0.071,
+						"grid_update": 11.051,
+						"jps": 1.445,
+						"overlay": 0.712,
+						"restore_compress": 0.014,
+						"search_and_connect": 1.471,
+						"smooth": 1.478
+					},
+					"points": 10,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 82,
+					"from": [
+						4304.09130859375,
+						3270.0
+					],
+					"ms": 8.059,
+					"parts": {
+						"connectivity": 0.012,
+						"endpoints": 0.07,
+						"jps": 3.034,
+						"overlay": 0.975,
+						"restore_compress": 0.021,
+						"search_and_connect": 3.091,
+						"smooth": 3.417
+					},
+					"points": 5,
+					"to": [
+						5580.0,
+						470.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 82,
+					"from": [
+						3061.85522460938,
+						680.0
+					],
+					"ms": 2.558,
+					"parts": {
+						"connectivity": 0.01,
+						"endpoints": 0.072,
+						"jps": 0.184,
+						"overlay": 0.844,
+						"restore_compress": 0.013,
+						"search_and_connect": 0.212,
+						"smooth": 0.413
+					},
+					"points": 3,
+					"to": [
+						3420.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 83,
+					"from": [
+						2170.0,
+						3268.39111328125
+					],
+					"ms": 2.407,
+					"parts": {
+						"connectivity": 0.009,
+						"endpoints": 0.075,
+						"jps": 0.216,
+						"overlay": 0.813,
+						"restore_compress": 0.011,
+						"search_and_connect": 0.242,
+						"smooth": 0.724
+					},
+					"points": 4,
+					"to": [
+						2770.0,
+						4040.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 83,
+					"from": [
+						2946.05908203125,
+						510.0
+					],
+					"ms": 8.704,
+					"parts": {
+						"connectivity": 1.423,
+						"endpoints": 0.08,
+						"jps": 1.17,
+						"overlay": 0.883,
+						"restore_compress": 0.012,
+						"search_and_connect": 1.192,
+						"smooth": 1.877
+					},
+					"points": 6,
+					"to": [
+						1360.0,
+						1775.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 83,
+					"from": [
+						861.463806152344,
+						1799.75598144531
+					],
+					"ms": 4.338,
+					"parts": {
+						"connectivity": 1.332,
+						"endpoints": 0.073,
+						"jps": 0.112,
+						"overlay": 2.012,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.129,
+						"smooth": 0.251
+					},
+					"points": 4,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 62.155,
+					"minute": 1920.0,
+					"parts": {
+						"dog.tick": 0.042,
+						"gate_watch.tick": 1.389,
+						"guard.tick": 0.218,
+						"orders.tick": 0.634,
+						"presentation.tick": 4.036,
+						"room_access.tick": 3.608,
+						"routines.tick": 28.136,
+						"workshop.tick": 2.833,
+						"workshop.update_gate": 0.069,
+						"world.update_dorm_doors": 0.194
+					},
+					"paths": [
+						{
+							"builds": 18,
+							"deferred": 55,
+							"from": [
+								428.220031738281,
+								1853.97485351563
+							],
+							"ms": 25.135,
+							"parts": {
+								"connectivity": 4.319,
+								"endpoints": 0.051,
+								"grid_update": 16.741,
+								"jps": 0.162,
+								"overlay": 2.013,
+								"restore_compress": 0.008,
+								"search_and_connect": 0.181,
+								"smooth": 0.838
+							},
+							"points": 5,
+							"to": [
+								1710.0,
+								1340.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 56,
+							"from": [
+								3878.30322265625,
+								3023.6337890625
+							],
+							"ms": 0.207,
+							"parts": {},
+							"points": 10,
+							"to": [
+								5040.0,
+								2450.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 57,
+							"from": [
+								4210.20556640625,
+								3270.0
+							],
+							"ms": 0.149,
+							"parts": {},
+							"points": 5,
+							"to": [
+								5580.0,
+								470.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 58,
+							"from": [
+								2964.08056640625,
+								680.0
+							],
+							"ms": 0.053,
+							"parts": {},
+							"points": 3,
+							"to": [
+								3420.0,
+								1180.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 59,
+							"from": [
+								2170.0,
+								3164.79956054688
+							],
+							"ms": 0.228,
+							"parts": {},
+							"points": 4,
+							"to": [
+								2770.0,
+								4040.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 60,
+							"from": [
+								1107.16125488281,
+								2775.63647460938
+							],
+							"ms": 0.157,
+							"parts": {},
+							"points": 0,
+							"to": [
+								750.0,
+								2400.0
+							]
+						},
+						{
+							"builds": 18,
+							"deferred": 61,
+							"from": [
+								3024.08984375,
+								510.0
+							],
+							"ms": 2.649,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1360.0,
+								1775.0
+							]
+						}
+					],
+					"script": 44.598
+				},
+				{
+					"frame": 31.008,
+					"minute": 1920.620032,
+					"parts": {
+						"dog.tick": 0.012,
+						"gate_watch.tick": 10.31,
+						"guard.tick": 0.169,
+						"orders.tick": 1.301,
+						"presentation.tick": 4.906,
+						"room_access.tick": 0.454,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.282,
+						"workshop.update_gate": 0.058,
+						"world.update_dorm_doors": 0.233
+					},
+					"paths": [],
+					"script": 18.746
+				},
+				{
+					"frame": 29.446,
+					"minute": 1920.67336533333,
+					"parts": {
+						"dog.tick": 0.014,
+						"gate_watch.tick": 16.799,
+						"guard.tick": 0.229,
+						"orders.tick": 1.95,
+						"presentation.tick": 1.978,
+						"room_access.tick": 0.653,
+						"routines.tick": 0.026,
+						"workshop.tick": 0.399,
+						"workshop.update_gate": 0.109,
+						"world.update_dorm_doors": 0.279
+					},
+					"paths": [
+						{
+							"builds": 19,
+							"deferred": 82,
+							"from": [
+								3942.83642578125,
+								3086.80078125
+							],
+							"ms": 15.511,
+							"parts": {
+								"connectivity": 0.008,
+								"endpoints": 0.071,
+								"grid_update": 11.051,
+								"jps": 1.445,
+								"overlay": 0.712,
+								"restore_compress": 0.014,
+								"search_and_connect": 1.471,
+								"smooth": 1.478
+							},
+							"points": 10,
+							"to": [
+								5040.0,
+								2450.0
+							]
+						}
+					],
+					"script": 23.441
+				},
+				{
+					"frame": 21.608,
+					"minute": 1920.70225422222,
+					"parts": {
+						"dog.tick": 0.016,
+						"gate_watch.tick": 9.459,
+						"guard.tick": 0.23,
+						"orders.tick": 1.551,
+						"presentation.tick": 1.787,
+						"room_access.tick": 0.686,
+						"routines.tick": 0.035,
+						"workshop.tick": 0.347,
+						"workshop.update_gate": 0.117,
+						"world.update_dorm_doors": 0.328
+					},
+					"paths": [
+						{
+							"builds": 19,
+							"deferred": 82,
+							"from": [
+								4304.09130859375,
+								3270.0
+							],
+							"ms": 8.059,
+							"parts": {
+								"connectivity": 0.012,
+								"endpoints": 0.07,
+								"jps": 3.034,
+								"overlay": 0.975,
+								"restore_compress": 0.021,
+								"search_and_connect": 3.091,
+								"smooth": 3.417
+							},
+							"points": 5,
+							"to": [
+								5580.0,
+								470.0
+							]
+						}
+					],
+					"script": 15.686
+				},
+				{
+					"frame": 19.946,
+					"minute": 1920.80072693333,
+					"parts": {
+						"dog.tick": 0.013,
+						"gate_watch.tick": 0.776,
+						"guard.tick": 0.231,
+						"orders.tick": 1.357,
+						"presentation.tick": 1.606,
+						"room_access.tick": 0.5,
+						"routines.tick": 0.03,
+						"workshop.tick": 9.12,
+						"workshop.update_gate": 0.058,
+						"world.update_dorm_doors": 0.218
+					},
+					"paths": [
+						{
+							"builds": 19,
+							"deferred": 83,
+							"from": [
+								2946.05908203125,
+								510.0
+							],
+							"ms": 8.704,
+							"parts": {
+								"connectivity": 1.423,
+								"endpoints": 0.08,
+								"jps": 1.17,
+								"overlay": 0.883,
+								"restore_compress": 0.012,
+								"search_and_connect": 1.192,
+								"smooth": 1.877
+							},
+							"points": 6,
+							"to": [
+								1360.0,
+								1775.0
+							]
+						}
+					],
+					"script": 14.801
+				}
+			]
+		},
+		"transition_720": {
+			"draw_calls": {
+				"count": 240,
+				"max": 580.0,
+				"mean": 559.991666666667,
+				"over25": 240,
+				"over33": 240,
+				"p50": 559.0,
+				"p95": 573.0,
+				"p99": 580.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 69.264,
+				"mean": 16.7860041666667,
+				"over25": 3,
+				"over33": 2,
+				"p50": 16.641,
+				"p95": 19.792,
+				"p99": 25.198
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 12.7790002822876,
+				"mean": 1.31706250185768,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.899999976158142,
+				"p95": 2.7260000705719,
+				"p99": 6.36800003051758
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 2.20000004768372,
+				"mean": 1.11037083442012,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.04799997806549,
+				"p95": 1.58899998664856,
+				"p99": 1.97000002861023
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 53.272,
+				"mean": 4.6119625,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.093,
+				"p95": 6.686,
+				"p99": 11.062
+			},
+			"slow_paths": [
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						1480.0,
+						1370.0
+					],
+					"ms": 2.664,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1480.0,
+						1205.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 3,
+					"from": [
+						1707.95849609375,
+						1340.85949707031
+					],
+					"ms": 26.449,
+					"parts": {
+						"connectivity": 3.911,
+						"endpoints": 0.047,
+						"grid_update": 18.888,
+						"jps": 0.446,
+						"overlay": 1.658,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.465,
+						"smooth": 0.5
+					},
+					"points": 7,
+					"to": [
+						1450.0,
+						2170.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 4,
+					"from": [
+						1480.0,
+						1300.30944824219
+					],
+					"ms": 2.617,
+					"parts": {},
+					"points": 0,
+					"to": [
+						1360.0,
+						1605.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 4,
+					"from": [
+						1251.39282226563,
+						1535.71704101563
+					],
+					"ms": 3.282,
+					"parts": {
+						"connectivity": 0.007,
+						"endpoints": 0.104,
+						"jps": 0.412,
+						"overlay": 1.91,
+						"restore_compress": 0.015,
+						"search_and_connect": 0.439,
+						"smooth": 0.634
+					},
+					"points": 5,
+					"to": [
+						1580.0,
+						2170.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1480.0,
+						1300.30944824219
+					],
+					"ms": 4.753,
+					"parts": {
+						"connectivity": 3.587,
+						"endpoints": 0.056,
+						"jps": 0.02,
+						"overlay": 0.789,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.037,
+						"smooth": 0.16
+					},
+					"points": 2,
+					"to": [
+						1360.0,
+						1605.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						2397.11352539063,
+						2371.4404296875
+					],
+					"ms": 6.518,
+					"parts": {
+						"connectivity": 3.293,
+						"endpoints": 0.117,
+						"jps": 0.168,
+						"overlay": 1.094,
+						"restore_compress": 0.014,
+						"search_and_connect": 0.188,
+						"smooth": 1.467
+					},
+					"points": 4,
+					"to": [
+						750.0,
+						3240.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						4441.5654296875,
+						3361.41137695313
+					],
+					"ms": 3.062,
+					"parts": {
+						"connectivity": 0.009,
+						"endpoints": 0.075,
+						"jps": 0.201,
+						"overlay": 1.16,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.221,
+						"smooth": 1.145
+					},
+					"points": 9,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1360.0,
+						1773.40405273438
+					],
+					"ms": 5.803,
+					"parts": {
+						"connectivity": 2.888,
+						"endpoints": 0.046,
+						"jps": 0.748,
+						"overlay": 0.65,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.765,
+						"smooth": 1.304
+					},
+					"points": 8,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1162.11572265625,
+						1818.82055664063
+					],
+					"ms": 6.682,
+					"parts": {
+						"connectivity": 3.3,
+						"endpoints": 0.086,
+						"jps": 0.131,
+						"overlay": 2.754,
+						"restore_compress": 0.01,
+						"search_and_connect": 0.157,
+						"smooth": 0.258
+					},
+					"points": 2,
+					"to": [
+						1450.0,
+						2170.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 41.687,
+					"minute": 718.519516266667,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 3.706,
+						"guard.tick": 0.118,
+						"orders.tick": 0.004,
+						"presentation.tick": 4.036,
+						"room_access.tick": 0.608,
+						"routines.tick": 0.035,
+						"workshop.tick": 2.967,
+						"workshop.update_gate": 2.212,
+						"world.update_dorm_doors": 0.284
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								750.0,
+								2257.02612304688
+							],
+							"ms": 0.05,
+							"parts": {},
+							"points": 1,
+							"to": [
+								750.0,
+								2208.39990234375
+							]
+						},
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								1480.0,
+								1370.0
+							],
+							"ms": 2.664,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1480.0,
+								1205.0
+							]
+						}
+					],
+					"script": 15.085
+				},
+				{
+					"frame": 69.264,
+					"minute": 720.013395733334,
+					"parts": {
+						"dog.tick": 0.015,
+						"gate_watch.tick": 1.738,
+						"guard.tick": 0.059,
+						"orders.tick": 0.248,
+						"presentation.tick": 3.912,
+						"room_access.tick": 8.892,
+						"routines.tick": 30.479,
+						"workshop.tick": 3.257,
+						"workshop.update_gate": 2.484,
+						"world.update_dorm_doors": 0.174
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 3,
+							"from": [
+								1707.95849609375,
+								1340.85949707031
+							],
+							"ms": 26.449,
+							"parts": {
+								"connectivity": 3.911,
+								"endpoints": 0.047,
+								"grid_update": 18.888,
+								"jps": 0.446,
+								"overlay": 1.658,
+								"restore_compress": 0.009,
+								"search_and_connect": 0.465,
+								"smooth": 0.5
+							},
+							"points": 7,
+							"to": [
+								1450.0,
+								2170.0
+							]
+						},
+						{
+							"builds": 5,
+							"deferred": 4,
+							"from": [
+								1480.0,
+								1300.30944824219
+							],
+							"ms": 2.617,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1360.0,
+								1605.0
+							]
+						}
+					],
+					"script": 53.272
+				},
+				{
+					"frame": 25.198,
+					"minute": 724.80491946667,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 0.874,
+						"guard.tick": 0.113,
+						"orders.tick": 7.146,
+						"presentation.tick": 1.483,
+						"room_access.tick": 0.251,
+						"routines.tick": 0.022,
+						"workshop.tick": 0.2,
+						"workshop.update_gate": 0.041,
+						"world.update_dorm_doors": 0.186
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1162.11572265625,
+								1818.82055664063
+							],
+							"ms": 6.682,
+							"parts": {
+								"connectivity": 3.3,
+								"endpoints": 0.086,
+								"jps": 0.131,
+								"overlay": 2.754,
+								"restore_compress": 0.01,
+								"search_and_connect": 0.157,
+								"smooth": 0.258
+							},
+							"points": 2,
+							"to": [
+								1450.0,
+								2170.0
+							]
+						}
+					],
+					"script": 11.062
+				}
+			]
+		},
+		"transition_840": {
+			"draw_calls": {
+				"count": 240,
+				"max": 585.0,
+				"mean": 573.804166666667,
+				"over25": 240,
+				"over33": 240,
+				"p50": 572.0,
+				"p95": 580.0,
+				"p99": 585.0
+			},
+			"frame_ms": {
+				"count": 240,
+				"max": 57.205,
+				"mean": 16.7461458333333,
+				"over25": 5,
+				"over33": 2,
+				"p50": 16.593,
+				"p95": 18.896,
+				"p99": 32.151
+			},
+			"gpu_ms": {
+				"count": 240,
+				"max": 5.26100015640259,
+				"mean": 1.70199584017197,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.12600004673004,
+				"p95": 3.9779999256134,
+				"p99": 4.20599985122681
+			},
+			"render_cpu_ms": {
+				"count": 240,
+				"max": 1.75399994850159,
+				"mean": 1.11634583224853,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.09099996089935,
+				"p95": 1.40499997138977,
+				"p99": 1.59500002861023
+			},
+			"script_ms": {
+				"count": 240,
+				"max": 39.871,
+				"mean": 4.95339583333333,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.288,
+				"p95": 7.269,
+				"p99": 19.088
+			},
+			"slow_paths": [
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1198.8994140625,
+						2142.77734375
+					],
+					"ms": 2.101,
+					"parts": {
+						"connectivity": 0.006,
+						"endpoints": 0.053,
+						"jps": 0.176,
+						"overlay": 1.37,
+						"restore_compress": 0.008,
+						"search_and_connect": 0.194,
+						"smooth": 0.287
+					},
+					"points": 5,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						1147.83911132813,
+						1945.38940429688
+					],
+					"ms": 13.12,
+					"parts": {
+						"connectivity": 1.685,
+						"endpoints": 0.052,
+						"grid_update": 7.492,
+						"jps": 0.021,
+						"overlay": 1.785,
+						"restore_compress": 0.006,
+						"search_and_connect": 0.035,
+						"smooth": 1.729
+					},
+					"points": 3,
+					"to": [
+						2000.0,
+						1780.0
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						1147.83911132813,
+						1945.38940429688
+					],
+					"ms": 2.496,
+					"parts": {
+						"connectivity": 0.004,
+						"endpoints": 0.043,
+						"jps": 0.085,
+						"overlay": 1.886,
+						"restore_compress": 0.005,
+						"search_and_connect": 0.098,
+						"smooth": 0.301
+					},
+					"points": 6,
+					"to": [
+						1540.0,
+						2590.0
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						1336.51806640625,
+						1707.669921875
+					],
+					"ms": 4.415,
+					"parts": {
+						"connectivity": 1.811,
+						"endpoints": 0.041,
+						"jps": 0.023,
+						"overlay": 1.842,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.037,
+						"smooth": 0.179
+					},
+					"points": 4,
+					"to": [
+						1710.0,
+						1340.0
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						1360.09790039063,
+						1721.23974609375
+					],
+					"ms": 2.899,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1337.9150390625,
+						1703.56787109375
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						3380.0,
+						330.0
+					],
+					"ms": 2.495,
+					"parts": {},
+					"points": 1,
+					"to": [
+						3380.0,
+						330.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1357.94702148438,
+						1719.52624511719
+					],
+					"ms": 14.076,
+					"parts": {
+						"connectivity": 3.118,
+						"endpoints": 0.063,
+						"grid_update": 10.004,
+						"jps": 0.02,
+						"overlay": 0.47,
+						"restore_compress": 0.007,
+						"search_and_connect": 0.039,
+						"smooth": 0.291
+					},
+					"points": 2,
+					"to": [
+						1144.05261230469,
+						1865.49365234375
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						3380.0,
+						330.0
+					],
+					"ms": 2.813,
+					"parts": {},
+					"points": 1,
+					"to": [
+						3380.0,
+						330.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1236.74340820313,
+						1761.18896484375
+					],
+					"ms": 2.692,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1140.0,
+						1780.0
+					]
+				},
+				{
+					"builds": 8,
+					"deferred": 5,
+					"from": [
+						1174.65881347656,
+						1773.26098632813
+					],
+					"ms": 19.399,
+					"parts": {
+						"connectivity": 7.213,
+						"endpoints": 0.11,
+						"grid_update": 10.624,
+						"overlay": 1.312,
+						"restore_compress": 0.004,
+						"search_and_connect": 0.021,
+						"smooth": 0.003
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1205.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 57.205,
+					"minute": 840.019938666667,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 1.446,
+						"guard.tick": 0.186,
+						"orders.tick": 0.251,
+						"presentation.tick": 5.592,
+						"room_access.tick": 20.49,
+						"routines.tick": 4.666,
+						"workshop.tick": 5.475,
+						"workshop.update_gate": 0.082,
+						"world.update_dorm_doors": 0.141
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1147.83911132813,
+								1945.38940429688
+							],
+							"ms": 0.088,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1147.83911132813,
+								1945.38940429688
+							],
+							"ms": 13.12,
+							"parts": {
+								"connectivity": 1.685,
+								"endpoints": 0.052,
+								"grid_update": 7.492,
+								"jps": 0.021,
+								"overlay": 1.785,
+								"restore_compress": 0.006,
+								"search_and_connect": 0.035,
+								"smooth": 1.729
+							},
+							"points": 3,
+							"to": [
+								2000.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1147.83911132813,
+								1945.38940429688
+							],
+							"ms": 2.496,
+							"parts": {
+								"connectivity": 0.004,
+								"endpoints": 0.043,
+								"jps": 0.085,
+								"overlay": 1.886,
+								"restore_compress": 0.005,
+								"search_and_connect": 0.098,
+								"smooth": 0.301
+							},
+							"points": 6,
+							"to": [
+								1540.0,
+								2590.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1336.51806640625,
+								1707.669921875
+							],
+							"ms": 4.415,
+							"parts": {
+								"connectivity": 1.811,
+								"endpoints": 0.041,
+								"jps": 0.023,
+								"overlay": 1.842,
+								"restore_compress": 0.007,
+								"search_and_connect": 0.037,
+								"smooth": 0.179
+							},
+							"points": 4,
+							"to": [
+								1710.0,
+								1340.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								750.0,
+								2216.25170898438
+							],
+							"ms": 0.023,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1855.16003417969,
+								1924.91003417969
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1360.09790039063,
+								1721.23974609375
+							],
+							"ms": 2.899,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1337.9150390625,
+								1703.56787109375
+							]
+						}
+					],
+					"script": 39.871
+				},
+				{
+					"frame": 20.299,
+					"minute": 840.071888000001,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 1.302,
+						"guard.tick": 0.163,
+						"orders.tick": 0.34,
+						"presentation.tick": 3.773,
+						"room_access.tick": 0.374,
+						"routines.tick": 2.985,
+						"workshop.tick": 2.366,
+						"workshop.update_gate": 2.068,
+						"world.update_dorm_doors": 0.235
+					},
+					"paths": [
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1147.83911132813,
+								1945.38940429688
+							],
+							"ms": 0.119,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						}
+					],
+					"script": 14.47
+				},
+				{
+					"frame": 21.584,
+					"minute": 840.104393600001,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 4.134,
+						"guard.tick": 0.161,
+						"orders.tick": 0.273,
+						"presentation.tick": 4.177,
+						"room_access.tick": 3.869,
+						"routines.tick": 0.026,
+						"workshop.tick": 2.567,
+						"workshop.update_gate": 0.107,
+						"world.update_dorm_doors": 0.204
+					},
+					"paths": [],
+					"script": 16.401
+				},
+				{
+					"frame": 32.151,
+					"minute": 840.512158933334,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 1.042,
+						"guard.tick": 0.201,
+						"orders.tick": 0.374,
+						"presentation.tick": 1.559,
+						"room_access.tick": 0.356,
+						"routines.tick": 0.018,
+						"workshop.tick": 14.383,
+						"workshop.update_gate": 0.054,
+						"world.update_dorm_doors": 0.226
+					},
+					"paths": [
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								1357.94702148438,
+								1719.52624511719
+							],
+							"ms": 14.076,
+							"parts": {
+								"connectivity": 3.118,
+								"endpoints": 0.063,
+								"grid_update": 10.004,
+								"jps": 0.02,
+								"overlay": 0.47,
+								"restore_compress": 0.007,
+								"search_and_connect": 0.039,
+								"smooth": 0.291
+							},
+							"points": 2,
+							"to": [
+								1144.05261230469,
+								1865.49365234375
+							]
+						}
+					],
+					"script": 19.088
+				},
+				{
+					"frame": 25.067,
+					"minute": 840.858810666668,
+					"parts": {
+						"dog.tick": 0.009,
+						"gate_watch.tick": 3.629,
+						"guard.tick": 0.18,
+						"orders.tick": 0.248,
+						"presentation.tick": 3.952,
+						"room_access.tick": 2.075,
+						"routines.tick": 0.022,
+						"workshop.tick": 2.387,
+						"workshop.update_gate": 0.061,
+						"world.update_dorm_doors": 0.207
+					},
+					"paths": [],
+					"script": 13.564
+				},
+				{
+					"frame": 30.031,
+					"minute": 841.765441066668,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 3.66,
+						"guard.tick": 0.178,
+						"orders.tick": 0.005,
+						"presentation.tick": 4.121,
+						"room_access.tick": 0.389,
+						"routines.tick": 0.027,
+						"workshop.tick": 5.219,
+						"workshop.update_gate": 1.985,
+						"world.update_dorm_doors": 0.198
+					},
+					"paths": [
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								1236.74340820313,
+								1761.18896484375
+							],
+							"ms": 2.692,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						}
+					],
+					"script": 17.26
+				},
+				{
+					"frame": 37.129,
+					"minute": 842.378735466668,
+					"parts": {
+						"dog.tick": 0.007,
+						"gate_watch.tick": 0.858,
+						"guard.tick": 0.117,
+						"orders.tick": 0.004,
+						"presentation.tick": 1.329,
+						"room_access.tick": 0.342,
+						"routines.tick": 0.013,
+						"workshop.tick": 19.574,
+						"workshop.update_gate": 0.067,
+						"world.update_dorm_doors": 0.172
+					},
+					"paths": [
+						{
+							"builds": 8,
+							"deferred": 5,
+							"from": [
+								1174.65881347656,
+								1773.26098632813
+							],
+							"ms": 19.399,
+							"parts": {
+								"connectivity": 7.213,
+								"endpoints": 0.11,
+								"grid_update": 10.624,
+								"overlay": 1.312,
+								"restore_compress": 0.004,
+								"search_and_connect": 0.021,
+								"smooth": 0.003
+							},
+							"points": 0,
+							"to": [
+								1480.0,
+								1205.0
+							]
+						}
+					],
+					"script": 23.204
+				}
+			]
+		},
+		"uncapped": {
+			"draw_calls": {
+				"count": 600,
+				"max": 541.0,
+				"mean": 540.28,
+				"over25": 600,
+				"over33": 600,
+				"p50": 540.0,
+				"p95": 541.0,
+				"p99": 541.0
+			},
+			"frame_ms": {
+				"count": 600,
+				"max": 18.717,
+				"mean": 9.33262666666667,
+				"over25": 0,
+				"over33": 0,
+				"p50": 9.068,
+				"p95": 12.656,
+				"p99": 14.378
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 3.24600005149841,
+				"mean": 1.20599833548069,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.912000000476837,
+				"p95": 2.30999994277954,
+				"p99": 2.74600005149841
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 2.53399991989136,
+				"mean": 1.33309666534265,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.2389999628067,
+				"p95": 1.89699995517731,
+				"p99": 2.21600008010864
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 12.363,
+				"mean": 4.20429666666666,
+				"over25": 0,
+				"over33": 0,
+				"p50": 4.089,
+				"p95": 5.74,
+				"p99": 6.513
+			},
+			"slow_paths": [
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						2241.052734375,
+						1168.31774902344
+					],
+					"ms": 6.978,
+					"parts": {
+						"connectivity": 1.371,
+						"endpoints": 0.131,
+						"jps": 0.103,
+						"overlay": 1.711,
+						"restore_compress": 0.009,
+						"search_and_connect": 0.127,
+						"smooth": 2.858
+					},
+					"points": 3,
+					"to": [
+						750.0,
+						1180.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 18.717,
+					"minute": 518.456922068687,
+					"parts": {
+						"dog.tick": 0.013,
+						"gate_watch.tick": 7.768,
+						"guard.tick": 0.249,
+						"orders.tick": 0.006,
+						"presentation.tick": 1.947,
+						"room_access.tick": 0.719,
+						"routines.tick": 0.036,
+						"workshop.tick": 0.118,
+						"workshop.update_gate": 0.108,
+						"world.update_dorm_doors": 0.348
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								2241.052734375,
+								1168.31774902344
+							],
+							"ms": 6.978,
+							"parts": {
+								"connectivity": 1.371,
+								"endpoints": 0.131,
+								"jps": 0.103,
+								"overlay": 1.711,
+								"restore_compress": 0.009,
+								"search_and_connect": 0.127,
+								"smooth": 2.858
+							},
+							"points": 3,
+							"to": [
+								750.0,
+								1180.0
+							]
+						}
+					],
+					"script": 12.363
+				}
+			]
+		},
+		"vsync": {
+			"draw_calls": {
+				"count": 600,
+				"max": 567.0,
+				"mean": 548.013333333333,
+				"over25": 600,
+				"over33": 600,
+				"p50": 543.0,
+				"p95": 567.0,
+				"p99": 567.0
+			},
+			"frame_ms": {
+				"count": 600,
+				"max": 25.991,
+				"mean": 10.3644616666667,
+				"over25": 1,
+				"over33": 0,
+				"p50": 9.805,
+				"p95": 14.714,
+				"p99": 17.93
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 11.4530000686646,
+				"mean": 1.10558333555857,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.800000011920929,
+				"p95": 2.2739999294281,
+				"p99": 3.65599989891052
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 4.60799980163574,
+				"mean": 1.39932833085457,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.25499999523163,
+				"p95": 2.07399988174438,
+				"p99": 2.44300007820129
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 12.394,
+				"mean": 4.75747333333333,
+				"over25": 0,
+				"over33": 0,
+				"p50": 4.469,
+				"p95": 6.704,
+				"p99": 8.358
+			},
+			"slow_paths": [
+				{
+					"builds": 19,
+					"deferred": 83,
+					"from": [
+						3418.87670898438,
+						1179.43835449219
+					],
+					"ms": 4.525,
+					"parts": {
+						"connectivity": 0.009,
+						"endpoints": 0.105,
+						"jps": 0.387,
+						"overlay": 0.991,
+						"restore_compress": 0.01,
+						"search_and_connect": 0.415,
+						"smooth": 2.411
+					},
+					"points": 6,
+					"to": [
+						750.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 19,
+					"deferred": 83,
+					"from": [
+						756.267395019531,
+						2409.98657226563
+					],
+					"ms": 6.572,
+					"parts": {
+						"connectivity": 0.017,
+						"endpoints": 0.172,
+						"jps": 0.17,
+						"overlay": 3.039,
+						"restore_compress": 0.016,
+						"search_and_connect": 0.212,
+						"smooth": 2.02
+					},
+					"points": 4,
+					"to": [
+						2400.0,
+						2360.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 25.991,
+					"minute": 1932.76713973333,
+					"parts": {
+						"dog.tick": 0.014,
+						"gate_watch.tick": 0.811,
+						"guard.tick": 0.322,
+						"orders.tick": 0.004,
+						"presentation.tick": 1.859,
+						"room_access.tick": 0.794,
+						"routines.tick": 0.033,
+						"workshop.tick": 0.421,
+						"workshop.update_gate": 0.091,
+						"world.update_dorm_doors": 0.345
+					},
+					"paths": [],
+					"script": 5.775
+				},
+				{
+					"frame": 19.599,
+					"minute": 1934.64641102221,
+					"parts": {
+						"dog.tick": 0.015,
+						"gate_watch.tick": 0.758,
+						"guard.tick": 6.831,
+						"orders.tick": 0.005,
+						"presentation.tick": 2.002,
+						"room_access.tick": 0.607,
+						"routines.tick": 0.025,
+						"workshop.tick": 0.486,
+						"workshop.update_gate": 0.081,
+						"world.update_dorm_doors": 0.292
+					},
+					"paths": [
+						{
+							"builds": 19,
+							"deferred": 83,
+							"from": [
+								756.267395019531,
+								2409.98657226563
+							],
+							"ms": 6.572,
+							"parts": {
+								"connectivity": 0.017,
+								"endpoints": 0.172,
+								"jps": 0.17,
+								"overlay": 3.039,
+								"restore_compress": 0.016,
+								"search_and_connect": 0.212,
+								"smooth": 2.02
+							},
+							"points": 4,
+							"to": [
+								2400.0,
+								2360.0
+							]
+						}
+					],
+					"script": 12.394
+				}
+			]
+		}
+	},
+	"fixture_count": 582,
+	"initial_texture_mib": 0.0,
+	"refresh_hz": 165.001602172852,
+	"renderer": "forward_plus",
+	"texture_mib": 809.16015625,
+	"wall_count": 1307
+}

@@ -1,0 +1,43 @@
+// Adapted from opengenius/godot_swe_ocean2d (MIT), pinned in provenance.json.
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
+layout(rgba32f, set = 0, binding = 0) uniform restrict readonly image2D state_in;
+layout(rgba32f, set = 0, binding = 1) uniform restrict writeonly image2D state_out;
+layout(r32f, set = 0, binding = 2) uniform image2D terrain;
+layout(rg32f, set = 0, binding = 3) uniform image2D face_velocity;
+layout(push_constant, std430) uniform Params {
+    vec4 grid;       // width, height, cell size metres, fixed step seconds
+    vec4 wave;       // time, amplitude metres, incoming waves enabled, piers enabled
+    vec4 impulse;    // UV position, radius UV, amplitude metres (one substep only)
+    vec4 options;   // initialization mode, generate foam, flat bed, uniform flow test
+} p;
+const float G = 9.81;
+const float DRY = 0.001;
+ivec2 bounds(ivec2 q) { return clamp(q, ivec2(0), ivec2(p.grid.xy) - 1); }
+vec4 state(ivec2 q) { return imageLoad(state_in, bounds(q)); }
+float bed(ivec2 q) { return imageLoad(terrain, bounds(q)).r; }
+vec2 faces(ivec2 q) { return imageLoad(face_velocity, bounds(q)).rg; }
+vec4 interpolate_state(vec2 q) {
+    ivec2 a = ivec2(floor(q)); vec2 f = fract(q);
+    return mix(mix(state(a), state(a+ivec2(1,0)), f.x),
+               mix(state(a+ivec2(0,1)), state(a+ivec2(1,1)), f.x), f.y);
+}
+layout(rgba32f,set=0,binding=4) readonly uniform image2DArray ocean_map;
+layout(rgba32f,set=0,binding=5) readonly uniform image2D foam_in;
+layout(rgba32f,set=0,binding=6) writeonly uniform image2D foam_out;
+vec4 ocean_sample(vec2 world,int layer){
+    float length_m=layer==0?134.4:33.6;
+    vec2 pos=fract(world/length_m)*128.0-0.5;
+    ivec2 a=ivec2(floor(pos)); vec2 f=fract(pos);
+    ivec2 b=(a%128+128)%128,c=(b+1)%128;
+    return mix(mix(imageLoad(ocean_map,ivec3(b,layer)),imageLoad(ocean_map,ivec3(c.x,b.y,layer)),f.x),
+               mix(imageLoad(ocean_map,ivec3(b.x,c.y,layer)),imageLoad(ocean_map,ivec3(c,layer)),f.x),f.y);
+}
+vec4 ocean(vec2 world){return ocean_sample(world,0)+ocean_sample(world,1);}
+vec4 foam(ivec2 q){return imageLoad(foam_in,bounds(q));}
+vec4 foam_advect(vec2 q){
+    ivec2 a=ivec2(floor(q));vec2 f=fract(q);
+    return mix(mix(foam(a),foam(a+ivec2(1,0)),f.x),mix(foam(a+ivec2(0,1)),foam(a+ivec2(1,1)),f.x),f.y);
+}
+float random_cell(vec2 pos){vec3 x=fract(vec3(pos.xyx)*0.1031);x+=dot(x,x.yzx+33.33);return fract((x.x+x.y)*x.z);}
+
+float incoming(vec2 uv, float t) { return ocean(uv*p.grid.xy*p.grid.z).x; }

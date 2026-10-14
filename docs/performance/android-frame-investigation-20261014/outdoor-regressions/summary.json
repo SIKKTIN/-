@@ -1,0 +1,47 @@
+{
+  "resources": {
+    "production_text_files": 190,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [
+      "scripts/tools/bake_administration_roofs_v1.gd",
+      "scripts/tools/bake_nine_point_v1.gd",
+      "scripts/tools/bake_nine_point_v2.gd",
+      "scripts/tools/bake_runtime_textures.gd",
+      "scripts/ui/nine_point_panel.gd"
+    ],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "bath_watercard",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 16.69,
+      "checks": 150,
+      "failed": [
+        "pickup r04-1-93",
+        "pickup r04-1-94",
+        "current locker can be opened",
+        "card drag back preserves credit",
+        "card drag into bag preserves credit",
+        "campus-bath-shower-1-0 highlight follows fixture mirror",
+        "campus-bath-shower-1-1 highlight follows fixture mirror",
+        "campus-bath-shower-1-2 highlight follows fixture mirror"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "interaction_hint",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.47,
+      "checks": 32,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 182,
+  "passed": false
+}

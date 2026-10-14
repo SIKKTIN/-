@@ -1,0 +1,974 @@
+{
+	"schema": 2,
+	"version": "administration-doors-v2",
+	"assets": [
+		{
+			"id": "doorway_duty_open_v2",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "值班室钢门 · 全开",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				755,
+				516
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_duty_open_v2",
+				"door_art_closed": "doorway_duty_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_open_v2"
+		},
+		{
+			"id": "doorway_duty_open_v1",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768,
+			"name": "值班室钢门 · 全开",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				755,
+				516
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_duty_open_v2",
+				"door_art_closed": "doorway_duty_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_open_v2",
+			"replacement_asset": "doorway_duty_open_v2"
+		},
+		{
+			"id": "doorway_duty_closed_v2",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "值班室钢门 · 关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				498,
+				432
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_duty_open_v2",
+				"door_art_closed": "doorway_duty_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_closed_v2"
+		},
+		{
+			"id": "doorway_duty_closed_v1",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"runtime_size_limit": 768,
+			"name": "值班室钢门 · 关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				498,
+				432
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_duty_open_v2",
+				"door_art_closed": "doorway_duty_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_closed_v2",
+			"replacement_asset": "doorway_duty_closed_v2"
+		},
+		{
+			"id": "doorway_office_open_v2",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				55,
+				91,
+				755,
+				516
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "办公室钢门 · 全开",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				755,
+				516
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_office_open_v2",
+				"door_art_closed": "doorway_office_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_open_v2"
+		},
+		{
+			"id": "doorway_office_closed_v2",
+			"texture": "res://art/architecture/workshop_door_v2/components.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				923,
+				164,
+				498,
+				432
+			],
+			"sha256": "3a0480f171562b67d8a1983c780ee3771eeddecaf7a29c8933f5609cace7f080",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"runtime_size_limit": 768,
+			"name": "办公室钢门 · 关闭",
+			"render_mode": "embedded_door",
+			"world_size": [
+				180,
+				120
+			],
+			"render_size": [
+				180,
+				120
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"ground_rect": [
+				0,
+				0,
+				498,
+				432
+			],
+			"blocking": false,
+			"grid_door": {
+				"cell": 20
+			},
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					180,
+					120
+				],
+				"door_art": "doorway_office_open_v2",
+				"door_art_closed": "doorway_office_closed_v2",
+				"door_open_patches": [
+					{
+						"asset": "workshop_door_v2_open_left",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_open_right",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							139,
+							19,
+							18,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"door_closed_patches": [
+					{
+						"asset": "workshop_door_v2_closed_leaves",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							23,
+							19,
+							134,
+							101
+						]
+					},
+					{
+						"asset": "workshop_door_v2_frame",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							180,
+							120
+						]
+					}
+				],
+				"visual_solid_parts": [
+					[
+						0,
+						18,
+						41,
+						102
+					],
+					[
+						139,
+						18,
+						41,
+						102
+					]
+				],
+				"closed_visual_solid_parts": [
+					[
+						0,
+						18,
+						180,
+						102
+					]
+				],
+				"body_profile": "human_silhouette",
+				"states": [
+					"closed",
+					"fully-open"
+				]
+			},
+			"reused_from": "doorway_workshop_closed_v2"
+		}
+	]
+}

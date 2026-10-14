@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Node not found: "Geometry_x" (relative to "/root/@Control@21320/@PanelContainer@21321/@MarginContainer@21322/@VBoxContainer@21323/@HSplitContainer@21375/CanvasInspectorSplit/InspectorTabs/属性/Properties").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] inspector_forms (res://qa/code_structure_20261014/regression.gd:98)
+       [1] run (res://qa/code_structure_20261014/regression.gd:27)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'null instance'.
+   at: inspector_forms (res://qa/code_structure_20261014/regression.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] inspector_forms (res://qa/code_structure_20261014/regression.gd:99)
+       [1] run (res://qa/code_structure_20261014/regression.gd:27)
+ERROR: Node not found: "Geometry_x" (relative to "/root/@Control@22519/@PanelContainer@22520/@MarginContainer@22521/@VBoxContainer@22522/@HSplitContainer@22574/CanvasInspectorSplit/InspectorTabs/属性/Properties").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] inspector_forms (res://qa/code_structure_20261014/regression.gd:98)
+       [1] run (res://qa/code_structure_20261014/regression.gd:28)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'null instance'.
+   at: inspector_forms (res://qa/code_structure_20261014/regression.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] inspector_forms (res://qa/code_structure_20261014/regression.gd:99)
+       [1] run (res://qa/code_structure_20261014/regression.gd:28)
+STRUCTURE_REGRESSION {"checks":15,"failed":[],"inspector_groups":0,"lifecycle_states":11}

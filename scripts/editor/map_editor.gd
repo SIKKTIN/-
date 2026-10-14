@@ -5,6 +5,8 @@ const Document = preload("res://scripts/editor/map_document.gd")
 const Canvas = preload("res://scripts/editor/map_canvas.gd")
 const Layers = preload("res://scripts/editor/map_layers.gd")
 const Catalog = preload("res://scripts/editor/editor_catalog.gd")
+const InspectorView = preload("res://scripts/editor/map_inspector.gd")
+var inspector_view = InspectorView.new(self)
 var document = Document.new()
 var layers = Layers.new()
 var catalog = Catalog.new()
@@ -45,6 +47,13 @@ var undo_button: Button
 var redo_button: Button
 var workspace_root := ""
 var character_preview_window: Window
+var item_preview_window: Window
+var gesture_refresh_pending := false
+var inspector_tabs: TabContainer
+var selection_actions: PanelContainer
+var document_state: Label
+var zoom_label: Label
+var library_collapsed := false
 
 func has_pending_changes() -> bool:
 	if document.dirty(): return true
@@ -65,16 +74,17 @@ func commit_fields() -> void:
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	theme = load("res://art/ui/fullscreen/theme.tres")
+	theme = preload("res://scripts/editor/editor_theme.gd").make()
 	workspace_root = ProjectSettings.globalize_path("res://")
 	build_ui()
-	document.changed.connect(refresh)
+	document.changed.connect(on_document_changed)
 	layers.changed.connect(on_layers_changed)
 	load_maps()
 	request_open("res://data/rooms/r04.json")
 	get_window().focus_exited.connect(func(): canvas.finish_gesture())
 	if not Engine.is_editor_hint():
-		get_window().title = "监狱风云 · 关卡编辑器 · 统一建筑素材"
+		get_window().min_size = Vector2i(960,640)
+		get_window().title = "监狱风云 · 地图编辑器 · 旋转与镜像"
 		get_window().close_requested.connect(request_quit)
 		get_tree().auto_accept_quit = false
 
@@ -100,11 +110,25 @@ func open_character_previewer() -> void:
 				id = str(document.data.get("character_appearances",{}).get(key,""))
 			if not id.is_empty(): character_preview_window.get_child(0).select_character(id)
 
+func open_item_previewer() -> void:
+	if not is_instance_valid(item_preview_window):
+		item_preview_window = Window.new()
+		item_preview_window.title = "物品预览工具"
+		item_preview_window.min_size = Vector2i(1050,680)
+		item_preview_window.size = Vector2i(1280,820)
+		add_child(item_preview_window)
+		item_preview_window.add_child(preload("res://scenes/editor/item_previewer.tscn").instantiate())
+		item_preview_window.close_requested.connect(func(): item_preview_window.hide())
+	item_preview_window.popup_centered()
+	var viewer = item_preview_window.get_child(0)
+	viewer.reload_catalog()
+	if selection.get("group","") == "items": viewer.select_item(str(document.value(selection).definition_id))
+
 func button(parent: Node, label: String, callback: Callable, width := 80) -> Button:
 	var b := Button.new()
 	b.text = label
 	b.add_theme_font_size_override("font_size",14)
-	b.custom_minimum_size = Vector2(width,36)
+	b.custom_minimum_size = Vector2(width,32)
 	b.focus_mode = Control.FOCUS_NONE
 	b.pressed.connect(callback)
 	parent.add_child(b)
@@ -115,6 +139,9 @@ func label(parent: Node, content: String, font_size := 14) -> Label:
 	l.text = content
 	l.add_theme_font_size_override("font_size",font_size)
 	parent.add_child(l)
+	if parent==inspector:
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return l
 
 func build_ui() -> void:
@@ -130,7 +157,7 @@ func build_ui() -> void:
 	margin.add_child(root_box)
 	var top := HBoxContainer.new()
 	root_box.add_child(top)
-	label(top,"关卡编辑",19)
+	label(top,"地图编辑器",17)
 	maps = OptionButton.new()
 	maps.name = "MapSelector"
 	maps.custom_minimum_size.x = 96
@@ -150,28 +177,38 @@ func build_ui() -> void:
 			document.data.title = title_input.text
 			document.commit())
 	top.add_child(title_input)
-	button(top,"重读",func(): request_open(document.path),56)
+	document_state = label(top,"已保存",12)
 	button(top,"保存",save_current,56)
-	button(top,"另存为",func(): commit_fields(); save_as.popup_centered(Vector2i(760,500)),68)
+	var file_menu := MenuButton.new()
+	file_menu.text = "文件 ▾"
+	file_menu.get_popup().add_item("重新读取",0)
+	file_menu.get_popup().add_item("另存为…",1)
+	file_menu.get_popup().id_pressed.connect(func(id):
+		if id==0: request_open(document.path)
+		else: commit_fields(); save_as.popup_centered(Vector2i(760,500)))
+	top.add_child(file_menu)
 	button(top,"检查地图",check_map,80)
-	preview_button = button(top,"▶ 试玩草稿",playtest,112)
+	preview_button = button(top,"▶ 试玩",playtest,84)
 	preview_button.name = "Playtest"
 	operation_bar = HFlowContainer.new()
 	operation_bar.name = "Operations"
 	root_box.add_child(operation_bar)
-	for mode in ["select","pan","walls"]:
-		var mode_button := button(operation_bar,{"select":"选择 V","pan":"平移 H","walls":"绘墙 B"}[mode],func(): set_tool(mode),90)
+	for mode in ["select","marquee","pan","walls","floor_edit","eraser"]:
+		var mode_button := button(operation_bar,{"select":"选择 V","marquee":"框选建筑","pan":"平移 H","walls":"绘制 B","floor_edit":"地板 G","eraser":"橡皮擦 E"}[mode],func(): set_tool(mode),90)
 		mode_button.name = "Tool_"+mode
 		mode_button.icon = catalog.icon({"id":mode,"icon":catalog.tool_icons.get(mode,"")})
+		if mode=="marquee": mode_button.icon = load("res://art/ui/editor_marquee.svg")
+		if mode=="floor_edit": mode_button.icon = load("res://art/ui/editor_floor.svg")
 		mode_button.expand_icon = true
 		mode_button.add_theme_constant_override("icon_max_width",18)
 		mode_button.toggle_mode = true
+		if mode == "eraser": mode_button.tooltip_text = "按住左键拖动，连续删除经过的对象；Ctrl+Z 撤销整次擦除，Esc 取消。隐藏、锁定的图层不会删除。"
+		if mode == "marquee": mode_button.tooltip_text = "M：左键拖框完整包住建筑；框内墙、门、家具一起选中。拖动选区整体移动；R 右转，Shift+R 左转90°。"
+		if mode == "floor_edit": mode_button.tooltip_text = "G：选择地板、拖动移动、拖四角调整范围；右侧更换材质，左侧选材质后拖矩形铺地板。"
 		operation_buttons[mode] = mode_button
-	undo_button = button(operation_bar,"撤销",func(): commit_fields(); document.undo(); refresh_inspector(),56)
-	redo_button = button(operation_bar,"重做",func(): commit_fields(); document.redo(); refresh_inspector(),56)
-	button(operation_bar,"复制",duplicate_selected,56)
-	button(operation_bar,"删除",delete_selected,56)
-	button(operation_bar,"全图",canvas_fit,56)
+	undo_button = button(operation_bar,"↶",func(): commit_fields(); document.undo(); refresh_inspector(),32)
+	redo_button = button(operation_bar,"↷",func(): commit_fields(); document.redo(); refresh_inspector(),32)
+	button(operation_bar,"素材 ◀",toggle_library,66)
 	var snap := CheckButton.new()
 	snap.text = "20格吸附"
 	snap.add_theme_font_size_override("font_size",13)
@@ -183,14 +220,21 @@ func build_ui() -> void:
 	collision.add_theme_font_size_override("font_size",13)
 	collision.toggled.connect(func(on): canvas.show_collision = on; canvas.queue_redraw())
 	operation_bar.add_child(collision)
-	button(operation_bar,"角色预览",open_character_previewer,86).name = "CharacterPreview"
+	var preview_menu := MenuButton.new()
+	preview_menu.text = "预览 ▾"
+	preview_menu.get_popup().add_item("角色与动画",0)
+	preview_menu.get_popup().add_item("物品素材",1)
+	preview_menu.get_popup().id_pressed.connect(func(id):
+		if id==0: open_character_previewer()
+		else: open_item_previewer())
+	operation_bar.add_child(preview_menu)
 	active_tool = label(operation_bar,"选择对象",13)
 	var split := HSplitContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	root_box.add_child(split)
 	library_tabs = TabContainer.new()
 	library_tabs.name = "Library"
-	library_tabs.custom_minimum_size.x = 242
+	library_tabs.custom_minimum_size.x = 236
 	var tab_panel := StyleBoxFlat.new()
 	tab_panel.bg_color = Color("f1eadb")
 	for edge in ["left","right","top","bottom"]: tab_panel.set_content_margin(int({"left":0,"top":1,"right":2,"bottom":3}[edge]),6)
@@ -213,7 +257,9 @@ func build_ui() -> void:
 	category_picker.name = "ResourceCategory"
 	category_picker.add_theme_font_size_override("font_size",14)
 	for category in Catalog.CATEGORIES: category_picker.add_item(Catalog.CATEGORY_NAMES[category])
-	category_picker.item_selected.connect(func(_index): rebuild_subcategories())
+	category_picker.item_selected.connect(func(index):
+		if Catalog.CATEGORIES[index] == "floors": set_tool("floor_edit")
+		else: rebuild_subcategories())
 	category_picker.tooltip_text = "一级分类"
 	resources.add_child(category_picker)
 	subcategory_picker = OptionButton.new()
@@ -242,13 +288,13 @@ func build_ui() -> void:
 	resources.add_child(random_wall_variants)
 	palette = ItemList.new()
 	palette.name = "ResourceCards"
-	palette.max_columns = 2
+	palette.max_columns = 3
 	palette.same_column_width = true
-	palette.fixed_column_width = 90
+	palette.fixed_column_width = 64
 	palette.max_text_lines = 2
 	palette.fixed_icon_size = Vector2i(48,48)
 	palette.icon_mode = ItemList.ICON_MODE_TOP
-	palette.add_theme_font_size_override("font_size",13)
+	palette.add_theme_font_size_override("font_size",11)
 	palette.add_theme_constant_override("v_separation",10)
 	palette.add_theme_constant_override("h_separation",6)
 	palette.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -277,6 +323,10 @@ func build_ui() -> void:
 		canvas.queue_redraw())
 	object_tab.add_child(objects)
 	var right_split := HSplitContainer.new()
+	right_split.name = "CanvasInspectorSplit"
+	right_split.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	right_split.dragger_visibility = SplitContainer.DRAGGER_VISIBLE
+	right_split.add_theme_constant_override("separation",10)
 	split.add_child(right_split)
 	canvas = Canvas.new()
 	canvas.name = "MapCanvas"
@@ -286,28 +336,44 @@ func build_ui() -> void:
 	canvas.stroke_variant = func(id,point):return catalog.stable_variant(id,str(document.data.id),point) if random_wall_variants.button_pressed else id
 	canvas.selected.connect(select_object)
 	canvas.placed.connect(place_object)
-	canvas.edited.connect(refresh_inspector)
+	canvas.edited.connect(on_gesture_finished)
 	canvas.blocked.connect(show_status)
 	canvas.interaction_started.connect(commit_fields)
 	right_split.add_child(canvas)
-	var side := VBoxContainer.new()
-	side.custom_minimum_size.x = 234
-	right_split.add_child(side)
-	build_layers(side)
-	side.add_child(HSeparator.new())
+	inspector_tabs = TabContainer.new()
+	inspector_tabs.name = "InspectorTabs"
+	inspector_tabs.custom_minimum_size.x = 240
+	right_split.add_child(inspector_tabs)
 	var scroll := ScrollContainer.new()
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	side.add_child(scroll)
+	scroll.name = "属性"
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	inspector_tabs.add_child(scroll)
 	inspector = VBoxContainer.new()
 	inspector.name = "Properties"
-	inspector.custom_minimum_size.x = 218
+	inspector.custom_minimum_size.x = 216
 	inspector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	inspector.add_theme_constant_override("separation",8)
 	scroll.add_child(inspector)
-	file_label = label(root_box,"",12)
-	status = label(root_box,"选择对象后拖动；右侧修改尺寸、碰撞和角色归属。",13)
+	var layer_scroll := ScrollContainer.new()
+	layer_scroll.name = "图层"
+	layer_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	inspector_tabs.add_child(layer_scroll)
+	var layer_box := VBoxContainer.new()
+	layer_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	layer_scroll.add_child(layer_box)
+	build_layers(layer_box)
+	build_selection_actions()
+	var footer := HBoxContainer.new()
+	root_box.add_child(footer)
+	file_label = label(footer,"",11)
+	file_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	zoom_label = label(footer,"75%",12)
+	button(footer,"−",func(): zoom_canvas(1.0/1.15),32)
+	button(footer,"+",func(): zoom_canvas(1.15),32)
+	button(footer,"全图",canvas_fit,52)
+	status = label(root_box,"左键框选建筑 · R 旋转90° · Esc 取消 · 中键平移",12)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	status.custom_minimum_size.y = 32
+	status.custom_minimum_size.y = 18
 	validation = AcceptDialog.new()
 	validation.title = "地图检查"
 	add_child(validation)
@@ -339,6 +405,125 @@ func build_ui() -> void:
 	add_child(save_as)
 	rebuild_subcategories()
 	set_tool("select")
+
+func toggle_library() -> void:
+	library_collapsed = not library_collapsed
+	library_tabs.visible = not library_collapsed
+
+func zoom_canvas(factor: float) -> void:
+	canvas.finish_gesture()
+	var center: Vector2 = canvas.world(canvas.size/2)
+	canvas.zoom = clampf(canvas.zoom*factor,0.08,3)
+	canvas.origin = canvas.size/2-center*canvas.zoom
+	canvas.queue_redraw()
+
+func build_selection_actions() -> void:
+	selection_actions = PanelContainer.new()
+	selection_actions.name = "SelectionActions"
+	selection_actions.z_index = 4096
+	canvas.add_child(selection_actions)
+	selection_actions.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	selection_actions.offset_left = -184
+	selection_actions.offset_right = 184
+	selection_actions.offset_top = -66
+	selection_actions.offset_bottom = -24
+	var row := HBoxContainer.new()
+	selection_actions.add_child(row)
+	button(row,"↻ 旋转 R",func(): rotate_selected(1),88)
+	button(row,"复制",duplicate_selected,54)
+	button(row,"删除",delete_selected,54)
+	button(row,"取消选择",func(): canvas.choose({}),80)
+	selection_actions.hide()
+
+func rotate_selected(turns: int) -> void:
+	commit_fields()
+	if canvas.rotate_selection(turns):
+		show_status("已整体旋转 %s90°；Ctrl+Z 撤销。" % ("左" if turns<0 else "右"))
+	refresh_inspector()
+
+func build_rotation_controls() -> void:
+	inspector_view.build_rotation_controls()
+
+func mirror_selected(horizontal := true) -> void:
+	commit_fields()
+	if not canvas.group_refs.is_empty():
+		show_status("请单独选中医疗床等场景摆设，再进行镜像。")
+		return
+	if not can_edit_selection():
+		show_status("请选择可编辑的场景摆设。")
+		return
+	if document.mirror_fixture(selection,horizontal):
+		show_status("已左右镜像，物体位置和占地保持不变；Ctrl+Z 撤销。" if horizontal else "已上下镜像，物体位置和占地保持不变；Ctrl+Z 撤销。")
+		refresh_inspector()
+	else: show_status(document.last_error)
+
+func build_mirror_controls() -> void:
+	inspector_view.build_mirror_controls()
+
+func build_group_inspector() -> void:
+	inspector_view.build_group_inspector()
+
+func build_selection_scope() -> void:
+	inspector_view.build_selection_scope()
+
+func duplicate_group() -> void:
+	var refs: Array = canvas.group_refs.duplicate(true)
+	if refs.any(func(ref): return ref.group in ["starts","dormitories","confinement","door"]):
+		show_status("建筑含唯一出生归属或主门，请先取消这些对象的框选。")
+		return
+	var snapshot: Dictionary = canvas.Transform.capture(document,refs)
+	if snapshot.extras.any(func(entry): return entry.path.size()==1):
+		show_status("车间与食堂包含唯一生产/作息配置，可整体移动和旋转；请单独复制摆设。")
+		return
+	var shifted: Rect2 = snapshot.bounds
+	shifted.position += Vector2(40,40)
+	if not document.geometry({"group":"bounds","index":-1}).encloses(shifted):
+		show_status("复制后超出地图边界。")
+		return
+	document.begin()
+	var next: Array = []
+	var ids := {}
+	for entry in snapshot.objects:
+		var ref: Dictionary = entry.ref
+		var item = entry.value.duplicate(true)
+		if item is Dictionary and item.has("id"):
+			var id := document.unique_id(str(item.id))
+			ids[str(item.id)] = id
+			item.id = id
+		document.collection(ref.group).append(item)
+		var target := {"group":ref.group,"index":document.collection(ref.group).size()-1}
+		if ref.group=="walls" and not entry.surface.is_empty():
+			var surface: Dictionary = entry.surface.duplicate(true)
+			surface.wall_index = target.index
+			document.data.architecture.wall_surfaces.append(surface)
+		next.append(target)
+	document.invalidate_wall_surface_index()
+	for ref in next:
+		var item = document.value(ref)
+		if not item is Dictionary: continue
+		for key in ["access_id","door_id"]:
+			if ids.has(str(item.get(key,""))): item[key] = ids[str(item[key])]
+		for index in range(item.get("door_ids",[]).size()):
+			if ids.has(str(item.door_ids[index])): item.door_ids[index] = ids[str(item.door_ids[index])]
+	var clone: Dictionary = canvas.Transform.capture(document,next,false)
+	for extra in snapshot.extras:
+		var parent = document.data
+		for index in range(extra.path.size()-1): parent = parent[extra.path[index]]
+		var item = extra.value.duplicate(true)
+		if item is Dictionary and ids.has(str(item.get("room_id",""))): item.room_id = ids[str(item.room_id)]
+		if item is Dictionary and item.has("id"):
+			var base := str(item.id)+"_copy"
+			var index := 1
+			var used: Array = parent.filter(func(entry): return entry is Dictionary).map(func(entry): return str(entry.get("id","")))
+			while base+str(index) in used: index += 1
+			item.id = base+str(index)
+		parent.append(item)
+		var path: Array = extra.path.duplicate()
+		path[-1] = parent.size()-1
+		clone.extras.append({"path":path,"value":item.duplicate(true)})
+	canvas.Transform.apply(document,clone,0,Vector2(40,40))
+	document.commit()
+	canvas.choose_group(next)
 
 func build_layers(parent: Node) -> void:
 	var heading := HBoxContainer.new()
@@ -425,25 +610,44 @@ func set_tool(mode: String) -> void:
 		elif mode == "walls" and not layers.visible.architecture:
 			layers.set_visible("architecture",true)
 		canvas.tool = mode
+		if mode == "floor_edit":
+			layers.set_visible("ground",true)
+			layers.set_locked("ground",false)
+			category_picker.select(Catalog.CATEGORIES.find("floors"))
+			resource_search.text = ""
+			rebuild_subcategories()
+		canvas.mouse_default_cursor_shape = Control.CURSOR_CROSS if mode in ["eraser","marquee"] else Control.CURSOR_ARROW
+		canvas.queue_redraw()
 	for key in operation_buttons: operation_buttons[key].set_pressed_no_signal(key == mode)
 	if is_instance_valid(palette): palette.deselect_all()
-	active_tool.text = {"select":"选择对象","pan":"平移视野","walls":"绘制墙体"}.get(mode,mode)
+	active_tool.text = {"select":"选择对象","marquee":"框选建筑","pan":"平移视野","walls":"绘制墙体","floor_edit":"编辑地板","eraser":"拖动擦除"}.get(mode,mode)
+	if mode == "eraser": show_status("橡皮擦：拖动删除，Ctrl+Z 撤销；擦地板或标线请在“图层”解锁“地面 / 标记”。")
+	if mode == "floor_edit": show_status("地板：点击已有地板编辑；拖四角调整范围。左侧选材质后拖出矩形新铺地板。")
 
 func activate_resource(entry: Dictionary) -> void:
 	commit_fields()
 	var key: String = layers.key_for(entry.group)
+	if entry.group == "floor_regions":
+		layers.set_visible("ground",true)
+		layers.set_locked("ground",false)
 	if layers.locked[key]:
 		show_status(Layers.NAMES[key]+"已锁定，请先解锁。")
 		return
 	if not layers.visible[key]: layers.set_visible(key,true)
 	placement = entry.duplicate()
 	canvas.tool = str(entry.group)
+	if entry.group == "floor_regions":
+		canvas.tool = "floor_paint"
+		canvas.floor_material = entry.floor_spec.duplicate(true)
+	canvas.mouse_default_cursor_shape = Control.CURSOR_ARROW
 	canvas.placement_asset = str(entry.get("asset_id",""))
 	for index in range(palette_entries.size()):
 		if palette_entries[index].id == entry.id: palette.select(index)
 	for control in operation_buttons.values(): control.set_pressed_no_signal(false)
+	if entry.group == "floor_regions": operation_buttons.floor_edit.set_pressed_no_signal(true)
 	active_tool.text = "放置："+str(entry.name)
 	show_status("已选“"+str(entry.name)+"”，点击地图放置；V切回选择，Esc取消。")
+	if entry.group == "floor_regions": show_status("已选“"+str(entry.name)+"”，拖出矩形铺地板；G 编辑已有地板，Ctrl+Z 撤销。")
 
 func solo_layer() -> void:
 	commit_fields()
@@ -453,6 +657,7 @@ func solo_layer() -> void:
 func on_layers_changed() -> void:
 	if not is_instance_valid(canvas): return
 	canvas.finish_gesture()
+	if not canvas.group_refs.is_empty() and canvas.group_refs.any(func(ref): return layers.locked[layers.key_for(ref.group)] or not layers.is_visible(ref.group) and ref.group not in ["visibility_rooms","zones","dormitories","confinement"]): canvas.choose({})
 	if not selection.is_empty() and not layers.is_editable(selection.group): canvas.choose({})
 	if not placement.is_empty() and not layers.is_editable(placement.group): set_tool("select")
 	if canvas.tool == "walls" and not layers.is_editable("walls"): set_tool("select")
@@ -493,6 +698,7 @@ func open_now(path: String) -> void:
 		return
 	selection.clear()
 	canvas.selection.clear()
+	canvas.group_refs.clear()
 	sync_map_choice()
 	refresh_inspector()
 	canvas.call_deferred("fit")
@@ -501,11 +707,39 @@ func open_now(path: String) -> void:
 func canvas_fit() -> void:
 	canvas.fit()
 
+func on_document_changed() -> void:
+	if is_instance_valid(canvas) and (not canvas.drag_ref.is_empty() or canvas.drawing_wall or canvas.painting_floor or canvas.erasing or canvas.group_dragging):
+		# Keep the list and inspector stable during a drag or eraser stroke.
+		# Rebuild them on release instead of serializing the factory every motion.
+		gesture_refresh_pending = true
+		file_label.text = "● 未保存  "+document.path
+		return
+	gesture_refresh_pending = false
+	refresh()
+
+func on_gesture_finished() -> void:
+	gesture_refresh_pending = false
+	if canvas.tool == "floor_edit" and placement.get("group","") == "floor_regions":
+		placement.clear()
+		canvas.placement_asset = ""
+		palette.deselect_all()
+		active_tool.text = "编辑地板"
+		show_status("地板已铺设：拖动移动，拖四角拉伸；左侧重新选材质可继续铺设，Ctrl+Z 撤销。")
+	refresh()
+	refresh_inspector()
+
 func refresh() -> void:
 	if not is_instance_valid(file_label):
 		return
 	refreshing = true
-	file_label.text = ("● 未保存  " if document.dirty() else "已保存  ")+document.path
+	var dirty := document.dirty()
+	file_label.text = ("● 未保存  " if dirty else "")+document.path
+	document_state.text = "● 未保存" if dirty else "✓ 已保存"
+	if not canvas.group_refs.is_empty():
+		var all: Array = document.entries()
+		canvas.group_refs = canvas.group_refs.filter(func(ref): return ref in all)
+		if canvas.group_refs.is_empty(): selection.clear(); canvas.selection.clear()
+		else: canvas.group_pivot = canvas.Transform.bounds(document,canvas.group_refs).get_center()
 	if not title_input.has_focus():
 		title_input.text = str(document.data.get("title",""))
 	undo_button.disabled = document.cursor == 0
@@ -516,6 +750,7 @@ func refresh() -> void:
 	var valid_selection: bool = selection in all_refs and not selection.is_empty() and layers.is_editable(selection.group)
 	var counts := {}
 	for key in Layers.ORDER: counts[key] = 0
+	for group in ["terrain_patches","ground_details"]: counts.ground += document.collection(group).size()
 	for ref in all_refs:
 		var key: String = layers.key_for(ref.group)
 		counts[key] += 1
@@ -530,256 +765,22 @@ func refresh() -> void:
 		layer_rows[key].visible.set_pressed_no_signal(layers.visible[key])
 		layer_rows[key].locked.set_pressed_no_signal(layers.locked[key])
 	if not valid_selection:
+		canvas.group_refs.clear()
 		selection.clear()
 		canvas.selection.clear()
 	refreshing = false
 
 func select_object(ref: Dictionary) -> void:
 	selection = ref.duplicate()
+	if not ref.is_empty() and is_instance_valid(inspector_tabs): inspector_tabs.current_tab = 0
 	refresh()
 	refresh_inspector()
 
 func clear_inspector() -> void:
-	var previous_refreshing := refreshing
-	refreshing = true
-	for child in inspector.get_children():
-		inspector.remove_child(child)
-		child.queue_free()
-	refreshing = previous_refreshing
+	inspector_view.clear_inspector()
 
 func refresh_inspector() -> void:
-	if not inspector:
-		return
-	clear_inspector()
-	if selection.is_empty():
-		label(inspector,"对象属性",18)
-		var help := label(inspector,"点击地图选择对象。\n\n墙、门、寝室范围可调尺寸。\n伙伴出生点对应自己的寝室。\n巡逻点按列表顺序连接。\n\n试玩直接读取当前草稿。",14)
-		help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		return
-	var ref := selection.duplicate()
-	label(inspector,document.name_for(ref),16)
-	var rect: Rect2 = document.geometry(ref)
-	for field in ["x","y","w","h"] if document.is_rect(ref) else ["x","y"]:
-		var row := HBoxContainer.new()
-		inspector.add_child(row)
-		label(row,{"x":"X位置","y":"Y位置","w":"宽度","h":"高度"}[field])
-		var spin := SpinBox.new()
-		spin.name = "Geometry_"+field
-		spin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		spin.min_value = 1 if field in ["w","h"] else -10000
-		spin.max_value = 20000
-		spin.step = 1
-		var grid_wall: bool = ref.group == "walls" and document.wall_surface(int(ref.index)).has("grid_tile_asset")
-		var grid_door: bool = ref.group == "fixtures" and document.asset_definition(str(document.value(ref).get("asset_id",""))).has("grid_door")
-		if grid_wall or grid_door:
-			spin.step = 20
-			if field in ["w","h"]:
-				spin.min_value = 20
-				spin.editable = false
-		spin.value = {"x":rect.position.x,"y":rect.position.y,"w":rect.size.x,"h":rect.size.y}[field]
-		spin.value_changed.connect(func(value):
-			if refreshing or not can_edit_selection(): return
-			var changed_rect: Rect2 = document.geometry(ref)
-			match field:
-				"x": changed_rect.position.x = value
-				"y": changed_rect.position.y = value
-				"w": changed_rect.size.x = value
-				"h": changed_rect.size.y = value
-			document.begin()
-			document.set_geometry(ref,changed_rect)
-			document.commit())
-		row.add_child(spin)
-	var item = document.value(ref)
-	if ref.group in ["starts","guard_start","gate_guards","merchants"]:
-		var library=preload("res://scripts/presentation/character_library.gd")
-		label(inspector,"人物形象",13)
-		var selector:=OptionButton.new()
-		selector.name="CharacterAppearance"
-		selector.add_item("默认形象")
-		selector.add_theme_constant_override("icon_max_width",40)
-		var ids: Array[String]=[""]
-		for id in library.all():
-			ids.append(id)
-			selector.add_icon_item(library.idle(id),str(library.all()[id].name))
-		selector.select(maxi(0,ids.find(document.character_appearance(ref))))
-		selector.item_selected.connect(func(index):document.set_character_appearance(ref,ids[index]))
-		inspector.add_child(selector)
-	if ref.group == "walls" and document.wall_surface(int(ref.index)).has("grid_tile_asset"):
-		var current := str(document.wall_surface(int(ref.index)).grid_tile_asset)
-		var choices: Array[String] = catalog.compatible_wall_ids(current)
-		label(inspector,"墙体款式",13)
-		var appearance := OptionButton.new()
-		appearance.name = "WallAppearance"
-		for id in choices: appearance.add_item(catalog.display_name(id))
-		appearance.select(choices.find(current))
-		appearance.item_selected.connect(func(index): document.set_wall_asset(int(ref.index),choices[index]))
-		inspector.add_child(appearance)
-	if ref.group == "walls" and not document.wall_surface(int(ref.index)).has("grid_tile_asset"):
-		label(inspector,"建筑显示高度",13)
-		var height := SpinBox.new()
-		height.name = "WallElevation"
-		height.min_value = 18
-		height.max_value = 200
-		height.value = document.wall_surface(int(ref.index)).get("height",24 if rect.size.x > 60 else 18)
-		height.value_changed.connect(func(value):
-			if refreshing: return
-			document.set_wall_surface(int(ref.index),value))
-		inspector.add_child(height)
-		var wall_material := OptionButton.new()
-		wall_material.name = "WallMaterial"
-		wall_material.add_theme_constant_override("icon_max_width",24)
-		wall_material.add_icon_item(catalog.icon({"id":"cafeteria_wall_front_v23","icon":catalog.assets.get("cafeteria_wall_front_v23",{}).get("editor_icon","")}),"食堂 · 浅色高墙")
-		wall_material.add_icon_item(catalog.icon({"id":"solitary_wall_front_v23","icon":catalog.assets.get("solitary_wall_front_v23",{}).get("editor_icon","")}),"禁闭 · 深灰厚墙")
-		wall_material.select(1 if document.wall_surface(int(ref.index)).get("front","") == "solitary_wall_front_v23" else 0)
-		wall_material.item_selected.connect(func(index):
-			document.set_wall_surface(int(ref.index),height.value,"cafeteria_wall_front_v23" if index == 0 else "solitary_wall_front_v23","cafeteria_coping_v23" if index == 0 else "solitary_coping_v23"))
-		inspector.add_child(wall_material)
-	if item is Dictionary:
-		for property in ["name","id"]:
-			if item.has(property):
-				label(inspector,"名称" if property == "name" else "对象ID")
-				var input := LineEdit.new()
-				input.name = "Property_"+property
-				input.text = str(item[property])
-				input.text_submitted.connect(func(value): document.set_property(ref,property,value))
-				input.focus_exited.connect(func():
-					if not refreshing: document.set_property(ref,property,input.text))
-				inspector.add_child(input)
-		if ref.group == "visibility_rooms":
-			label(inspector,"屋顶样式",13)
-			var roofs := OptionButton.new()
-			roofs.name = "RoofStyle"
-			roofs.add_theme_constant_override("icon_max_width",24)
-			roofs.add_item("按建筑自动选择")
-			var roof_ids := ["concrete","dark_concrete","metal_green","metal_light"]
-			var roof_names := ["寝室 · 混凝土","禁闭室 · 深灰平顶","车间 / 仓库 · 灰绿金属","食堂 · 浅灰金属"]
-			var roof_assets := ["roof_concrete_warm","roof_concrete_dark","roof_metal_green","roof_metal_light"]
-			for index in range(roof_ids.size()):
-				roofs.add_icon_item(load("res://art/editor/room_roofs_v47/"+roof_assets[index]+".tres"),roof_names[index])
-			roofs.get_popup().set("theme_override_constants/icon_max_width",24)
-			roofs.select(roof_ids.find(str(item.get("roof_style","")))+1)
-			roofs.item_selected.connect(func(index): document.set_property(ref,"roof_style","auto" if index==0 else roof_ids[index-1]))
-			inspector.add_child(roofs)
-			label(inspector,"关联门（多扇门用英文逗号分隔）",13)
-			var doors := LineEdit.new()
-			doors.name = "VisibilityDoors"
-			doors.text = ",".join(item.get("door_ids",[]))
-			doors.focus_exited.connect(func():
-				if refreshing: return
-				var values: Array = []
-				for value in doors.text.split(",",false): values.append(value.strip_edges())
-				document.set_property(ref,"door_ids",values))
-			inspector.add_child(doors)
-			label(inspector,"试跑时：主角进入揭顶，离开重盖；编辑视图完整显示。",13)
-		if ref.group == "access_doors":
-			label(inspector,"劳动门禁 · 09–12 / 14–17锁门" if item.get("kind","") == "workshop" else "定时门" if item.get("kind","") == "timed" else "禁闭门 · 捕获后锁定")
-			if item.get("kind","") == "timed":
-				for index in range(2):
-					label(inspector,"开放 / 关闭分钟（12:00 = 720）" if index == 0 else "关闭分钟（14:00 = 840）",13)
-					var spin := SpinBox.new()
-					spin.name = "DoorMinute%d" % index
-					spin.min_value = 0
-					spin.max_value = 1440
-					spin.value = item.get("hours",[720,840])[index]
-					spin.value_changed.connect(func(value):
-						if refreshing: return
-						var hours: Array = item.get("hours",[720,840]).duplicate()
-						hours[index] = value
-						document.set_property(ref,"hours",hours))
-					inspector.add_child(spin)
-		if ref.group == "confinement":
-			var roofed := CheckButton.new()
-			roofed.name = "RoofedCell"
-			roofed.add_theme_constant_override("icon_max_width",24)
-			roofed.text = "完整封顶 · 遮住内部"
-			roofed.icon = catalog.icon({"id":"solitary_roof_v23","icon":catalog.assets.get("solitary_roof_v23",{}).get("editor_icon","")})
-			roofed.button_pressed = item.get("building",{}).get("roofed",false)
-			roofed.toggled.connect(func(on):
-				var building: Dictionary = item.get("building",{}).duplicate(true)
-				building.roofed = on
-				document.set_property(ref,"building",building))
-			inspector.add_child(roofed)
-			label(inspector,"建筑立面高度",13)
-			var building_height := SpinBox.new()
-			building_height.name = "BuildingHeight"
-			building_height.min_value = 18
-			building_height.max_value = minf(200,rect.size.y-24)
-			building_height.value = item.get("building",{}).get("height",110)
-			building_height.value_changed.connect(func(value):
-				if refreshing: return
-				var building: Dictionary = item.get("building",{}).duplicate(true)
-				building.height = value
-				document.set_property(ref,"building",building))
-			inspector.add_child(building_height)
-			label(inspector,"关联禁闭门："+str(item.get("door_id","")),13)
-			label(inspector,"关押分钟（所有禁闭室）",13)
-			var duration := SpinBox.new()
-			duration.name = "ConfinementMinutes"
-			duration.min_value = 1
-			duration.max_value = 1440
-			duration.value = document.data.confinement.get("duration_minutes",120)
-			duration.value_changed.connect(func(value):
-				if refreshing: return
-				document.begin()
-				document.data.confinement.duration_minutes = value
-				document.commit())
-			inspector.add_child(duration)
-			for property in ["spawn","release"]:
-				for axis in range(2):
-					label(inspector,("关押点" if property == "spawn" else "释放点")+(" X" if axis == 0 else " Y"),13)
-					var spin := SpinBox.new()
-					spin.name = "Cell_"+property+str(axis)
-					spin.min_value = -10000
-					spin.max_value = 10000
-					spin.value = item[property][axis]
-					spin.value_changed.connect(func(value):
-						if refreshing: return
-						var point: Array = item[property].duplicate()
-						point[axis] = value
-						document.set_property(ref,property,point))
-					inspector.add_child(spin)
-		if ref.group == "fixtures":
-			label(inspector,"摆设样式")
-			var appearance := OptionButton.new()
-			appearance.name = "FixtureAppearance"
-			var choices: Array[String] = catalog.appearance_ids(str(item.asset_id))
-			for asset in choices:
-				var legacy := "（旧地图引用）" if not catalog.is_placeable(asset) else ""
-				appearance.add_item(catalog.display_name(asset)+legacy)
-			appearance.select(choices.find(str(item.asset_id)))
-			appearance.item_selected.connect(func(index): document.set_property(ref,"asset_id",choices[index]); canvas.queue_redraw())
-			inspector.add_child(appearance)
-			for property in ["blocks_movement","blocks_sight"]:
-				var toggle := CheckButton.new()
-				toggle.name = property
-				toggle.text = "阻挡移动" if property == "blocks_movement" else "阻挡视线"
-				toggle.button_pressed = item.get(property,true if property == "blocks_movement" else false)
-				toggle.toggled.connect(func(on): document.set_property(ref,property,on))
-				inspector.add_child(toggle)
-		if ref.group == "dorm_doors":
-			label(inspector,"寝室门归属")
-			var owner := OptionButton.new()
-			for id in range(3): owner.add_item("伙伴%d" % (id+1))
-			owner.select(int(item.get("actor_id",0)))
-			owner.item_selected.connect(func(id): document.set_property(ref,"actor_id",id))
-			inspector.add_child(owner)
-		if ref.group == "items":
-			var item_type := OptionButton.new()
-			var ids := ["scrap","door_key","lock_tool"]
-			for id in ids: item_type.add_item({"scrap":"旧零件","door_key":"钥匙","lock_tool":"撬锁工具"}[id])
-			item_type.select(maxi(0,ids.find(str(item.definition_id))))
-			item_type.item_selected.connect(func(id): document.set_property(ref,"definition_id",ids[id]))
-			inspector.add_child(item_type)
-	if ref.group in ["starts","dormitories"]:
-		label(inspector,"归属：伙伴%d" % (int(ref.index)+1))
-	if ref.group == "patrol":
-		label(inspector,"巡逻顺序：第%d点" % (int(ref.index)+1))
-		button(inspector,"前移巡逻点",func(): reorder_patrol(-1))
-		button(inspector,"后移巡逻点",func(): reorder_patrol(1))
-	if ref.group == "merchants":
-		var note := label(inspector,"移动营业位置时，原地营业与过渡点一起移动；工作和休息位置保留。",12)
-		note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label(inspector,"所有坐标都使用世界位置。",12)
+	inspector_view.refresh_inspector()
 
 func reorder_patrol(direction: int) -> void:
 	commit_fields()
@@ -811,11 +812,38 @@ func place_object(group: String, point: Vector2) -> void:
 
 func duplicate_selected() -> void:
 	commit_fields()
+	if not canvas.group_refs.is_empty():
+		duplicate_group()
+		return
 	if can_edit_selection():
 		canvas.choose(document.duplicate_entry(selection))
 
 func delete_selected() -> void:
 	commit_fields()
+	var requested: Array = canvas.group_refs if not canvas.group_refs.is_empty() else [selection] if not selection.is_empty() else []
+	if document.removal_refs(requested).any(func(ref): return not layers.is_editable(ref.group)):
+		show_status("门的外观与机关属于关联对象，请先显示并解锁这两个图层。")
+		return
+	if not canvas.group_refs.is_empty():
+		var refs: Array = canvas.group_refs.duplicate(true)
+		if refs.any(func(ref): return not document.can_remove(ref)):
+			show_status("框选含房间归属或管制门，整体删除受保护；请单独删除可移除对象。")
+			return
+		var snapshot: Dictionary = canvas.Transform.capture(document,refs)
+		if snapshot.extras.any(func(entry): return entry.path.size()==1):
+			show_status("建筑包含唯一生产/作息配置，整体删除受保护。")
+			return
+		document.begin()
+		var extras: Array = snapshot.extras.duplicate()
+		extras.reverse()
+		for extra in extras:
+			var parent = document.data
+			for index in range(extra.path.size()-1): parent = parent[extra.path[index]]
+			parent.remove_at(int(extra.path[-1]))
+		document.remove_many(refs)
+		document.commit()
+		canvas.choose({})
+		return
 	if can_edit_selection() and document.can_remove(selection):
 		document.remove(selection)
 		canvas.choose({})
@@ -871,6 +899,7 @@ func request_quit() -> void:
 		get_tree().quit()
 
 func _process(_delta: float) -> void:
+	if is_instance_valid(zoom_label): zoom_label.text = "%.0f%%" % (canvas.zoom*100)
 	if preview_pid > 0 and not OS.is_process_running(preview_pid):
 		preview_pid = -1
 		if FileAccess.file_exists(preview_path):
@@ -878,6 +907,12 @@ func _process(_delta: float) -> void:
 		show_status("已返回编辑；试玩副本已清理，草稿和撤销历史保留。")
 
 func _input(event: InputEvent) -> void:
+	# Finish even when the mouse is released over the sidebar or toolbar.
+	if is_instance_valid(canvas) and (canvas.erasing or canvas.painting_floor or canvas.drawing_wall or canvas.group_dragging or canvas.marquee_active or not canvas.drag_ref.is_empty()) and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		var pointer: Vector2 = canvas.get_global_transform_with_canvas().affine_inverse()*event.position
+		if canvas.erasing: canvas.update_erase(pointer)
+		if canvas.marquee_active: canvas.marquee_end = canvas.world(pointer)
+		canvas.finish_gesture()
 	if not is_visible_in_tree() or not event is InputEventKey or not event.pressed or event.echo:
 		return
 	var focus := get_viewport().gui_get_focus_owner()
@@ -889,6 +924,7 @@ func _input(event: InputEvent) -> void:
 		else: document.undo()
 		refresh_inspector()
 	elif event.ctrl_pressed and event.keycode == KEY_Y:
+		canvas.finish_gesture()
 		document.redo()
 		refresh_inspector()
 	elif event.ctrl_pressed and event.keycode == KEY_S:
@@ -899,12 +935,24 @@ func _input(event: InputEvent) -> void:
 		delete_selected()
 	elif event.keycode == KEY_F:
 		canvas.fit()
+	elif event.keycode == KEY_G:
+		set_tool("floor_edit")
 	elif event.keycode == KEY_V:
 		set_tool("select")
+	elif event.keycode == KEY_R and not event.ctrl_pressed and not event.alt_pressed:
+		rotate_selected(-1 if event.shift_pressed else 1)
+	elif event.keycode == KEY_X and not event.ctrl_pressed and not event.alt_pressed:
+		mirror_selected(true)
+	elif event.keycode == KEY_Y and not event.ctrl_pressed and not event.alt_pressed:
+		mirror_selected(false)
+	elif event.keycode == KEY_M:
+		set_tool("marquee")
 	elif event.keycode == KEY_H:
 		set_tool("pan")
 	elif event.keycode == KEY_B:
 		set_tool("walls")
+	elif event.keycode == KEY_E and not event.ctrl_pressed and not event.alt_pressed:
+		set_tool("eraser")
 	elif event.keycode == KEY_ESCAPE:
 		canvas.finish_gesture(true)
 		canvas.choose({})

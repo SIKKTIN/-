@@ -1,0 +1,343 @@
+{
+  "production_modified": false,
+  "source_stable": true,
+  "native": true,
+  "viewport": [
+    1200,
+    720
+  ],
+  "refresh_hz": 165.001602172852,
+  "renderer": "forward_plus",
+  "cases": {
+    "normal60": {
+      "frames": {
+        "count": 1200,
+        "max": 31.851,
+        "mean": 16.6623516666667,
+        "over25": 4,
+        "over33": 0,
+        "p50": 16.645,
+        "p95": 18.44,
+        "p99": 20.58
+      },
+      "script": {
+        "count": 1200,
+        "max": 18.126,
+        "mean": 3.64555833333334,
+        "over25": 0,
+        "over33": 0,
+        "p50": 3.256,
+        "p95": 6.117,
+        "p99": 7.312
+      },
+      "gpu_p95_ms": 2.97499990463257,
+      "render_cpu_p95_ms": 1.86199998855591
+    },
+    "transition_1020": {
+      "frames": {
+        "count": 240,
+        "max": 63.587,
+        "mean": 16.8523666666667,
+        "over25": 4,
+        "over33": 3,
+        "p50": 16.593,
+        "p95": 18.425,
+        "p99": 50.449
+      },
+      "script": {
+        "count": 240,
+        "max": 44.7,
+        "mean": 4.60071666666667,
+        "over25": 2,
+        "over33": 2,
+        "p50": 4.063,
+        "p95": 5.819,
+        "p99": 15.678
+      },
+      "gpu_p95_ms": 3.47099995613098,
+      "render_cpu_p95_ms": 1.30499994754791
+    },
+    "transition_1200": {
+      "frames": {
+        "count": 240,
+        "max": 95.967,
+        "mean": 17.2583125,
+        "over25": 6,
+        "over33": 5,
+        "p50": 16.633,
+        "p95": 20.211,
+        "p99": 40.132
+      },
+      "script": {
+        "count": 240,
+        "max": 68.5,
+        "mean": 5.72635,
+        "over25": 5,
+        "over33": 2,
+        "p50": 4.272,
+        "p95": 8.847,
+        "p99": 31.088
+      },
+      "gpu_p95_ms": 3.14800000190735,
+      "render_cpu_p95_ms": 2.30599999427795
+    },
+    "transition_1440": {
+      "frames": {
+        "count": 240,
+        "max": 103.932,
+        "mean": 17.3578166666667,
+        "over25": 6,
+        "over33": 4,
+        "p50": 16.594,
+        "p95": 19.828,
+        "p99": 43.793
+      },
+      "script": {
+        "count": 240,
+        "max": 83.148,
+        "mean": 6.6575625,
+        "over25": 4,
+        "over33": 3,
+        "p50": 5.503,
+        "p95": 9.159,
+        "p99": 35.028
+      },
+      "gpu_p95_ms": 3.82699990272522,
+      "render_cpu_p95_ms": 2.57599997520447
+    },
+    "transition_1920": {
+      "frames": {
+        "count": 240,
+        "max": 62.155,
+        "mean": 16.6720333333333,
+        "over25": 3,
+        "over33": 1,
+        "p50": 16.628,
+        "p95": 18.837,
+        "p99": 29.446
+      },
+      "script": {
+        "count": 240,
+        "max": 44.598,
+        "mean": 5.36138333333333,
+        "over25": 1,
+        "over33": 1,
+        "p50": 4.749,
+        "p95": 9.189,
+        "p99": 18.746
+      },
+      "gpu_p95_ms": 3.73099994659424,
+      "render_cpu_p95_ms": 1.82200002670288
+    },
+    "transition_720": {
+      "frames": {
+        "count": 240,
+        "max": 69.264,
+        "mean": 16.7860041666667,
+        "over25": 3,
+        "over33": 2,
+        "p50": 16.641,
+        "p95": 19.792,
+        "p99": 25.198
+      },
+      "script": {
+        "count": 240,
+        "max": 53.272,
+        "mean": 4.6119625,
+        "over25": 1,
+        "over33": 1,
+        "p50": 4.093,
+        "p95": 6.686,
+        "p99": 11.062
+      },
+      "gpu_p95_ms": 2.7260000705719,
+      "render_cpu_p95_ms": 1.58899998664856
+    },
+    "transition_840": {
+      "frames": {
+        "count": 240,
+        "max": 57.205,
+        "mean": 16.7461458333333,
+        "over25": 5,
+        "over33": 2,
+        "p50": 16.593,
+        "p95": 18.896,
+        "p99": 32.151
+      },
+      "script": {
+        "count": 240,
+        "max": 39.871,
+        "mean": 4.95339583333333,
+        "over25": 1,
+        "over33": 1,
+        "p50": 4.288,
+        "p95": 7.269,
+        "p99": 19.088
+      },
+      "gpu_p95_ms": 3.9779999256134,
+      "render_cpu_p95_ms": 1.40499997138977
+    },
+    "uncapped": {
+      "frames": {
+        "count": 600,
+        "max": 18.717,
+        "mean": 9.33262666666667,
+        "over25": 0,
+        "over33": 0,
+        "p50": 9.068,
+        "p95": 12.656,
+        "p99": 14.378
+      },
+      "script": {
+        "count": 600,
+        "max": 12.363,
+        "mean": 4.20429666666666,
+        "over25": 0,
+        "over33": 0,
+        "p50": 4.089,
+        "p95": 5.74,
+        "p99": 6.513
+      },
+      "gpu_p95_ms": 2.30999994277954,
+      "render_cpu_p95_ms": 1.89699995517731
+    },
+    "vsync": {
+      "frames": {
+        "count": 600,
+        "max": 25.991,
+        "mean": 10.3644616666667,
+        "over25": 1,
+        "over33": 0,
+        "p50": 9.805,
+        "p95": 14.714,
+        "p99": 17.93
+      },
+      "script": {
+        "count": 600,
+        "max": 12.394,
+        "mean": 4.75747333333333,
+        "over25": 0,
+        "over33": 0,
+        "p50": 4.469,
+        "p95": 6.704,
+        "p99": 8.358
+      },
+      "gpu_p95_ms": 2.2739999294281,
+      "render_cpu_p95_ms": 2.07399988174438
+    }
+  },
+  "worst_path": {
+    "builds": 16,
+    "deferred": 46,
+    "from": [
+      4305.58056640625,
+      3269.95092773438
+    ],
+    "ms": 55.249,
+    "parts": {
+      "connectivity": 0.007,
+      "endpoints": 0.08,
+      "grid_update": 35.336,
+      "jps": 10.183,
+      "overlay": 1.257,
+      "restore_compress": 0.031,
+      "search_and_connect": 10.218,
+      "smooth": 2.836
+    },
+    "points": 12,
+    "to": [
+      3460.0,
+      300.0
+    ]
+  },
+  "findings": [
+    {
+      "priority": 1,
+      "cause": "Synchronous navigation invalidation, cell refresh and dirty connectivity rebuild on schedule / doorway changes",
+      "evidence": "deep-probe: grid_cells 11.313 ms in lunch path, grid_update 17.588 ms; baseline grid_update up to 35.336 ms"
+    },
+    {
+      "priority": 1,
+      "cause": "Single synchronous JPS call is not bounded by the pre-search 1ms AI admission check",
+      "evidence": "baseline: single query 55.249 ms; JPS 18.393 ms in curfew route; deep-probe 14.631 ms JPS with no grid refresh"
+    },
+    {
+      "priority": 2,
+      "cause": "Concurrent Windows memory pressure and paging can amplify timings",
+      "evidence": "Observed available RAM 581 MiB, committed 50.39 GB / 52.71 GB limit, 523 reads/sec; saved later samples 27-1666 page reads/sec. Process hard-fault attribution not established."
+    },
+    {
+      "priority": 3,
+      "cause": "Software frame cap leaves frame-interval variation and disables VSync on 165Hz display",
+      "evidence": "normal60 mean16.662ms p99 20.58ms; scanout cadence not measured. VSync is a follow-up experiment, not a solution to path spikes."
+    }
+  ],
+  "next_actions": [
+    "Incremental obstacle deltas; reuse per-cell query results across corresponding navigation grids and update only dirty chunks; preserve separate inspection door bodies.",
+    "Bound individual route work with hierarchical routing or isolated asynchronous/incremental jobs; prioritize current target, retain safe paths, cancel on geometry revision; do not defer detection/capture or permit stale closed-door routes.",
+    "Audit all callers including dog, routine retries, NPC life and manual routes; current budget covers admission, not all individual query duration.",
+    "Recheck long-frame counters in one-instance environment with memory headroom; compare normal real-speed full day, sustained pursuit, room transitions and camera movement.",
+    "Evaluate foreground pacing independently after CPU spikes are resolved; do not treat 60 FPS HUD as proof of smoothness."
+  ],
+  "limits": [
+    "Native short runs, schedule boundary cases are induced by changing clock near the boundary; they are not a natural full-day run.",
+    "Baseline camera static/background; foreground movement is measured separately.",
+    "Instrumentation adds timers and wrappers; process-wide memory/OS scheduling remains a confounder.",
+    "Renderer timings concern the main viewport, not complete OS present / display scanout; no GPU saturation conclusion is based on HUD alone."
+  ],
+  "frame_budget_ms": 16.666666666666668,
+  "acceptance": "At 60cap report p95/p99/max and >25/>33/>50ms; uncapped CPU+render must have budget headroom; require full real-speed day and sustained chase, not just average FPS.",
+  "foreground_movement": {
+    "software_cap60": {
+      "focus_frames": 600,
+      "distance": 2866.23720359802,
+      "frame_ms": {
+        "count": 600,
+        "max": 25.106,
+        "mean": 16.660905,
+        "over25": 1,
+        "over33": 0,
+        "p50": 16.676,
+        "p95": 18.772,
+        "p99": 21.668
+      },
+      "script_ms": {
+        "count": 600,
+        "max": 11.415,
+        "mean": 3.96877166666666,
+        "over25": 0,
+        "over33": 0,
+        "p50": 3.735,
+        "p95": 5.672,
+        "p99": 8.103
+      }
+    },
+    "vsync_cap60": {
+      "focus_frames": 600,
+      "distance": 2755.02307128906,
+      "frame_ms": {
+        "count": 600,
+        "max": 28.418,
+        "mean": 16.661695,
+        "over25": 3,
+        "over33": 0,
+        "p50": 16.631,
+        "p95": 17.986,
+        "p99": 19.135
+      },
+      "script_ms": {
+        "count": 600,
+        "max": 14.771,
+        "mean": 3.801355,
+        "over25": 0,
+        "over33": 0,
+        "p50": 3.74,
+        "p95": 4.725,
+        "p99": 5.803
+      }
+    }
+  },
+  "measured_frames": 6180,
+  "logs_without_script_errors": true,
+  "final_source_stable": true
+}

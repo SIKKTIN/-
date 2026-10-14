@@ -11,7 +11,7 @@ var _display_key: Array = []
 
 func configure(owner_game) -> void:
 	game = owner_game
-	for index in range(3):
+	for index in range(30):
 		var slot := Button.new()
 		slot.name = "InventorySlot%d" % index
 		slot.focus_mode = Control.FOCUS_NONE

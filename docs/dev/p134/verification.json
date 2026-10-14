@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "lower outline stays within half a world unit at 4x": true,
+    "visible outline step reduced by at least 70 percent": true,
+    "upper outline stays within one world unit at 4x": true,
+    "original painting bytes retained": true,
+    "map data and collision unchanged": true,
+    "native render and editor checks pass": true,
+    "native engine error output empty": true
+  },
+  "failed": [],
+  "native_checks": 12,
+  "total_checks": 19,
+  "outline_spread_before_pixels": 9.5,
+  "outline_spread_after_pixels": 2.0,
+  "render_scale": 4,
+  "method": "native UV registration and junction-only interface feather; no PNG pixel edits"
+}

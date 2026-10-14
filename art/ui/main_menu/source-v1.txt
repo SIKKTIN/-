@@ -1,0 +1,11 @@
+监狱风云：园区开始界面背景 v1
+制作方式：内置 image_gen，依据用户选定的概念图进行编辑。
+输入：codex-clipboard-b7b84697-7dc3-4dc6-a19c-5b953c1ba891.png
+输出：campus-background-v1.png
+原始生成文件：exec-f7a347d9-1510-43d3-9c45-60e7b1827fcc.png
+
+最终生成提示词：
+Precise production asset edit for Godot game main menu. Use the provided APPROVED image as the exact edit target. Preserve framing, aspect ratio, entire miniature 2D top-down prison campus, every building, roof, character, foliage, lamp, color and paint style as closely as possible. Preserve the upper-right Chinese logo “监狱风云” EXACTLY at same size and position, unchanged. ONLY REMOVE the FOUR UI BUTTONS on the right: 继续游戏, 开始游戏, 游戏设置, 退出游戏, including their frames, text, screws and drop shadows. Also remove the two small bottom-right footer links 操作说明 and 制作人员, their icons and divider. Seamlessly reconstruct the weathered BLUE CORRUGATED METAL ROOF and architectural surfaces that naturally lie underneath these UI elements, using existing neighboring roof texture, panels and seams; do not leave ghost rectangles, text shadows, flattened opaque patches or any buttons. This is the background artwork for a real interactive UI overlay; therefore the right area under the logo must contain ONLY quiet continuous roof/background art, absolutely no baked-in interactive menu controls. Do not redesign or recompose any other scene portion, do not change title, colors or character placement. Output one clean landscape background image same composition and ratio as reference, no borders, no annotations, no new text.
+
+背景保留标题；四个主按钮和底部链接全部由原生 Godot 控件渲染。
+PNG 以无损纹理导入并生成 mipmaps，适配窗口缩放。

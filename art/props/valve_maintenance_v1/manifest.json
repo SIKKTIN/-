@@ -1,0 +1,1968 @@
+{
+	"schema": 2,
+	"version": "valve-maintenance-v1",
+	"assets": [
+		{
+			"id": "valve_base_v1",
+			"name": "主阀门检修区 · 八角水泥底座与台阶",
+			"texture": "res://art/props/valve_maintenance_v1/base.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				127,
+				137,
+				998,
+				970
+			],
+			"world_size": [
+				500,
+				485.9719438877755
+			],
+			"render_size": [
+				500,
+				485.9719438877755
+			],
+			"footprint_world_size": [
+				500,
+				440
+			],
+			"ground_rect": [
+				0,
+				91.75999999999992,
+				998,
+				878.24
+			],
+			"elevation_world": 45.971943887775524,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ab2967222f6354660273b189ae786e33b9f64e4f231d22c84debc09822548ab6",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_machine_v1",
+			"name": "主阀门检修区 · 低矮主阀与红色手轮",
+			"texture": "res://art/props/valve_maintenance_v1/machine.png",
+			"texture_size": [
+				1296,
+				1213
+			],
+			"region": [
+				141,
+				84,
+				873,
+				1000
+			],
+			"world_size": [
+				230,
+				263.45933562428405
+			],
+			"render_size": [
+				230,
+				263.45933562428405
+			],
+			"footprint_world_size": [
+				230,
+				140
+			],
+			"ground_rect": [
+				0,
+				468.6086956521739,
+				873,
+				531.3913043478261
+			],
+			"elevation_world": 123.45933562428405,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "4c3e64166246f091ca17ac9e4cfb93ece4b1985f6fa1097efa0008e2d77c4ec8",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings",
+			"solid_parts": [
+				[
+					0.23,
+					0.1,
+					0.64,
+					0.9
+				]
+			]
+		},
+		{
+			"id": "valve_rail_north_v1",
+			"name": "主阀门检修区 · 后侧直护栏",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				36,
+				216,
+				371,
+				163
+			],
+			"world_size": [
+				140,
+				52
+			],
+			"render_size": [
+				140,
+				52
+			],
+			"footprint_world_size": [
+				140,
+				12
+			],
+			"ground_rect": [
+				0,
+				125.38461538461537,
+				371,
+				37.61538461538461
+			],
+			"elevation_world": 40,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_rail_south_v1",
+			"name": "主阀门检修区 · 前侧直护栏",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				35,
+				666,
+				372,
+				169
+			],
+			"world_size": [
+				80,
+				45
+			],
+			"render_size": [
+				80,
+				45
+			],
+			"footprint_world_size": [
+				80,
+				12
+			],
+			"ground_rect": [
+				0,
+				123.93333333333334,
+				372,
+				45.06666666666667
+			],
+			"elevation_world": 33,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_rail_side_v1",
+			"name": "主阀门检修区 · 侧向薄护栏",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				559,
+				83,
+				72,
+				399
+			],
+			"world_size": [
+				18,
+				243
+			],
+			"render_size": [
+				18,
+				243
+			],
+			"footprint_world_size": [
+				18,
+				200
+			],
+			"ground_rect": [
+				0,
+				70.60493827160492,
+				72,
+				328.39506172839504
+			],
+			"elevation_world": 43,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings",
+			"assembly_patches": [
+				{
+					"source": [
+						563,
+						85,
+						65,
+						108
+					],
+					"destination": [
+						0,
+						0,
+						18,
+						35
+					],
+					"role": "north_post"
+				},
+				{
+					"source": [
+						578,
+						181,
+						27,
+						172
+					],
+					"destination": [
+						6,
+						30,
+						6,
+						185
+					],
+					"role": "side_rail"
+				},
+				{
+					"source": [
+						559,
+						353,
+						73,
+						124
+					],
+					"destination": [
+						0,
+						208,
+						18,
+						35
+					],
+					"role": "south_post"
+				}
+			]
+		},
+		{
+			"id": "valve_rail_rising_v1",
+			"name": "主阀门检修区 · 八角斜向护栏rising",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				818,
+				121,
+				272,
+				340
+			],
+			"world_size": [
+				105,
+				137
+			],
+			"render_size": [
+				105,
+				137
+			],
+			"footprint_world_size": [
+				105,
+				90
+			],
+			"ground_rect": [
+				0,
+				116.64233576642337,
+				272,
+				223.35766423357666
+			],
+			"elevation_world": 47,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings",
+			"solid_parts": [
+				[
+					0.0,
+					0.8333333333333334,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.16666666666666666,
+					0.6666666666666667,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.3333333333333333,
+					0.5,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.5,
+					0.33333333333333337,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.6666666666666666,
+					0.16666666666666663,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.8333333333333334,
+					0.0,
+					0.22666666666666666,
+					0.22666666666666666
+				]
+			]
+		},
+		{
+			"id": "valve_rail_falling_v1",
+			"name": "主阀门检修区 · 八角斜向护栏falling",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1210,
+				121,
+				274,
+				340
+			],
+			"world_size": [
+				105,
+				137
+			],
+			"render_size": [
+				105,
+				137
+			],
+			"footprint_world_size": [
+				105,
+				90
+			],
+			"ground_rect": [
+				0,
+				116.64233576642337,
+				274,
+				223.35766423357666
+			],
+			"elevation_world": 47,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings",
+			"solid_parts": [
+				[
+					0.0,
+					0.0,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.16666666666666666,
+					0.16666666666666666,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.3333333333333333,
+					0.3333333333333333,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.5,
+					0.5,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.6666666666666666,
+					0.6666666666666666,
+					0.22666666666666666,
+					0.22666666666666666
+				],
+				[
+					0.8333333333333334,
+					0.8333333333333334,
+					0.22666666666666666,
+					0.22666666666666666
+				]
+			]
+		},
+		{
+			"id": "valve_gate_closed_sprite",
+			"name": "主阀门检修区 · 检修门关闭原图",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				477,
+				616,
+				350,
+				233
+			],
+			"world_size": [
+				120,
+				75
+			],
+			"render_size": [
+				120,
+				75
+			],
+			"footprint_world_size": [
+				120,
+				12
+			],
+			"ground_rect": [
+				0,
+				195.72,
+				350,
+				37.28
+			],
+			"elevation_world": 63,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"editor_subcategory": "doors"
+		},
+		{
+			"id": "valve_gate_left_jamb",
+			"name": "主阀门检修区 · 检修门固定左柱",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				478,
+				647,
+				68,
+				201
+			],
+			"world_size": [
+				20,
+				59
+			],
+			"render_size": [
+				20,
+				59
+			],
+			"footprint_world_size": [
+				20,
+				12
+			],
+			"ground_rect": [
+				0,
+				160.1186440677966,
+				68,
+				40.88135593220339
+			],
+			"elevation_world": 47,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"editor_subcategory": "doors"
+		},
+		{
+			"id": "valve_gate_right_jamb",
+			"name": "主阀门检修区 · 检修门固定右柱",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				762,
+				647,
+				65,
+				201
+			],
+			"world_size": [
+				20,
+				59
+			],
+			"render_size": [
+				20,
+				59
+			],
+			"footprint_world_size": [
+				20,
+				12
+			],
+			"ground_rect": [
+				0,
+				160.1186440677966,
+				65,
+				40.88135593220339
+			],
+			"elevation_world": 47,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"editor_subcategory": "doors"
+		},
+		{
+			"id": "valve_gate_open_leaf",
+			"name": "主阀门检修区 · 检修门内开门扇",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				932,
+				576,
+				76,
+				234
+			],
+			"world_size": [
+				31,
+				85
+			],
+			"render_size": [
+				31,
+				85
+			],
+			"footprint_world_size": [
+				31,
+				12
+			],
+			"ground_rect": [
+				0,
+				200.96470588235294,
+				76,
+				33.03529411764706
+			],
+			"elevation_world": 73,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": true,
+			"editor_subcategory": "doors"
+		},
+		{
+			"id": "doorway_valve_maintenance_closed_v1",
+			"name": "主阀门检修区 · 检修门关闭",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				477,
+				616,
+				350,
+				233
+			],
+			"world_size": [
+				120,
+				75
+			],
+			"render_size": [
+				120,
+				75
+			],
+			"footprint_world_size": [
+				120,
+				12
+			],
+			"ground_rect": [
+				0,
+				195.72,
+				350,
+				37.28
+			],
+			"elevation_world": 63,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"body_depth_limited": true,
+				"piece_depth": true,
+				"door_art_size": [
+					120,
+					12
+				],
+				"door_art": "valve_gate_closed_sprite",
+				"door_art_closed": "valve_gate_closed_sprite",
+				"door_closed_patches": [
+					{
+						"asset": "valve_gate_closed_sprite",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							-63,
+							120,
+							75
+						]
+					}
+				],
+				"door_open_patches": [
+					{
+						"asset": "valve_gate_left_jamb",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							-47,
+							20,
+							59
+						]
+					},
+					{
+						"asset": "valve_gate_right_jamb",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							100,
+							-47,
+							20,
+							59
+						]
+					},
+					{
+						"asset": "valve_gate_open_leaf",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							10,
+							-84,
+							31,
+							85
+						]
+					}
+				]
+			},
+			"open_state": false
+		},
+		{
+			"id": "doorway_valve_maintenance_open_v1",
+			"name": "主阀门检修区 · 检修门全开",
+			"texture": "res://art/props/valve_maintenance_v1/fences.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				477,
+				616,
+				350,
+				233
+			],
+			"world_size": [
+				120,
+				75
+			],
+			"render_size": [
+				120,
+				75
+			],
+			"footprint_world_size": [
+				120,
+				12
+			],
+			"ground_rect": [
+				0,
+				195.72,
+				350,
+				37.28
+			],
+			"elevation_world": 63,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "53cf892a5faf968721fe11479f0e23f07e4a3383b0ddbb2e1b5e7d8066b1e3ac",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"body_depth_limited": true,
+				"piece_depth": true,
+				"door_art_size": [
+					120,
+					12
+				],
+				"door_art": "valve_gate_closed_sprite",
+				"door_art_closed": "valve_gate_closed_sprite",
+				"door_closed_patches": [
+					{
+						"asset": "valve_gate_closed_sprite",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							-63,
+							120,
+							75
+						]
+					}
+				],
+				"door_open_patches": [
+					{
+						"asset": "valve_gate_left_jamb",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							-47,
+							20,
+							59
+						]
+					},
+					{
+						"asset": "valve_gate_right_jamb",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							100,
+							-47,
+							20,
+							59
+						]
+					},
+					{
+						"asset": "valve_gate_open_leaf",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							10,
+							-84,
+							31,
+							85
+						]
+					}
+				]
+			},
+			"open_state": true
+		},
+		{
+			"id": "valve_control_v1",
+			"name": "主阀门检修区 · 双表控制箱",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				143,
+				45,
+				253,
+				467
+			],
+			"world_size": [
+				56,
+				103.36758893280633
+			],
+			"render_size": [
+				56,
+				103.36758893280633
+			],
+			"footprint_world_size": [
+				56,
+				34
+			],
+			"ground_rect": [
+				0,
+				313.3928571428571,
+				253,
+				153.60714285714286
+			],
+			"elevation_world": 69.36758893280633,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_grate_v1",
+			"name": "主阀门检修区 · 方形检修格栅",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				599,
+				107,
+				340,
+				331
+			],
+			"world_size": [
+				65,
+				65
+			],
+			"render_size": [
+				65,
+				65
+			],
+			"footprint_world_size": [
+				65,
+				65
+			],
+			"ground_rect": [
+				0,
+				0,
+				340,
+				331
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_hatch_v1",
+			"name": "主阀门检修区 · 封闭检修盖",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1116,
+				104,
+				331,
+				408
+			],
+			"world_size": [
+				38,
+				38
+			],
+			"render_size": [
+				38,
+				38
+			],
+			"footprint_world_size": [
+				38,
+				38
+			],
+			"ground_rect": [
+				0,
+				0,
+				331,
+				408
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_warning_v1",
+			"name": "主阀门检修区 · 双层禁入标牌",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				121,
+				512,
+				291,
+				443
+			],
+			"world_size": [
+				80,
+				121.78694158075601
+			],
+			"render_size": [
+				80,
+				121.78694158075601
+			],
+			"footprint_world_size": [
+				80,
+				12
+			],
+			"ground_rect": [
+				0,
+				399.35,
+				291,
+				43.650000000000006
+			],
+			"elevation_world": 109.78694158075601,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_gauge_v1",
+			"name": "主阀门检修区 · 蓝管压力表",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				597,
+				578,
+				345,
+				333
+			],
+			"world_size": [
+				58,
+				55.982608695652175
+			],
+			"render_size": [
+				58,
+				55.982608695652175
+			],
+			"footprint_world_size": [
+				58,
+				17
+			],
+			"ground_rect": [
+				0,
+				231.87931034482762,
+				345,
+				101.12068965517241
+			],
+			"elevation_world": 38.982608695652175,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_cabinet_v1",
+			"name": "主阀门检修区 · 上锁备件柜",
+			"texture": "res://art/props/valve_maintenance_v1/accessories.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1172,
+				512,
+				222,
+				435
+			],
+			"world_size": [
+				42,
+				82.29729729729729
+			],
+			"render_size": [
+				42,
+				82.29729729729729
+			],
+			"footprint_world_size": [
+				42,
+				27
+			],
+			"ground_rect": [
+				0,
+				292.2857142857143,
+				222,
+				142.71428571428572
+			],
+			"elevation_world": 55.29729729729729,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"runtime_size_limit": 768,
+			"sha256": "ed4f4559f9cd83506ebfd8d64315f35ef392ed2220c8e77afef3e1704ddcd934",
+			"source_kind": "built-in-imagegen-original-png",
+			"editor_hidden": false,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "valve_pipe_feed_v1",
+			"name": "主阀门检修区 · 红管连续进水",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				24.480000000000018,
+				402.0
+			],
+			"render_size": [
+				24.480000000000018,
+				402.0
+			],
+			"footprint_world_size": [
+				24.480000000000018,
+				402.0
+			],
+			"ground_rect": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"runtime_size_limit": 1536,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"editor_subcategory": "furnishings",
+			"shadow_baked": true,
+			"assembly_patches": [
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						0,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						25.199999999999818,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						50.40000000000009,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						75.59999999999991,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						100.80000000000018,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						126.0,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						151.19999999999982,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						176.4000000000001,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						201.5999999999999,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						226.80000000000018,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						252.0,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						277.1999999999998,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						302.4000000000001,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						327.5999999999999,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						105.0
+					],
+					"destination": [
+						4.679999999999836,
+						352.7999999999997,
+						15.12,
+						25.2
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						239,
+						600,
+						63,
+						100.00000000000048
+					],
+					"destination": [
+						4.679999999999836,
+						378.0,
+						15.12,
+						24.000000000000114
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						220,
+						711,
+						102,
+						43
+					],
+					"destination": [
+						0.0,
+						39.840000000000146,
+						24.48,
+						10.32
+					],
+					"rotation_quarters": 0,
+					"role": "flanged_support"
+				},
+				{
+					"source": [
+						220,
+						711,
+						102,
+						43
+					],
+					"destination": [
+						0.0,
+						164.84000000000015,
+						24.48,
+						10.32
+					],
+					"rotation_quarters": 0,
+					"role": "flanged_support"
+				},
+				{
+					"source": [
+						220,
+						711,
+						102,
+						43
+					],
+					"destination": [
+						0.0,
+						289.84000000000015,
+						24.48,
+						10.32
+					],
+					"rotation_quarters": 0,
+					"role": "flanged_support"
+				}
+			],
+			"source_kind": "original-png-native-assembly",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "valve_pipe_bypass_v1",
+			"name": "主阀门检修区 · 蓝管回水旁路",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"world_size": [
+				241.8399999999997,
+				197.19999999999982
+			],
+			"render_size": [
+				241.8399999999997,
+				197.19999999999982
+			],
+			"footprint_world_size": [
+				241.8399999999997,
+				197.19999999999982
+			],
+			"ground_rect": [
+				0,
+				0,
+				1536,
+				1024
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"runtime_size_limit": 1536,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"editor_subcategory": "furnishings",
+			"shadow_baked": true,
+			"assembly_patches": [
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						27.199999999999818,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						48.559999999999945,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						69.91999999999962,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						91.27999999999975,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						112.63999999999987,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						134.0,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						5.639999999999873,
+						155.35999999999967,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						85.33333333333341
+					],
+					"destination": [
+						5.639999999999873,
+						176.7199999999998,
+						15.12,
+						20.480000000000018
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						715,
+						684,
+						110,
+						44
+					],
+					"destination": [
+						0.0,
+						66.91999999999962,
+						26.4,
+						10.559999999999999
+					],
+					"rotation_quarters": 0,
+					"role": "flanged_support"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						27.199999999999818,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						48.559999999999945,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						69.91999999999962,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						91.27999999999975,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						112.63999999999987,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						134.0,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						155.35999999999967,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						176.7199999999998,
+						5.639999999999873,
+						21.36,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						88.00000000000003
+					],
+					"destination": [
+						198.07999999999993,
+						5.639999999999873,
+						21.120000000000005,
+						15.12
+					],
+					"rotation_quarters": 1,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						715,
+						684,
+						110,
+						44
+					],
+					"destination": [
+						66.91999999999962,
+						0.0,
+						10.559999999999999,
+						26.4
+					],
+					"rotation_quarters": 1,
+					"role": "flanged_support"
+				},
+				{
+					"source": [
+						715,
+						684,
+						110,
+						44
+					],
+					"destination": [
+						191.91999999999962,
+						0.0,
+						10.559999999999999,
+						26.4
+					],
+					"rotation_quarters": 1,
+					"role": "flanged_support"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						89.0
+					],
+					"destination": [
+						225.63999999999987,
+						27.199999999999818,
+						15.12,
+						21.36
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						738,
+						595,
+						63,
+						77.66666666666667
+					],
+					"destination": [
+						225.63999999999987,
+						48.559999999999945,
+						15.12,
+						18.64
+					],
+					"rotation_quarters": 0,
+					"role": "continuous_body"
+				},
+				{
+					"source": [
+						1188,
+						248,
+						113,
+						89
+					],
+					"destination": [
+						5.519999999999982,
+						4.559999999999945,
+						21.36,
+						27.12
+					],
+					"rotation_quarters": 1,
+					"role": "curved_elbow"
+				},
+				{
+					"source": [
+						1188,
+						248,
+						113,
+						89
+					],
+					"destination": [
+						214.7199999999998,
+						5.519999999999982,
+						27.12,
+						21.36
+					],
+					"rotation_quarters": 2,
+					"role": "curved_elbow"
+				}
+			],
+			"source_kind": "original-png-native-assembly",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		},
+		{
+			"id": "valve_return_flange_v1",
+			"name": "主阀门检修区 · 回水落地法兰",
+			"texture": "res://art/props/pipe_energy_court_v1/pipe-fittings.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				715,
+				868,
+				109,
+				81
+			],
+			"world_size": [
+				24,
+				18
+			],
+			"render_size": [
+				24,
+				18
+			],
+			"footprint_world_size": [
+				24,
+				18
+			],
+			"ground_rect": [
+				0,
+				0,
+				109,
+				81
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"runtime_size_limit": 1024,
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"editor_subcategory": "furnishings",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "51b0832d4d04dd2bae6ee0a459de41a71c44b71900254431b96bc55b1d9c87d9"
+		}
+	]
+}

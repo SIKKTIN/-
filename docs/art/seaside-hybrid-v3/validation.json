@@ -1,0 +1,70 @@
+{
+	"checks": {
+		"60_seconds_hybrid_simulation_finite": true,
+		"both_spectral_scales_have_energy": true,
+		"computed_breaking_generates_foam_and_spray_sources": true,
+		"foam_density_and_detail_both_advect": true,
+		"foam_density_and_detail_decay": true,
+		"foam_material_coordinates_travel_with_flow": true,
+		"hidden_window_resume": true,
+		"hidden_window_stops_compute": true,
+		"ifft_2d_matches_analytical_oblique_cosine": true,
+		"interactive_frame_p95_below_20ms": true,
+		"interactive_simulation_runs_at_wall_time": true,
+		"lake_at_rest_stays_at_rest": true,
+		"local_disturbance_propagates": true,
+		"pause_freezes_all_water_fields": true,
+		"resume_advances": true,
+		"solid_bridge_piers_block_water": true,
+		"spectral_waves_evolve_in_time": true
+	},
+	"device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"fft_max_chop_error": 0.000000284906424730114,
+	"fft_max_height_error": 0.000000625785920860267,
+	"foam_transport": {
+		"density_end": {
+			"mass": 102.239579471814,
+			"x": 0.310391754878157
+		},
+		"density_start": {
+			"mass": 205.88742375717,
+			"x": 0.298697918760248
+		},
+		"detail_end": {
+			"mass": 66.455724849259,
+			"x": 0.310391755669155
+		},
+		"detail_start": {
+			"mass": 133.826820593635,
+			"x": 0.298697918738701
+		},
+		"parcel_x_end": 38.8533592224121,
+		"parcel_x_start": 40.4249992370605
+	},
+	"performance": {
+		"average_fps": 59.9781479614261,
+		"compute_median_ms": 0.273408,
+		"compute_p95_ms": 0.29184,
+		"frame_median_ms": 16.664,
+		"frame_p95_ms": 17.636,
+		"frames": 180,
+		"render_median_ms": 0.433999985456467,
+		"render_p95_ms": 0.945999979972839,
+		"scene_video_memory_bytes": 56479744,
+		"simulation_rate": 0.999635799357044,
+		"simulation_texture_mib": 10.125
+	},
+	"scope": "Independent 1200x812 prototype, capped 60 FPS; whole game and mobile unmeasured.",
+	"spectrum_rms_metres": [
+		0.231967117740152,
+		0.0563343778923224
+	],
+	"stability": {
+		"foam_sum": 3575.79909872875,
+		"max_depth": 3.78429913520813,
+		"max_speed": 2.16025733947754,
+		"simulated_seconds": 59.9999999999972,
+		"solid_pier_water": 0.0,
+		"spray_source_cells": 3769
+	}
+}

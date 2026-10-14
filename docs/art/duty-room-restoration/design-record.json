@@ -1,0 +1,86 @@
+{
+  "status": "art plan and concept only",
+  "mode": "built-in image_gen",
+  "concept": {
+    "path": "docs/art/duty-room-restoration/concept-v1.png",
+    "sha256": "510bf87276583a525a89346d2eecc7f321c5838deee62a99028c0adef7a3f375",
+    "size": [
+      1174,
+      1339
+    ],
+    "original_png_preserved": true
+  },
+  "saved_map_sha256": "3d4b2f1820d452163c74c933fd70ce2718c0128397f155cb200371166fcac89c",
+  "room": {
+    "door_ids": [],
+    "id": "duty",
+    "kind": "room",
+    "name": "值班室",
+    "rect": [
+      3820.0,
+      460.0,
+      380.0,
+      640.0
+    ]
+  },
+  "door": {
+    "asset_id": "doorway_free_v48",
+    "blocks_movement": false,
+    "blocks_sight": false,
+    "id": "campus-duty",
+    "rect": [
+      3920.0,
+      1120.0,
+      180.0,
+      20.0
+    ],
+    "render_size": [
+      180.0,
+      24.0
+    ],
+    "rotation_quarters": 0.0
+  },
+  "existing_fixtures": [
+    {
+      "asset_id": "office_desk_v47",
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "id": "campus-admin-desk-0",
+      "loot_location": "值班室",
+      "loot_name": "文件柜",
+      "loot_profile": "office",
+      "rect": [
+        3872.5,
+        604.3245,
+        140.0,
+        75.6755
+      ]
+    },
+    {
+      "asset_id": "filing_cabinet_v47",
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "id": "campus-admin-cabinet-0",
+      "loot_location": "值班室",
+      "loot_name": "文件柜",
+      "loot_profile": "office",
+      "rect": [
+        3885.0,
+        862.5,
+        70.0,
+        32.5
+      ]
+    }
+  ],
+  "proposed_room_rect": [
+    3820,
+    660,
+    380,
+    440
+  ],
+  "proposed_clear_walkway": 100,
+  "human_scale": 1.4,
+  "guard_reference_height": 86.8,
+  "plan": "docs/art/duty-room-restoration/README.md",
+  "prompts": "docs/art/duty-room-restoration/concept-v1.prompts.json"
+}

@@ -1,0 +1,25 @@
+{
+	"status": "native 2D shader sample running",
+	"preview_title": "监狱风云 · 2D海水动态样例",
+	"recording": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\seaside-water-demo-v1\\water-demo.webp",
+	"native_checks": {
+		"material_loaded": true,
+		"render_timing_available": true,
+		"rendered_animation_changes": true,
+		"source_static_render_commands": true,
+		"water_region_really_animates": true,
+		"deck_core_remains_fixed": true
+	},
+	"gpu_median_ms": 0.35699999332428,
+	"static_gpu_median_ms": 0.150999993085861,
+	"gpu_p95_ms": 0.476000010967255,
+	"resolution": [
+		960,
+		844
+	],
+	"scope": "Shader prototype over concept-art base; no game map changes; final game will use separate sea and coastline mask assets",
+	"source_docs": [
+		"https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/canvas_item_shader.html",
+		"https://docs.godotengine.org/en/stable/classes/class_renderingserver.html"
+	]
+}

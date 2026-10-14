@@ -1,0 +1,3554 @@
+{
+	"baked_hits": 432,
+	"baked_misses": 18,
+	"cases": {
+		"normal60": {
+			"draw_calls": {
+				"count": 900,
+				"max": 560.0,
+				"mean": 546.097777777778,
+				"over25": 900,
+				"over33": 900,
+				"p50": 548.0,
+				"p95": 560.0,
+				"p99": 560.0
+			},
+			"frame_ms": {
+				"count": 900,
+				"max": 37.615,
+				"mean": 16.6678522222222,
+				"over25": 2,
+				"over33": 1,
+				"p50": 16.628,
+				"p95": 18.517,
+				"p99": 20.567
+			},
+			"gpu_ms": {
+				"count": 900,
+				"max": 5.08300018310547,
+				"mean": 1.09892555819617,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.935000002384186,
+				"p95": 2.15100002288818,
+				"p99": 3.75999999046326
+			},
+			"render_cpu_ms": {
+				"count": 900,
+				"max": 2.95799994468689,
+				"mean": 1.07168222321404,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.935000002384186,
+				"p95": 1.85800004005432,
+				"p99": 2.19300007820129
+			},
+			"script_ms": {
+				"count": 900,
+				"max": 27.507,
+				"mean": 3.45413666666667,
+				"over25": 1,
+				"over33": 0,
+				"p50": 2.948,
+				"p95": 5.971,
+				"p99": 7.116
+			},
+			"slow_paths": [
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						4993.01025390625,
+						2451.08325195313
+					],
+					"ms": 2.589,
+					"parts": {
+						"grid_search": 2.017
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						3312.40502929688,
+						1130.623046875
+					],
+					"ms": 3.378,
+					"parts": {
+						"grid_search": 2.654
+					},
+					"points": 5,
+					"to": [
+						2240.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						4992.6826171875,
+						2458.66577148438
+					],
+					"ms": 2.649,
+					"parts": {
+						"grid_search": 2.304
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						871.775268554688,
+						1809.63012695313
+					],
+					"ms": 3.925,
+					"parts": {
+						"grid_search": 3.636
+					},
+					"points": 3,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 3,
+					"deferred": 3,
+					"from": [
+						1536.52868652344,
+						2588.78637695313
+					],
+					"ms": 21.082,
+					"parts": {
+						"grid_search": 6.938,
+						"grid_update": 13.457
+					},
+					"points": 3,
+					"to": [
+						2400.0,
+						2360.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 37.615,
+					"minute": 502.4619632,
+					"parts": {
+						"dog.tick": 0.079,
+						"gate_watch.tick": 0.947,
+						"guard.tick": 21.333,
+						"orders.tick": 0.005,
+						"presentation.tick": 2.327,
+						"room_access.tick": 0.741,
+						"routines.tick": 0.044,
+						"workshop.tick": 0.134,
+						"workshop.update_gate": 0.138,
+						"world.update_dorm_doors": 0.426
+					},
+					"paths": [
+						{
+							"builds": 3,
+							"deferred": 3,
+							"from": [
+								1536.52868652344,
+								2588.78637695313
+							],
+							"ms": 21.082,
+							"parts": {
+								"grid_search": 6.938,
+								"grid_update": 13.457
+							},
+							"points": 3,
+							"to": [
+								2400.0,
+								2360.0
+							]
+						}
+					],
+					"script": 27.507
+				},
+				{
+					"frame": 28.805,
+					"minute": 503.958695466667,
+					"parts": {
+						"dog.tick": 0.013,
+						"gate_watch.tick": 6.21,
+						"guard.tick": 0.528,
+						"orders.tick": 0.005,
+						"presentation.tick": 6.335,
+						"room_access.tick": 2.752,
+						"routines.tick": 0.026,
+						"workshop.tick": 0.239,
+						"workshop.update_gate": 0.069,
+						"world.update_dorm_doors": 0.24
+					},
+					"paths": [],
+					"script": 17.409
+				}
+			]
+		},
+		"transition_1020": {
+			"draw_calls": {
+				"count": 300,
+				"max": 572.0,
+				"mean": 565.916666666667,
+				"over25": 300,
+				"over33": 300,
+				"p50": 566.0,
+				"p95": 572.0,
+				"p99": 572.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 52.994,
+				"mean": 16.68277,
+				"over25": 5,
+				"over33": 2,
+				"p50": 16.614,
+				"p95": 19.523,
+				"p99": 29.593
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 2.19199991226196,
+				"mean": 0.677579999566078,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.558000028133392,
+				"p95": 1.55099999904633,
+				"p99": 2.05100011825562
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 2.28800010681152,
+				"mean": 1.13902666827043,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.0789999961853,
+				"p95": 1.58599996566772,
+				"p99": 1.87100005149841
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 39.997,
+				"mean": 5.06183333333333,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.499,
+				"p95": 7.047,
+				"p99": 17.25
+			},
+			"slow_paths": [
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						2770.0,
+						4040.0
+					],
+					"ms": 2.36,
+					"parts": {},
+					"points": 1,
+					"to": [
+						2770.0,
+						4040.0
+					]
+				},
+				{
+					"builds": 8,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 12.29,
+					"parts": {
+						"grid_search": 5.024,
+						"grid_update": 7.17
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 8,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.465,
+					"parts": {
+						"grid_search": 2.384
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 8,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 3.518,
+					"parts": {
+						"grid_search": 3.435
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						1140.36584472656,
+						1781.98364257813
+					],
+					"ms": 20.352,
+					"parts": {
+						"grid_search": 8.003,
+						"grid_update": 12.099
+					},
+					"points": 8,
+					"to": [
+						3600.0,
+						3840.0
+					]
+				},
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.445,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1360.0,
+						1605.0
+					]
+				},
+				{
+					"builds": 9,
+					"deferred": 5,
+					"from": [
+						4200.0,
+						3440.0
+					],
+					"ms": 9.724,
+					"parts": {
+						"grid_search": 8.967
+					},
+					"points": 12,
+					"to": [
+						3400.0,
+						1220.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 29.593,
+					"minute": 1018.79332053333,
+					"parts": {
+						"dog.tick": 0.009,
+						"gate_watch.tick": 1.322,
+						"guard.tick": 0.203,
+						"orders.tick": 0.003,
+						"presentation.tick": 1.571,
+						"room_access.tick": 0.282,
+						"routines.tick": 0.021,
+						"workshop.tick": 12.732,
+						"workshop.update_gate": 0.087,
+						"world.update_dorm_doors": 0.205
+					},
+					"paths": [
+						{
+							"builds": 8,
+							"deferred": 5,
+							"from": [
+								1379.71923828125,
+								1585.78979492188
+							],
+							"ms": 12.29,
+							"parts": {
+								"grid_search": 5.024,
+								"grid_update": 7.17
+							},
+							"points": 0,
+							"to": [
+								1480.0,
+								1370.0
+							]
+						}
+					],
+					"script": 17.25
+				},
+				{
+					"frame": 52.994,
+					"minute": 1020.01993813333,
+					"parts": {
+						"dog.tick": 0.051,
+						"gate_watch.tick": 0.897,
+						"guard.tick": 0.154,
+						"orders.tick": 0.596,
+						"presentation.tick": 3.259,
+						"room_access.tick": 2.297,
+						"routines.tick": 26.373,
+						"workshop.tick": 2.702,
+						"workshop.update_gate": 1.878,
+						"world.update_dorm_doors": 0.182
+					},
+					"paths": [
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								1140.36584472656,
+								1781.98364257813
+							],
+							"ms": 20.352,
+							"parts": {
+								"grid_search": 8.003,
+								"grid_update": 12.099
+							},
+							"points": 8,
+							"to": [
+								3600.0,
+								3840.0
+							]
+						},
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								4200.0,
+								3440.0
+							],
+							"ms": 0.015,
+							"parts": {},
+							"points": 0,
+							"to": [
+								4260.0,
+								2260.0
+							]
+						},
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								1379.71923828125,
+								1585.78979492188
+							],
+							"ms": 2.445,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1360.0,
+								1605.0
+							]
+						}
+					],
+					"script": 39.997
+				},
+				{
+					"frame": 27.4,
+					"minute": 1022.24118933333,
+					"parts": {
+						"dog.tick": 9.789,
+						"gate_watch.tick": 0.793,
+						"guard.tick": 0.17,
+						"orders.tick": 0.531,
+						"presentation.tick": 1.184,
+						"room_access.tick": 0.318,
+						"routines.tick": 0.036,
+						"workshop.tick": 0.157,
+						"workshop.update_gate": 0.046,
+						"world.update_dorm_doors": 0.194
+					},
+					"paths": [
+						{
+							"builds": 9,
+							"deferred": 5,
+							"from": [
+								4200.0,
+								3440.0
+							],
+							"ms": 9.724,
+							"parts": {
+								"grid_search": 8.967
+							},
+							"points": 12,
+							"to": [
+								3400.0,
+								1220.0
+							]
+						}
+					],
+					"script": 13.943
+				},
+				{
+					"frame": 33.499,
+					"minute": 1025.57440053333,
+					"parts": {
+						"dog.tick": 0.31,
+						"gate_watch.tick": 3.495,
+						"guard.tick": 0.174,
+						"orders.tick": 0.685,
+						"presentation.tick": 8.454,
+						"room_access.tick": 4.714,
+						"routines.tick": 0.046,
+						"workshop.tick": 0.218,
+						"workshop.update_gate": 0.057,
+						"world.update_dorm_doors": 0.281
+					},
+					"paths": [],
+					"script": 19.485
+				},
+				{
+					"frame": 25.598,
+					"minute": 1026.34770666666,
+					"parts": {
+						"dog.tick": 0.234,
+						"gate_watch.tick": 4.039,
+						"guard.tick": 0.131,
+						"orders.tick": 0.724,
+						"presentation.tick": 6.123,
+						"room_access.tick": 2.547,
+						"routines.tick": 0.064,
+						"workshop.tick": 0.18,
+						"workshop.update_gate": 0.089,
+						"world.update_dorm_doors": 0.239
+					},
+					"paths": [],
+					"script": 15.23
+				}
+			]
+		},
+		"transition_1200": {
+			"draw_calls": {
+				"count": 300,
+				"max": 615.0,
+				"mean": 602.24,
+				"over25": 300,
+				"over33": 300,
+				"p50": 612.0,
+				"p95": 615.0,
+				"p99": 615.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 118.689,
+				"mean": 18.43904,
+				"over25": 9,
+				"over33": 6,
+				"p50": 17.628,
+				"p95": 23.096,
+				"p99": 40.158
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 1.01600003242493,
+				"mean": 0.462239999473095,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.409999996423721,
+				"p95": 0.750999987125397,
+				"p99": 0.898000001907349
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 12.4079999923706,
+				"mean": 2.34046666820844,
+				"over25": 0,
+				"over33": 0,
+				"p50": 2.39599990844727,
+				"p95": 3.41899991035461,
+				"p99": 4.72100019454956
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 85.507,
+				"mean": 8.72174333333333,
+				"over25": 6,
+				"over33": 2,
+				"p50": 8.012,
+				"p95": 12.467,
+				"p99": 30.349
+			},
+			"slow_paths": [
+				{
+					"builds": 10,
+					"deferred": 5,
+					"from": [
+						2163.86499023438,
+						1957.62878417969
+					],
+					"ms": 24.262,
+					"parts": {
+						"grid_search": 12.576,
+						"grid_update": 11.286
+					},
+					"points": 5,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 5,
+					"from": [
+						1139.943359375,
+						1781.52905273438
+					],
+					"ms": 5.129,
+					"parts": {
+						"grid_search": 4.789
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 5,
+					"from": [
+						2121.6435546875,
+						1811.34484863281
+					],
+					"ms": 10.928,
+					"parts": {
+						"grid_search": 10.601
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 10,
+					"deferred": 5,
+					"from": [
+						986.389892578125,
+						1797.7255859375
+					],
+					"ms": 8.295,
+					"parts": {
+						"grid_search": 8.041
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 11,
+					"deferred": 5,
+					"from": [
+						2121.6435546875,
+						1811.34484863281
+					],
+					"ms": 22.381,
+					"parts": {
+						"grid_search": 13.412,
+						"grid_update": 8.331
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 11,
+					"deferred": 5,
+					"from": [
+						3380.0,
+						330.0
+					],
+					"ms": 5.487,
+					"parts": {},
+					"points": 1,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 9,
+					"from": [
+						986.389892578125,
+						1797.7255859375
+					],
+					"ms": 38.768,
+					"parts": {
+						"grid_search": 17.739,
+						"grid_update": 20.308
+					},
+					"points": 3,
+					"to": [
+						428.0,
+						2193.96997070313
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 13,
+					"from": [
+						4764.953125,
+						3112.2490234375
+					],
+					"ms": 18.039,
+					"parts": {
+						"grid_search": 17.37
+					},
+					"points": 14,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 16,
+					"from": [
+						5440.0126953125,
+						2726.07006835938
+					],
+					"ms": 15.343,
+					"parts": {
+						"grid_search": 14.744
+					},
+					"points": 14,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 18,
+					"from": [
+						1613.85021972656,
+						921.943176269531
+					],
+					"ms": 6.153,
+					"parts": {
+						"grid_search": 5.719
+					},
+					"points": 6,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 19,
+					"from": [
+						2770.0,
+						4040.0
+					],
+					"ms": 8.227,
+					"parts": {
+						"grid_search": 7.882
+					},
+					"points": 15,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 19,
+					"from": [
+						2052.71118164063,
+						1811.27087402344
+					],
+					"ms": 8.091,
+					"parts": {
+						"grid_search": 7.535
+					},
+					"points": 0,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 19,
+					"from": [
+						1360.0,
+						1775.0
+					],
+					"ms": 17.535,
+					"parts": {
+						"grid_search": 13.517
+					},
+					"points": 9,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 12,
+					"deferred": 19,
+					"from": [
+						2052.71118164063,
+						1811.27087402344
+					],
+					"ms": 14.356,
+					"parts": {
+						"grid_search": 13.794
+					},
+					"points": 4,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 40.158,
+					"minute": 1199.03331573333,
+					"parts": {
+						"dog.tick": 0.187,
+						"gate_watch.tick": 0.899,
+						"guard.tick": 0.112,
+						"orders.tick": 0.279,
+						"presentation.tick": 1.304,
+						"room_access.tick": 0.651,
+						"routines.tick": 0.06,
+						"workshop.tick": 0.141,
+						"workshop.update_gate": 0.079,
+						"world.update_dorm_doors": 0.306
+					},
+					"paths": [
+						{
+							"builds": 10,
+							"deferred": 5,
+							"from": [
+								2163.86499023438,
+								1957.62878417969
+							],
+							"ms": 24.262,
+							"parts": {
+								"grid_search": 12.576,
+								"grid_update": 11.286
+							},
+							"points": 5,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						}
+					],
+					"script": 30.349
+				},
+				{
+					"frame": 118.689,
+					"minute": 1200.01017066667,
+					"parts": {
+						"dog.tick": 0.382,
+						"gate_watch.tick": 11.748,
+						"guard.tick": 0.55,
+						"orders.tick": 1.52,
+						"presentation.tick": 13.094,
+						"room_access.tick": 5.665,
+						"routines.tick": 27.217,
+						"workshop.tick": 0.228,
+						"workshop.update_gate": 0.087,
+						"world.update_dorm_doors": 0.302
+					},
+					"paths": [
+						{
+							"builds": 10,
+							"deferred": 5,
+							"from": [
+								2121.6435546875,
+								1811.34484863281
+							],
+							"ms": 10.928,
+							"parts": {
+								"grid_search": 10.601
+							},
+							"points": 4,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 10,
+							"deferred": 5,
+							"from": [
+								986.389892578125,
+								1797.7255859375
+							],
+							"ms": 8.295,
+							"parts": {
+								"grid_search": 8.041
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 5,
+							"from": [
+								2121.6435546875,
+								1811.34484863281
+							],
+							"ms": 22.381,
+							"parts": {
+								"grid_search": 13.412,
+								"grid_update": 8.331
+							},
+							"points": 4,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 5,
+							"from": [
+								3380.0,
+								330.0
+							],
+							"ms": 5.487,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 5,
+							"from": [
+								3560.0,
+								330.0
+							],
+							"ms": 0.09,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 6,
+							"from": [
+								4764.953125,
+								3112.2490234375
+							],
+							"ms": 0.34,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 7,
+							"from": [
+								5440.0126953125,
+								2726.07006835938
+							],
+							"ms": 0.704,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 8,
+							"from": [
+								1613.85021972656,
+								921.943176269531
+							],
+							"ms": 0.248,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 9,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.313,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 11,
+							"deferred": 9,
+							"from": [
+								750.0,
+								2215.51245117188
+							],
+							"ms": 0.072,
+							"parts": {},
+							"points": 1,
+							"to": [
+								750.0,
+								2264.80004882813
+							]
+						}
+					],
+					"script": 85.507
+				},
+				{
+					"frame": 55.51,
+					"minute": 1200.18384533333,
+					"parts": {
+						"dog.tick": 0.279,
+						"gate_watch.tick": 2.037,
+						"guard.tick": 0.391,
+						"orders.tick": 3.317,
+						"presentation.tick": 1.292,
+						"room_access.tick": 1.007,
+						"routines.tick": 39.043,
+						"workshop.tick": 0.152,
+						"workshop.update_gate": 0.127,
+						"world.update_dorm_doors": 0.4
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 9,
+							"from": [
+								986.389892578125,
+								1797.7255859375
+							],
+							"ms": 38.768,
+							"parts": {
+								"grid_search": 17.739,
+								"grid_update": 20.308
+							},
+							"points": 3,
+							"to": [
+								428.0,
+								2193.96997070313
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 10,
+							"from": [
+								4764.953125,
+								3112.2490234375
+							],
+							"ms": 0.214,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 11,
+							"from": [
+								5440.0126953125,
+								2726.07006835938
+							],
+							"ms": 0.456,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 12,
+							"from": [
+								1613.85021972656,
+								921.943176269531
+							],
+							"ms": 0.133,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 13,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.176,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 49.297
+				},
+				{
+					"frame": 31.669,
+					"minute": 1200.27437333333,
+					"parts": {
+						"dog.tick": 0.204,
+						"gate_watch.tick": 19.928,
+						"guard.tick": 0.373,
+						"orders.tick": 1.632,
+						"presentation.tick": 1.466,
+						"room_access.tick": 0.515,
+						"routines.tick": 0.028,
+						"workshop.tick": 0.136,
+						"workshop.update_gate": 0.062,
+						"world.update_dorm_doors": 0.203
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 13,
+							"from": [
+								4764.953125,
+								3112.2490234375
+							],
+							"ms": 18.039,
+							"parts": {
+								"grid_search": 17.37
+							},
+							"points": 14,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 14,
+							"from": [
+								5440.0126953125,
+								2726.07006835938
+							],
+							"ms": 0.45,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 15,
+							"from": [
+								1613.85021972656,
+								921.943176269531
+							],
+							"ms": 0.153,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 16,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.226,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 25.402
+				},
+				{
+					"frame": 28.614,
+					"minute": 1200.32770666667,
+					"parts": {
+						"dog.tick": 0.245,
+						"gate_watch.tick": 16.67,
+						"guard.tick": 0.41,
+						"orders.tick": 1.442,
+						"presentation.tick": 1.351,
+						"room_access.tick": 0.532,
+						"routines.tick": 0.036,
+						"workshop.tick": 0.163,
+						"workshop.update_gate": 0.061,
+						"world.update_dorm_doors": 0.318
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 16,
+							"from": [
+								5440.0126953125,
+								2726.07006835938
+							],
+							"ms": 15.343,
+							"parts": {
+								"grid_search": 14.744
+							},
+							"points": 14,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 17,
+							"from": [
+								1613.85021972656,
+								921.943176269531
+							],
+							"ms": 0.162,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 18,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.201,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 22.28
+				},
+				{
+					"frame": 23.797,
+					"minute": 1200.38104,
+					"parts": {
+						"dog.tick": 0.295,
+						"gate_watch.tick": 7.917,
+						"guard.tick": 0.547,
+						"orders.tick": 1.867,
+						"presentation.tick": 1.965,
+						"room_access.tick": 0.649,
+						"routines.tick": 0.035,
+						"workshop.tick": 0.25,
+						"workshop.update_gate": 0.082,
+						"world.update_dorm_doors": 0.256
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 18,
+							"from": [
+								1613.85021972656,
+								921.943176269531
+							],
+							"ms": 6.153,
+							"parts": {
+								"grid_search": 5.719
+							},
+							"points": 6,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 0.345,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 15.018
+				},
+				{
+					"frame": 21.522,
+					"minute": 1200.40770666667,
+					"parts": {
+						"dog.tick": 0.208,
+						"gate_watch.tick": 9.306,
+						"guard.tick": 0.309,
+						"orders.tick": 1.347,
+						"presentation.tick": 1.531,
+						"room_access.tick": 0.569,
+						"routines.tick": 0.035,
+						"workshop.tick": 0.157,
+						"workshop.update_gate": 0.068,
+						"world.update_dorm_doors": 0.285
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 8.227,
+							"parts": {
+								"grid_search": 7.882
+							},
+							"points": 15,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 14.911
+				},
+				{
+					"frame": 25.805,
+					"minute": 1200.44770666667,
+					"parts": {
+						"dog.tick": 0.259,
+						"gate_watch.tick": 0.927,
+						"guard.tick": 0.454,
+						"orders.tick": 9.234,
+						"presentation.tick": 2.244,
+						"room_access.tick": 0.646,
+						"routines.tick": 0.031,
+						"workshop.tick": 0.255,
+						"workshop.update_gate": 0.077,
+						"world.update_dorm_doors": 0.247
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2052.71118164063,
+								1811.27087402344
+							],
+							"ms": 8.091,
+							"parts": {
+								"grid_search": 7.535
+							},
+							"points": 0,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						}
+					],
+					"script": 15.507
+				},
+				{
+					"frame": 36.291,
+					"minute": 1200.51994826667,
+					"parts": {
+						"dog.tick": 0.251,
+						"gate_watch.tick": 1.304,
+						"guard.tick": 0.462,
+						"orders.tick": 0.506,
+						"presentation.tick": 2.744,
+						"room_access.tick": 0.699,
+						"routines.tick": 0.039,
+						"workshop.tick": 18.095,
+						"workshop.update_gate": 0.089,
+						"world.update_dorm_doors": 0.302
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								1360.0,
+								1775.0
+							],
+							"ms": 17.535,
+							"parts": {
+								"grid_search": 13.517
+							},
+							"points": 9,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 25.742
+				},
+				{
+					"frame": 37.49,
+					"minute": 1201.02104,
+					"parts": {
+						"dog.tick": 0.593,
+						"gate_watch.tick": 1.389,
+						"guard.tick": 0.55,
+						"orders.tick": 15.492,
+						"presentation.tick": 2.529,
+						"room_access.tick": 0.963,
+						"routines.tick": 0.066,
+						"workshop.tick": 0.403,
+						"workshop.update_gate": 0.163,
+						"world.update_dorm_doors": 0.37
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2052.71118164063,
+								1811.27087402344
+							],
+							"ms": 14.356,
+							"parts": {
+								"grid_search": 13.794
+							},
+							"points": 4,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						}
+					],
+					"script": 24.328
+				},
+				{
+					"frame": 24.481,
+					"minute": 1201.61627946667,
+					"parts": {
+						"dog.tick": 0.501,
+						"gate_watch.tick": 1.456,
+						"guard.tick": 0.718,
+						"orders.tick": 2.349,
+						"presentation.tick": 3.872,
+						"room_access.tick": 1.659,
+						"routines.tick": 0.052,
+						"workshop.tick": 0.528,
+						"workshop.update_gate": 0.134,
+						"world.update_dorm_doors": 0.88
+					},
+					"paths": [],
+					"script": 13.735
+				},
+				{
+					"frame": 22.141,
+					"minute": 1201.68355219394,
+					"parts": {
+						"dog.tick": 0.421,
+						"gate_watch.tick": 1.461,
+						"guard.tick": 0.483,
+						"orders.tick": 2.006,
+						"presentation.tick": 4.499,
+						"room_access.tick": 1.14,
+						"routines.tick": 0.046,
+						"workshop.tick": 0.369,
+						"workshop.update_gate": 0.12,
+						"world.update_dorm_doors": 0.417
+					},
+					"paths": [],
+					"script": 12.559
+				},
+				{
+					"frame": 22.114,
+					"minute": 1201.7502188606,
+					"parts": {
+						"dog.tick": 0.311,
+						"gate_watch.tick": 3.043,
+						"guard.tick": 0.468,
+						"orders.tick": 2.494,
+						"presentation.tick": 2.162,
+						"room_access.tick": 1.499,
+						"routines.tick": 0.077,
+						"workshop.tick": 0.446,
+						"workshop.update_gate": 0.16,
+						"world.update_dorm_doors": 0.524
+					},
+					"paths": [],
+					"script": 13.049
+				},
+				{
+					"frame": 21.798,
+					"minute": 1201.81614478653,
+					"parts": {
+						"dog.tick": 0.486,
+						"gate_watch.tick": 1.469,
+						"guard.tick": 0.515,
+						"orders.tick": 2.183,
+						"presentation.tick": 3.297,
+						"room_access.tick": 1.943,
+						"routines.tick": 0.053,
+						"workshop.tick": 0.517,
+						"workshop.update_gate": 0.129,
+						"world.update_dorm_doors": 0.363
+					},
+					"paths": [],
+					"script": 12.467
+				},
+				{
+					"frame": 39.337,
+					"minute": 1202.12095626667,
+					"parts": {
+						"dog.tick": 0.304,
+						"gate_watch.tick": 5.251,
+						"guard.tick": 0.375,
+						"orders.tick": 5.963,
+						"presentation.tick": 11.328,
+						"room_access.tick": 0.644,
+						"routines.tick": 0.042,
+						"workshop.tick": 0.684,
+						"workshop.update_gate": 0.077,
+						"world.update_dorm_doors": 0.346
+					},
+					"paths": [
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								3460.0,
+								121.281143188477
+							],
+							"ms": 0.221,
+							"parts": {},
+							"points": 1,
+							"to": [
+								3460.0,
+								120.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								4616.3779296875,
+								3270.0
+							],
+							"ms": 0.471,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								5271.4462890625,
+								2902.72924804688
+							],
+							"ms": 0.044,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								1849.68139648438,
+								898.27587890625
+							],
+							"ms": 0.038,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								2542.55932617188,
+								4006.8310546875
+							],
+							"ms": 0.034,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						},
+						{
+							"builds": 12,
+							"deferred": 19,
+							"from": [
+								1574.75183105469,
+								1756.87194824219
+							],
+							"ms": 0.441,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3460.0,
+								300.0
+							]
+						}
+					],
+					"script": 26.265
+				}
+			]
+		},
+		"transition_1440": {
+			"draw_calls": {
+				"count": 300,
+				"max": 624.0,
+				"mean": 614.346666666667,
+				"over25": 300,
+				"over33": 300,
+				"p50": 613.0,
+				"p95": 624.0,
+				"p99": 624.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 163.943,
+				"mean": 17.0457166666667,
+				"over25": 1,
+				"over33": 1,
+				"p50": 16.513,
+				"p95": 19.381,
+				"p99": 21.534
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 1.15600001811981,
+				"mean": 0.572446666061878,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.488999992609024,
+				"p95": 0.936999976634979,
+				"p99": 1.12100005149841
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 3.26900005340576,
+				"mean": 1.82501000324885,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.64400005340576,
+				"p95": 2.65899991989136,
+				"p99": 3.07599997520447
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 141.199,
+				"mean": 5.34713333333333,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.418,
+				"p95": 7.198,
+				"p99": 8.566
+			},
+			"slow_paths": [
+				{
+					"builds": 13,
+					"deferred": 19,
+					"from": [
+						780.666015625,
+						1830.0
+					],
+					"ms": 36.006,
+					"parts": {
+						"grid_search": 16.588,
+						"grid_update": 18.928
+					},
+					"points": 2,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 13,
+					"deferred": 19,
+					"from": [
+						780.666015625,
+						1830.0
+					],
+					"ms": 4.307,
+					"parts": {},
+					"points": 0,
+					"to": [
+						428.0,
+						1853.96997070313
+					]
+				},
+				{
+					"builds": 14,
+					"deferred": 19,
+					"from": [
+						1571.63354492188,
+						2927.24365234375
+					],
+					"ms": 75.657,
+					"parts": {
+						"grid_search": 34.496,
+						"grid_update": 36.082
+					},
+					"points": 7,
+					"to": [
+						493.0,
+						1513.96997070313
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 163.943,
+					"minute": 1440.0199408,
+					"parts": {
+						"dog.tick": 0.502,
+						"gate_watch.tick": 0.616,
+						"guard.tick": 76.038,
+						"orders.tick": 4.997,
+						"presentation.tick": 13.179,
+						"room_access.tick": 0.843,
+						"routines.tick": 0.054,
+						"workshop.tick": 0.418,
+						"workshop.update_gate": 0.109,
+						"world.update_dorm_doors": 0.447
+					},
+					"paths": [
+						{
+							"builds": 13,
+							"deferred": 19,
+							"from": [
+								780.666015625,
+								1830.0
+							],
+							"ms": 36.006,
+							"parts": {
+								"grid_search": 16.588,
+								"grid_update": 18.928
+							},
+							"points": 2,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 13,
+							"deferred": 19,
+							"from": [
+								780.666015625,
+								1830.0
+							],
+							"ms": 4.307,
+							"parts": {},
+							"points": 0,
+							"to": [
+								428.0,
+								1853.96997070313
+							]
+						},
+						{
+							"builds": 14,
+							"deferred": 19,
+							"from": [
+								1571.63354492188,
+								2927.24365234375
+							],
+							"ms": 75.657,
+							"parts": {
+								"grid_search": 34.496,
+								"grid_update": 36.082
+							},
+							"points": 7,
+							"to": [
+								493.0,
+								1513.96997070313
+							]
+						}
+					],
+					"script": 141.199
+				}
+			]
+		},
+		"transition_1920": {
+			"draw_calls": {
+				"count": 300,
+				"max": 605.0,
+				"mean": 576.696666666667,
+				"over25": 300,
+				"over33": 300,
+				"p50": 575.0,
+				"p95": 605.0,
+				"p99": 605.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 72.455,
+				"mean": 16.83749,
+				"over25": 4,
+				"over33": 3,
+				"p50": 16.593,
+				"p95": 19.612,
+				"p99": 36.831
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 1.18700003623962,
+				"mean": 0.412543334464232,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.368999987840652,
+				"p95": 0.737999975681305,
+				"p99": 1.00199997425079
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 3.92600011825562,
+				"mean": 1.18644000152747,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.10300004482269,
+				"p95": 1.73599994182587,
+				"p99": 2.1489999294281
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 54.886,
+				"mean": 4.8862,
+				"over25": 2,
+				"over33": 1,
+				"p50": 3.93,
+				"p95": 8.606,
+				"p99": 23.884
+			},
+			"slow_paths": [
+				{
+					"builds": 15,
+					"deferred": 19,
+					"from": [
+						1574.75183105469,
+						1756.87194824219
+					],
+					"ms": 3.573,
+					"parts": {
+						"grid_search": 3.325
+					},
+					"points": 9,
+					"to": [
+						3460.0,
+						300.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 19,
+					"from": [
+						780.666015625,
+						1830.0
+					],
+					"ms": 32.7,
+					"parts": {
+						"grid_search": 9.718,
+						"grid_update": 22.223
+					},
+					"points": 5,
+					"to": [
+						1710.0,
+						1340.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 22,
+					"from": [
+						1706.85803222656,
+						1745.71716308594
+					],
+					"ms": 2.832,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1360.0,
+						1775.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 22,
+					"from": [
+						428.0,
+						2193.96997070313
+					],
+					"ms": 10.678,
+					"parts": {
+						"grid_search": 10.362
+					},
+					"points": 5,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 25,
+					"from": [
+						4733.63623046875,
+						3126.365234375
+					],
+					"ms": 5.829,
+					"parts": {
+						"grid_search": 5.564
+					},
+					"points": 6,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 27,
+					"from": [
+						2067.7509765625,
+						901.946472167969
+					],
+					"ms": 8.231,
+					"parts": {
+						"grid_search": 7.423
+					},
+					"points": 4,
+					"to": [
+						3420.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 16,
+					"deferred": 28,
+					"from": [
+						1628.82421875,
+						1752.30517578125
+					],
+					"ms": 3.984,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1360.0,
+						1775.0
+					]
+				},
+				{
+					"builds": 17,
+					"deferred": 28,
+					"from": [
+						4812.33984375,
+						3119.80615234375
+					],
+					"ms": 17.89,
+					"parts": {
+						"grid_search": 3.091,
+						"grid_update": 14.296
+					},
+					"points": 6,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 17,
+					"deferred": 28,
+					"from": [
+						2145.43896484375,
+						903.254211425781
+					],
+					"ms": 5.727,
+					"parts": {
+						"grid_search": 4.606
+					},
+					"points": 4,
+					"to": [
+						3420.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 17,
+					"deferred": 28,
+					"from": [
+						1360.01159667969,
+						1606.47302246094
+					],
+					"ms": 3.425,
+					"parts": {
+						"grid_search": 3.324
+					},
+					"points": 2,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 72.032,
+					"minute": 1920.0,
+					"parts": {
+						"dog.tick": 0.045,
+						"gate_watch.tick": 1.654,
+						"guard.tick": 0.285,
+						"orders.tick": 0.434,
+						"presentation.tick": 5.852,
+						"room_access.tick": 4.267,
+						"routines.tick": 35.488,
+						"workshop.tick": 3.078,
+						"workshop.update_gate": 0.083,
+						"world.update_dorm_doors": 0.197
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 19,
+							"from": [
+								780.666015625,
+								1830.0
+							],
+							"ms": 32.7,
+							"parts": {
+								"grid_search": 9.718,
+								"grid_update": 22.223
+							},
+							"points": 5,
+							"to": [
+								1710.0,
+								1340.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 20,
+							"from": [
+								4724.62841796875,
+								3135.3740234375
+							],
+							"ms": 0.191,
+							"parts": {},
+							"points": 7,
+							"to": [
+								5040.0,
+								2450.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 20,
+							"from": [
+								5296.7265625,
+								2703.53149414063
+							],
+							"ms": 0.293,
+							"parts": {},
+							"points": 1,
+							"to": [
+								5580.0,
+								470.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 21,
+							"from": [
+								2050.45068359375,
+								901.655212402344
+							],
+							"ms": 0.402,
+							"parts": {},
+							"points": 4,
+							"to": [
+								3420.0,
+								1180.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 21,
+							"from": [
+								2741.2607421875,
+								4035.80810546875
+							],
+							"ms": 0.044,
+							"parts": {},
+							"points": 1,
+							"to": [
+								2770.0,
+								4040.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 22,
+							"from": [
+								1247.40759277344,
+								2532.93432617188
+							],
+							"ms": 0.221,
+							"parts": {},
+							"points": 0,
+							"to": [
+								750.0,
+								2400.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 22,
+							"from": [
+								1706.85803222656,
+								1745.71716308594
+							],
+							"ms": 2.832,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1360.0,
+								1775.0
+							]
+						}
+					],
+					"script": 54.886
+				},
+				{
+					"frame": 21.15,
+					"minute": 1920.08913066667,
+					"parts": {
+						"dog.tick": 0.017,
+						"gate_watch.tick": 1.648,
+						"guard.tick": 0.252,
+						"orders.tick": 1.092,
+						"presentation.tick": 1.276,
+						"room_access.tick": 0.401,
+						"routines.tick": 10.821,
+						"workshop.tick": 0.23,
+						"workshop.update_gate": 0.052,
+						"world.update_dorm_doors": 0.192
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 22,
+							"from": [
+								428.0,
+								2193.96997070313
+							],
+							"ms": 10.678,
+							"parts": {
+								"grid_search": 10.362
+							},
+							"points": 5,
+							"to": [
+								1250.0,
+								1535.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 23,
+							"from": [
+								4725.16748046875,
+								3134.8349609375
+							],
+							"ms": 0.183,
+							"parts": {},
+							"points": 7,
+							"to": [
+								5040.0,
+								2450.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 24,
+							"from": [
+								2051.212890625,
+								901.668029785156
+							],
+							"ms": 0.441,
+							"parts": {},
+							"points": 4,
+							"to": [
+								3420.0,
+								1180.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 25,
+							"from": [
+								1247.40759277344,
+								2532.93432617188
+							],
+							"ms": 0.199,
+							"parts": {},
+							"points": 0,
+							"to": [
+								750.0,
+								2400.0
+							]
+						}
+					],
+					"script": 16.574
+				},
+				{
+					"frame": 18.013,
+					"minute": 1920.1616384,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 9.059,
+						"guard.tick": 0.261,
+						"orders.tick": 0.949,
+						"presentation.tick": 1.578,
+						"room_access.tick": 0.541,
+						"routines.tick": 0.02,
+						"workshop.tick": 0.265,
+						"workshop.update_gate": 0.064,
+						"world.update_dorm_doors": 0.227
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 27,
+							"from": [
+								2067.7509765625,
+								901.946472167969
+							],
+							"ms": 8.231,
+							"parts": {
+								"grid_search": 7.423
+							},
+							"points": 4,
+							"to": [
+								3420.0,
+								1180.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 28,
+							"from": [
+								1247.40759277344,
+								2532.93432617188
+							],
+							"ms": 0.201,
+							"parts": {},
+							"points": 0,
+							"to": [
+								750.0,
+								2400.0
+							]
+						}
+					],
+					"script": 13.717
+				},
+				{
+					"frame": 36.831,
+					"minute": 1920.60377493333,
+					"parts": {
+						"dog.tick": 0.013,
+						"gate_watch.tick": 13.477,
+						"guard.tick": 0.172,
+						"orders.tick": 0.733,
+						"presentation.tick": 8.387,
+						"room_access.tick": 0.879,
+						"routines.tick": 0.055,
+						"workshop.tick": 4.316,
+						"workshop.update_gate": 0.091,
+						"world.update_dorm_doors": 0.442
+					},
+					"paths": [
+						{
+							"builds": 16,
+							"deferred": 28,
+							"from": [
+								5306.58056640625,
+								2625.84228515625
+							],
+							"ms": 0.587,
+							"parts": {},
+							"points": 1,
+							"to": [
+								5580.0,
+								470.0
+							]
+						},
+						{
+							"builds": 16,
+							"deferred": 28,
+							"from": [
+								1628.82421875,
+								1752.30517578125
+							],
+							"ms": 3.984,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1360.0,
+								1775.0
+							]
+						}
+					],
+					"script": 29.718
+				},
+				{
+					"frame": 28.708,
+					"minute": 1920.70130364444,
+					"parts": {
+						"dog.tick": 0.016,
+						"gate_watch.tick": 18.684,
+						"guard.tick": 0.2,
+						"orders.tick": 0.962,
+						"presentation.tick": 1.961,
+						"room_access.tick": 0.496,
+						"routines.tick": 0.024,
+						"workshop.tick": 0.327,
+						"workshop.update_gate": 0.062,
+						"world.update_dorm_doors": 0.279
+					},
+					"paths": [
+						{
+							"builds": 17,
+							"deferred": 28,
+							"from": [
+								4812.33984375,
+								3119.80615234375
+							],
+							"ms": 17.89,
+							"parts": {
+								"grid_search": 3.091,
+								"grid_update": 14.296
+							},
+							"points": 6,
+							"to": [
+								5040.0,
+								2450.0
+							]
+						}
+					],
+					"script": 23.884
+				},
+				{
+					"frame": 72.455,
+					"minute": 1921.41295573333,
+					"parts": {
+						"dog.tick": 0.02,
+						"gate_watch.tick": 1.612,
+						"guard.tick": 0.417,
+						"orders.tick": 1.785,
+						"presentation.tick": 3.301,
+						"room_access.tick": 1.167,
+						"routines.tick": 0.03,
+						"workshop.tick": 0.644,
+						"workshop.update_gate": 0.13,
+						"world.update_dorm_doors": 0.434
+					},
+					"paths": [],
+					"script": 10.934
+				}
+			]
+		},
+		"transition_720": {
+			"draw_calls": {
+				"count": 300,
+				"max": 580.0,
+				"mean": 560.723333333333,
+				"over25": 300,
+				"over33": 300,
+				"p50": 559.0,
+				"p95": 573.0,
+				"p99": 580.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 97.891,
+				"mean": 16.8915466666667,
+				"over25": 3,
+				"over33": 2,
+				"p50": 16.606,
+				"p95": 19.508,
+				"p99": 29.19
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 15.9049997329712,
+				"mean": 1.27310333490372,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.906000018119812,
+				"p95": 2.68499994277954,
+				"p99": 4.30299997329712
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 3.15499997138977,
+				"mean": 1.4042366617918,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.23399996757507,
+				"p95": 2.15300011634827,
+				"p99": 2.79500007629395
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 83.593,
+				"mean": 5.02407333333333,
+				"over25": 1,
+				"over33": 1,
+				"p50": 4.263,
+				"p95": 7.208,
+				"p99": 13.06
+			},
+			"slow_paths": [
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						1480.0,
+						1370.0
+					],
+					"ms": 3.198,
+					"parts": {},
+					"points": 1,
+					"to": [
+						1480.0,
+						1205.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 3,
+					"from": [
+						1709.64282226563,
+						1340.12915039063
+					],
+					"ms": 38.756,
+					"parts": {
+						"grid_search": 10.336,
+						"grid_update": 26.676
+					},
+					"points": 7,
+					"to": [
+						1450.0,
+						2170.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 4,
+					"from": [
+						1480.0,
+						1300.17175292969
+					],
+					"ms": 6.265,
+					"parts": {},
+					"points": 0,
+					"to": [
+						1360.0,
+						1605.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 4,
+					"from": [
+						1251.39758300781,
+						1535.7197265625
+					],
+					"ms": 3.323,
+					"parts": {
+						"grid_search": 2.953
+					},
+					"points": 5,
+					"to": [
+						1580.0,
+						2170.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1480.0,
+						1300.17175292969
+					],
+					"ms": 6.857,
+					"parts": {
+						"grid_search": 6.709
+					},
+					"points": 2,
+					"to": [
+						1360.0,
+						1605.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						2241.0869140625,
+						1168.21484375
+					],
+					"ms": 6.26,
+					"parts": {
+						"grid_search": 5.848
+					},
+					"points": 3,
+					"to": [
+						750.0,
+						1180.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1160.0,
+						1820.0
+					],
+					"ms": 6.982,
+					"parts": {
+						"grid_search": 6.865
+					},
+					"points": 2,
+					"to": [
+						1450.0,
+						2170.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 37.12,
+					"minute": 718.516911563636,
+					"parts": {
+						"dog.tick": 0.013,
+						"gate_watch.tick": 3.752,
+						"guard.tick": 0.197,
+						"orders.tick": 0.005,
+						"presentation.tick": 4.407,
+						"room_access.tick": 0.421,
+						"routines.tick": 0.032,
+						"workshop.tick": 3.549,
+						"workshop.update_gate": 2.216,
+						"world.update_dorm_doors": 0.199
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								750.0,
+								2258.04443359375
+							],
+							"ms": 0.057,
+							"parts": {},
+							"points": 1,
+							"to": [
+								750.0,
+								2208.39990234375
+							]
+						},
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								1480.0,
+								1370.0
+							],
+							"ms": 3.198,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1480.0,
+								1205.0
+							]
+						}
+					],
+					"script": 15.862
+				},
+				{
+					"frame": 97.891,
+					"minute": 720.016322230304,
+					"parts": {
+						"dog.tick": 0.016,
+						"gate_watch.tick": 1.015,
+						"guard.tick": 0.273,
+						"orders.tick": 0.376,
+						"presentation.tick": 7.69,
+						"room_access.tick": 16.507,
+						"routines.tick": 43.73,
+						"workshop.tick": 7.178,
+						"workshop.update_gate": 3.454,
+						"world.update_dorm_doors": 0.277
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 3,
+							"from": [
+								1709.64282226563,
+								1340.12915039063
+							],
+							"ms": 38.756,
+							"parts": {
+								"grid_search": 10.336,
+								"grid_update": 26.676
+							},
+							"points": 7,
+							"to": [
+								1450.0,
+								2170.0
+							]
+						},
+						{
+							"builds": 5,
+							"deferred": 4,
+							"from": [
+								1480.0,
+								1300.17175292969
+							],
+							"ms": 6.265,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1360.0,
+								1605.0
+							]
+						}
+					],
+					"script": 83.593
+				},
+				{
+					"frame": 23.427,
+					"minute": 720.16410089697,
+					"parts": {
+						"dog.tick": 0.019,
+						"gate_watch.tick": 1.085,
+						"guard.tick": 0.423,
+						"orders.tick": 2.261,
+						"presentation.tick": 2.161,
+						"room_access.tick": 0.74,
+						"routines.tick": 3.567,
+						"workshop.tick": 0.445,
+						"workshop.update_gate": 0.106,
+						"world.update_dorm_doors": 0.429
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 4,
+							"from": [
+								1251.39758300781,
+								1535.7197265625
+							],
+							"ms": 3.323,
+							"parts": {
+								"grid_search": 2.953
+							},
+							"points": 5,
+							"to": [
+								1580.0,
+								2170.0
+							]
+						},
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1480.0,
+								1300.17175292969
+							],
+							"ms": 0.126,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1360.0,
+								1605.0
+							]
+						}
+					],
+					"script": 12.725
+				},
+				{
+					"frame": 19.318,
+					"minute": 720.196969696971,
+					"parts": {
+						"dog.tick": 0.028,
+						"gate_watch.tick": 0.832,
+						"guard.tick": 0.228,
+						"orders.tick": 0.718,
+						"presentation.tick": 1.805,
+						"room_access.tick": 0.528,
+						"routines.tick": 0.039,
+						"workshop.tick": 7.262,
+						"workshop.update_gate": 0.09,
+						"world.update_dorm_doors": 0.328
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1480.0,
+								1300.17175292969
+							],
+							"ms": 6.857,
+							"parts": {
+								"grid_search": 6.709
+							},
+							"points": 2,
+							"to": [
+								1360.0,
+								1605.0
+							]
+						}
+					],
+					"script": 13.06
+				},
+				{
+					"frame": 29.19,
+					"minute": 723.028098763639,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.508,
+						"guard.tick": 0.112,
+						"orders.tick": 0.317,
+						"presentation.tick": 1.399,
+						"room_access.tick": 0.317,
+						"routines.tick": 0.029,
+						"workshop.tick": 0.185,
+						"workshop.update_gate": 0.055,
+						"world.update_dorm_doors": 0.254
+					},
+					"paths": [],
+					"script": 3.973
+				}
+			]
+		},
+		"transition_840": {
+			"draw_calls": {
+				"count": 300,
+				"max": 572.0,
+				"mean": 564.163333333333,
+				"over25": 300,
+				"over33": 300,
+				"p50": 566.0,
+				"p95": 572.0,
+				"p99": 572.0
+			},
+			"frame_ms": {
+				"count": 300,
+				"max": 49.209,
+				"mean": 16.6867366666667,
+				"over25": 1,
+				"over33": 1,
+				"p50": 16.565,
+				"p95": 19.834,
+				"p99": 23.975
+			},
+			"gpu_ms": {
+				"count": 300,
+				"max": 5.16599988937378,
+				"mean": 1.22804000079632,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.870999991893768,
+				"p95": 3.18799996376038,
+				"p99": 3.70700001716614
+			},
+			"render_cpu_ms": {
+				"count": 300,
+				"max": 1.96599996089935,
+				"mean": 1.13523666699727,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.07099997997284,
+				"p95": 1.55799996852875,
+				"p99": 1.78999996185303
+			},
+			"script_ms": {
+				"count": 300,
+				"max": 32.142,
+				"mean": 4.59916,
+				"over25": 1,
+				"over33": 0,
+				"p50": 4.163,
+				"p95": 6.756,
+				"p99": 15.631
+			},
+			"slow_paths": [
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1142.69775390625,
+						2114.1484375
+					],
+					"ms": 2.023,
+					"parts": {
+						"grid_search": 1.828
+					},
+					"points": 6,
+					"to": [
+						1710.0,
+						1340.0
+					]
+				},
+				{
+					"builds": 5,
+					"deferred": 5,
+					"from": [
+						1466.87060546875,
+						2161.91650390625
+					],
+					"ms": 2.119,
+					"parts": {
+						"grid_search": 1.95
+					},
+					"points": 5,
+					"to": [
+						1250.0,
+						1535.0
+					]
+				},
+				{
+					"builds": 6,
+					"deferred": 5,
+					"from": [
+						1233.47827148438,
+						2145.25
+					],
+					"ms": 11.304,
+					"parts": {
+						"grid_search": 3.784,
+						"grid_update": 7.148
+					},
+					"points": 3,
+					"to": [
+						2000.0,
+						1780.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1233.47827148438,
+						2145.25
+					],
+					"ms": 11.887,
+					"parts": {
+						"grid_search": 3.586,
+						"grid_update": 8.01
+					},
+					"points": 3,
+					"to": [
+						1140.0,
+						1780.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						2770.0,
+						4040.0
+					],
+					"ms": 5.899,
+					"parts": {},
+					"points": 1,
+					"to": [
+						2770.0,
+						4040.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 9.866,
+					"parts": {
+						"grid_search": 9.782
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 3.061,
+					"parts": {
+						"grid_search": 2.974
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.565,
+					"parts": {
+						"grid_search": 2.49
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.206,
+					"parts": {
+						"grid_search": 2.135
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.333,
+					"parts": {
+						"grid_search": 2.26
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 3.815,
+					"parts": {
+						"grid_search": 3.723
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.811,
+					"parts": {
+						"grid_search": 2.616
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.866,
+					"parts": {
+						"grid_search": 2.767
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						2397.17431640625,
+						2371.3330078125
+					],
+					"ms": 2.351,
+					"parts": {
+						"grid_search": 2.065
+					},
+					"points": 4,
+					"to": [
+						750.0,
+						3240.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.36,
+					"parts": {
+						"grid_search": 2.284
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						4441.1376953125,
+						3361.3642578125
+					],
+					"ms": 2.349,
+					"parts": {
+						"grid_search": 2.205
+					},
+					"points": 9,
+					"to": [
+						5040.0,
+						2450.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.549,
+					"parts": {
+						"grid_search": 2.467
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				},
+				{
+					"builds": 7,
+					"deferred": 5,
+					"from": [
+						1379.71923828125,
+						1585.78979492188
+					],
+					"ms": 2.928,
+					"parts": {
+						"grid_search": 2.838
+					},
+					"points": 0,
+					"to": [
+						1480.0,
+						1370.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 49.209,
+					"minute": 840.019933333334,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.738,
+						"guard.tick": 0.138,
+						"orders.tick": 0.237,
+						"presentation.tick": 3.513,
+						"room_access.tick": 20.296,
+						"routines.tick": 2.999,
+						"workshop.tick": 0.337,
+						"workshop.update_gate": 2.181,
+						"world.update_dorm_doors": 0.162
+					},
+					"paths": [
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1156.94580078125,
+								1871.91064453125
+							],
+							"ms": 0.086,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 5,
+							"deferred": 5,
+							"from": [
+								1233.47827148438,
+								2145.25
+							],
+							"ms": 1.907,
+							"parts": {
+								"grid_search": 1.806
+							},
+							"points": 3,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1233.47827148438,
+								2145.25
+							],
+							"ms": 11.304,
+							"parts": {
+								"grid_search": 3.784,
+								"grid_update": 7.148
+							},
+							"points": 3,
+							"to": [
+								2000.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1233.47827148438,
+								2145.25
+							],
+							"ms": 1.899,
+							"parts": {
+								"grid_search": 1.805
+							},
+							"points": 5,
+							"to": [
+								1540.0,
+								2590.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								1156.94580078125,
+								1871.91064453125
+							],
+							"ms": 0.117,
+							"parts": {},
+							"points": 1,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						},
+						{
+							"builds": 6,
+							"deferred": 5,
+							"from": [
+								750.0,
+								2215.51245117188
+							],
+							"ms": 0.02,
+							"parts": {},
+							"points": 0,
+							"to": [
+								1855.16003417969,
+								1924.91003417969
+							]
+						}
+					],
+					"script": 32.142
+				},
+				{
+					"frame": 20.713,
+					"minute": 840.069491200001,
+					"parts": {
+						"dog.tick": 0.021,
+						"gate_watch.tick": 0.732,
+						"guard.tick": 0.168,
+						"orders.tick": 0.521,
+						"presentation.tick": 1.186,
+						"room_access.tick": 0.293,
+						"routines.tick": 11.996,
+						"workshop.tick": 0.401,
+						"workshop.update_gate": 0.079,
+						"world.update_dorm_doors": 0.18
+					},
+					"paths": [
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								1233.47827148438,
+								2145.25
+							],
+							"ms": 11.887,
+							"parts": {
+								"grid_search": 3.586,
+								"grid_update": 8.01
+							},
+							"points": 3,
+							"to": [
+								1140.0,
+								1780.0
+							]
+						}
+					],
+					"script": 16.285
+				},
+				{
+					"frame": 22.017,
+					"minute": 840.21158488889,
+					"parts": {
+						"dog.tick": 0.02,
+						"gate_watch.tick": 7.717,
+						"guard.tick": 0.248,
+						"orders.tick": 1.051,
+						"presentation.tick": 2.992,
+						"room_access.tick": 0.676,
+						"routines.tick": 0.041,
+						"workshop.tick": 0.718,
+						"workshop.update_gate": 0.199,
+						"world.update_dorm_doors": 0.367
+					},
+					"paths": [
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								3380.0,
+								330.0
+							],
+							"ms": 0.058,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3380.0,
+								330.0
+							]
+						},
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								3560.0,
+								330.0
+							],
+							"ms": 0.032,
+							"parts": {},
+							"points": 0,
+							"to": [
+								3560.0,
+								330.0
+							]
+						},
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								2770.0,
+								4040.0
+							],
+							"ms": 5.899,
+							"parts": {},
+							"points": 1,
+							"to": [
+								2770.0,
+								4040.0
+							]
+						}
+					],
+					"script": 15.631
+				},
+				{
+					"frame": 24.152,
+					"minute": 840.369338133334,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.832,
+						"guard.tick": 0.158,
+						"orders.tick": 0.438,
+						"presentation.tick": 1.164,
+						"room_access.tick": 0.314,
+						"routines.tick": 0.022,
+						"workshop.tick": 10.331,
+						"workshop.update_gate": 0.085,
+						"world.update_dorm_doors": 0.226
+					},
+					"paths": [
+						{
+							"builds": 7,
+							"deferred": 5,
+							"from": [
+								1379.71923828125,
+								1585.78979492188
+							],
+							"ms": 9.866,
+							"parts": {
+								"grid_search": 9.782
+							},
+							"points": 0,
+							"to": [
+								1480.0,
+								1370.0
+							]
+						}
+					],
+					"script": 14.395
+				}
+			]
+		},
+		"uncapped": {
+			"draw_calls": {
+				"count": 360,
+				"max": 541.0,
+				"mean": 540.286111111111,
+				"over25": 360,
+				"over33": 360,
+				"p50": 540.0,
+				"p95": 541.0,
+				"p99": 541.0
+			},
+			"frame_ms": {
+				"count": 360,
+				"max": 24.466,
+				"mean": 9.57550555555556,
+				"over25": 0,
+				"over33": 0,
+				"p50": 9.239,
+				"p95": 12.44,
+				"p99": 14.709
+			},
+			"gpu_ms": {
+				"count": 360,
+				"max": 2.66799998283386,
+				"mean": 0.889933333132002,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.730000019073486,
+				"p95": 1.56700003147125,
+				"p99": 1.9889999628067
+			},
+			"render_cpu_ms": {
+				"count": 360,
+				"max": 2.26500010490417,
+				"mean": 1.3468583330512,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.25600004196167,
+				"p95": 1.91400003433228,
+				"p99": 2.07399988174438
+			},
+			"script_ms": {
+				"count": 360,
+				"max": 18.633,
+				"mean": 4.41972222222222,
+				"over25": 0,
+				"over33": 0,
+				"p50": 4.276,
+				"p95": 5.719,
+				"p99": 6.477
+			},
+			"slow_paths": [
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						4713.49560546875,
+						3149.49487304688
+					],
+					"ms": 14.071,
+					"parts": {
+						"grid_search": 4.341,
+						"grid_update": 9.564
+					},
+					"points": 3,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 24.466,
+					"minute": 508.179654577778,
+					"parts": {
+						"dog.tick": 0.012,
+						"gate_watch.tick": 14.805,
+						"guard.tick": 0.176,
+						"orders.tick": 0.004,
+						"presentation.tick": 1.305,
+						"room_access.tick": 0.767,
+						"routines.tick": 0.027,
+						"workshop.tick": 0.092,
+						"workshop.update_gate": 0.083,
+						"world.update_dorm_doors": 0.32
+					},
+					"paths": [
+						{
+							"builds": 4,
+							"deferred": 3,
+							"from": [
+								4713.49560546875,
+								3149.49487304688
+							],
+							"ms": 14.071,
+							"parts": {
+								"grid_search": 4.341,
+								"grid_update": 9.564
+							},
+							"points": 3,
+							"to": [
+								4860.0,
+								3420.0
+							]
+						}
+					],
+					"script": 18.633
+				}
+			]
+		}
+	},
+	"fixture_count": 599,
+	"initial_texture_mib": 0.0,
+	"refresh_hz": 165.001602172852,
+	"renderer": "forward_plus",
+	"texture_mib": 815.34765625,
+	"wall_count": 1307
+}

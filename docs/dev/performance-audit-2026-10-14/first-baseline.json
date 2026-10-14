@@ -1,0 +1,7508 @@
+{
+	"cap": 0,
+	"cases": {
+		"afternoon_work": {
+			"draw_calls": {
+				"max": 512.0,
+				"mean": 495.404166666667,
+				"p50": 498.0,
+				"p95": 512.0,
+				"p99": 512.0
+			},
+			"frame_ms": {
+				"max": 62.57,
+				"mean": 35.936875,
+				"p50": 35.241,
+				"p95": 41.937,
+				"p99": 47.196
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 56.481,
+				"mean": 31.9535125,
+				"p50": 31.322,
+				"p95": 37.509,
+				"p99": 42.78
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.252,
+					"mean": 0.0656333333333333,
+					"p50": 0.063,
+					"p95": 0.082,
+					"p99": 0.126
+				},
+				"ai_begin": {
+					"max": 0.002,
+					"mean": 0.001125,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.002,
+					"mean": 0.00107083333333333,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.021,
+					"mean": 0.00612916666666666,
+					"p50": 0.006,
+					"p95": 0.008,
+					"p99": 0.01
+				},
+				"bath": {
+					"max": 0.122,
+					"mean": 0.0129041666666667,
+					"p50": 0.012,
+					"p95": 0.016,
+					"p99": 0.02
+				},
+				"camera": {
+					"max": 0.034,
+					"mean": 0.0145208333333333,
+					"p50": 0.016,
+					"p95": 0.021,
+					"p99": 0.03
+				},
+				"clock": {
+					"max": 0.546,
+					"mean": 0.279858333333333,
+					"p50": 0.271,
+					"p95": 0.352,
+					"p99": 0.456
+				},
+				"dialogue": {
+					"max": 0.073,
+					"mean": 0.00444583333333333,
+					"p50": 0.004,
+					"p95": 0.006,
+					"p99": 0.006
+				},
+				"dog": {
+					"max": 0.019,
+					"mean": 0.00976249999999997,
+					"p50": 0.009,
+					"p95": 0.012,
+					"p99": 0.014
+				},
+				"gate_watch": {
+					"max": 36.41,
+					"mean": 20.7974333333333,
+					"p50": 20.367,
+					"p95": 24.553,
+					"p99": 29.898
+				},
+				"gate_watch2": {
+					"max": 0.03,
+					"mean": 0.0122916666666666,
+					"p50": 0.012,
+					"p95": 0.017,
+					"p99": 0.024
+				},
+				"guard": {
+					"max": 6.793,
+					"mean": 4.20199166666667,
+					"p50": 4.126,
+					"p95": 5.157,
+					"p99": 5.671
+				},
+				"hud": {
+					"max": 0.035,
+					"mean": 0.0187875,
+					"p50": 0.018,
+					"p95": 0.023,
+					"p99": 0.027
+				},
+				"loot": {
+					"max": 0.005,
+					"mean": 0.00321666666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"mobile_input": {
+					"max": 0.055,
+					"mean": 0.029325,
+					"p50": 0.029,
+					"p95": 0.034,
+					"p99": 0.043
+				},
+				"npc_life": {
+					"max": 0.231,
+					"mean": 0.0106458333333333,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.228
+				},
+				"orders": {
+					"max": 0.006,
+					"mean": 0.00337916666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"presentation": {
+					"max": 12.465,
+					"mean": 5.42473333333333,
+					"p50": 5.328,
+					"p95": 6.639,
+					"p99": 8.019
+				},
+				"resident_staff": {
+					"max": 0.217,
+					"mean": 0.0894083333333333,
+					"p50": 0.085,
+					"p95": 0.116,
+					"p99": 0.16
+				},
+				"room_access": {
+					"max": 0.658,
+					"mean": 0.385016666666667,
+					"p50": 0.371,
+					"p95": 0.508,
+					"p99": 0.593
+				},
+				"skills": {
+					"max": 0.052,
+					"mean": 0.0035,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"social": {
+					"max": 0.409,
+					"mean": 0.0131416666666667,
+					"p50": 0.004,
+					"p95": 0.006,
+					"p99": 0.249
+				},
+				"staff_traffic": {
+					"max": 0.088,
+					"mean": 0.0256791666666667,
+					"p50": 0.025,
+					"p95": 0.032,
+					"p99": 0.059
+				},
+				"timeout": {
+					"max": 0.006,
+					"mean": 0.0020375,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.004
+				},
+				"trade": {
+					"max": 0.162,
+					"mean": 0.0363208333333333,
+					"p50": 0.033,
+					"p95": 0.059,
+					"p99": 0.09
+				},
+				"tutorial": {
+					"max": 0.003,
+					"mean": 0.0014625,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.003
+				},
+				"visibility": {
+					"max": 0.171,
+					"mean": 0.107845833333333,
+					"p50": 0.106,
+					"p95": 0.127,
+					"p99": 0.156
+				},
+				"workshop_gate": {
+					"max": 0.733,
+					"mean": 0.0838125000000001,
+					"p50": 0.079,
+					"p95": 0.099,
+					"p99": 0.219
+				},
+				"workshop_gate2": {
+					"max": 0.506,
+					"mean": 0.281108333333334,
+					"p50": 0.271,
+					"p95": 0.35,
+					"p99": 0.452
+				}
+			},
+			"spikes": [
+				{
+					"frame": 35.158,
+					"parts": {
+						"accrual_routines": 0.063,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.012,
+						"camera": 0.008,
+						"clock": 0.277,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 20.16,
+						"gate_watch2": 0.012,
+						"guard": 4.5,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.029,
+						"npc_life": 0.003,
+						"orders": 0.003,
+						"presentation": 5.254,
+						"resident_staff": 0.08,
+						"room_access": 0.387,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.034,
+						"tutorial": 0.001,
+						"visibility": 0.105,
+						"workshop_gate": 0.083,
+						"workshop_gate2": 0.272
+					},
+					"script": 31.387
+				},
+				{
+					"frame": 36.25,
+					"parts": {
+						"accrual_routines": 0.065,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.011,
+						"camera": 0.008,
+						"clock": 0.284,
+						"dialogue": 0.005,
+						"dog": 0.009,
+						"gate_watch": 21.246,
+						"gate_watch2": 0.012,
+						"guard": 4.152,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 4.851,
+						"resident_staff": 0.073,
+						"room_access": 0.387,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.025,
+						"timeout": 0.002,
+						"trade": 0.031,
+						"tutorial": 0.001,
+						"visibility": 0.105,
+						"workshop_gate": 0.081,
+						"workshop_gate2": 0.27
+					},
+					"script": 31.712
+				},
+				{
+					"frame": 41.322,
+					"parts": {
+						"accrual_routines": 0.091,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.009,
+						"bath": 0.015,
+						"camera": 0.009,
+						"clock": 0.546,
+						"dialogue": 0.005,
+						"dog": 0.012,
+						"gate_watch": 23.069,
+						"gate_watch2": 0.013,
+						"guard": 5.009,
+						"hud": 0.024,
+						"loot": 0.004,
+						"mobile_input": 0.031,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 6.867,
+						"resident_staff": 0.086,
+						"room_access": 0.444,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.028,
+						"timeout": 0.002,
+						"trade": 0.035,
+						"tutorial": 0.002,
+						"visibility": 0.123,
+						"workshop_gate": 0.091,
+						"workshop_gate2": 0.311
+					},
+					"script": 36.876
+				},
+				{
+					"frame": 40.63,
+					"parts": {
+						"accrual_routines": 0.074,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.007,
+						"clock": 0.27,
+						"dialogue": 0.004,
+						"dog": 0.011,
+						"gate_watch": 23.975,
+						"gate_watch2": 0.017,
+						"guard": 4.735,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.042,
+						"npc_life": 0.005,
+						"orders": 0.005,
+						"presentation": 6.121,
+						"resident_staff": 0.096,
+						"room_access": 0.445,
+						"skills": 0.005,
+						"social": 0.004,
+						"staff_traffic": 0.039,
+						"timeout": 0.002,
+						"trade": 0.044,
+						"tutorial": 0.002,
+						"visibility": 0.111,
+						"workshop_gate": 0.09,
+						"workshop_gate2": 0.314
+					},
+					"script": 36.487
+				},
+				{
+					"frame": 41.623,
+					"parts": {
+						"accrual_routines": 0.084,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.013,
+						"camera": 0.008,
+						"clock": 0.289,
+						"dialogue": 0.005,
+						"dog": 0.01,
+						"gate_watch": 23.882,
+						"gate_watch2": 0.013,
+						"guard": 5.148,
+						"hud": 0.02,
+						"loot": 0.003,
+						"mobile_input": 0.031,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 6.299,
+						"resident_staff": 0.094,
+						"room_access": 0.411,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.025,
+						"timeout": 0.002,
+						"trade": 0.036,
+						"tutorial": 0.002,
+						"visibility": 0.112,
+						"workshop_gate": 0.087,
+						"workshop_gate2": 0.329
+					},
+					"script": 36.954
+				},
+				{
+					"frame": 36.643,
+					"parts": {
+						"accrual_routines": 0.07,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.011,
+						"camera": 0.007,
+						"clock": 0.334,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 22.369,
+						"gate_watch2": 0.011,
+						"guard": 3.922,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.028,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 4.896,
+						"resident_staff": 0.072,
+						"room_access": 0.426,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.026,
+						"timeout": 0.002,
+						"trade": 0.031,
+						"tutorial": 0.002,
+						"visibility": 0.102,
+						"workshop_gate": 0.09,
+						"workshop_gate2": 0.28
+					},
+					"script": 32.759
+				},
+				{
+					"frame": 35.06,
+					"parts": {
+						"accrual_routines": 0.068,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.008,
+						"bath": 0.028,
+						"camera": 0.009,
+						"clock": 0.258,
+						"dialogue": 0.007,
+						"dog": 0.009,
+						"gate_watch": 19.688,
+						"gate_watch2": 0.012,
+						"guard": 4.065,
+						"hud": 0.026,
+						"loot": 0.005,
+						"mobile_input": 0.031,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 5.147,
+						"resident_staff": 0.088,
+						"room_access": 0.37,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.035,
+						"tutorial": 0.001,
+						"visibility": 0.133,
+						"workshop_gate": 0.079,
+						"workshop_gate2": 0.34
+					},
+					"script": 30.478
+				},
+				{
+					"frame": 34.513,
+					"parts": {
+						"accrual_routines": 0.059,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.005,
+						"bath": 0.012,
+						"camera": 0.008,
+						"clock": 0.246,
+						"dialogue": 0.005,
+						"dog": 0.01,
+						"gate_watch": 20.358,
+						"gate_watch2": 0.011,
+						"guard": 3.937,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 4.909,
+						"resident_staff": 0.071,
+						"room_access": 0.343,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.025,
+						"timeout": 0.002,
+						"trade": 0.03,
+						"tutorial": 0.001,
+						"visibility": 0.108,
+						"workshop_gate": 0.072,
+						"workshop_gate2": 0.26
+					},
+					"script": 30.559
+				},
+				{
+					"frame": 34.971,
+					"parts": {
+						"accrual_routines": 0.068,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.011,
+						"camera": 0.007,
+						"clock": 0.283,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 20.426,
+						"gate_watch2": 0.01,
+						"guard": 4.011,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 5.088,
+						"resident_staff": 0.072,
+						"room_access": 0.373,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.031,
+						"tutorial": 0.002,
+						"visibility": 0.097,
+						"workshop_gate": 0.08,
+						"workshop_gate2": 0.278
+					},
+					"script": 30.969
+				},
+				{
+					"frame": 35.763,
+					"parts": {
+						"accrual_routines": 0.074,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.013,
+						"camera": 0.007,
+						"clock": 0.292,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 20.649,
+						"gate_watch2": 0.01,
+						"guard": 4.245,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 5.248,
+						"resident_staff": 0.068,
+						"room_access": 0.422,
+						"skills": 0.003,
+						"social": 0.246,
+						"staff_traffic": 0.029,
+						"timeout": 0.003,
+						"trade": 0.03,
+						"tutorial": 0.002,
+						"visibility": 0.101,
+						"workshop_gate": 0.091,
+						"workshop_gate2": 0.283
+					},
+					"script": 31.923
+				},
+				{
+					"frame": 35.046,
+					"parts": {
+						"accrual_routines": 0.063,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.012,
+						"camera": 0.007,
+						"clock": 0.278,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 20.656,
+						"gate_watch2": 0.012,
+						"guard": 4.305,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.029,
+						"npc_life": 0.003,
+						"orders": 0.003,
+						"presentation": 4.844,
+						"resident_staff": 0.075,
+						"room_access": 0.411,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.025,
+						"timeout": 0.002,
+						"trade": 0.06,
+						"tutorial": 0.002,
+						"visibility": 0.1,
+						"workshop_gate": 0.081,
+						"workshop_gate2": 0.259
+					},
+					"script": 31.292
+				},
+				{
+					"frame": 34.029,
+					"parts": {
+						"accrual_routines": 0.058,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.01,
+						"camera": 0.007,
+						"clock": 0.241,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 19.904,
+						"gate_watch2": 0.012,
+						"guard": 3.906,
+						"hud": 0.016,
+						"loot": 0.003,
+						"mobile_input": 0.028,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.08,
+						"resident_staff": 0.078,
+						"room_access": 0.347,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.03,
+						"tutorial": 0.002,
+						"visibility": 0.095,
+						"workshop_gate": 0.072,
+						"workshop_gate2": 0.249
+					},
+					"script": 30.216
+				},
+				{
+					"frame": 35.23,
+					"parts": {
+						"accrual_routines": 0.06,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.005,
+						"bath": 0.011,
+						"camera": 0.007,
+						"clock": 0.269,
+						"dialogue": 0.004,
+						"dog": 0.016,
+						"gate_watch": 20.445,
+						"gate_watch2": 0.014,
+						"guard": 4.326,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.028,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 5.249,
+						"resident_staff": 0.081,
+						"room_access": 0.358,
+						"skills": 0.052,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.032,
+						"tutorial": 0.001,
+						"visibility": 0.097,
+						"workshop_gate": 0.077,
+						"workshop_gate2": 0.256
+					},
+					"script": 31.47
+				},
+				{
+					"frame": 35.457,
+					"parts": {
+						"accrual_routines": 0.059,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.007,
+						"clock": 0.259,
+						"dialogue": 0.004,
+						"dog": 0.01,
+						"gate_watch": 19.973,
+						"gate_watch2": 0.012,
+						"guard": 4.552,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.028,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.322,
+						"resident_staff": 0.078,
+						"room_access": 0.362,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.003,
+						"trade": 0.033,
+						"tutorial": 0.001,
+						"visibility": 0.105,
+						"workshop_gate": 0.077,
+						"workshop_gate2": 0.313
+					},
+					"script": 31.305
+				},
+				{
+					"frame": 34.778,
+					"parts": {
+						"accrual_routines": 0.067,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.007,
+						"clock": 0.317,
+						"dialogue": 0.004,
+						"dog": 0.01,
+						"gate_watch": 20.632,
+						"gate_watch2": 0.01,
+						"guard": 4.197,
+						"hud": 0.016,
+						"loot": 0.003,
+						"mobile_input": 0.03,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 4.842,
+						"resident_staff": 0.081,
+						"room_access": 0.414,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.034,
+						"timeout": 0.002,
+						"trade": 0.037,
+						"tutorial": 0.001,
+						"visibility": 0.098,
+						"workshop_gate": 0.086,
+						"workshop_gate2": 0.26
+					},
+					"script": 31.215
+				},
+				{
+					"frame": 35.069,
+					"parts": {
+						"accrual_routines": 0.063,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.006,
+						"bath": 0.015,
+						"camera": 0.034,
+						"clock": 0.259,
+						"dialogue": 0.073,
+						"dog": 0.009,
+						"gate_watch": 20.211,
+						"gate_watch2": 0.012,
+						"guard": 4.247,
+						"hud": 0.02,
+						"loot": 0.003,
+						"mobile_input": 0.034,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.017,
+						"resident_staff": 0.08,
+						"room_access": 0.502,
+						"skills": 0.005,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.033,
+						"tutorial": 0.001,
+						"visibility": 0.099,
+						"workshop_gate": 0.084,
+						"workshop_gate2": 0.263
+					},
+					"script": 31.139
+				},
+				{
+					"frame": 34.213,
+					"parts": {
+						"accrual_routines": 0.064,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.005,
+						"bath": 0.012,
+						"camera": 0.008,
+						"clock": 0.256,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 18.915,
+						"gate_watch2": 0.01,
+						"guard": 4.247,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.003,
+						"orders": 0.003,
+						"presentation": 5.176,
+						"resident_staff": 0.072,
+						"room_access": 0.454,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.03,
+						"tutorial": 0.002,
+						"visibility": 0.104,
+						"workshop_gate": 0.075,
+						"workshop_gate2": 0.268
+					},
+					"script": 29.824
+				},
+				{
+					"frame": 35.174,
+					"parts": {
+						"accrual_routines": 0.058,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.005,
+						"bath": 0.011,
+						"camera": 0.007,
+						"clock": 0.269,
+						"dialogue": 0.004,
+						"dog": 0.009,
+						"gate_watch": 20.476,
+						"gate_watch2": 0.012,
+						"guard": 4.015,
+						"hud": 0.017,
+						"loot": 0.003,
+						"mobile_input": 0.032,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.397,
+						"resident_staff": 0.082,
+						"room_access": 0.367,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.037,
+						"tutorial": 0.001,
+						"visibility": 0.1,
+						"workshop_gate": 0.077,
+						"workshop_gate2": 0.265
+					},
+					"script": 31.324
+				},
+				{
+					"frame": 39.625,
+					"parts": {
+						"accrual_routines": 0.059,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.013,
+						"camera": 0.007,
+						"clock": 0.289,
+						"dialogue": 0.005,
+						"dog": 0.01,
+						"gate_watch": 24.364,
+						"gate_watch2": 0.017,
+						"guard": 4.256,
+						"hud": 0.02,
+						"loot": 0.004,
+						"mobile_input": 0.032,
+						"npc_life": 0.202,
+						"orders": 0.003,
+						"presentation": 5.428,
+						"resident_staff": 0.075,
+						"room_access": 0.371,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.034,
+						"tutorial": 0.001,
+						"visibility": 0.11,
+						"workshop_gate": 0.078,
+						"workshop_gate2": 0.306
+					},
+					"script": 35.757
+				},
+				{
+					"frame": 38.611,
+					"parts": {
+						"accrual_routines": 0.068,
+						"ai_begin": 0.0,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.011,
+						"camera": 0.007,
+						"clock": 0.281,
+						"dialogue": 0.004,
+						"dog": 0.012,
+						"gate_watch": 22.714,
+						"gate_watch2": 0.012,
+						"guard": 4.522,
+						"hud": 0.017,
+						"loot": 0.002,
+						"mobile_input": 0.04,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.333,
+						"resident_staff": 0.092,
+						"room_access": 0.345,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.023,
+						"timeout": 0.002,
+						"trade": 0.04,
+						"tutorial": 0.002,
+						"visibility": 0.098,
+						"workshop_gate": 0.733,
+						"workshop_gate2": 0.266
+					},
+					"script": 34.674
+				}
+			],
+			"texture_mib": 1217.5390625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.249,
+					"mean": 0.117691666666667,
+					"p50": 0.113,
+					"p95": 0.149,
+					"p99": 0.196
+				},
+				"audio": {
+					"max": 0.064,
+					"mean": 0.0337333333333333,
+					"p50": 0.033,
+					"p95": 0.042,
+					"p99": 0.052
+				},
+				"dog": {
+					"max": 0.039,
+					"mean": 0.0144625,
+					"p50": 0.014,
+					"p95": 0.019,
+					"p99": 0.026
+				},
+				"interaction": {
+					"max": 11.434,
+					"mean": 4.84522916666667,
+					"p50": 4.751,
+					"p95": 5.995,
+					"p99": 7.021
+				},
+				"items": {
+					"max": 0.097,
+					"mean": 0.0411999999999999,
+					"p50": 0.04,
+					"p95": 0.05,
+					"p99": 0.068
+				},
+				"lighting": {
+					"max": 0.152,
+					"mean": 0.0925708333333333,
+					"p50": 0.09,
+					"p95": 0.117,
+					"p99": 0.138
+				},
+				"scene": {
+					"max": 0.474,
+					"mean": 0.2704375,
+					"p50": 0.261,
+					"p95": 0.364,
+					"p99": 0.416
+				}
+			}
+		},
+		"dorm_idle": {
+			"draw_calls": {
+				"max": 489.0,
+				"mean": 474.25,
+				"p50": 469.0,
+				"p95": 489.0,
+				"p99": 489.0
+			},
+			"frame_ms": {
+				"max": 40.745,
+				"mean": 27.0814916666667,
+				"p50": 26.125,
+				"p95": 32.173,
+				"p99": 38.239
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 36.401,
+				"mean": 23.2643458333333,
+				"p50": 22.517,
+				"p95": 27.839,
+				"p99": 33.047
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.11,
+					"mean": 0.0275875,
+					"p50": 0.026,
+					"p95": 0.035,
+					"p99": 0.046
+				},
+				"ai_begin": {
+					"max": 0.002,
+					"mean": 0.00112916666666667,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.002,
+					"mean": 0.00105416666666667,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.012,
+					"mean": 0.00535416666666666,
+					"p50": 0.005,
+					"p95": 0.007,
+					"p99": 0.009
+				},
+				"bath": {
+					"max": 0.054,
+					"mean": 0.0125166666666666,
+					"p50": 0.012,
+					"p95": 0.016,
+					"p99": 0.021
+				},
+				"camera": {
+					"max": 0.074,
+					"mean": 0.0149458333333333,
+					"p50": 0.017,
+					"p95": 0.021,
+					"p99": 0.027
+				},
+				"clock": {
+					"max": 0.492,
+					"mean": 0.228008333333333,
+					"p50": 0.22,
+					"p95": 0.31,
+					"p99": 0.343
+				},
+				"dialogue": {
+					"max": 0.009,
+					"mean": 0.00395,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.006
+				},
+				"dog": {
+					"max": 0.192,
+					"mean": 0.0104958333333333,
+					"p50": 0.009,
+					"p95": 0.013,
+					"p99": 0.017
+				},
+				"gate_watch": {
+					"max": 20.728,
+					"mean": 12.530125,
+					"p50": 12.154,
+					"p95": 15.079,
+					"p99": 17.092
+				},
+				"gate_watch2": {
+					"max": 0.045,
+					"mean": 0.013925,
+					"p50": 0.013,
+					"p95": 0.02,
+					"p99": 0.029
+				},
+				"guard": {
+					"max": 7.257,
+					"mean": 4.070525,
+					"p50": 3.911,
+					"p95": 5.008,
+					"p99": 5.976
+				},
+				"hud": {
+					"max": 0.062,
+					"mean": 0.0193708333333333,
+					"p50": 0.019,
+					"p95": 0.025,
+					"p99": 0.03
+				},
+				"loot": {
+					"max": 0.008,
+					"mean": 0.00329166666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.006
+				},
+				"mobile_input": {
+					"max": 0.068,
+					"mean": 0.0289291666666666,
+					"p50": 0.028,
+					"p95": 0.035,
+					"p99": 0.041
+				},
+				"npc_life": {
+					"max": 0.229,
+					"mean": 0.00914583333333331,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.216
+				},
+				"orders": {
+					"max": 3.121,
+					"mean": 0.316595833333334,
+					"p50": 0.416,
+					"p95": 0.68,
+					"p99": 0.817
+				},
+				"presentation": {
+					"max": 10.956,
+					"mean": 5.19483333333333,
+					"p50": 5.01,
+					"p95": 6.386,
+					"p99": 8.195
+				},
+				"resident_staff": {
+					"max": 0.178,
+					"mean": 0.0807416666666667,
+					"p50": 0.078,
+					"p95": 0.103,
+					"p99": 0.151
+				},
+				"room_access": {
+					"max": 1.148,
+					"mean": 0.392545833333333,
+					"p50": 0.375,
+					"p95": 0.505,
+					"p99": 0.594
+				},
+				"skills": {
+					"max": 0.005,
+					"mean": 0.00335833333333334,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"social": {
+					"max": 0.318,
+					"mean": 0.0120583333333333,
+					"p50": 0.003,
+					"p95": 0.006,
+					"p99": 0.297
+				},
+				"staff_traffic": {
+					"max": 0.039,
+					"mean": 0.0252333333333333,
+					"p50": 0.025,
+					"p95": 0.032,
+					"p99": 0.036
+				},
+				"timeout": {
+					"max": 0.01,
+					"mean": 0.0020375,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"trade": {
+					"max": 0.061,
+					"mean": 0.0313583333333333,
+					"p50": 0.031,
+					"p95": 0.039,
+					"p99": 0.046
+				},
+				"tutorial": {
+					"max": 0.05,
+					"mean": 0.00170833333333333,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"visibility": {
+					"max": 0.115,
+					"mean": 0.07525,
+					"p50": 0.074,
+					"p95": 0.09,
+					"p99": 0.108
+				},
+				"workshop_gate": {
+					"max": 0.119,
+					"mean": 0.0434874999999999,
+					"p50": 0.043,
+					"p95": 0.056,
+					"p99": 0.068
+				},
+				"workshop_gate2": {
+					"max": 0.12,
+					"mean": 0.0775083333333333,
+					"p50": 0.077,
+					"p95": 0.095,
+					"p99": 0.113
+				}
+			},
+			"spikes": [
+				{
+					"frame": 40.745,
+					"parts": {
+						"accrual_routines": 0.028,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.017,
+						"camera": 0.009,
+						"clock": 0.212,
+						"dialogue": 0.008,
+						"dog": 0.013,
+						"gate_watch": 20.728,
+						"gate_watch2": 0.029,
+						"guard": 7.257,
+						"hud": 0.026,
+						"loot": 0.005,
+						"mobile_input": 0.037,
+						"npc_life": 0.004,
+						"orders": 1.013,
+						"presentation": 6.067,
+						"resident_staff": 0.135,
+						"room_access": 0.432,
+						"skills": 0.005,
+						"social": 0.005,
+						"staff_traffic": 0.027,
+						"timeout": 0.003,
+						"trade": 0.047,
+						"tutorial": 0.002,
+						"visibility": 0.09,
+						"workshop_gate": 0.045,
+						"workshop_gate2": 0.11
+					},
+					"script": 36.401
+				},
+				{
+					"frame": 33.045,
+					"parts": {
+						"accrual_routines": 0.029,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.006,
+						"bath": 0.014,
+						"camera": 0.021,
+						"clock": 0.268,
+						"dialogue": 0.004,
+						"dog": 0.01,
+						"gate_watch": 15.629,
+						"gate_watch2": 0.014,
+						"guard": 5.412,
+						"hud": 0.023,
+						"loot": 0.003,
+						"mobile_input": 0.031,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 6.445,
+						"resident_staff": 0.092,
+						"room_access": 0.424,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.027,
+						"timeout": 0.003,
+						"trade": 0.035,
+						"tutorial": 0.002,
+						"visibility": 0.084,
+						"workshop_gate": 0.049,
+						"workshop_gate2": 0.092
+					},
+					"script": 28.764
+				},
+				{
+					"frame": 33.888,
+					"parts": {
+						"accrual_routines": 0.031,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.014,
+						"camera": 0.019,
+						"clock": 0.278,
+						"dialogue": 0.005,
+						"dog": 0.013,
+						"gate_watch": 14.554,
+						"gate_watch2": 0.013,
+						"guard": 5.191,
+						"hud": 0.021,
+						"loot": 0.004,
+						"mobile_input": 0.038,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 7.48,
+						"resident_staff": 0.099,
+						"room_access": 0.464,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.029,
+						"timeout": 0.002,
+						"trade": 0.04,
+						"tutorial": 0.002,
+						"visibility": 0.08,
+						"workshop_gate": 0.052,
+						"workshop_gate2": 0.091
+					},
+					"script": 28.575
+				},
+				{
+					"frame": 37.544,
+					"parts": {
+						"accrual_routines": 0.034,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.019,
+						"clock": 0.311,
+						"dialogue": 0.005,
+						"dog": 0.011,
+						"gate_watch": 15.079,
+						"gate_watch2": 0.014,
+						"guard": 5.008,
+						"hud": 0.021,
+						"loot": 0.003,
+						"mobile_input": 0.032,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 8.292,
+						"resident_staff": 0.089,
+						"room_access": 0.439,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.028,
+						"timeout": 0.002,
+						"trade": 0.037,
+						"tutorial": 0.001,
+						"visibility": 0.079,
+						"workshop_gate": 0.055,
+						"workshop_gate2": 0.089
+					},
+					"script": 29.723
+				},
+				{
+					"frame": 38.239,
+					"parts": {
+						"accrual_routines": 0.042,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.016,
+						"camera": 0.026,
+						"clock": 0.492,
+						"dialogue": 0.006,
+						"dog": 0.01,
+						"gate_watch": 17.092,
+						"gate_watch2": 0.02,
+						"guard": 5.976,
+						"hud": 0.023,
+						"loot": 0.004,
+						"mobile_input": 0.041,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 8.195,
+						"resident_staff": 0.093,
+						"room_access": 0.594,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.038,
+						"timeout": 0.003,
+						"trade": 0.046,
+						"tutorial": 0.002,
+						"visibility": 0.088,
+						"workshop_gate": 0.068,
+						"workshop_gate2": 0.101
+					},
+					"script": 33.047
+				},
+				{
+					"frame": 36.079,
+					"parts": {
+						"accrual_routines": 0.041,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.014,
+						"camera": 0.022,
+						"clock": 0.291,
+						"dialogue": 0.006,
+						"dog": 0.013,
+						"gate_watch": 17.793,
+						"gate_watch2": 0.013,
+						"guard": 5.067,
+						"hud": 0.025,
+						"loot": 0.003,
+						"mobile_input": 0.037,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 7.154,
+						"resident_staff": 0.093,
+						"room_access": 0.511,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.032,
+						"timeout": 0.003,
+						"trade": 0.038,
+						"tutorial": 0.002,
+						"visibility": 0.09,
+						"workshop_gate": 0.059,
+						"workshop_gate2": 0.11
+					},
+					"script": 31.474
+				},
+				{
+					"frame": 33.793,
+					"parts": {
+						"accrual_routines": 0.031,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.019,
+						"camera": 0.023,
+						"clock": 0.27,
+						"dialogue": 0.005,
+						"dog": 0.011,
+						"gate_watch": 15.749,
+						"gate_watch2": 0.018,
+						"guard": 6.025,
+						"hud": 0.021,
+						"loot": 0.004,
+						"mobile_input": 0.033,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 6.609,
+						"resident_staff": 0.106,
+						"room_access": 0.445,
+						"skills": 0.004,
+						"social": 0.006,
+						"staff_traffic": 0.034,
+						"timeout": 0.003,
+						"trade": 0.041,
+						"tutorial": 0.002,
+						"visibility": 0.085,
+						"workshop_gate": 0.05,
+						"workshop_gate2": 0.113
+					},
+					"script": 29.758
+				},
+				{
+					"frame": 34.069,
+					"parts": {
+						"accrual_routines": 0.029,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.015,
+						"camera": 0.02,
+						"clock": 0.226,
+						"dialogue": 0.005,
+						"dog": 0.012,
+						"gate_watch": 15.615,
+						"gate_watch2": 0.014,
+						"guard": 4.956,
+						"hud": 0.022,
+						"loot": 0.004,
+						"mobile_input": 0.041,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 6.803,
+						"resident_staff": 0.093,
+						"room_access": 0.424,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.029,
+						"timeout": 0.002,
+						"trade": 0.039,
+						"tutorial": 0.001,
+						"visibility": 0.093,
+						"workshop_gate": 0.048,
+						"workshop_gate2": 0.092
+					},
+					"script": 28.634
+				},
+				{
+					"frame": 40.117,
+					"parts": {
+						"accrual_routines": 0.035,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.018,
+						"clock": 0.311,
+						"dialogue": 0.005,
+						"dog": 0.011,
+						"gate_watch": 16.877,
+						"gate_watch2": 0.018,
+						"guard": 5.877,
+						"hud": 0.02,
+						"loot": 0.003,
+						"mobile_input": 0.031,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 10.956,
+						"resident_staff": 0.086,
+						"room_access": 0.511,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.033,
+						"timeout": 0.002,
+						"trade": 0.036,
+						"tutorial": 0.002,
+						"visibility": 0.077,
+						"workshop_gate": 0.058,
+						"workshop_gate2": 0.087
+					},
+					"script": 35.123
+				},
+				{
+					"frame": 33.225,
+					"parts": {
+						"accrual_routines": 0.03,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.007,
+						"bath": 0.033,
+						"camera": 0.023,
+						"clock": 0.266,
+						"dialogue": 0.009,
+						"dog": 0.011,
+						"gate_watch": 15.189,
+						"gate_watch2": 0.012,
+						"guard": 5.254,
+						"hud": 0.029,
+						"loot": 0.007,
+						"mobile_input": 0.033,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 6.681,
+						"resident_staff": 0.085,
+						"room_access": 0.485,
+						"skills": 0.003,
+						"social": 0.006,
+						"staff_traffic": 0.028,
+						"timeout": 0.003,
+						"trade": 0.034,
+						"tutorial": 0.002,
+						"visibility": 0.104,
+						"workshop_gate": 0.049,
+						"workshop_gate2": 0.096
+					},
+					"script": 28.521
+				}
+			],
+			"texture_mib": 1217.4140625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.156,
+					"mean": 0.0855125000000001,
+					"p50": 0.084,
+					"p95": 0.106,
+					"p99": 0.129
+				},
+				"audio": {
+					"max": 0.116,
+					"mean": 0.03535,
+					"p50": 0.034,
+					"p95": 0.045,
+					"p99": 0.054
+				},
+				"dog": {
+					"max": 0.025,
+					"mean": 0.0146208333333333,
+					"p50": 0.014,
+					"p95": 0.018,
+					"p99": 0.021
+				},
+				"interaction": {
+					"max": 10.453,
+					"mean": 4.72467083333333,
+					"p50": 4.559,
+					"p95": 5.851,
+					"p99": 7.615
+				},
+				"items": {
+					"max": 0.16,
+					"mean": 0.0434208333333333,
+					"p50": 0.041,
+					"p95": 0.052,
+					"p99": 0.09
+				},
+				"lighting": {
+					"max": 0.235,
+					"mean": 0.101491666666667,
+					"p50": 0.098,
+					"p95": 0.125,
+					"p99": 0.18
+				},
+				"scene": {
+					"max": 0.363,
+					"mean": 0.180320833333333,
+					"p50": 0.175,
+					"p95": 0.225,
+					"p99": 0.291
+				}
+			}
+		},
+		"frozen_simulation": {
+			"draw_calls": {
+				"max": 491.0,
+				"mean": 491.0,
+				"p50": 491.0,
+				"p95": 491.0,
+				"p99": 491.0
+			},
+			"frame_ms": {
+				"max": 3.167,
+				"mean": 2.21054583333333,
+				"p50": 2.186,
+				"p95": 2.598,
+				"p99": 2.738
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 7.568,
+				"mean": 7.56799999999999,
+				"p50": 7.568,
+				"p95": 7.568,
+				"p99": 7.568
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.027,
+					"mean": 0.0270000000000001,
+					"p50": 0.027,
+					"p95": 0.027,
+					"p99": 0.027
+				},
+				"ai_begin": {
+					"max": 0.001,
+					"mean": 0.001,
+					"p50": 0.001,
+					"p95": 0.001,
+					"p99": 0.001
+				},
+				"ai_end": {
+					"max": 0.001,
+					"mean": 0.001,
+					"p50": 0.001,
+					"p95": 0.001,
+					"p99": 0.001
+				},
+				"alert": {
+					"max": 0.006,
+					"mean": 0.006,
+					"p50": 0.006,
+					"p95": 0.006,
+					"p99": 0.006
+				},
+				"bath": {
+					"max": 0.011,
+					"mean": 0.011,
+					"p50": 0.011,
+					"p95": 0.011,
+					"p99": 0.011
+				},
+				"camera": {
+					"max": 0.007,
+					"mean": 0.00699999999999996,
+					"p50": 0.007,
+					"p95": 0.007,
+					"p99": 0.007
+				},
+				"clock": {
+					"max": 0.226,
+					"mean": 0.226,
+					"p50": 0.226,
+					"p95": 0.226,
+					"p99": 0.226
+				},
+				"dialogue": {
+					"max": 0.004,
+					"mean": 0.004,
+					"p50": 0.004,
+					"p95": 0.004,
+					"p99": 0.004
+				},
+				"dog": {
+					"max": 0.013,
+					"mean": 0.0129999999999999,
+					"p50": 0.013,
+					"p95": 0.013,
+					"p99": 0.013
+				},
+				"gate_watch": {
+					"max": 0.448,
+					"mean": 0.447999999999998,
+					"p50": 0.448,
+					"p95": 0.448,
+					"p99": 0.448
+				},
+				"gate_watch2": {
+					"max": 0.014,
+					"mean": 0.0139999999999999,
+					"p50": 0.014,
+					"p95": 0.014,
+					"p99": 0.014
+				},
+				"guard": {
+					"max": 5.037,
+					"mean": 5.03700000000002,
+					"p50": 5.037,
+					"p95": 5.037,
+					"p99": 5.037
+				},
+				"hud": {
+					"max": 0.019,
+					"mean": 0.0190000000000001,
+					"p50": 0.019,
+					"p95": 0.019,
+					"p99": 0.019
+				},
+				"loot": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"mobile_input": {
+					"max": 0.024,
+					"mean": 0.024,
+					"p50": 0.024,
+					"p95": 0.024,
+					"p99": 0.024
+				},
+				"npc_life": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"orders": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"presentation": {
+					"max": 0.713,
+					"mean": 0.712999999999996,
+					"p50": 0.713,
+					"p95": 0.713,
+					"p99": 0.713
+				},
+				"resident_staff": {
+					"max": 0.086,
+					"mean": 0.0859999999999998,
+					"p50": 0.086,
+					"p95": 0.086,
+					"p99": 0.086
+				},
+				"room_access": {
+					"max": 0.428,
+					"mean": 0.427999999999998,
+					"p50": 0.428,
+					"p95": 0.428,
+					"p99": 0.428
+				},
+				"skills": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"social": {
+					"max": 0.004,
+					"mean": 0.004,
+					"p50": 0.004,
+					"p95": 0.004,
+					"p99": 0.004
+				},
+				"staff_traffic": {
+					"max": 0.03,
+					"mean": 0.0300000000000001,
+					"p50": 0.03,
+					"p95": 0.03,
+					"p99": 0.03
+				},
+				"timeout": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"trade": {
+					"max": 0.035,
+					"mean": 0.0350000000000001,
+					"p50": 0.035,
+					"p95": 0.035,
+					"p99": 0.035
+				},
+				"tutorial": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"visibility": {
+					"max": 0.113,
+					"mean": 0.113,
+					"p50": 0.113,
+					"p95": 0.113,
+					"p99": 0.113
+				},
+				"workshop_gate": {
+					"max": 0.053,
+					"mean": 0.0530000000000003,
+					"p50": 0.053,
+					"p95": 0.053,
+					"p99": 0.053
+				},
+				"workshop_gate2": {
+					"max": 0.225,
+					"mean": 0.225000000000001,
+					"p50": 0.225,
+					"p95": 0.225,
+					"p99": 0.225
+				}
+			},
+			"spikes": [],
+			"texture_mib": 1225.53515625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.107,
+					"mean": 0.107,
+					"p50": 0.107,
+					"p95": 0.107,
+					"p99": 0.107
+				},
+				"audio": {
+					"max": 0.045,
+					"mean": 0.0449999999999999,
+					"p50": 0.045,
+					"p95": 0.045,
+					"p99": 0.045
+				},
+				"dog": {
+					"max": 0.017,
+					"mean": 0.0169999999999999,
+					"p50": 0.017,
+					"p95": 0.017,
+					"p99": 0.017
+				},
+				"interaction": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"items": {
+					"max": 0.051,
+					"mean": 0.0510000000000001,
+					"p50": 0.051,
+					"p95": 0.051,
+					"p99": 0.051
+				},
+				"lighting": {
+					"max": 0.135,
+					"mean": 0.135000000000001,
+					"p50": 0.135,
+					"p95": 0.135,
+					"p99": 0.135
+				},
+				"scene": {
+					"max": 0.347,
+					"mean": 0.346999999999999,
+					"p50": 0.347,
+					"p95": 0.347,
+					"p99": 0.347
+				}
+			}
+		},
+		"frozen_without_lighting": {
+			"draw_calls": {
+				"max": 467.0,
+				"mean": 467.0,
+				"p50": 467.0,
+				"p95": 467.0,
+				"p99": 467.0
+			},
+			"frame_ms": {
+				"max": 2.818,
+				"mean": 2.07607916666667,
+				"p50": 2.045,
+				"p95": 2.458,
+				"p99": 2.755
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 7.568,
+				"mean": 7.56799999999999,
+				"p50": 7.568,
+				"p95": 7.568,
+				"p99": 7.568
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.027,
+					"mean": 0.0270000000000001,
+					"p50": 0.027,
+					"p95": 0.027,
+					"p99": 0.027
+				},
+				"ai_begin": {
+					"max": 0.001,
+					"mean": 0.001,
+					"p50": 0.001,
+					"p95": 0.001,
+					"p99": 0.001
+				},
+				"ai_end": {
+					"max": 0.001,
+					"mean": 0.001,
+					"p50": 0.001,
+					"p95": 0.001,
+					"p99": 0.001
+				},
+				"alert": {
+					"max": 0.006,
+					"mean": 0.006,
+					"p50": 0.006,
+					"p95": 0.006,
+					"p99": 0.006
+				},
+				"bath": {
+					"max": 0.011,
+					"mean": 0.011,
+					"p50": 0.011,
+					"p95": 0.011,
+					"p99": 0.011
+				},
+				"camera": {
+					"max": 0.007,
+					"mean": 0.00699999999999996,
+					"p50": 0.007,
+					"p95": 0.007,
+					"p99": 0.007
+				},
+				"clock": {
+					"max": 0.226,
+					"mean": 0.226,
+					"p50": 0.226,
+					"p95": 0.226,
+					"p99": 0.226
+				},
+				"dialogue": {
+					"max": 0.004,
+					"mean": 0.004,
+					"p50": 0.004,
+					"p95": 0.004,
+					"p99": 0.004
+				},
+				"dog": {
+					"max": 0.013,
+					"mean": 0.0129999999999999,
+					"p50": 0.013,
+					"p95": 0.013,
+					"p99": 0.013
+				},
+				"gate_watch": {
+					"max": 0.448,
+					"mean": 0.447999999999998,
+					"p50": 0.448,
+					"p95": 0.448,
+					"p99": 0.448
+				},
+				"gate_watch2": {
+					"max": 0.014,
+					"mean": 0.0139999999999999,
+					"p50": 0.014,
+					"p95": 0.014,
+					"p99": 0.014
+				},
+				"guard": {
+					"max": 5.037,
+					"mean": 5.03700000000002,
+					"p50": 5.037,
+					"p95": 5.037,
+					"p99": 5.037
+				},
+				"hud": {
+					"max": 0.019,
+					"mean": 0.0190000000000001,
+					"p50": 0.019,
+					"p95": 0.019,
+					"p99": 0.019
+				},
+				"loot": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"mobile_input": {
+					"max": 0.024,
+					"mean": 0.024,
+					"p50": 0.024,
+					"p95": 0.024,
+					"p99": 0.024
+				},
+				"npc_life": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"orders": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"presentation": {
+					"max": 0.713,
+					"mean": 0.712999999999996,
+					"p50": 0.713,
+					"p95": 0.713,
+					"p99": 0.713
+				},
+				"resident_staff": {
+					"max": 0.086,
+					"mean": 0.0859999999999998,
+					"p50": 0.086,
+					"p95": 0.086,
+					"p99": 0.086
+				},
+				"room_access": {
+					"max": 0.428,
+					"mean": 0.427999999999998,
+					"p50": 0.428,
+					"p95": 0.428,
+					"p99": 0.428
+				},
+				"skills": {
+					"max": 0.003,
+					"mean": 0.003,
+					"p50": 0.003,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"social": {
+					"max": 0.004,
+					"mean": 0.004,
+					"p50": 0.004,
+					"p95": 0.004,
+					"p99": 0.004
+				},
+				"staff_traffic": {
+					"max": 0.03,
+					"mean": 0.0300000000000001,
+					"p50": 0.03,
+					"p95": 0.03,
+					"p99": 0.03
+				},
+				"timeout": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"trade": {
+					"max": 0.035,
+					"mean": 0.0350000000000001,
+					"p50": 0.035,
+					"p95": 0.035,
+					"p99": 0.035
+				},
+				"tutorial": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"visibility": {
+					"max": 0.113,
+					"mean": 0.113,
+					"p50": 0.113,
+					"p95": 0.113,
+					"p99": 0.113
+				},
+				"workshop_gate": {
+					"max": 0.053,
+					"mean": 0.0530000000000003,
+					"p50": 0.053,
+					"p95": 0.053,
+					"p99": 0.053
+				},
+				"workshop_gate2": {
+					"max": 0.225,
+					"mean": 0.225000000000001,
+					"p50": 0.225,
+					"p95": 0.225,
+					"p99": 0.225
+				}
+			},
+			"spikes": [],
+			"texture_mib": 1225.53515625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.107,
+					"mean": 0.107,
+					"p50": 0.107,
+					"p95": 0.107,
+					"p99": 0.107
+				},
+				"audio": {
+					"max": 0.045,
+					"mean": 0.0449999999999999,
+					"p50": 0.045,
+					"p95": 0.045,
+					"p99": 0.045
+				},
+				"dog": {
+					"max": 0.017,
+					"mean": 0.0169999999999999,
+					"p50": 0.017,
+					"p95": 0.017,
+					"p99": 0.017
+				},
+				"interaction": {
+					"max": 0.002,
+					"mean": 0.002,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"items": {
+					"max": 0.051,
+					"mean": 0.0510000000000001,
+					"p50": 0.051,
+					"p95": 0.051,
+					"p99": 0.051
+				},
+				"lighting": {
+					"max": 0.135,
+					"mean": 0.135000000000001,
+					"p50": 0.135,
+					"p95": 0.135,
+					"p99": 0.135
+				},
+				"scene": {
+					"max": 0.347,
+					"mean": 0.346999999999999,
+					"p50": 0.347,
+					"p95": 0.347,
+					"p99": 0.347
+				}
+			}
+		},
+		"night_dorm": {
+			"draw_calls": {
+				"max": 525.0,
+				"mean": 522.766666666667,
+				"p50": 523.0,
+				"p95": 525.0,
+				"p99": 525.0
+			},
+			"frame_ms": {
+				"max": 91.697,
+				"mean": 23.4493,
+				"p50": 18.937,
+				"p95": 48.982,
+				"p99": 63.32
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 83.416,
+				"mean": 18.7264416666667,
+				"p50": 14.071,
+				"p95": 44.107,
+				"p99": 58.07
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.138,
+					"mean": 0.0479208333333333,
+					"p50": 0.045,
+					"p95": 0.067,
+					"p99": 0.092
+				},
+				"ai_begin": {
+					"max": 0.003,
+					"mean": 0.00123333333333333,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.002,
+					"mean": 0.0010625,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.077,
+					"mean": 0.0260916666666666,
+					"p50": 0.024,
+					"p95": 0.044,
+					"p99": 0.056
+				},
+				"bath": {
+					"max": 0.056,
+					"mean": 0.013925,
+					"p50": 0.013,
+					"p95": 0.021,
+					"p99": 0.036
+				},
+				"camera": {
+					"max": 0.015,
+					"mean": 0.00799166666666665,
+					"p50": 0.008,
+					"p95": 0.011,
+					"p99": 0.014
+				},
+				"clock": {
+					"max": 0.686,
+					"mean": 0.293591666666667,
+					"p50": 0.28,
+					"p95": 0.433,
+					"p99": 0.616
+				},
+				"dialogue": {
+					"max": 0.015,
+					"mean": 0.0047375,
+					"p50": 0.004,
+					"p95": 0.007,
+					"p99": 0.008
+				},
+				"dog": {
+					"max": 0.578,
+					"mean": 0.186241666666667,
+					"p50": 0.185,
+					"p95": 0.315,
+					"p99": 0.403
+				},
+				"gate_watch": {
+					"max": 30.799,
+					"mean": 3.05789166666667,
+					"p50": 0.457,
+					"p95": 18.492,
+					"p99": 25.39
+				},
+				"gate_watch2": {
+					"max": 0.032,
+					"mean": 0.0106916666666666,
+					"p50": 0.01,
+					"p95": 0.02,
+					"p99": 0.023
+				},
+				"guard": {
+					"max": 13.279,
+					"mean": 5.7111875,
+					"p50": 5.433,
+					"p95": 9.162,
+					"p99": 12.846
+				},
+				"hud": {
+					"max": 0.113,
+					"mean": 0.0222291666666666,
+					"p50": 0.02,
+					"p95": 0.031,
+					"p99": 0.088
+				},
+				"loot": {
+					"max": 0.006,
+					"mean": 0.00362083333333334,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.006
+				},
+				"mobile_input": {
+					"max": 0.07,
+					"mean": 0.0268291666666666,
+					"p50": 0.026,
+					"p95": 0.036,
+					"p99": 0.048
+				},
+				"npc_life": {
+					"max": 0.51,
+					"mean": 0.0104583333333333,
+					"p50": 0.004,
+					"p95": 0.006,
+					"p99": 0.242
+				},
+				"orders": {
+					"max": 0.006,
+					"mean": 0.0032625,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.005
+				},
+				"presentation": {
+					"max": 20.947,
+					"mean": 6.25853333333333,
+					"p50": 5.672,
+					"p95": 10.262,
+					"p99": 14.039
+				},
+				"resident_staff": {
+					"max": 0.163,
+					"mean": 0.0825625000000001,
+					"p50": 0.079,
+					"p95": 0.115,
+					"p99": 0.139
+				},
+				"room_access": {
+					"max": 12.979,
+					"mean": 1.33561666666667,
+					"p50": 0.468,
+					"p95": 7.666,
+					"p99": 10.429
+				},
+				"skills": {
+					"max": 0.01,
+					"mean": 0.0036875,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.006
+				},
+				"social": {
+					"max": 0.516,
+					"mean": 0.0120708333333333,
+					"p50": 0.004,
+					"p95": 0.007,
+					"p99": 0.379
+				},
+				"staff_traffic": {
+					"max": 0.064,
+					"mean": 0.0238166666666666,
+					"p50": 0.023,
+					"p95": 0.034,
+					"p99": 0.046
+				},
+				"timeout": {
+					"max": 0.013,
+					"mean": 0.00231666666666667,
+					"p50": 0.002,
+					"p95": 0.004,
+					"p99": 0.006
+				},
+				"trade": {
+					"max": 0.13,
+					"mean": 0.0315,
+					"p50": 0.03,
+					"p95": 0.046,
+					"p99": 0.064
+				},
+				"tutorial": {
+					"max": 0.013,
+					"mean": 0.00173333333333333,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"visibility": {
+					"max": 13.065,
+					"mean": 1.044375,
+					"p50": 0.077,
+					"p95": 6.7,
+					"p99": 9.308
+				},
+				"workshop_gate": {
+					"max": 0.17,
+					"mean": 0.0574541666666667,
+					"p50": 0.055,
+					"p95": 0.08,
+					"p99": 0.107
+				},
+				"workshop_gate2": {
+					"max": 11.533,
+					"mean": 0.412854166666667,
+					"p50": 0.217,
+					"p95": 1.126,
+					"p99": 4.902
+				}
+			},
+			"spikes": [
+				{
+					"frame": 48.594,
+					"parts": {
+						"accrual_routines": 0.037,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.022,
+						"bath": 0.011,
+						"camera": 0.008,
+						"clock": 0.215,
+						"dialogue": 0.004,
+						"dog": 0.083,
+						"gate_watch": 30.799,
+						"gate_watch2": 0.009,
+						"guard": 4.626,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.025,
+						"npc_life": 0.003,
+						"orders": 0.003,
+						"presentation": 7.286,
+						"resident_staff": 0.072,
+						"room_access": 0.378,
+						"skills": 0.003,
+						"social": 0.003,
+						"staff_traffic": 0.012,
+						"timeout": 0.002,
+						"trade": 0.03,
+						"tutorial": 0.001,
+						"visibility": 0.103,
+						"workshop_gate": 0.044,
+						"workshop_gate2": 0.277
+					},
+					"script": 44.107
+				},
+				{
+					"frame": 57.147,
+					"parts": {
+						"accrual_routines": 0.064,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.025,
+						"bath": 0.018,
+						"camera": 0.01,
+						"clock": 0.371,
+						"dialogue": 0.006,
+						"dog": 0.118,
+						"gate_watch": 21.398,
+						"gate_watch2": 0.011,
+						"guard": 5.396,
+						"hud": 0.031,
+						"loot": 0.004,
+						"mobile_input": 0.028,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 7.521,
+						"resident_staff": 0.082,
+						"room_access": 10.726,
+						"skills": 0.004,
+						"social": 0.006,
+						"staff_traffic": 0.03,
+						"timeout": 0.004,
+						"trade": 0.034,
+						"tutorial": 0.002,
+						"visibility": 6.07,
+						"workshop_gate": 0.068,
+						"workshop_gate2": 0.29
+					},
+					"script": 52.364
+				},
+				{
+					"frame": 42.86,
+					"parts": {
+						"accrual_routines": 0.04,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.024,
+						"bath": 0.016,
+						"camera": 0.009,
+						"clock": 0.273,
+						"dialogue": 0.006,
+						"dog": 0.142,
+						"gate_watch": 17.27,
+						"gate_watch2": 0.01,
+						"guard": 5.551,
+						"hud": 0.021,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 8.057,
+						"resident_staff": 0.091,
+						"room_access": 0.387,
+						"skills": 0.003,
+						"social": 0.015,
+						"staff_traffic": 0.022,
+						"timeout": 0.004,
+						"trade": 0.034,
+						"tutorial": 0.002,
+						"visibility": 5.694,
+						"workshop_gate": 0.048,
+						"workshop_gate2": 0.258
+					},
+					"script": 38.046
+				},
+				{
+					"frame": 48.982,
+					"parts": {
+						"accrual_routines": 0.054,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.027,
+						"bath": 0.018,
+						"camera": 0.01,
+						"clock": 0.686,
+						"dialogue": 0.007,
+						"dog": 0.159,
+						"gate_watch": 14.47,
+						"gate_watch2": 0.013,
+						"guard": 5.62,
+						"hud": 0.088,
+						"loot": 0.004,
+						"mobile_input": 0.031,
+						"npc_life": 0.004,
+						"orders": 0.005,
+						"presentation": 7.463,
+						"resident_staff": 0.089,
+						"room_access": 7.666,
+						"skills": 0.005,
+						"social": 0.006,
+						"staff_traffic": 0.021,
+						"timeout": 0.003,
+						"trade": 0.042,
+						"tutorial": 0.002,
+						"visibility": 6.666,
+						"workshop_gate": 0.06,
+						"workshop_gate2": 0.253
+					},
+					"script": 43.512
+				},
+				{
+					"frame": 52.038,
+					"parts": {
+						"accrual_routines": 0.05,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.042,
+						"bath": 0.019,
+						"camera": 0.009,
+						"clock": 0.264,
+						"dialogue": 0.006,
+						"dog": 0.136,
+						"gate_watch": 3.468,
+						"gate_watch2": 0.011,
+						"guard": 5.698,
+						"hud": 0.022,
+						"loot": 0.005,
+						"mobile_input": 0.032,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 8.744,
+						"resident_staff": 0.083,
+						"room_access": 8.898,
+						"skills": 0.004,
+						"social": 0.379,
+						"staff_traffic": 0.022,
+						"timeout": 0.013,
+						"trade": 0.032,
+						"tutorial": 0.002,
+						"visibility": 7.234,
+						"workshop_gate": 0.061,
+						"workshop_gate2": 11.533
+					},
+					"script": 46.807
+				},
+				{
+					"frame": 36.452,
+					"parts": {
+						"accrual_routines": 0.056,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.027,
+						"bath": 0.019,
+						"camera": 0.009,
+						"clock": 0.474,
+						"dialogue": 0.005,
+						"dog": 0.124,
+						"gate_watch": 3.064,
+						"gate_watch2": 0.01,
+						"guard": 5.433,
+						"hud": 0.019,
+						"loot": 0.004,
+						"mobile_input": 0.027,
+						"npc_life": 0.005,
+						"orders": 0.003,
+						"presentation": 8.023,
+						"resident_staff": 0.095,
+						"room_access": 7.689,
+						"skills": 0.004,
+						"social": 0.006,
+						"staff_traffic": 0.026,
+						"timeout": 0.003,
+						"trade": 0.031,
+						"tutorial": 0.002,
+						"visibility": 6.298,
+						"workshop_gate": 0.069,
+						"workshop_gate2": 0.198
+					},
+					"script": 31.754
+				},
+				{
+					"frame": 36.481,
+					"parts": {
+						"accrual_routines": 0.045,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.022,
+						"bath": 0.012,
+						"camera": 0.008,
+						"clock": 0.273,
+						"dialogue": 0.004,
+						"dog": 0.101,
+						"gate_watch": 19.023,
+						"gate_watch2": 0.009,
+						"guard": 5.612,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.025,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 5.933,
+						"resident_staff": 0.082,
+						"room_access": 0.466,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.022,
+						"timeout": 0.002,
+						"trade": 0.029,
+						"tutorial": 0.001,
+						"visibility": 0.091,
+						"workshop_gate": 0.053,
+						"workshop_gate2": 0.182
+					},
+					"script": 32.061
+				},
+				{
+					"frame": 62.142,
+					"parts": {
+						"accrual_routines": 0.074,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.026,
+						"bath": 0.018,
+						"camera": 0.01,
+						"clock": 0.397,
+						"dialogue": 0.007,
+						"dog": 0.132,
+						"gate_watch": 21.386,
+						"gate_watch2": 0.022,
+						"guard": 6.465,
+						"hud": 0.021,
+						"loot": 0.005,
+						"mobile_input": 0.034,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 8.882,
+						"resident_staff": 0.091,
+						"room_access": 10.209,
+						"skills": 0.004,
+						"social": 0.006,
+						"staff_traffic": 0.031,
+						"timeout": 0.003,
+						"trade": 0.037,
+						"tutorial": 0.002,
+						"visibility": 7.788,
+						"workshop_gate": 0.085,
+						"workshop_gate2": 0.229
+					},
+					"script": 56.011
+				},
+				{
+					"frame": 63.32,
+					"parts": {
+						"accrual_routines": 0.052,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.026,
+						"bath": 0.018,
+						"camera": 0.011,
+						"clock": 0.36,
+						"dialogue": 0.006,
+						"dog": 0.174,
+						"gate_watch": 25.39,
+						"gate_watch2": 0.012,
+						"guard": 6.2,
+						"hud": 0.023,
+						"loot": 0.004,
+						"mobile_input": 0.032,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 9.352,
+						"resident_staff": 0.093,
+						"room_access": 7.538,
+						"skills": 0.004,
+						"social": 0.006,
+						"staff_traffic": 0.024,
+						"timeout": 0.003,
+						"trade": 0.041,
+						"tutorial": 0.002,
+						"visibility": 8.263,
+						"workshop_gate": 0.062,
+						"workshop_gate2": 0.326
+					},
+					"script": 58.07
+				},
+				{
+					"frame": 45.078,
+					"parts": {
+						"accrual_routines": 0.052,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.044,
+						"bath": 0.02,
+						"camera": 0.011,
+						"clock": 0.303,
+						"dialogue": 0.007,
+						"dog": 0.121,
+						"gate_watch": 3.157,
+						"gate_watch2": 0.01,
+						"guard": 5.977,
+						"hud": 0.022,
+						"loot": 0.004,
+						"mobile_input": 0.029,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 9.74,
+						"resident_staff": 0.079,
+						"room_access": 7.577,
+						"skills": 0.004,
+						"social": 0.007,
+						"staff_traffic": 0.024,
+						"timeout": 0.004,
+						"trade": 0.032,
+						"tutorial": 0.002,
+						"visibility": 9.308,
+						"workshop_gate": 0.067,
+						"workshop_gate2": 3.21
+					},
+					"script": 39.853
+				},
+				{
+					"frame": 41.471,
+					"parts": {
+						"accrual_routines": 0.056,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.026,
+						"bath": 0.02,
+						"camera": 0.01,
+						"clock": 0.321,
+						"dialogue": 0.006,
+						"dog": 0.152,
+						"gate_watch": 3.861,
+						"gate_watch2": 0.013,
+						"guard": 6.502,
+						"hud": 0.022,
+						"loot": 0.004,
+						"mobile_input": 0.032,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 8.726,
+						"resident_staff": 0.087,
+						"room_access": 8.331,
+						"skills": 0.003,
+						"social": 0.007,
+						"staff_traffic": 0.031,
+						"timeout": 0.003,
+						"trade": 0.033,
+						"tutorial": 0.002,
+						"visibility": 7.574,
+						"workshop_gate": 0.072,
+						"workshop_gate2": 0.317
+					},
+					"script": 36.257
+				},
+				{
+					"frame": 49.719,
+					"parts": {
+						"accrual_routines": 0.057,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.041,
+						"bath": 0.017,
+						"camera": 0.009,
+						"clock": 0.308,
+						"dialogue": 0.006,
+						"dog": 0.292,
+						"gate_watch": 23.564,
+						"gate_watch2": 0.013,
+						"guard": 8.222,
+						"hud": 0.028,
+						"loot": 0.005,
+						"mobile_input": 0.029,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 10.262,
+						"resident_staff": 0.119,
+						"room_access": 0.543,
+						"skills": 0.004,
+						"social": 0.007,
+						"staff_traffic": 0.027,
+						"timeout": 0.003,
+						"trade": 0.037,
+						"tutorial": 0.003,
+						"visibility": 0.095,
+						"workshop_gate": 0.07,
+						"workshop_gate2": 0.428
+					},
+					"script": 44.252
+				},
+				{
+					"frame": 36.681,
+					"parts": {
+						"accrual_routines": 0.054,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.025,
+						"bath": 0.012,
+						"camera": 0.01,
+						"clock": 0.311,
+						"dialogue": 0.005,
+						"dog": 0.33,
+						"gate_watch": 16.914,
+						"gate_watch2": 0.021,
+						"guard": 6.063,
+						"hud": 0.026,
+						"loot": 0.004,
+						"mobile_input": 0.035,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 6.352,
+						"resident_staff": 0.116,
+						"room_access": 0.617,
+						"skills": 0.005,
+						"social": 0.402,
+						"staff_traffic": 0.027,
+						"timeout": 0.003,
+						"trade": 0.048,
+						"tutorial": 0.003,
+						"visibility": 0.076,
+						"workshop_gate": 0.07,
+						"workshop_gate2": 0.256
+					},
+					"script": 31.834
+				},
+				{
+					"frame": 50.258,
+					"parts": {
+						"accrual_routines": 0.052,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.022,
+						"bath": 0.018,
+						"camera": 0.008,
+						"clock": 0.254,
+						"dialogue": 0.006,
+						"dog": 0.199,
+						"gate_watch": 16.478,
+						"gate_watch2": 0.009,
+						"guard": 5.536,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 8.224,
+						"resident_staff": 0.076,
+						"room_access": 7.91,
+						"skills": 0.003,
+						"social": 0.006,
+						"staff_traffic": 0.026,
+						"timeout": 0.003,
+						"trade": 0.03,
+						"tutorial": 0.001,
+						"visibility": 6.436,
+						"workshop_gate": 0.063,
+						"workshop_gate2": 0.189
+					},
+					"script": 45.642
+				},
+				{
+					"frame": 58.963,
+					"parts": {
+						"accrual_routines": 0.05,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.024,
+						"bath": 0.019,
+						"camera": 0.01,
+						"clock": 0.32,
+						"dialogue": 0.006,
+						"dog": 0.229,
+						"gate_watch": 24.587,
+						"gate_watch2": 0.012,
+						"guard": 5.692,
+						"hud": 0.023,
+						"loot": 0.004,
+						"mobile_input": 0.026,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 8.79,
+						"resident_staff": 0.077,
+						"room_access": 7.343,
+						"skills": 0.003,
+						"social": 0.007,
+						"staff_traffic": 0.022,
+						"timeout": 0.004,
+						"trade": 0.031,
+						"tutorial": 0.001,
+						"visibility": 6.756,
+						"workshop_gate": 0.06,
+						"workshop_gate2": 0.203
+					},
+					"script": 54.343
+				},
+				{
+					"frame": 34.95,
+					"parts": {
+						"accrual_routines": 0.053,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.025,
+						"bath": 0.018,
+						"camera": 0.009,
+						"clock": 0.293,
+						"dialogue": 0.006,
+						"dog": 0.264,
+						"gate_watch": 3.03,
+						"gate_watch2": 0.013,
+						"guard": 5.207,
+						"hud": 0.021,
+						"loot": 0.004,
+						"mobile_input": 0.033,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 7.952,
+						"resident_staff": 0.093,
+						"room_access": 6.945,
+						"skills": 0.005,
+						"social": 0.005,
+						"staff_traffic": 0.024,
+						"timeout": 0.002,
+						"trade": 0.037,
+						"tutorial": 0.001,
+						"visibility": 6.195,
+						"workshop_gate": 0.067,
+						"workshop_gate2": 0.203
+					},
+					"script": 30.549
+				},
+				{
+					"frame": 38.605,
+					"parts": {
+						"accrual_routines": 0.067,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.024,
+						"bath": 0.017,
+						"camera": 0.008,
+						"clock": 0.32,
+						"dialogue": 0.005,
+						"dog": 0.218,
+						"gate_watch": 3.03,
+						"gate_watch2": 0.01,
+						"guard": 5.683,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.027,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 10.36,
+						"resident_staff": 0.08,
+						"room_access": 7.255,
+						"skills": 0.003,
+						"social": 0.006,
+						"staff_traffic": 0.024,
+						"timeout": 0.003,
+						"trade": 0.031,
+						"tutorial": 0.001,
+						"visibility": 6.465,
+						"workshop_gate": 0.069,
+						"workshop_gate2": 0.226
+					},
+					"script": 33.999
+				},
+				{
+					"frame": 33.861,
+					"parts": {
+						"accrual_routines": 0.086,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.06,
+						"bath": 0.02,
+						"camera": 0.014,
+						"clock": 0.616,
+						"dialogue": 0.007,
+						"dog": 0.283,
+						"gate_watch": 0.508,
+						"gate_watch2": 0.011,
+						"guard": 9.162,
+						"hud": 0.039,
+						"loot": 0.005,
+						"mobile_input": 0.029,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 13.368,
+						"resident_staff": 0.098,
+						"room_access": 0.799,
+						"skills": 0.005,
+						"social": 0.006,
+						"staff_traffic": 0.037,
+						"timeout": 0.004,
+						"trade": 0.033,
+						"tutorial": 0.003,
+						"visibility": 0.136,
+						"workshop_gate": 0.17,
+						"workshop_gate2": 0.388
+					},
+					"script": 25.978
+				},
+				{
+					"frame": 39.421,
+					"parts": {
+						"accrual_routines": 0.098,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.047,
+						"bath": 0.018,
+						"camera": 0.01,
+						"clock": 0.489,
+						"dialogue": 0.006,
+						"dog": 0.578,
+						"gate_watch": 0.887,
+						"gate_watch2": 0.023,
+						"guard": 12.576,
+						"hud": 0.03,
+						"loot": 0.006,
+						"mobile_input": 0.038,
+						"npc_life": 0.006,
+						"orders": 0.005,
+						"presentation": 14.039,
+						"resident_staff": 0.163,
+						"room_access": 0.857,
+						"skills": 0.005,
+						"social": 0.006,
+						"staff_traffic": 0.04,
+						"timeout": 0.004,
+						"trade": 0.049,
+						"tutorial": 0.002,
+						"visibility": 0.113,
+						"workshop_gate": 0.102,
+						"workshop_gate2": 0.453
+					},
+					"script": 30.7
+				},
+				{
+					"frame": 37.684,
+					"parts": {
+						"accrual_routines": 0.064,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.049,
+						"bath": 0.019,
+						"camera": 0.011,
+						"clock": 0.404,
+						"dialogue": 0.007,
+						"dog": 0.403,
+						"gate_watch": 0.853,
+						"gate_watch2": 0.012,
+						"guard": 12.846,
+						"hud": 0.03,
+						"loot": 0.005,
+						"mobile_input": 0.031,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 13.543,
+						"resident_staff": 0.099,
+						"room_access": 0.733,
+						"skills": 0.004,
+						"social": 0.007,
+						"staff_traffic": 0.034,
+						"timeout": 0.003,
+						"trade": 0.04,
+						"tutorial": 0.002,
+						"visibility": 0.112,
+						"workshop_gate": 0.08,
+						"workshop_gate2": 0.512
+					},
+					"script": 29.959
+				}
+			],
+			"texture_mib": 1225.53515625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.193,
+					"mean": 0.0887041666666667,
+					"p50": 0.084,
+					"p95": 0.131,
+					"p99": 0.163
+				},
+				"audio": {
+					"max": 0.12,
+					"mean": 0.0402041666666667,
+					"p50": 0.038,
+					"p95": 0.057,
+					"p99": 0.103
+				},
+				"dog": {
+					"max": 0.056,
+					"mean": 0.0180208333333333,
+					"p50": 0.017,
+					"p95": 0.026,
+					"p99": 0.032
+				},
+				"interaction": {
+					"max": 12.755,
+					"mean": 5.21015416666667,
+					"p50": 4.985,
+					"p95": 7.15,
+					"p99": 12.011
+				},
+				"items": {
+					"max": 0.137,
+					"mean": 0.0490625,
+					"p50": 0.046,
+					"p95": 0.073,
+					"p99": 0.094
+				},
+				"lighting": {
+					"max": 0.612,
+					"mean": 0.284754166666667,
+					"p50": 0.253,
+					"p95": 0.484,
+					"p99": 0.563
+				},
+				"scene": {
+					"max": 8.501,
+					"mean": 0.557625,
+					"p50": 0.138,
+					"p95": 2.53,
+					"p99": 4.284
+				}
+			}
+		},
+		"tutorial_escort": {
+			"draw_calls": {
+				"max": 499.0,
+				"mean": 488.770833333333,
+				"p50": 487.0,
+				"p95": 499.0,
+				"p99": 499.0
+			},
+			"frame_ms": {
+				"max": 83.292,
+				"mean": 34.1292333333333,
+				"p50": 30.907,
+				"p95": 61.678,
+				"p99": 77.97
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 73.68,
+				"mean": 29.537175,
+				"p50": 26.738,
+				"p95": 54.357,
+				"p99": 69.707
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.096,
+					"mean": 0.0304166666666666,
+					"p50": 0.028,
+					"p95": 0.053,
+					"p99": 0.077
+				},
+				"ai_begin": {
+					"max": 0.003,
+					"mean": 0.00129166666666667,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.004,
+					"mean": 0.00125,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.008,
+					"mean": 0.0022,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.004
+				},
+				"bath": {
+					"max": 0.091,
+					"mean": 0.01465,
+					"p50": 0.013,
+					"p95": 0.022,
+					"p99": 0.061
+				},
+				"camera": {
+					"max": 0.035,
+					"mean": 0.0169958333333333,
+					"p50": 0.016,
+					"p95": 0.027,
+					"p99": 0.031
+				},
+				"clock": {
+					"max": 0.285,
+					"mean": 0.091825,
+					"p50": 0.082,
+					"p95": 0.161,
+					"p99": 0.232
+				},
+				"dialogue": {
+					"max": 0.016,
+					"mean": 0.0046625,
+					"p50": 0.004,
+					"p95": 0.007,
+					"p99": 0.009
+				},
+				"dog": {
+					"max": 0.029,
+					"mean": 0.0107541666666666,
+					"p50": 0.01,
+					"p95": 0.016,
+					"p99": 0.019
+				},
+				"gate_watch": {
+					"max": 40.759,
+					"mean": 16.0618833333333,
+					"p50": 14.249,
+					"p95": 31.646,
+					"p99": 38.849
+				},
+				"gate_watch2": {
+					"max": 0.041,
+					"mean": 0.0145541666666666,
+					"p50": 0.013,
+					"p95": 0.032,
+					"p99": 0.039
+				},
+				"guard": {
+					"max": 13.903,
+					"mean": 5.51361666666667,
+					"p50": 5.039,
+					"p95": 10.789,
+					"p99": 13.561
+				},
+				"hud": {
+					"max": 0.048,
+					"mean": 0.019775,
+					"p50": 0.019,
+					"p95": 0.03,
+					"p99": 0.036
+				},
+				"loot": {
+					"max": 0.07,
+					"mean": 0.00392916666666667,
+					"p50": 0.003,
+					"p95": 0.006,
+					"p99": 0.007
+				},
+				"mobile_input": {
+					"max": 0.156,
+					"mean": 0.0373916666666666,
+					"p50": 0.036,
+					"p95": 0.054,
+					"p99": 0.065
+				},
+				"npc_life": {
+					"max": 0.302,
+					"mean": 0.0108833333333333,
+					"p50": 0.004,
+					"p95": 0.007,
+					"p99": 0.206
+				},
+				"orders": {
+					"max": 0.011,
+					"mean": 0.00377083333333334,
+					"p50": 0.004,
+					"p95": 0.006,
+					"p99": 0.01
+				},
+				"presentation": {
+					"max": 16.815,
+					"mean": 6.62202916666666,
+					"p50": 5.963,
+					"p95": 12.38,
+					"p99": 14.681
+				},
+				"resident_staff": {
+					"max": 0.228,
+					"mean": 0.0922166666666667,
+					"p50": 0.085,
+					"p95": 0.141,
+					"p99": 0.173
+				},
+				"room_access": {
+					"max": 1.246,
+					"mean": 0.4614875,
+					"p50": 0.421,
+					"p95": 0.779,
+					"p99": 0.977
+				},
+				"skills": {
+					"max": 0.009,
+					"mean": 0.00375416666666667,
+					"p50": 0.004,
+					"p95": 0.006,
+					"p99": 0.007
+				},
+				"social": {
+					"max": 0.019,
+					"mean": 0.00380416666666667,
+					"p50": 0.003,
+					"p95": 0.006,
+					"p99": 0.011
+				},
+				"staff_traffic": {
+					"max": 0.102,
+					"mean": 0.0303083333333333,
+					"p50": 0.028,
+					"p95": 0.048,
+					"p99": 0.059
+				},
+				"timeout": {
+					"max": 0.007,
+					"mean": 0.00193333333333333,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"trade": {
+					"max": 0.108,
+					"mean": 0.0349583333333333,
+					"p50": 0.033,
+					"p95": 0.052,
+					"p99": 0.069
+				},
+				"tutorial": {
+					"max": 0.435,
+					"mean": 0.165579166666667,
+					"p50": 0.156,
+					"p95": 0.256,
+					"p99": 0.311
+				},
+				"visibility": {
+					"max": 0.215,
+					"mean": 0.0840875000000001,
+					"p50": 0.08,
+					"p95": 0.118,
+					"p99": 0.161
+				},
+				"workshop_gate": {
+					"max": 0.136,
+					"mean": 0.0519291666666666,
+					"p50": 0.047,
+					"p95": 0.093,
+					"p99": 0.119
+				},
+				"workshop_gate2": {
+					"max": 0.256,
+					"mean": 0.106408333333333,
+					"p50": 0.1,
+					"p95": 0.167,
+					"p99": 0.22
+				}
+			},
+			"spikes": [
+				{
+					"frame": 34.823,
+					"parts": {
+						"accrual_routines": 0.034,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.002,
+						"bath": 0.015,
+						"camera": 0.017,
+						"clock": 0.092,
+						"dialogue": 0.006,
+						"dog": 0.012,
+						"gate_watch": 15.714,
+						"gate_watch2": 0.013,
+						"guard": 5.085,
+						"hud": 0.027,
+						"loot": 0.004,
+						"mobile_input": 0.048,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 7.115,
+						"resident_staff": 0.124,
+						"room_access": 0.496,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.029,
+						"timeout": 0.002,
+						"trade": 0.04,
+						"tutorial": 0.199,
+						"visibility": 0.092,
+						"workshop_gate": 0.06,
+						"workshop_gate2": 0.121
+					},
+					"script": 29.4
+				},
+				{
+					"frame": 34.786,
+					"parts": {
+						"accrual_routines": 0.034,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.003,
+						"bath": 0.04,
+						"camera": 0.026,
+						"clock": 0.167,
+						"dialogue": 0.009,
+						"dog": 0.01,
+						"gate_watch": 16.584,
+						"gate_watch2": 0.013,
+						"guard": 5.503,
+						"hud": 0.03,
+						"loot": 0.006,
+						"mobile_input": 0.043,
+						"npc_life": 0.004,
+						"orders": 0.005,
+						"presentation": 5.733,
+						"resident_staff": 0.094,
+						"room_access": 0.473,
+						"skills": 0.004,
+						"social": 0.008,
+						"staff_traffic": 0.036,
+						"timeout": 0.002,
+						"trade": 0.04,
+						"tutorial": 0.262,
+						"visibility": 0.122,
+						"workshop_gate": 0.062,
+						"workshop_gate2": 0.141
+					},
+					"script": 29.59
+				},
+				{
+					"frame": 36.557,
+					"parts": {
+						"accrual_routines": 0.03,
+						"ai_begin": 0.001,
+						"ai_end": 0.004,
+						"alert": 0.003,
+						"bath": 0.091,
+						"camera": 0.027,
+						"clock": 0.102,
+						"dialogue": 0.007,
+						"dog": 0.01,
+						"gate_watch": 15.492,
+						"gate_watch2": 0.012,
+						"guard": 4.869,
+						"hud": 0.03,
+						"loot": 0.004,
+						"mobile_input": 0.051,
+						"npc_life": 0.005,
+						"orders": 0.004,
+						"presentation": 9.138,
+						"resident_staff": 0.109,
+						"room_access": 0.407,
+						"skills": 0.004,
+						"social": 0.008,
+						"staff_traffic": 0.036,
+						"timeout": 0.003,
+						"trade": 0.045,
+						"tutorial": 0.256,
+						"visibility": 0.119,
+						"workshop_gate": 0.051,
+						"workshop_gate2": 0.15
+					},
+					"script": 31.12
+				},
+				{
+					"frame": 57.177,
+					"parts": {
+						"accrual_routines": 0.031,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.003,
+						"bath": 0.021,
+						"camera": 0.033,
+						"clock": 0.107,
+						"dialogue": 0.007,
+						"dog": 0.012,
+						"gate_watch": 21.017,
+						"gate_watch2": 0.039,
+						"guard": 9.946,
+						"hud": 0.036,
+						"loot": 0.006,
+						"mobile_input": 0.047,
+						"npc_life": 0.004,
+						"orders": 0.005,
+						"presentation": 14.259,
+						"resident_staff": 0.143,
+						"room_access": 0.488,
+						"skills": 0.005,
+						"social": 0.006,
+						"staff_traffic": 0.034,
+						"timeout": 0.007,
+						"trade": 0.054,
+						"tutorial": 0.369,
+						"visibility": 0.132,
+						"workshop_gate": 0.059,
+						"workshop_gate2": 0.152
+					},
+					"script": 47.079
+				},
+				{
+					"frame": 67.173,
+					"parts": {
+						"accrual_routines": 0.066,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.003,
+						"bath": 0.019,
+						"camera": 0.024,
+						"clock": 0.156,
+						"dialogue": 0.007,
+						"dog": 0.011,
+						"gate_watch": 31.692,
+						"gate_watch2": 0.019,
+						"guard": 10.789,
+						"hud": 0.028,
+						"loot": 0.005,
+						"mobile_input": 0.054,
+						"npc_life": 0.006,
+						"orders": 0.004,
+						"presentation": 12.25,
+						"resident_staff": 0.12,
+						"room_access": 0.745,
+						"skills": 0.007,
+						"social": 0.005,
+						"staff_traffic": 0.051,
+						"timeout": 0.003,
+						"trade": 0.042,
+						"tutorial": 0.248,
+						"visibility": 0.109,
+						"workshop_gate": 0.092,
+						"workshop_gate2": 0.148
+					},
+					"script": 56.779
+				},
+				{
+					"frame": 61.678,
+					"parts": {
+						"accrual_routines": 0.062,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.002,
+						"bath": 0.017,
+						"camera": 0.027,
+						"clock": 0.21,
+						"dialogue": 0.005,
+						"dog": 0.029,
+						"gate_watch": 29.453,
+						"gate_watch2": 0.019,
+						"guard": 7.488,
+						"hud": 0.023,
+						"loot": 0.004,
+						"mobile_input": 0.156,
+						"npc_life": 0.004,
+						"orders": 0.011,
+						"presentation": 13.982,
+						"resident_staff": 0.228,
+						"room_access": 1.014,
+						"skills": 0.009,
+						"social": 0.006,
+						"staff_traffic": 0.05,
+						"timeout": 0.002,
+						"trade": 0.108,
+						"tutorial": 0.177,
+						"visibility": 0.093,
+						"workshop_gate": 0.099,
+						"workshop_gate2": 0.127
+					},
+					"script": 53.511
+				},
+				{
+					"frame": 55.752,
+					"parts": {
+						"accrual_routines": 0.053,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.003,
+						"bath": 0.015,
+						"camera": 0.021,
+						"clock": 0.153,
+						"dialogue": 0.005,
+						"dog": 0.015,
+						"gate_watch": 27.743,
+						"gate_watch2": 0.032,
+						"guard": 9.204,
+						"hud": 0.029,
+						"loot": 0.005,
+						"mobile_input": 0.058,
+						"npc_life": 0.005,
+						"orders": 0.005,
+						"presentation": 9.823,
+						"resident_staff": 0.142,
+						"room_access": 0.776,
+						"skills": 0.005,
+						"social": 0.004,
+						"staff_traffic": 0.045,
+						"timeout": 0.002,
+						"trade": 0.051,
+						"tutorial": 0.171,
+						"visibility": 0.091,
+						"workshop_gate": 0.091,
+						"workshop_gate2": 0.116
+					},
+					"script": 48.73
+				},
+				{
+					"frame": 48.694,
+					"parts": {
+						"accrual_routines": 0.036,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.004,
+						"bath": 0.023,
+						"camera": 0.027,
+						"clock": 0.176,
+						"dialogue": 0.007,
+						"dog": 0.012,
+						"gate_watch": 22.614,
+						"gate_watch2": 0.017,
+						"guard": 8.676,
+						"hud": 0.03,
+						"loot": 0.005,
+						"mobile_input": 0.041,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 8.994,
+						"resident_staff": 0.103,
+						"room_access": 0.515,
+						"skills": 0.005,
+						"social": 0.009,
+						"staff_traffic": 0.032,
+						"timeout": 0.003,
+						"trade": 0.038,
+						"tutorial": 0.278,
+						"visibility": 0.119,
+						"workshop_gate": 0.057,
+						"workshop_gate2": 0.179
+					},
+					"script": 42.083
+				},
+				{
+					"frame": 43.913,
+					"parts": {
+						"accrual_routines": 0.031,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.003,
+						"bath": 0.015,
+						"camera": 0.018,
+						"clock": 0.178,
+						"dialogue": 0.004,
+						"dog": 0.012,
+						"gate_watch": 21.771,
+						"gate_watch2": 0.014,
+						"guard": 6.475,
+						"hud": 0.021,
+						"loot": 0.005,
+						"mobile_input": 0.044,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 8.278,
+						"resident_staff": 0.101,
+						"room_access": 0.552,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.038,
+						"timeout": 0.002,
+						"trade": 0.042,
+						"tutorial": 0.204,
+						"visibility": 0.086,
+						"workshop_gate": 0.058,
+						"workshop_gate2": 0.118
+					},
+					"script": 38.145
+				},
+				{
+					"frame": 50.067,
+					"parts": {
+						"accrual_routines": 0.031,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.002,
+						"bath": 0.015,
+						"camera": 0.017,
+						"clock": 0.102,
+						"dialogue": 0.004,
+						"dog": 0.013,
+						"gate_watch": 26.251,
+						"gate_watch2": 0.027,
+						"guard": 5.995,
+						"hud": 0.02,
+						"loot": 0.005,
+						"mobile_input": 0.04,
+						"npc_life": 0.004,
+						"orders": 0.005,
+						"presentation": 10.383,
+						"resident_staff": 0.099,
+						"room_access": 0.517,
+						"skills": 0.004,
+						"social": 0.005,
+						"staff_traffic": 0.032,
+						"timeout": 0.001,
+						"trade": 0.038,
+						"tutorial": 0.177,
+						"visibility": 0.085,
+						"workshop_gate": 0.055,
+						"workshop_gate2": 0.114
+					},
+					"script": 44.103
+				},
+				{
+					"frame": 49.243,
+					"parts": {
+						"accrual_routines": 0.062,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.002,
+						"bath": 0.013,
+						"camera": 0.022,
+						"clock": 0.149,
+						"dialogue": 0.005,
+						"dog": 0.015,
+						"gate_watch": 25.476,
+						"gate_watch2": 0.039,
+						"guard": 8.325,
+						"hud": 0.026,
+						"loot": 0.004,
+						"mobile_input": 0.06,
+						"npc_life": 0.006,
+						"orders": 0.007,
+						"presentation": 7.397,
+						"resident_staff": 0.161,
+						"room_access": 0.844,
+						"skills": 0.007,
+						"social": 0.004,
+						"staff_traffic": 0.049,
+						"timeout": 0.002,
+						"trade": 0.056,
+						"tutorial": 0.164,
+						"visibility": 0.086,
+						"workshop_gate": 0.102,
+						"workshop_gate2": 0.121
+					},
+					"script": 43.27
+				},
+				{
+					"frame": 45.721,
+					"parts": {
+						"accrual_routines": 0.04,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.003,
+						"bath": 0.014,
+						"camera": 0.021,
+						"clock": 0.176,
+						"dialogue": 0.006,
+						"dog": 0.013,
+						"gate_watch": 22.991,
+						"gate_watch2": 0.032,
+						"guard": 7.534,
+						"hud": 0.024,
+						"loot": 0.004,
+						"mobile_input": 0.065,
+						"npc_life": 0.005,
+						"orders": 0.011,
+						"presentation": 7.888,
+						"resident_staff": 0.16,
+						"room_access": 0.649,
+						"skills": 0.005,
+						"social": 0.004,
+						"staff_traffic": 0.04,
+						"timeout": 0.003,
+						"trade": 0.069,
+						"tutorial": 0.174,
+						"visibility": 0.084,
+						"workshop_gate": 0.073,
+						"workshop_gate2": 0.118
+					},
+					"script": 40.266
+				},
+				{
+					"frame": 47.05,
+					"parts": {
+						"accrual_routines": 0.029,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.004,
+						"bath": 0.018,
+						"camera": 0.025,
+						"clock": 0.12,
+						"dialogue": 0.005,
+						"dog": 0.012,
+						"gate_watch": 23.927,
+						"gate_watch2": 0.025,
+						"guard": 6.825,
+						"hud": 0.027,
+						"loot": 0.004,
+						"mobile_input": 0.054,
+						"npc_life": 0.004,
+						"orders": 0.006,
+						"presentation": 8.653,
+						"resident_staff": 0.132,
+						"room_access": 0.473,
+						"skills": 0.005,
+						"social": 0.006,
+						"staff_traffic": 0.033,
+						"timeout": 0.003,
+						"trade": 0.049,
+						"tutorial": 0.271,
+						"visibility": 0.112,
+						"workshop_gate": 0.051,
+						"workshop_gate2": 0.139
+					},
+					"script": 41.058
+				},
+				{
+					"frame": 47.055,
+					"parts": {
+						"accrual_routines": 0.036,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.002,
+						"bath": 0.015,
+						"camera": 0.022,
+						"clock": 0.114,
+						"dialogue": 0.006,
+						"dog": 0.015,
+						"gate_watch": 21.986,
+						"gate_watch2": 0.016,
+						"guard": 7.523,
+						"hud": 0.026,
+						"loot": 0.004,
+						"mobile_input": 0.048,
+						"npc_life": 0.006,
+						"orders": 0.005,
+						"presentation": 10.216,
+						"resident_staff": 0.113,
+						"room_access": 0.579,
+						"skills": 0.004,
+						"social": 0.003,
+						"staff_traffic": 0.032,
+						"timeout": 0.002,
+						"trade": 0.041,
+						"tutorial": 0.206,
+						"visibility": 0.091,
+						"workshop_gate": 0.064,
+						"workshop_gate2": 0.117
+					},
+					"script": 41.35
+				},
+				{
+					"frame": 48.712,
+					"parts": {
+						"accrual_routines": 0.049,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.003,
+						"bath": 0.018,
+						"camera": 0.02,
+						"clock": 0.13,
+						"dialogue": 0.005,
+						"dog": 0.013,
+						"gate_watch": 26.408,
+						"gate_watch2": 0.017,
+						"guard": 6.126,
+						"hud": 0.024,
+						"loot": 0.006,
+						"mobile_input": 0.048,
+						"npc_life": 0.006,
+						"orders": 0.005,
+						"presentation": 8.54,
+						"resident_staff": 0.103,
+						"room_access": 0.731,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.043,
+						"timeout": 0.002,
+						"trade": 0.043,
+						"tutorial": 0.195,
+						"visibility": 0.103,
+						"workshop_gate": 0.081,
+						"workshop_gate2": 0.152
+					},
+					"script": 42.929
+				},
+				{
+					"frame": 46.944,
+					"parts": {
+						"accrual_routines": 0.039,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.002,
+						"bath": 0.018,
+						"camera": 0.019,
+						"clock": 0.106,
+						"dialogue": 0.007,
+						"dog": 0.011,
+						"gate_watch": 20.975,
+						"gate_watch2": 0.02,
+						"guard": 6.672,
+						"hud": 0.026,
+						"loot": 0.005,
+						"mobile_input": 0.038,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 11.499,
+						"resident_staff": 0.119,
+						"room_access": 0.732,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.034,
+						"timeout": 0.002,
+						"trade": 0.04,
+						"tutorial": 0.195,
+						"visibility": 0.106,
+						"workshop_gate": 0.064,
+						"workshop_gate2": 0.149
+					},
+					"script": 40.941
+				},
+				{
+					"frame": 54.029,
+					"parts": {
+						"accrual_routines": 0.077,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.005,
+						"bath": 0.037,
+						"camera": 0.027,
+						"clock": 0.135,
+						"dialogue": 0.01,
+						"dog": 0.011,
+						"gate_watch": 22.635,
+						"gate_watch2": 0.014,
+						"guard": 8.909,
+						"hud": 0.029,
+						"loot": 0.007,
+						"mobile_input": 0.044,
+						"npc_life": 0.008,
+						"orders": 0.004,
+						"presentation": 11.999,
+						"resident_staff": 0.097,
+						"room_access": 0.761,
+						"skills": 0.004,
+						"social": 0.012,
+						"staff_traffic": 0.053,
+						"timeout": 0.003,
+						"trade": 0.042,
+						"tutorial": 0.291,
+						"visibility": 0.215,
+						"workshop_gate": 0.092,
+						"workshop_gate2": 0.22
+					},
+					"script": 45.808
+				},
+				{
+					"frame": 70.887,
+					"parts": {
+						"accrual_routines": 0.052,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.004,
+						"bath": 0.021,
+						"camera": 0.024,
+						"clock": 0.158,
+						"dialogue": 0.008,
+						"dog": 0.011,
+						"gate_watch": 37.475,
+						"gate_watch2": 0.016,
+						"guard": 11.121,
+						"hud": 0.029,
+						"loot": 0.005,
+						"mobile_input": 0.044,
+						"npc_life": 0.302,
+						"orders": 0.004,
+						"presentation": 13.196,
+						"resident_staff": 0.099,
+						"room_access": 0.745,
+						"skills": 0.004,
+						"social": 0.005,
+						"staff_traffic": 0.045,
+						"timeout": 0.003,
+						"trade": 0.039,
+						"tutorial": 0.253,
+						"visibility": 0.114,
+						"workshop_gate": 0.087,
+						"workshop_gate2": 0.174
+					},
+					"script": 64.096
+				},
+				{
+					"frame": 83.292,
+					"parts": {
+						"accrual_routines": 0.054,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.003,
+						"bath": 0.035,
+						"camera": 0.027,
+						"clock": 0.148,
+						"dialogue": 0.016,
+						"dog": 0.018,
+						"gate_watch": 40.71,
+						"gate_watch2": 0.041,
+						"guard": 13.561,
+						"hud": 0.048,
+						"loot": 0.009,
+						"mobile_input": 0.061,
+						"npc_life": 0.006,
+						"orders": 0.007,
+						"presentation": 16.815,
+						"resident_staff": 0.19,
+						"room_access": 0.74,
+						"skills": 0.007,
+						"social": 0.009,
+						"staff_traffic": 0.048,
+						"timeout": 0.004,
+						"trade": 0.063,
+						"tutorial": 0.435,
+						"visibility": 0.189,
+						"workshop_gate": 0.111,
+						"workshop_gate2": 0.256
+					},
+					"script": 73.68
+				},
+				{
+					"frame": 77.97,
+					"parts": {
+						"accrual_routines": 0.053,
+						"ai_begin": 0.002,
+						"ai_end": 0.002,
+						"alert": 0.003,
+						"bath": 0.023,
+						"camera": 0.027,
+						"clock": 0.285,
+						"dialogue": 0.008,
+						"dog": 0.018,
+						"gate_watch": 38.849,
+						"gate_watch2": 0.029,
+						"guard": 13.616,
+						"hud": 0.031,
+						"loot": 0.007,
+						"mobile_input": 0.058,
+						"npc_life": 0.007,
+						"orders": 0.006,
+						"presentation": 14.681,
+						"resident_staff": 0.141,
+						"room_access": 0.957,
+						"skills": 0.007,
+						"social": 0.007,
+						"staff_traffic": 0.049,
+						"timeout": 0.003,
+						"trade": 0.056,
+						"tutorial": 0.266,
+						"visibility": 0.124,
+						"workshop_gate": 0.125,
+						"workshop_gate2": 0.191
+					},
+					"script": 69.707
+				}
+			],
+			"texture_mib": 1217.4140625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.227,
+					"mean": 0.096175,
+					"p50": 0.09,
+					"p95": 0.145,
+					"p99": 0.197
+				},
+				"audio": {
+					"max": 0.097,
+					"mean": 0.041175,
+					"p50": 0.038,
+					"p95": 0.065,
+					"p99": 0.082
+				},
+				"dog": {
+					"max": 0.06,
+					"mean": 0.0171583333333333,
+					"p50": 0.016,
+					"p95": 0.026,
+					"p99": 0.045
+				},
+				"interaction": {
+					"max": 15.742,
+					"mean": 6.0445625,
+					"p50": 5.365,
+					"p95": 11.474,
+					"p99": 13.721
+				},
+				"items": {
+					"max": 0.355,
+					"mean": 0.0504583333333333,
+					"p50": 0.046,
+					"p95": 0.078,
+					"p99": 0.111
+				},
+				"lighting": {
+					"max": 0.345,
+					"mean": 0.115558333333333,
+					"p50": 0.107,
+					"p95": 0.203,
+					"p99": 0.241
+				},
+				"scene": {
+					"max": 0.597,
+					"mean": 0.246425,
+					"p50": 0.23,
+					"p95": 0.374,
+					"p99": 0.413
+				}
+			}
+		},
+		"without_interaction": {
+			"draw_calls": {
+				"max": 503.0,
+				"mean": 500.645833333333,
+				"p50": 502.0,
+				"p95": 503.0,
+				"p99": 503.0
+			},
+			"frame_ms": {
+				"max": 41.003,
+				"mean": 12.0711083333333,
+				"p50": 11.754,
+				"p95": 13.961,
+				"p99": 18.469
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 35.842,
+				"mean": 7.46588333333333,
+				"p50": 7.195,
+				"p95": 8.428,
+				"p99": 12.573
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.129,
+					"mean": 0.0275208333333333,
+					"p50": 0.026,
+					"p95": 0.035,
+					"p99": 0.047
+				},
+				"ai_begin": {
+					"max": 0.002,
+					"mean": 0.0011125,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.002,
+					"mean": 0.000970833333333334,
+					"p50": 0.001,
+					"p95": 0.001,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.01,
+					"mean": 0.00577083333333332,
+					"p50": 0.006,
+					"p95": 0.007,
+					"p99": 0.009
+				},
+				"bath": {
+					"max": 0.04,
+					"mean": 0.0119958333333333,
+					"p50": 0.012,
+					"p95": 0.015,
+					"p99": 0.023
+				},
+				"camera": {
+					"max": 0.026,
+					"mean": 0.00758749999999998,
+					"p50": 0.007,
+					"p95": 0.011,
+					"p99": 0.014
+				},
+				"clock": {
+					"max": 0.41,
+					"mean": 0.2414,
+					"p50": 0.233,
+					"p95": 0.32,
+					"p99": 0.375
+				},
+				"dialogue": {
+					"max": 0.007,
+					"mean": 0.00401666666666667,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.007
+				},
+				"dog": {
+					"max": 0.039,
+					"mean": 0.00862083333333332,
+					"p50": 0.008,
+					"p95": 0.011,
+					"p99": 0.019
+				},
+				"gate_watch": {
+					"max": 21.721,
+					"mean": 0.543195833333333,
+					"p50": 0.404,
+					"p95": 0.565,
+					"p99": 4.248
+				},
+				"gate_watch2": {
+					"max": 0.029,
+					"mean": 0.0123666666666666,
+					"p50": 0.013,
+					"p95": 0.018,
+					"p99": 0.024
+				},
+				"guard": {
+					"max": 8.895,
+					"mean": 4.86470416666667,
+					"p50": 4.813,
+					"p95": 5.555,
+					"p99": 5.993
+				},
+				"hud": {
+					"max": 0.034,
+					"mean": 0.01945,
+					"p50": 0.019,
+					"p95": 0.025,
+					"p99": 0.029
+				},
+				"loot": {
+					"max": 0.005,
+					"mean": 0.00325416666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"mobile_input": {
+					"max": 0.087,
+					"mean": 0.0232458333333333,
+					"p50": 0.023,
+					"p95": 0.03,
+					"p99": 0.04
+				},
+				"npc_life": {
+					"max": 0.23,
+					"mean": 0.00579999999999998,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.187
+				},
+				"orders": {
+					"max": 0.005,
+					"mean": 0.00286666666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.004
+				},
+				"presentation": {
+					"max": 5.266,
+					"mean": 0.695366666666667,
+					"p50": 0.67,
+					"p95": 0.809,
+					"p99": 0.946
+				},
+				"resident_staff": {
+					"max": 0.191,
+					"mean": 0.0757041666666667,
+					"p50": 0.073,
+					"p95": 0.093,
+					"p99": 0.115
+				},
+				"room_access": {
+					"max": 0.723,
+					"mean": 0.4,
+					"p50": 0.384,
+					"p95": 0.533,
+					"p99": 0.588
+				},
+				"skills": {
+					"max": 0.005,
+					"mean": 0.00322083333333334,
+					"p50": 0.003,
+					"p95": 0.005,
+					"p99": 0.005
+				},
+				"social": {
+					"max": 0.298,
+					"mean": 0.00717916666666664,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.271
+				},
+				"staff_traffic": {
+					"max": 0.06,
+					"mean": 0.02705,
+					"p50": 0.028,
+					"p95": 0.035,
+					"p99": 0.045
+				},
+				"timeout": {
+					"max": 0.005,
+					"mean": 0.00209583333333333,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.004
+				},
+				"trade": {
+					"max": 0.041,
+					"mean": 0.0270541666666667,
+					"p50": 0.026,
+					"p95": 0.034,
+					"p99": 0.039
+				},
+				"tutorial": {
+					"max": 0.003,
+					"mean": 0.00155416666666667,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"visibility": {
+					"max": 0.182,
+					"mean": 0.1130375,
+					"p50": 0.111,
+					"p95": 0.137,
+					"p99": 0.162
+				},
+				"workshop_gate": {
+					"max": 0.153,
+					"mean": 0.051525,
+					"p50": 0.048,
+					"p95": 0.069,
+					"p99": 0.135
+				},
+				"workshop_gate2": {
+					"max": 6.635,
+					"mean": 0.252558333333334,
+					"p50": 0.21,
+					"p95": 0.258,
+					"p99": 0.478
+				}
+			},
+			"spikes": [
+				{
+					"frame": 41.003,
+					"parts": {
+						"accrual_routines": 0.028,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.008,
+						"bath": 0.012,
+						"camera": 0.008,
+						"clock": 0.223,
+						"dialogue": 0.005,
+						"dog": 0.009,
+						"gate_watch": 21.721,
+						"gate_watch2": 0.015,
+						"guard": 4.854,
+						"hud": 0.018,
+						"loot": 0.003,
+						"mobile_input": 0.03,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 5.266,
+						"resident_staff": 0.078,
+						"room_access": 0.447,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.012,
+						"timeout": 0.003,
+						"trade": 0.035,
+						"tutorial": 0.002,
+						"visibility": 0.156,
+						"workshop_gate": 0.049,
+						"workshop_gate2": 2.812
+					},
+					"script": 35.842
+				}
+			],
+			"texture_mib": 1225.53515625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.175,
+					"mean": 0.0967083333333333,
+					"p50": 0.095,
+					"p95": 0.117,
+					"p99": 0.141
+				},
+				"audio": {
+					"max": 0.107,
+					"mean": 0.0332458333333333,
+					"p50": 0.032,
+					"p95": 0.042,
+					"p99": 0.052
+				},
+				"dog": {
+					"max": 0.023,
+					"mean": 0.0144791666666666,
+					"p50": 0.014,
+					"p95": 0.018,
+					"p99": 0.022
+				},
+				"interaction": {
+					"max": 0.003,
+					"mean": 0.0014375,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"items": {
+					"max": 0.092,
+					"mean": 0.0438541666666667,
+					"p50": 0.042,
+					"p95": 0.055,
+					"p99": 0.071
+				},
+				"lighting": {
+					"max": 0.499,
+					"mean": 0.103420833333333,
+					"p50": 0.099,
+					"p95": 0.124,
+					"p99": 0.15
+				},
+				"scene": {
+					"max": 4.55,
+					"mean": 0.3946875,
+					"p50": 0.376,
+					"p95": 0.475,
+					"p99": 0.529
+				}
+			}
+		},
+		"workshop_idle": {
+			"draw_calls": {
+				"max": 479.0,
+				"mean": 476.0875,
+				"p50": 478.0,
+				"p95": 479.0,
+				"p99": 479.0
+			},
+			"frame_ms": {
+				"max": 39.205,
+				"mean": 27.4187166666667,
+				"p50": 27.253,
+				"p95": 31.802,
+				"p99": 33.497
+			},
+			"frames": 240,
+			"game_script_ms": {
+				"max": 34.587,
+				"mean": 23.4706833333333,
+				"p50": 23.294,
+				"p95": 27.336,
+				"p99": 28.441
+			},
+			"parts": {
+				"accrual_routines": {
+					"max": 0.116,
+					"mean": 0.0504458333333333,
+					"p50": 0.05,
+					"p95": 0.06,
+					"p99": 0.078
+				},
+				"ai_begin": {
+					"max": 0.002,
+					"mean": 0.0011375,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"ai_end": {
+					"max": 0.045,
+					"mean": 0.00122083333333333,
+					"p50": 0.001,
+					"p95": 0.002,
+					"p99": 0.002
+				},
+				"alert": {
+					"max": 0.014,
+					"mean": 0.00540416666666666,
+					"p50": 0.005,
+					"p95": 0.007,
+					"p99": 0.008
+				},
+				"bath": {
+					"max": 0.022,
+					"mean": 0.0125166666666666,
+					"p50": 0.012,
+					"p95": 0.015,
+					"p99": 0.018
+				},
+				"camera": {
+					"max": 0.06,
+					"mean": 0.0181875,
+					"p50": 0.018,
+					"p95": 0.022,
+					"p99": 0.026
+				},
+				"clock": {
+					"max": 0.452,
+					"mean": 0.237045833333333,
+					"p50": 0.232,
+					"p95": 0.294,
+					"p99": 0.368
+				},
+				"dialogue": {
+					"max": 0.012,
+					"mean": 0.00414166666666667,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.006
+				},
+				"dog": {
+					"max": 0.045,
+					"mean": 0.00968749999999997,
+					"p50": 0.009,
+					"p95": 0.011,
+					"p99": 0.014
+				},
+				"gate_watch": {
+					"max": 20.54,
+					"mean": 12.7291416666667,
+					"p50": 12.567,
+					"p95": 15.137,
+					"p99": 15.812
+				},
+				"gate_watch2": {
+					"max": 0.024,
+					"mean": 0.0119583333333333,
+					"p50": 0.012,
+					"p95": 0.015,
+					"p99": 0.02
+				},
+				"guard": {
+					"max": 5.824,
+					"mean": 4.1171,
+					"p50": 4.074,
+					"p95": 4.889,
+					"p99": 5.281
+				},
+				"hud": {
+					"max": 0.056,
+					"mean": 0.0198583333333333,
+					"p50": 0.019,
+					"p95": 0.025,
+					"p99": 0.03
+				},
+				"loot": {
+					"max": 0.052,
+					"mean": 0.0035375,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"mobile_input": {
+					"max": 0.107,
+					"mean": 0.0297125,
+					"p50": 0.029,
+					"p95": 0.036,
+					"p99": 0.042
+				},
+				"npc_life": {
+					"max": 0.25,
+					"mean": 0.00938749999999997,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.211
+				},
+				"orders": {
+					"max": 0.02,
+					"mean": 0.00331666666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"presentation": {
+					"max": 8.395,
+					"mean": 5.3813375,
+					"p50": 5.328,
+					"p95": 6.497,
+					"p99": 7.219
+				},
+				"resident_staff": {
+					"max": 0.161,
+					"mean": 0.092275,
+					"p50": 0.094,
+					"p95": 0.118,
+					"p99": 0.126
+				},
+				"room_access": {
+					"max": 0.813,
+					"mean": 0.393020833333333,
+					"p50": 0.383,
+					"p95": 0.487,
+					"p99": 0.593
+				},
+				"skills": {
+					"max": 0.048,
+					"mean": 0.00356666666666667,
+					"p50": 0.003,
+					"p95": 0.004,
+					"p99": 0.005
+				},
+				"social": {
+					"max": 0.348,
+					"mean": 0.0122625,
+					"p50": 0.004,
+					"p95": 0.005,
+					"p99": 0.308
+				},
+				"staff_traffic": {
+					"max": 0.08,
+					"mean": 0.026075,
+					"p50": 0.025,
+					"p95": 0.033,
+					"p99": 0.046
+				},
+				"timeout": {
+					"max": 0.003,
+					"mean": 0.0020375,
+					"p50": 0.002,
+					"p95": 0.003,
+					"p99": 0.003
+				},
+				"trade": {
+					"max": 0.082,
+					"mean": 0.0313708333333333,
+					"p50": 0.031,
+					"p95": 0.038,
+					"p99": 0.046
+				},
+				"tutorial": {
+					"max": 0.006,
+					"mean": 0.0015625,
+					"p50": 0.002,
+					"p95": 0.002,
+					"p99": 0.003
+				},
+				"visibility": {
+					"max": 0.175,
+					"mean": 0.112758333333333,
+					"p50": 0.112,
+					"p95": 0.134,
+					"p99": 0.144
+				},
+				"workshop_gate": {
+					"max": 0.17,
+					"mean": 0.0446833333333333,
+					"p50": 0.043,
+					"p95": 0.056,
+					"p99": 0.112
+				},
+				"workshop_gate2": {
+					"max": 0.111,
+					"mean": 0.0788125,
+					"p50": 0.079,
+					"p95": 0.097,
+					"p99": 0.106
+				}
+			},
+			"spikes": [
+				{
+					"frame": 33.476,
+					"parts": {
+						"accrual_routines": 0.061,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.016,
+						"camera": 0.023,
+						"clock": 0.3,
+						"dialogue": 0.006,
+						"dog": 0.01,
+						"gate_watch": 17.324,
+						"gate_watch2": 0.015,
+						"guard": 4.737,
+						"hud": 0.023,
+						"loot": 0.004,
+						"mobile_input": 0.033,
+						"npc_life": 0.004,
+						"orders": 0.004,
+						"presentation": 5.837,
+						"resident_staff": 0.107,
+						"room_access": 0.455,
+						"skills": 0.004,
+						"social": 0.005,
+						"staff_traffic": 0.03,
+						"timeout": 0.003,
+						"trade": 0.036,
+						"tutorial": 0.002,
+						"visibility": 0.126,
+						"workshop_gate": 0.056,
+						"workshop_gate2": 0.089
+					},
+					"script": 29.352
+				},
+				{
+					"frame": 33.872,
+					"parts": {
+						"accrual_routines": 0.058,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.005,
+						"bath": 0.012,
+						"camera": 0.018,
+						"clock": 0.27,
+						"dialogue": 0.005,
+						"dog": 0.009,
+						"gate_watch": 12.709,
+						"gate_watch2": 0.013,
+						"guard": 3.966,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.034,
+						"npc_life": 0.004,
+						"orders": 0.005,
+						"presentation": 8.395,
+						"resident_staff": 0.11,
+						"room_access": 0.376,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.027,
+						"timeout": 0.002,
+						"trade": 0.042,
+						"tutorial": 0.002,
+						"visibility": 0.108,
+						"workshop_gate": 0.049,
+						"workshop_gate2": 0.079
+					},
+					"script": 26.355
+				},
+				{
+					"frame": 39.205,
+					"parts": {
+						"accrual_routines": 0.079,
+						"ai_begin": 0.001,
+						"ai_end": 0.002,
+						"alert": 0.006,
+						"bath": 0.014,
+						"camera": 0.019,
+						"clock": 0.417,
+						"dialogue": 0.004,
+						"dog": 0.011,
+						"gate_watch": 20.54,
+						"gate_watch2": 0.015,
+						"guard": 5.095,
+						"hud": 0.021,
+						"loot": 0.003,
+						"mobile_input": 0.033,
+						"npc_life": 0.004,
+						"orders": 0.003,
+						"presentation": 7.088,
+						"resident_staff": 0.111,
+						"room_access": 0.691,
+						"skills": 0.004,
+						"social": 0.004,
+						"staff_traffic": 0.038,
+						"timeout": 0.002,
+						"trade": 0.038,
+						"tutorial": 0.002,
+						"visibility": 0.128,
+						"workshop_gate": 0.072,
+						"workshop_gate2": 0.098
+					},
+					"script": 34.587
+				},
+				{
+					"frame": 33.194,
+					"parts": {
+						"accrual_routines": 0.065,
+						"ai_begin": 0.002,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.018,
+						"clock": 0.284,
+						"dialogue": 0.005,
+						"dog": 0.01,
+						"gate_watch": 15.063,
+						"gate_watch2": 0.014,
+						"guard": 5.364,
+						"hud": 0.021,
+						"loot": 0.004,
+						"mobile_input": 0.029,
+						"npc_life": 0.25,
+						"orders": 0.003,
+						"presentation": 6.343,
+						"resident_staff": 0.107,
+						"room_access": 0.481,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.029,
+						"timeout": 0.002,
+						"trade": 0.033,
+						"tutorial": 0.001,
+						"visibility": 0.114,
+						"workshop_gate": 0.053,
+						"workshop_gate2": 0.089
+					},
+					"script": 28.441
+				},
+				{
+					"frame": 33.497,
+					"parts": {
+						"accrual_routines": 0.056,
+						"ai_begin": 0.001,
+						"ai_end": 0.001,
+						"alert": 0.006,
+						"bath": 0.013,
+						"camera": 0.019,
+						"clock": 0.283,
+						"dialogue": 0.004,
+						"dog": 0.01,
+						"gate_watch": 14.949,
+						"gate_watch2": 0.013,
+						"guard": 5.031,
+						"hud": 0.019,
+						"loot": 0.003,
+						"mobile_input": 0.031,
+						"npc_life": 0.003,
+						"orders": 0.004,
+						"presentation": 6.207,
+						"resident_staff": 0.105,
+						"room_access": 0.427,
+						"skills": 0.003,
+						"social": 0.004,
+						"staff_traffic": 0.027,
+						"timeout": 0.002,
+						"trade": 0.034,
+						"tutorial": 0.002,
+						"visibility": 0.109,
+						"workshop_gate": 0.049,
+						"workshop_gate2": 0.082
+					},
+					"script": 27.525
+				}
+			],
+			"texture_mib": 1217.4140625,
+			"visual_parts": {
+				"actors": {
+					"max": 0.128,
+					"mean": 0.0908250000000001,
+					"p50": 0.09,
+					"p95": 0.111,
+					"p99": 0.117
+				},
+				"audio": {
+					"max": 0.058,
+					"mean": 0.0349458333333333,
+					"p50": 0.034,
+					"p95": 0.044,
+					"p99": 0.049
+				},
+				"dog": {
+					"max": 0.062,
+					"mean": 0.0148208333333333,
+					"p50": 0.014,
+					"p95": 0.017,
+					"p99": 0.021
+				},
+				"interaction": {
+					"max": 7.727,
+					"mean": 4.79362916666667,
+					"p50": 4.743,
+					"p95": 5.839,
+					"p99": 6.48
+				},
+				"items": {
+					"max": 0.1,
+					"mean": 0.0431791666666667,
+					"p50": 0.042,
+					"p95": 0.053,
+					"p99": 0.071
+				},
+				"lighting": {
+					"max": 0.171,
+					"mean": 0.0984416666666667,
+					"p50": 0.097,
+					"p95": 0.118,
+					"p99": 0.143
+				},
+				"scene": {
+					"max": 0.467,
+					"mean": 0.296566666666667,
+					"p50": 0.291,
+					"p95": 0.359,
+					"p99": 0.398
+				}
+			}
+		}
+	},
+	"driver": "d3d12",
+	"first_frame_ms": 22477.942,
+	"micro_ms": {
+		"dorm_gates": {
+			"max": 0.044,
+			"mean": 0.01555,
+			"p50": 0.014,
+			"p95": 0.022,
+			"p99": 0.044
+		},
+		"dorm_geometry": {
+			"max": 5.061,
+			"mean": 4.11535,
+			"p50": 4.044,
+			"p95": 4.819,
+			"p99": 5.061
+		},
+		"interaction": {
+			"max": 6.849,
+			"mean": 4.7681375,
+			"p50": 4.683,
+			"p95": 5.887,
+			"p99": 6.849
+		}
+	},
+	"renderer": "forward_plus",
+	"resources": {
+		"fixtures": 575,
+		"nodes": 6141.0,
+		"resources": 191.0,
+		"roof_cells": 3,
+		"static_mib": 281.656150817871,
+		"texture_cache_count": 423,
+		"texture_mib": 1225.53515625,
+		"walls": 1307
+	},
+	"startup_ready_ms": 19258.447,
+	"textures": [
+		{
+			"estimated_rgba_mips_mib": 8.0,
+			"height": 1024,
+			"key": "res://art/architecture/v38/four_corner_master.png[0.0,0.0,1536.0,1024.0]",
+			"width": 1536
+		},
+		{
+			"estimated_rgba_mips_mib": 8.0,
+			"height": 1024,
+			"key": "res://art/architecture/v33/full_wall_master_v33.png[0.0,0.0,1536.0,1024.0]",
+			"width": 1536
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99936930338542,
+			"height": 1052,
+			"key": "res://art/architecture/clinic_roof_v1/roof_surface.png[]",
+			"width": 1495
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/architecture/cafeteria_v1/roof.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/architecture/bath_v1/roof.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/architecture/bath_v1/wet_floor.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/architecture/bath_v1/floor.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/environment/clinic_restoration/tiles_b.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/environment/duty_room_v1/floor.png[0.0,0.0,1254.0,1254.0]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/environment/clinic_restoration/tiles_a.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/architecture/cafeteria_v1/floor.png[]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/environment/stone_top_handpaint_v03.png[0.0,0.0,1254.0,1254.0]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 7.99822998046875,
+			"height": 1254,
+			"key": "res://art/environment/floor_handpaint_v03.png[0.0,0.0,1254.0,1254.0]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 6.97383626302083,
+			"height": 734,
+			"key": "res://art/props/workshop_one_v2/workbench.png[47.0,37.0,1868.0,734.0]",
+			"width": 1868
+		},
+		{
+			"estimated_rgba_mips_mib": 6.93880208333333,
+			"height": 1168,
+			"key": "res://art/environment/workshop_one_v1/floor.png[43.0,43.0,1168.0,1168.0]",
+			"width": 1168
+		},
+		{
+			"estimated_rgba_mips_mib": 6.41729736328125,
+			"height": 694,
+			"key": "res://art/props/clinic_restoration/examination_bed_h.png[10.0,53.0,1818.0,694.0]",
+			"width": 1818
+		},
+		{
+			"estimated_rgba_mips_mib": 5.846435546875,
+			"height": 924,
+			"key": "res://art/props/duty_room_v1/desk.png[57.0,112.0,1244.0,924.0]",
+			"width": 1244
+		},
+		{
+			"estimated_rgba_mips_mib": 5.70878092447917,
+			"height": 914,
+			"key": "res://art/props/workshop_one_v2/east-bits.png[100.0,97.0,1228.0,914.0]",
+			"width": 1228
+		},
+		{
+			"estimated_rgba_mips_mib": 5.70071411132813,
+			"height": 877,
+			"key": "res://art/props/reading_room_v1/bookcase.png[90.0,101.0,1278.0,877.0]",
+			"width": 1278
+		},
+		{
+			"estimated_rgba_mips_mib": 5.48518880208333,
+			"height": 1072,
+			"key": "res://art/props/courtyard_v48/tree-island.png[101.0,68.0,1006.0,1072.0]",
+			"width": 1006
+		},
+		{
+			"estimated_rgba_mips_mib": 5.4437255859375,
+			"height": 1080,
+			"key": "res://art/props/reading_room_v1/plant.png[145.0,97.0,991.0,1080.0]",
+			"width": 991
+		},
+		{
+			"estimated_rgba_mips_mib": 5.41081237792969,
+			"height": 867,
+			"key": "res://art/props/workshop_one_v2/tool-station.png[115.0,106.0,1227.0,867.0]",
+			"width": 1227
+		},
+		{
+			"estimated_rgba_mips_mib": 5.40048217773438,
+			"height": 542,
+			"key": "res://art/architecture/bath_v1/wall.png[50.0,89.0,1959.0,542.0]",
+			"width": 1959
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/environment/exercise_yard_v55/concrete-b.png[]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/environment/exercise_yard_v55/concrete-a.png[]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/props/tree_courtyard_v1/garden-paver-tile.png[0.0,0.0,1254.0,1254.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/props/tree_courtyard_v1/olive-lawn-tile.png[0.0,0.0,1254.0,1254.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/environment/monitor_room_v1/floor.png[0.0,0.0,1254.0,1254.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.33333333333333,
+			"height": 1024,
+			"key": "res://art/architecture/monitor_room_v1/roof.png[]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 5.258544921875,
+			"height": 816,
+			"key": "res://art/architecture/bath_v1/shower.png[147.0,85.0,1267.0,816.0]",
+			"width": 1267
+		},
+		{
+			"estimated_rgba_mips_mib": 5.23250325520833,
+			"height": 904,
+			"key": "res://art/props/dorm_restoration/bunk-horizontal-v1.png[124.0,105.0,1138.0,904.0]",
+			"width": 1138
+		},
+		{
+			"estimated_rgba_mips_mib": 4.9718017578125,
+			"height": 964,
+			"key": "res://art/props/workshop_one_v1/north-parts-rack.png[120.0,184.0,1014.0,964.0]",
+			"width": 1014
+		},
+		{
+			"estimated_rgba_mips_mib": 4.94590759277344,
+			"height": 1029,
+			"key": "res://art/props/workshop_one_v2/wood-crate.png[170.0,127.0,945.0,1029.0]",
+			"width": 945
+		},
+		{
+			"estimated_rgba_mips_mib": 4.92820231119792,
+			"height": 836,
+			"key": "res://art/props/reading_room_v1/table.png[149.0,135.0,1159.0,836.0]",
+			"width": 1159
+		},
+		{
+			"estimated_rgba_mips_mib": 4.921875,
+			"height": 512,
+			"key": "res://art/architecture/clinic_v1/sign.png[158.0,99.0,1890.0,512.0]",
+			"width": 1890
+		},
+		{
+			"estimated_rgba_mips_mib": 4.91646321614583,
+			"height": 842,
+			"key": "res://art/props/duty_room_v1/phone.png[118.0,149.0,1148.0,842.0]",
+			"width": 1148
+		},
+		{
+			"estimated_rgba_mips_mib": 4.83854166666667,
+			"height": 1024,
+			"key": "res://art/architecture/kiosk_v1/vendor.png[102.0,61.0,1052.0,1159.0]::limit1024.0",
+			"width": 929
+		},
+		{
+			"estimated_rgba_mips_mib": 4.79382832845052,
+			"height": 1255,
+			"key": "res://art/props/cafeteria_redesign_v1/table_vertical.png[131.0,134.0,751.0,1255.0]",
+			"width": 751
+		},
+		{
+			"estimated_rgba_mips_mib": 4.78645833333333,
+			"height": 919,
+			"key": "res://art/props/tree_courtyard_v1/southeast-middle-grass.png[179.0,107.0,1040.0,933.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 4.71722412109375,
+			"height": 427,
+			"key": "res://art/environment/stone_front_handpaint_v03.png[0.0,145.0,2172.0,427.0]",
+			"width": 2172
+		},
+		{
+			"estimated_rgba_mips_mib": 4.46732076009115,
+			"height": 463,
+			"key": "res://art/architecture/duty_room_v1/wall.png[76.0,152.0,1897.0,463.0]",
+			"width": 1897
+		},
+		{
+			"estimated_rgba_mips_mib": 4.45889282226563,
+			"height": 678,
+			"key": "res://art/props/duty_room_v1/ledger.png[130.0,180.0,1293.0,678.0]",
+			"width": 1293
+		},
+		{
+			"estimated_rgba_mips_mib": 4.45823669433594,
+			"height": 899,
+			"key": "res://art/architecture/bath_v1/lockers.png[156.0,182.0,975.0,899.0]",
+			"width": 975
+		},
+		{
+			"estimated_rgba_mips_mib": 4.45683288574219,
+			"height": 1503,
+			"key": "res://art/props/dorm_restoration/personal-locker-v1.png[134.0,166.0,583.0,1503.0]",
+			"width": 583
+		},
+		{
+			"estimated_rgba_mips_mib": 4.43673706054688,
+			"height": 1127,
+			"key": "res://art/architecture/clinic_sliding_v2/sliding_leaf.png[208.0,78.0,774.0,1127.0]",
+			"width": 774
+		},
+		{
+			"estimated_rgba_mips_mib": 4.39595540364583,
+			"height": 1240,
+			"key": "res://art/props/workshop_one_v2/industrial-station.png[192.0,70.0,697.0,1240.0]",
+			"width": 697
+		},
+		{
+			"estimated_rgba_mips_mib": 4.34173583984375,
+			"height": 820,
+			"key": "res://art/props/bath_watercard_v1/counter.png[193.0,150.0,1041.0,820.0]",
+			"width": 1041
+		},
+		{
+			"estimated_rgba_mips_mib": 4.33193969726563,
+			"height": 723,
+			"key": "res://art/props/clinic_restoration/preparation_counter_h.png[179.0,147.0,1178.0,723.0]",
+			"width": 1178
+		},
+		{
+			"estimated_rgba_mips_mib": 4.32440185546875,
+			"height": 1254,
+			"key": "res://art/props/duty_room_v1/chair.png[141.0,182.0,678.0,1254.0]",
+			"width": 678
+		},
+		{
+			"estimated_rgba_mips_mib": 4.3213144938151,
+			"height": 463,
+			"key": "res://art/architecture/bath_v1/sign.png[183.0,128.0,1835.0,463.0]",
+			"width": 1835
+		},
+		{
+			"estimated_rgba_mips_mib": 4.25346374511719,
+			"height": 985,
+			"key": "res://art/props/workshop_one_v2/drawing-cabinet.png[151.0,191.0,849.0,985.0]",
+			"width": 849
+		},
+		{
+			"estimated_rgba_mips_mib": 4.207275390625,
+			"height": 907,
+			"key": "res://art/props/pipe_energy_court_v1/valve-platform.png[221.0,123.0,912.0,907.0]::limit1024.0",
+			"width": 912
+		},
+		{
+			"estimated_rgba_mips_mib": 4.20414225260417,
+			"height": 1108,
+			"key": "res://art/props/workshop_one_v2/bench-drill.png[225.0,133.0,746.0,1108.0]",
+			"width": 746
+		},
+		{
+			"estimated_rgba_mips_mib": 4.174072265625,
+			"height": 417,
+			"key": "res://art/props/workshop_one_v2/final-assembly.png[95.0,145.0,1968.0,417.0]",
+			"width": 1968
+		},
+		{
+			"estimated_rgba_mips_mib": 4.14469401041667,
+			"height": 926,
+			"key": "res://art/props/duty_room_v1/roster.png[186.0,172.0,880.0,926.0]",
+			"width": 880
+		},
+		{
+			"estimated_rgba_mips_mib": 4.140625,
+			"height": 1024,
+			"key": "res://art/props/pipe_energy_court_v1/parts-canopy.png[214.0,117.0,807.0,1040.0]::limit1024.0",
+			"width": 795
+		},
+		{
+			"estimated_rgba_mips_mib": 4.11282348632813,
+			"height": 1002,
+			"key": "res://art/props/workshop_one_v2/double-cabinet.png[193.0,159.0,807.0,1002.0]",
+			"width": 807
+		},
+		{
+			"estimated_rgba_mips_mib": 4.10123697916667,
+			"height": 586,
+			"key": "res://art/architecture/cafeteria_v2/sink.png[378.0,68.0,1376.0,586.0]",
+			"width": 1376
+		},
+		{
+			"estimated_rgba_mips_mib": 4.08048502604167,
+			"height": 1064,
+			"key": "res://art/props/workshop_one_v2/high-cabinet-c.png[193.0,171.0,754.0,1064.0]",
+			"width": 754
+		},
+		{
+			"estimated_rgba_mips_mib": 4.07218933105469,
+			"height": 915,
+			"key": "res://art/props/workshop_one_v2/west-bits.png[190.0,156.0,875.0,915.0]",
+			"width": 875
+		},
+		{
+			"estimated_rgba_mips_mib": 4.07101440429688,
+			"height": 646,
+			"key": "res://art/props/duty_room_v1/communications.png[110.0,233.0,1239.0,646.0]",
+			"width": 1239
+		},
+		{
+			"estimated_rgba_mips_mib": 4.03529357910156,
+			"height": 709,
+			"key": "res://art/props/workshop_one_v1/parts-drawers.png[182.0,194.0,1119.0,709.0]",
+			"width": 1119
+		},
+		{
+			"estimated_rgba_mips_mib": 4.01323954264323,
+			"height": 793,
+			"key": "res://art/props/duty_room_v1/keybox.png[190.0,176.0,995.0,793.0]",
+			"width": 995
+		},
+		{
+			"estimated_rgba_mips_mib": 3.99911499023438,
+			"height": 627,
+			"key": "res://art/environment/stone_top_handpaint_v03.png[0.0,0.0,1254.0,627.0]",
+			"width": 1254
+		},
+		{
+			"estimated_rgba_mips_mib": 3.95304361979167,
+			"height": 580,
+			"key": "res://art/architecture/clinic_v1/wall_profile.png[54.0,266.0,1340.0,580.0]",
+			"width": 1340
+		},
+		{
+			"estimated_rgba_mips_mib": 3.93113708496094,
+			"height": 1221,
+			"key": "res://art/props/security_v19/solitary_bed_v19.png[195.0,135.0,633.0,1221.0]",
+			"width": 633
+		},
+		{
+			"estimated_rgba_mips_mib": 3.9007568359375,
+			"height": 924,
+			"key": "res://art/props/clinic_restoration/medicine_drawers.png[272.0,105.0,830.0,924.0]",
+			"width": 830
+		},
+		{
+			"estimated_rgba_mips_mib": 3.88509114583333,
+			"height": 868,
+			"key": "res://art/props/dorm_restoration/cushion-stool-v1.png[238.0,161.0,880.0,868.0]",
+			"width": 880
+		},
+		{
+			"estimated_rgba_mips_mib": 3.85164388020833,
+			"height": 1007,
+			"key": "res://art/props/workshop_one_v2/west-tools.png[217.0,117.0,752.0,1007.0]",
+			"width": 752
+		},
+		{
+			"estimated_rgba_mips_mib": 3.84530639648438,
+			"height": 866,
+			"key": "res://art/props/reading_room_v1/return.png[214.0,189.0,873.0,866.0]",
+			"width": 873
+		},
+		{
+			"estimated_rgba_mips_mib": 3.82937622070313,
+			"height": 554,
+			"key": "res://art/props/cafeteria_v41/food_tray_v41.png[207.0,196.0,1359.0,554.0]",
+			"width": 1359
+		},
+		{
+			"estimated_rgba_mips_mib": 3.76699829101563,
+			"height": 822,
+			"key": "res://art/props/reading_room_v1/notice.png[314.0,107.0,901.0,822.0]",
+			"width": 901
+		},
+		{
+			"estimated_rgba_mips_mib": 3.69188944498698,
+			"height": 859,
+			"key": "res://art/props/workshop_one_v2/west-assembly.png[204.0,215.0,845.0,859.0]",
+			"width": 845
+		},
+		{
+			"estimated_rgba_mips_mib": 3.66920471191406,
+			"height": 1173,
+			"key": "res://art/props/workshop_one_v2/slim-machine.png[297.0,145.0,615.0,1173.0]",
+			"width": 615
+		},
+		{
+			"estimated_rgba_mips_mib": 3.66618347167969,
+			"height": 849,
+			"key": "res://art/props/workshop_one_v2/west-drill.png[203.0,202.0,849.0,849.0]",
+			"width": 849
+		},
+		{
+			"estimated_rgba_mips_mib": 3.57752482096354,
+			"height": 370,
+			"key": "res://art/props/courtyard_v48/bed-horizontal.png[93.0,184.0,1901.0,370.0]",
+			"width": 1901
+		},
+		{
+			"estimated_rgba_mips_mib": 3.55729166666667,
+			"height": 683,
+			"key": "res://art/architecture/laundry_v1/roof.png[0.0,0.0,1536.0,1024.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 3.52876281738281,
+			"height": 1473,
+			"key": "res://art/props/duty_room_v1/locker.png[189.0,179.0,471.0,1473.0]",
+			"width": 471
+		},
+		{
+			"estimated_rgba_mips_mib": 3.49639892578125,
+			"height": 1206,
+			"key": "res://art/props/cafeteria_redesign_v1/water_urn.png[227.0,150.0,570.0,1206.0]",
+			"width": 570
+		},
+		{
+			"estimated_rgba_mips_mib": 3.41478983561198,
+			"height": 1025,
+			"key": "res://art/props/duty_room_v1/lamp.png[287.0,123.0,655.0,1025.0]",
+			"width": 655
+		},
+		{
+			"estimated_rgba_mips_mib": 3.36881510416667,
+			"height": 1048,
+			"key": "res://art/architecture/cafeteria_v2/cupboard.png[257.0,162.0,632.0,1048.0]",
+			"width": 632
+		},
+		{
+			"estimated_rgba_mips_mib": 3.33345540364583,
+			"height": 316,
+			"key": "res://art/architecture/workshop_one_v1/wall.png[49.0,202.0,2074.0,316.0]",
+			"width": 2074
+		},
+		{
+			"estimated_rgba_mips_mib": 3.33287556966146,
+			"height": 814,
+			"key": "res://art/props/heavy_crate_handpaint_v03.png[250.0,210.0,805.0,814.0]",
+			"width": 805
+		},
+		{
+			"estimated_rgba_mips_mib": 3.3276621500651,
+			"height": 895,
+			"key": "res://art/props/workshop_one_v2/bucket-rack.png[262.0,193.0,731.0,895.0]",
+			"width": 731
+		},
+		{
+			"estimated_rgba_mips_mib": 3.28117879231771,
+			"height": 649,
+			"key": "res://art/architecture/cafeteria_v2/bins.png[341.0,142.0,994.0,649.0]",
+			"width": 994
+		},
+		{
+			"estimated_rgba_mips_mib": 3.25063069661458,
+			"height": 550,
+			"key": "res://art/props/prison_v17/wall_vent_v17.png[188.0,234.0,1162.0,550.0]",
+			"width": 1162
+		},
+		{
+			"estimated_rgba_mips_mib": 3.20035298665365,
+			"height": 305,
+			"key": "res://art/props/cafeteria_redesign_v1/counter.png[55.0,230.0,2063.0,305.0]",
+			"width": 2063
+		},
+		{
+			"estimated_rgba_mips_mib": 3.19791666666667,
+			"height": 614,
+			"key": "res://art/props/tree_courtyard_v1/southwest-corner-grass.png[175.0,186.0,1165.0,699.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 3.18603515625,
+			"height": 400,
+			"key": "res://art/props/chess_room_v1/sign.png[303.0,158.0,1566.0,400.0]",
+			"width": 1566
+		},
+		{
+			"estimated_rgba_mips_mib": 3.12754313151042,
+			"height": 1118,
+			"key": "res://art/props/dorm_restoration/toilet-v1.png[239.0,200.0,550.0,1118.0]",
+			"width": 550
+		},
+		{
+			"estimated_rgba_mips_mib": 3.08248901367188,
+			"height": 1161,
+			"key": "res://art/props/workshop_one_v1/electrical-cabinet.png[235.0,212.0,522.0,1161.0]",
+			"width": 522
+		},
+		{
+			"estimated_rgba_mips_mib": 3.06298828125,
+			"height": 918,
+			"key": "res://art/props/workshop_one_v2/high-cabinet-a.png[374.0,124.0,656.0,918.0]",
+			"width": 656
+		},
+		{
+			"estimated_rgba_mips_mib": 3.02810668945313,
+			"height": 378,
+			"key": "res://art/props/workshop_one_v1/fitting-tools.png[100.0,262.0,1575.0,378.0]",
+			"width": 1575
+		},
+		{
+			"estimated_rgba_mips_mib": 3.02250162760417,
+			"height": 472,
+			"key": "res://art/props/chess_room_v1/wall.png[395.0,145.0,1259.0,472.0]",
+			"width": 1259
+		},
+		{
+			"estimated_rgba_mips_mib": 3.0,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/floor.png[]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 3.0,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/roof.png[]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 2.9932861328125,
+			"height": 868,
+			"key": "res://art/props/reading_room_v1/lamp.png[342.0,213.0,678.0,868.0]",
+			"width": 678
+		},
+		{
+			"estimated_rgba_mips_mib": 2.97916666666667,
+			"height": 572,
+			"key": "res://art/props/tree_courtyard_v1/northeast-corner-grass.png[159.0,200.0,1168.0,652.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.94783528645833,
+			"height": 1424,
+			"key": "res://art/props/dorm_restoration/wash-counter-ns-v1.png[245.0,155.0,407.0,1424.0]",
+			"width": 407
+		},
+		{
+			"estimated_rgba_mips_mib": 2.9278564453125,
+			"height": 1080,
+			"key": "res://art/props/prison_v42/toilet_sink_v42.png[364.0,86.0,533.0,1080.0]",
+			"width": 533
+		},
+		{
+			"estimated_rgba_mips_mib": 2.91725667317708,
+			"height": 446,
+			"key": "res://art/props/workshop_one_v1/copper-winding.png[218.0,238.0,1286.0,446.0]",
+			"width": 1286
+		},
+		{
+			"estimated_rgba_mips_mib": 2.86239624023438,
+			"height": 555,
+			"key": "res://art/props/duty_room_v1/radio.png[261.0,235.0,1014.0,555.0]",
+			"width": 1014
+		},
+		{
+			"estimated_rgba_mips_mib": 2.83548990885417,
+			"height": 440,
+			"key": "res://art/architecture/clinic_v1/window.png[338.0,181.0,1267.0,440.0]",
+			"width": 1267
+		},
+		{
+			"estimated_rgba_mips_mib": 2.81770833333333,
+			"height": 541,
+			"key": "res://art/architecture/kiosk_v2/continuous-shell-v6.png[145.0,80.0,1431.0,756.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.80958557128906,
+			"height": 881,
+			"key": "res://art/props/workshop_one_v2/high-cabinet-b.png[388.0,179.0,627.0,881.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 2.79204305013021,
+			"height": 559,
+			"key": "res://art/architecture/cafeteria_v2/rack.png[396.0,168.0,982.0,559.0]",
+			"width": 982
+		},
+		{
+			"estimated_rgba_mips_mib": 2.76651000976563,
+			"height": 337,
+			"key": "res://art/architecture/doorways_v49/grille.png[80.0,274.0,1614.0,337.0]",
+			"width": 1614
+		},
+		{
+			"estimated_rgba_mips_mib": 2.73958333333333,
+			"height": 526,
+			"key": "res://art/architecture/kiosk_v2/shelf.png[328.0,19.0,1407.0,723.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.71354166666667,
+			"height": 521,
+			"key": "res://art/props/pipe_energy_court_v1/control-bank.png[92.0,155.0,1353.0,688.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.70268249511719,
+			"height": 1359,
+			"key": "res://art/props/reading_room_v1/newspaper.png[316.0,73.0,391.0,1359.0]",
+			"width": 391
+		},
+		{
+			"estimated_rgba_mips_mib": 2.67384847005208,
+			"height": 700,
+			"key": "res://art/props/prison_v42/cafeteria_return_v42.png[286.0,307.0,751.0,700.0]",
+			"width": 751
+		},
+		{
+			"estimated_rgba_mips_mib": 2.65987141927083,
+			"height": 262,
+			"key": "res://art/props/cafeteria_redesign_v1/service_food.png[79.0,238.0,1996.0,262.0]",
+			"width": 1996
+		},
+		{
+			"estimated_rgba_mips_mib": 2.64638264973958,
+			"height": 550,
+			"key": "res://art/architecture/v23/cafeteria_gate_pair_v23.png[59.0,91.0,946.0,550.0]",
+			"width": 946
+		},
+		{
+			"estimated_rgba_mips_mib": 2.64638264973958,
+			"height": 550,
+			"key": "res://art/architecture/v23/cafeteria_gate_pair_v23.png[1087.0,91.0,946.0,550.0]",
+			"width": 946
+		},
+		{
+			"estimated_rgba_mips_mib": 2.609375,
+			"height": 501,
+			"key": "res://art/architecture/kiosk_v1/roof.png[65.0,80.0,1553.0,760.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.54236857096354,
+			"height": 769,
+			"key": "res://art/props/prison_v17/pipe_valve_v17.png[379.0,193.0,650.0,769.0]",
+			"width": 650
+		},
+		{
+			"estimated_rgba_mips_mib": 2.54083251953125,
+			"height": 313,
+			"key": "res://art/architecture/doorways_v49/free.png[89.0,286.0,1596.0,313.0]",
+			"width": 1596
+		},
+		{
+			"estimated_rgba_mips_mib": 2.5234375,
+			"height": 646,
+			"key": "res://art/architecture/tool_room_v1/door_closed.png[276.0,89.0,985.0,829.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 2.5,
+			"height": 768,
+			"key": "res://art/props/workshop_two_v1/vertical_mill.png[72.0,104.0,999.0,1198.0]::limit768.0",
+			"width": 640
+		},
+		{
+			"estimated_rgba_mips_mib": 2.49479166666667,
+			"height": 1024,
+			"key": "res://art/props/tree_courtyard_v1/east-orange-flower-grass.png[163.0,94.0,689.0,1474.0]::limit1024.0",
+			"width": 479
+		},
+		{
+			"estimated_rgba_mips_mib": 2.49140930175781,
+			"height": 713,
+			"key": "res://art/props/chess_room_v1/chess_table.png[427.0,164.0,687.0,713.0]",
+			"width": 687
+		},
+		{
+			"estimated_rgba_mips_mib": 2.4851328531901,
+			"height": 697,
+			"key": "res://art/props/duty_room_v1/clock.png[276.0,267.0,701.0,697.0]",
+			"width": 701
+		},
+		{
+			"estimated_rgba_mips_mib": 2.47916666666667,
+			"height": 476,
+			"key": "res://art/props/tree_courtyard_v1/south-right-flowering-grass.png[60.0,70.0,1677.0,780.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 2.47283935546875,
+			"height": 730,
+			"key": "res://art/props/duty_room_v1/charger.png[331.0,232.0,666.0,730.0]",
+			"width": 666
+		},
+		{
+			"estimated_rgba_mips_mib": 2.42816162109375,
+			"height": 356,
+			"key": "res://art/props/workshop_one_v1/room-sign.png[411.0,189.0,1341.0,356.0]",
+			"width": 1341
+		},
+		{
+			"estimated_rgba_mips_mib": 2.42138671875,
+			"height": 432,
+			"key": "res://art/props/prison_v17/notice_board_v17.png[286.0,253.0,1102.0,432.0]",
+			"width": 1102
+		},
+		{
+			"estimated_rgba_mips_mib": 2.41806030273438,
+			"height": 689,
+			"key": "res://art/props/chess_room_v1/card_table.png[423.0,181.0,690.0,689.0]",
+			"width": 690
+		},
+		{
+			"estimated_rgba_mips_mib": 2.3984375,
+			"height": 614,
+			"key": "res://art/architecture/tool_room_v1/door_open.png[144.0,12.0,1248.0,998.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 2.39232889811198,
+			"height": 1421,
+			"key": "res://art/props/clinic_restoration/wash_counter_ns.png[338.0,61.0,331.0,1421.0]",
+			"width": 331
+		},
+		{
+			"estimated_rgba_mips_mib": 2.371826171875,
+			"height": 402,
+			"key": "res://art/props/workshop_one_v1/motor-assembly.png[314.0,257.0,1160.0,402.0]",
+			"width": 1160
+		},
+		{
+			"estimated_rgba_mips_mib": 2.3168690999349,
+			"height": 391,
+			"key": "res://art/architecture/clinic_roof_v1/roof_skylight.png[369.0,224.0,1165.0,391.0]",
+			"width": 1165
+		},
+		{
+			"estimated_rgba_mips_mib": 2.31679280598958,
+			"height": 500,
+			"key": "res://art/props/prison_v17/caged_wall_lamp_v17.png[298.0,258.0,911.0,500.0]",
+			"width": 911
+		},
+		{
+			"estimated_rgba_mips_mib": 2.2593994140625,
+			"height": 446,
+			"key": "res://art/props/clinic_restoration/linen_record.png[272.0,315.0,996.0,446.0]",
+			"width": 996
+		},
+		{
+			"estimated_rgba_mips_mib": 2.22113037109375,
+			"height": 906,
+			"key": "res://art/props/prison_v17/fire_extinguisher_v17.png[463.0,113.0,482.0,906.0]",
+			"width": 482
+		},
+		{
+			"estimated_rgba_mips_mib": 2.20565795898438,
+			"height": 490,
+			"key": "res://art/props/reading_room_v1/notice.png[317.0,433.0,885.0,490.0]",
+			"width": 885
+		},
+		{
+			"estimated_rgba_mips_mib": 2.19168090820313,
+			"height": 647,
+			"key": "res://art/props/chess_room_v1/tea.png[436.0,167.0,666.0,647.0]",
+			"width": 666
+		},
+		{
+			"estimated_rgba_mips_mib": 2.16947937011719,
+			"height": 571,
+			"key": "res://art/props/chess_room_v1/cupboard.png[395.0,211.0,747.0,571.0]",
+			"width": 747
+		},
+		{
+			"estimated_rgba_mips_mib": 2.15606689453125,
+			"height": 1413,
+			"key": "res://art/props/courtyard_v48/bed-vertical.png[363.0,63.0,300.0,1413.0]",
+			"width": 300
+		},
+		{
+			"estimated_rgba_mips_mib": 2.126953125,
+			"height": 396,
+			"key": "res://art/architecture/tool_room_v1/wall.png[49.0,155.0,1056.0,396.0]",
+			"width": 1056
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/v23/architecture_materials_v23.png[627.0,627.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/room_roofs_v47/materials.png[0.0,0.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/room_roofs_v47/materials.png[627.0,627.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/v23/architecture_materials_v23.png[627.0,0.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/v23/architecture_materials_v23.png[0.0,0.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/v23/architecture_materials_v23.png[0.0,627.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.99955749511719,
+			"height": 627,
+			"key": "res://art/architecture/room_roofs_v47/materials.png[0.0,627.0,627.0,627.0]",
+			"width": 627
+		},
+		{
+			"estimated_rgba_mips_mib": 1.98150634765625,
+			"height": 516,
+			"key": "res://art/architecture/workshop_door_v2/components.png[55.0,91.0,755.0,516.0]::limit768.0",
+			"width": 755
+		},
+		{
+			"estimated_rgba_mips_mib": 1.93231201171875,
+			"height": 519,
+			"key": "res://art/architecture/cafeteria_v2/door.png[73.0,145.0,732.0,519.0]",
+			"width": 732
+		},
+		{
+			"estimated_rgba_mips_mib": 1.93231201171875,
+			"height": 519,
+			"key": "res://art/architecture/cafeteria_v2/door.png[73.0,145.0,732.0,519.0]::limit768.0",
+			"width": 732
+		},
+		{
+			"estimated_rgba_mips_mib": 1.92545572916667,
+			"height": 1352,
+			"key": "res://art/props/chess_room_v1/bench.png[372.0,87.0,280.0,1352.0]",
+			"width": 280
+		},
+		{
+			"estimated_rgba_mips_mib": 1.8798828125,
+			"height": 600,
+			"key": "res://art/props/duty_room_v1/mug.png[378.0,293.0,616.0,600.0]",
+			"width": 616
+		},
+		{
+			"estimated_rgba_mips_mib": 1.86467488606771,
+			"height": 610,
+			"key": "res://art/architecture/cafeteria_v2/fridge.png[545.0,164.0,601.0,610.0]",
+			"width": 601
+		},
+		{
+			"estimated_rgba_mips_mib": 1.85140991210938,
+			"height": 186,
+			"key": "res://art/architecture/doorways_v48/door_family.png[108.0,405.0,1957.0,186.0]",
+			"width": 1957
+		},
+		{
+			"estimated_rgba_mips_mib": 1.850341796875,
+			"height": 624,
+			"key": "res://art/architecture/bath_v1/vent.png[300.0,356.0,583.0,624.0]",
+			"width": 583
+		},
+		{
+			"estimated_rgba_mips_mib": 1.8050537109375,
+			"height": 318,
+			"key": "res://art/props/duty_room_v1/sign.png[329.0,286.0,1116.0,318.0]",
+			"width": 1116
+		},
+		{
+			"estimated_rgba_mips_mib": 1.78125,
+			"height": 576,
+			"key": "res://art/props/clinic_restoration/medicine_supplies.png[477.0,218.0,608.0,576.0]",
+			"width": 608
+		},
+		{
+			"estimated_rgba_mips_mib": 1.66992696126302,
+			"height": 623,
+			"key": "res://art/architecture/clinic_roof_v1/roof_extractor.png[332.0,340.0,527.0,623.0]",
+			"width": 527
+		},
+		{
+			"estimated_rgba_mips_mib": 1.6605224609375,
+			"height": 446,
+			"key": "res://art/environment/factory_v46/organic_atlas.png[23.0,33.0,732.0,446.0]",
+			"width": 732
+		},
+		{
+			"estimated_rgba_mips_mib": 1.65375264485677,
+			"height": 601,
+			"key": "res://art/props/chess_room_v1/stool.png[309.0,378.0,541.0,601.0]",
+			"width": 541
+		},
+		{
+			"estimated_rgba_mips_mib": 1.63151041666667,
+			"height": 716,
+			"key": "res://art/characters/bath_cashier_v1/cashier_poses.png[105.0,83.0,448.0,716.0]::base",
+			"width": 448
+		},
+		{
+			"estimated_rgba_mips_mib": 1.63151041666667,
+			"height": 716,
+			"key": "res://art/characters/bath_cashier_v1/cashier_poses.png[105.0,83.0,448.0,716.0]",
+			"width": 448
+		},
+		{
+			"estimated_rgba_mips_mib": 1.6222890218099,
+			"height": 455,
+			"key": "res://art/environment/factory_v46/organic_atlas.png[38.0,530.0,701.0,455.0]",
+			"width": 701
+		},
+		{
+			"estimated_rgba_mips_mib": 1.60400390625,
+			"height": 365,
+			"key": "res://art/props/clinic_restoration/instrument_tray.png[455.0,265.0,864.0,365.0]",
+			"width": 864
+		},
+		{
+			"estimated_rgba_mips_mib": 1.5625,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/chest.png[212.0,196.0,601.0,1153.0]::limit768.0",
+			"width": 400
+		},
+		{
+			"estimated_rgba_mips_mib": 1.55729166666667,
+			"height": 1024,
+			"key": "res://art/props/pipe_energy_court_v1/pressure-tank.png[251.0,23.0,445.0,1524.0]::limit1024.0",
+			"width": 299
+		},
+		{
+			"estimated_rgba_mips_mib": 1.54166666666667,
+			"height": 296,
+			"key": "res://art/architecture/kiosk_v2/front-facade-v5.png[64.0,111.0,1904.0,551.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 1.5078125,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/rack_short.png[210.0,299.0,543.0,1080.0]::limit768.0",
+			"width": 386
+		},
+		{
+			"estimated_rgba_mips_mib": 1.47431945800781,
+			"height": 301,
+			"key": "res://art/architecture/cafeteria_v2/wall.png[38.0,202.0,963.0,301.0]",
+			"width": 963
+		},
+		{
+			"estimated_rgba_mips_mib": 1.46354166666667,
+			"height": 1024,
+			"key": "res://art/props/loading_yard_v1/truck.png[217.0,49.0,453.0,1651.0]::limit1024.0",
+			"width": 281
+		},
+		{
+			"estimated_rgba_mips_mib": 1.45833333333333,
+			"height": 280,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-gantry-span.png[21.0,79.0,2129.0,583.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 1.421875,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/cable.png[271.0,89.0,632.0,1332.0]::limit768.0",
+			"width": 364
+		},
+		{
+			"estimated_rgba_mips_mib": 1.41145833333333,
+			"height": 271,
+			"key": "res://art/props/pipe_energy_court_v1/equipment-sign.png[260.0,164.0,1554.0,411.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 1.37782287597656,
+			"height": 1143,
+			"key": "res://art/props/duty_room_v1/shelf.png[418.0,108.0,237.0,1143.0]",
+			"width": 237
+		},
+		{
+			"estimated_rgba_mips_mib": 1.34696960449219,
+			"height": 495,
+			"key": "res://art/props/southwest_v52/scrap_atlas.png[64.0,77.0,535.0,495.0]",
+			"width": 535
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/props/pipe_energy_court_v1/concrete-tile.png[0.0,0.0,1254.0,1254.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/environment/factory_v46/floor_atlas.png[512.0,0.0,512.0,512.0]",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/environment/factory_v46/floor_atlas.png[1024.0,0.0,512.0,512.0]",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/props/laundry_v1/floor.png[0.0,0.0,1254.0,1254.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/environment/factory_v46/floor_atlas.png[0.0,0.0,512.0,512.0]",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/props/loading_yard_v1/floor.png[0.0,0.0,1254.0,1254.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/environment/factory_v46/floor_atlas.png[0.0,512.0,512.0,512.0]",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.33333333333333,
+			"height": 512,
+			"key": "res://art/environment/factory_v46/floor_atlas.png[1024.0,512.0,512.0,512.0]",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.32844543457031,
+			"height": 481,
+			"key": "res://art/props/southwest_v52/scrap_atlas.png[51.0,688.0,543.0,481.0]",
+			"width": 543
+		},
+		{
+			"estimated_rgba_mips_mib": 1.32292175292969,
+			"height": 479,
+			"key": "res://art/props/southwest_v52/scrap_atlas.png[667.0,677.0,543.0,479.0]",
+			"width": 543
+		},
+		{
+			"estimated_rgba_mips_mib": 1.32291666666667,
+			"height": 508,
+			"key": "res://art/props/exercise_yard_v54/tree-round.png[142.0,57.0,1024.0,1016.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.31306966145833,
+			"height": 560,
+			"key": "res://art/props/chess_room_v1/bin.png[502.0,252.0,461.0,560.0]",
+			"width": 461
+		},
+		{
+			"estimated_rgba_mips_mib": 1.30907185872396,
+			"height": 494,
+			"key": "res://art/architecture/cafeteria_v2/door.png[867.0,170.0,521.0,494.0]::limit768.0",
+			"width": 521
+		},
+		{
+			"estimated_rgba_mips_mib": 1.30208333333333,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v55/curb-corner-sw-v2.png[145.0,61.0,1039.0,1064.0]::limit512.0",
+			"width": 500
+		},
+		{
+			"estimated_rgba_mips_mib": 1.30208333333333,
+			"height": 500,
+			"key": "res://art/props/drying_yard_v1/square-flowerbed.png[188.0,198.0,879.0,858.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.30078125,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/door_side_open.png[155.0,106.0,604.0,1391.0]::limit768.0",
+			"width": 333
+		},
+		{
+			"estimated_rgba_mips_mib": 1.26822916666667,
+			"height": 487,
+			"key": "res://art/props/workshop_one_v1/north-parts-rack.png[120.0,184.0,1014.0,964.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.26822916666667,
+			"height": 512,
+			"key": "res://art/props/duty_room_v1/roster.png[186.0,172.0,880.0,926.0]::limit512.0",
+			"width": 487
+		},
+		{
+			"estimated_rgba_mips_mib": 1.22916666666667,
+			"height": 472,
+			"key": "res://art/architecture/bath_v1/lockers.png[156.0,182.0,975.0,899.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.22395833333333,
+			"height": 512,
+			"key": "res://art/props/workshop_one_v2/wood-crate.png[170.0,127.0,945.0,1029.0]::limit512.0",
+			"width": 470
+		},
+		{
+			"estimated_rgba_mips_mib": 1.21785481770833,
+			"height": 205,
+			"key": "res://art/architecture/clinic_v1/light.png[442.0,292.0,1168.0,205.0]",
+			"width": 1168
+		},
+		{
+			"estimated_rgba_mips_mib": 1.203125,
+			"height": 512,
+			"key": "res://art/props/monitor_room_v1/operator-chair.png[340.0,360.0,546.0,605.0]::limit512.0",
+			"width": 462
+		},
+		{
+			"estimated_rgba_mips_mib": 1.19140625,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/drawers.png[179.0,113.0,577.0,1451.0]::limit768.0",
+			"width": 305
+		},
+		{
+			"estimated_rgba_mips_mib": 1.1796875,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v55/metal-bucket.png[295.0,194.0,687.0,776.0]::limit512.0",
+			"width": 453
+		},
+		{
+			"estimated_rgba_mips_mib": 1.1796875,
+			"height": 512,
+			"key": "res://art/props/prison_v42/laundry_cart_v42.png[438.0,140.0,662.0,748.0]::limit512.0",
+			"width": 453
+		},
+		{
+			"estimated_rgba_mips_mib": 1.17708333333333,
+			"height": 512,
+			"key": "res://art/architecture/reading_chess_roofs_v1/chess-roof.png[0.0,0.0,1178.0,1335.0]::limit512.0",
+			"width": 452
+		},
+		{
+			"estimated_rgba_mips_mib": 1.16796875,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/return.png[278.0,168.0,467.0,1198.0]::limit768.0",
+			"width": 299
+		},
+		{
+			"estimated_rgba_mips_mib": 1.1640625,
+			"height": 298,
+			"key": "res://art/props/workshop_two_v1/precision_lathe.png[124.0,73.0,1675.0,651.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 1.15104166666667,
+			"height": 442,
+			"key": "res://art/architecture/monitor_room_v1/door-open.png[344.0,92.0,931.0,803.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.14944458007813,
+			"height": 465,
+			"key": "res://art/architecture/clinic_roof_v1/roof_drain.png[384.0,392.0,486.0,465.0]",
+			"width": 486
+		},
+		{
+			"estimated_rgba_mips_mib": 1.13541666666667,
+			"height": 436,
+			"key": "res://art/props/loading_yard_v1/pallets.png[242.0,313.0,770.0,655.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.1328125,
+			"height": 512,
+			"key": "res://art/props/loading_yard_v1/crates.png[303.0,213.0,691.0,813.0]::limit512.0",
+			"width": 435
+		},
+		{
+			"estimated_rgba_mips_mib": 1.13020833333333,
+			"height": 1024,
+			"key": "res://art/props/courtyard_v48/bed-vertical.png[363.0,63.0,300.0,1413.0]::limit1024.0",
+			"width": 217
+		},
+		{
+			"estimated_rgba_mips_mib": 1.11357116699219,
+			"height": 437,
+			"key": "res://art/props/southwest_v52/rubble_atlas.png[702.0,138.0,501.0,437.0]",
+			"width": 501
+		},
+		{
+			"estimated_rgba_mips_mib": 1.109375,
+			"height": 284,
+			"key": "res://art/architecture/tool_room_v1/pegboard.png[77.0,144.0,1621.0,599.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 1.109375,
+			"height": 284,
+			"key": "res://art/architecture/tool_room_v1/bench.png[249.0,92.0,1576.0,582.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 1.10416666666667,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v54/tree-square.png[308.0,191.0,677.0,817.0]::limit512.0",
+			"width": 424
+		},
+		{
+			"estimated_rgba_mips_mib": 1.1015625,
+			"height": 282,
+			"key": "res://art/props/workshop_two_v1/lathe.png[35.0,3.0,1947.0,715.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 1.09635416666667,
+			"height": 512,
+			"key": "res://art/props/chess_room_v1/bin.png[502.0,252.0,461.0,560.0]::limit512.0",
+			"width": 421
+		},
+		{
+			"estimated_rgba_mips_mib": 1.09423828125,
+			"height": 432,
+			"key": "res://art/architecture/workshop_door_v2/components.png[923.0,164.0,498.0,432.0]::limit768.0",
+			"width": 498
+		},
+		{
+			"estimated_rgba_mips_mib": 1.08072916666667,
+			"height": 415,
+			"key": "res://art/architecture/bath_pocket_v1/door_states.png[165.0,125.0,721.0,585.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.08072916666667,
+			"height": 512,
+			"key": "res://art/props/loading_yard_v1/booth.png[325.0,254.0,605.0,747.0]::limit512.0",
+			"width": 415
+		},
+		{
+			"estimated_rgba_mips_mib": 1.08072916666667,
+			"height": 415,
+			"key": "res://art/architecture/bath_pocket_v1/door_states.png[1039.0,126.0,720.0,584.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.078125,
+			"height": 414,
+			"key": "res://art/props/drying_yard_v1/linen-cart.png[129.0,163.0,1134.0,916.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 1.07291666666667,
+			"height": 512,
+			"key": "res://art/props/workshop_one_v2/double-cabinet.png[193.0,159.0,807.0,1002.0]::limit512.0",
+			"width": 412
+		},
+		{
+			"estimated_rgba_mips_mib": 1.06689453125,
+			"height": 437,
+			"key": "res://art/architecture/dorm_door_v1/components-heavy-v2.png[273.0,539.0,480.0,437.0]::limit512.0",
+			"width": 480
+		},
+		{
+			"estimated_rgba_mips_mib": 1.05691528320313,
+			"height": 354,
+			"key": "res://art/props/southwest_v52/rubble_atlas.png[40.0,760.0,587.0,354.0]",
+			"width": 587
+		},
+		{
+			"estimated_rgba_mips_mib": 1.0416259765625,
+			"height": 424,
+			"key": "res://art/architecture/dorm_door_v1/components-heavy-v2.png[271.0,28.0,483.0,424.0]::limit512.0",
+			"width": 483
+		},
+		{
+			"estimated_rgba_mips_mib": 1.03645833333333,
+			"height": 199,
+			"key": "res://art/props/courtyard_v48/bed-horizontal.png[93.0,184.0,1901.0,370.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 1.03125,
+			"height": 198,
+			"key": "res://art/architecture/kiosk_v1/building.png[212.0,435.0,1113.0,215.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 0.9921875,
+			"height": 381,
+			"key": "res://art/props/workshop_one_v2/east-bits.png[100.0,97.0,1228.0,914.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.96875,
+			"height": 372,
+			"key": "res://art/props/loading_yard_v1/crates_low.png[227.0,356.0,810.0,589.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.957122802734375,
+			"height": 397,
+			"key": "res://art/characters/dog/police-dog-atlas-v01.png[1039.0,79.0,474.0,397.0]",
+			"width": 474
+		},
+		{
+			"estimated_rgba_mips_mib": 0.95672607421875,
+			"height": 396,
+			"key": "res://art/characters/dog/police-dog-atlas-v01.png[524.0,79.0,475.0,396.0]",
+			"width": 475
+		},
+		{
+			"estimated_rgba_mips_mib": 0.951065063476563,
+			"height": 397,
+			"key": "res://art/characters/dog/police-dog-atlas-v01.png[18.0,81.0,471.0,397.0]",
+			"width": 471
+		},
+		{
+			"estimated_rgba_mips_mib": 0.94921875,
+			"height": 243,
+			"key": "res://art/architecture/tool_room_v1/sign.png[329.0,124.0,1515.0,479.0]::limit768.0",
+			"width": 768
+		},
+		{
+			"estimated_rgba_mips_mib": 0.947916666666667,
+			"height": 512,
+			"key": "res://art/props/workshop_one_v2/high-cabinet-b.png[388.0,179.0,627.0,881.0]::limit512.0",
+			"width": 364
+		},
+		{
+			"estimated_rgba_mips_mib": 0.947774251302083,
+			"height": 385,
+			"key": "res://art/characters/dog/police-dog-atlas-v01.png[527.0,576.0,484.0,385.0]",
+			"width": 484
+		},
+		{
+			"estimated_rgba_mips_mib": 0.942708333333333,
+			"height": 362,
+			"key": "res://art/props/workshop_one_v2/tool-station.png[115.0,106.0,1227.0,867.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.9354248046875,
+			"height": 388,
+			"key": "res://art/characters/dog/police-dog-atlas-v01.png[18.0,574.0,474.0,388.0]",
+			"width": 474
+		},
+		{
+			"estimated_rgba_mips_mib": 0.919270833333333,
+			"height": 512,
+			"key": "res://art/props/laundry_v1/washer.png[185.0,103.0,791.0,1148.0]::limit512.0",
+			"width": 353
+		},
+		{
+			"estimated_rgba_mips_mib": 0.908854166666667,
+			"height": 349,
+			"key": "res://art/props/warehouse_v1/registration_desk.png[257.0,129.0,1067.0,727.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.888020833333333,
+			"height": 341,
+			"key": "res://art/architecture/reading_chess_roofs_v1/reading-roof.png[0.0,0.0,1536.0,1024.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.872934977213542,
+			"height": 299,
+			"key": "res://art/props/southwest_v52/rubble_atlas.png[627.0,811.0,574.0,299.0]",
+			"width": 574
+		},
+		{
+			"estimated_rgba_mips_mib": 0.864583333333333,
+			"height": 1024,
+			"key": "res://art/props/warehouse_v1/rack_goods.png[395.0,36.0,236.0,1459.0]::limit1024.0",
+			"width": 166
+		},
+		{
+			"estimated_rgba_mips_mib": 0.846354166666667,
+			"height": 325,
+			"key": "res://art/props/office_v1/desk.png[185.0,131.0,1171.0,744.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.84375,
+			"height": 324,
+			"key": "res://art/props/workshop_one_v1/parts-drawers.png[182.0,194.0,1119.0,709.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.828125,
+			"height": 1024,
+			"key": "res://art/props/warehouse_v1/rack_parts.png[246.0,28.0,298.0,1925.0]::limit1024.0",
+			"width": 159
+		},
+		{
+			"estimated_rgba_mips_mib": 0.8251953125,
+			"height": 390,
+			"key": "res://art/props/southwest_v52/rubble_atlas.png[123.0,153.0,416.0,390.0]",
+			"width": 416
+		},
+		{
+			"estimated_rgba_mips_mib": 0.796875,
+			"height": 306,
+			"key": "res://art/architecture/monitor_room_v1/door-closed.png[319.0,192.0,981.0,587.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.79681396484375,
+			"height": 373,
+			"key": "res://art/architecture/room_roofs_v47/attachments.png[195.0,97.0,420.0,373.0]",
+			"width": 420
+		},
+		{
+			"estimated_rgba_mips_mib": 0.791666666666667,
+			"height": 304,
+			"key": "res://art/props/office_v1/archive.png[457.0,126.0,957.0,568.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.77734375,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/locker.png[299.0,140.0,353.0,1361.0]::limit768.0",
+			"width": 199
+		},
+		{
+			"estimated_rgba_mips_mib": 0.776041666666667,
+			"height": 298,
+			"key": "res://art/architecture/v23/cafeteria_gate_pair_v23.png[1087.0,91.0,946.0,550.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.776041666666667,
+			"height": 298,
+			"key": "res://art/architecture/v23/cafeteria_gate_pair_v23.png[59.0,91.0,946.0,550.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.755208333333333,
+			"height": 290,
+			"key": "res://art/props/exercise_yard_v54/shelter-layers.png[55.0,536.0,700.0,397.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.708333333333333,
+			"height": 272,
+			"key": "res://art/props/south_laundry_bath_v1/dirty_carts.png[307.0,54.0,1325.0,705.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.696258544921875,
+			"height": 351,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[1093.0,64.0,390.0,351.0]::limit1024.0",
+			"width": 390
+		},
+		{
+			"estimated_rgba_mips_mib": 0.674479166666667,
+			"height": 512,
+			"key": "res://art/props/monitor_room_v1/logbook-desk.png[281.0,308.0,462.0,915.0]::limit512.0",
+			"width": 259
+		},
+		{
+			"estimated_rgba_mips_mib": 0.6744384765625,
+			"height": 425,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[91.0,18.0,312.0,425.0]",
+			"width": 312
+		},
+		{
+			"estimated_rgba_mips_mib": 0.6640625,
+			"height": 768,
+			"key": "res://art/architecture/tool_room_v1/rack.png[188.0,88.0,403.0,1820.0]::limit768.0",
+			"width": 170
+		},
+		{
+			"estimated_rgba_mips_mib": 0.663747151692708,
+			"height": 71,
+			"key": "res://art/architecture/clinic_sliding_v2/sliding_track.png[31.0,379.0,1838.0,71.0]",
+			"width": 1838
+		},
+		{
+			"estimated_rgba_mips_mib": 0.656524658203125,
+			"height": 426,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[87.0,445.0,303.0,426.0]",
+			"width": 303
+		},
+		{
+			"estimated_rgba_mips_mib": 0.644175211588542,
+			"height": 425,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[1383.0,18.0,298.0,425.0]",
+			"width": 298
+		},
+		{
+			"estimated_rgba_mips_mib": 0.637690226236979,
+			"height": 425,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[1385.0,446.0,295.0,425.0]",
+			"width": 295
+		},
+		{
+			"estimated_rgba_mips_mib": 0.634765625,
+			"height": 390,
+			"key": "res://art/architecture/room_roofs_v47/attachments.png[978.0,77.0,320.0,390.0]",
+			"width": 320
+		},
+		{
+			"estimated_rgba_mips_mib": 0.630208333333333,
+			"height": 242,
+			"key": "res://art/props/drying_yard_v1/yard-sign.png[403.0,282.0,968.0,457.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.618947347005208,
+			"height": 430,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[531.0,445.0,283.0,430.0]",
+			"width": 283
+		},
+		{
+			"estimated_rgba_mips_mib": 0.602849324544271,
+			"height": 275,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[1053.0,623.0,431.0,275.0]::limit1024.0",
+			"width": 431
+		},
+		{
+			"estimated_rgba_mips_mib": 0.598958333333333,
+			"height": 512,
+			"key": "res://art/props/workshop_one_v1/electrical-cabinet.png[235.0,212.0,522.0,1161.0]::limit512.0",
+			"width": 230
+		},
+		{
+			"estimated_rgba_mips_mib": 0.596354166666667,
+			"height": 229,
+			"key": "res://art/props/exercise_yard_v55/shrub-group-a.png[256.0,167.0,1293.0,579.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.594431559244792,
+			"height": 377,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[474.0,842.0,310.0,377.0]",
+			"width": 310
+		},
+		{
+			"estimated_rgba_mips_mib": 0.59307861328125,
+			"height": 369,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[470.0,39.0,316.0,369.0]",
+			"width": 316
+		},
+		{
+			"estimated_rgba_mips_mib": 0.590133666992188,
+			"height": 425,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[540.0,18.0,273.0,425.0]",
+			"width": 273
+		},
+		{
+			"estimated_rgba_mips_mib": 0.589599609375,
+			"height": 315,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[577.0,69.0,368.0,315.0]::limit1024.0",
+			"width": 368
+		},
+		{
+			"estimated_rgba_mips_mib": 0.587565104166667,
+			"height": 380,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[902.0,840.0,304.0,380.0]",
+			"width": 304
+		},
+		{
+			"estimated_rgba_mips_mib": 0.5859375,
+			"height": 225,
+			"key": "res://art/props/exercise_yard_v54/shelter-layers.png[813.0,639.0,670.0,294.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.583084106445313,
+			"height": 371,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[899.0,439.0,309.0,371.0]",
+			"width": 309
+		},
+		{
+			"estimated_rgba_mips_mib": 0.580729166666667,
+			"height": 223,
+			"key": "res://art/props/laundry_v1/shelf_horizontal.png[334.0,96.0,1389.0,605.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.575520833333333,
+			"height": 221,
+			"key": "res://art/props/exercise_yard_v54/bars.png[200.0,287.0,1085.0,469.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.5703125,
+			"height": 219,
+			"key": "res://art/props/warehouse_v1/north_shelf.png[261.0,195.0,1253.0,535.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.569905598958333,
+			"height": 376,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[54.0,842.0,298.0,376.0]",
+			"width": 298
+		},
+		{
+			"estimated_rgba_mips_mib": 0.565338134765625,
+			"height": 390,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[81.0,827.0,285.0,390.0]",
+			"width": 285
+		},
+		{
+			"estimated_rgba_mips_mib": 0.56195068359375,
+			"height": 372,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[905.0,38.0,297.0,372.0]",
+			"width": 297
+		},
+		{
+			"estimated_rgba_mips_mib": 0.54986572265625,
+			"height": 429,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[980.0,445.0,252.0,429.0]",
+			"width": 252
+		},
+		{
+			"estimated_rgba_mips_mib": 0.549062093098958,
+			"height": 425,
+			"key": "res://art/characters/walk_v09/inmate_01_walk8_v09.png[978.0,18.0,254.0,425.0]",
+			"width": 254
+		},
+		{
+			"estimated_rgba_mips_mib": 0.548624674479167,
+			"height": 388,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[489.0,30.0,278.0,388.0]",
+			"width": 278
+		},
+		{
+			"estimated_rgba_mips_mib": 0.546549479166667,
+			"height": 368,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[900.0,453.0,292.0,368.0]",
+			"width": 292
+		},
+		{
+			"estimated_rgba_mips_mib": 0.543182373046875,
+			"height": 306,
+			"key": "res://art/props/factory_v44/variation_atlas.png[784.0,169.0,349.0,306.0]",
+			"width": 349
+		},
+		{
+			"estimated_rgba_mips_mib": 0.541570027669271,
+			"height": 371,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[480.0,54.0,287.0,371.0]",
+			"width": 287
+		},
+		{
+			"estimated_rgba_mips_mib": 0.53955078125,
+			"height": 390,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[907.0,29.0,272.0,390.0]",
+			"width": 272
+		},
+		{
+			"estimated_rgba_mips_mib": 0.539337158203125,
+			"height": 387,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[906.0,430.0,274.0,387.0]",
+			"width": 274
+		},
+		{
+			"estimated_rgba_mips_mib": 0.536524454752604,
+			"height": 365,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[79.0,455.0,289.0,365.0]",
+			"width": 289
+		},
+		{
+			"estimated_rgba_mips_mib": 0.526824951171875,
+			"height": 366,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[50.0,39.0,283.0,366.0]::base",
+			"width": 283
+		},
+		{
+			"estimated_rgba_mips_mib": 0.523768107096354,
+			"height": 329,
+			"key": "res://art/props/factory_v44/variation_atlas.png[1186.0,135.0,313.0,329.0]::limit512.0",
+			"width": 313
+		},
+		{
+			"estimated_rgba_mips_mib": 0.523768107096354,
+			"height": 329,
+			"key": "res://art/props/factory_v44/variation_atlas.png[1186.0,135.0,313.0,329.0]",
+			"width": 313
+		},
+		{
+			"estimated_rgba_mips_mib": 0.5234375,
+			"height": 201,
+			"key": "res://art/props/workshop_one_v2/workbench.png[47.0,37.0,1868.0,734.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.516764322916667,
+			"height": 508,
+			"key": "res://art/architecture/v53/three_way_west.png[488.0,420.0,200.0,508.0]",
+			"width": 200
+		},
+		{
+			"estimated_rgba_mips_mib": 0.5166015625,
+			"height": 368,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[899.0,845.0,276.0,368.0]",
+			"width": 276
+		},
+		{
+			"estimated_rgba_mips_mib": 0.513020833333333,
+			"height": 197,
+			"key": "res://art/props/exercise_yard_v55/shrub-group-b.png[174.0,159.0,1493.0,574.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.513020833333333,
+			"height": 197,
+			"key": "res://art/props/monitor_room_v1/screens.png[203.0,99.0,1567.0,602.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.511708577473958,
+			"height": 374,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[82.0,53.0,269.0,374.0]::base",
+			"width": 269
+		},
+		{
+			"estimated_rgba_mips_mib": 0.509796142578125,
+			"height": 390,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[908.0,438.0,257.0,390.0]",
+			"width": 257
+		},
+		{
+			"estimated_rgba_mips_mib": 0.509134928385417,
+			"height": 364,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[482.0,846.0,275.0,364.0]",
+			"width": 275
+		},
+		{
+			"estimated_rgba_mips_mib": 0.507731119791667,
+			"height": 367,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[483.0,454.0,272.0,367.0]",
+			"width": 272
+		},
+		{
+			"estimated_rgba_mips_mib": 0.504496256510417,
+			"height": 362,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[80.0,848.0,274.0,362.0]",
+			"width": 274
+		},
+		{
+			"estimated_rgba_mips_mib": 0.502471923828125,
+			"height": 370,
+			"key": "res://art/characters/factory_cast_v47/female_worker_idle_walk8.png[906.0,54.0,267.0,370.0]",
+			"width": 267
+		},
+		{
+			"estimated_rgba_mips_mib": 0.50152587890625,
+			"height": 297,
+			"key": "res://art/architecture/room_roofs_v47/attachments.png[973.0,596.0,332.0,297.0]",
+			"width": 332
+		},
+		{
+			"estimated_rgba_mips_mib": 0.501057942708333,
+			"height": 376,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[499.0,435.0,262.0,376.0]",
+			"width": 262
+		},
+		{
+			"estimated_rgba_mips_mib": 0.49609375,
+			"height": 768,
+			"key": "res://art/props/warehouse_v1/wall_rack.png[363.0,63.0,244.0,1479.0]::limit768.0",
+			"width": 127
+		},
+		{
+			"estimated_rgba_mips_mib": 0.496012369791667,
+			"height": 265,
+			"key": "res://art/props/factory_v44/variation_atlas.png[35.0,170.0,368.0,265.0]",
+			"width": 368
+		},
+		{
+			"estimated_rgba_mips_mib": 0.493204752604167,
+			"height": 391,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[91.0,28.0,248.0,391.0]::base",
+			"width": 248
+		},
+		{
+			"estimated_rgba_mips_mib": 0.491185506184896,
+			"height": 359,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[490.0,42.0,269.0,359.0]",
+			"width": 269
+		},
+		{
+			"estimated_rgba_mips_mib": 0.486979166666667,
+			"height": 512,
+			"key": "res://art/props/laundry_v1/shelf_vertical.png[300.0,121.0,425.0,1162.0]::limit512.0",
+			"width": 187
+		},
+		{
+			"estimated_rgba_mips_mib": 0.483500162760417,
+			"height": 388,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[84.0,437.0,245.0,388.0]",
+			"width": 245
+		},
+		{
+			"estimated_rgba_mips_mib": 0.482767740885417,
+			"height": 389,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[494.0,32.0,244.0,389.0]",
+			"width": 244
+		},
+		{
+			"estimated_rgba_mips_mib": 0.481770833333333,
+			"height": 512,
+			"key": "res://art/props/office_v1/cabinet.png[277.0,193.0,440.0,1218.0]::limit512.0",
+			"width": 185
+		},
+		{
+			"estimated_rgba_mips_mib": 0.481068929036458,
+			"height": 262,
+			"key": "res://art/props/factory_v43/expansion_atlas.png[401.0,634.0,361.0,262.0]",
+			"width": 361
+		},
+		{
+			"estimated_rgba_mips_mib": 0.481068929036458,
+			"height": 262,
+			"key": "res://art/props/factory_v43/expansion_atlas.png[401.0,634.0,361.0,262.0]::limit512.0",
+			"width": 361
+		},
+		{
+			"estimated_rgba_mips_mib": 0.48065185546875,
+			"height": 300,
+			"key": "res://art/characters/bath_cashier_v1/cashier_poses.png[185.0,85.0,315.0,300.0]",
+			"width": 315
+		},
+		{
+			"estimated_rgba_mips_mib": 0.476521809895833,
+			"height": 392,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[493.0,834.0,239.0,392.0]",
+			"width": 239
+		},
+		{
+			"estimated_rgba_mips_mib": 0.461064656575521,
+			"height": 367,
+			"key": "res://art/characters/factory_cast_v47/overseer_idle_walk8.png[84.0,438.0,247.0,367.0]",
+			"width": 247
+		},
+		{
+			"estimated_rgba_mips_mib": 0.4609375,
+			"height": 177,
+			"key": "res://art/props/exercise_yard_v54/shelter-layers.png[228.0,73.0,1081.0,374.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.460896809895833,
+			"height": 376,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[908.0,440.0,241.0,376.0]",
+			"width": 241
+		},
+		{
+			"estimated_rgba_mips_mib": 0.460433959960938,
+			"height": 213,
+			"key": "res://art/props/cafeteria_redesign_v1/backline.png[360.0,282.0,425.0,213.0]",
+			"width": 425
+		},
+		{
+			"estimated_rgba_mips_mib": 0.459035237630208,
+			"height": 361,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[508.0,842.0,250.0,361.0]",
+			"width": 250
+		},
+		{
+			"estimated_rgba_mips_mib": 0.455485026041667,
+			"height": 386,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[112.0,833.0,232.0,386.0]",
+			"width": 232
+		},
+		{
+			"estimated_rgba_mips_mib": 0.455362955729167,
+			"height": 361,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[895.0,41.0,248.0,361.0]",
+			"width": 248
+		},
+		{
+			"estimated_rgba_mips_mib": 0.451924641927083,
+			"height": 388,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[516.0,430.0,229.0,388.0]",
+			"width": 229
+		},
+		{
+			"estimated_rgba_mips_mib": 0.449854532877604,
+			"height": 361,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[119.0,442.0,245.0,361.0]",
+			"width": 245
+		},
+		{
+			"estimated_rgba_mips_mib": 0.447377522786458,
+			"height": 398,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[939.0,822.0,221.0,398.0]",
+			"width": 221
+		},
+		{
+			"estimated_rgba_mips_mib": 0.44464111328125,
+			"height": 372,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[503.0,40.0,235.0,372.0]",
+			"width": 235
+		},
+		{
+			"estimated_rgba_mips_mib": 0.442886352539063,
+			"height": 387,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[101.0,32.0,225.0,387.0]::base",
+			"width": 225
+		},
+		{
+			"estimated_rgba_mips_mib": 0.441324869791667,
+			"height": 374,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[108.0,440.0,232.0,374.0]",
+			"width": 232
+		},
+		{
+			"estimated_rgba_mips_mib": 0.440226236979167,
+			"height": 248,
+			"key": "res://art/props/factory_v44/detail_atlas.png[46.0,405.0,349.0,248.0]::limit512.0",
+			"width": 349
+		},
+		{
+			"estimated_rgba_mips_mib": 0.440226236979167,
+			"height": 248,
+			"key": "res://art/props/factory_v44/detail_atlas.png[46.0,405.0,349.0,248.0]",
+			"width": 349
+		},
+		{
+			"estimated_rgba_mips_mib": 0.440104166666667,
+			"height": 512,
+			"key": "res://art/props/monitor_room_v1/recorder-rack.png[278.0,203.0,411.0,1244.0]::limit512.0",
+			"width": 169
+		},
+		{
+			"estimated_rgba_mips_mib": 0.439224243164063,
+			"height": 171,
+			"key": "res://art/props/exercise_yard_v55/curb-horizontal.png[45.0,395.0,505.0,171.0]::limit512.0",
+			"width": 505
+		},
+		{
+			"estimated_rgba_mips_mib": 0.436782836914063,
+			"height": 375,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[924.0,837.0,229.0,375.0]",
+			"width": 229
+		},
+		{
+			"estimated_rgba_mips_mib": 0.43585205078125,
+			"height": 386,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[933.0,32.0,222.0,386.0]",
+			"width": 222
+		},
+		{
+			"estimated_rgba_mips_mib": 0.434946695963542,
+			"height": 299,
+			"key": "res://art/props/factory_v44/detail_atlas.png[1182.0,46.0,286.0,299.0]",
+			"width": 286
+		},
+		{
+			"estimated_rgba_mips_mib": 0.434946695963542,
+			"height": 299,
+			"key": "res://art/props/factory_v44/detail_atlas.png[1182.0,46.0,286.0,299.0]::limit512.0",
+			"width": 286
+		},
+		{
+			"estimated_rgba_mips_mib": 0.43487548828125,
+			"height": 375,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[504.0,441.0,228.0,375.0]",
+			"width": 228
+		},
+		{
+			"estimated_rgba_mips_mib": 0.43304443359375,
+			"height": 387,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[119.0,431.0,220.0,387.0]",
+			"width": 220
+		},
+		{
+			"estimated_rgba_mips_mib": 0.432657877604167,
+			"height": 392,
+			"key": "res://art/characters/factory_cast_v47/patrol_guard_idle_walk8.png[528.0,825.0,217.0,392.0]",
+			"width": 217
+		},
+		{
+			"estimated_rgba_mips_mib": 0.430908203125,
+			"height": 353,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[508.0,444.0,240.0,353.0]",
+			"width": 240
+		},
+		{
+			"estimated_rgba_mips_mib": 0.429346720377604,
+			"height": 389,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[926.0,833.0,217.0,389.0]",
+			"width": 217
+		},
+		{
+			"estimated_rgba_mips_mib": 0.427998860677083,
+			"height": 386,
+			"key": "res://art/characters/factory_cast_v47/young_worker_idle_walk8.png[511.0,437.0,218.0,386.0]",
+			"width": 218
+		},
+		{
+			"estimated_rgba_mips_mib": 0.423482259114583,
+			"height": 362,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[118.0,40.0,230.0,362.0]::base",
+			"width": 230
+		},
+		{
+			"estimated_rgba_mips_mib": 0.421875,
+			"height": 162,
+			"key": "res://art/props/office_v1/sign.png[351.0,201.0,1251.0,397.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.420135498046875,
+			"height": 353,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[126.0,843.0,234.0,353.0]",
+			"width": 234
+		},
+		{
+			"estimated_rgba_mips_mib": 0.418146769205729,
+			"height": 359,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[909.0,840.0,229.0,359.0]",
+			"width": 229
+		},
+		{
+			"estimated_rgba_mips_mib": 0.417805989583333,
+			"height": 302,
+			"key": "res://art/props/factory_v43/expansion_atlas.png[450.0,132.0,272.0,302.0]",
+			"width": 272
+		},
+		{
+			"estimated_rgba_mips_mib": 0.417805989583333,
+			"height": 302,
+			"key": "res://art/props/factory_v43/expansion_atlas.png[450.0,132.0,272.0,302.0]::limit512.0",
+			"width": 272
+		},
+		{
+			"estimated_rgba_mips_mib": 0.412872314453125,
+			"height": 489,
+			"key": "res://art/architecture/dorm_door_v1/components-heavy-v2.png[1000.0,8.0,166.0,489.0]::limit512.0",
+			"width": 166
+		},
+		{
+			"estimated_rgba_mips_mib": 0.41015625,
+			"height": 768,
+			"key": "res://art/props/workshop_two_v1/stock_rack.png[292.0,86.0,237.0,1738.0]::limit768.0",
+			"width": 105
+		},
+		{
+			"estimated_rgba_mips_mib": 0.402201334635417,
+			"height": 373,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[929.0,39.0,212.0,373.0]",
+			"width": 212
+		},
+		{
+			"estimated_rgba_mips_mib": 0.399505615234375,
+			"height": 494,
+			"key": "res://art/architecture/dorm_door_v1/components-heavy-v2.png[1007.0,511.0,159.0,494.0]::limit512.0",
+			"width": 159
+		},
+		{
+			"estimated_rgba_mips_mib": 0.396509806315104,
+			"height": 373,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[109.0,40.0,209.0,373.0]::base",
+			"width": 209
+		},
+		{
+			"estimated_rgba_mips_mib": 0.393229166666667,
+			"height": 151,
+			"key": "res://art/props/monitor_room_v1/sign.png[524.0,259.0,936.0,276.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.390625,
+			"height": 150,
+			"key": "res://art/architecture/reading_chess_roofs_v1/reading-sign.png[337.0,136.0,1499.0,440.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.3897705078125,
+			"height": 372,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[108.0,837.0,206.0,372.0]",
+			"width": 206
+		},
+		{
+			"estimated_rgba_mips_mib": 0.387191772460938,
+			"height": 375,
+			"key": "res://art/characters/factory_occupations_v48/clinic_medic_idle_walk8.png[513.0,837.0,203.0,375.0]",
+			"width": 203
+		},
+		{
+			"estimated_rgba_mips_mib": 0.385416666666667,
+			"height": 148,
+			"key": "res://art/architecture/laundry_v1/sign.png[252.0,128.0,1623.0,470.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.385416666666667,
+			"height": 148,
+			"key": "res://art/props/drying_yard_v1/clotheslines.png[436.0,400.0,1149.0,332.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.385279337565104,
+			"height": 359,
+			"key": "res://art/characters/factory_occupations_v48/canteen_cook_idle_walk8.png[920.0,444.0,211.0,359.0]",
+			"width": 211
+		},
+		{
+			"estimated_rgba_mips_mib": 0.3828125,
+			"height": 147,
+			"key": "res://art/props/drying_yard_v1/clotheslines.png[439.0,25.0,1146.0,330.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.377410888671875,
+			"height": 249,
+			"key": "res://art/props/factory_v44/detail_atlas.png[814.0,105.0,298.0,249.0]",
+			"width": 298
+		},
+		{
+			"estimated_rgba_mips_mib": 0.372395833333333,
+			"height": 143,
+			"key": "res://art/props/laundry_v2/folding_table.png[129.0,162.0,1788.0,501.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.369791666666667,
+			"height": 142,
+			"key": "res://art/architecture/bath_v1/wall.png[50.0,89.0,1959.0,542.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.36572265625,
+			"height": 168,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[54.0,208.0,428.0,168.0]::limit1024.0",
+			"width": 428
+		},
+		{
+			"estimated_rgba_mips_mib": 0.355478922526042,
+			"height": 241,
+			"key": "res://art/props/factory_v44/detail_atlas.png[439.0,81.0,290.0,241.0]",
+			"width": 290
+		},
+		{
+			"estimated_rgba_mips_mib": 0.351908365885417,
+			"height": 353,
+			"key": "res://art/props/campus_v47/campus_atlas.png[810.0,733.0,196.0,353.0]",
+			"width": 196
+		},
+		{
+			"estimated_rgba_mips_mib": 0.348958333333333,
+			"height": 134,
+			"key": "res://art/props/drying_yard_v1/flowerbed.png[82.0,91.0,2020.0,530.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.34375,
+			"height": 132,
+			"key": "res://art/architecture/monitor_room_v1/wall.png[64.0,136.0,1921.0,496.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.343526204427083,
+			"height": 307,
+			"key": "res://art/props/campus_v47/campus_atlas.png[76.0,1086.0,220.0,307.0]",
+			"width": 220
+		},
+		{
+			"estimated_rgba_mips_mib": 0.342580159505208,
+			"height": 238,
+			"key": "res://art/props/factory_v44/detail_atlas.png[1195.0,424.0,283.0,238.0]",
+			"width": 283
+		},
+		{
+			"estimated_rgba_mips_mib": 0.33203125,
+			"height": 255,
+			"key": "res://art/props/duty_room_v1/clock.png[276.0,267.0,701.0,697.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.330729166666667,
+			"height": 127,
+			"key": "res://art/props/loading_yard_v1/logistics_sign.png[230.0,142.0,1712.0,426.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.328125,
+			"height": 512,
+			"key": "res://art/props/office_v1/sideboard.png[358.0,104.0,316.0,1279.0]::limit512.0",
+			"width": 126
+		},
+		{
+			"estimated_rgba_mips_mib": 0.325520833333333,
+			"height": 512,
+			"key": "res://art/props/south_laundry_bath_v1/east_basin.png[352.0,81.0,323.0,1323.0]::limit512.0",
+			"width": 125
+		},
+		{
+			"estimated_rgba_mips_mib": 0.322916666666667,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v54/bench-vertical.png[363.0,210.0,281.0,1157.0]::limit512.0",
+			"width": 124
+		},
+		{
+			"estimated_rgba_mips_mib": 0.316747029622396,
+			"height": 265,
+			"key": "res://art/props/factory_v44/detail_atlas.png[841.0,697.0,235.0,265.0]",
+			"width": 235
+		},
+		{
+			"estimated_rgba_mips_mib": 0.31640625,
+			"height": 256,
+			"key": "res://art/props/duty_room_v1/roster.png[186.0,172.0,880.0,926.0]::limit256.0",
+			"width": 243
+		},
+		{
+			"estimated_rgba_mips_mib": 0.315104166666667,
+			"height": 121,
+			"key": "res://art/props/monitor_room_v1/console.png[163.0,190.0,1670.0,394.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.28515625,
+			"height": 256,
+			"key": "res://art/props/office_v1/visitor_chair.png[346.0,273.0,602.0,705.0]::limit256.0",
+			"width": 219
+		},
+		{
+			"estimated_rgba_mips_mib": 0.28125,
+			"height": 256,
+			"key": "res://art/props/prison_v17/pipe_valve_v17.png[379.0,193.0,650.0,769.0]::limit256.0",
+			"width": 216
+		},
+		{
+			"estimated_rgba_mips_mib": 0.276041666666667,
+			"height": 106,
+			"key": "res://art/props/laundry_v1/supply_pipe.png[55.0,204.0,1869.0,388.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.2734375,
+			"height": 256,
+			"key": "res://art/props/office_v1/work_chair.png[373.0,212.0,608.0,740.0]::limit256.0",
+			"width": 210
+		},
+		{
+			"estimated_rgba_mips_mib": 0.272878011067708,
+			"height": 290,
+			"key": "res://art/props/campus_v47/campus_atlas.png[451.0,43.0,185.0,290.0]",
+			"width": 185
+		},
+		{
+			"estimated_rgba_mips_mib": 0.271484375,
+			"height": 278,
+			"key": "res://art/props/factory_v44/detail_atlas.png[859.0,383.0,192.0,278.0]",
+			"width": 192
+		},
+		{
+			"estimated_rgba_mips_mib": 0.268452962239583,
+			"height": 290,
+			"key": "res://art/props/factory_v44/detail_atlas.png[114.0,55.0,182.0,290.0]",
+			"width": 182
+		},
+		{
+			"estimated_rgba_mips_mib": 0.260416666666667,
+			"height": 256,
+			"key": "res://art/props/reading_room_v1/lamp.png[342.0,213.0,678.0,868.0]::limit256.0",
+			"width": 200
+		},
+		{
+			"estimated_rgba_mips_mib": 0.2603759765625,
+			"height": 162,
+			"key": "res://art/props/campus_v47/campus_atlas.png[383.0,1160.0,316.0,162.0]::limit512.0",
+			"width": 316
+		},
+		{
+			"estimated_rgba_mips_mib": 0.2603759765625,
+			"height": 162,
+			"key": "res://art/props/campus_v47/campus_atlas.png[383.0,1160.0,316.0,162.0]",
+			"width": 316
+		},
+		{
+			"estimated_rgba_mips_mib": 0.258199055989583,
+			"height": 196,
+			"key": "res://art/environment/factory_v46/organic_atlas.png[1021.0,546.0,259.0,196.0]",
+			"width": 259
+		},
+		{
+			"estimated_rgba_mips_mib": 0.2559814453125,
+			"height": 216,
+			"key": "res://art/environment/factory_v46/organic_atlas.png[854.0,712.0,233.0,216.0]",
+			"width": 233
+		},
+		{
+			"estimated_rgba_mips_mib": 0.255788167317708,
+			"height": 235,
+			"key": "res://art/props/campus_v47/campus_atlas.png[812.0,85.0,214.0,235.0]",
+			"width": 214
+		},
+		{
+			"estimated_rgba_mips_mib": 0.234375,
+			"height": 45,
+			"key": "res://art/environment/drying_yard_edges_v1/pebble-strips.png[56.0,174.0,2056.0,90.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 0.233357747395833,
+			"height": 296,
+			"key": "res://art/props/factory_v44/detail_atlas.png[519.0,372.0,155.0,296.0]",
+			"width": 155
+		},
+		{
+			"estimated_rgba_mips_mib": 0.233357747395833,
+			"height": 296,
+			"key": "res://art/props/factory_v44/detail_atlas.png[519.0,372.0,155.0,296.0]::limit512.0",
+			"width": 155
+		},
+		{
+			"estimated_rgba_mips_mib": 0.232386271158854,
+			"height": 427,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[716.0,523.0,107.0,427.0]::limit1024.0",
+			"width": 107
+		},
+		{
+			"estimated_rgba_mips_mib": 0.228057861328125,
+			"height": 141,
+			"key": "res://art/props/campus_v47/campus_atlas.png[744.0,506.0,318.0,141.0]",
+			"width": 318
+		},
+		{
+			"estimated_rgba_mips_mib": 0.223958333333333,
+			"height": 43,
+			"key": "res://art/environment/drying_yard_edges_v1/pebble-strips.png[72.0,462.0,2028.0,86.0]::limit1024.0",
+			"width": 1024
+		},
+		{
+			"estimated_rgba_mips_mib": 0.21270751953125,
+			"height": 410,
+			"key": "res://art/props/pipe_energy_court_v1/pipe-fittings.png[220.0,537.0,102.0,410.0]::limit1024.0",
+			"width": 102
+		},
+		{
+			"estimated_rgba_mips_mib": 0.203460693359375,
+			"height": 177,
+			"key": "res://art/environment/factory_v46/organic_atlas.png[1223.0,749.0,226.0,177.0]",
+			"width": 226
+		},
+		{
+			"estimated_rgba_mips_mib": 0.20062255859375,
+			"height": 519,
+			"key": "res://art/architecture/cafeteria_v2/door.png[1496.0,145.0,76.0,519.0]::limit768.0",
+			"width": 76
+		},
+		{
+			"estimated_rgba_mips_mib": 0.197982788085938,
+			"height": 519,
+			"key": "res://art/architecture/cafeteria_v2/door.png[1746.0,145.0,75.0,519.0]::limit768.0",
+			"width": 75
+		},
+		{
+			"estimated_rgba_mips_mib": 0.1875,
+			"height": 512,
+			"key": "res://art/architecture/laundry_v1/downpipe.png[401.0,24.0,210.0,1488.0]::limit512.0",
+			"width": 72
+		},
+		{
+			"estimated_rgba_mips_mib": 0.18359375,
+			"height": 141,
+			"key": "res://art/props/prison_v17/caged_wall_lamp_v17.png[298.0,258.0,911.0,500.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.18157958984375,
+			"height": 476,
+			"key": "res://art/architecture/workshop_door_v2/components.png[1578.0,117.0,75.0,476.0]::limit768.0",
+			"width": 75
+		},
+		{
+			"estimated_rgba_mips_mib": 0.17547607421875,
+			"height": 300,
+			"key": "res://art/props/campus_v47/campus_atlas.png[852.0,1086.0,115.0,300.0]::limit512.0",
+			"width": 115
+		},
+		{
+			"estimated_rgba_mips_mib": 0.17547607421875,
+			"height": 300,
+			"key": "res://art/props/campus_v47/campus_atlas.png[852.0,1086.0,115.0,300.0]",
+			"width": 115
+		},
+		{
+			"estimated_rgba_mips_mib": 0.174479166666667,
+			"height": 134,
+			"key": "res://art/props/duty_room_v1/ledger.png[130.0,180.0,1293.0,678.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.171895345052083,
+			"height": 476,
+			"key": "res://art/architecture/workshop_door_v2/components.png[1992.0,117.0,71.0,476.0]::limit768.0",
+			"width": 71
+		},
+		{
+			"estimated_rgba_mips_mib": 0.1640625,
+			"height": 63,
+			"key": "res://art/props/exercise_yard_v55/curb-horizontal.png[45.0,395.0,1380.0,171.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.158854166666667,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v55/curb-vertical.png[562.0,486.0,87.0,736.0]::limit512.0",
+			"width": 61
+		},
+		{
+			"estimated_rgba_mips_mib": 0.157552083333333,
+			"height": 121,
+			"key": "res://art/props/prison_v17/wall_vent_v17.png[188.0,234.0,1162.0,550.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.135416666666667,
+			"height": 52,
+			"key": "res://art/props/exercise_yard_v55/curb-horizontal.png[45.0,395.0,1683.0,171.0]::limit512.0",
+			"width": 512
+		},
+		{
+			"estimated_rgba_mips_mib": 0.128255208333333,
+			"height": 197,
+			"key": "res://art/architecture/kiosk_v1/building.png[1073.0,228.0,128.0,197.0]::limit1024.0",
+			"width": 128
+		},
+		{
+			"estimated_rgba_mips_mib": 0.12109375,
+			"height": 256,
+			"key": "res://art/props/loading_yard_v1/yard_sign.png[251.0,214.0,447.0,1235.0]::limit256.0",
+			"width": 93
+		},
+		{
+			"estimated_rgba_mips_mib": 0.115885416666667,
+			"height": 89,
+			"key": "res://art/props/warehouse_v1/sign.png[347.0,137.0,1361.0,475.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.110677083333333,
+			"height": 256,
+			"key": "res://art/props/loading_yard_v1/bollard.png[473.0,314.0,236.0,714.0]::limit256.0",
+			"width": 85
+		},
+		{
+			"estimated_rgba_mips_mib": 0.1015625,
+			"height": 512,
+			"key": "res://art/props/exercise_yard_v55/curb-vertical.png[562.0,80.0,87.0,1142.0]::limit512.0",
+			"width": 39
+		},
+		{
+			"estimated_rgba_mips_mib": 0.0872395833333333,
+			"height": 67,
+			"key": "res://art/props/workshop_two_v1/sign.png[472.0,201.0,1227.0,320.0]::limit256.0",
+			"width": 256
+		},
+		{
+			"estimated_rgba_mips_mib": 0.0833333333333333,
+			"height": 128,
+			"key": "res://art/environment/low_wall_top_v02.png[0.0,0.0,128.0,128.0]",
+			"width": 128
+		},
+		{
+			"estimated_rgba_mips_mib": 0.0755208333333333,
+			"height": 256,
+			"key": "res://art/architecture/laundry_v1/skylight.png[382.0,195.0,259.0,1146.0]::limit256.0",
+			"width": 58
+		},
+		{
+			"estimated_rgba_mips_mib": 0.0626627604166667,
+			"height": 280,
+			"key": "res://art/props/locked_door_closed_v02.png[]",
+			"width": 44
+		},
+		{
+			"estimated_rgba_mips_mib": 0.0626627604166667,
+			"height": 280,
+			"key": "res://art/props/locked_door_open_v02.png[]",
+			"width": 44
+		}
+	],
+	"viewport": [
+		1200,
+		720
+	]
+}

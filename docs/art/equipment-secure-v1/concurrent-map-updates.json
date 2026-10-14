@@ -1,0 +1,155 @@
+{
+	"note": "Distant main-gate assets independently updated while equipment room was refined. Captured saved records are preserved exactly; equipment work does not own these objects.",
+	"fixtures": [
+		{
+			"asset_id": "doorway_departure_closed_v1",
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"id": "campus-main-gate",
+			"primary_gate": true,
+			"rect": [
+				3300.0,
+				200.0,
+				320.0,
+				20.0
+			],
+			"render_size": [
+				320,
+				180
+			],
+			"rotation_door_visual_rect": [
+				3300,
+				100,
+				320,
+				180
+			]
+		},
+		{
+			"id": "departure-west-booth",
+			"asset_id": "departure_left_booth_v1",
+			"rect": [
+				3180,
+				190,
+				120,
+				60
+			],
+			"render_size": [
+				120,
+				220
+			],
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"exterior_shell": true,
+			"departure_generated": true
+		},
+		{
+			"id": "departure-east-booth",
+			"asset_id": "departure_right_booth_v1",
+			"rect": [
+				3620,
+				190,
+				120,
+				60
+			],
+			"render_size": [
+				120,
+				220
+			],
+			"blocks_movement": true,
+			"blocks_sight": true,
+			"exterior_shell": true,
+			"departure_generated": true
+		},
+		{
+			"id": "departure-gate-header",
+			"asset_id": "departure_header_v1",
+			"rect": [
+				3300,
+				114,
+				320,
+				1
+			],
+			"render_size": [
+				320,
+				63.45609065155807
+			],
+			"blocks_movement": false,
+			"blocks_sight": false,
+			"exterior_shell": true,
+			"departure_generated": true,
+			"in_front_of_wall_trim": true
+		},
+		{
+			"id": "departure-check-desk",
+			"asset_id": "departure_check_desk_v1",
+			"rect": [
+				3650,
+				400,
+				110,
+				64
+			],
+			"render_size": [
+				110,
+				105.42302357836338
+			],
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"exterior_shell": true,
+			"departure_generated": true
+		},
+		{
+			"id": "departure-right-barrier",
+			"asset_id": "departure_barrier_v1",
+			"rect": [
+				3680,
+				487,
+				74,
+				12
+			],
+			"render_size": [
+				74,
+				34.89684210526316
+			],
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"exterior_shell": true,
+			"departure_generated": true
+		},
+		{
+			"id": "departure-left-planter",
+			"asset_id": "departure_planter_v1",
+			"rect": [
+				3198,
+				292,
+				65,
+				34
+			],
+			"render_size": [
+				65,
+				73.29787234042553
+			],
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"exterior_shell": true,
+			"departure_generated": true
+		},
+		{
+			"id": "departure-east-electric",
+			"asset_id": "departure_electric_v1",
+			"rect": [
+				3745,
+				270,
+				28,
+				22
+			],
+			"render_size": [
+				28,
+				62.275862068965516
+			],
+			"blocks_movement": true,
+			"blocks_sight": false,
+			"exterior_shell": true,
+			"departure_generated": true
+		}
+	]
+}

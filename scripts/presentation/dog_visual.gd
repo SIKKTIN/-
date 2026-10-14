@@ -15,6 +15,7 @@ var destination := Rect2()
 func configure(owner_game, manifest_path: String) -> void:
 	game = owner_game
 	dog = game.dog
+	material = game.presentation.character_material
 	if not manifest_path.is_empty() and FileAccess.file_exists(manifest_path):
 		definition = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
 		idle = WorldTexture.load_asset(definition.idle)

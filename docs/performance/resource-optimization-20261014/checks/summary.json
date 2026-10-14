@@ -1,0 +1,102 @@
+{
+  "resources": {
+    "production_text_files": 188,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [
+      "scripts/tools/bake_administration_roofs_v1.gd",
+      "scripts/tools/bake_nine_point_v1.gd",
+      "scripts/tools/bake_nine_point_v2.gd",
+      "scripts/tools/bake_runtime_textures.gd",
+      "scripts/ui/nine_point_scratch.gd"
+    ],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "resource_textures",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.25,
+      "checks": 19,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.55,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 6.14,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "scene_seams",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 6.12,
+      "checks": 8,
+      "failed": [
+        "bath_corners_join_south_wall_coping"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": false,
+      "exit_code": 124,
+      "seconds": 65.59,
+      "checks": 0,
+      "failed": [],
+      "fresh_report": false,
+      "engine_errors": true
+    },
+    {
+      "id": "map",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 8.02,
+      "checks": 90,
+      "failed": [
+        "door_tools-entry",
+        "door_dorm-0",
+        "home_to_assigned_work",
+        "meal_to_seat",
+        "visit_duty",
+        "visit_monitor",
+        "visit_office",
+        "visit_repair",
+        "visit_tools",
+        "visit_workshop-two",
+        "visit_yard",
+        "exit_approach_logistics",
+        "clinic_wall_blocks",
+        "garden_loop_0",
+        "garden_loop_5",
+        "garden_entry_(3260.0, 2540.0)",
+        "garden_entry_(3260.0, 3490.0)",
+        "garden_entry_(2640.0, 3050.0)",
+        "planted_bed_blocks_(2900.0, 2710.0)",
+        "planted_bed_blocks_(3730.0, 3200.0)",
+        "planted_bed_blocks_(3200.0, 3090.0)"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 141,
+  "passed": false
+}

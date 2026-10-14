@@ -1,0 +1,68 @@
+{
+  "status": "standalone numerical simulation prototype verified",
+  "upstream": "https://github.com/opengenius/godot_swe_ocean2d",
+  "commit": "ade2d150c2f34785715ed7452063e8b81df1a709",
+  "engine": "Godot 4.7.2 / Forward+ / D3D12",
+  "checks": {
+    "compute_timing_available": true,
+    "compute_under_budget": true,
+    "foam_advects": true,
+    "foam_decays": true,
+    "foam_generated_by_flow": true,
+    "impulse_propagates": true,
+    "lake_at_rest": true,
+    "long_run_finite": true,
+    "piers_are_dry": true,
+    "piers_change_flow": true
+  },
+  "performance": {
+    "compute_gpu_median_ms": 0.217088,
+    "compute_gpu_p95_ms": 0.223232,
+    "fixed_step_seconds": 0.00833333333333333,
+    "frames": 120,
+    "grid": [
+      384,
+      256
+    ],
+    "note": "QA iteration includes asynchronous completion and capture synchronization; viewport timing excludes compute submitted outside viewport.",
+    "qa_iteration_median_ms": 16.648,
+    "qa_iteration_p95_ms": 17.124,
+    "steps_per_frame": 2,
+    "viewport_render_gpu_median_ms": 0.293999999761581
+  },
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "map_unchanged": true,
+  "preview": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\seaside-swe-v1\\water-simulation.webp",
+  "scene": "E:\\Project\\Godot\\这次怎么逃\\scenes\\prototypes\\seaside_swe_demo.tscn",
+  "integration_plan": [
+    "Use a reusable Node2D water region and Texture2DRD state output behind pier and coastline sprites.",
+    "Generate local bathymetry and solid masks from coastline, rocks and pier positions.",
+    "Maintain a fixed physical extent and simulate only the visible coastal patch with an outside margin.",
+    "Keep the 120 Hz fixed step and avoid runtime GPU-to-CPU readback; suspend fully offscreen patches.",
+    "Validate map-level frame pacing before adding FFT offshore detail or splash particles."
+  ],
+  "limitations": [
+    "Heightfield cannot represent overturning wave geometry; airborne spray requires particles.",
+    "Terrain and pier are procedural technical placeholders, not final game artwork.",
+    "Standalone timings are not a benchmark of the entire game.",
+    "Main game scene, live map and existing map editor were not modified."
+  ],
+  "interactive": {
+    "average_fps": 59.9862831365894,
+    "checks": {
+      "frame_p95_below_20ms": true,
+      "no_compute_when_rendering_stops": true,
+      "paused_state_exactly_unchanged": true,
+      "real_time_simulation_rate": true,
+      "resume_advances_simulation": true,
+      "resume_after_rendering_stops": true
+    },
+    "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "frame_median_ms": 16.653,
+    "frame_p95_ms": 17.021,
+    "measured_frames": 180,
+    "scope": "automatic interactive prototype, capped to 60 FPS; not whole-game performance",
+    "simulation_seconds_per_wall_second": 0.999771385609857,
+    "snapshot": "res://docs/art/seaside-swe-v1/interactive-live.png"
+  }
+}

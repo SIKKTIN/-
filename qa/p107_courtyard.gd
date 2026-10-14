@@ -58,7 +58,8 @@ func run():
 		var walked := false
 		# Furniture beside a door may obstruct its geometric centre. Sample
 		# along the opening and verify a real two-way route through the jambs.
-		for along in [0,24,-24,48,-48]:
+		# Full shoulder clearance leaves narrow furniture lanes; use 8px samples.
+		for along in [0,8,-8,16,-16,24,-24,32,-32,40,-40,48,-48,56,-56,64,-64]:
 			if walked:break
 			var crossing: Vector2=feet+(Vector2(0,along) if vertical else Vector2(along,0))
 			if not world.can_place_circle(crossing,8,main,false,false):continue

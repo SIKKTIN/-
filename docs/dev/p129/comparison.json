@@ -1,0 +1,57 @@
+{
+  "method": "Native D3D12, 1200x720, uncapped, 60 warmup frames + 200 samples per case, deterministic seed 129, identical QA frame order. Values are benchmark timings, not promised FPS.",
+  "measurements": [
+    {
+      "case": "dorm_idle",
+      "before_frame_ms": 18.426,
+      "after_frame_ms": 7.264,
+      "before_draw_calls": 7302,
+      "after_draw_calls": 867,
+      "frame_time_reduction_percent": 60.6,
+      "before_cpu_ms": 6.986,
+      "after_cpu_ms": 4.133
+    },
+    {
+      "case": "looting_idle",
+      "before_frame_ms": 16.647,
+      "after_frame_ms": 7.198,
+      "before_draw_calls": 7226,
+      "after_draw_calls": 557,
+      "frame_time_reduction_percent": 56.8,
+      "before_cpu_ms": 4.921,
+      "after_cpu_ms": 3.254
+    },
+    {
+      "case": "workshop_idle",
+      "before_frame_ms": 32.895,
+      "after_frame_ms": 6.972,
+      "before_draw_calls": 7215,
+      "after_draw_calls": 730,
+      "frame_time_reduction_percent": 78.8,
+      "before_cpu_ms": 8.192,
+      "after_cpu_ms": 3.844
+    }
+  ],
+  "components": {
+    "scripts/core/game_frame.gd": "Authoritative frame order, no second guard simulation at zero delta.",
+    "scripts/presentation/static_ground.gd": "Retained bounds per marking, zone and wall shadow for viewport culling.",
+    "scripts/ui/looting_view_model.gd": "Structural item lists cached separately from changing search progress."
+  },
+  "render_equivalence": {
+    "changed_pixels": {
+      "1650": 0,
+      "3250": 0,
+      "430": 0
+    },
+    "checks": {
+      "camera_motion_keeps_retained_static_geometry": true,
+      "container_index_matches_exact_range_at_1000_points": true,
+      "idle_search_does_not_rebuild_item_data": true,
+      "static_render_preserves_appearance_1650": true,
+      "static_render_preserves_appearance_3250": true,
+      "static_render_preserves_appearance_430": true,
+      "unchanged_lights_keep_existing_resources": true
+    },
+    "failed": []
+  }
+}

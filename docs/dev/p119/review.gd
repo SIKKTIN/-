@@ -1,0 +1,40 @@
+extends "res://qa/p101_npc_responses.gd"
+
+func run():
+	OS.set_environment("ESCAPE_TUTORIAL_MODE","off")
+	OS.set_environment("ESCAPE_DEV_SETTINGS_PATH","user://p119-bedside-review.cfg")
+	root.size=Vector2i(1200,720)
+	root.content_scale_size=root.size
+	game=load("res://scenes/main.tscn").instantiate()
+	root.add_child(game)
+	await frame()
+	game.set_process(false)
+	game.fullscreen_ui.set_process(false)
+	game.fullscreen_ui.fps_badge.hide()
+	var folder:=OS.get_environment("ESCAPE_BEDSIDE_REVIEW_FOLDER")
+	if folder.is_empty():folder="res://docs/dev/p119"
+	DirAccess.make_dir_recursive_absolute(folder)
+	game.guard.position=Vector2(900,1700)
+	game.world.admission_filter=Callable()
+	var cabinet: Dictionary=game.world.fixtures.filter(func(f):return f.id=="detail44-dorm-personal-0")[0]
+	var foot: Vector2=Vector2(cabinet.rect.end.x+46,cabinet.rect.end.y)
+	check("player_can_stand_beside_cabinet",game.world.can_place_circle(foot,8,game.actors[0],false,false))
+	game.actors[0].position=foot
+	game.room_visibility.tick(1,true)
+	game.map_camera.center_on(Vector2(430,1450))
+	game.presentation.tick(0)
+	game._update_ui()
+	await frame()
+	await frame()
+	root.get_texture().get_image().save_png(folder+"/side-by-side.png")
+	game.actors[0].position=Vector2(430,1500)
+	game.room_visibility.tick(1,true)
+	game.map_camera.center_on(Vector2(430,1500))
+	game.presentation.tick(0)
+	game._update_ui()
+	await frame()
+	await frame()
+	root.get_texture().get_image().save_png(folder+"/dorm.png")
+	var failed: Array=checks.keys().filter(func(key):return not checks[key])
+	FileAccess.open(folder+"/visual-placement.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failed":failed,"player_feet":foot,"cabinet_ground":cabinet.rect,"player_visual_height":game.presentation.visuals[0].world_height()},"\t"))
+	quit(0 if failed.is_empty() else 1)

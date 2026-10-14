@@ -46,3 +46,18 @@ python tools/run_checks.py --godot "你的 Godot 可执行文件路径" --only m
 报告默认写入 `docs/tests/current-regressions/`。检查器验证退出码、引擎错误和本次生成的报告，旧的通过报告不会被当成本次成功。更早的阶段 QA 脚本保留为开发证据，使用当前回归清单验证现有版本。
 
 `.godot`、本地凭证与同步备份不提交。普通运行不依赖 MCP 连接；工程附带的 Godot AI 和地图编辑插件用于开发。美术来源、字体及插件许可证见相应资源目录和 `docs/art/`。
+
+## 运行纹理构建
+
+Windows 运行资源位于 `art/runtime_textures/`。建筑、道具和环境裁片在离线构建时转换为 BC7；角色、UI、物品图标及原始 PNG 保持无损。加载器恢复裁片的逻辑尺寸，保持门洞、拼接 UV、锚点和编辑器尺寸一致。相同半径的灯共用渐变纹理。
+
+新增或修改美术、地图后，导出前运行：
+
+```powershell
+& "你的 Godot 可执行文件路径" --headless --path . --script res://scripts/tools/bake_runtime_textures.gd
+python tools/run_checks.py --godot "你的 Godot 可执行文件路径" --only resource_textures
+```
+
+构建从当前素材目录、四张地图和表现配置收集依赖；仅在全部成功时更新索引。新图或过期条目仍可回退源图预览，但发布前应确认 `baked_misses` 为 0。需保留像素的场景素材可在定义中设置 `runtime_lossless: true`，然后重新构建。BC7 已验证当前 Windows D3D12 路径，其他平台需单独验证压缩格式支持。
+
+2026-10-14 同机短测：纹理约 847 → 402 MiB，场景创建至首帧约 11.0 → 6.8 秒。测量不含引擎进程启动，也不是清除操作系统缓存后的冷启动。数据和画面对照位于 `docs/performance/resource-optimization-20261014/`。

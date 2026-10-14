@@ -1,0 +1,103 @@
+{
+  "checks": {
+    "compute_timing_available": true,
+    "compute_under_budget": true,
+    "foam_advects": true,
+    "foam_decays": true,
+    "foam_generated_by_flow": true,
+    "impulse_propagates": true,
+    "lake_at_rest": true,
+    "long_run_finite": true,
+    "piers_are_dry": true,
+    "piers_change_flow": true
+  },
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "foam_transport": {
+    "after_4_seconds": {
+      "finite": true,
+      "foam_center_x": 0.321668591620545,
+      "foam_sum": 50.7701216948897,
+      "max_depth": 3.58006191253662,
+      "max_foam": 0.19721919298172,
+      "max_speed": 0.744412064552307,
+      "max_surface_abs": 0.580061912536621,
+      "solid_max_depth": 0.0
+    },
+    "before": {
+      "finite": true,
+      "foam_center_x": 0.298697918760248,
+      "foam_sum": 205.88742375717,
+      "max_depth": 3.0,
+      "max_foam": 0.994825482368469,
+      "max_speed": 0.800000011920929,
+      "max_surface_abs": 0.0,
+      "solid_max_depth": 0.0
+    }
+  },
+  "implementation": "GPU shallow-water height/velocity + persistent advected foam; no generated water imagery. Independent scene; live map unchanged.",
+  "lake_at_rest": {
+    "finite": true,
+    "foam_center_x": 0.0,
+    "foam_sum": 0.0,
+    "max_depth": 3.0,
+    "max_foam": 0.0,
+    "max_speed": 0.0,
+    "max_surface_abs": 0.0,
+    "solid_max_depth": 0.0
+  },
+  "long_run": {
+    "seconds": 68.0000000000002,
+    "stats": {
+      "finite": true,
+      "foam_center_x": 0.491079013266757,
+      "foam_sum": 18683.2536318616,
+      "max_depth": 3.43541383743286,
+      "max_foam": 1.0,
+      "max_speed": 1.9361047744751,
+      "max_surface_abs": 0.523651123046875,
+      "solid_max_depth": 0.0
+    }
+  },
+  "output": "native Godot framebuffer captures",
+  "performance": {
+    "compute_gpu_median_ms": 0.217088,
+    "compute_gpu_p95_ms": 0.223232,
+    "fixed_step_seconds": 0.00833333333333333,
+    "frames": 120,
+    "grid": [
+      384,
+      256
+    ],
+    "note": "QA iteration includes asynchronous completion and capture synchronization; viewport timing excludes compute submitted outside viewport.",
+    "qa_iteration_median_ms": 16.648,
+    "qa_iteration_p95_ms": 17.124,
+    "steps_per_frame": 2,
+    "viewport_render_gpu_median_ms": 0.293999999761581
+  },
+  "piers": {
+    "compared_cells": 8020,
+    "mean_depth_difference_outside_solids": 0.0406949147628504,
+    "stats": {
+      "finite": true,
+      "foam_center_x": 0.505478163823627,
+      "foam_sum": 16814.1777724049,
+      "max_depth": 3.36392688751221,
+      "max_foam": 1.0,
+      "max_speed": 2.0255138874054,
+      "max_surface_abs": 0.608769416809082,
+      "solid_max_depth": 0.0
+    }
+  },
+  "propagation": {
+    "after_1_8_seconds": 30.7699244022369,
+    "initial_annulus_energy": 0.654712915420532
+  },
+  "map_unchanged_during_sample_work": true,
+  "recording": {
+    "path": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\seaside-swe-v1\\water-simulation.webp",
+    "frames": 60,
+    "duration_seconds": 6,
+    "origin": "native Godot framebuffer",
+    "simulation_seconds_per_frame": 0.1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-12T11:32:18",
+  "passed": true,
+  "scope": "Nearby target popup and selected cabinet outline from the approved red-box reference",
+  "regression_checks": 293,
+  "native_checks": 36,
+  "structure_checks": 15,
+  "regression_summary": "docs/tests/p138-final/summary.json",
+  "native_report": "docs/dev/p138/interaction-native.json",
+  "structure_report": "docs/dev/p138/structure-check.json",
+  "screenshots": [
+    "docs/dev/p138/cabinet-1200.png",
+    "docs/dev/p138/cabinet-960.png",
+    "docs/dev/p138/cabinet-1440.png",
+    "docs/dev/p138/cabinet-edge.png"
+  ],
+  "controls": [
+    "E, mouse click and direct touch execute the selected interaction",
+    "One popup follows the selected nearby target; switch-target updates the popup and action button together",
+    "Popup avoids player and HUD, and hides when blocked, out of view or out of range"
+  ],
+  "note": "The legacy structure report file could not be opened. The identical QA script reran with a separate report path and exited successfully. The temporary source copy was removed after verification."
+}

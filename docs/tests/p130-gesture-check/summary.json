@@ -1,0 +1,24 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "looting",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 15.42,
+      "checks": 100,
+      "failed": [
+        "native_cabinet_to_bag_exact_cell"
+      ],
+      "fresh_report": true,
+      "engine_errors": true
+    }
+  ],
+  "total_checks": 100,
+  "passed": false
+}

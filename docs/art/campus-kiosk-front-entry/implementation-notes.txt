@@ -1,0 +1,12 @@
+按批准的 concept-v1.png 接入正面入口小卖铺。
+
+正门位于南侧门脸左侧，唯一售货窗口与店员在右侧；撤下侧面入口，恢复连续侧墙和完整矩形屋顶。
+门脸采用新生成的原始透明 front-facade-v5.png。门洞透明开口与实际碰撞依据原图透明范围对齐，墙柱和售货柜台保留碰撞。
+复用原有独立店员、屋顶、货架与备货柜，增加中央商品架。保持商品、价格和08:00–20:00营业安排。
+清理雨棚裁切中的旧门脸和商品纹理，仅保留雨棚及招牌。图像像素未编辑，使用原始 PNG 和 UV 拼接 metadata。
+柜台购买点设在南侧可步行的通道内，通过实际寻路和站位检查。店员渲染使用 exterior_service 标记，保证屋顶显示时仍能从窗口看到唯一店员。
+该房间使用 roof_exit_by_feet，让离开门口时屋顶恢复，适应门外浅通道；其他房间保留原来的身体投影退出判断。
+
+美术模式：内置 image_gen。完整提示词、参考、生成来源和保存路径见 generation.json；资源元数据见 art/architecture/kiosk_v2/manifest.json。
+地图为 data/rooms/r04.json。首次改动前地图保存在 before-initial-installation.json；最终按最新地图接入的 before.json/after.json 用于验证没有改动其他区域。
+原生 Godot 验证脚本：qa/campus_kiosk_front_entry.gd。检查和截图见 checks.json、runtime-exterior.png、runtime-threshold.png、runtime-interior.png、editor.png。

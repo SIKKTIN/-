@@ -1,0 +1,42 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "items_preview",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.88,
+      "checks": 170,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.7,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.47,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 303,
+  "passed": true
+}

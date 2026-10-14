@@ -1,0 +1,18 @@
+{
+	"checks": {
+		"NPC wage stays in social ledger": true,
+		"card table pauses both schedule and simulation": true,
+		"closing paid game resumes world": true,
+		"duplicate work interval cannot pay twice": true,
+		"earned money accepted by minigame": true,
+		"lunch cannot alter wallet": true,
+		"new game resets card ledger and original wallet": true,
+		"normal lunch still starts after a card game": true,
+		"only player wage reaches player wallet": true,
+		"player can still begin normal work": true,
+		"second work wage can fund a five-unit wager": true
+	},
+	"count": 11,
+	"failed": [],
+	"legacy_note": "p76_lunch_wallet refers to removed routine_panel; this check uses current work/meal APIs."
+}

@@ -1,0 +1,688 @@
+{
+  "schema": 2,
+  "version": "dorm-pocket-open-v3",
+  "assets": [
+    {
+      "id": "dorm_door_upper_leaf_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        271,
+        28,
+        483,
+        424
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_lower_leaf_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        273,
+        539,
+        480,
+        437
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_closed_leaves_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1000,
+        8,
+        166,
+        489
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_frame_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1007,
+        511,
+        159,
+        494
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "doorway_dorm_side_open_v1",
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1001,
+        24,
+        145,
+        979
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": false,
+      "runtime_size_limit": 1024,
+      "name": "宿舍宽口移门 · 全开 / 石材收边",
+      "render_mode": "embedded_door",
+      "world_size": [
+        20,
+        200
+      ],
+      "render_size": [
+        20,
+        200
+      ],
+      "footprint_world_size": [
+        20,
+        120
+      ],
+      "ground_rect": [
+        0,
+        0,
+        145,
+        979
+      ],
+      "blocking": false,
+      "editor_subcategory": "doors",
+      "grid_door": {
+        "cell": 20
+      },
+      "door_presentation": {
+        "raised_door": true,
+        "piece_depth": true,
+        "clear_wall_facade": true,
+        "side_aperture_span": 200,
+        "door_art_size": [
+          200,
+          20
+        ],
+        "door_art": "doorway_dorm_side_open_v1",
+        "door_art_closed": "doorway_dorm_side_closed_v1",
+        "door_open_patches": [
+          {
+            "asset": "dorm_open_north_cap_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              0,
+              14,
+              20
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_south_cap_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              186,
+              0,
+              14,
+              20
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_threshold_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              14,
+              0,
+              172,
+              28
+            ],
+            "rotation_quarters": 3,
+            "ground_level": true
+          },
+          {
+            "asset": "dorm_open_north_stone_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              -14,
+              -2,
+              14,
+              24
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_south_stone_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              200,
+              -2,
+              14,
+              24
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "door_closed_patches": [
+          {
+            "asset": "dorm_pocket_closed_frame_v2",
+            "source": [
+              0,
+              0.15,
+              1,
+              0.7
+            ],
+            "destination": [
+              14,
+              0,
+              172,
+              28
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_pocket_open_frame_v2",
+            "source": [
+              0,
+              0,
+              1,
+              0.15
+            ],
+            "destination": [
+              0,
+              0,
+              14,
+              28
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_pocket_open_frame_v2",
+            "source": [
+              0,
+              0.85,
+              1,
+              0.15
+            ],
+            "destination": [
+              186,
+              0,
+              14,
+              28
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "visual_solid_parts": [
+          [
+            0,
+            0,
+            14,
+            28
+          ],
+          [
+            186,
+            0,
+            14,
+            28
+          ]
+        ],
+        "closed_visual_solid_parts": [
+          [
+            0,
+            0,
+            14,
+            28
+          ],
+          [
+            186,
+            0,
+            14,
+            28
+          ],
+          [
+            14,
+            0,
+            172,
+            28
+          ]
+        ],
+        "body_profile": "full_body",
+        "states": [
+          "closed",
+          "fully-open"
+        ],
+        "manual_door": true,
+        "closure_padding": [
+          16,
+          0,
+          4,
+          0
+        ],
+        "expose_closed_frame": true,
+        "roof_occludes_door": true,
+        "passage_body_center": [
+          100,
+          10
+        ],
+        "design": "in-wall-pocket-v2",
+        "open_design": "stone-return-open-v3"
+      }
+    },
+    {
+      "id": "doorway_dorm_side_closed_v1",
+      "texture": "res://art/architecture/dorm_door_v1/pocket-components-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1005,
+        21,
+        104,
+        982
+      ],
+      "sha256": "5bb0e4571b8bd8e730fe862116aee743a9b96ffced895156e6561400fb3769ad",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": false,
+      "runtime_size_limit": 1024,
+      "name": "宿舍宽口移门 · 关闭",
+      "render_mode": "embedded_door",
+      "world_size": [
+        20,
+        200
+      ],
+      "render_size": [
+        20,
+        200
+      ],
+      "footprint_world_size": [
+        20,
+        120
+      ],
+      "ground_rect": [
+        0,
+        0,
+        104,
+        982
+      ],
+      "blocking": false,
+      "editor_subcategory": "doors",
+      "grid_door": {
+        "cell": 20
+      },
+      "door_presentation": {
+        "raised_door": true,
+        "piece_depth": true,
+        "clear_wall_facade": true,
+        "side_aperture_span": 200,
+        "door_art_size": [
+          200,
+          20
+        ],
+        "door_art": "doorway_dorm_side_open_v1",
+        "door_art_closed": "doorway_dorm_side_closed_v1",
+        "door_open_patches": [
+          {
+            "asset": "dorm_open_north_cap_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              0,
+              14,
+              20
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_south_cap_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              186,
+              0,
+              14,
+              20
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_threshold_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              14,
+              0,
+              172,
+              28
+            ],
+            "rotation_quarters": 3,
+            "ground_level": true
+          },
+          {
+            "asset": "dorm_open_north_stone_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              -14,
+              -2,
+              14,
+              24
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_open_south_stone_v3",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              200,
+              -2,
+              14,
+              24
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "door_closed_patches": [
+          {
+            "asset": "dorm_pocket_closed_frame_v2",
+            "source": [
+              0,
+              0.15,
+              1,
+              0.7
+            ],
+            "destination": [
+              14,
+              0,
+              172,
+              28
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_pocket_open_frame_v2",
+            "source": [
+              0,
+              0,
+              1,
+              0.15
+            ],
+            "destination": [
+              0,
+              0,
+              14,
+              28
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_pocket_open_frame_v2",
+            "source": [
+              0,
+              0.85,
+              1,
+              0.15
+            ],
+            "destination": [
+              186,
+              0,
+              14,
+              28
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "visual_solid_parts": [
+          [
+            0,
+            0,
+            14,
+            28
+          ],
+          [
+            186,
+            0,
+            14,
+            28
+          ]
+        ],
+        "closed_visual_solid_parts": [
+          [
+            0,
+            0,
+            14,
+            28
+          ],
+          [
+            186,
+            0,
+            14,
+            28
+          ],
+          [
+            14,
+            0,
+            172,
+            28
+          ]
+        ],
+        "body_profile": "full_body",
+        "states": [
+          "closed",
+          "fully-open"
+        ],
+        "manual_door": true,
+        "closure_padding": [
+          16,
+          0,
+          4,
+          0
+        ],
+        "expose_closed_frame": true,
+        "roof_occludes_door": true,
+        "passage_body_center": [
+          100,
+          10
+        ],
+        "design": "in-wall-pocket-v2",
+        "open_design": "stone-return-open-v3"
+      }
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/pocket-components-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "5bb0e4571b8bd8e730fe862116aee743a9b96ffced895156e6561400fb3769ad",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_pocket_open_frame_v2",
+      "region": [
+        428,
+        21,
+        104,
+        982
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/pocket-components-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "5bb0e4571b8bd8e730fe862116aee743a9b96ffced895156e6561400fb3769ad",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_pocket_closed_frame_v2",
+      "region": [
+        1005,
+        21,
+        104,
+        982
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_open_north_cap_v3",
+      "region": [
+        621,
+        176,
+        78,
+        184
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_open_south_cap_v3",
+      "region": [
+        621,
+        659,
+        78,
+        185
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_open_north_stone_v3",
+      "region": [
+        699,
+        176,
+        82,
+        184
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_open_south_stone_v3",
+      "region": [
+        699,
+        659,
+        82,
+        185
+      ],
+      "editor_hidden": true
+    },
+    {
+      "texture": "res://art/architecture/dorm_door_v1/open-stone-components-v3.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "sha256": "f6ad52cba46e42d7bf9bc4608e01554fada848faad6bc58654a32740d0770684",
+      "source_kind": "built-in-imagegen-original-png",
+      "runtime_size_limit": 1024,
+      "id": "dorm_open_threshold_v3",
+      "region": [
+        1001,
+        24,
+        145,
+        979
+      ],
+      "editor_hidden": true
+    }
+  ]
+}

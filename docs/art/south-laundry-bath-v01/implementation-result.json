@@ -1,0 +1,53 @@
+{
+  "status": "implemented",
+  "approved_concept": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\concept-final-v02.png",
+  "map": "E:\\Project\\Godot\\这次怎么逃\\data\\rooms\\r04.json",
+  "map_sha256": "77ad67af216d17bf24047b9467f87898eedb9ef4f63a940ef9414372dee1c8a0",
+  "checks": 164,
+  "failed": [],
+  "native_runtime_preview": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\runtime-interior.png",
+  "roof_preview": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\runtime-roofs.png",
+  "closed_north_door_preview": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\runtime-north-closed.png",
+  "editor_preview": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\editor-layout.png",
+  "imagegen_mode": "built-in",
+  "asset_records": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\implementation-assets.json",
+  "prompt_files": [
+    "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\production-east-basin-prompt.txt",
+    "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\production-privacy-screen-prompt.txt",
+    "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\production-dirty-carts-prompt.txt"
+  ],
+  "design": {
+    "laundry": [
+      900,
+      3420,
+      900,
+      660
+    ],
+    "bath": [
+      1840,
+      3420,
+      440,
+      660
+    ],
+    "north_door_foot_y": 3400,
+    "south_wall_foot_y": 4080,
+    "bath_short_screen": "west-attached straight module",
+    "bath_east_wall": "solid",
+    "roofs": "independently follow room visibility"
+  },
+  "preserved": [
+    "linen container IDs and contents profiles",
+    "water-card pricing, cashier hours and refunds",
+    "laundry timed access hours and linked service-door lock",
+    "perimeter walls and unrelated saved map edits"
+  ],
+  "integration_notes": [
+    "South room depth increased 100 world units after native whole-body access checks; south perimeter remains unchanged.",
+    "Existing laundry-equipment lock linkage was moved to west service doorway because its former east aperture faced the relocated solid bath wall.",
+    "Runtime interior comparison screenshot temporarily exposes both interiors for art inspection; actual gameplay roof reveal remains independent.",
+    "Bath main entrance preserves the prior freely open behavior; a paired closed door asset is available.",
+    "Native editor panning reuses architecture geometry; original generated PNGs are unchanged and runtime texture size is capped at 512."
+  ],
+  "native_checks_log": "E:\\Project\\Godot\\这次怎么逃\\docs\\art\\south-laundry-bath-v01\\native.log",
+  "checked": true
+}

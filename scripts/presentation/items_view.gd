@@ -41,23 +41,7 @@ func reload_assets() -> void:
 		game.presentation.skill_icons["backpack"] = textures.backpack
 
 func _texture(spec: Dictionary) -> Texture2D:
-	var path := str(spec.texture)
-	var original: Texture2D
-	if FileAccess.file_exists(path+".import"):
-		original = load(path)
-	else:
-		var raw := Image.load_from_file(path)
-		if raw == null or raw.is_empty():
-			return null
-		original = ImageTexture.create_from_image(raw)
-	if not spec.has("region"):
-		return original
-	var rect: Array = spec.region
-	var atlas := AtlasTexture.new()
-	atlas.atlas = original
-	atlas.region = Rect2(rect[0], rect[1], rect[2], rect[3])
-	atlas.filter_clip = true
-	return atlas
+	return preload("res://scripts/items/item_catalog.gd").texture_from(spec)
 
 func icon_for(id: String) -> Texture2D:
 	return textures.get(id)
@@ -83,6 +67,11 @@ func tick_visuals() -> void:
 		merchant_visuals[id].tick_visual()
 
 func _prepare_merchant_appearance(actor) -> void:
+	var sprite_id: String = str(actor.service_spec.get("sprite_asset_id",""))
+	if not sprite_id.is_empty() and not merchant_appearances.has(sprite_id):
+		var props: Dictionary = preload("res://scripts/presentation/prop_catalog.gd").assets()
+		if props.has(sprite_id):
+			merchant_appearances[sprite_id] = {"asset":props[sprite_id],"idle":preload("res://scripts/presentation/world_texture.gd").load_asset(props[sprite_id])}
 	var library=preload("res://scripts/presentation/character_library.gd")
 	var id: String=library.id_for(game,actor)
 	if id.is_empty() or merchant_appearances.has(id):return
@@ -92,6 +81,12 @@ func _prepare_merchant_appearance(actor) -> void:
 	merchant_appearances[id]={"asset":asset,"idle":motion.idle,"frames":motion.walk}
 
 func paint_merchant_body(canvas: CanvasItem, actor) -> void:
+	var sprite_id: String = str(actor.service_spec.get("sprite_asset_id",""))
+	if merchant_appearances.has(sprite_id):
+		var selected: Dictionary = merchant_appearances[sprite_id]
+		var dimensions: Array = selected.asset.world_size
+		canvas.draw_texture_rect(selected.idle,Rect2(-float(dimensions[0])/2,-float(dimensions[1]),dimensions[0],dimensions[1]),false)
+		return
 	var appearance: String=preload("res://scripts/presentation/character_library.gd").id_for(game,actor)
 	if merchant_appearances.has(appearance):
 		var selected: Dictionary=merchant_appearances[appearance]
@@ -136,14 +131,16 @@ func _draw() -> void:
 		if game.world.is_under_roof(point): continue
 		var id := str(item.definition_id)
 		if textures.get(id) != null:
-			draw_texture_rect(textures[id], Rect2(point - Vector2(13, 24), Vector2(26, 26)), false)
+			var texture: Texture2D = textures[id]
+			var dims := texture.get_size()*minf(26.0/texture.get_width(),26.0/texture.get_height())
+			draw_texture_rect(texture, Rect2(point-Vector2(dims.x/2,dims.y),dims),false)
 		else:
 			draw_circle(point - Vector2(0, 10), 11, Color("e1c787"))
 			draw_arc(point - Vector2(0, 10), 11, 0, TAU, 24, Color("536052"), 2, true)
 	for merchant in game.trade.merchants.values():
 		var point := Vector2(merchant.position[0], merchant.position[1])
 		if game.world.is_under_roof(point): continue
-		if not merchant_asset.get("shadow_baked",false):
+		if not merchant_asset.get("shadow_baked",false) and not game.trade.actors[merchant.id].service_spec.has("sprite_asset_id"):
 			draw_ellipse(point+Vector2(0,2),15,4,Color(0,0,0,0.14))
 	if not game.perspective_floor:
 		paint_information(self)
@@ -159,7 +156,7 @@ func paint_information(canvas: CanvasItem) -> void:
 		var actor = game.trade.actors[merchant.id]
 		var point := Vector2(merchant.position[0],merchant.position[1])
 		if game.world.is_under_roof(point): continue
-		var text: String = "商人 · "+("路线受阻" if actor.route_status != "" and not actor.at_destination() else actor.activity_text())
+		var text: String = ("小卖铺 · " if actor.service_spec.has("service_offset") else "商人 · ")+("路线受阻" if actor.route_status != "" and not actor.at_destination() else actor.activity_text())
 		var width: float = game.presentation.font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x+12
 		var badge := Rect2(point+Vector2(-width/2,12),Vector2(width,23))
 		canvas.draw_rect(badge,Color("f2ebdd"))

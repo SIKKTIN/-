@@ -1,0 +1,54 @@
+{
+  "resources": {
+    "production_text_files": 146,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "editor_eraser",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 5.3,
+      "checks": 25,
+      "failed": [
+        "screenshot wall located in saved map"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.16,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "quick_items",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.27,
+      "checks": 83,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 13.98,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 241,
+  "passed": false
+}

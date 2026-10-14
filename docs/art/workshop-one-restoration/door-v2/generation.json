@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13",
+  "mode": "built-in-imagegen",
+  "intent": "generate referenced modular transparent atlas",
+  "source": "C:/Users/gst20/.codex/generated_images/01a12b69-115b-7641-b7d4-9ca1e651c449/exec-411ea041-a654-42cc-87e9-8fcd6668105f.png",
+  "output": "art/architecture/workshop_door_v2/components.png",
+  "reference": "docs/art/workshop-one-restoration/door-concept-v2/unified-door-two-states.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent game-ready modular texture atlas for the approved workshop double steel door.\nInput image: approved two-state concept, STYLE AND SHAPE reference. Generate asset pixels, not a new concept board.\n\nPrimary request: extract/redraw the steel doorway as five isolated sprite components on a genuinely transparent background. Arrange THREE evenly spaced columns, equal component top/bottom alignment, generous empty transparent gaps.\nColumn 1: ONLY the fixed upside-down U-shaped doorframe: slim blue-gray metal header and two full-height straight jambs with top and bottom riveted square plates and restrained ochre hazard markings exactly like approved reference. EMPTY transparent doorway inside this U. No leaf whatsoever.\nColumn 2: ONLY the two CLOSED rectangular steel leaves, left and right adjacent with a narrow central seam. NO frame or masonry. Each leaf has the same small wired-glass rectangular inspection window at upper quarter and brass vertical pull handle at the meeting edge, worn blue-gray paint and restrained orange rust. Pair fits inside column 1 frame: closed pair width ~85% of outer frame, height ~85%. Real actual transparent background around both leaves, glass itself opaque.\nColumn 3: ONLY the SAME two door leaves fully opened about 90 degrees, each a narrow foreshortened view seen from the game's elevated camera, left leaf on the left and right leaf on the right with a large empty transparent central gap. NO frame. Both inspection windows and brass handles visible in foreshortened form. Their outer hinge edges fit just inside the fixed jambs, their baselines align with closed leaves, tops begin below header. Open leaf width about 7-9% of total outer frame width per leaf. Do NOT make half-open leaves. Do NOT invent different windows or hardware.\n\nFrame outer width to painted height ratio 1.5:1, matching the approved wide doorway, with rectangular leaves inside. Maintain matching camera and proportion throughout. Composition should let each column be registered as a separate atlas region at the same scale.\nStyle: hand-painted 2D raster sprites as reference, crisp dark outlines and readable industrial details, muted blue-gray steel, brass handles, small rust scratches, top-left soft highlights. Elevated orthographic 3/4 view, flat frontal facade with visible thickness, same as game's wall run; no isometric diagonal ground.\nConstraints: preserve approved shapes and hardware. Isolated sprite only. No background scene, no ground or floor painted into opening, no wall pieces, no beige stone fragments above jambs, no duplicate frame, no residual old frame, no cast shadow outside sprite, no character, no furniture, no labels/text, no borders, no checkerboard drawn into pixels. Actual transparent alpha. No intermediate animation states. The only changing component is the pair of leaves.",
+  "implementation": {
+    "states": [
+      "closed",
+      "fully-open"
+    ],
+    "frame": "one identical frame texture and destination shared in both states",
+    "old_map_ids": "compatible catalog overrides; map JSON untouched; editor drafts remain compatible",
+    "wall_cut": "entire doorway facade cut shared by editor, roof and runtime painters",
+    "floor": "independent ground layer"
+  }
+}

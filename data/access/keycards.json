@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "map_id": "r04",
+  "rooms": [
+    {
+      "id": "dorm-extra-0",
+      "name": "D-01 宿舍",
+      "required": "D-01 宿舍卡",
+      "fixtures": [
+        "campus-dorm-extra-1"
+      ],
+      "number": "D-01"
+    },
+    {
+      "id": "dorm-extra-1",
+      "name": "D-02 宿舍",
+      "required": "D-02 宿舍卡",
+      "fixtures": [
+        "campus-dorm-extra-2"
+      ],
+      "number": "D-02"
+    },
+    {
+      "id": "dorm-0",
+      "name": "D-03 宿舍",
+      "required": "D-03 宿舍卡",
+      "fixtures": [],
+      "number": "D-03"
+    },
+    {
+      "id": "dorm-1",
+      "name": "D-04 宿舍",
+      "required": "D-04 宿舍卡",
+      "fixtures": [],
+      "number": "D-04"
+    },
+    {
+      "id": "dorm-2",
+      "name": "D-05 宿舍",
+      "required": "D-05 宿舍卡",
+      "fixtures": [],
+      "number": "D-05"
+    },
+    {
+      "id": "workshop",
+      "name": "一号车间",
+      "required": "生活通行卡",
+      "fixtures": [
+        "workshop-entry-visual45",
+        "workshop-entry-east-visual45"
+      ]
+    },
+    {
+      "id": "workshop-two",
+      "name": "二号车间",
+      "required": "生活通行卡",
+      "fixtures": [
+        "campus-workshop-two-north",
+        "campus-workshop-two-south",
+        "campus-workshop-two-east"
+      ]
+    },
+    {
+      "id": "canteen",
+      "name": "食堂",
+      "required": "生活通行卡",
+      "fixtures": [
+        "cafeteria-entry-visual45",
+        "cafeteria-entry-east-visual45",
+        "campus-life-west-meal",
+        "canteen-south-door-visual"
+      ]
+    },
+    {
+      "id": "laundry",
+      "name": "洗衣房",
+      "required": "后勤通行卡",
+      "fixtures": [
+        "cafeteria-rear-visual45"
+      ]
+    },
+    {
+      "id": "bath",
+      "name": "公共浴室",
+      "required": "生活通行卡",
+      "fixtures": [
+        "campus-bath"
+      ]
+    },
+    {
+      "id": "reading-room",
+      "name": "阅览室",
+      "required": "生活通行卡",
+      "fixtures": [
+        "reading-room-entry"
+      ]
+    },
+    {
+      "id": "clinic",
+      "name": "医务室",
+      "required": "生活通行卡",
+      "fixtures": [
+        "campus-clinic"
+      ]
+    },
+    {
+      "id": "chess-room",
+      "name": "棋牌活动室",
+      "required": "生活通行卡",
+      "fixtures": [
+        "chess-door-visual"
+      ]
+    },
+    {
+      "id": "duty",
+      "name": "值班室",
+      "required": "值班室房卡",
+      "fixtures": [
+        "campus-duty"
+      ]
+    },
+    {
+      "id": "office",
+      "name": "办公室",
+      "required": "办公室房卡",
+      "fixtures": [
+        "campus-office-entry-visual"
+      ]
+    },
+    {
+      "id": "monitor",
+      "name": "监控室",
+      "required": "监控室房卡",
+      "fixtures": [
+        "campus-monitor-entry-visual"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "工具房",
+      "required": "工具房卡",
+      "fixtures": [
+        "campus-tools-entry-visual",
+        "campus-tools-rear-visual"
+      ]
+    },
+    {
+      "id": "warehouse",
+      "name": "仓库",
+      "required": "后勤通行卡",
+      "fixtures": [
+        "campus-warehouse-west",
+        "campus-warehouse-east-north",
+        "campus-warehouse-east-south",
+        "campus-warehouse-south"
+      ]
+    },
+    {
+      "id": "equipment",
+      "name": "设备间",
+      "required": "后勤通行卡",
+      "fixtures": [
+        "energy-court-energy-entry"
+      ]
+    }
+  ],
+  "starting": [
+    {
+      "kind": "dorm_card",
+      "room_id": "dorm-0"
+    },
+    {
+      "kind": "daily_card"
+    }
+  ],
+  "npc_public_rooms": [
+    "workshop",
+    "workshop-two",
+    "canteen",
+    "bath",
+    "reading-room",
+    "clinic",
+    "chess-room"
+  ],
+  "loot": {
+    "locker_0": [
+      {
+        "kind": "logistics_card"
+      }
+    ],
+    "locker_1": [
+      {
+        "kind": "duty_card"
+      }
+    ],
+    "reading-return": [
+      {
+        "kind": "dorm_card",
+        "room_id": "dorm-1"
+      }
+    ],
+    "campus-admin-desk-0": [
+      {
+        "kind": "office_card"
+      }
+    ],
+    "office-archive-west": [
+      {
+        "kind": "monitor_card"
+      }
+    ],
+    "duty-keybox": [
+      {
+        "kind": "dorm_card",
+        "room_id": "dorm-extra-0"
+      },
+      {
+        "kind": "dorm_card",
+        "room_id": "dorm-extra-1"
+      },
+      {
+        "kind": "dorm_card",
+        "room_id": "dorm-2"
+      }
+    ],
+    "warehouse-high-cabinet": [
+      {
+        "kind": "tools_card"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "shell",
+      "prompt": "Use case: stylized-concept. ONE production transparent wall-shell sprite for the approved enterable small kiosk, no concept board. Reference image1 is approved kiosk art style and footprint, but OMIT its south storefront and ALL furniture.\nTop-down 2.5D axis-aligned orthographic camera, like the game reference, no diagonal isometric rotation. Draw a shallow U-shaped enclosure: cream plaster NORTH back wall across full width, cream EAST side wall, cream WEST side wall. Muted sage green metal trim at thin coping, restrained green lower wall band, slight age. Wide rectangular width:depth about 1.9:1. Interior and south/open bottom edge are completely transparent. No floor, no furniture, no shelves, no people, no roof, no canopy, no counters, no register, no signage. All walls rendered within this rectangle rather than tall house facade.\nCRITICAL WEST doorway: leave a real large EMPTY GAP in LEFT vertical wall, approximately from 48% to 88% of shell depth. Upper west wall stops at door top; small lower west pier remains near bottom. Clear empty opening through left edge into empty interior; ivory/green narrow jambs on either end, no wall filling the aperture. Door leaf and lamp are separate assets, so do NOT include them. North/east boundaries remain continuous. Wall inner faces subtly shaded in same approved paint style, thin green edging, no prison stone blocks and no thick tiled cornice. Render top band as a modest shallow wall front face about one quarter of image depth; sidewalls narrow compared to clear interior.\nUse true alpha transparency all around and throughout the interior and doorway aperture. Fill canvas with the entire U-wall shell leaving small margins. Neutral overhead day lighting; no floating shadows or color glow outside silhouette. No extra elements or labels.",
+      "transparent": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a12ef7-5d80-7021-b6a0-dc920b924418/exec-fad68cf4-088d-4b02-8c18-7bee0d4b2bd1.png",
+      "path": "art/architecture/kiosk_v2/shell.png"
+    },
+    {
+      "key": "door",
+      "prompt": "Use case: stylized-concept. ONE isolated production transparent WEST side entrance sprite for this small kiosk. Same game painting and sage/cream palette as reference image1. Camera nearly overhead orthographic, map north is image up, west faces image left. This is a narrow side doorway on a LEFT vertical building wall, NOT a front-facing door spanning across the image.\nA dark muted sage green sheet-metal door leaf swung OUTWARD toward WEST (left) about 75 degrees, exposing an empty ivory framed side-door aperture to its right. Simple metal handle and hinges, slight scuffs. Include a tiny shallow corrugated green hood above opening, warm practical wall lamp on right jamb and a small plain ivory plate \"入口\". Aperture/threshold should be TRANSPARENT, to let existing floor show through. Frame straight, clear passage aligned vertically between the jambs; door leaf is the largest silhouette to left. Show only doorway unit, not long adjoining wall strips. No floor slab, no room, no shelves, no cashier, no sign \"小卖铺\", no people, no backdrop or vignette. Compact tall sprite, approx width:height 0.65:1 including open leaf, clear edges. Actual transparent alpha around silhouette and inside opening. Entire unit visible, neutral day lighting, restrained outline. Avoid diagonal isometric building corner or forward-facing front door.",
+      "transparent": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a12ef7-5d80-7021-b6a0-dc920b924418/exec-e22fa042-5c22-4a2a-83e4-ef11a892c656.png",
+      "path": "art/architecture/kiosk_v2/door.png"
+    },
+    {
+      "key": "shelf",
+      "prompt": "Use case: stylized-concept. One production isolated transparent stocked WOODEN GOODS SHELF for kiosk interior, matching approved reference. Wide honey-brown timber cabinet, three tidy open shelf tiers containing muted colored biscuit tins and instant-food packets, glass drink bottles, folded towels and small white boxes. A few reserve cartons on top, no real brands or readable text. Nearly overhead orthographic 2.5D game sprite, all shelf edges horizontal/vertical and see shallow top plane, same delicate hand-painted matte game art. Width:visible height about 2.7:1, shallow depth, moderate wear, clear individual grouped products rather than busy tiny noise. Full object visible. ONLY shelving, no register, no counter, no cashier, no room walls, no floor, no background, no separate loose objects, no board. Genuine alpha transparency around silhouette, no fog/glow/drop shadow outside. Will sit against north wall of small shop.",
+      "transparent": true,
+      "source": "C:/Users/gst20/.codex/generated_images/01a12ef7-5d80-7021-b6a0-dc920b924418/exec-9d981f46-0367-4242-ac3e-844ff671bcb4.png",
+      "path": "art/architecture/kiosk_v2/shelf.png"
+    }
+  ]
+}

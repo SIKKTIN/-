@@ -1,0 +1,122 @@
+{
+	"schema": 1,
+	"profiles": {
+		"personal": {
+			"label": "私人物品柜",
+			"items": [
+				"factory_map",
+				"cloth",
+				"bread",
+				"cloth",
+				"bandage",
+				"scrap",
+				"door_key",
+				"biscuits",
+				"instant_coffee",
+				"cigarettes",
+				"secret_note"
+			]
+		},
+		"industrial": {
+			"label": "零件柜",
+			"items": [
+				"copper_wire",
+				"gear",
+				"scrap",
+				"copper_wire",
+				"wrench",
+				"lock_tool",
+				"duct_tape",
+				"screw_box",
+				"work_gloves",
+				"pliers",
+				"repair_kit"
+			]
+		},
+		"tools": {
+			"label": "工具柜",
+			"items": [
+				"wrench",
+				"scrap",
+				"gear",
+				"copper_wire",
+				"lock_tool",
+				"duct_tape",
+				"screw_box",
+				"pliers",
+				"work_gloves",
+				"repair_kit"
+			]
+		},
+		"medical": {
+			"label": "医务柜",
+			"items": [
+				"bandage",
+				"bandage",
+				"cloth",
+				"bread",
+				"painkillers",
+				"antiseptic"
+			]
+		},
+		"office": {
+			"label": "文件柜",
+			"guaranteed": [
+				"factory_map"
+			],
+			"items": [
+				"cloth",
+				"scrap",
+				"copper_wire",
+				"door_key",
+				"duty_roster",
+				"delivery_note",
+				"work_id",
+				"temporary_pass",
+				"secret_note"
+			]
+		},
+		"warehouse": {
+			"label": "物资箱",
+			"items": [
+				"cloth",
+				"copper_wire",
+				"gear",
+				"scrap",
+				"bread",
+				"bandage",
+				"canned_meat",
+				"biscuits",
+				"instant_coffee",
+				"canvas_pouch",
+				"delivery_note",
+				"temporary_pass"
+			]
+		},
+		"linen": {
+			"label": "衣物柜",
+			"items": [
+				"cloth",
+				"cloth",
+				"bandage",
+				"bread",
+				"work_gloves",
+				"work_clothes",
+				"canvas_pouch"
+			]
+		},
+		"duty_keys": {
+			"label": "值班钥匙柜",
+			"guaranteed": [
+				"door_key",
+				"duty_roster"
+			],
+			"items": [
+				"door_key",
+				"duty_roster",
+				"temporary_pass",
+				"secret_note"
+			]
+		}
+	}
+}

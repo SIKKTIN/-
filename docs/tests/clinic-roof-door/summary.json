@@ -1,0 +1,72 @@
+{
+  "resources": {
+    "production_text_files": 151,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "clinic_restoration",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 14.09,
+      "checks": 202,
+      "failed": [
+        "clinic walls all use medical family",
+        "no footprint overlap campus-clinic-bed-0 / campus-clinic-basin",
+        "medic patrol moves indoors",
+        "medic patrol never crosses blockers",
+        "medic walk uses all eight poses"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 11.97,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.5,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "scene_seams",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 10.14,
+      "checks": 8,
+      "failed": [
+        "rounded_bath_corners_join_wall_at_940",
+        "bath_front_has_no_twenty_pixel_floor_strip",
+        "bath_front_meets_threshold_without_floor_nick"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "feet",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 10.19,
+      "checks": 29,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 263,
+  "passed": false
+}

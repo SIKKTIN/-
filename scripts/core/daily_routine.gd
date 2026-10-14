@@ -21,12 +21,14 @@ var work_account_clock := 0.0
 var recent_wages: Dictionary = {}
 const MEAL_MINUTES := 20.0
 var meal_minutes: Array = [0.0, 0.0, 0.0]
+var route_spent_usec := 0
 
 func _init(owner_game) -> void:
 	game = owner_game
 	reset()
 
 func reset() -> void:
+	route_spent_usec = 0
 	day = 1
 	work_minutes = [0.0, 0.0, 0.0]
 	work_rounds = [0, 0, 0]
@@ -129,6 +131,19 @@ func _start(actor_id: int, override_kind: String = "", player_action := false) -
 	_send(actor_id,record)
 
 func _send(actor_id: int, record: Dictionary) -> void:
+	# Keep simultaneous shift changes from planning every NPC route in one
+	# frame. The routine remains lawful while queued; its path is calculated
+	# against current doors and bodies when the next frame services it.
+	if not record.get("player_action",false) and (route_spent_usec >= 1000 or (game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000)):
+		record.route_pending = true
+		record.status = "routing"
+		return
+	record.erase("route_pending")
+	var started := Time.get_ticks_usec()
+	_send_now(actor_id,record)
+	route_spent_usec += Time.get_ticks_usec()-started
+
+func _send_now(actor_id: int, record: Dictionary) -> void:
 	var actor = game.actors[actor_id]
 	var goal: Vector2 = record.goal
 	record.retry = game.elapsed+3.0
@@ -190,6 +205,7 @@ func finish_player_action(actor_id: int) -> void:
 	manual[actor_id] = true
 
 func tick() -> void:
+	route_spent_usec = 0
 	if game.phase != "playing" or game.schedule.remaining() <= 0:
 		return
 	var next_slot := current_slot()
@@ -245,7 +261,7 @@ func tick() -> void:
 				_send(id,record)
 			elif record.kind == "meal":
 				game.actors[id].facing = Vector2.UP
-		elif not game.orders.active.has(id) and game.elapsed >= record.retry:
+		elif record.get("route_pending",false) or (not game.orders.active.has(id) and game.elapsed >= record.retry):
 			_send(id,record) # Retain the already collected meal when a route retries.
 
 func is_lawful(actor_id: int) -> bool:
@@ -260,6 +276,7 @@ func is_lawful(actor_id: int) -> bool:
 		return true
 	if r.status == "blocked":
 		return true
+	if r.get("route_pending",false): return true
 	return game.orders.active.has(actor_id) and game.orders.active[actor_id].get("source","") == "routine" and game.orders.active[actor_id].goal == r.goal
 
 func work_duration() -> float:

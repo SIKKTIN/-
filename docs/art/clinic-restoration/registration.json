@@ -1,0 +1,109 @@
+{
+	"schema": 1,
+	"assets": [
+		{
+			"key": "concept",
+			"name": "医务室还原概念",
+			"path": "docs/art/clinic-restoration/concept-v1.png",
+			"prompt": "Use case: precise-object-edit. Redesign the attached current prison factory clinic into a polished 2D game-room concept, matching the attached tiny clinic concept layout and keeping the supplied medic character identity. Image roles: current game screenshot is room/style reference and layout edit starting point; tiny room crop is the desired furniture placement; medic sprite sheet is character identity reference. Output a single clean top-down elevated game-room view with horizontal/vertical architecture (not isometric diagonals), all walls visible in a square room with south doorway. Remove HUD and navigation arrows. Hand-painted industrial illustration, sharp silhouettes, subtle wear, ivory plaster walls and dark grey dado, light warm-grey small ceramic floor tiles. LEFT wall: long north-south stainless/small porcelain wash-and-disinfection counter with sink/faucet/instrument tray, a short return at upper-left. NORTH wall: ivory three drawer medicine chest with faded small red cross, small supply bottles. RIGHT upper wall: glass medical cabinet. LOWER RIGHT: ONE horizontally oriented simple grey iron examination bed with pale blue-grey mattress and white pillow at right end, visible bed legs and side rail. Small existing-style instrument trolley beside bed, not in central walkway. Existing white-coated bespectacled medic stands centre-left beside work counter; orange prisoner stands in central aisle. Characters are small cartoon figures at correct game scale, bed long axis about 2.2 character heights, cabinet medium-sized; do not inflate furniture or characters. Keep central and south ingress walkway open. Sparse small medical supplies, no extra beds, no fancy machines, no modern high-tech screens, no photorealistic rendering, no excessive grain or grunge, no captions or watermark. Calm practical clinic, strongly match approved reference's left work area / upper cabinet / lower horizontal blue bed arrangement.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-4357782d-7f14-4d80-8b18-994ef4434ab7.png",
+			"sha256": "4d912d0bca5f21030abba2002a106d502e2459b854adb95f290de5397515ca79"
+		},
+		{
+			"key": "bed",
+			"name": "横向诊疗床",
+			"path": "art/props/clinic_restoration/examination_bed_h.png",
+			"prompt": "Use case: stylized-concept. Asset type: isolated transparent 2D game environment sprite. Generate ONE old factory clinic examination bed, long axis perfectly horizontal left-to-right, pillow at RIGHT end. Elevated orthographic game view: rectangular mattress top fully readable, its long edges horizontal, short edges vertical, front long side of metal bed frame and two short legs visible; NOT isometric diamond and NO exaggerated perspective. Pale powder-blue-grey mattress sheet with two simple broad folds, off-white small pillow, restrained dark grey-green tubular iron side rail, gently worn cream joint paint, modest lower frame. Hand-painted industrial illustration matching aged ivory prison factory props, fine dark ink outlines, clear soft shading, smooth areas, subtle rust only at joints. Wide silhouette about 2.15 times as wide as tall. No wheels if not needed, no tall hospital machine, no person, no room, no floor, no lettering, no labels, no watermark. Entire bed centered with generous fully transparent margin, actual RGBA transparent background, no checker pattern, no cast ground shadow. Crisp production sprite, blue padded top, front side visible, right pillow, all geometry aligned for top-down 2D map.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-31f1a688-075f-4356-8b49-65604f1c54fe.png",
+			"sha256": "11017f1205b35773d6aa88d6736b6420ade32e3d00b5698fa0ee6788054d141c"
+		},
+		{
+			"key": "counter",
+			"name": "洗手消毒长操作台",
+			"path": "art/props/clinic_restoration/wash_counter_ns.png",
+			"prompt": "Use case: stylized-concept. Asset type: isolated transparent 2D elevated top-down game prop for an old industrial prison clinic. ONE narrow LONG medical wash/disinfection counter oriented NORTH-SOUTH, its long axis exactly VERTICAL in the image. Length around four times its width. Elevated orthographic view with all structural edges horizontal or vertical, NOT isometric and no diagonal receding table. Left edge is flush wall-facing, right edge is the accessible working side, subtly visible right-side cabinet fascia with small dark handles. Top surface stainless grey with aged off-white enamel lip; upper third has one rectangular wash sink with a modest curved faucet; centre has a little shallow instrument tray with forceps and a brown medicine bottle; lower third has folded small white gauze and clean preparation space. One coherent long rectangular counter, low grey metal base, no large chair or stools. Hand-painted restrained factory-game illustration, thin dark outlines, warm upper-left highlights, muted pale grey-green, smooth clear top surfaces, occasional rust only along edges. Whole object completely visible, generous transparent margin, TRUE RGBA alpha, no background, floor, wall, text, cross label, people or baked ground shadow. Keep long axis vertical and top fully readable. Industrial clinic workbench, left against wall, right face accessible. Production-ready readable sprite.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-2c530896-016b-4f45-b71f-fd78d6f3af49.png",
+			"sha256": "beb9fc5640658e046839cf41f24aba5eae546181c65153f74b09cebd2ce95386"
+		},
+		{
+			"key": "drawers",
+			"name": "抽屉药柜",
+			"path": "art/props/clinic_restoration/medicine_drawers.png",
+			"prompt": "Use case: stylized-concept. Asset type: isolated transparent environment sprite for a hand-painted 2D prison factory clinic. ONE small waist-height medicine drawer chest viewed from elevated orthographic top-front angle. Width about 1.2 times total projected height. Rectangular flat off-white enamel top clearly visible with a modest faded brick-red medical cross, tiny amber bottle and a small white gauze box in one corner. Front has THREE wide horizontal drawers with small black recessed handles; dull grey-green iron feet and worn ivory sides. Horizontal edges horizontal, vertical edges vertical, very little diagonal perspective; NOT isometric. Top roughly upper 30 percent of silhouette and drawer facade lower 60 percent, short feet at bottom. Match old factory scene: crisp thin dark ink edge, smooth painterly ivory surfaces, subtle scuffs near handles, no excessive grain, no heavy rust. Full object centered with transparent margins, true RGBA transparent background, no checkerboard, no floor, no room or character, no words, no labels, no watermark, no baked cast shadow. Distinct from a tall glass medicine cabinet. Production sprite that reads clearly at 100 world-pixel width.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-1e7243bc-543a-4330-b8b0-7c3dcd1e9e97.png",
+			"sha256": "fd53ccd5a075bfa1b8342d547f708f02c6c8abe6df8698db94ac71ea4c88dd3f"
+		},
+		{
+			"key": "floor_a",
+			"name": "医务室地砖 A",
+			"path": "art/environment/clinic_restoration/tiles_a.png",
+			"prompt": "Use case: stylized-concept. Asset type: seamless square opaque ground texture for a 2D top-down hand-painted old factory clinic. Entire image is a perfectly orthographic repeating 4 by 4 grid of small square ceramic floor tiles, no furniture or walls. Pale warm-grey / ivory-sage tiles, very muted overall colour about hex B5B3A3, thin low-contrast straight grey grout lines. All 16 tiles same base lightness with barely visible hand-painted wear and tiny softened chips at a few grout intersections; smooth broad surfaces, clean clear edges, restrained painted shading. Absolutely no cast lighting gradient across the sheet, no vignette, no strong gloss, no dirt piles, no grainy noise, no text, no perspective. Tileable left/right and top/bottom: repeating grid continues through every boundary, half grout on borders so repeats make uniform seams. Quiet supporting clinic floor, sharper and smaller tile grid than the large green corridor slabs. Fill square frame edge to edge, fully opaque, flat top view.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-af4f07c6-258c-40b9-a5fb-0d7ba64b3cc7.png",
+			"sha256": "b3df5033830f0aa29ee963d8372841b84a474cf186de5b250fb181460105a288"
+		},
+		{
+			"key": "floor_b",
+			"name": "医务室地砖 B",
+			"path": "art/environment/clinic_restoration/tiles_b.png",
+			"prompt": "Use case: precise-object-edit. Make a second seamless wear variant of this clinic floor texture. Preserve EXACT 4 by 4 grid geometry, grout width and locations, all outer edge pixels' visual colour and pattern, square orthographic framing and pale ivory-grey base colour. Change only a few interior tile wear marks: three tiny softened hairline chips near interior joints and a faint broad scuff on an interior tile. Keep very low contrast, smooth paint, no grain, no cast shadow, no room objects, no lettering, no gradient or vignette. Left/right and top/bottom must remain visually seamless when tiled with the original. Entire square fully opaque. This is variant B of the same medical-room floor, not a differently coloured floor.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-713a6aa2-2415-413d-a797-44620cc8ad1b.png",
+			"sha256": "8ccda4dc90f942566d1a82b2bcd66550d7c05402d85e757eed453c62c5f80b7f"
+		},
+		{
+			"key": "short_counter",
+			"name": "短操作台",
+			"path": "art/props/clinic_restoration/preparation_counter_h.png",
+			"prompt": "Use case: stylized-concept. Asset type: one isolated transparent 2D clinic environment sprite. A SHORT HORIZONTAL medical preparation counter with a grey stainless steel flat top, aged ivory enamel rim and grey-green iron cupboard base. Viewed from elevated orthographic top-front game angle; long edges horizontal, upright edges vertical, no isometric diagonal. Width about twice total projected height. A shallow rectangular tray with folded white cloth occupies one corner, one small brown medicine bottle in another, rest of top clean. Front fascia low, two small dark drawer handles, modest short feet. Same restrained hand-painted old factory palette: warm ivory, muted sage-grey metal, subtle rust at edges, fine dark outlines, broad smooth highlights, no grain or busy scratches. Designed as the upper-left short return beside a vertical medical wash counter. Whole object centered with transparent margin, genuine RGBA alpha background, no floor, wall, room, people, lettering, watermark or baked ground shadow. Crisp legible production asset, compact counter with top and front visible.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-f76a63b7-27d1-4e69-8c11-6374bfa59b77.png",
+			"sha256": "8aa57fcf73754bf4c4e2ee1d455bd22603387f0a9a5f61f0b52c2dc79567cff8"
+		},
+		{
+			"key": "instruments",
+			"name": "器械托盘",
+			"path": "art/props/clinic_restoration/instrument_tray.png",
+			"prompt": "Use case: stylized-concept. Asset type: one small independent transparent 2D game tabletop decoration for an old prison clinic. ONE shallow rectangular brushed metal instrument tray containing a simple forceps and a pair of closed medical scissors. Elevated orthographic TOP-FRONT view, tray long edges horizontal, side edges vertical, front lip thin. Tiny prop designed to be placed ON an existing counter, not on the floor. Thin dark ink outlines, smooth restrained hand-painted steel grey with warm ivory highlight, no excessive grains, subtle wear only on rim, readable simple silhouettes when shown at 32 pixels wide. Full object centered with generous transparent margin. True RGBA alpha background, no ground shadow, no table, floor, wall, people, text, labels or watermark. Wide shape about two times as wide as tall. Single tray with two clearly separated instruments, understated industrial game art.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-ce8a12f3-8a74-4bb9-bbf4-b48de90d6f74.png",
+			"sha256": "9a5f9593b8ede294f9c78d80fe4bca7732a9035d85408e40728b5296ef4b8e35"
+		},
+		{
+			"key": "supplies",
+			"name": "药瓶与消毒棉",
+			"path": "art/props/clinic_restoration/medicine_supplies.png",
+			"prompt": "Use case: stylized-concept. Asset type: isolated transparent tabletop decoration for a 2D prison factory clinic. ONE small grouped arrangement: two small amber glass medicine bottles (one squat, one slightly taller) with ivory paper labels and dark caps, beside a tiny open off-white metal cup containing three white cotton balls. No written words, one restrained faded red medical cross on a label. Elevated orthographic top-front game view, crisp fine dark ink contour, muted brown glass and warm ivory, softly painted highlights, no photo or excessive grain. Compact readable group, scale intended around 24 pixels wide on a counter. Fully visible centered with generous TRUE transparent RGBA margin. No table, floor, wall, characters, cast ground shadow, watermark or text.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-807a251a-2d43-45e5-b0fa-5863c568a382.png",
+			"sha256": "5335a7c387c979cf6de930dc69ffea763ab8d960d25ac0e4cc89672f4c8e0060"
+		},
+		{
+			"key": "linen",
+			"name": "白布与病历",
+			"path": "art/props/clinic_restoration/linen_record.png",
+			"prompt": "Use case: stylized-concept. Asset type: independent small transparent tabletop sprite for an old industrial clinic in a 2D hand-painted game. ONE grouping of two neatly folded off-white gauze towels with a thin worn grey-blue patient record booklet beside them, a small paper tab sticking out. All major edges aligned horizontal and vertical in elevated orthographic top-front view, no isometric tilt. Broad smooth ivory cloth surfaces, two simple folds, subtle fabric weave only, thin dark ink outline, quiet sage-blue booklet, no readable text. Compact understated game decoration for a counter top, recognisable at 30 pixels wide. Actual transparent RGBA background with margins, no counter, floor, room, person, frame, watermark or cast ground shadow.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-2bd289b1-107b-4d76-918b-290808e06d05.png",
+			"sha256": "def5a2368be08afe745c76c6d9e2c9b7f7e620928b3edef486756d21d9511b7d"
+		},
+		{
+			"key": "record_sign",
+			"name": "诊疗记录牌",
+			"path": "art/props/clinic_restoration/record_sign.png",
+			"prompt": "Use case: stylized-concept. Asset type: isolated transparent wall decoration for an old factory clinic in a 2D hand-painted game. ONE small HORIZONTAL aged ivory enamel medical record plaque in a thin muted grey-green metal frame, four tiny screws, viewed FRONT-ON perfectly rectangular. Small muted brick-red medical cross at left. Exact legible Chinese text at upper-right: \"诊疗记录\". Below the title, three fine horizontal faded pencil lines with tiny indistinct marks, no names or medical instructions. Restrained edge scuffs, smooth ivory centre, fine dark ink outline, crisp readable graphic, subtle painted upper-left highlight. Plaque width about twice its height. Fully visible centred with generous genuine transparent RGBA margin. No wall, floor, people, room, watermark, other signage or cast shadow.",
+			"source": "C:\\Users\\gst20\\.codex\\generated_images\\01a12b69-115b-7641-b7d4-9ca1e651c449\\exec-4cf55691-2d3c-4643-8a2e-11e824abd9f6.png",
+			"sha256": "c11b9223be67f092b07e2ef0598c02629918728632eae00d6d091c0fc9cab8dd"
+		}
+	],
+	"map_before_sha256": "b9ecf23f4cffa6dbe1927625ed21ae2af6abcaa70e86e20a8f085bfb91535ec7",
+	"map_after_sha256": "22f8c96e2f00bff633513292978e977f9ed71b0bff33ad719468dac57cd4d99e",
+	"new_prop_ids": [
+		"clinic_exam_bed_h",
+		"clinic_wash_counter_ns",
+		"clinic_medicine_drawers",
+		"clinic_preparation_counter_h",
+		"clinic_instrument_tray",
+		"clinic_medicine_supplies",
+		"clinic_linen_record",
+		"clinic_record_sign",
+		"clinic_glass_cabinet",
+		"clinic_instrument_trolley"
+	],
+	"resident": "clinic_medic",
+	"mode": "built-in image_gen"
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13",
+  "status": "implemented in game and map editor",
+  "states": ["closed", "fully-open"],
+  "assets": "art/architecture/workshop_door_v2/manifest.json",
+  "generation": "docs/art/workshop-one-restoration/door-v2/generation.json",
+  "new_pngs": 1,
+  "original_png_bytes_preserved": true,
+  "map_modified": false,
+  "existing_editor_draft_preserved": true,
+  "tests": {
+    "native_door_render_and_passage": {"checks":49,"failed":[]},
+    "workshop_regression": {"checks":2419,"failed":[]},
+    "editor_regression": {"checks":20,"failed":[]}
+  },
+  "screenshots": ["editor-open.png", "editor-closed.png", "runtime-crossing.png", "runtime-closed.png", "runtime-inside.png"],
+  "editor": "docs/art/workshop-one-restoration/door-v2/open-editor.gd",
+  "play": "docs/art/workshop-one-restoration/door-v2/play.gd"
+}

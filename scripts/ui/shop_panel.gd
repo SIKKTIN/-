@@ -4,11 +4,13 @@ var game
 var panel: Panel
 var blocker: ColorRect
 var title: Label
+var notice: Label
 var offers: ItemList
 var buy: Button
 var merchant_id: String = ""
 var actor_id: int = -1
 var listed_ids: Array = []
+var listed_stock: Array = []
 
 func configure(owner_game) -> void:
 	game = owner_game
@@ -36,7 +38,7 @@ func configure(owner_game) -> void:
 	title = Label.new()
 	title.position = Vector2(18, 15)
 	panel.add_child(title)
-	var notice := Label.new()
+	notice = Label.new()
 	notice.position = Vector2(18, 47)
 	notice.text = "仅可购买 · 营业：12–14 / 17–20，交易时钟继续。"
 	notice.add_theme_font_size_override("font_size", 14)
@@ -70,6 +72,7 @@ func open(id: String) -> void:
 	merchant_id = id
 	actor_id = game.selected_actor_id
 	listed_ids.clear()
+	listed_stock.clear()
 	panel.visible = true
 	blocker.visible = true
 	if game.schedule:
@@ -88,6 +91,7 @@ func close() -> void:
 	merchant_id = ""
 	actor_id = -1
 	listed_ids.clear()
+	listed_stock.clear()
 
 func refresh() -> void:
 	if not panel.visible:
@@ -95,14 +99,25 @@ func refresh() -> void:
 	if game.selected_actor_id != actor_id or game.trade.reason(actor_id, merchant_id) != "":
 		close()
 		return
-	title.text = "商人 · 钱 %d" % game.inventory.wallet
+	title.text = "%s · 钱 %d" % [game.trade.merchants[merchant_id].get("name","商人"),game.inventory.wallet]
+	if game.trade.actors[merchant_id].service_spec.has("service_offset"): title.text = "小卖铺 · "+title.text
+	notice.text = "仅可购买 · 营业：08–20，交易时钟继续。" if game.trade.actors[merchant_id].service_spec.has("service_offset") else "仅可购买 · 营业：12–14 / 17–20，交易时钟继续。"
 	var stock: Array = game.trade.merchants[merchant_id].stock
-	if listed_ids != stock:
-		listed_ids = stock.duplicate()
+	if listed_stock != stock:
+		listed_stock = stock.duplicate()
+		listed_ids.clear()
 		offers.clear()
+		var counts := {}
+		var counter: bool = game.trade.actors[merchant_id].service_spec.has("service_offset")
+		for id in stock:
+			var definition_id: String = game.inventory.instances[id].definition_id
+			counts[definition_id] = int(counts.get(definition_id,0))+1
+			if not counter or counts[definition_id]==1: listed_ids.append(id)
 		for id in listed_ids:
 			var def: Dictionary = game.inventory.definitions[game.inventory.instances[id].definition_id]
-			offers.add_item("%s  ·  价格 %d" % [def.name, def.sell_price], game.items_view.icon_for(str(def.id)))
+			var text: String = "%s  ·  价格 %d" % [def.name,def.sell_price]
+			if counter: text += "  ·  余%d" % int(counts[def.id])
+			offers.add_item(text,game.items_view.icon_for(str(def.id)))
 		if offers.item_count > 0:
 			offers.select(0)
 	buy.disabled = offers.get_selected_items().is_empty()

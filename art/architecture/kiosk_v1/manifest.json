@@ -1,0 +1,107 @@
+{
+	"schema": 2,
+	"version": "kiosk-v1",
+	"assets": [
+		{
+			"id": "kiosk_building_v1",
+			"name": "小卖铺 · 完整售货亭",
+			"texture": "res://art/architecture/kiosk_v1/building.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				212,
+				54,
+				1113,
+				900
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "9973469b6b2ddb27b6ce8e4e4373c25d6d2bf352f8e0d9d49698978ccfc094e4",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v1",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				640,
+				517.5202156334232
+			],
+			"render_size": [
+				640,
+				517.5202156334232
+			],
+			"ground_rect": [
+				0,
+				173.90625,
+				1113,
+				726.0937499999999
+			],
+			"footprint_world_size": [
+				640,
+				417.52021563342316
+			],
+			"elevation_world": 100,
+			"render_mode": "projected_prop",
+			"proportion_locked": true,
+			"blocking": true,
+			"shadow_baked": true,
+			"editor_subcategory": "buildings"
+		},
+		{
+			"id": "kiosk_roof_v1",
+			"name": "小卖铺 · 独立铁皮屋顶",
+			"texture": "res://art/architecture/kiosk_v1/roof.png",
+			"texture_size": [
+				1683,
+				935
+			],
+			"region": [
+				65,
+				80,
+				1553,
+				760
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "4590a0cd2514691c4a574b5a5289668f2e515b2f21aabeaadbff0b8ff6608e7b",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v1",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				640,
+				238
+			],
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"blocking": false
+		},
+		{
+			"id": "kiosk_vendor_v1",
+			"name": "小卖铺 · 售货员",
+			"texture": "res://art/architecture/kiosk_v1/vendor.png",
+			"texture_size": [
+				1247,
+				1261
+			],
+			"region": [
+				102,
+				61,
+				1052,
+				1159
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "d3d5da9d020776016af63d5e07be83ff963c6716b9b102ad11a0baac94d47d05",
+			"runtime_size_limit": 1024,
+			"authoring_set": "kiosk-v1",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"world_size": [
+				48,
+				52.88212927756654
+			],
+			"render_size": [
+				48,
+				52.88212927756654
+			],
+			"editor_hidden": true,
+			"blocking": false
+		}
+	]
+}

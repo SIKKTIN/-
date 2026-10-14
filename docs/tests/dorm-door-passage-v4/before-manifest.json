@@ -1,0 +1,526 @@
+{
+  "schema": 2,
+  "version": "dorm-door-heavy-v2",
+  "assets": [
+    {
+      "id": "dorm_door_upper_leaf_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        271,
+        28,
+        483,
+        424
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_lower_leaf_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        273,
+        539,
+        480,
+        437
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_closed_leaves_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1000,
+        8,
+        166,
+        489
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "dorm_door_frame_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1007,
+        511,
+        159,
+        494
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": true,
+      "runtime_size_limit": 512
+    },
+    {
+      "id": "doorway_dorm_side_open_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        271,
+        28,
+        483,
+        424
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": false,
+      "runtime_size_limit": 512,
+      "name": "宿舍双扇门 · 全开 / 内侧把手",
+      "render_mode": "embedded_door",
+      "world_size": [
+        20,
+        166.4
+      ],
+      "render_size": [
+        20,
+        166.4
+      ],
+      "footprint_world_size": [
+        20,
+        120
+      ],
+      "ground_rect": [
+        0,
+        0,
+        414,
+        350
+      ],
+      "blocking": false,
+      "editor_subcategory": "doors",
+      "grid_door": {
+        "cell": 20
+      },
+      "door_presentation": {
+        "raised_door": true,
+        "piece_depth": true,
+        "clear_wall_facade": true,
+        "door_art_size": [
+          166.4,
+          20
+        ],
+        "door_art": "doorway_dorm_side_open_v1",
+        "door_art_closed": "doorway_dorm_side_closed_v1",
+        "door_open_patches": [
+          {
+            "asset": "dorm_door_upper_leaf_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              -20,
+              6,
+              40,
+              84
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_lower_leaf_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              126.4,
+              6,
+              40,
+              84
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_frame_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              -4,
+              166.4,
+              36
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "door_closed_patches": [
+          {
+            "asset": "dorm_door_closed_leaves_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              4,
+              166.4,
+              32
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_frame_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              -4,
+              166.4,
+              36
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "visual_solid_parts": [
+          [
+            1,
+            1,
+            6,
+            24
+          ],
+          [
+            159.4,
+            1,
+            6,
+            24
+          ],
+          [
+            -8,
+            18,
+            26,
+            54
+          ],
+          [
+            128.4,
+            18,
+            26,
+            54
+          ]
+        ],
+        "closed_visual_solid_parts": [
+          [
+            1,
+            1,
+            6,
+            24
+          ],
+          [
+            159.4,
+            1,
+            6,
+            24
+          ],
+          [
+            0,
+            4,
+            166.4,
+            32
+          ]
+        ],
+        "body_profile": "human_silhouette",
+        "states": [
+          "closed",
+          "fully-open"
+        ],
+        "manual_door": true,
+        "closure_padding": [
+          16,
+          0,
+          4,
+          0
+        ],
+        "expose_closed_frame": true,
+        "roof_occludes_door": true,
+        "open_ground_solid_parts": [
+          [
+            0,
+            -0.2,
+            0.05,
+            1.2
+          ],
+          [
+            0.95,
+            -0.2,
+            0.05,
+            1.2
+          ],
+          [
+            -0.04,
+            0.3,
+            0.09,
+            2.7
+          ],
+          [
+            0.95,
+            0.3,
+            0.09,
+            2.7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "doorway_dorm_side_closed_v1",
+      "texture": "res://art/architecture/dorm_door_v1/components-heavy-v2.png",
+      "texture_size": [
+        1536,
+        1024
+      ],
+      "region": [
+        1000,
+        8,
+        166,
+        489
+      ],
+      "sha256": "1381788d029ce68c15db754ce60a86b0ebe30d064036be61a9c9785b787967d7",
+      "source_kind": "built-in-imagegen-original-png",
+      "editor_hidden": false,
+      "runtime_size_limit": 512,
+      "name": "宿舍双扇门 · 关闭",
+      "render_mode": "embedded_door",
+      "world_size": [
+        20,
+        166.4
+      ],
+      "render_size": [
+        20,
+        166.4
+      ],
+      "footprint_world_size": [
+        20,
+        120
+      ],
+      "ground_rect": [
+        0,
+        0,
+        92,
+        463
+      ],
+      "blocking": false,
+      "editor_subcategory": "doors",
+      "grid_door": {
+        "cell": 20
+      },
+      "door_presentation": {
+        "raised_door": true,
+        "piece_depth": true,
+        "clear_wall_facade": true,
+        "door_art_size": [
+          166.4,
+          20
+        ],
+        "door_art": "doorway_dorm_side_open_v1",
+        "door_art_closed": "doorway_dorm_side_closed_v1",
+        "door_open_patches": [
+          {
+            "asset": "dorm_door_upper_leaf_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              -20,
+              6,
+              40,
+              84
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_lower_leaf_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              126.4,
+              6,
+              40,
+              84
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_frame_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              -4,
+              166.4,
+              36
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "door_closed_patches": [
+          {
+            "asset": "dorm_door_closed_leaves_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              4,
+              166.4,
+              32
+            ],
+            "rotation_quarters": 3
+          },
+          {
+            "asset": "dorm_door_frame_v1",
+            "source": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "destination": [
+              0,
+              -4,
+              166.4,
+              36
+            ],
+            "rotation_quarters": 3
+          }
+        ],
+        "visual_solid_parts": [
+          [
+            1,
+            1,
+            6,
+            24
+          ],
+          [
+            159.4,
+            1,
+            6,
+            24
+          ],
+          [
+            -8,
+            18,
+            26,
+            54
+          ],
+          [
+            128.4,
+            18,
+            26,
+            54
+          ]
+        ],
+        "closed_visual_solid_parts": [
+          [
+            1,
+            1,
+            6,
+            24
+          ],
+          [
+            159.4,
+            1,
+            6,
+            24
+          ],
+          [
+            0,
+            4,
+            166.4,
+            32
+          ]
+        ],
+        "body_profile": "human_silhouette",
+        "states": [
+          "closed",
+          "fully-open"
+        ],
+        "manual_door": true,
+        "closure_padding": [
+          16,
+          0,
+          4,
+          0
+        ],
+        "expose_closed_frame": true,
+        "roof_occludes_door": true,
+        "open_ground_solid_parts": [
+          [
+            0,
+            -0.2,
+            0.05,
+            1.2
+          ],
+          [
+            0.95,
+            -0.2,
+            0.05,
+            1.2
+          ],
+          [
+            -0.04,
+            0.3,
+            0.09,
+            2.7
+          ],
+          [
+            0.95,
+            0.3,
+            0.09,
+            2.7
+          ]
+        ]
+      }
+    }
+  ]
+}

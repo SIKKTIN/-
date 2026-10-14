@@ -1,0 +1,653 @@
+{
+	"schema": 2,
+	"version": "loading-yard-v1",
+	"assets": [
+		{
+			"id": "loading_truck_v1",
+			"name": "装卸场 · 南向篷布货车",
+			"texture": "res://art/props/loading_yard_v1/truck.png",
+			"texture_size": [
+				887,
+				1774
+			],
+			"region": [
+				217,
+				49,
+				453,
+				1651
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "a25b8ac46230046505e3720ca559fea64bfaff6b098a5ce394b2d9f4feece7e0",
+			"runtime_size_limit": 1024,
+			"ground_rect": [
+				0,
+				105.47058823529392,
+				453,
+				1545.529411764706
+			],
+			"footprint_world_size": [
+				170,
+				580
+			],
+			"world_size": [
+				170,
+				619.5805739514349
+			],
+			"render_size": [
+				170,
+				619.5805739514349
+			],
+			"elevation_world": 39.58057395143487,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_crates_v1",
+			"name": "装卸场 · 高低木箱货垛",
+			"texture": "res://art/props/loading_yard_v1/crates.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				303,
+				213,
+				691,
+				813
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "6a75919a0637ec1729000fbf39d090ee269cc1c1801092d918e35c7a122fc669",
+			"runtime_size_limit": 512,
+			"ground_rect": [
+				0,
+				242.17391304347825,
+				691,
+				570.8260869565217
+			],
+			"footprint_world_size": [
+				115,
+				95
+			],
+			"world_size": [
+				115,
+				135.3039073806078
+			],
+			"render_size": [
+				115,
+				135.3039073806078
+			],
+			"elevation_world": 40.3039073806078,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_booth_v1",
+			"name": "装卸场 · 物流门岗亭",
+			"texture": "res://art/props/loading_yard_v1/booth.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				325,
+				254,
+				605,
+				747
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "41488f4f6bf864d4f52f07af2aa4cb885edfa11a84aedaa201f6712fbf16f97f",
+			"runtime_size_limit": 512,
+			"ground_rect": [
+				0,
+				337.7352941176471,
+				605,
+				409.2647058823529
+			],
+			"footprint_world_size": [
+				170,
+				115
+			],
+			"world_size": [
+				170,
+				209.900826446281
+			],
+			"render_size": [
+				170,
+				209.900826446281
+			],
+			"elevation_world": 94.900826446281,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_pallets_v1",
+			"name": "装卸场 · 空木托盘堆",
+			"texture": "res://art/props/loading_yard_v1/pallets.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				242,
+				313,
+				770,
+				655
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "4de6b89b0aca897bb2429e2a876b0ed8a9f1ea9e9aa4db111fb507588e97e835",
+			"runtime_size_limit": 512,
+			"ground_rect": [
+				0,
+				130.0,
+				770,
+				525.0
+			],
+			"footprint_world_size": [
+				110,
+				75
+			],
+			"world_size": [
+				110,
+				93.57142857142857
+			],
+			"render_size": [
+				110,
+				93.57142857142857
+			],
+			"elevation_world": 18.57142857142857,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_crates_low_v1",
+			"name": "装卸场 · 低位双木箱",
+			"texture": "res://art/props/loading_yard_v1/crates_low.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				227,
+				356,
+				810,
+				589
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "cbad3b9d3cd9fd9d7d4226d88f8c694e3c79f7db23ea9b164be0c7d86bb49021",
+			"runtime_size_limit": 512,
+			"ground_rect": [
+				0,
+				152.8461538461538,
+				810,
+				436.1538461538462
+			],
+			"footprint_world_size": [
+				130,
+				70
+			],
+			"world_size": [
+				130,
+				94.53086419753086
+			],
+			"render_size": [
+				130,
+				94.53086419753086
+			],
+			"elevation_world": 24.53086419753086,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_logistics_sign_v1",
+			"name": "装卸场 · 物流出口标牌",
+			"texture": "res://art/props/loading_yard_v1/logistics_sign.png",
+			"texture_size": [
+				2172,
+				724
+			],
+			"region": [
+				230,
+				142,
+				1712,
+				426
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "8fe0dd30e16b89a6e67a5c71c0f360df4fb191eef86693d2f2c4ce2a7f5f735f",
+			"runtime_size_limit": 512,
+			"ground_rect": [
+				0,
+				528.72,
+				1712,
+				8.56
+			],
+			"footprint_world_size": [
+				200,
+				1
+			],
+			"world_size": [
+				200,
+				49.76635514018692
+			],
+			"render_size": [
+				200,
+				49.76635514018692
+			],
+			"elevation_world": 61.76635514018692,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "loading_yard_sign_v1",
+			"name": "装卸场 · 装卸场标牌",
+			"texture": "res://art/props/loading_yard_v1/yard_sign.png",
+			"texture_size": [
+				948,
+				1659
+			],
+			"region": [
+				251,
+				214,
+				447,
+				1235
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "98c6d79b53c61aee6050cb76836b14ee1c351e753547af316443914755e75dda",
+			"runtime_size_limit": 256,
+			"ground_rect": [
+				0,
+				1388.2571428571428,
+				447,
+				12.77142857142857
+			],
+			"footprint_world_size": [
+				35,
+				1
+			],
+			"world_size": [
+				35,
+				96.70022371364654
+			],
+			"render_size": [
+				35,
+				96.70022371364654
+			],
+			"elevation_world": 108.70022371364654,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "loading_bollard_v1",
+			"name": "装卸场 · 警示门柱",
+			"texture": "res://art/props/loading_yard_v1/bollard.png",
+			"texture_size": [
+				1181,
+				1332
+			],
+			"region": [
+				473,
+				314,
+				236,
+				714
+			],
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "d0c796963a8c8c947d3360f542f357aa4f1d1529ccf57b7cf014f20b095d3ac9",
+			"runtime_size_limit": 256,
+			"ground_rect": [
+				0,
+				544.0799999999999,
+				236,
+				169.92000000000002
+			],
+			"footprint_world_size": [
+				25,
+				18
+			],
+			"world_size": [
+				25,
+				75.63559322033898
+			],
+			"render_size": [
+				25,
+				75.63559322033898
+			],
+			"elevation_world": 57.635593220338976,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "loading_sacks_v1",
+			"name": "装卸场 · 袋装物资",
+			"texture": "res://art/props/factory_v44/variation_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				1186,
+				135,
+				313,
+				329
+			],
+			"ground_rect": [
+				0,
+				85.55555555555557,
+				313,
+				243.44444444444443
+			],
+			"footprint_world_size": [
+				90,
+				70
+			],
+			"world_size": [
+				90,
+				94.60063897763578
+			],
+			"render_size": [
+				90,
+				94.60063897763578
+			],
+			"elevation_world": 24.600638977635782,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_packages_v1"
+		},
+		{
+			"id": "loading_drums_v1",
+			"name": "装卸场 · 旧油桶",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				46,
+				405,
+				349,
+				248
+			],
+			"ground_rect": [
+				0,
+				29.875,
+				349,
+				218.125
+			],
+			"footprint_world_size": [
+				80,
+				50
+			],
+			"world_size": [
+				80,
+				56.84813753581662
+			],
+			"render_size": [
+				80,
+				56.84813753581662
+			],
+			"elevation_world": 6.848137535816619,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_drums_v1"
+		},
+		{
+			"id": "loading_jack_v1",
+			"name": "装卸场 · 手动托盘车",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				519,
+				372,
+				155,
+				296
+			],
+			"ground_rect": [
+				0,
+				-35.46153846153845,
+				155,
+				331.46153846153845
+			],
+			"footprint_world_size": [
+				65,
+				139
+			],
+			"world_size": [
+				65,
+				124.12903225806453
+			],
+			"render_size": [
+				65,
+				124.12903225806453
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 512,
+			"reused_from": "warehouse_jack_v1"
+		},
+		{
+			"texture": "res://art/props/duty_room_v1/clock.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"region": [
+				276,
+				267,
+				701,
+				697
+			],
+			"sha256": "15703c46a339cc9b9c3b75b4e24ce5dd2b74e5d71406aaa2399976fc202b7491",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "loading_clock_v1",
+			"name": "装卸场 · 门岗时钟",
+			"render_mode": "wall_attachment",
+			"ground_rect": [
+				0,
+				907.3,
+				701,
+				17.525
+			],
+			"world_size": [
+				40,
+				39.77175463623395
+			],
+			"render_size": [
+				40,
+				39.77175463623395
+			],
+			"footprint_world_size": [
+				40,
+				1
+			],
+			"elevation_world": 51.77175463623395,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments",
+			"runtime_size_limit": 256,
+			"reused_from": "duty_clock_v1"
+		},
+		{
+			"id": "doorway_loading_open_v1",
+			"name": "装卸场 · 铁栅门开启",
+			"texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png",
+			"texture_size": [
+				2095,
+				751
+			],
+			"region": [
+				1087,
+				91,
+				946,
+				550
+			],
+			"world_size": [
+				180,
+				100
+			],
+			"render_size": [
+				180,
+				100
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"render_mode": "embedded_door",
+			"blocking": false,
+			"interactive": false,
+			"state": "open",
+			"state_driven": true,
+			"pair": "prison_gate_v37",
+			"authoring_set": "universal-v37",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"grid_door": {
+				"cell": 20,
+				"columns": 9,
+				"rows": 5
+			},
+			"sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409",
+			"runtime_size_limit": 512,
+			"editor_subcategory": "doors",
+			"proportion_locked": true,
+			"reused_from": "prison_gate_open_v37",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					200,
+					120
+				],
+				"door_art": "doorway_loading_open_v1",
+				"door_art_closed": "doorway_loading_closed_v1"
+			}
+		},
+		{
+			"id": "doorway_loading_closed_v1",
+			"name": "装卸场 · 铁栅门关闭",
+			"texture": "res://art/architecture/v23/cafeteria_gate_pair_v23.png",
+			"texture_size": [
+				2095,
+				751
+			],
+			"region": [
+				59,
+				91,
+				946,
+				550
+			],
+			"world_size": [
+				180,
+				100
+			],
+			"render_size": [
+				180,
+				100
+			],
+			"footprint_world_size": [
+				180,
+				20
+			],
+			"render_mode": "embedded_door",
+			"blocking": true,
+			"interactive": false,
+			"state": "closed",
+			"state_driven": true,
+			"pair": "prison_gate_v37",
+			"authoring_set": "universal-v37",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"grid_door": {
+				"cell": 20,
+				"columns": 9,
+				"rows": 5
+			},
+			"sha256": "2f7f552f095a9ea1de1e474f02ed8ddde2d896ed62393c4e1e5e87bac8be9409",
+			"runtime_size_limit": 512,
+			"editor_subcategory": "doors",
+			"proportion_locked": true,
+			"reused_from": "prison_gate_closed_v37",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					200,
+					120
+				],
+				"door_art": "doorway_loading_open_v1",
+				"door_art_closed": "doorway_loading_closed_v1"
+			}
+		}
+	]
+}

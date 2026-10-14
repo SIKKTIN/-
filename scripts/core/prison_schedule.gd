@@ -132,7 +132,9 @@ func advance(real_delta: float) -> void:
 		var boundary: float = (morning-float(config.start_minutes))/1440.0*day_seconds
 		target = minf(target,boundary)
 	clock_elapsed = target
-	tick()
+	# The authoritative frame synchronizes doors and officers after clock
+	# accrual. Explicit reset/skip/developer-time calls still synchronize here.
+	tick(true,false)
 
 func set_time_speed(value: float) -> bool:
 	if not is_finite(value) or value < 0 or value > 16:
@@ -276,14 +278,15 @@ func enter_curfew() -> void:
 func dog_active() -> bool:
 	return (game.prison_alert != null and game.prison_alert.active) or (stage_index >= 0 and bool(config.stages[stage_index].dog_active))
 
-func tick(announce: bool = true) -> void:
+func tick(announce: bool = true, synchronize_world: bool = true) -> void:
 	if game.prison_alert: game.prison_alert.release_at_dawn()
 	var minute := clock_minutes()
 	var next_index := 0
 	for index in range(config.stages.size()):
 		if minute >= float(config.stages[index].minute):
 			next_index = index
-	if stage_index != next_index or stage_day != day_number():
+	var changed_stage: bool = stage_index != next_index or stage_day != day_number()
+	if changed_stage:
 		var was_sleep: bool = is_sleep_time()
 		stage_day = day_number()
 		stage_index = next_index
@@ -291,17 +294,17 @@ func tick(announce: bool = true) -> void:
 		game.presentation.lighting.set_period(str(stage.period))
 		if bool(stage.get("curfew",false)) and game.phase == "playing":
 			enter_curfew()
-		game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
 		if is_sleep_time() != was_sleep:
 			game.guard.schedule_changed(is_sleep_time())
 		if announce:
 			if not is_curfew():
 				game.show_status("缺员警报仍未解除，全厂区继续搜查。" if game.prison_alert != null and game.prison_alert.active else "%s开始：%s" % [stage.name,stage.detail],4)
-	game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions())
-	if game.room_access:
+	if changed_stage or synchronize_world:
+		game.world.update_dorm_doors(is_sleep_time(),game.inspection_positions(),game.room_access.dorm_occupants() if game.room_access else [])
+	if synchronize_world and game.room_access:
 		game.room_access.tick()
 	skip_button.visible = is_sleep_time()
-	if game.gate_watch:
+	if synchronize_world and game.gate_watch:
 		game.gate_watch.tick(0)
 	skip_button.disabled = not can_skip_night()
 	skip_button.tooltip_text = "警报或缺员时无法跳过夜晚；全员归床后才可跳过。"

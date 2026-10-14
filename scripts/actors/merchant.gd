@@ -1,6 +1,7 @@
 extends Node2D
 
 var game
+var service_spec: Dictionary = {}
 var escaped := false
 var facing := Vector2.RIGHT
 var moved_this_frame := false
@@ -17,6 +18,7 @@ var route_status := ""
 
 func configure(owner_game, spec: Dictionary) -> void:
 	game = owner_game
+	service_spec = spec.duplicate(true)
 	position = Vector2(spec.position[0],spec.position[1])
 	timetable = spec.get("routine",[]).duplicate(true)
 	update_schedule()
@@ -48,6 +50,10 @@ func activity_text() -> String:
 	if not at_destination():
 		return "前往摊位" if entry.get("kind","") in ["shop","commute"] else "前往休息" if entry.get("kind","") == "rest" else "前往车间"
 	return {"work":"车间工作","rest":"休息中","commute":"待营业","shop":"未营业"}.get(str(entry.get("kind","rest")),"休息中")
+
+func interaction_point() -> Vector2:
+	var offset: Array = service_spec.get("service_offset",[0,0])
+	return position+Vector2(offset[0],offset[1])
 
 func tick(delta: float) -> void:
 	moved_this_frame = false

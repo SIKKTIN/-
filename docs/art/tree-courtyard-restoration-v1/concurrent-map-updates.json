@@ -1,0 +1,219 @@
+{
+	"source": "before-polish-map.json",
+	"source_sha256": "9c86074cfaded42088a9acc62d919e23bfc2ba79c7b2e2fba934605ce5d8cc2e",
+	"groups": {
+		"access_doors": [
+			{
+				"id": "cafeteria-entry",
+				"before": {
+					"asset_id": "doorway_cafeteria_closed_v2",
+					"blocks_sight": false,
+					"evacuation": [
+						1140.0,
+						1780.0
+					],
+					"hours": [
+						720.0,
+						840.0
+					],
+					"id": "cafeteria-entry",
+					"initial_closed": true,
+					"kind": "timed",
+					"name": "食堂定时门",
+					"rect": [
+						1060.0,
+						1920.0,
+						160.0,
+						20.0
+					],
+					"room_rect": [
+						900.0,
+						1940.0,
+						1200.0,
+						560.0
+					]
+				},
+				"after": {
+					"asset_id": "doorway_cafeteria_closed_v2",
+					"blocks_sight": false,
+					"evacuation": [
+						1140.0,
+						1780.0
+					],
+					"hours": [
+						720.0,
+						840.0
+					],
+					"id": "cafeteria-entry",
+					"initial_closed": true,
+					"kind": "timed",
+					"name": "食堂定时门",
+					"rect": [
+						1060.0,
+						1920.0,
+						160.0,
+						20.0
+					],
+					"room_rect": [
+						900.0,
+						1940.0,
+						1200.0,
+						560.0
+					],
+					"rotation_door_visual_rect": [
+						1050.0,
+						1840.0,
+						180,
+						100
+					]
+				},
+				"added_fields": [
+					"rotation_door_visual_rect"
+				]
+			},
+			{
+				"id": "cafeteria-entry-east",
+				"before": {
+					"asset_id": "doorway_cafeteria_closed_v2",
+					"blocks_sight": false,
+					"evacuation": [
+						2000.0,
+						1780.0
+					],
+					"hours": [
+						720.0,
+						840.0
+					],
+					"id": "cafeteria-entry-east",
+					"initial_closed": true,
+					"kind": "timed",
+					"name": "食堂东门",
+					"rect": [
+						1920.0,
+						1920.0,
+						160.0,
+						20.0
+					],
+					"room_rect": [
+						900.0,
+						1940.0,
+						1200.0,
+						560.0
+					]
+				},
+				"after": {
+					"asset_id": "doorway_cafeteria_closed_v2",
+					"blocks_sight": false,
+					"evacuation": [
+						2000.0,
+						1780.0
+					],
+					"hours": [
+						720.0,
+						840.0
+					],
+					"id": "cafeteria-entry-east",
+					"initial_closed": true,
+					"kind": "timed",
+					"name": "食堂东门",
+					"rect": [
+						1920.0,
+						1920.0,
+						160.0,
+						20.0
+					],
+					"room_rect": [
+						900.0,
+						1940.0,
+						1200.0,
+						560.0
+					],
+					"rotation_door_visual_rect": [
+						1910.0,
+						1840.0,
+						180,
+						100
+					]
+				},
+				"added_fields": [
+					"rotation_door_visual_rect"
+				]
+			}
+		],
+		"fixtures": [
+			{
+				"id": "cafeteria-entry-stone-header-v3",
+				"before": {
+					"id": "cafeteria-entry-stone-header-v3",
+					"asset_id": "cafeteria_north_door_coping_v3",
+					"rect": [
+						1050.0,
+						1820.0,
+						180,
+						20
+					],
+					"blocks_movement": false,
+					"blocks_sight": false,
+					"draw_depth": 1944.0
+				},
+				"after": {
+					"id": "cafeteria-entry-stone-header-v3",
+					"asset_id": "cafeteria_north_door_coping_v3",
+					"rect": [
+						1050.0,
+						1820.0,
+						180,
+						20
+					],
+					"blocks_movement": false,
+					"blocks_sight": false,
+					"draw_depth": 1944.0,
+					"render_size": [
+						180,
+						20
+					]
+				},
+				"added_fields": [
+					"render_size"
+				]
+			},
+			{
+				"id": "cafeteria-entry-east-stone-header-v3",
+				"before": {
+					"id": "cafeteria-entry-east-stone-header-v3",
+					"asset_id": "cafeteria_north_door_coping_v3",
+					"rect": [
+						1910.0,
+						1820.0,
+						180,
+						20
+					],
+					"blocks_movement": false,
+					"blocks_sight": false,
+					"draw_depth": 1944.0
+				},
+				"after": {
+					"id": "cafeteria-entry-east-stone-header-v3",
+					"asset_id": "cafeteria_north_door_coping_v3",
+					"rect": [
+						1910.0,
+						1820.0,
+						180,
+						20
+					],
+					"blocks_movement": false,
+					"blocks_sight": false,
+					"draw_depth": 1944.0,
+					"render_size": [
+						180,
+						20
+					]
+				},
+				"added_fields": [
+					"render_size"
+				]
+			}
+		]
+	},
+	"note": "Four additive cafeteria display updates arrived between tree-court save and polish. Latest records were preserved byte-for-byte as JSON values."
+}

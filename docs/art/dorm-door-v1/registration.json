@@ -1,0 +1,46 @@
+{
+  "sha256": "cd54b9ec0c438c32f1dcdbe7bd133b89d713024ae5d432cb4e2d7219df57ca0d",
+  "source": "built-in-imagegen",
+  "regions": {
+    "dorm_door_upper_leaf_v1": [
+      297,
+      86,
+      414,
+      350
+    ],
+    "dorm_door_lower_leaf_v1": [
+      298,
+      575,
+      413,
+      373
+    ],
+    "dorm_door_closed_leaves_v1": [
+      1056,
+      19,
+      92,
+      463
+    ],
+    "dorm_door_frame_v1": [
+      1055,
+      526,
+      93,
+      465
+    ]
+  },
+  "states": [
+    "closed",
+    "fully-open"
+  ],
+  "integration": "logical side dorm gates and campus-dorm-extra entrances resolved at load, saved map untouched",
+  "approved_concept": "docs/art/dorm-door-v1/approved-concept.png",
+  "atlas": "art/architecture/dorm_door_v1/components.png",
+  "manifest": "art/architecture/dorm_door_v1/manifest.json",
+  "prompt": "docs/art/dorm-door-v1/production-prompt.txt",
+  "validated_checks": 68,
+  "workshop_regression_checks": 48,
+  "screenshots": [
+    "docs/art/dorm-door-v1/runtime-open.png",
+    "docs/art/dorm-door-v1/runtime-closed.png",
+    "docs/art/dorm-door-v1/editor-open.png"
+  ]
+}

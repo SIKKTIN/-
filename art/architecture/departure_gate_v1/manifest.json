@@ -1,0 +1,481 @@
+{
+	"schema": 2,
+	"version": "departure-gate-v1",
+	"assets": [
+		{
+			"id": "departure_left_booth_v1",
+			"name": "外出大门 · 西侧门岗与摄像头",
+			"texture": "res://art/architecture/departure_gate_v1/frame.png",
+			"texture_size": [
+				2022,
+				778
+			],
+			"region": [
+				263,
+				18,
+				396,
+				718
+			],
+			"world_size": [
+				120,
+				220
+			],
+			"render_size": [
+				120,
+				220
+			],
+			"ground_rect": [
+				0,
+				528.0,
+				396,
+				198.0
+			],
+			"footprint_world_size": [
+				120,
+				60
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 160,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "departure_right_booth_v1",
+			"name": "外出大门 · 东侧门岗与广播",
+			"texture": "res://art/architecture/departure_gate_v1/frame.png",
+			"texture_size": [
+				2022,
+				778
+			],
+			"region": [
+				1358,
+				18,
+				400,
+				718
+			],
+			"world_size": [
+				120,
+				220
+			],
+			"render_size": [
+				120,
+				220
+			],
+			"ground_rect": [
+				0,
+				533.3333333333334,
+				400,
+				200.0
+			],
+			"footprint_world_size": [
+				120,
+				60
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 160,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "departure_header_v1",
+			"name": "外出大门 · 出入口门楣",
+			"texture": "res://art/architecture/departure_gate_v1/frame.png",
+			"texture_size": [
+				2022,
+				778
+			],
+			"region": [
+				655,
+				89,
+				706,
+				140
+			],
+			"world_size": [
+				320,
+				63.45609065155807
+			],
+			"render_size": [
+				320,
+				63.45609065155807
+			],
+			"ground_rect": [
+				0,
+				137.79375,
+				706,
+				2.20625
+			],
+			"footprint_world_size": [
+				320,
+				1
+			],
+			"render_mode": "wall_attachment",
+			"elevation_world": 62.45609065155807,
+			"proportion_locked": true,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "doorway_departure_open_v1",
+			"name": "外出大门 · 铁门开启",
+			"texture": "res://art/architecture/departure_gate_v1/open.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				45,
+				94,
+				1684,
+				726
+			],
+			"world_size": [
+				320,
+				137.95724465558195
+			],
+			"render_size": [
+				320,
+				137.95724465558195
+			],
+			"ground_rect": [
+				0,
+				620.75,
+				1684,
+				105.25
+			],
+			"footprint_world_size": [
+				320,
+				20
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 117.95724465558195,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					320,
+					180
+				],
+				"door_art": "doorway_departure_open_v1",
+				"door_art_closed": "doorway_departure_closed_v1",
+				"door_closed_patches": [
+					{
+						"asset": "doorway_departure_closed_v1",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							320,
+							135
+						]
+					}
+				],
+				"door_open_patches": [
+					{
+						"asset": "doorway_departure_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							320,
+							145
+						]
+					}
+				]
+			}
+		},
+		{
+			"id": "doorway_departure_closed_v1",
+			"name": "外出大门 · 铁门关闭",
+			"texture": "res://art/architecture/departure_gate_v1/closed.png",
+			"texture_size": [
+				1774,
+				887
+			],
+			"region": [
+				46,
+				94,
+				1681,
+				683
+			],
+			"world_size": [
+				320,
+				130.0178465199286
+			],
+			"render_size": [
+				320,
+				130.0178465199286
+			],
+			"ground_rect": [
+				0,
+				577.9375,
+				1681,
+				105.0625
+			],
+			"footprint_world_size": [
+				320,
+				20
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 110.01784651992861,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "doors",
+			"door_presentation": {
+				"raised_door": true,
+				"clear_wall_facade": true,
+				"body_depth_limited": true,
+				"door_art_size": [
+					320,
+					180
+				],
+				"door_art": "doorway_departure_open_v1",
+				"door_art_closed": "doorway_departure_closed_v1",
+				"door_closed_patches": [
+					{
+						"asset": "doorway_departure_closed_v1",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							320,
+							135
+						]
+					}
+				],
+				"door_open_patches": [
+					{
+						"asset": "doorway_departure_open_v1",
+						"source": [
+							0,
+							0,
+							1,
+							1
+						],
+						"destination": [
+							0,
+							0,
+							320,
+							145
+						]
+					}
+				]
+			}
+		},
+		{
+			"id": "departure_check_desk_v1",
+			"name": "外出大门 · 外出检查台",
+			"texture": "res://art/architecture/departure_gate_v1/desk.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				407,
+				138,
+				721,
+				691
+			],
+			"world_size": [
+				110,
+				105.42302357836338
+			],
+			"render_size": [
+				110,
+				105.42302357836338
+			],
+			"ground_rect": [
+				0,
+				271.50909090909096,
+				721,
+				419.4909090909091
+			],
+			"footprint_world_size": [
+				110,
+				64
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 41.423023578363384,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "departure_barrier_v1",
+			"name": "外出大门 · 移动护栏",
+			"texture": "res://art/architecture/departure_gate_v1/barrier.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				55,
+				159,
+				1425,
+				672
+			],
+			"world_size": [
+				74,
+				34.89684210526316
+			],
+			"render_size": [
+				74,
+				34.89684210526316
+			],
+			"ground_rect": [
+				0,
+				440.918918918919,
+				1425,
+				231.0810810810811
+			],
+			"footprint_world_size": [
+				74,
+				12
+			],
+			"render_mode": "projected_prop",
+			"elevation_world": 22.89684210526316,
+			"proportion_locked": true,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"runtime_size_limit": 512,
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "departure_planter_v1",
+			"name": "外出大门 · 门岗花箱",
+			"texture": "res://art/props/factory_v44/detail_atlas.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				841,
+				697,
+				235,
+				265
+			],
+			"ground_rect": [
+				0,
+				142.0769230769231,
+				235,
+				122.92307692307692
+			],
+			"footprint_world_size": [
+				65,
+				34
+			],
+			"world_size": [
+				65,
+				73.29787234042553
+			],
+			"render_size": [
+				65,
+				73.29787234042553
+			],
+			"elevation_world": 39.29787234042553,
+			"render_mode": "projected_prop",
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "factory-detail-v44",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "29244a14b9cee2e17baf271dbeb6295d63a614c8353f033e81846915bb356aa7",
+			"proportion_locked": true,
+			"runtime_size_limit": 256,
+			"reused_from": "weed_planter_v44"
+		},
+		{
+			"texture": "res://art/props/workshop_one_v1/electrical-cabinet.png",
+			"texture_size": [
+				992,
+				1586
+			],
+			"region": [
+				235,
+				212,
+				522,
+				1161
+			],
+			"sha256": "35fc87292d35855b10481029155508a5e2d3e154619d95334537fbd58aaad32e",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "departure_electric_v1",
+			"name": "外出大门 · 配电箱",
+			"render_mode": "projected_prop",
+			"ground_rect": [
+				0,
+				750.8571428571429,
+				522,
+				410.1428571428571
+			],
+			"render_size": [
+				28,
+				62.275862068965516
+			],
+			"world_size": [
+				28,
+				62.275862068965516
+			],
+			"footprint_world_size": [
+				28,
+				22
+			],
+			"elevation_world": 40.275862068965516,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 256,
+			"reused_from": "workshop_electrical_cabinet_v1"
+		}
+	]
+}

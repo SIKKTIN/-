@@ -1,0 +1,422 @@
+--- before/scripts/world/world_navigation.gd
++++ after/scripts/world/world_navigation.gd
+@@ -15,15 +15,17 @@
+ 	var area = world.bounds.merge(world.exit_area)
+ 	var layout = [area,world.guard_zone,not world.boundary_solids.is_empty()]
+ 	var changes: Dictionary = {}
+-	for pair in [[world.navigation_solids,world.static_solids],[world.navigation_inspection_solids,world.inspection_solids],[world.navigation_body_solids,world.body_solids],[world.navigation_inspection_body_solids,world.inspection_body_solids]]:
+-		var previous: Dictionary = {}
+-		var current: Dictionary = {}
+-		for rect in pair[0]: previous[rect]=true
+-		for rect in pair[1]: current[rect]=true
+-		for rect in previous:
+-			if not current.has(rect): changes[rect]=true
+-		for rect in current:
+-			if not previous.has(rect): changes[rect]=true
++	if layout == world.navigation_layout:
++		for pair in [[world.navigation_solids,world.static_solids],[world.navigation_inspection_solids,world.inspection_solids],[world.navigation_body_solids,world.body_solids],[world.navigation_inspection_body_solids,world.inspection_body_solids]]:
++			if pair[0]==pair[1]: continue
++			var previous: Dictionary = {}
++			var current: Dictionary = {}
++			for rect in pair[0]: previous[rect]=true
++			for rect in pair[1]: current[rect]=true
++			for rect in previous:
++				if not current.has(rect): changes[rect]=true
++			for rect in current:
++				if not previous.has(rect): changes[rect]=true
+ 	var changed_rects: Array[Rect2] = []
+ 	changed_rects.assign(changes.keys())
+ 	if layout == world.navigation_layout and changed_rects.size() < 96:
+@@ -42,7 +44,10 @@
+ 			# portals use a separately cached grid with centres on wall joins.
+ 			navigation.offset = Vector2.ZERO if navigation in [world.portal_grid,world.portal_guard_grid,world.portal_inspection_grid] else Vector2.ONE*GRID_SIZE*0.5
+ 			navigation.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+-			navigation.jumping_enabled = true
++			# JPS repeatedly scans long obstructed lanes in the dense campus.
++			# Native A* was faster there with the same optimal path costs.
++			# Keep jump searches for the smaller, relatively open maps.
++			navigation.jumping_enabled = world.walls.size()+world.fixtures.size() < 512
+ 			navigation.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+ 			navigation.update()
+ 		for y in range(low.y,high.y):
+@@ -98,39 +103,57 @@
+ 			if not connectivity.has_index(navigation): connectivity.warm(navigation)
+ 
+ func _refresh_navigation_cells(changed_rects: Array[Rect2]) -> void:
++	if changed_rects.is_empty(): return
+ 	if world.solid_index.revision != world.obstacle_revision: world.solid_index.rebuild(world.static_solids,world.obstacle_revision)
+ 	if world.body_index.revision != world.obstacle_revision: world.body_index.rebuild(world.body_solids,world.obstacle_revision)
+ 	if world.inspection_body_index.revision != world.obstacle_revision: world.inspection_body_index.rebuild(world.inspection_body_solids,world.obstacle_revision)
+-	# Inspection omits closed dorm leaves, but keeps their OPEN leaf bodies.
+-	# Those bodies need their own query: they are not a subset of closed ones.
+ 	var inspection_members: Dictionary = {}
+ 	for rect in world.inspection_solids: inspection_members[rect]=true
+-	var sets := _navigation_sets()
+-	var guard_area := Footprint.inset(world.guard_zone)
+ 	var cells: Dictionary = {}
++	var solids: Dictionary = {}
++	var bodies: Dictionary = {}
++	var inspection_bodies: Dictionary = {}
+ 	for rect in changed_rects:
+-		var inflated := rect.grow(RADIUS)
++		var inflated: Rect2 = rect.grow(RADIUS)
+ 		for y in range(maxi(world.grid.region.position.y,floori(inflated.position.y/GRID_SIZE)),mini(world.grid.region.end.y,ceili(inflated.end.y/GRID_SIZE))):
+ 			for x in range(maxi(world.grid.region.position.x,floori(inflated.position.x/GRID_SIZE)),mini(world.grid.region.end.x,ceili(inflated.end.x/GRID_SIZE))): cells[Vector2i(x,y)]=true
+-	for cell in cells:
+-		for triple in sets:
+-			var point: Vector2 = triple[0].get_point_position(cell)
+-			var blocked = not world.inside_room(point)
+-			var inspection_blocked = blocked
+-			for rect in world.body_index.nearby(point,0):
+-				if not rect.has_point(point): continue
+-				blocked=true
+-				break
+-			for rect in world.inspection_body_index.nearby(point,0):
+-				if rect.has_point(point): inspection_blocked=true;break
+-			for rect in world.solid_index.nearby(point,RADIUS):
+-				if not world._circle_hits_rect(point,RADIUS,rect): continue
+-				blocked=true
+-				if inspection_members.has(rect): inspection_blocked=true
+-				if inspection_blocked: break
+-			_set_solid(triple[0],cell,blocked)
+-			_set_solid(triple[1],cell,blocked or not guard_area.has_point(point))
+-			_set_solid(triple[2],cell,inspection_blocked)
++		# One broad-phase query per edited rectangle, shared by the lattices.
++		# The margin covers rounding to both whole and half-cell samples.
++		var query: Rect2 = rect.grow(RADIUS+GRID_SIZE)
++		for candidate in world.solid_index.intersecting(query): solids[candidate]=true
++		for candidate in world.body_index.intersecting(query): bodies[candidate]=true
++		for candidate in world.inspection_body_index.intersecting(query): inspection_bodies[candidate]=true
++	var guard_area := Footprint.inset(world.guard_zone)
++	for triple in _navigation_sets():
++		var navigation: AStarGrid2D = triple[0]
++		var mask: Dictionary = {}
++		for cell in cells:
++			mask[cell]=0 if world.inside_room(navigation.get_point_position(cell)) else 3
++		# Rasterize only overlapping obstacles into the edited cells. Repeated
++		# point queries formerly tested the same wall/furniture dozens of times.
++		_paint_navigation_mask(navigation,mask,solids,false,1,inspection_members)
++		_paint_navigation_mask(navigation,mask,bodies,true,1)
++		# Open inspection leaf bodies are independent of the ordinary bodies.
++		_paint_navigation_mask(navigation,mask,inspection_bodies,true,2)
++		for cell in cells:
++			var flags: int = mask[cell]
++			_set_solid(triple[0],cell,(flags&1)!=0)
++			_set_solid(triple[1],cell,(flags&1)!=0 or not guard_area.has_point(navigation.get_point_position(cell)))
++			_set_solid(triple[2],cell,(flags&2)!=0)
++
++func _paint_navigation_mask(navigation: AStarGrid2D, mask: Dictionary, rects: Dictionary, body: bool, bits: int, inspection_members: Dictionary = {}) -> void:
++	for rect: Rect2 in rects:
++		var affected: Rect2 = rect if body else rect.grow(RADIUS)
++		var low := Vector2i(maxi(navigation.region.position.x,floori(affected.position.x/GRID_SIZE)),maxi(navigation.region.position.y,floori(affected.position.y/GRID_SIZE)))
++		var high := Vector2i(mini(navigation.region.end.x,ceili(affected.end.x/GRID_SIZE)),mini(navigation.region.end.y,ceili(affected.end.y/GRID_SIZE)))
++		var flags: int = bits|2 if not body and inspection_members.has(rect) else bits
++		for y in range(low.y,high.y):
++			for x in range(low.x,high.x):
++				var cell := Vector2i(x,y)
++				if not mask.has(cell) or (int(mask[cell])&flags)==flags: continue
++				var point := navigation.get_point_position(cell)
++				if rect.has_point(point) if body else world._circle_hits_rect(point,RADIUS,rect):
++					mask[cell]=int(mask[cell])|flags
+ 
+ func _set_solid(navigation: AStarGrid2D, cell: Vector2i, blocked: bool) -> void:
+ 	if navigation.is_point_solid(cell)==blocked: return
+@@ -172,7 +195,7 @@
+ 
+ func find_path(from: Vector2, to: Vector2, ignore_actor = null, avoid_actors: bool = false, ignore_crate: bool = false) -> PackedVector2Array:
+ 	world.planning_guard_doors = ignore_actor != null and ignore_actor.has_method("inspection_allowed") and ignore_actor.inspection_allowed()
+-	var officer: bool=ignore_actor!=null and ignore_actor.has_method("_capture_if_touching")
++	var officer: bool=ignore_actor!=null and (ignore_actor.has_method("_capture_if_touching") or ignore_actor.has_method("uses_navigation_budget"))
+ 	if officer:ignore_actor.path_deferred=false
+ 	# Spend at most one expensive officer search after the frame's allowance.
+ 	# A clear direct route remains immediate; deferred officers retain their
+@@ -309,7 +332,7 @@
+ 	for y in range(maxi(low.y,navigation.region.position.y),mini(high.y,navigation.region.end.y)):
+ 		for x in range(maxi(low.x,navigation.region.position.x),mini(high.x,navigation.region.end.x)):
+ 			var cell := Vector2i(x,y)
+-			if not navigation.is_point_solid(cell) and not world.can_place_circle(navigation.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
++			if not navigation.is_point_solid(cell) and not world.dynamic_placement_clear(navigation.get_point_position(cell),RADIUS,ignore_actor,avoid_actors,not ignore_crate):
+ 				changed.append(cell)
+ 				navigation.set_point_solid(cell,true)
+ 
+--- before/scripts/core/solid_spatial_index.gd
++++ after/scripts/core/solid_spatial_index.gd
+@@ -5,20 +5,55 @@
+ var buckets: Dictionary = {}
+ var rects: Array[Rect2] = []
+ var revision := -1
++var entries: Dictionary = {}
++var entry_ids: Dictionary = {}
++var next_id := 0
+ 
+ func rebuild(solids: Array[Rect2], new_revision: int) -> void:
++	# A door revision can leave this particular collision class unchanged.
++	# Reuse its buckets rather than reallocating every wall/furniture entry.
++	if revision >= 0 and solids == rects:
++		revision = new_revision
++		return
++	if revision < 0:
++		buckets.clear();entries.clear();entry_ids.clear();next_id=0
++	var wanted: Dictionary = {}
++	for rect in solids: wanted[rect]=int(wanted.get(rect,0))+1
++	# Stable IDs let a leaf edit update just its buckets. Array positions can
++	# shift when a door closes; those shifts must not reindex every fixed wall.
++	for rect: Rect2 in entry_ids.keys():
++		var ids: Array=entry_ids[rect]
++		var count: int=wanted.get(rect,0)
++		while ids.size()>count:
++			var id: int=ids.pop_back()
++			_remove(rect,id);entries.erase(id)
++		if ids.is_empty(): entry_ids.erase(rect)
++	for rect: Rect2 in wanted:
++		if not entry_ids.has(rect): entry_ids[rect]=[]
++		var ids: Array=entry_ids[rect]
++		while ids.size()<int(wanted[rect]):
++			var id:=next_id;next_id+=1
++			ids.append(id);entries[id]=rect;_insert(rect,id)
+ 	revision = new_revision
+ 	rects = solids.duplicate()
+-	buckets.clear()
+-	for id in range(rects.size()):
+-		var rect: Rect2 = rects[id]
+-		var low := Vector2i(floori(rect.position.x/CELL),floori(rect.position.y/CELL))
+-		var high := Vector2i(floori(rect.end.x/CELL),floori(rect.end.y/CELL))
+-		for y in range(low.y,high.y+1):
+-			for x in range(low.x,high.x+1):
+-				var key := Vector2i(x,y)
+-				if not buckets.has(key): buckets[key] = []
+-				buckets[key].append(id)
++
++func _insert(rect: Rect2, id: int) -> void:
++	var low := Vector2i(floori(rect.position.x/CELL),floori(rect.position.y/CELL))
++	var high := Vector2i(floori(rect.end.x/CELL),floori(rect.end.y/CELL))
++	for y in range(low.y,high.y+1):
++		for x in range(low.x,high.x+1):
++			var key := Vector2i(x,y)
++			if not buckets.has(key): buckets[key]=[]
++			buckets[key].append(id)
++
++func _remove(rect: Rect2, id: int) -> void:
++	var low := Vector2i(floori(rect.position.x/CELL),floori(rect.position.y/CELL))
++	var high := Vector2i(floori(rect.end.x/CELL),floori(rect.end.y/CELL))
++	for y in range(low.y,high.y+1):
++		for x in range(low.x,high.x+1):
++			var key := Vector2i(x,y)
++			buckets[key].erase(id)
++			if buckets[key].is_empty(): buckets.erase(key)
+ 
+ func nearby(point: Vector2, radius: float) -> Array[Rect2]:
+ 	return intersecting(Rect2(point-Vector2.ONE*radius,Vector2.ONE*radius*2))
+@@ -28,7 +63,7 @@
+ 	var high := Vector2i(floori(area.end.x/CELL),floori(area.end.y/CELL))
+ 	var result: Array[Rect2] = []
+ 	if low == high:
+-		for id in buckets.get(low,[]): result.append(rects[id])
++		for id in buckets.get(low,[]): result.append(entries[id])
+ 		return result
+ 	var seen := {}
+ 	for y in range(low.y,high.y+1):
+@@ -36,7 +71,7 @@
+ 			for id in buckets.get(Vector2i(x,y),[]):
+ 				if seen.has(id): continue
+ 				seen[id] = true
+-				result.append(rects[id])
++				result.append(entries[id])
+ 	return result
+ 
+ func along_segment(from: Vector2, to: Vector2, radius: float) -> Array[Rect2]:
+@@ -46,10 +81,21 @@
+ 	# swept segment. This only selects candidates, exact tests remain unchanged.
+ 	var steps := maxi(1,ceili(maxf(absf(to.x-from.x),absf(to.y-from.y))/CELL))
+ 	var seen: Dictionary = {}
++	var visited_buckets: Dictionary = {}
+ 	var result: Array[Rect2] = []
+ 	for step in range(steps+1):
+-		for rect in nearby(from.lerp(to,float(step)/steps),radius+CELL):
+-			if not seen.has(rect):
+-				seen[rect] = true
+-				result.append(rect)
++		var point := from.lerp(to,float(step)/steps)
++		var margin := Vector2.ONE*(radius+CELL)
++		var low := Vector2i(floori((point.x-margin.x)/CELL),floori((point.y-margin.y)/CELL))
++		var high := Vector2i(floori((point.x+margin.x)/CELL),floori((point.y+margin.y)/CELL))
++		for y in range(low.y,high.y+1):
++			for x in range(low.x,high.x+1):
++				var key := Vector2i(x,y)
++				if visited_buckets.has(key): continue
++				visited_buckets[key]=true
++				for id in buckets.get(key,[]):
++					var rect: Rect2=entries[id]
++					if seen.has(rect): continue
++					seen[rect]=true
++					result.append(rect)
+ 	return result
+--- before/scripts/core/game_frame.gd
++++ after/scripts/core/game_frame.gd
+@@ -32,6 +32,8 @@
+ 	# Individual guard ticks must not recompute every dorm doorway.
+ 	if game.schedule:
+ 		game.world.update_dorm_doors(game.schedule.is_sleep_time(),game.inspection_positions(),game.room_access.dorm_occupants() if game.room_access else [])
++	# Admission, evacuations and routine routes share the same frame budget.
++	game.world.begin_ai_paths()
+ 	if game.room_access:
+ 		game.room_access.tick()
+ 	if game.workshop:
+@@ -39,7 +41,6 @@
+ 	var work_credit: Dictionary = game.attributes.accrue(previous_clock,game.schedule.clock_elapsed,behaviors_before) if game.attributes else {}
+ 	for actor in game.actors:
+ 		actor.moved_this_frame = false
+-	game.world.begin_ai_paths()
+ 	if game.routines:
+ 		# Credit the old work state before tick replaces it at 12:00/18:00.
+ 		game.routines.accrue_work(previous_clock, game.schedule.clock_elapsed, workers_before, work_credit)
+--- before/scripts/core/daily_routine.gd
++++ after/scripts/core/daily_routine.gd
+@@ -134,7 +134,7 @@
+ 	# Keep simultaneous shift changes from planning every NPC route in one
+ 	# frame. The routine remains lawful while queued; its path is calculated
+ 	# against current doors and bodies when the next frame services it.
+-	if not record.get("player_action",false) and route_spent_usec >= 1000:
++	if not record.get("player_action",false) and (route_spent_usec >= 1000 or (game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000)):
+ 		record.route_pending = true
+ 		record.status = "routing"
+ 		return
+--- before/scripts/core/move_orders.gd
++++ after/scripts/core/move_orders.gd
+@@ -17,11 +17,24 @@
+ 	if not game.world.can_place_circle(goal,game.world.RADIUS,actor,true,not push):
+ 		game.show_status("目标被墙、门或伙伴占据，请选择可站立的位置。")
+ 		return false
+-	var start := Time.get_ticks_usec()
+-	var path: PackedVector2Array = game.world.find_path(actor.position,goal,actor,true,push)
+-	if source == "routine" and game.world.ai_path_budget_active:
+-		game.world.ai_path_spent_usec += Time.get_ticks_usec()-start
+-	if path.is_empty():
++	var automatic: bool = source != "manual" and not game.actor_is_controllable(actor_id)
++	# Closing a room and changing a routine can request the same evacuation
++	# twice in one frame. Retain a valid route instead of solving it again.
++	if automatic and active.has(actor_id) and active[actor_id].goal==goal and active[actor_id].revision==game.world.obstacle_revision and not active[actor_id].path.is_empty():
++		game.skills.cancel(actor_id,"收到移动指令，当前操作停止；撬锁进度保留。")
++		active[actor_id].source=source
++		return true
++	var path := PackedVector2Array()
++	var deferred := false
++	if automatic and game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000:
++		if game.world.motion_clear(actor.position,goal,actor,true,push): path.append(goal)
++		else: deferred=true
++	else:
++		var start := Time.get_ticks_usec()
++		path = game.world.find_path(actor.position,goal,actor,true,push)
++		if automatic and game.world.ai_path_budget_active:
++			game.world.ai_path_spent_usec += Time.get_ticks_usec()-start
++	if path.is_empty() and not deferred:
+ 		game.show_status("这里暂时走不到：先打开通路，再下达移动指令。")
+ 		return false
+ 	if source == "manual" and game.routines:
+@@ -61,10 +74,18 @@
+ 		while not path.is_empty() and actor.position.distance_to(path[0]) < 2.5:
+ 			path.remove_at(0)
+ 		var blocked: bool = path.is_empty() or not game.world.motion_clear(actor.position,path[0],actor,true,order.push)
++		var routing_wait := false
+ 		if blocked and order.repath <= 0:
+-			path = game.world.find_path(actor.position,order.goal,actor,true,order.push)
+-			order.repath = 0.35
+-			order.revision = game.world.obstacle_revision
++			var automatic: bool = not game.actor_is_controllable(id)
++			if automatic and game.world.ai_path_budget_active and game.world.ai_path_spent_usec >= 1000:
++				routing_wait=true
++			else:
++				var start := Time.get_ticks_usec()
++				path = game.world.find_path(actor.position,order.goal,actor,true,order.push)
++				if automatic and game.world.ai_path_budget_active:
++					game.world.ai_path_spent_usec += Time.get_ticks_usec()-start
++				order.repath = 0.35
++				order.revision = game.world.obstacle_revision
+ 		order.path = path
+ 		var moved := Vector2.ZERO
+ 		if not path.is_empty():
+@@ -87,7 +108,7 @@
+ 		if actor.moved_this_frame:
+ 			actor.facing = moved.normalized()
+ 			order.stalled = 0.0
+-		else:
++		elif not routing_wait:
+ 			order.stalled += delta
+ 		if order.stalled > 1.0:
+ 			stop(id)
+--- before/scripts/actors/police_dog.gd
++++ after/scripts/actors/police_dog.gd
+@@ -20,6 +20,7 @@
+ var path_goal := Vector2.ZERO
+ var path_revision := -1
+ var path_timer := 0.0
++var path_deferred := false
+ var stalled_time := 0.0
+ var bark_until := 0.0
+ var next_bark := 0.0
+@@ -48,6 +49,7 @@
+ 	path.clear()
+ 	path_revision = -1
+ 	path_timer = 0
++	path_deferred = false
+ 	stalled_time = 0
+ 	sample_timer = 0
+ 	next_bark = 0
+@@ -60,6 +62,9 @@
+ 
+ func movement_allowed(point: Vector2, radius: float = Footprint.RADIUS) -> bool:
+ 	return search_zone().grow(-radius).has_point(point)
++
++func uses_navigation_budget() -> bool:
++	return true
+ 
+ func inspection_allowed() -> bool:
+ 	return game.prison_alert != null and game.prison_alert.active
+@@ -150,8 +155,9 @@
+ 	var changed: bool = not path.is_empty() and path[-1].distance_to(path_goal) > 16
+ 	if path_timer <= 0 and (path.is_empty() or invalid or changed or stalled_time >= 0.4):
+ 		path = world.find_path(position,path_goal,self,true)
+-		path_revision = world.obstacle_revision
+-		path_timer = 0.45
++		if not path_deferred:
++			path_revision = world.obstacle_revision
++			path_timer = 0.45
+ 	while not path.is_empty() and position.distance_to(path[0]) < 4:
+ 		path.remove_at(0)
+ 	if not path.is_empty():
+@@ -159,7 +165,7 @@
+ 		facing = offset.normalized()
+ 		var speed := 125.0 if state == "tracking" else 82.0
+ 		moved_this_frame = world.move_actor(self,facing*minf(speed*delta,offset.length())).length_squared() > 0.001
+-	stalled_time = 0 if moved_this_frame else stalled_time+delta
++	if not path_deferred: stalled_time = 0 if moved_this_frame else stalled_time+delta
+ 	if stalled_time > 1 and state == "patrol":
+ 		route_index = (route_index+world.patrol.size()-1)%world.patrol.size()
+ 		skipped_waypoints += 1
+--- before/scripts/world/prison_world.gd
++++ after/scripts/world/prison_world.gd
+@@ -312,15 +312,21 @@
+ 
+ func can_place_circle(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
+ 	if not door_body_clear(point): return false
+-	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
+-	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
+-		return false
++	if not dynamic_placement_clear(point,radius,ignore_actor,check_actors,include_crate): return false
+ 	if not inside_room(point, radius) and not _staff_exterior(ignore_actor,point,radius):
+ 		return false
+ 	var index = inspection_index if planning_guard_doors else solid_index
+ 	if index.revision != obstacle_revision: index.rebuild(solid_rects(false),obstacle_revision)
+ 	for rect in index.nearby(point,radius):
+ 		if _circle_hits_rect(point, radius, rect): return false
++	return true
++
++# Shared moving-obstacle/admission rules. Navigation may skip fixed geometry
++# only for points already known clear on its freshly updated static grid.
++func dynamic_placement_clear(point: Vector2, radius: float = RADIUS, ignore_actor = null, check_actors: bool = true, include_crate: bool = true) -> bool:
++	if ignore_actor in actors and admission_filter.is_valid() and not admission_filter.call(ignore_actor,point,radius): return false
++	if ignore_actor != null and ignore_actor.has_method("movement_allowed") and not ignore_actor.movement_allowed(point,radius):
++		return false
+ 	if include_crate and _circle_hits_rect(point,radius,crate): return false
+ 	if check_actors:
+ 		for actor in actors:

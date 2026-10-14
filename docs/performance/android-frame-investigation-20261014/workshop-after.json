@@ -1,0 +1,145 @@
+{
+	"cases": {
+		"frozen_baseline": {
+			"draw_calls": {
+				"max": 758.0,
+				"mean": 758.0,
+				"p95": 758.0
+			},
+			"frame_ms": {
+				"max": 7.775,
+				"mean": 4.74376111111111,
+				"p95": 5.84
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"shared_uniform_free_material": {
+			"draw_calls": {
+				"max": 758.0,
+				"mean": 758.0,
+				"p95": 758.0
+			},
+			"frame_ms": {
+				"max": 15.466,
+				"mean": 8.47991666666667,
+				"p95": 10.147
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_fixture_shadows": {
+			"draw_calls": {
+				"max": 723.0,
+				"mean": 723.0,
+				"p95": 723.0
+			},
+			"frame_ms": {
+				"max": 10.474,
+				"mean": 8.03465,
+				"p95": 9.612
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_fixtures": {
+			"draw_calls": {
+				"max": 703.0,
+				"mean": 703.0,
+				"p95": 703.0
+			},
+			"frame_ms": {
+				"max": 8.765,
+				"mean": 6.63546666666666,
+				"p95": 8.038
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_hud": {
+			"draw_calls": {
+				"max": 555.0,
+				"mean": 555.0,
+				"p95": 555.0
+			},
+			"frame_ms": {
+				"max": 12.631,
+				"mean": 6.49039444444445,
+				"p95": 8.105
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_sun": {
+			"draw_calls": {
+				"max": 758.0,
+				"mean": 758.0,
+				"p95": 758.0
+			},
+			"frame_ms": {
+				"max": 8.567,
+				"mean": 5.92828888888889,
+				"p95": 7.713
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_walls": {
+			"draw_calls": {
+				"max": 615.0,
+				"mean": 615.0,
+				"p95": 615.0
+			},
+			"frame_ms": {
+				"max": 10.419,
+				"mean": 6.95432222222223,
+				"p95": 8.687
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"workshop_running": {
+			"draw_calls": {
+				"max": 758.0,
+				"mean": 750.383333333333,
+				"p95": 758.0
+			},
+			"frame_ms": {
+				"max": 30.938,
+				"mean": 14.9228444444445,
+				"p95": 21.045
+			},
+			"game_ms": {
+				"max": 15.819,
+				"mean": 6.40899444444445,
+				"p95": 9.24
+			}
+		}
+	},
+	"device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"renderer": "gl_compatibility",
+	"room": "workshop",
+	"scope": "Windows GPU; fixed workshop view; frozen ablations isolate rendering, not Android FPS",
+	"shared_material_count": 0
+}

@@ -1,0 +1,127 @@
+{
+	"cases": {
+		"frozen_baseline": {
+			"draw_calls": {
+				"max": 894.0,
+				"mean": 894.0,
+				"p95": 894.0
+			},
+			"frame_ms": {
+				"max": 6.696,
+				"mean": 4.36946111111111,
+				"p95": 5.391
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_fixture_shadows": {
+			"draw_calls": {
+				"max": 719.0,
+				"mean": 719.0,
+				"p95": 719.0
+			},
+			"frame_ms": {
+				"max": 5.105,
+				"mean": 3.56799444444445,
+				"p95": 4.464
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_fixtures": {
+			"draw_calls": {
+				"max": 839.0,
+				"mean": 839.0,
+				"p95": 839.0
+			},
+			"frame_ms": {
+				"max": 6.643,
+				"mean": 4.08467777777778,
+				"p95": 4.787
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_hud": {
+			"draw_calls": {
+				"max": 692.0,
+				"mean": 692.0,
+				"p95": 692.0
+			},
+			"frame_ms": {
+				"max": 7.381,
+				"mean": 3.74613888888889,
+				"p95": 4.839
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_sun": {
+			"draw_calls": {
+				"max": 894.0,
+				"mean": 894.0,
+				"p95": 894.0
+			},
+			"frame_ms": {
+				"max": 7.052,
+				"mean": 4.24504444444444,
+				"p95": 5.447
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"without_walls": {
+			"draw_calls": {
+				"max": 751.0,
+				"mean": 751.0,
+				"p95": 751.0
+			},
+			"frame_ms": {
+				"max": 6.681,
+				"mean": 3.58082222222222,
+				"p95": 4.444
+			},
+			"game_ms": {
+				"max": 0.0,
+				"mean": 0.0,
+				"p95": 0.0
+			}
+		},
+		"workshop_running": {
+			"draw_calls": {
+				"max": 894.0,
+				"mean": 884.766666666667,
+				"p95": 888.0
+			},
+			"frame_ms": {
+				"max": 17.569,
+				"mean": 10.4184111111111,
+				"p95": 12.786
+			},
+			"game_ms": {
+				"max": 7.114,
+				"mean": 4.1772,
+				"p95": 5.214
+			}
+		}
+	},
+	"device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+	"renderer": "gl_compatibility",
+	"room": "workshop",
+	"scope": "Windows GPU; fixed workshop view; frozen ablations isolate rendering, not Android FPS"
+}

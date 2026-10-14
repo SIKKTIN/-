@@ -1,0 +1,86 @@
+{
+	"schema": 1,
+	"version": "clinic-roof-v1",
+	"assets": [
+		{
+			"id": "clinic_roof_surface",
+			"name": "医务室防水屋面",
+			"texture": "res://art/architecture/clinic_roof_v1/roof_surface.png",
+			"texture_size": [
+				1495,
+				1052
+			],
+			"blocking": false,
+			"world_size": [
+				560,
+				540
+			],
+			"render_mode": "architecture_material",
+			"fit_roof": true,
+			"opaque": true
+		},
+		{
+			"id": "clinic_roof_skylight",
+			"name": "医务室磨砂天窗",
+			"texture": "res://art/architecture/clinic_roof_v1/roof_skylight.png",
+			"texture_size": [
+				1902,
+				827
+			],
+			"blocking": false,
+			"region": [
+				369,
+				224,
+				1165,
+				391
+			],
+			"world_size": [
+				138,
+				46.31587982832618
+			],
+			"render_mode": "architecture_roof_detail"
+		},
+		{
+			"id": "clinic_roof_extractor",
+			"name": "医务室排风口",
+			"texture": "res://art/architecture/clinic_roof_v1/roof_extractor.png",
+			"texture_size": [
+				1190,
+				1322
+			],
+			"blocking": false,
+			"region": [
+				332,
+				340,
+				527,
+				623
+			],
+			"world_size": [
+				44,
+				52.01518026565465
+			],
+			"render_mode": "architecture_roof_detail"
+		},
+		{
+			"id": "clinic_roof_drain",
+			"name": "医务室排水口",
+			"texture": "res://art/architecture/clinic_roof_v1/roof_drain.png",
+			"texture_size": [
+				1254,
+				1254
+			],
+			"blocking": false,
+			"region": [
+				384,
+				392,
+				486,
+				465
+			],
+			"world_size": [
+				26,
+				24.876543209876544
+			],
+			"render_mode": "architecture_roof_detail"
+		}
+	]
+}

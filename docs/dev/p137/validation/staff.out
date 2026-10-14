@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+no_noon_hide_or_teleport: true
+overseer_exits_workshop_then_factory: true
+noon_retires_outside_map: true
+factory_relocks_after_staff_exit: true
+afternoon_entry_starts_outside: true
+returns_through_both_gates: true
+evening_walks_out: true
+gate_guards_walk_out: true
+reinforcements_spawn_outside: true
+reinforcements_walk_in: true
+dawn_alarm_clears_without_deletion: true
+reinforcements_start_walking_out: true
+recall_reuses_same_people: true
+recall_never_repositions: true
+reinforcements_finish_departure: true
+never_hidden_inside: true
+bounded_physical_step: true
+staff_does_not_relock_player_door: true
+pause_stops_commute: true
+closed_factory_door_blocks_visible_passage: true
+open_factory_passage_clear: true
+{"checks":{"afternoon_entry_starts_outside":true,"bounded_physical_step":true,"closed_factory_door_blocks_visible_passage":true,"dawn_alarm_clears_without_deletion":true,"evening_walks_out":true,"factory_relocks_after_staff_exit":true,"gate_guards_walk_out":true,"never_hidden_inside":true,"no_noon_hide_or_teleport":true,"noon_retires_outside_map":true,"open_factory_passage_clear":true,"overseer_exits_workshop_then_factory":true,"pause_stops_commute":true,"recall_never_repositions":true,"recall_reuses_same_people":true,"reinforcements_finish_departure":true,"reinforcements_spawn_outside":true,"reinforcements_start_walking_out":true,"reinforcements_walk_in":true,"returns_through_both_gates":true,"staff_does_not_relock_player_door":true},"crossings":{"394533020178factory":true,"394616906256factory":true,"394700792334factory":true,"394784678412factory":true,"394868564490factory":true,"394952450584factory":true,"394952450584workshop":true,"395036336723factory":true,"395120223303factory":true},"failed":[],"max_step":10.7508220672607,"traces":[{"label":"after_noon_exit","states":[{"legs":"[]","position":[3380.0,330.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3560.0,330.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5040.0,2450.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5580.0,470.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3420.0,1180.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3460.0,119.999992370605],"role":"overseer","status":"offsite","visible":false}]},{"label":"afternoon_arrival","states":[{"legs":"[]","position":[3380.0,330.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3560.0,330.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5040.0,2450.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5580.0,470.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3420.0,1180.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[1140.51000976563,1709.80981445313],"role":"overseer","status":"duty","visible":true}]},{"label":"alarm_arrivals","states":[{"legs":"[]","position":[3380.0,329.999969482422],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3560.0,330.000030517578],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5040.0458984375,2449.005859375],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[5580.0,470.0],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[3420.0,1179.99987792969],"role":"gate","status":"duty","visible":true},{"legs":"[]","position":[1140.51000976563,1709.80981445313],"role":"overseer","status":"duty","visible":true},{"legs":"[]","position":[3370.0,209.999969482422],"role":"reinforcement","status":"duty","visible":true},{"legs":"[]","position":[3370.0,209.999969482422],"role":"reinforcement","status":"duty","visible":true}]}]}

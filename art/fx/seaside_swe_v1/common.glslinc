@@ -1,0 +1,27 @@
+// Adapted from opengenius/godot_swe_ocean2d (MIT), pinned in provenance.json.
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
+layout(rgba32f, set = 0, binding = 0) uniform restrict readonly image2D state_in;
+layout(rgba32f, set = 0, binding = 1) uniform restrict writeonly image2D state_out;
+layout(r32f, set = 0, binding = 2) uniform image2D terrain;
+layout(rg32f, set = 0, binding = 3) uniform image2D face_velocity;
+layout(push_constant, std430) uniform Params {
+    vec4 grid;       // width, height, cell size metres, fixed step seconds
+    vec4 wave;       // time, amplitude metres, incoming waves enabled, piers enabled
+    vec4 impulse;    // UV position, radius UV, amplitude metres (one substep only)
+    vec4 options;   // initialization mode, generate foam, flat bed, uniform flow test
+} p;
+const float G = 9.81;
+const float DRY = 0.001;
+ivec2 bounds(ivec2 q) { return clamp(q, ivec2(0), ivec2(p.grid.xy) - 1); }
+vec4 state(ivec2 q) { return imageLoad(state_in, bounds(q)); }
+float bed(ivec2 q) { return imageLoad(terrain, bounds(q)).r; }
+vec2 faces(ivec2 q) { return imageLoad(face_velocity, bounds(q)).rg; }
+vec4 interpolate_state(vec2 q) {
+    ivec2 a = ivec2(floor(q)); vec2 f = fract(q);
+    return mix(mix(state(a), state(a+ivec2(1,0)), f.x),
+               mix(state(a+ivec2(0,1)), state(a+ivec2(1,1)), f.x), f.y);
+}
+float incoming(vec2 uv, float t) {
+    return p.wave.y * (0.78 * sin(t * 1.35 - uv.y * p.grid.y * p.grid.z * 0.249 + uv.x * 3.0)
+                    + 0.22 * sin(t * 2.2 - uv.y * p.grid.y * p.grid.z * 0.405 - uv.x * 7.0));
+}

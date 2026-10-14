@@ -10,11 +10,14 @@ var rooms: Array = []
 var visited: Dictionary = {}
 var active_id := ""
 var revision := 0
+var layout_revision := 0
 var covers: Array = []
 var wall_edges
 var doorways
 var portal_cuts: Array[Rect2] = []
 var _current_area := Rect2()
+var _current_areas: Array[Rect2] = []
+var _exit_by_feet := false
 var _hidden_areas: Array[Rect2] = []
 
 func _init(owner_game) -> void:
@@ -51,7 +54,19 @@ static func rooms_for(config: Dictionary) -> Array:
 			result.append({"id":str(zone.id),"name":str(zone.name),"rect":zone.rect.duplicate(),"door_ids":doors,"kind":"room"})
 	return result
 
+# Normalized pieces keep a compound room aligned when its bounds are moved
+# or resized. Outdoor notches never belong to the room's visibility mask.
+static func areas_for(spec: Dictionary) -> Array[Rect2]:
+	var r: Array = spec.rect
+	var bounds := Rect2(r[0],r[1],r[2],r[3])
+	var result: Array[Rect2] = []
+	for part: Array in spec.get("room_parts",[]):
+		result.append(Rect2(bounds.position+Vector2(part[0],part[1])*bounds.size,Vector2(part[2],part[3])*bounds.size))
+	if result.is_empty(): result.append(bounds)
+	return result
+
 func reset() -> void:
+	layout_revision += 1
 	if is_instance_valid(doorways): doorways.free()
 	if is_instance_valid(wall_edges): wall_edges.free()
 	for cover in covers: cover.free()
@@ -61,11 +76,15 @@ func reset() -> void:
 	visited.clear()
 	active_id = ""
 	_current_area = Rect2()
+	_current_areas.clear()
+	_exit_by_feet = false
 	for spec in rooms_for(game.room_config):
 		var room: Dictionary = spec.duplicate(true)
 		room.kind = str(spec.get("kind","room"))
 		room.door_ids = spec.get("door_ids",[])
 		room.area = Rect2(spec.rect[0],spec.rect[1],spec.rect[2],spec.rect[3])
+		room.areas = areas_for(spec)
+		room.enter_areas = room.areas.map(func(a): return a.grow(-4))
 		room.enter_area = room.area.grow(-4)
 		room.roof_plan = RoofGeometry.plan(game.world,room)
 		rooms.append(room)
@@ -77,7 +96,7 @@ func reset() -> void:
 	if not clips.is_empty():
 		for gate in game.world.access_doors+game.world.dorm_doors:
 			projected[gate.rect] = Doorways.Geometry.projected_rect(game.world,gate)
-		projected[game.world.door] = Doorways.Geometry.projected_rect(game.world,{"rect":game.world.door})
+		projected[game.world.door] = Doorways.Geometry.projected_rect(game.world,Doorways.Geometry.primary_spec(game.world))
 	game.world.door_passage.configure(game.world,rooms)
 	game.world.set_wall_boundaries(clips,projected)
 	game.world.room_visibility = self
@@ -101,11 +120,11 @@ func reset() -> void:
 
 func room_at(point: Vector2) -> String:
 	for room in rooms:
-		if room.area.has_point(point): return str(room.id)
+		if room.areas.any(func(a): return a.has_point(point)): return str(room.id)
 	return ""
 
 func visible_at(point: Vector2) -> bool:
-	if _current_area.has_point(point): return true
+	if _current_areas.any(func(a): return a.has_point(point)): return true
 	for area in _hidden_areas:
 		if area.has_point(point): return false
 	return true
@@ -117,25 +136,33 @@ func entering_portal(room: Dictionary, body: Rect2, point: Vector2) -> bool:
 func tick(delta: float, force := false) -> void:
 	if not force and game.get_tree().paused: return
 	if game.actors.is_empty(): return
-	if is_instance_valid(doorways): doorways.tick(force)
+	if is_instance_valid(doorways): doorways.tick(force,delta)
 	var point: Vector2 = game.actors[game.PLAYER_ACTOR_ID].position
 	var body := Footprint.body_at(point)
 	var next := active_id
-	if not _current_area.has_area() or not _current_area.grow(6).intersects(body):
+	# Shallow shop forecourts need roof restoration at the threshold: the
+	# projected head can still overlap a front facade after feet have exited.
+	var overlaps: bool = _current_areas.any(func(a): return a.grow(6).has_point(point) if _exit_by_feet else a.grow(6).intersects(body))
+	if not _current_area.has_area() or not overlaps:
 		next = ""
 		for room in rooms:
-			# Reveal on a valid doorway crossing by the torso and shoes.
+			# Reveal on a valid doorway crossing by the full character body.
 			# A head overlapping an ordinary wall cannot reveal its room.
-			if room.enter_area.has_point(point) or entering_portal(room,body,point):
+			if room.enter_areas.any(func(a): return a.has_point(point)) or entering_portal(room,body,point):
 				next = str(room.id)
 				break
 	if force or next != active_id:
 		active_id = next
 		_current_area = Rect2()
+		_current_areas.clear()
+		_exit_by_feet = false
 		_hidden_areas.clear()
 		for room in rooms:
-			if str(room.id)==next: _current_area = room.area
-			else: _hidden_areas.append(room.area)
+			if str(room.id)==next:
+				_current_area = room.area
+				_current_areas.assign(room.areas)
+				_exit_by_feet = bool(room.get("roof_exit_by_feet",false))
+			else: _hidden_areas.append_array(room.areas)
 		if not next.is_empty(): visited[next] = true
 		revision += 1
 		# Presentation synchronizes volumes later in this same frame. A roof

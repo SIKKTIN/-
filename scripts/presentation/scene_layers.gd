@@ -13,6 +13,8 @@ var fixture_shadow_commands: Array = []
 var fixture_shadow_builds := 0
 var shadow_batches: Dictionary = {}
 var shadow_batch_regions: Dictionary = {}
+var shadow_meshes: Array[ArrayMesh] = []
+var static_ground
 
 func configure(owner_game, owner_presentation, type: String) -> void:
 	game = owner_game
@@ -24,6 +26,9 @@ func configure(owner_game, owner_presentation, type: String) -> void:
 		unshaded.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 		material = unshaded
 	if kind == "fixture_shadows": prepare_fixture_shadows()
+	if kind == "ground_static":
+		static_ground=preload("res://scripts/presentation/static_ground.gd").new()
+		add_child(static_ground)
 
 func prepare_fixture_shadows() -> void:
 	var world = game.world
@@ -32,6 +37,7 @@ func prepare_fixture_shadows() -> void:
 	fixture_shadow_key = key
 	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
 	shadow_batches.clear()
+	shadow_meshes.clear()
 	shadow_batch_regions.clear()
 	fixture_shadow_commands.clear()
 	fixture_shadow_builds += 1
@@ -73,10 +79,9 @@ func prepare_fixture_shadows() -> void:
 		if commands.is_empty(): continue
 		var memberships: Array = []
 		for room in regions:
-			var rect: Array = room.rect
-			if Rect2(rect[0],rect[1],rect[2],rect[3]).has_point(world.fixtures[index].rect.get_center()):
+			if preload("res://scripts/core/room_visibility.gd").areas_for(room).any(func(area): return area.has_point(world.fixtures[index].rect.get_center())):
 				memberships.append(str(room.id))
-		var batch := JSON.stringify(memberships)
+		var batch := str(index)
 		if not shadow_batches.has(batch):
 			var rid := RenderingServer.canvas_item_create()
 			RenderingServer.canvas_item_set_parent(rid,get_canvas_item())
@@ -84,9 +89,32 @@ func prepare_fixture_shadows() -> void:
 			shadow_batches[batch] = rid
 			shadow_batch_regions[batch] = memberships
 		var rid: RID = shadow_batches[batch]
+		# Preserve command and alpha-blending order while submitting each
+		# fixture's feathered shadow as one mesh instead of seven draw calls.
+		var vertices := PackedVector2Array()
+		var colors := PackedColorArray()
+		var indices := PackedInt32Array()
 		for command in commands:
-			if command[0] is Rect2: RenderingServer.canvas_item_add_rect(rid,command[0],command[1])
-			else: RenderingServer.canvas_item_add_polygon(rid,command[0],PackedColorArray([command[1]]))
+			var polygon: PackedVector2Array
+			if command[0] is Rect2:
+				var rect: Rect2 = command[0]
+				polygon=PackedVector2Array([rect.position,rect.position+Vector2(rect.size.x,0),rect.end,rect.position+Vector2(0,rect.size.y)])
+			else:polygon=command[0]
+			var triangles := Geometry2D.triangulate_polygon(polygon)
+			var offset := vertices.size()
+			vertices.append_array(polygon)
+			for point in polygon:colors.append(command[1])
+			for vertex in triangles:indices.append(offset+vertex)
+		if not indices.is_empty():
+			var arrays: Array=[]
+			arrays.resize(Mesh.ARRAY_MAX)
+			arrays[Mesh.ARRAY_VERTEX]=vertices
+			arrays[Mesh.ARRAY_COLOR]=colors
+			arrays[Mesh.ARRAY_INDEX]=indices
+			var mesh:=ArrayMesh.new()
+			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays,[],{},Mesh.ARRAY_FLAG_USE_2D_VERTICES)
+			shadow_meshes.append(mesh)
+			RenderingServer.canvas_item_add_mesh(rid,mesh.get_rid())
 	sync_shadow_visibility()
 
 func sync_shadow_visibility() -> void:
@@ -99,6 +127,7 @@ func sync_shadow_visibility() -> void:
 func _exit_tree() -> void:
 	for rid in shadow_batches.values(): RenderingServer.free_rid(rid)
 	shadow_batches.clear()
+	shadow_meshes.clear()
 
 func _draw() -> void:
 	if not game:
@@ -111,28 +140,7 @@ func _draw() -> void:
 		sync_shadow_visibility()
 		return
 	if kind == "ground_static":
-		# Match the previous first-volume lookup in linear time. Scanning every
-		# volume for every wall made a single cache rebuild quadratic.
-		var shadow_sources := {}
-		if presentation.profile.get("soft_shadows",false):
-			for volume in presentation.volumes:
-				if not shadow_sources.has(volume.footprint): shadow_sources[volume.footprint] = volume
-		preload("res://scripts/presentation/site_details.gd").paint(self,game.room_config.get("ground_details",[]))
-		for zone in game.room_config.get("zones",[]):
-			var values: Array = zone.rect
-			var area := Rect2(values[0],values[1],values[2],values[3]).intersection(world.bounds)
-			var tint := Color(zone.color)
-			tint.a = 0.13
-			draw_rect(area,tint)
-		for r in world.walls:
-			if presentation.profile.get("soft_shadows",false):
-				var volume = shadow_sources.get(r)
-				if volume == null: continue
-				var id: String = volume.prop_id() if volume.kind != "wall" else volume.asset_id("wall_top","low_wall_top_v02")
-				if not presentation.asset_definitions.get(id,{}).get("shadow_baked",false):
-					SoftShadow.contact_rect(self,r,volume.elevation,world.bounds,presentation.profile)
-			else:
-				draw_rect(Rect2(r.position+Vector2(5,4),r.size).intersection(world.bounds),Color(0,0,0,0.12))
+		static_ground.rebuild(game,presentation)
 		return
 	if kind == "ground":
 		# Doors and the movable crate have their own tiny dynamic shadow pass.
@@ -158,12 +166,12 @@ func _draw() -> void:
 			if not visual.actor.escaped and actor_view.has_point(visual.actor.position) and not world.is_under_roof(visual.actor.position):
 				if presentation.profile.get("soft_shadows",false):
 					if not visual.definition.get("shadow_baked",false):
-						SoftShadow.contact_actor(self,visual.actor.position,presentation.profile)
+						SoftShadow.contact_actor(self,visual.actor.position,presentation.profile,preload("res://scripts/core/world_scale.gd").HUMAN)
 				else:
 					draw_ellipse(visual.actor.position+Vector2(0,2),15,4,Color(0,0,0,0.12))
 		draw_rect(world.exit_strip_rect(),Color("328b82"))
 		if game.dog and actor_view.has_point(game.dog.position) and not world.is_under_roof(game.dog.position):
-			SoftShadow.contact_actor(self,game.dog.position,presentation.profile)
+			SoftShadow.contact_actor(self,game.dog.position,presentation.profile,preload("res://scripts/core/world_scale.gd").DOG)
 		draw_texture_rect(world.art_textures.exit_v01,world.exit_icon_rect(),false)
 		for route in world.escape_routes:
 			if route.id == "main": continue
@@ -209,9 +217,12 @@ func _draw() -> void:
 			if str(gate.get("kind","")) == "timed" and str(gate.id) != "cafeteria-entry":
 				var hours: Array = gate.get("hours",[720,840])
 				text = str(gate.get("name","管制门"))+(" · %02d:%02d–%02d:%02d开放" % [int(hours[0])/60,int(hours[0])%60,int(hours[1])/60,int(hours[1])%60] if gate.closed else " · 开放")
+			if str(gate.get("kind","")) == "timed" and gate.get("card_controlled",false):
+				text = str(gate.get("name","房间"))+(" · 已锁（需房卡）" if gate.closed else " · 门已开")
 			if str(gate.get("kind","")) in ["locked","latch"]: text = str(gate.get("name","检修门"))+(" · 已锁" if gate.closed else " · 已开")
 			if not world.roofed_cells.any(func(spec): return str(spec.door_id) == str(gate.id)):
-				draw_string(presentation.font,center+Vector2(-75,38),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
+				var label_offset: Array = gate.get("label_offset",[-75,38])
+				draw_string(presentation.font,center+Vector2(label_offset[0],label_offset[1]),text,HORIZONTAL_ALIGNMENT_LEFT,-1,14,label_color)
 			if float(gate.progress) > 0 and gate.closed:
 				var bar := Rect2(center+Vector2(-35,50),Vector2(70,5))
 				draw_rect(bar,Color("536052"))
@@ -244,9 +255,10 @@ func _draw() -> void:
 				draw_rect(sign_rect,Color("ded2ad"))
 				draw_rect(sign_rect,Color("716d5b"),false,2,true)
 				draw_string(presentation.font,sign_rect.position+Vector2(12,29),"食堂",HORIZONTAL_ALIGNMENT_LEFT,-1,24,Color("403f35"))
-				var rules: Array = cafeteria.discipline_sign
-				var rules_rect := Rect2(rules[0],rules[1],rules[2],rules[3])
-				draw_rect(rules_rect,Color("ded2ad"))
-				draw_rect(rules_rect,Color("716d5b"),false,1.5,true)
-				draw_string(presentation.font,rules_rect.position+Vector2(14,25),"遵守纪律",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))
-				draw_string(presentation.font,rules_rect.position+Vector2(14,49),"文明用餐",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))
+				if not cafeteria.get("hide_discipline_sign",false):
+					var rules: Array = cafeteria.discipline_sign
+					var rules_rect := Rect2(rules[0],rules[1],rules[2],rules[3])
+					draw_rect(rules_rect,Color("ded2ad"))
+					draw_rect(rules_rect,Color("716d5b"),false,1.5,true)
+					draw_string(presentation.font,rules_rect.position+Vector2(14,25),"遵守纪律",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))
+					draw_string(presentation.font,rules_rect.position+Vector2(14,49),"文明用餐",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("535345"))

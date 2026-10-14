@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-14",
+  "source": "exec-1ee6a376-9720-4236-96e0-a08634a2cf06.png",
+  "prompt": "Use case: precise-object-edit. Production transparent seated character atlas correction for an existing 2D top-down prison game. Edit target is the supplied 3-column 4-row seated cast sprite sheet. Preserve EXACT four identities and arrangement: row1 young Lin black spiky hair, row2 stocky Zhou cropped black hair heavy eyebrows, row3 slim Xu side-part black hair rectangular black glasses, row4 elderly Lu gray receding hair. Preserve orange prison clothes, black shoes, painted chibi linework, same proportions. Correct ONLY seated perspective and arm pose: use a notably more overhead camera angle, matching the supplied overhead wooden chairs/table environment (environment reference only). Clear actual seated hips with folded thighs and bent knees, upright torso, feet down on floor; forearms extend gently forward toward table height, hands relaxed in front rather than pressed onto knees. Column1 front facing down; column2 back facing up, NO face; column3 side facing RIGHT, overhead profile with both shoulders and tops of thighs visible. Keep every sprite full body and separate, perfectly uniform 3x4 cells, same scale per cell, ample clear transparent gutter. NO chairs, NO table, NO shadows, NO cards, NO labels, NO text, NO grid. This atlas will be anchored by hips to separate chair seats and table will cover appropriate knees, arms stay visible near edge. Truly transparent PNG background; no stray opaque speckles outside sprites. Portrait sheet 3:4.",
+  "references": [
+    "../nine_point_v1/cast-source.png",
+    "../nine_point_v1/background-source.png"
+  ],
+  "pipeline": "Godot atlas cell crop, alpha > 0.1 bounds, max 256px, mipmaps. Original PNG preserved.",
+  "environment": "Reuse v1 background; tabletop and chair foreground pieces rendered separately with UV polygons by nine_point_seating.gd."
+}

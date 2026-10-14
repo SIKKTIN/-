@@ -1,0 +1,568 @@
+{
+  "captured_at": "2026-10-13T14:26:11.1903471+08:00",
+  "map": "E:/Project/Godot/这次怎么逃/data/rooms/r04.json",
+  "map_sha256": "7E911743653211DA7884E30551E9ADE18941FBD42E3CFC4B1F61704774EA843C",
+  "map_write_time": "2026-10-13T14:07:43.2285095+08:00",
+  "visibility_rooms": [
+    {
+      "door_ids": [
+        "cafeteria-entry",
+        "cafeteria-rear",
+        "maintenance-entry",
+        "cafeteria-entry-east"
+      ],
+      "id": "canteen",
+      "kind": "room",
+      "name": "食堂",
+      "rect": [
+        900.0,
+        2460.0,
+        1360.0,
+        560.0
+      ],
+      "roof_style": "cafeteria"
+    }
+  ],
+  "fixtures": [
+    {
+      "access_id": "cafeteria-entry",
+      "asset_id": "prison_gate_closed_v37",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "closed_asset": "prison_gate_closed_v37",
+      "id": "cafeteria-entry-visual45",
+      "open_asset": "prison_gate_open_v37",
+      "rect": [
+        1060.0,
+        1920.0,
+        160.0,
+        20.0
+      ],
+      "render_size": [
+        160.0,
+        100.0
+      ]
+    },
+    {
+      "access_id": "cafeteria-rear",
+      "asset_id": "prison_gate_closed_v37",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "closed_asset": "prison_gate_closed_v37",
+      "id": "cafeteria-rear-visual45",
+      "open_asset": "prison_gate_open_v37",
+      "rect": [
+        1300.0,
+        3040.0,
+        180.0,
+        20.0
+      ],
+      "render_size": [
+        160.0,
+        100.0
+      ]
+    },
+    {
+      "access_id": "cafeteria-entry-east",
+      "asset_id": "prison_gate_closed_v37",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "closed_asset": "prison_gate_closed_v37",
+      "id": "cafeteria-entry-east-visual45",
+      "open_asset": "prison_gate_open_v37",
+      "rect": [
+        2100.0,
+        1920.0,
+        160.0,
+        20.0
+      ],
+      "render_size": [
+        160.0,
+        100.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_backline_v1",
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "id": "canteen-kitchen-collision",
+      "name": "食堂连续后厨设备",
+      "rect": [
+        1250.0,
+        1940.0,
+        830.0,
+        64.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_counter_v1",
+      "blocks_movement": true,
+      "blocks_sight": true,
+      "id": "canteen-counter",
+      "name": "食堂取餐台",
+      "rect": [
+        1300.0,
+        2058.0,
+        720.0,
+        35.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_service_food_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2101.0,
+      "id": "canteen-redesign-service-food",
+      "rect": [
+        1400.0,
+        2015.55307804169,
+        500.0,
+        20.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_water_urn_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "canteen-redesign-water",
+      "rect": [
+        930.0,
+        1958.0,
+        48.0,
+        36.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_return_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "canteen-return",
+      "name": "餐盘回收架",
+      "rect": [
+        2060.0,
+        2300.0,
+        70.0,
+        44.5454545454545
+      ]
+    },
+    {
+      "asset_id": "cafeteria_table_vertical_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "dine-table-0",
+      "rect": [
+        1000.0,
+        2150.0,
+        140.0,
+        210.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_tray_v41",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2368.0,
+      "id": "dine-tray-0",
+      "rect": [
+        1049.0,
+        2238.04527296937,
+        42.0,
+        17.1214
+      ]
+    },
+    {
+      "asset_id": "cafeteria_enamel_cup_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2371.0,
+      "id": "canteen-redesign-cup-0",
+      "rect": [
+        1064.0,
+        2204.04527296937,
+        12.0,
+        11.6883116883
+      ]
+    },
+    {
+      "asset_id": "cafeteria_table_vertical_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "dine-table-1",
+      "rect": [
+        1245.0,
+        2150.0,
+        140.0,
+        210.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_tray_v41",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2368.0,
+      "id": "dine-tray-1",
+      "rect": [
+        1294.0,
+        2238.04527296937,
+        42.0,
+        17.1214
+      ]
+    },
+    {
+      "asset_id": "cafeteria_enamel_cup_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2371.0,
+      "id": "canteen-redesign-cup-1",
+      "rect": [
+        1309.0,
+        2204.04527296937,
+        12.0,
+        11.6883116883
+      ]
+    },
+    {
+      "asset_id": "cafeteria_table_vertical_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "dine-table-2",
+      "rect": [
+        1490.0,
+        2150.0,
+        140.0,
+        210.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_tray_v41",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2368.0,
+      "id": "dine-tray-2",
+      "rect": [
+        1539.0,
+        2238.04527296937,
+        42.0,
+        17.1214
+      ]
+    },
+    {
+      "asset_id": "cafeteria_enamel_cup_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2371.0,
+      "id": "canteen-redesign-cup-2",
+      "rect": [
+        1554.0,
+        2204.04527296937,
+        12.0,
+        11.6883116883
+      ]
+    },
+    {
+      "asset_id": "cafeteria_table_vertical_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "dine-table-3",
+      "rect": [
+        1735.0,
+        2150.0,
+        140.0,
+        210.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_tray_v41",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2368.0,
+      "id": "dine-tray-3",
+      "rect": [
+        1784.0,
+        2238.04527296937,
+        42.0,
+        17.1214
+      ]
+    },
+    {
+      "asset_id": "cafeteria_enamel_cup_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2371.0,
+      "id": "canteen-redesign-cup-3",
+      "rect": [
+        1799.0,
+        2204.04527296937,
+        12.0,
+        11.6883116883
+      ]
+    },
+    {
+      "asset_id": "cafeteria_table_vertical_v1",
+      "blocks_movement": true,
+      "blocks_sight": false,
+      "id": "dine-table-4",
+      "rect": [
+        1980.0,
+        2150.0,
+        140.0,
+        210.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_tray_v41",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2368.0,
+      "id": "dine-tray-4",
+      "rect": [
+        2029.0,
+        2238.04527296937,
+        42.0,
+        17.1214
+      ]
+    },
+    {
+      "asset_id": "cafeteria_enamel_cup_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 2371.0,
+      "id": "canteen-redesign-cup-4",
+      "rect": [
+        2044.0,
+        2204.04527296937,
+        12.0,
+        11.6883116883
+      ]
+    },
+    {
+      "asset_id": "cafeteria_window_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 1952.0,
+      "id": "canteen-redesign-window-0",
+      "rect": [
+        1300.0,
+        1850.0,
+        138.0,
+        47.9242304656669
+      ]
+    },
+    {
+      "asset_id": "cafeteria_window_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 1952.0,
+      "id": "canteen-redesign-window-1",
+      "rect": [
+        1820.0,
+        1850.0,
+        138.0,
+        47.9242304656669
+      ]
+    },
+    {
+      "asset_id": "cafeteria_light_v1",
+      "blocks_movement": false,
+      "blocks_sight": false,
+      "draw_depth": 1953.0,
+      "id": "canteen-redesign-wall-light",
+      "rect": [
+        1595.0,
+        1850.0,
+        46.0,
+        8.0736301369863
+      ]
+    }
+  ],
+  "access_doors": [
+    {
+      "blocks_sight": false,
+      "evacuation": [
+        1140.0,
+        1780.0
+      ],
+      "hours": [
+        720.0,
+        840.0
+      ],
+      "id": "cafeteria-entry",
+      "initial_closed": true,
+      "kind": "timed",
+      "name": "食堂定时门",
+      "rect": [
+        1060.0,
+        1920.0,
+        160.0,
+        20.0
+      ],
+      "room_rect": [
+        900.0,
+        1940.0,
+        1360.0,
+        560.0
+      ]
+    },
+    {
+      "blocks_sight": false,
+      "evacuation": [
+        1140.0,
+        2300.0
+      ],
+      "hours": [
+        720.0,
+        840.0
+      ],
+      "id": "cafeteria-rear",
+      "initial_closed": true,
+      "kind": "timed",
+      "name": "食堂后门",
+      "rect": [
+        1300.0,
+        3040.0,
+        180.0,
+        20.0
+      ],
+      "room_rect": [
+        900.0,
+        2460.0,
+        1360.0,
+        560.0
+      ]
+    },
+    {
+      "blocks_sight": true,
+      "id": "maintenance-entry",
+      "initial_closed": true,
+      "interaction_point": [
+        2100.0,
+        3045.0
+      ],
+      "kind": "locked",
+      "name": "设备间检修门",
+      "rect": [
+        2100.0,
+        3040.0,
+        160.0,
+        20.0
+      ]
+    },
+    {
+      "blocks_sight": false,
+      "evacuation": [
+        2180.0,
+        1780.0
+      ],
+      "hours": [
+        720.0,
+        840.0
+      ],
+      "id": "cafeteria-entry-east",
+      "initial_closed": true,
+      "kind": "timed",
+      "name": "食堂东门",
+      "rect": [
+        2100.0,
+        1920.0,
+        160.0,
+        20.0
+      ],
+      "room_rect": [
+        900.0,
+        1940.0,
+        1360.0,
+        560.0
+      ]
+    }
+  ],
+  "floor_regions": [
+    {
+      "asset_id": "loading_floor_v46",
+      "id": "hall-plaza",
+      "rect": [
+        2200.0,
+        2160.0,
+        2120.0,
+        1480.0
+      ],
+      "tile_size": [
+        320.0,
+        320.0
+      ]
+    },
+    {
+      "asset_id": "common_floor_v46",
+      "id": "hall",
+      "rect": [
+        800.0,
+        2140.0,
+        1400.0,
+        380.0
+      ],
+      "tile_size": [
+        320.0,
+        320.0
+      ]
+    },
+    {
+      "asset_id": "cafeteria_floor_v1",
+      "id": "canteen",
+      "manifest": "res://art/architecture/cafeteria_v1/manifest.json",
+      "rect": [
+        880.0,
+        2440.0,
+        1400.0,
+        620.0
+      ],
+      "tile_size": [
+        240.0,
+        240.0
+      ]
+    }
+  ],
+  "dine_points": [
+    [
+      895.0,
+      2890.0
+    ],
+    [
+      1140.0,
+      2890.0
+    ],
+    [
+      1385.0,
+      2890.0
+    ],
+    [
+      1630.0,
+      2890.0
+    ],
+    [
+      1875.0,
+      2890.0
+    ]
+  ],
+  "meal_points": [
+    [
+      1350.0,
+      2710.0
+    ],
+    [
+      1590.0,
+      2710.0
+    ],
+    [
+      1840.0,
+      2710.0
+    ],
+    [
+      1440.0,
+      2710.0
+    ],
+    [
+      1760.0,
+      2710.0
+    ]
+  ],
+  "note": "Read-only evidence for concept planning. Re-read latest saved map before implementation."
+}

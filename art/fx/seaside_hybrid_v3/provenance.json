@@ -1,0 +1,25 @@
+{
+  "scope": "Independent Godot 4.7 Forward+ sea prototype; no game map or game rendering code integration",
+  "water_images": "None. Water heights, slopes, whitecaps and transported foam are computed.",
+  "fft": {
+    "implementation": "Original GPU radix-2 DIT inverse FFT, 128x128, two axes, two cascades",
+    "spectrum": "Seeded Gaussian Phillips directional spectrum with separate >=6m and 0.65-6m wavelength bands",
+    "evolution": "Tessendorf Hermitian-paired complex spectral evolution, finite-depth dispersion sqrt(g k tanh(k d))",
+    "reference_reviewed": "https://github.com/2Retr0/GodotOceanWaves/tree/a171446f8174348895aaafc426576c26261058b9",
+    "reference_role": "Algorithm and compute architecture reference; its JONSWAP/TMA generator and Stockham FFT implementation are not copied"
+  },
+  "shallow_water": {
+    "upstream": "https://github.com/opengenius/godot_swe_ocean2d",
+    "commit": "ade2d150c2f34785715ed7452063e8b81df1a709",
+    "license": "MIT",
+    "attribution": "Copyright (c) 2024 Evgenii Gubenko",
+    "license_file": "SWE_UPSTREAM_LICENSE.txt",
+    "adaptation": "Staggered velocity and upwind height solver inherited from v1; open boundary and deep-water spectral relaxation; shallow water, shore wet/dry cells and solid piers remain interactive"
+  },
+  "foam": "Two transported concentrations plus two transported material coordinates; source from solved compression and choppy-wave Jacobian; no fixed UV foam image",
+  "spray": "600 bounded GPU particle slots; proposal distribution follows shore/pier geometry, acceptance samples solved depth and foam impact; projected ballistic flight",
+  "runtime": "Main RenderingDevice shared textures, fixed 120Hz SWE, one FFT generation per visible update, no CPU readback in interactive use",
+  "startup": "Prototype GLSL is compiled from source once through RenderingDevice's compiler/cache to avoid stale imported SPIR-V during concurrent editor changes. Standalone export must include the raw .glsl and .glslinc sources.",
+  "reuse_art": "Previous transparent pier, game floor atlas grass, game shrubs and actual v03 game player; no new water or foam art",
+  "limitations": ["Heightfield cannot simulate overturning 3D wave geometry", "Spectral and SWE coupling is an artistic open-ocean relaxation, not a mass-conserving closed-domain coupling", "Bathymetry and pier obstacle placement are prototype approximations", "Whole-map and mobile performance have not been measured"]
+}

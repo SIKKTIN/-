@@ -1,17 +1,306 @@
 {
-  "schema": 1,
-  "description": "当前七天单图 demo 的回归入口；历史阶段脚本保留为开发证据",
-  "checks": [
-    {"id":"head_layer","script":"qa/p115_head_layer.gd","report":"docs/tests/p115-head-layer.json","timeout":90},
-    {"id":"feet","script":"qa/p110_feet_collision.gd","report":"docs/tests/p110-feet.json","timeout":90},
-    {"id":"structure","script":"qa/p108_structure.gd","report":"docs/tests/p108-structure.json","timeout":90},
-    {"id":"map","script":"qa/p107_courtyard.gd","report":"docs/tests/p107-courtyard.json","timeout":150},
-    {"id":"inventory","script":"qa/p94_single_player_ui.gd","report":"docs/tests/p94-single-player-ui.json","timeout":90},
-    {"id":"player","script":"qa/p104_manual_player.gd","report":"docs/tests/p104-manual-headless.json","timeout":90},
-    {"id":"social","script":"qa/p102_social_world.gd","report":"docs/tests/p102-social-headless.json","timeout":90},
-    {"id":"npc","script":"qa/p104_npc_two_day_cycle.gd","report":"docs/tests/p104-npc-two-day-cycle.json","timeout":180},
-    {"id":"tutorial","script":"qa/p104_tutorial_regression.gd","report":"docs/tests/p104-tutorial-headless.json","timeout":180},
-    {"id":"legacy_maps","script":"qa/p104_legacy_life.gd","report":"docs/tests/p104-legacy-life.json","timeout":90},
-    {"id":"chase","script":"qa/p90_warning_recovery.gd","report":"docs/tests/p90-warning-headless.json","timeout":90}
-  ]
+	"schema": 1,
+	"description": "当前七天单图 demo 的回归入口；历史阶段脚本保留为开发证据",
+	"checks": [
+		{
+			"id": "timed_card_lock",
+			"script": "qa/timed_card_lock.gd",
+			"report": "docs/tests/timed-card-lock/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "resource_textures",
+			"script": "qa/resource_texture_regression.gd",
+			"report": "docs/performance/resource-optimization-20261014/regression.json",
+			"timeout": 180
+		},
+		{
+			"id": "equipment_secure_v1",
+			"script": "qa/equipment_secure_v1.gd",
+			"report": "docs/art/equipment-secure-v1/checks-headless.json",
+			"timeout": 150
+		},
+		{
+			"id": "dorm_door_interaction",
+			"script": "qa/dorm_door_interaction.gd",
+			"report": "docs/art/dorm-door-v1/interaction-checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "dorm_door_v1",
+			"script": "qa/dorm_door_v1.gd",
+			"report": "docs/art/dorm-door-v1/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "editor_inspector_layout",
+			"script": "qa/editor_inspector_layout.gd",
+			"report": "docs/dev/editor-inspector-layout/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "editor_floor_authoring",
+			"script": "qa/editor_floor.gd",
+			"report": "docs/dev/editor-floor/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "chess_room_restoration",
+			"script": "qa/chess_room_v1.gd",
+			"report": "docs/art/chess-activity-room-v1/checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "floor_coverage_repair",
+			"script": "qa/floor_coverage_repair.gd",
+			"report": "docs/tests/floor-coverage-repair/checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "tool_room_restoration",
+			"script": "qa/tool_room_restoration.gd",
+			"report": "docs/art/tool-room-redesign/checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "reading_room_restoration",
+			"script": "qa/reading_room_restoration.gd",
+			"report": "docs/art/reading-room-restoration/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "clinic_door_occlusion",
+			"script": "qa/clinic_door_occlusion.gd",
+			"report": "docs/tests/clinic-door-occlusion/checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "workshop_door_exterior",
+			"script": "qa/workshop_door_exterior.gd",
+			"report": "docs/art/workshop-one-restoration/door-v2/exterior-checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "workshop_door_v2",
+			"script": "qa/workshop_door_v2.gd",
+			"report": "docs/art/workshop-one-restoration/door-v2/checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "workshop_one_restoration",
+			"script": "qa/workshop_one_revision2.gd",
+			"report": "docs/art/workshop-one-restoration/checks-v2.json",
+			"timeout": 150
+		},
+		{
+			"id": "cafeteria_redesign",
+			"script": "qa/cafeteria_v2.gd",
+			"report": "docs/art/cafeteria-redesign-v2/checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "monitor_room_restoration",
+			"script": "qa/monitor_room_restoration.gd",
+			"report": "docs/art/monitor-room-v01/headless-checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "bath_watercard",
+			"script": "qa/bath_watercard.gd",
+			"report": "docs/art/bath-watercard-v1/checks.json",
+			"timeout": 150
+		},
+		{
+			"id": "duty_room_restoration",
+			"script": "qa/duty_room_restoration.gd",
+			"report": "docs/art/duty-room-restoration/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "dorm_restoration",
+			"script": "qa/dorm_restoration.gd",
+			"report": "docs/art/dorm-restoration/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "clinic_sliding_door",
+			"script": "qa/clinic_sliding_door.gd",
+			"report": "docs/art/clinic-restoration/sliding-door-checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "bath_restoration",
+			"script": "qa/bath_restoration.gd",
+			"report": "docs/art/bath-restoration/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "clinic_roof_door",
+			"script": "qa/clinic_roof_door.gd",
+			"report": "docs/art/clinic-restoration/roof-door-checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "clinic_restoration",
+			"script": "qa/clinic_restoration.gd",
+			"report": "docs/art/clinic-restoration/checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "exercise_yard",
+			"script": "qa/exercise_yard_v55.gd",
+			"report": "docs/art/exercise-yard-v02/headless-checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "items_preview",
+			"script": "qa/p138_items_and_previewer.gd",
+			"report": "docs/dev/p138/items-checks.json",
+			"timeout": 120
+		},
+		{
+			"id": "interaction_hint",
+			"script": "qa/p138_interaction_hint.gd",
+			"report": "docs/dev/p138/interaction-headless.json",
+			"timeout": 90
+		},
+		{
+			"id": "editor_eraser",
+			"script": "qa/p137_editor_eraser.gd",
+			"report": "docs/dev/p137/eraser-checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "editor_eraser_doors_ground",
+			"script": "qa/eraser_complete.gd",
+			"report": "docs/dev/eraser-complete/checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "editor",
+			"script": "qa/p135_editor_regression.gd",
+			"report": "docs/dev/p135/editor-checks.json",
+			"timeout": 90
+		},
+		{
+			"id": "quick_items",
+			"script": "qa/p135_quick_items.gd",
+			"report": "docs/dev/p135/quick-items.json",
+			"timeout": 150
+		},
+		{
+			"id": "looting",
+			"script": "qa/p130_manual_inventory.gd",
+			"report": "docs/tests/p130-manual-inventory.json",
+			"timeout": 120
+		},
+		{
+			"id": "render_cache",
+			"script": "qa/p129_render_regression.gd",
+			"report": "docs/tests/p129-render-regression.json",
+			"timeout": 90
+		},
+		{
+			"id": "southwest_yard",
+			"script": "qa/p131_yard.gd",
+			"report": "docs/tests/p131-yard.json",
+			"timeout": 90
+		},
+		{
+			"id": "scene_seams",
+			"script": "qa/p131_scene_seams.gd",
+			"report": "docs/tests/p131-scene-seams.json",
+			"timeout": 90
+		},
+		{
+			"id": "prop_proportions",
+			"script": "qa/p116_prop_proportions.gd",
+			"report": "docs/tests/p116-proportions.json",
+			"timeout": 90
+		},
+		{
+			"id": "head_layer",
+			"script": "qa/p127_actor_occlusion.gd",
+			"report": "docs/tests/p127-actor-occlusion.json",
+			"timeout": 90
+		},
+		{
+			"id": "feet",
+			"script": "qa/p127_full_body_doors.gd",
+			"report": "docs/tests/p127-full-body-doors.json",
+			"timeout": 90
+		},
+		{
+			"id": "structure",
+			"script": "qa/p108_structure.gd",
+			"report": "docs/tests/p108-structure.json",
+			"timeout": 90
+		},
+		{
+			"id": "map",
+			"script": "qa/p107_courtyard.gd",
+			"report": "docs/tests/p107-courtyard.json",
+			"timeout": 150
+		},
+		{
+			"id": "inventory",
+			"script": "qa/p94_single_player_ui.gd",
+			"report": "docs/dev/p135/inventory-ui.json",
+			"timeout": 90
+		},
+		{
+			"id": "player",
+			"script": "qa/p104_manual_player.gd",
+			"report": "docs/tests/p104-manual-headless.json",
+			"timeout": 90
+		},
+		{
+			"id": "social",
+			"script": "qa/p102_social_world.gd",
+			"report": "docs/tests/p102-social-headless.json",
+			"timeout": 90
+		},
+		{
+			"id": "npc",
+			"script": "qa/p104_npc_two_day_cycle.gd",
+			"report": "docs/tests/p104-npc-two-day-cycle.json",
+			"timeout": 180
+		},
+		{
+			"id": "tutorial",
+			"script": "qa/p104_tutorial_regression.gd",
+			"report": "docs/tests/p104-tutorial-headless.json",
+			"timeout": 180
+		},
+		{
+			"id": "legacy_maps",
+			"script": "qa/p104_legacy_life.gd",
+			"report": "docs/tests/p104-legacy-life.json",
+			"timeout": 90
+		},
+		{
+			"id": "chase",
+			"script": "qa/p90_warning_recovery.gd",
+			"report": "docs/tests/p90-warning-headless.json",
+			"timeout": 90
+		},
+		{
+			"id": "equipment_pipes_v2",
+			"script": "qa/equipment_pipes_v2.gd",
+			"report": "docs/art/equipment-pipes-v2/checks-headless.json",
+			"timeout": 150
+		},
+		{
+			"id": "valve_maintenance_v1",
+			"script": "qa/valve_maintenance_v1.gd",
+			"report": "docs/art/valve-maintenance-v1/checks-headless.json",
+			"timeout": 150
+		},
+		{
+			"id": "valve_perimeter_v2",
+			"script": "qa/valve_perimeter_v2.gd",
+			"report": "docs/art/valve-perimeter-v2/checks-headless.json",
+			"timeout": 150
+		}
+	]
 }

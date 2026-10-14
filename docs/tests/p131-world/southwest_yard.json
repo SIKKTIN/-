@@ -1,0 +1,38 @@
+{
+	"checks": {
+		"corner_booth_blocks": true,
+		"corridor_to_laundry": true,
+		"debris_inside_enclosure": true,
+		"east_wall_stops_feet": true,
+		"editor_corner_booth_v52": true,
+		"editor_opens_native_map": true,
+		"editor_rubble_0_v52": true,
+		"editor_rubble_1_v52": true,
+		"editor_rubble_2_v52": true,
+		"editor_rubble_3_v52": true,
+		"editor_scrap_0_v52": true,
+		"editor_scrap_1_v52": true,
+		"editor_scrap_2_v52": true,
+		"editor_scrap_3_v52": true,
+		"entry_crosses_both_ways": true,
+		"map_validation": true,
+		"nine_new_props_registered": true,
+		"north_wall_stops_feet": true,
+		"open_air_has_no_room_roof": true,
+		"preserves_seven_day_map": false,
+		"scrap_piles_block_feet": true,
+		"small_rubble_walkable": true,
+		"south_paving_excludes_yard": true,
+		"south_wall_stops_feet": true,
+		"static_decor_not_rebuilt_each_frame": true,
+		"walk_inside_(150.0, 3750.0)": true,
+		"walk_inside_(400.0, 3500.0)": true,
+		"walk_inside_(530.0, 3970.0)": false,
+		"yard_ground_replaces_lawn": true,
+		"yard_to_service_route": true
+	},
+	"failed": [
+		"preserves_seven_day_map",
+		"walk_inside_(530.0, 3970.0)"
+	]
+}

@@ -1,0 +1,296 @@
+{
+	"schema": 2,
+	"version": "laundry-v2",
+	"assets": [
+		{
+			"texture": "res://art/props/laundry_v2/folding_table.png",
+			"texture_size": [
+				2051,
+				767
+			],
+			"region": [
+				129,
+				162,
+				1788,
+				501
+			],
+			"runtime_size_limit": 512,
+			"sha256": "31875130b3f54255b5b6ed32e6eb898b1da311acb901e0fd1fa91962942984b1",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_folding_table_v2",
+			"name": "洗衣房 · 金属布草叠衣台",
+			"render_mode": "projected_prop",
+			"world_size": [
+				285,
+				79.85738255033557
+			],
+			"render_size": [
+				285,
+				79.85738255033557
+			],
+			"footprint_world_size": [
+				285,
+				65
+			],
+			"ground_rect": [
+				0,
+				93.21052631578948,
+				1788,
+				407.7894736842105
+			],
+			"elevation_world": 14.857382550335572,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v2/dirty_station.png",
+			"texture_size": [
+				1942,
+				809
+			],
+			"region": [
+				288,
+				105,
+				1342,
+				581
+			],
+			"runtime_size_limit": 512,
+			"sha256": "aa767f93c50065aba144cc4b4158902125fcd307ea1525a422baedb67c689d96",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_dirty_station_v2",
+			"name": "洗衣房 · 脏衣收集与蓝桶分拣组合",
+			"render_mode": "projected_prop",
+			"world_size": [
+				210,
+				90.91654247391952
+			],
+			"render_size": [
+				210,
+				90.91654247391952
+			],
+			"footprint_world_size": [
+				210,
+				75
+			],
+			"ground_rect": [
+				0,
+				101.71428571428567,
+				1342,
+				479.28571428571433
+			],
+			"elevation_world": 15.91654247391952,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/washer.png",
+			"texture_size": [
+				1159,
+				1357
+			],
+			"region": [
+				185,
+				103,
+				791,
+				1148
+			],
+			"runtime_size_limit": 512,
+			"sha256": "58452452840d31f59db61ea6a7bbae513a9bdc6f348cdfe8931b44faab16ad11",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_washer_v2",
+			"name": "洗衣房 · 工业滚筒洗衣机",
+			"render_mode": "projected_prop",
+			"world_size": [
+				80,
+				116.10619469026548
+			],
+			"render_size": [
+				80,
+				116.10619469026548
+			],
+			"footprint_world_size": [
+				80,
+				66
+			],
+			"ground_rect": [
+				0,
+				495.42499999999995,
+				791,
+				652.575
+			],
+			"elevation_world": 50.10619469026548,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"proportion_locked": true,
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"texture": "res://art/props/laundry_v1/supply_pipe.png",
+			"texture_size": [
+				1983,
+				793
+			],
+			"region": [
+				55,
+				204,
+				1869,
+				388
+			],
+			"runtime_size_limit": 512,
+			"sha256": "9164394cf93fb4fdbda880f39414fc4d14a3eab3676c1ec1c15406cd0c98ca4f",
+			"source_kind": "built-in-imagegen-original-png",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"id": "laundry_supply_pipe_v2",
+			"name": "洗衣房 · 四位供水管",
+			"render_mode": "wall_attachment",
+			"world_size": [
+				344,
+				71.41359015516319
+			],
+			"render_size": [
+				344,
+				71.41359015516319
+			],
+			"footprint_world_size": [
+				344,
+				1
+			],
+			"ground_rect": [
+				0,
+				382.5668604651163,
+				1869,
+				5.433139534883721
+			],
+			"elevation_world": 70.41359015516319,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments"
+		},
+		{
+			"id": "laundry_vent_v2",
+			"label": "墙面通风口",
+			"texture": "res://art/props/prison_v17/wall_vent_v17.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				188,
+				234,
+				1162,
+				550
+			],
+			"ground_rect": [
+				0,
+				532.123076923077,
+				1162,
+				17.876923076923077
+			],
+			"footprint_world_size": [
+				65,
+				1
+			],
+			"world_size": [
+				65,
+				30.765920826161793
+			],
+			"scale": 0.04173913043478261,
+			"anchor": [
+				581.0,
+				544
+			],
+			"elevation_world": 29.765920826161793,
+			"shadow_baked": false,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "54d0471ac97d0d3b83c63d1d3c39aa25a05db313e0593dade816200b92bd3a4d",
+			"mount_anchor": [
+				581.0,
+				544
+			],
+			"recommended_mount_height_world": 54,
+			"registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow.",
+			"name": "洗衣房 · 墙面排风格栅",
+			"render_size": [
+				65,
+				30.765920826161793
+			],
+			"runtime_size_limit": 256,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"reused_from": "wall_vent"
+		},
+		{
+			"id": "laundry_wall_lamp_v2",
+			"label": "笼罩墙灯",
+			"texture": "res://art/props/prison_v17/caged_wall_lamp_v17.png",
+			"texture_size": [
+				1536,
+				1024
+			],
+			"region": [
+				298,
+				258,
+				911,
+				500
+			],
+			"ground_rect": [
+				0,
+				479.29545454545456,
+				911,
+				20.704545454545453
+			],
+			"footprint_world_size": [
+				44,
+				1
+			],
+			"world_size": [
+				44,
+				24.149286498353458
+			],
+			"scale": 0.026696329254727477,
+			"anchor": [
+				455.5,
+				494
+			],
+			"elevation_world": 23.149286498353458,
+			"shadow_baked": false,
+			"render_mode": "wall_attachment",
+			"blocking": false,
+			"interactive": false,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "501f2d1780a18005f0f4e33cc64f12d92b2a9e8e43d01e5033a20352e99a6228",
+			"mount_anchor": [
+				455.5,
+				494
+			],
+			"recommended_mount_height_world": 65,
+			"registration_note": "ground_rect is only a 1-unit registration strip; wall attachment has no independent floor collision or cast shadow.",
+			"name": "洗衣房 · 笼罩工作壁灯",
+			"render_size": [
+				44,
+				24.149286498353458
+			],
+			"runtime_size_limit": 256,
+			"proportion_locked": true,
+			"editor_subcategory": "attachments",
+			"alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+			"reused_from": "caged_wall_lamp"
+		}
+	]
+}

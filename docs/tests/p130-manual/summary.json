@@ -1,0 +1,29 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "looting",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 15.7,
+      "checks": 96,
+      "failed": [
+        "valid_target_is_highlighted",
+        "valid_drag_has_release_instruction",
+        "actual_drag_to_bag_transfers_once",
+        "native_second_cell_grab_preserves_anchor",
+        "view_model_refreshes_same_ids_after_move",
+        "native_bag_to_cabinet_exact_cell"
+      ],
+      "fresh_report": true,
+      "engine_errors": true
+    }
+  ],
+  "total_checks": 96,
+  "passed": false
+}

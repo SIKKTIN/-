@@ -1,0 +1,668 @@
+{
+	"schema": 2,
+	"version": "repair-courtyard-v1",
+	"assets": [
+		{
+			"id": "repair_shed_north_v1",
+			"name": "维修小院 · 上棚与维修湾背板",
+			"texture": "res://art/props/repair_courtyard_v1/shed.png",
+			"texture_size": [
+				1113,
+				1414
+			],
+			"region": [
+				148,
+				28,
+				756,
+				546
+			],
+			"world_size": [
+				333.52941176470586,
+				240.88235294117646
+			],
+			"render_size": [
+				333.52941176470586,
+				240.88235294117646
+			],
+			"footprint_world_size": [
+				333.52941176470586,
+				200.88235294117646
+			],
+			"ground_rect": [
+				0,
+				90.66666666666664,
+				756,
+				455.3333333333333
+			],
+			"elevation_world": 40.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 1024,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "a66073ac5db9a689210b7f857fe680c4b009c9d42c79db106b4abbf4e40fa669",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0.01,
+					0,
+					0.05,
+					0.8
+				],
+				[
+					0.34,
+					0.73,
+					0.55,
+					0.025
+				],
+				[
+					0.9,
+					0.74,
+					0.06,
+					0.15
+				]
+			]
+		},
+		{
+			"id": "repair_shed_spine_v1",
+			"name": "维修小院 · 左侧窄铁皮棚",
+			"texture": "res://art/props/repair_courtyard_v1/shed.png",
+			"texture_size": [
+				1113,
+				1414
+			],
+			"region": [
+				148,
+				574,
+				264,
+				226
+			],
+			"world_size": [
+				116.47058823529412,
+				99.70588235294117
+			],
+			"render_size": [
+				116.47058823529412,
+				99.70588235294117
+			],
+			"footprint_world_size": [
+				116.47058823529412,
+				99.70588235294117
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				264,
+				226.0
+			],
+			"elevation_world": 0.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 1024,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "a66073ac5db9a689210b7f857fe680c4b009c9d42c79db106b4abbf4e40fa669",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0.015,
+					0,
+					0.08,
+					1
+				]
+			]
+		},
+		{
+			"id": "repair_shed_south_v1",
+			"name": "维修小院 · 南侧机件存放棚与牌子",
+			"texture": "res://art/props/repair_courtyard_v1/shed.png",
+			"texture_size": [
+				1113,
+				1414
+			],
+			"region": [
+				148,
+				800,
+				816,
+				557
+			],
+			"world_size": [
+				360,
+				245.73529411764704
+			],
+			"render_size": [
+				360,
+				245.73529411764704
+			],
+			"footprint_world_size": [
+				360,
+				200.73529411764704
+			],
+			"ground_rect": [
+				0,
+				101.99999999999999,
+				816,
+				455.0
+			],
+			"elevation_world": 45.0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 1024,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "a66073ac5db9a689210b7f857fe680c4b009c9d42c79db106b4abbf4e40fa669",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"solid_parts": [
+				[
+					0.03,
+					0.86,
+					0.055,
+					0.14
+				],
+				[
+					0.46,
+					0.86,
+					0.055,
+					0.14
+				],
+				[
+					0.93,
+					0.86,
+					0.055,
+					0.14
+				]
+			]
+		},
+		{
+			"id": "repair_bench_v1",
+			"name": "维修小院 · 木制台钳维修台",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				43,
+				106,
+				462,
+				357
+			],
+			"world_size": [
+				176,
+				100
+			],
+			"render_size": [
+				176,
+				100
+			],
+			"footprint_world_size": [
+				176,
+				62
+			],
+			"ground_rect": [
+				0,
+				135.66,
+				462,
+				221.34
+			],
+			"elevation_world": 38,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_welder_v1",
+			"name": "维修小院 · 红色移动焊机",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				505,
+				67,
+				407,
+				392
+			],
+			"world_size": [
+				88,
+				120
+			],
+			"render_size": [
+				88,
+				120
+			],
+			"footprint_world_size": [
+				88,
+				52
+			],
+			"ground_rect": [
+				0,
+				222.13333333333333,
+				407,
+				169.86666666666667
+			],
+			"elevation_world": 68,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_pipes_v1",
+			"name": "维修小院 · 钢管堆放架",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				1036,
+				153,
+				432,
+				307
+			],
+			"world_size": [
+				138,
+				103
+			],
+			"render_size": [
+				138,
+				103
+			],
+			"footprint_world_size": [
+				138,
+				66
+			],
+			"ground_rect": [
+				0,
+				110.28155339805824,
+				432,
+				196.71844660194174
+			],
+			"elevation_world": 37,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_compressor_v1",
+			"name": "维修小院 · 旧风机机件",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				88,
+				631,
+				388,
+				311
+			],
+			"world_size": [
+				78,
+				86
+			],
+			"render_size": [
+				78,
+				86
+			],
+			"footprint_world_size": [
+				78,
+				53
+			],
+			"ground_rect": [
+				0,
+				119.33720930232559,
+				388,
+				191.6627906976744
+			],
+			"elevation_world": 33,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_crates_v1",
+			"name": "维修小院 · 叠放旧木箱",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				655,
+				558,
+				205,
+				423
+			],
+			"world_size": [
+				64,
+				126
+			],
+			"render_size": [
+				64,
+				126
+			],
+			"footprint_world_size": [
+				64,
+				44
+			],
+			"ground_rect": [
+				0,
+				275.2857142857143,
+				205,
+				147.71428571428572
+			],
+			"elevation_world": 82,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_toolboard_v1",
+			"name": "维修小院 · 工具挂板与盘管",
+			"texture": "res://art/props/repair_courtyard_v1/equipment.png",
+			"texture_size": [
+				1515,
+				1038
+			],
+			"region": [
+				1028,
+				653,
+				423,
+				266
+			],
+			"world_size": [
+				120,
+				48
+			],
+			"render_size": [
+				120,
+				48
+			],
+			"footprint_world_size": [
+				120,
+				3
+			],
+			"ground_rect": [
+				0,
+				249.375,
+				423,
+				16.625
+			],
+			"elevation_world": 45,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "05ff61119c3bdc1dac600bde2f3d36ed77ff10bd9e3ce7639c5c1eac7c7f3954",
+			"editor_subcategory": "furnishings",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader"
+		},
+		{
+			"id": "repair_oil_v1",
+			"name": "维修小院 · 维修地面油渍",
+			"texture": "res://art/props/repair_courtyard_v1/ground.png",
+			"texture_size": [
+				1514,
+				1039
+			],
+			"region": [
+				51,
+				71,
+				835,
+				550
+			],
+			"world_size": [
+				260,
+				190
+			],
+			"render_size": [
+				260,
+				190
+			],
+			"footprint_world_size": [
+				260,
+				190
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				835,
+				550.0
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "85a3d215536f33767a7bbbbcb4382923c404777b62084d49055011d409d8b12a",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "repair_drain_v1",
+			"name": "维修小院 · 方形排水格栅",
+			"texture": "res://art/props/repair_courtyard_v1/ground.png",
+			"texture_size": [
+				1514,
+				1039
+			],
+			"region": [
+				1023,
+				166,
+				357,
+				352
+			],
+			"world_size": [
+				54,
+				54
+			],
+			"render_size": [
+				54,
+				54
+			],
+			"footprint_world_size": [
+				54,
+				54
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				357,
+				352.0
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "85a3d215536f33767a7bbbbcb4382923c404777b62084d49055011d409d8b12a",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "repair_corner_v1",
+			"name": "维修小院 · 褪色黄色定位角",
+			"texture": "res://art/props/repair_courtyard_v1/ground.png",
+			"texture_size": [
+				1514,
+				1039
+			],
+			"region": [
+				223,
+				632,
+				312,
+				313
+			],
+			"world_size": [
+				68,
+				68
+			],
+			"render_size": [
+				68,
+				68
+			],
+			"footprint_world_size": [
+				68,
+				68
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				312,
+				313.0
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "85a3d215536f33767a7bbbbcb4382923c404777b62084d49055011d409d8b12a",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "repair_weeds_v1",
+			"name": "维修小院 · 墙根杂草",
+			"texture": "res://art/props/repair_courtyard_v1/ground.png",
+			"texture_size": [
+				1514,
+				1039
+			],
+			"region": [
+				670,
+				711,
+				776,
+				240
+			],
+			"world_size": [
+				125,
+				42
+			],
+			"render_size": [
+				125,
+				42
+			],
+			"footprint_world_size": [
+				125,
+				42
+			],
+			"ground_rect": [
+				0,
+				0.0,
+				776,
+				240.0
+			],
+			"elevation_world": 0,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": false,
+			"interactive": false,
+			"shadow_baked": true,
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "85a3d215536f33767a7bbbbcb4382923c404777b62084d49055011d409d8b12a",
+			"editor_subcategory": "furnishings"
+		},
+		{
+			"id": "repair_tree_v1",
+			"name": "维修小院 · 棚边小树",
+			"texture": "res://art/props/exercise_yard_v54/tree-round.png",
+			"texture_size": [
+				1292,
+				1218
+			],
+			"region": [
+				142,
+				57,
+				1024,
+				1016
+			],
+			"ground_rect": [
+				366,
+				820,
+				292,
+				180
+			],
+			"world_size": [
+				180,
+				180
+			],
+			"render_size": [
+				180,
+				180
+			],
+			"footprint_world_size": [
+				35,
+				28
+			],
+			"elevation_world": 114.2969,
+			"render_mode": "projected_prop",
+			"proportion_locked": false,
+			"blocking": true,
+			"interactive": false,
+			"shadow_baked": false,
+			"authoring_set": "exercise-yard-v54",
+			"editor_subcategory": "furnishings",
+			"runtime_size_limit": 512,
+			"source_kind": "built-in-imagegen-original-png",
+			"sha256": "4e1eb12bb364077bd86b5c84d2cbfaaa93967ef5f9a6617506d3c4d2026a2744",
+			"alpha_core_shader": "res://art/props/exercise_yard_v54/clean_cutout.gdshader",
+			"reused_from": "yard_tree_round_v54"
+		}
+	]
+}

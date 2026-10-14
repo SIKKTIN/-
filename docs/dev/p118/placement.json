@@ -1,0 +1,167 @@
+{
+  "original_source": {
+    "id": "bedside_cabinet_v44",
+    "name": "床边私人物品柜",
+    "texture": "res://art/props/factory_v44/variation_atlas.png",
+    "texture_size": [
+      1536,
+      1024
+    ],
+    "region": [
+      912,
+      615,
+      175,
+      275
+    ],
+    "ground_rect": [
+      0,
+      158.33333333333331,
+      175,
+      116.66666666666667
+    ],
+    "footprint_world_size": [
+      60,
+      40
+    ],
+    "world_size": [
+      60,
+      94.28571428571429
+    ],
+    "render_size": [
+      60,
+      94.28571428571429
+    ],
+    "elevation_world": 54.28571428571429,
+    "render_mode": "projected_prop",
+    "blocking": true,
+    "interactive": false,
+    "shadow_baked": false,
+    "authoring_set": "factory-detail-v44",
+    "editor_subcategory": "furnishings",
+    "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+    "editor_icon": "res://art/editor/v22/icons/bedside_cabinet_v44.tres",
+    "source_kind": "built-in-imagegen-original-png",
+    "sha256": "fb44247a575ea937f885ad6c6dbf082f6aa345e75cbc462243559ed56427faa1"
+  },
+  "replacement": {
+    "id": "bedside_cabinet_v44",
+    "name": "床边私人物品柜",
+    "texture": "res://art/props/bedside_v51/bedside_cabinet.png",
+    "texture_size": [
+      1316,
+      1195
+    ],
+    "region": [
+      185,
+      256,
+      953,
+      671
+    ],
+    "ground_rect": [
+      0,
+      224.28125,
+      953,
+      446.71875
+    ],
+    "footprint_world_size": [
+      64,
+      30
+    ],
+    "world_size": [
+      64,
+      45.061909758656874
+    ],
+    "render_size": [
+      64,
+      45.061909758656874
+    ],
+    "elevation_world": 15.061909758656874,
+    "render_mode": "projected_prop",
+    "blocking": true,
+    "interactive": false,
+    "shadow_baked": false,
+    "authoring_set": "bedside-v51",
+    "editor_subcategory": "furnishings",
+    "alpha_core_shader": "res://art/architecture/v25/safe_edges_v25.gdshader",
+    "editor_icon": "res://art/props/bedside_v51/editor_icon.tres",
+    "source_kind": "built-in-imagegen-original-png",
+    "sha256": "6b274b24b7888deea151c7992e1794d024bd656bd27d6c6f3225a0b26e80013c"
+  },
+  "placements": [
+    {
+      "id": "detail44-dorm-personal-0",
+      "before": [
+        310.0,
+        1384.6667,
+        50.0,
+        33.3333
+      ],
+      "after": [
+        285,
+        1347,
+        64,
+        30
+      ]
+    },
+    {
+      "id": "detail44-dorm-personal-1",
+      "before": [
+        310.0,
+        1724.6667,
+        50.0,
+        33.3333
+      ],
+      "after": [
+        285,
+        1687,
+        64,
+        30
+      ]
+    },
+    {
+      "id": "detail44-dorm-personal-2",
+      "before": [
+        310.0,
+        2064.6667,
+        50.0,
+        33.3333
+      ],
+      "after": [
+        285,
+        2027,
+        64,
+        30
+      ]
+    },
+    {
+      "id": "campus-dorm-cabinet-0",
+      "before": [
+        473.0,
+        738.6667,
+        50.0,
+        33.3333
+      ],
+      "after": [
+        292.0,
+        686.0,
+        64,
+        30
+      ]
+    },
+    {
+      "id": "campus-dorm-cabinet-1",
+      "before": [
+        473.0,
+        1078.6667,
+        50.0,
+        33.3333
+      ],
+      "after": [
+        292.0,
+        1026.0,
+        64,
+        30
+      ]
+    }
+  ]
+}

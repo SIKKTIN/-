@@ -1,0 +1,719 @@
+{
+	"cases": {
+		"software_cap60": {
+			"distance": 3043.6812081337,
+			"draw_calls": {
+				"count": 600,
+				"max": 633.0,
+				"mean": 578.486666666667,
+				"over25": 600,
+				"over33": 600,
+				"p50": 584.0,
+				"p95": 615.0,
+				"p99": 627.0
+			},
+			"focus_frames": 600,
+			"frame_ms": {
+				"count": 600,
+				"max": 422.056,
+				"mean": 18.5021566666667,
+				"over25": 8,
+				"over33": 6,
+				"p50": 16.618,
+				"p95": 18.424,
+				"p99": 60.75
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 0.395999997854233,
+				"mean": 0.325870000471671,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.321999996900558,
+				"p95": 0.368000000715256,
+				"p99": 0.388000011444092
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 2.35199999809265,
+				"mean": 1.05265333215396,
+				"over25": 0,
+				"over33": 0,
+				"p50": 1.02799999713898,
+				"p95": 1.32200002670288,
+				"p99": 1.7059999704361
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 15.816,
+				"mean": 3.860055,
+				"over25": 0,
+				"over33": 0,
+				"p50": 3.7,
+				"p95": 4.979,
+				"p99": 8.147
+			},
+			"slow_paths": [
+				{
+					"builds": 2,
+					"deferred": 3,
+					"from": [
+						4993.33984375,
+						2451.0830078125
+					],
+					"ms": 2.39,
+					"parts": {
+						"grid_search": 1.822
+					},
+					"points": 8,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 214.925,
+					"minute": 482.5178912,
+					"parts": {
+						"dog.tick": 0.008,
+						"gate_watch.tick": 0.377,
+						"guard.tick": 0.137,
+						"orders.tick": 1.324,
+						"presentation.tick": 1.002,
+						"room_access.tick": 0.33,
+						"routines.tick": 0.018,
+						"workshop.tick": 0.05,
+						"workshop.update_gate": 0.035,
+						"world.update_dorm_doors": 0.17
+					},
+					"paths": [],
+					"script": 4.085
+				},
+				{
+					"frame": 202.89,
+					"minute": 483.5835472,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.49,
+						"guard.tick": 0.099,
+						"orders.tick": 0.776,
+						"presentation.tick": 1.572,
+						"room_access.tick": 0.457,
+						"routines.tick": 0.023,
+						"workshop.tick": 0.064,
+						"workshop.update_gate": 0.048,
+						"world.update_dorm_doors": 0.22
+					},
+					"paths": [],
+					"script": 5.003
+				},
+				{
+					"frame": 148.461,
+					"minute": 485.973714133333,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.419,
+						"guard.tick": 0.126,
+						"orders.tick": 0.608,
+						"presentation.tick": 1.426,
+						"room_access.tick": 0.377,
+						"routines.tick": 0.026,
+						"workshop.tick": 0.07,
+						"workshop.update_gate": 0.05,
+						"world.update_dorm_doors": 0.19
+					},
+					"paths": [],
+					"script": 4.102
+				},
+				{
+					"frame": 31.766,
+					"minute": 486.1868096,
+					"parts": {
+						"dog.tick": 0.022,
+						"gate_watch.tick": 1.735,
+						"guard.tick": 0.46,
+						"orders.tick": 7.488,
+						"presentation.tick": 2.914,
+						"room_access.tick": 0.93,
+						"routines.tick": 0.045,
+						"workshop.tick": 0.167,
+						"workshop.update_gate": 0.09,
+						"world.update_dorm_doors": 0.395
+					},
+					"paths": [],
+					"script": 15.816
+				},
+				{
+					"frame": 18.726,
+					"minute": 486.248454933333,
+					"parts": {
+						"dog.tick": 0.028,
+						"gate_watch.tick": 1.205,
+						"guard.tick": 0.547,
+						"orders.tick": 2.832,
+						"presentation.tick": 3.885,
+						"room_access.tick": 1.042,
+						"routines.tick": 0.049,
+						"workshop.tick": 0.167,
+						"workshop.update_gate": 0.143,
+						"world.update_dorm_doors": 0.613
+					},
+					"paths": [],
+					"script": 12.371
+				},
+				{
+					"frame": 422.056,
+					"minute": 487.1203968,
+					"parts": {
+						"dog.tick": 0.007,
+						"gate_watch.tick": 0.354,
+						"guard.tick": 0.079,
+						"orders.tick": 0.528,
+						"presentation.tick": 1.019,
+						"room_access.tick": 0.369,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.051,
+						"workshop.update_gate": 0.042,
+						"world.update_dorm_doors": 0.199
+					},
+					"paths": [],
+					"script": 3.278
+				},
+				{
+					"frame": 60.75,
+					"minute": 497.634754133334,
+					"parts": {
+						"dog.tick": 0.007,
+						"gate_watch.tick": 0.294,
+						"guard.tick": 0.074,
+						"orders.tick": 0.117,
+						"presentation.tick": 1.108,
+						"room_access.tick": 0.327,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.044,
+						"workshop.update_gate": 0.034,
+						"world.update_dorm_doors": 0.173
+					},
+					"paths": [],
+					"script": 2.756
+				},
+				{
+					"frame": 30.186,
+					"minute": 498.448602666667,
+					"parts": {
+						"dog.tick": 0.006,
+						"gate_watch.tick": 0.521,
+						"guard.tick": 0.103,
+						"orders.tick": 0.233,
+						"presentation.tick": 1.135,
+						"room_access.tick": 0.321,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.046,
+						"workshop.update_gate": 0.037,
+						"world.update_dorm_doors": 0.226
+					},
+					"paths": [],
+					"script": 3.242
+				},
+				{
+					"frame": 287.964,
+					"minute": 499.061911466667,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 0.505,
+						"guard.tick": 0.106,
+						"orders.tick": 0.136,
+						"presentation.tick": 1.151,
+						"room_access.tick": 0.316,
+						"routines.tick": 0.015,
+						"workshop.tick": 0.044,
+						"workshop.update_gate": 0.036,
+						"world.update_dorm_doors": 0.185
+					},
+					"paths": [],
+					"script": 3.044
+				}
+			]
+		},
+		"vsync_cap60": {
+			"distance": 3220.9013671875,
+			"draw_calls": {
+				"count": 600,
+				"max": 592.0,
+				"mean": 558.726666666667,
+				"over25": 600,
+				"over33": 600,
+				"p50": 559.0,
+				"p95": 583.0,
+				"p99": 587.0
+			},
+			"focus_frames": 139,
+			"frame_ms": {
+				"count": 600,
+				"max": 8495.945,
+				"mean": 49.27543,
+				"over25": 19,
+				"over33": 16,
+				"p50": 16.629,
+				"p95": 20.527,
+				"p99": 848.413
+			},
+			"gpu_ms": {
+				"count": 600,
+				"max": 25.2329998016357,
+				"mean": 1.16513500588636,
+				"over25": 1,
+				"over33": 0,
+				"p50": 0.444999992847443,
+				"p95": 2.41700005531311,
+				"p99": 16.1590003967285
+			},
+			"render_cpu_ms": {
+				"count": 600,
+				"max": 2.48900008201599,
+				"mean": 1.01952833155791,
+				"over25": 0,
+				"over33": 0,
+				"p50": 0.944000005722046,
+				"p95": 1.52499997615814,
+				"p99": 2.15799999237061
+			},
+			"script_ms": {
+				"count": 600,
+				"max": 11.272,
+				"mean": 3.25059666666667,
+				"over25": 0,
+				"over33": 0,
+				"p50": 2.989,
+				"p95": 4.991,
+				"p99": 8.616
+			},
+			"slow_paths": [
+				{
+					"builds": 3,
+					"deferred": 3,
+					"from": [
+						1536.916015625,
+						2588.92260742188
+					],
+					"ms": 7.827,
+					"parts": {
+						"grid_search": 2.246,
+						"grid_update": 5.275
+					},
+					"points": 3,
+					"to": [
+						2400.0,
+						2360.0
+					]
+				},
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						4713.6142578125,
+						3149.900390625
+					],
+					"ms": 5.846,
+					"parts": {
+						"grid_search": 2.006,
+						"grid_update": 3.698
+					},
+					"points": 3,
+					"to": [
+						4860.0,
+						3420.0
+					]
+				},
+				{
+					"builds": 4,
+					"deferred": 3,
+					"from": [
+						2241.00366210938,
+						1168.75598144531
+					],
+					"ms": 2.767,
+					"parts": {
+						"grid_search": 2.496
+					},
+					"points": 3,
+					"to": [
+						750.0,
+						1180.0
+					]
+				}
+			],
+			"spikes": [
+				{
+					"frame": 57.647,
+					"minute": 501.948199466667,
+					"parts": {
+						"dog.tick": 0.008,
+						"gate_watch.tick": 0.4,
+						"guard.tick": 0.08,
+						"orders.tick": 0.15,
+						"presentation.tick": 0.923,
+						"room_access.tick": 0.307,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.051,
+						"workshop.update_gate": 0.036,
+						"world.update_dorm_doors": 0.197
+					},
+					"paths": [],
+					"script": 2.793
+				},
+				{
+					"frame": 25.065,
+					"minute": 502.436749866667,
+					"parts": {
+						"dog.tick": 0.008,
+						"gate_watch.tick": 0.48,
+						"guard.tick": 7.954,
+						"orders.tick": 0.286,
+						"presentation.tick": 1.102,
+						"room_access.tick": 0.395,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.093,
+						"workshop.update_gate": 0.045,
+						"world.update_dorm_doors": 0.179
+					},
+					"paths": [
+						{
+							"builds": 3,
+							"deferred": 3,
+							"from": [
+								1536.916015625,
+								2588.92260742188
+							],
+							"ms": 7.827,
+							"parts": {
+								"grid_search": 2.246,
+								"grid_update": 5.275
+							},
+							"points": 3,
+							"to": [
+								2400.0,
+								2360.0
+							]
+						}
+					],
+					"script": 11.272
+				},
+				{
+					"frame": 825.568,
+					"minute": 502.490082666667,
+					"parts": {
+						"dog.tick": 0.007,
+						"gate_watch.tick": 0.434,
+						"guard.tick": 0.093,
+						"orders.tick": 0.32,
+						"presentation.tick": 1.015,
+						"room_access.tick": 0.343,
+						"routines.tick": 0.019,
+						"workshop.tick": 0.055,
+						"workshop.update_gate": 0.042,
+						"world.update_dorm_doors": 0.213
+					},
+					"paths": [],
+					"script": 3.259
+				},
+				{
+					"frame": 5175.807,
+					"minute": 505.333476266667,
+					"parts": {
+						"dog.tick": 0.006,
+						"gate_watch.tick": 0.422,
+						"guard.tick": 0.156,
+						"orders.tick": 0.112,
+						"presentation.tick": 1.044,
+						"room_access.tick": 0.257,
+						"routines.tick": 0.014,
+						"workshop.tick": 0.042,
+						"workshop.update_gate": 0.029,
+						"world.update_dorm_doors": 0.137
+					},
+					"paths": [],
+					"script": 2.732
+				},
+				{
+					"frame": 8495.945,
+					"minute": 505.5468096,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.588,
+						"guard.tick": 0.229,
+						"orders.tick": 0.373,
+						"presentation.tick": 1.154,
+						"room_access.tick": 0.288,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.043,
+						"workshop.update_gate": 0.037,
+						"world.update_dorm_doors": 0.162
+					},
+					"paths": [],
+					"script": 3.544
+				},
+				{
+					"frame": 848.413,
+					"minute": 507.000701866667,
+					"parts": {
+						"dog.tick": 0.006,
+						"gate_watch.tick": 0.39,
+						"guard.tick": 0.089,
+						"orders.tick": 0.112,
+						"presentation.tick": 0.945,
+						"room_access.tick": 0.261,
+						"routines.tick": 0.014,
+						"workshop.tick": 0.038,
+						"workshop.update_gate": 0.03,
+						"world.update_dorm_doors": 0.151
+					},
+					"paths": [],
+					"script": 2.553
+				},
+				{
+					"frame": 27.357,
+					"minute": 509.333476266667,
+					"parts": {
+						"dog.tick": 0.007,
+						"gate_watch.tick": 0.342,
+						"guard.tick": 0.097,
+						"orders.tick": 0.11,
+						"presentation.tick": 0.812,
+						"room_access.tick": 0.264,
+						"routines.tick": 0.015,
+						"workshop.tick": 0.043,
+						"workshop.update_gate": 0.033,
+						"world.update_dorm_doors": 0.18
+					},
+					"paths": [],
+					"script": 2.471
+				},
+				{
+					"frame": 25.558,
+					"minute": 509.360142933334,
+					"parts": {
+						"dog.tick": 0.006,
+						"gate_watch.tick": 0.344,
+						"guard.tick": 0.096,
+						"orders.tick": 0.108,
+						"presentation.tick": 0.808,
+						"room_access.tick": 0.268,
+						"routines.tick": 0.014,
+						"workshop.tick": 0.043,
+						"workshop.update_gate": 0.031,
+						"world.update_dorm_doors": 0.162
+					},
+					"paths": [],
+					"script": 2.419
+				},
+				{
+					"frame": 42.554,
+					"minute": 510.864377066667,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.418,
+						"guard.tick": 0.134,
+						"orders.tick": 0.232,
+						"presentation.tick": 1.183,
+						"room_access.tick": 0.321,
+						"routines.tick": 0.017,
+						"workshop.tick": 0.079,
+						"workshop.update_gate": 0.038,
+						"world.update_dorm_doors": 0.175
+					},
+					"paths": [],
+					"script": 3.267
+				},
+				{
+					"frame": 182.899,
+					"minute": 511.0668096,
+					"parts": {
+						"dog.tick": 0.022,
+						"gate_watch.tick": 1.69,
+						"guard.tick": 0.612,
+						"orders.tick": 1.542,
+						"presentation.tick": 2.588,
+						"room_access.tick": 0.711,
+						"routines.tick": 0.034,
+						"workshop.tick": 0.163,
+						"workshop.update_gate": 0.076,
+						"world.update_dorm_doors": 0.334
+					},
+					"paths": [],
+					"script": 9.064
+				},
+				{
+					"frame": 104.434,
+					"minute": 515.759194133333,
+					"parts": {
+						"dog.tick": 0.014,
+						"gate_watch.tick": 1.128,
+						"guard.tick": 0.186,
+						"orders.tick": 0.341,
+						"presentation.tick": 1.988,
+						"room_access.tick": 1.169,
+						"routines.tick": 0.052,
+						"workshop.tick": 0.096,
+						"workshop.update_gate": 0.114,
+						"world.update_dorm_doors": 0.45
+					},
+					"paths": [],
+					"script": 6.793
+				},
+				{
+					"frame": 93.704,
+					"minute": 516.0268096,
+					"parts": {
+						"dog.tick": 0.017,
+						"gate_watch.tick": 0.905,
+						"guard.tick": 0.264,
+						"orders.tick": 0.311,
+						"presentation.tick": 2.928,
+						"room_access.tick": 0.8,
+						"routines.tick": 0.03,
+						"workshop.tick": 0.134,
+						"workshop.update_gate": 0.069,
+						"world.update_dorm_doors": 0.308
+					},
+					"paths": [],
+					"script": 6.809
+				},
+				{
+					"frame": 79.931,
+					"minute": 516.294549333333,
+					"parts": {
+						"dog.tick": 0.014,
+						"gate_watch.tick": 0.773,
+						"guard.tick": 0.198,
+						"orders.tick": 0.352,
+						"presentation.tick": 2.178,
+						"room_access.tick": 0.727,
+						"routines.tick": 0.044,
+						"workshop.tick": 0.109,
+						"workshop.update_gate": 0.052,
+						"world.update_dorm_doors": 0.374
+					},
+					"paths": [],
+					"script": 5.899
+				},
+				{
+					"frame": 58.089,
+					"minute": 516.544389333333,
+					"parts": {
+						"dog.tick": 0.016,
+						"gate_watch.tick": 0.697,
+						"guard.tick": 0.181,
+						"orders.tick": 0.273,
+						"presentation.tick": 2.125,
+						"room_access.tick": 0.585,
+						"routines.tick": 0.035,
+						"workshop.tick": 0.099,
+						"workshop.update_gate": 0.072,
+						"world.update_dorm_doors": 0.276
+					},
+					"paths": [],
+					"script": 5.397
+				},
+				{
+					"frame": 1202.442,
+					"minute": 516.800466666667,
+					"parts": {
+						"dog.tick": 0.011,
+						"gate_watch.tick": 0.316,
+						"guard.tick": 0.085,
+						"orders.tick": 0.137,
+						"presentation.tick": 0.86,
+						"room_access.tick": 0.299,
+						"routines.tick": 0.016,
+						"workshop.tick": 0.048,
+						"workshop.update_gate": 0.035,
+						"world.update_dorm_doors": 0.167
+					},
+					"paths": [],
+					"script": 2.559
+				},
+				{
+					"frame": 1128.2,
+					"minute": 517.333476266667,
+					"parts": {
+						"dog.tick": 0.008,
+						"gate_watch.tick": 0.311,
+						"guard.tick": 0.091,
+						"orders.tick": 0.179,
+						"presentation.tick": 1.428,
+						"room_access.tick": 0.28,
+						"routines.tick": 0.022,
+						"workshop.tick": 0.053,
+						"workshop.update_gate": 0.035,
+						"world.update_dorm_doors": 0.198
+					},
+					"paths": [],
+					"script": 3.297
+				},
+				{
+					"frame": 1153.454,
+					"minute": 517.680354666667,
+					"parts": {
+						"dog.tick": 0.01,
+						"gate_watch.tick": 0.361,
+						"guard.tick": 0.096,
+						"orders.tick": 0.151,
+						"presentation.tick": 0.952,
+						"room_access.tick": 0.339,
+						"routines.tick": 0.017,
+						"workshop.tick": 0.055,
+						"workshop.update_gate": 0.039,
+						"world.update_dorm_doors": 0.185
+					},
+					"paths": [],
+					"script": 2.861
+				},
+				{
+					"frame": 207.028,
+					"minute": 518.0268096,
+					"parts": {
+						"dog.tick": 0.008,
+						"gate_watch.tick": 0.362,
+						"guard.tick": 0.1,
+						"orders.tick": 0.281,
+						"presentation.tick": 1.03,
+						"room_access.tick": 0.347,
+						"routines.tick": 0.018,
+						"workshop.tick": 0.055,
+						"workshop.update_gate": 0.04,
+						"world.update_dorm_doors": 0.195
+					},
+					"paths": [],
+					"script": 3.09
+				},
+				{
+					"frame": 534.667,
+					"minute": 518.6266544,
+					"parts": {
+						"dog.tick": 0.009,
+						"gate_watch.tick": 0.478,
+						"guard.tick": 0.091,
+						"orders.tick": 0.308,
+						"presentation.tick": 1.056,
+						"room_access.tick": 0.354,
+						"routines.tick": 0.021,
+						"workshop.tick": 0.062,
+						"workshop.update_gate": 0.047,
+						"world.update_dorm_doors": 0.197
+					},
+					"paths": [],
+					"script": 3.288
+				}
+			]
+		}
+	},
+	"driver": "d3d12",
+	"refresh_hz": 165.001602172852,
+	"renderer": "forward_plus",
+	"scope": "Production collision movement and follow camera; foreground verified per sample. Native callback intervals, not display scanout.",
+	"static_mib": 283.316048622131,
+	"texture_mib": 809.6015625
+}

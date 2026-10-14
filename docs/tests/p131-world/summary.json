@@ -1,0 +1,47 @@
+{
+  "resources": {
+    "production_text_files": 134,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "southwest_yard",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 10.09,
+      "checks": 30,
+      "failed": [
+        "preserves_seven_day_map",
+        "walk_inside_(530.0, 3970.0)"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 7.58,
+      "checks": 360,
+      "failed": [
+        "all_fixed_prop_instances_calibrated"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.03,
+      "checks": 101,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 491,
+  "passed": false
+}

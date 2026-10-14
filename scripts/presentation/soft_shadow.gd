@@ -2,6 +2,12 @@ extends RefCounted
 
 # Feathered projected polygon; shadows are presentation only.
 static func contact_rect(canvas: CanvasItem, footprint: Rect2, height: float, clip: Rect2, settings: Dictionary = {}) -> void:
+	for command in rect_commands(footprint,height,clip,settings):
+		if command[0] is Rect2:canvas.draw_rect(command[0],command[1])
+		else:canvas.draw_colored_polygon(command[0],command[1])
+
+static func rect_commands(footprint: Rect2, height: float, clip: Rect2, settings: Dictionary = {}) -> Array:
+	var commands: Array=[]
 	var direction: Array = settings.get("projection_offset",[11,7.2])
 	var offset := Vector2(direction[0],direction[1])*height/20.0
 	var top_right := footprint.position+Vector2(footprint.size.x,0)
@@ -15,15 +21,18 @@ static func contact_rect(canvas: CanvasItem, footprint: Rect2, height: float, cl
 		var expanded := Geometry2D.offset_polygon(points,float(fringe)*1.4,Geometry2D.JOIN_ROUND)
 		for polygon in expanded:
 			for clipped in Geometry2D.intersect_polygons(polygon,clip_polygon):
-				canvas.draw_colored_polygon(clipped,Color(0.14,0.16,0.14,float(settings.get("projection_alpha",0.104))/4))
+				commands.append([clipped,Color(0.14,0.16,0.14,float(settings.get("projection_alpha",0.104))/4)])
 	# A narrow south-edge contact shade grounds the object without a solid black box.
 	for spread in range(3,0,-1):
 		var strip := Rect2(footprint.position+Vector2(-spread,footprint.size.y-1),Vector2(footprint.size.x+spread*2,spread+1)).intersection(clip)
 		if strip.has_area():
-			canvas.draw_rect(strip,Color(0.12,0.14,0.12,float(settings.get("contact_alpha",0.16))/5))
+			commands.append([strip,Color(0.12,0.14,0.12,float(settings.get("contact_alpha",0.16))/5)])
+	return commands
 
-static func contact_actor(canvas: CanvasItem, foot: Vector2, settings: Dictionary = {}) -> void:
+static func contact_actor(canvas: CanvasItem, foot: Vector2, settings: Dictionary = {}, body_scale := 1.0) -> void:
 	var direction: Array = settings.get("projection_offset",[10,6])
+	# Follow the visible body's proportions, independently of its tiny foot
+	# collider. A stronger narrow contact core keeps the soles on the floor.
 	for spread in range(3,0,-1):
-		canvas.draw_ellipse(foot+Vector2(direction[0],direction[1])*0.5,15+spread*2,3+spread,Color(0.14,0.16,0.14,float(settings.get("projection_alpha",0.1))/4))
-	canvas.draw_ellipse(foot+Vector2(0,1),12,3,Color(0.12,0.14,0.12,float(settings.get("contact_alpha",0.16))*0.56))
+		canvas.draw_ellipse(foot+Vector2(direction[0],direction[1])*0.25*body_scale,(12+spread*2)*body_scale,(2+spread)*body_scale,Color(0.14,0.16,0.14,float(settings.get("projection_alpha",0.1))/3))
+	canvas.draw_ellipse(foot+Vector2(0,1),11*body_scale,2.2*body_scale,Color(0.12,0.14,0.12,float(settings.get("contact_alpha",0.16))*0.85))

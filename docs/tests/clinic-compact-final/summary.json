@@ -1,0 +1,54 @@
+{
+  "resources": {
+    "production_text_files": 148,
+    "missing_literal_loads": [],
+    "scripts_without_literal_references": [],
+    "note": "Unreferenced scripts are review candidates only; dynamic/editor entry points require manual verification."
+  },
+  "results": [
+    {
+      "id": "clinic_restoration",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.02,
+      "checks": 164,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "editor",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.98,
+      "checks": 20,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "scene_seams",
+      "ok": false,
+      "exit_code": 1,
+      "seconds": 9.0,
+      "checks": 8,
+      "failed": [
+        "rounded_clinic_corners_join_wall_at_940"
+      ],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 9.33,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "total_checks": 207,
+  "passed": false
+}

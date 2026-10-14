@@ -181,7 +181,8 @@ func _input(event: InputEvent) -> void:
 			# supports the first touch. Never dispatch through a modal blocker.
 			var b = _button_at(game.get_node("HUD"),event.position)
 			if b != null:
-				buttons_held[event.index] = {"button":b,"actor_id":game.selected_actor_id,"target":game.presentation.interaction.mobile_target_key if game.fullscreen_ui and b == game.fullscreen_ui.action_button else ""}
+				var target_button: bool = b == game.presentation.interaction.hint or game.fullscreen_ui and b == game.fullscreen_ui.action_button
+				buttons_held[event.index] = {"button":b,"actor_id":game.selected_actor_id,"target":game.presentation.interaction.mobile_target_key if target_button else ""}
 				get_viewport().set_input_as_handled()
 	elif event is InputEventScreenDrag:
 		if discarded_touches.has(event.index) or buttons_held.has(event.index):

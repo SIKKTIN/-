@@ -11,6 +11,7 @@ const LightingSystem = preload("res://scripts/presentation/lighting_system.gd")
 const InteractionPrompt = preload("res://scripts/presentation/interaction_prompt.gd")
 const WorldTexture = preload("res://scripts/presentation/world_texture.gd")
 const DogVisual = preload("res://scripts/presentation/dog_visual.gd")
+const Resources = preload("res://scripts/presentation/presentation_resources.gd")
 var game
 var visuals: Array = []
 var skill_icons: Dictionary = {}
@@ -29,12 +30,17 @@ var audio_available: bool = true
 var profile: Dictionary = {}
 var profile_id: String = "v01"
 var volumes: Array = []
+var canopy_volumes: Array = []
 var scene_layers: Array = []
 var roof_buildings: Array = []
 var visual_world_revision := -1
 var volume_visibility_revision := -1
 var volume_obstacle_revision := -1
+var volume_room_layout_revision := -1
+var volume_active_room := ""
+var room_volume_groups: Dictionary = {}
 var asset_definitions: Dictionary = {}
+var character_material: ShaderMaterial
 var lighting
 var interaction
 var dog_visual
@@ -44,11 +50,15 @@ func configure(escape_game) -> void:
 	audio_available = DisplayServer.get_name() != "headless"
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	font = load("res://art/fonts/NotoSansCJKsc-Regular.otf")
-	var active: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/active.json"))
-	profile_id = OS.get_environment("ESCAPE_ART_PROFILE")
-	if profile_id not in ["v01","v02","v03"] or not FileAccess.file_exists("res://data/presentation/%s.json" % profile_id):
-		profile_id = active.profile
-	profile = JSON.parse_string(FileAccess.get_file_as_string("res://data/presentation/%s.json" % profile_id))
+	var configuration: Dictionary = Resources.configuration()
+	var active: Dictionary = configuration.active
+	profile_id = configuration.id
+	profile = configuration.profile
+	if profile.get("perspective",false):
+		character_material = ShaderMaterial.new()
+		character_material.shader = preload("res://scripts/presentation/character_cohesion.gdshader")
+		character_material.set_shader_parameter("saturation",float(profile.get("actor_saturation",0.88)))
+		character_material.set_shader_parameter("scene_tint",Color(profile.get("actor_scene_tint","#faf7ef")))
 	var delivery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile.delivery))
 	asset_version = delivery.version
 	for id in ["chat","lockpick","strong"]:
@@ -88,13 +98,10 @@ func configure(escape_game) -> void:
 		visual.fx = fx
 		visuals.append(visual)
 		actor.queue_redraw()
-	for file in ["environment","props"]:
-		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(profile[file]))
-		for asset in data.assets:
-			asset_definitions[asset.id] = asset
-			game.world.art_textures[asset.id] = _load_texture(asset)
-	for asset in load("res://scripts/presentation/prop_catalog.gd").assets().values():
-		asset_definitions[str(asset.id)] = asset
+	var base_assets: Array[Dictionary] = Resources.base_assets(profile)
+	for asset in base_assets:
+		game.world.art_textures[asset.id] = _load_texture(asset)
+	asset_definitions = Resources.from_assets(base_assets)
 	game.world.queue_redraw()
 	game.floor_texture = game.world.art_textures[profile.floor_asset] if profile.has("floor_asset") else load(profile.floor)
 	game.floor_tile_size = profile.floor_tile_size
@@ -203,17 +210,27 @@ func reset() -> void:
 		interaction.refresh()
 
 func _refresh_volumes() -> void:
+	# This legacy information icon is a renderer dependency outside catalogs.
+	# Scene cache release must restore it before any legacy-map draw.
+	game.world.art_textures.exit_v01 = load("res://art/props/exit_v01.png")
+	for asset in preload("res://scripts/presentation/prop_catalog.gd").assets().values():
+		asset_definitions[str(asset.id)]=asset
 	volume_visibility_revision=-1
 	volume_obstacle_revision=-1
+	volume_room_layout_revision=-1
+	room_volume_groups.clear()
 	visual_world_revision = game.world.fixtures_revision
+	preload("res://scripts/presentation/region_terrain.gd").warm_map(game.room_config)
 	for volume in volumes:
 		volume.free()
 	volumes.clear()
+	canopy_volumes.clear()
 	for building in roof_buildings: building.free()
 	roof_buildings.clear()
-	for definition in asset_definitions.values():
-		if str(definition.get("render_mode","")).begins_with("architecture_"):
-			game.world.art_textures[str(definition.id)] = _load_texture(definition)
+	var needed: Dictionary=preload("res://scripts/presentation/asset_dependencies.gd").ids(game.room_config,profile,asset_definitions)
+	for id in needed:
+		if not game.world.art_textures.has(id):
+			game.world.art_textures[id] = _load_texture(asset_definitions[id])
 	for index in range(game.world.roofed_cells.size()):
 		var building = RoofBuilding.new()
 		game.add_child(building)
@@ -235,6 +252,7 @@ func _refresh_volumes() -> void:
 	_add_volume("crate")
 	for layer in scene_layers:
 		if layer.kind in ["ground_static","fixture_shadows"]:
+			if layer.kind=="ground_static":layer.static_ground.revision=-1
 			layer.queue_redraw()
 
 func _add_volume(kind: String, index: int = 0) -> void:
@@ -242,6 +260,8 @@ func _add_volume(kind: String, index: int = 0) -> void:
 	game.add_child(volume)
 	volume.configure(game.world,kind,index,profile,asset_definitions)
 	volumes.append(volume)
+	if kind == "fixture" and game.world.fixtures[index].has("canopy_cover"):
+		canopy_volumes.append(volume)
 
 func _tick_guard_warnings() -> void:
 	var view: Rect2 = game.map_camera.world_view_rect() if game.map_camera else game.world.bounds
@@ -272,13 +292,36 @@ func _tick_scene() -> void:
 		visual.actor.z_index = preload("res://scripts/presentation/world_depth.gd").for_y(visual.actor.position.y,game.world.bounds.end.y)
 	var room_revision: int=game.room_visibility.revision if game.room_visibility else 0
 	if volume_visibility_revision!=room_revision or volume_obstacle_revision!=game.world.obstacle_revision:
+		var rules = game.room_visibility
+		var current_room: String = rules.active_id if rules else ""
+		var layout_revision: int = rules.layout_revision if rules else -1
+		var only_room_change: bool = rules != null and volume_visibility_revision >= 0 and volume_obstacle_revision == game.world.obstacle_revision and volume_room_layout_revision == layout_revision and volume_active_room != current_room
+		if only_room_change:
+			# A doorway only changes the old/new interiors and their explicit
+			# attachments. Other rooms retain their existing canvas visibility.
+			var affected: Dictionary = {}
+			for room_id in [volume_active_room,current_room]:
+				for volume in room_volume_groups.get(room_id,[]):affected[volume]=true
+			for volume in affected:volume.tick_visual()
+		else:
+			room_volume_groups.clear()
+			for volume in volumes:
+				if volume.kind != "fixture":continue
+				volume.tick_visual()
+				var fixture: Dictionary=game.world.fixtures[volume.wall_index]
+				var memberships: Array=volume._room_memberships.duplicate()
+				for field in ["hide_in_room","show_in_room"]:
+					var room_id: String=str(fixture.get(field,""))
+					if not room_id.is_empty() and room_id not in memberships:memberships.append(room_id)
+				for room_id in memberships:
+					if not room_volume_groups.has(room_id):room_volume_groups[room_id]=[]
+					room_volume_groups[room_id].append(volume)
 		volume_visibility_revision=room_revision
 		volume_obstacle_revision=game.world.obstacle_revision
-		# Walls are synchronized at map load; only fixtures react to room/gate
-		# changes. Camera motion doesn't alter any of this geometry.
-		for volume in volumes:
-			if volume.kind=="fixture": volume.tick_visual()
+		volume_room_layout_revision=layout_revision
+		volume_active_room=current_room
 	for volume in volumes.slice(-2): volume.tick_visual()
+	for volume in canopy_volumes: volume.tick_canopy()
 	for building in roof_buildings:
 		building.tick_information()
 	for layer in scene_layers:
@@ -344,7 +387,7 @@ func _loop(id: String, active: bool) -> void:
 	var player: AudioStreamPlayer = loops[id]
 	if active and not player.playing:
 		player.play()
-	elif not active:
+	elif not active and player.playing:
 		player.stop()
 
 func cue(id: String) -> void:

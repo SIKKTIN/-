@@ -1,0 +1,95 @@
+from pathlib import Path
+import json
+root=Path(__file__).resolve().parents[3]
+out=root/'docs/dev/p137'
+def read(name):return json.loads((out/name).read_text('utf-8-sig'))
+day=read('full-day-final.json')
+pacing=read('path-profile-final.json')['cases']
+validation=read('final-validation.json')
+manual=read('runtime-profile.json')
+nav=read('navigation-check.json')
+spikes=day['spikes_over33ms']
+hot=sorted(spikes,key=lambda s:s['script_ms'],reverse=True)
+outside=sorted(spikes,key=lambda s:s['frame_ms']-s['script_ms'],reverse=True)
+frame=day['frame_ms']
+script=day['script_ms']
+lines=[
+'R04 性能优化结果（2026-10-12，P137）',
+'',
+'结论',
+'已实施：静态连通索引、单次系统更新职责、按地图依赖加载、静态阴影分块，以及门禁变化的固定碰撞缓存与局部导航更新。',
+'最终正常速度整日测试与功能回归数据如下；平均帧率不能代表每一帧都稳定，剩余长帧单独列出。',
+'',
+'环境和可比性',
+'Windows / Godot 4.7.2 / D3D12 Forward+ / 1200×720。本机同时保留用户已打开的编辑器与游戏，没有关闭用户应用。',
+'基线来自 P136。用户在实施期间另行删除了 4 个墙对象：基线1297墙/275摆设，当前1293墙/275摆设。保留了这些编辑，未覆盖地图。',
+'截图比较使用同一次运行的旧阴影参考绘制与新绘制；物体位置、角色比例、碰撞尺寸和玩法没有作为降负载手段改变。',
+'计时通过 qa/p137_* 副本完成；生产循环没有采样日志或测试免疫设置。',
+'',
+'主要变化',
+'1. navigation_connectivity.gd：16×16网格块的静态连通区域索引；新网格在载入阶段预热，门变化只标记受影响块。',
+'   world_navigation.gd：请求前更新相应网格的脏块，之后才临时叠加人物/推箱障碍。索引过期时不错误拒绝路径。',
+'   已知失败监工路线通常约0.7ms；最近20次最大 %.3fms，首次查询含缓存准备。原始反复失败搜索约47～56ms。' % max(nav['failed_route_ms']),
+'   沿用已有的巡逻卡住1秒跳点和追捕预算，没有额外重写NPC决策或全局关闭JPS。',
+'2. prison_schedule.gd：正常推进只处理时钟与阶段，主循环执行一次房间门禁和门岗行动。',
+'   初始化、改时钟、跳夜等显式同步仍保留；技能改变门岗状态后的立即刷新仍保留。',
+'3. asset_dependencies.gd / region_terrain.gd：递归加载当前地图、渲染设置及状态素材依赖；地面只预热实际使用的纹理。',
+'   编辑器保留完整219项素材目录，地图拖动物品时只检查该物品依赖。历史别名及源素材继续可用。',
+'4. static_ground.gd / soft_shadow.gd：静态墙阴影按512世界单位切块，转为保留的2D网格，保持空间裁剪、色彩、透明叠加和灯光。',
+'   代表性车间视点绘制提交约814→505（约38%减少）；最终不同视点范围见runtime-profile.json。',
+'   节点约6526→%d；纹理基线670.88MiB，独立场景采样%.2fMiB，整日采样%.2fMiB。' % (manual['world']['nodes'],manual['world']['textures_mib'],day['textures_mib']),
+'5. prison_world.gd：缓存固定墙体与门洞几何，门开关不再重复整图门洞裁切；几何哈希及载入失效识别直接修改墙体。',
+'   固定碰撞重算原约25ms；缓存命中及动态门整理小于1ms的样本已记录。导航用哈希差集与附近碰撞计算两种通行掩码。',
+'   单扇门翻转测试原导航约24～35ms；优化过程空闲样本约8～12ms，机器繁忙时也有更长样本，未宣称硬上限。',
+'',
+'原生短测（正常时间推进；毫秒）',
+'60fps：平均 %.3f / P95 %.3f / 最大 %.3f；900个采样帧中%d帧超过20ms。' % (pacing['cap60_running_time']['frame_ms']['mean'],pacing['cap60_running_time']['frame_ms']['p95'],pacing['cap60_running_time']['frame_ms']['max'],pacing['cap60_running_time']['over20ms']),
+'不限帧：平均 %.3f / P95 %.3f / 最大 %.3f；基线平均7.03ms。' % (pacing['uncapped_running_time']['frame_ms']['mean'],pacing['uncapped_running_time']['frame_ms']['p95'],pacing['uncapped_running_time']['frame_ms']['max']),
+'14点工作：平均 %.3f / P95 %.3f / 最大 %.3f；脚本最大 %.3f。' % (pacing['hour_14_transition']['frame_ms']['mean'],pacing['hour_14_transition']['frame_ms']['p95'],pacing['hour_14_transition']['frame_ms']['max'],pacing['hour_14_transition']['game_script_ms']['max']),
+'短测时段跳转后先预热90帧，不能用这些数据代替切换瞬间；下面的整日测试连续覆盖切换。',
+'',
+'最终完整游戏日（正常速度1，60fps限速）',
+'实际运行 %.2f秒 / %d帧。' % (day['wall_seconds'],frame['count']),
+'帧间隔：平均 %.3f / P95 %.3f / P99 %.3f / 最大 %.3fms。' % (frame['mean'],frame['p95'],frame['p99'],frame['max']),
+'主循环脚本计时：平均 %.3f / P95 %.3f / P99 %.3f / 最大 %.3fms。' % (script['mean'],script['p95'],script['p99'],script['max']),
+'超过33ms的帧%d个；其中超过50ms的帧%d个。普通帧保存分位统计，长帧保存细分计时与寻路记录。' % (len(spikes),sum(s['frame_ms']>50 for s in spikes)),
+'整日行为检查：'+json.dumps(day['checks'],ensure_ascii=False),
+'P99≤20ms目标：'+('达到本次测量目标。' if frame['p99']<=20 else '本次未达到；仍需定位剩余长帧。'),
+'',
+'长帧与边界',
+'脚本耗时最高的5个已记录长帧：',
+]
+for s in hot[:5]:
+    lines.append('  游戏绝对分钟%.3f：整帧%.3fms，脚本%.3fms，渲染CPU%.3fms/GPU%.3fms。' % (s['minute'],s['frame_ms'],s['script_ms'],s['render_cpu_ms'],s['render_gpu_ms']))
+lines.append('整帧减去主循环计时差值最大的3个长帧：')
+for s in outside[:3]:
+    lines.append('  游戏绝对分钟%.3f：整帧%.3fms，脚本%.3fms，渲染CPU%.3fms/GPU%.3fms。' % (s['minute'],s['frame_ms'],s['script_ms'],s['render_cpu_ms'],s['render_gpu_ms']))
+lines += [
+'整帧与主循环之间的差值还可能包括其他节点、绘制提交、呈现等待或操作系统调度。现有证据不能直接归咎显卡驱动，也不能宣称完全消除。',
+'首次载入包括连通索引与阴影网格建立；没有可比的完整冷启动前后总耗时，暂不声称启动速度提升。',
+'VSync按关/开/关测试：165Hz显示器上没有一致收益，保留现有帧率策略。未验证发布导出包或其他设备。',
+'当前Demo主要使用单图；跨地图的共享纹理缓存还保留复用策略，本次重点减少无用载入，没有增加全局纹理逐帧回收。',
+'仍需处理的具体热点：首次画面的呈现段179.46ms；12:00切换主循环53.20ms、次日08:00切换39.80ms。两处作息切换低于第一次整日测试，但还没有达到每帧16.67ms；首次画面准备未做可比的分项基线。',
+'后续优先进一步拆分固定导航掩码与门叶变化，并错开同一帧的NPC路径重算；首次呈现的资源与几何准备需要单独分项计时。209ms等主循环之外的长帧继续分节点/呈现等待归因。',
+'',
+'验证',
+'112个生产脚本编译、219项素材目录、导航、玩家手动操作、NPC两日循环、工作人员出入、真实追捕、教程、背包和地图编辑均有对应结果。',
+'背包原生114项：双击/拖放、可视拖动反馈、任意摆放、拖回柜子、满格拒绝、跨面板数据保持。',
+'导航23项：三种开关门状态，每种六套网格增量结果逐格等于完整重建；墙缓存拷贝与地图重载失效。',
+'白天/夜间各三视点对照：超过RGB差异阈值的像素数均为0；镜头移动没有触发静态几何重建。',
+'功能汇总：final-validation.json。初次回归日志保留；缓存未识别临时加墙造成的失败已修复，随后原生背包114项全部通过。',
+'教程首次验证在写共用诊断文件时失败并等待超时；改为隔离输出后29项通过，未修改教程玩法。',
+'正常游戏日与加速七天状态验证用途不同：后者只证明状态循环，不证明连续105分钟实机帧率。',
+'最终代码另做七天状态循环47项，通过；结果见seven-days-final.json。',
+'',
+'原始证据',
+'P136：../p136/performance-report.txt 和 optimization-plan.txt。',
+'P137：baseline/、baseline-hashes.json、final-source-hashes.json、path-profile-final.json、runtime-profile.json、full-day-final.json、seven-days-final.json、present.json、transitions-before.json、transitions-after.json、navigation-check.json、dynamic-navigation.json、render-check.json、night-render-check.json、final-validation.json。',
+'修改未自动提交Git；保留此前未提交改动和用户地图。',
+]
+(out/'performance-result.txt').write_text('\n'.join(lines)+'\n','utf-8')
+plan=root/'docs/dev/p136/optimization-plan.txt'
+text=plan.read_text('utf-8')
+text=text.replace('状态：计划已制定；尚未开始本计划中的生产代码修改。','状态：已完成本轮生产优化与回归验收；详见 ../p137/performance-result.txt。剩余偶发长帧按报告记录，未宣称所有帧稳定60fps。')
+plan.write_text(text,'utf-8')
+print('Saved performance-result.txt and updated plan status.')

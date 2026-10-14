@@ -75,7 +75,7 @@ func target_reason(actor) -> String:
 		return "体力耗尽；回寝室休息后再操作。"
 	var definition: Dictionary = library[actor.skill_id]
 	if actor.skill_id == "backpack":
-		return "被动能力：背包3格。"
+		return "被动能力：背包30格。"
 	if actor.skill_id == "strong":
 		return "用摇杆抵住箱子移动，接触后自动施力推箱。"
 	if actor.skill_id == "chat":
@@ -130,6 +130,8 @@ func door_reason(actor, distance: float = 55) -> String:
 	if game.attributes and game.attributes.values[actor.actor_id].stamina <= 0.000001:
 		return "体力耗尽；回寝室休息后再操作。"
 	var id := door_id(actor)
+	if game.keycards and game.keycards.gate(id).get("card_controlled",false):
+		return "这是房卡门禁，请使用门边的刷卡操作。"
 	if (id.is_empty() and game.world.door_open) or (not id.is_empty() and not game.world.access_by_id(id).get("closed",true)):
 		return "锁门已经打开。"
 	var point: Vector2 = door_point(actor)

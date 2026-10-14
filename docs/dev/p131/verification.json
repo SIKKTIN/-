@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "total_checks": 623,
+  "results": [
+    {
+      "id": "southwest_yard",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.92,
+      "checks": 30,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "prop_proportions",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.19,
+      "checks": 360,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "map",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 8.03,
+      "checks": 101,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "looting",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 15.7,
+      "checks": 113,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "render_cache",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 14.66,
+      "checks": 4,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    },
+    {
+      "id": "structure",
+      "ok": true,
+      "exit_code": 0,
+      "seconds": 12.95,
+      "checks": 15,
+      "failed": [],
+      "fresh_report": true,
+      "engine_errors": false
+    }
+  ],
+  "native_errors": "",
+  "before": {
+    "cpu_ms": 7.18200000000001,
+    "draw_calls": 532.0,
+    "frame_ms": 3.27379,
+    "samples": 100
+  },
+  "after": {
+    "cpu_ms": 85.1531400000004,
+    "draw_calls": 669.0,
+    "frame_ms": 5.09361,
+    "samples": 100
+  },
+  "profiling_note": "Native fixed-camera render sample, uncapped, game logic paused for reproducible framing; no live gameplay FPS claim.",
+  "art_generator": "built-in image_gen",
+  "prompts": "docs/dev/p131/generation-prompts.json",
+  "screenshots": [
+    "docs/dev/p131/before.png",
+    "docs/dev/p131/after.png",
+    "docs/dev/p131/runtime.png",
+    "docs/dev/p131/map-overview.png"
+  ]
+}

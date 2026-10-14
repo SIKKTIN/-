@@ -95,7 +95,7 @@ func make_response(text: String, callback: Callable) -> Button:
 	button.configure(game.presentation.font,text,callback)
 	return button
 
-func targets() -> Array:
+func targets(near_point: Variant = null, max_distance := 0.0) -> Array:
 	var result: Array = []
 	for id in range(game.actors.size()):
 		if id == game.PLAYER_ACTOR_ID: continue
@@ -112,6 +112,11 @@ func targets() -> Array:
 	if game.trade:
 		for id in game.trade.actors:
 			result.append({"id":"merchant:"+str(id),"name":str(game.trade.merchants[id].name),"role":"merchant","node":game.trade.actors[id]})
+	# Interaction hints only need nearby speakers. Filter distance before
+	# resolving social labels and room visibility for every distant NPC.
+	# Callers without a point still receive the complete dialogue roster.
+	if near_point is Vector2:
+		result=result.filter(func(t):return is_instance_valid(t.node) and t.node.position.distance_squared_to(near_point)<=max_distance*max_distance)
 	if game.social:
 		for target in result:
 			var p: Dictionary = game.social.person(str(target.id))
